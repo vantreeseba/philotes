@@ -1,0 +1,42 @@
+{
+  "name": "philotes",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Personal CRM - Open Source",
+  "type": "module",
+  "workspaces": [
+    "app",
+    "server",
+    "db"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:app\"",
+    "dev:app": "npm run dev -w app",
+    "dev:server": "npm run dev -w server",
+    "build": "npm run build -w db && npm run build -w server && npm run build -w app",
+    "build:app": "npm run build -w app",
+    "build:server": "npm run build -w server",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint --write .",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:single": "vitest run",
+    "db:generate": "npm run generate -w db",
+    "db:migrate": "npm run migrate -w db",
+    "db:push": "npm run push -w db",
+    "db:studio": "npm run studio -w db",
+    "typecheck": "tsc --noEmit -p app/tsconfig.json && tsc --noEmit -p server/tsconfig.json"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.14",
+    "@types/node": "^22.13.0",
+    "concurrently": "^9.1.2",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  }
+}
