@@ -1,6 +1,7 @@
 import type { Db } from "@philotes/db";
 import { contacts } from "@philotes/db";
 import { eq } from "drizzle-orm";
+import { GraphQLError } from "graphql";
 
 export interface Context {
   db: Db;
@@ -36,8 +37,23 @@ export const resolvers = {
       { input }: { input: CreateContactInput },
       { db }: Context,
     ) => {
-      const rows = await db.insert(contacts).values(input).returning();
-      return rows[0];
+      try {
+        const rows = await db.insert(contacts).values(input).returning();
+        return rows[0];
+      } catch (err: unknown) {
+        if (
+          err instanceof Error &&
+          err.message.includes("contacts_email_unique")
+        ) {
+          throw new GraphQLError(
+            "A contact with this email address already exists.",
+            {
+              extensions: { code: "DUPLICATE_EMAIL" },
+            },
+          );
+        }
+        throw err;
+      }
     },
 
     updateContact: async (

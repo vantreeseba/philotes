@@ -1,7 +1,9 @@
 import { useMutation, useQuery } from "@apollo/client";
+import { useForm } from "@tanstack/react-form";
 import { createFileRoute } from "@tanstack/react-router";
 import { Trash2, UserPlus } from "lucide-react";
 import { useState } from "react";
+import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,8 +12,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Field,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+} from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { CREATE_CONTACT, DELETE_CONTACT, GET_CONTACTS } from "@/lib/graphql";
 
 interface Contact {
@@ -22,6 +29,15 @@ interface Contact {
   createdAt: string;
   updatedAt: string;
 }
+
+const contactSchema = z.object({
+  firstName: z.string().min(1, "First name is required."),
+  lastName: z.string().min(1, "Last name is required."),
+  email: z
+    .string()
+    .min(1, "Email is required.")
+    .email("Please enter a valid email address."),
+});
 
 export const Route = createFileRoute("/")({
   component: ContactsPage,
@@ -39,20 +55,34 @@ function ContactsPage() {
   });
 
   const [showForm, setShowForm] = useState(false);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
+  const [formError, setFormError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    await createContact({
-      variables: { input: { firstName, lastName, email } },
-    });
-    setFirstName("");
-    setLastName("");
-    setEmail("");
-    setShowForm(false);
-  };
+  const form = useForm({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+    },
+    validators: {
+      onSubmit: contactSchema,
+    },
+    onSubmit: async ({ value }) => {
+      setFormError(null);
+      try {
+        await createContact({
+          variables: { input: value },
+        });
+        form.reset();
+        setShowForm(false);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setFormError(err.message);
+        } else {
+          setFormError("An unexpected error occurred.");
+        }
+      }
+    },
+  });
 
   const handleDelete = async (id: number) => {
     await deleteContact({ variables: { id } });
@@ -65,7 +95,13 @@ function ContactsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="font-bold text-3xl">Contacts</h1>
-        <Button onClick={() => setShowForm(!showForm)}>
+        <Button
+          onClick={() => {
+            setShowForm(!showForm);
+            setFormError(null);
+            form.reset();
+          }}
+        >
           <UserPlus className="mr-2 h-4 w-4" />
           Add Contact
         </Button>
@@ -78,47 +114,116 @@ function ContactsPage() {
             <CardDescription>Add a new contact to your CRM.</CardDescription>
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="firstName">First Name</Label>
-                  <Input
-                    id="firstName"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    required
-                  />
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                form.handleSubmit();
+              }}
+            >
+              <FieldGroup className="gap-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <form.Field name="firstName">
+                    {(field) => {
+                      const isInvalid =
+                        field.state.meta.isTouched && !field.state.meta.isValid;
+                      return (
+                        <Field data-invalid={isInvalid || undefined}>
+                          <FieldLabel htmlFor={field.name}>
+                            First Name
+                          </FieldLabel>
+                          <Input
+                            id={field.name}
+                            name={field.name}
+                            value={field.state.value}
+                            onBlur={field.handleBlur}
+                            onChange={(e) => field.handleChange(e.target.value)}
+                            aria-invalid={isInvalid}
+                          />
+                          {isInvalid && (
+                            <FieldError errors={field.state.meta.errors} />
+                          )}
+                        </Field>
+                      );
+                    }}
+                  </form.Field>
+                  <form.Field name="lastName">
+                    {(field) => {
+                      const isInvalid =
+                        field.state.meta.isTouched && !field.state.meta.isValid;
+                      return (
+                        <Field data-invalid={isInvalid || undefined}>
+                          <FieldLabel htmlFor={field.name}>
+                            Last Name
+                          </FieldLabel>
+                          <Input
+                            id={field.name}
+                            name={field.name}
+                            value={field.state.value}
+                            onBlur={field.handleBlur}
+                            onChange={(e) => field.handleChange(e.target.value)}
+                            aria-invalid={isInvalid}
+                          />
+                          {isInvalid && (
+                            <FieldError errors={field.state.meta.errors} />
+                          )}
+                        </Field>
+                      );
+                    }}
+                  </form.Field>
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="lastName">Last Name</Label>
-                  <Input
-                    id="lastName"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    required
-                  />
+                <form.Field name="email">
+                  {(field) => {
+                    const isInvalid =
+                      field.state.meta.isTouched && !field.state.meta.isValid;
+                    return (
+                      <Field data-invalid={isInvalid || undefined}>
+                        <FieldLabel htmlFor={field.name}>Email</FieldLabel>
+                        <Input
+                          id={field.name}
+                          name={field.name}
+                          type="email"
+                          value={field.state.value}
+                          onBlur={field.handleBlur}
+                          onChange={(e) => field.handleChange(e.target.value)}
+                          aria-invalid={isInvalid}
+                        />
+                        {isInvalid && (
+                          <FieldError errors={field.state.meta.errors} />
+                        )}
+                      </Field>
+                    );
+                  }}
+                </form.Field>
+                {formError && (
+                  <div
+                    role="alert"
+                    className="rounded-md border border-red-200 bg-red-50 p-3 text-red-800 text-sm"
+                  >
+                    {formError}
+                  </div>
+                )}
+                <div className="flex gap-2">
+                  <form.Subscribe
+                    selector={(state) => [state.canSubmit, state.isSubmitting]}
+                  >
+                    {([canSubmit, isSubmitting]) => (
+                      <Button
+                        type="submit"
+                        disabled={!canSubmit || isSubmitting}
+                      >
+                        {isSubmitting ? "Creating..." : "Create"}
+                      </Button>
+                    )}
+                  </form.Subscribe>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => setShowForm(false)}
+                  >
+                    Cancel
+                  </Button>
                 </div>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="flex gap-2">
-                <Button type="submit">Create</Button>
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={() => setShowForm(false)}
-                >
-                  Cancel
-                </Button>
-              </div>
+              </FieldGroup>
             </form>
           </CardContent>
         </Card>
