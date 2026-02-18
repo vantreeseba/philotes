@@ -40,6 +40,8 @@ philotes/
 │   └── src/
 │       ├── schema.ts        # Drizzle table definitions
 │       └── index.ts         # DB connection factory + exports
+├── docs/                    # Documentation for AI agents
+│   └── database.md          # DB schema patterns and conventions
 ├── vitest.config.ts
 ├── biome.json               # Biome config (linter + formatter)
 └── package.json             # Root workspace config
@@ -63,6 +65,18 @@ npm run build:app        # Build only the frontend
 npm run build:server     # Build only the server
 ```
 
+### GraphQL Codegen
+```bash
+npm run codegen          # Generate types for both app and server
+npm run codegen:app      # Generate client-side types (app/src/__generated__/)
+npm run codegen:server   # Generate server resolver types (server/src/__generated__/)
+```
+
+> **Important:** Run `npm run codegen` after any change to `server/src/schema.ts`
+> or to GraphQL documents in `app/src/` (queries, mutations, fragments). The
+> generated files in `app/src/__generated__/` and `server/src/__generated__/`
+> must be up to date before running type checks, tests, or builds.
+
 ### Testing
 ```bash
 npm test                 # Run all tests once
@@ -78,13 +92,14 @@ npx vitest run -t "should create a contact"
 
 ### Linting & Formatting (Biome)
 ```bash
-npm run check            # Run Biome linter + formatter check (all-in-one)
+npm run check            # Run codegen, then check:biome and check:types
+npm run check:biome      # Run Biome linter + formatter check (all-in-one)
 npm run check:fix        # Run Biome linter + formatter with auto-fix
 npm run lint             # Run Biome linter only
 npm run lint:fix         # Run Biome linter with auto-fix
 npm run format           # Format all files with Biome
 npm run format:check     # Check formatting without writing
-npm run typecheck        # Run tsc --noEmit on app and server
+npm run check:types      # Run tsc --noEmit across all packages (app, server, db)
 ```
 
 ### Database
@@ -166,6 +181,8 @@ npm run db:studio        # Open Drizzle Studio
 - Server runs on port 4000; Vite proxies `/graphql` to it in development
 
 ### Database / Drizzle
+- See [`docs/database.md`](docs/database.md) for full schema patterns,
+  column conventions, type exports, and a complete example of adding a new table
 - Schema definitions in `db/src/schema.ts` using Drizzle's `pgTable`
 - Use `defaultNow()` for timestamp defaults, `serial()` for auto-increment IDs
 - Export inferred types: `typeof table.$inferSelect` and `$inferInsert`

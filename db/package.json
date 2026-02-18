@@ -5,10 +5,12 @@
   "type": "module",
   "main": "./src/index.ts",
   "scripts": {
+    "build": "tsc",
     "generate": "drizzle-kit generate",
     "migrate": "node src/migrate.ts",
     "push": "drizzle-kit push",
-    "studio": "drizzle-kit studio"
+    "studio": "drizzle-kit studio",
+    "clean": "echo no clean for db"
   },
   "dependencies": {
     "drizzle-orm": "^0.39.3",

@@ -1,0 +1,38 @@
+import type { CodegenConfig } from '@graphql-codegen/cli';
+
+const config: CodegenConfig = {
+  schema: './server/src/schema.ts',
+  importExtension: '.ts',
+  generates: {
+    'server/src/__generated__/resolvers.ts': {
+      plugins: ['typescript', 'typescript-resolvers'],
+      config: {
+        inputMaybeValue: 'T | undefined',
+        //         useIndexSignature: true,
+        contextType: '../index.js#Context',
+        avoidOptionals: {
+          // Use `null` for nullable fields instead of optionals
+          field: true,
+          // Allow nullable input fields to remain unspecified
+          inputValue: false,
+        },
+      },
+    },
+    'server/src/__generated__/schema.graphql': {
+      plugins: ['schema-ast'],
+      config: {
+        inputMaybeValue: 'T | undefined',
+        contextType: '../index.js#Context',
+        includeDirectives: true,
+        avoidOptionals: {
+          // Use `null` for nullable fields instead of optionals
+          field: true,
+          // Allow nullable input fields to remain unspecified
+          inputValue: false,
+        },
+      },
+    },
+  },
+};
+
+export default config;

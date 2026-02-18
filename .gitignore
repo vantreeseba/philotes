@@ -6,4 +6,4 @@ pgdata/
 .env
 .env.local
 *.gen.ts
-drizzle/
+# drizzle/

@@ -1,0 +1,509 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Contact {
+  """Date"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  noteId: String
+  """Date"""
+  updatedAt: String!
+}
+
+input ContactsCreatedAtFilters {
+  OR: [ContactsCreatedAtFiltersOr!]
+  """Date"""
+  eq: String
+  """Date"""
+  gt: String
+  """Date"""
+  gte: String
+  ilike: String
+  """Array<Date>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """Date"""
+  lt: String
+  """Date"""
+  lte: String
+  """Date"""
+  ne: String
+  notIlike: String
+  """Array<Date>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ContactsCreatedAtFiltersOr {
+  """Date"""
+  eq: String
+  """Date"""
+  gt: String
+  """Date"""
+  gte: String
+  ilike: String
+  """Array<Date>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """Date"""
+  lt: String
+  """Date"""
+  lte: String
+  """Date"""
+  ne: String
+  notIlike: String
+  """Array<Date>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ContactsEmailFilters {
+  OR: [ContactsEmailFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ContactsEmailFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ContactsFilters {
+  OR: [ContactsFiltersOr!]
+  createdAt: ContactsCreatedAtFilters
+  email: ContactsEmailFilters
+  firstName: ContactsFirstNameFilters
+  id: ContactsIdFilters
+  lastName: ContactsLastNameFilters
+  noteId: ContactsNoteIdFilters
+  updatedAt: ContactsUpdatedAtFilters
+}
+
+input ContactsFiltersOr {
+  createdAt: ContactsCreatedAtFilters
+  email: ContactsEmailFilters
+  firstName: ContactsFirstNameFilters
+  id: ContactsIdFilters
+  lastName: ContactsLastNameFilters
+  noteId: ContactsNoteIdFilters
+  updatedAt: ContactsUpdatedAtFilters
+}
+
+input ContactsFirstNameFilters {
+  OR: [ContactsFirstNameFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ContactsFirstNameFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ContactsIdFilters {
+  OR: [ContactsIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ContactsIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ContactsLastNameFilters {
+  OR: [ContactsLastNameFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ContactsLastNameFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ContactsNoteIdFilters {
+  OR: [ContactsNoteIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ContactsNoteIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ContactsOrderBy {
+  createdAt: InnerOrder
+  email: InnerOrder
+  firstName: InnerOrder
+  id: InnerOrder
+  lastName: InnerOrder
+  noteId: InnerOrder
+  updatedAt: InnerOrder
+}
+
+input ContactsUpdatedAtFilters {
+  OR: [ContactsUpdatedAtFiltersOr!]
+  """Date"""
+  eq: String
+  """Date"""
+  gt: String
+  """Date"""
+  gte: String
+  ilike: String
+  """Array<Date>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """Date"""
+  lt: String
+  """Date"""
+  lte: String
+  """Date"""
+  ne: String
+  notIlike: String
+  """Array<Date>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ContactsUpdatedAtFiltersOr {
+  """Date"""
+  eq: String
+  """Date"""
+  gt: String
+  """Date"""
+  gte: String
+  ilike: String
+  """Array<Date>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """Date"""
+  lt: String
+  """Date"""
+  lte: String
+  """Date"""
+  ne: String
+  notIlike: String
+  """Array<Date>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input CreateContactInput {
+  """Date"""
+  createdAt: String
+  email: String!
+  firstName: String!
+  id: String
+  lastName: String!
+  noteId: String
+  """Date"""
+  updatedAt: String
+}
+
+input CreateNoteInput {
+  body: String!
+  id: String
+}
+
+input InnerOrder {
+  direction: OrderDirection!
+  """Priority of current field"""
+  priority: Int!
+}
+
+type Mutation {
+  createContact(values: CreateContactInput!): Contact
+  createContacts(values: [CreateContactInput!]!): [Contact!]!
+  createNote(values: CreateNoteInput!): Note
+  createNotes(values: [CreateNoteInput!]!): [Note!]!
+  deleteContacts(where: ContactsFilters): [Contact!]!
+  deleteNotes(where: NotesFilters): [Note!]!
+  updateContacts(set: UpdateContactInput!, where: ContactsFilters): [Contact!]!
+  updateNotes(set: UpdateNoteInput!, where: NotesFilters): [Note!]!
+}
+
+type Note {
+  body: String!
+  id: String!
+}
+
+input NotesBodyFilters {
+  OR: [NotesBodyFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input NotesBodyFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input NotesFilters {
+  OR: [NotesFiltersOr!]
+  body: NotesBodyFilters
+  id: NotesIdFilters
+}
+
+input NotesFiltersOr {
+  body: NotesBodyFilters
+  id: NotesIdFilters
+}
+
+input NotesIdFilters {
+  OR: [NotesIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input NotesIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input NotesOrderBy {
+  body: InnerOrder
+  id: InnerOrder
+}
+
+"""Order by direction"""
+enum OrderDirection {
+  """Ascending order"""
+  asc
+  """Descending order"""
+  desc
+}
+
+type Query {
+  contact(offset: Int, orderBy: ContactsOrderBy, where: ContactsFilters): Contact
+  contacts(limit: Int, offset: Int, orderBy: ContactsOrderBy, where: ContactsFilters): [Contact!]!
+  note(offset: Int, orderBy: NotesOrderBy, where: NotesFilters): Note
+  notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [Note!]!
+}
+
+input UpdateContactInput {
+  """Date"""
+  createdAt: String
+  email: String
+  firstName: String
+  id: String
+  lastName: String
+  noteId: String
+  """Date"""
+  updatedAt: String
+}
+
+input UpdateNoteInput {
+  body: String
+  id: String
+}

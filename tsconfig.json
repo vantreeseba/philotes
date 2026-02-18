@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -11,11 +11,17 @@
     "isolatedModules": true,
     "declaration": true,
     "declarationMap": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "plugins": [
+      {
+        "name": "@0no-co/graphqlsp",
+        "schema": ["./server/src/__generated__/schema.graphql"]
+      }
+    ]
   },
   "references": [
-    { "path": "./db" },
-    { "path": "./server" },
-    { "path": "./app" }
+    {
+      "path": "./db"
+    }
   ]
 }

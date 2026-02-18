@@ -1,8 +1,8 @@
-import { migrate } from "drizzle-orm/pglite/migrator"
-import { db } from "./index.ts"
+import { migrate } from 'drizzle-orm/pglite/migrator';
+import { db } from './index.ts';
 
 await migrate(db, {
-  migrationsFolder: "./drizzle/",
+  migrationsFolder: './drizzle/',
 });
 
-console.log("Migration complete")
+console.log('Migration complete');

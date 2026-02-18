@@ -1,4 +1,4 @@
-import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
+import { createRootRoute, Link, Outlet } from '@tanstack/react-router';
 
 export const Route = createRootRoute({
   component: () => (
@@ -10,7 +10,7 @@ export const Route = createRootRoute({
           </Link>
           <nav className="ml-6 flex gap-4">
             <Link
-              to="/"
+              to="/contacts"
               className="text-muted-foreground text-sm hover:text-foreground"
             >
               Contacts

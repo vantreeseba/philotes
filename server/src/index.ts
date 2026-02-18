@@ -1,13 +1,14 @@
-import { ApolloServer } from "@apollo/server";
-import { startStandaloneServer } from "@apollo/server/standalone";
-import { db } from "@philotes/db";
-import { type Context, resolvers } from "./resolvers.js";
-import { typeDefs } from "./schema.js";
+import { ApolloServer } from '@apollo/server';
+import { startStandaloneServer } from '@apollo/server/standalone';
+import type { DB } from '@philotes/db';
+import { db } from '@philotes/db';
+import { schema } from './schema.js';
 
-const server = new ApolloServer<Context>({
-  typeDefs,
-  resolvers,
-});
+export interface Context {
+  db: DB;
+}
+
+const server = new ApolloServer<Context>({ schema });
 
 const { url } = await startStandaloneServer(server, {
   listen: { port: 3001 },

@@ -9,7 +9,7 @@
   },
   "javascript": {
     "formatter": {
-      "quoteStyle": "double",
+      "quoteStyle": "single",
       "trailingCommas": "all",
       "semicolons": "always",
       "arrowParentheses": "always",
@@ -57,11 +57,22 @@
   },
   "overrides": [
     {
-      "includes": ["**/*.gen.ts", "**/drizzle/**"],
+      "includes": [
+        "**/*.gen.ts",
+        "**/drizzle/**",
+        "**/__generated__/**",
+        "server/dist/**",
+        "db/dist/**",
+        "server/src/vendor/**",
+        "app/src/__generated__/**"
+      ],
       "linter": {
         "enabled": false
       },
       "formatter": {
+        "enabled": false
+      },
+      "assist": {
         "enabled": false
       }
     },

@@ -10,17 +10,19 @@
     "db"
   ],
   "scripts": {
+    "clean": "npm run clean -w db && npm run clean -w server && npm run clean -w app",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:app\"",
     "dev:app": "npm run dev -w app",
     "dev:server": "npm run dev -w server",
-    "build": "npm run build -w db && npm run build -w server && npm run build -w app",
+    "build": "npm run build -w db && npm run codegen && npm run build -w server && npm run build -w app",
     "build:app": "npm run build -w app",
     "build:server": "npm run build -w server",
     "lint": "biome lint .",
     "lint:fix": "biome lint --write .",
     "format": "biome format --write .",
     "format:check": "biome format .",
-    "check": "biome check .",
+    "check": "npm run codegen && npm run check:biome && npm run check:types",
+    "check:biome": "biome check .",
     "check:fix": "biome check --write .",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -30,13 +32,29 @@
     "db:migrate": "npm run migrate -w db",
     "db:push": "npm run push -w db",
     "db:studio": "npm run studio -w db",
-    "typecheck": "tsc --noEmit -p app/tsconfig.json && tsc --noEmit -p server/tsconfig.json"
+    "check:types": "tsc --noEmit -p app/tsconfig.json && tsc --noEmit -p server/tsconfig.json && tsc --noEmit -p db/tsconfig.json",
+    "codegen": "npm run codegen:server && npm run codegen:app",
+    "codegen:app": "npm run codegen -w app",
+    "codegen:server": "graphql-codegen-esm --config codegen.server.ts"
   },
   "devDependencies": {
+    "@0no-co/graphqlsp": "^1.15.2",
     "@biomejs/biome": "^2.3.14",
+    "@graphql-codegen/cli": "^6.1.1",
+    "@graphql-codegen/client-preset": "^5.2.2",
+    "@graphql-codegen/schema-ast": "^5.0.0",
+    "@graphql-codegen/typescript": "^5.0.7",
+    "@graphql-codegen/typescript-operations": "^5.0.7",
+    "@graphql-codegen/typescript-resolvers": "^5.1.5",
     "@types/node": "^22.13.0",
+    "@types/pluralize": "^0.0.33",
     "concurrently": "^9.1.2",
     "typescript": "^5.7.3",
+    "vite-plugin-graphql-codegen": "^3.8.0",
     "vitest": "^3.0.5"
+  },
+  "dependencies": {
+    "drizzle-graphql": "github:/dmythro/drizzle-graphql",
+    "pluralize": "^8.0.0"
   }
 }
