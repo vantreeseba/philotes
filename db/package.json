@@ -3,20 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "main": "./src/index.ts",
+  "main": "./dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "generate": "drizzle-kit generate",
-    "migrate": "node src/migrate.ts",
+    "migrate": "node --env-file=../.env src/migrate.ts",
     "push": "drizzle-kit push",
     "studio": "drizzle-kit studio",
     "clean": "echo no clean for db"
   },
   "dependencies": {
-    "drizzle-orm": "^0.39.3",
-    "@electric-sql/pglite": "^0.2.17"
+    "@electric-sql/pglite": "^0.2.17",
+    "drizzle-orm": "^1.0.0-beta.15-859cf75"
   },
   "devDependencies": {
-    "drizzle-kit": "^0.30.5"
+    "drizzle-kit": "^1.0.0-beta.15-859cf75"
   }
 }

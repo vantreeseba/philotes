@@ -5,11 +5,7 @@ import { defineConfig } from 'vite';
 import codegen from 'vite-plugin-graphql-codegen';
 
 export default defineConfig({
-  plugins: [
-    codegen(),
-    tanstackRouter({ target: 'react', autoCodeSplitting: true }),
-    react(),
-  ],
+  plugins: [codegen(), tanstackRouter({ target: 'react', autoCodeSplitting: true }), react()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

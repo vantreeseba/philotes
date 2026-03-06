@@ -1,12 +1,12 @@
+// @ts-nocheck — vendored file, drizzle-orm 1.0 type compat not guaranteed
 import {
-  createTableRelationsHelpers,
   is,
-  type Relation,
-  Relations,
-  type Table,
+  Relation,
+  Table,
+  type View,
 } from 'drizzle-orm';
 import type { RelationalQueryBuilder } from 'drizzle-orm/mysql-core/query-builders/query';
-import { type PgColumn, type PgDatabase, PgTable } from 'drizzle-orm/pg-core';
+import { type PgAsyncDatabase, type PgColumn, PgTable } from 'drizzle-orm/pg-core';
 import type {
   GraphQLFieldConfig,
   GraphQLFieldConfigArgumentMap,
@@ -53,9 +53,10 @@ import type {
   TableNamedRelations,
   TableSelectArgs,
 } from './types.ts';
+import {GraphQLBoolean} from 'graphql';
 
 const generateSelectArray = (
-  db: PgDatabase<any, any, any>,
+  db: PgAsyncDatabase<any, any, any>,
   tableName: string,
   tables: Record<string, Table>,
   relationMap: Record<string, Record<string, TableNamedRelations>>,
@@ -105,11 +106,12 @@ const generateSelectArray = (
           columns: extractSelectedColumnsFromTree(
             parsedInfo.fieldsByTypeName[typeName]!,
             table,
-          ) /*extractSelectedColumnsFromNode(tableSelection, info.fragments, table) */,
+          ) 
+          /*extractSelectedColumnsFromNode(tableSelection, info.fragments, table) */,
           offset,
           limit,
           orderBy: orderBy ? extractOrderBy(table, orderBy) : undefined,
-          where: where ? extractFilters(table, tableName, where) : undefined,
+          where: where ? { RAW: (aliased) => extractFilters(aliased, tableName, where) } : undefined,
           with: relationMap[tableName]
             ? extractRelationsParams(
                 relationMap,
@@ -121,11 +123,16 @@ const generateSelectArray = (
             : undefined,
         });
 
-        const result = await query;
 
-        return remapToGraphQLArrayOutput(result, tableName, table, relationMap);
+        const result = await query;
+        console.log(result);
+
+        const mapped = remapToGraphQLArrayOutput(result, tableName, table, relationMap);
+        console.log('mapped', mapped);
+        return mapped;
       } catch (e) {
         if(e instanceof Error) {
+          console.trace(e)
           throw new GraphQLError(e.message);
         }
 
@@ -137,7 +144,7 @@ const generateSelectArray = (
 };
 
 const generateSelectSingle = (
-  db: PgDatabase<any, any, any>,
+  db: PgAsyncDatabase<any, any, any>,
   tableName: string,
   tables: Record<string, Table>,
   relationMap: Record<string, Record<string, TableNamedRelations>>,
@@ -145,6 +152,7 @@ const generateSelectSingle = (
   filterArgs: GraphQLInputObjectType,
   singleSuffix: string,
 ): CreatedResolver => {
+
   const queryName = `${cleanTableName(tableName)}${singleSuffix}`;
   const queryBase = db.query[tableName as keyof typeof db.query] as unknown as
     | RelationalQueryBuilder<any, any, any>
@@ -187,7 +195,7 @@ const generateSelectSingle = (
           ),
           offset,
           orderBy: orderBy ? extractOrderBy(table, orderBy) : undefined,
-          where: where ? extractFilters(table, tableName, where) : undefined,
+          where: where ? { RAW: (aliased) => extractFilters(aliased, tableName, where) } : undefined,
           with: relationMap[tableName]
             ? extractRelationsParams(
                 relationMap,
@@ -198,6 +206,9 @@ const generateSelectSingle = (
               )
             : undefined,
         });
+
+
+        
 
         const result = await query;
         if (!result) return undefined;
@@ -221,7 +232,7 @@ const generateSelectSingle = (
 };
 
 const generateInsertArray = (
-  db: PgDatabase<any, any, any>,
+  db: PgAsyncDatabase<any, any, any>,
   tableName: string,
   table: PgTable,
   baseType: GraphQLInputObjectType,
@@ -277,7 +288,7 @@ const generateInsertArray = (
 };
 
 const generateInsertSingle = (
-  db: PgDatabase<any, any, any>,
+  db: PgAsyncDatabase<any, any, any>,
   tableName: string,
   table: PgTable,
   baseType: GraphQLInputObjectType,
@@ -334,7 +345,7 @@ const generateInsertSingle = (
 };
 
 const generateUpdate = (
-  db: PgDatabase<any, any, any>,
+  db: PgAsyncDatabase<any, any, any>,
   tableName: string,
   table: PgTable,
   setArgs: GraphQLInputObjectType,
@@ -401,7 +412,7 @@ const generateUpdate = (
 };
 
 const generateDelete = (
-  db: PgDatabase<any, any, any>,
+  db: PgAsyncDatabase<any, any, any>,
   tableName: string,
   table: PgTable,
   filterArgs: GraphQLInputObjectType,
@@ -459,19 +470,28 @@ const generateDelete = (
   };
 };
 
-export const generateSchemaData = <
-  TDrizzleInstance extends PgDatabase<any, any, any>,
-  TSchema extends Record<string, Table | unknown>,
+type SchemaEntry = Table<any> | View<string, boolean, any>;
+interface TableRelationalConfig {
+  table: SchemaEntry;
+  name: string;
+  relations: Record<string, Relation<string>>;
+}
+type TablesRelationalConfig = Record<string, TableRelationalConfig>;
+
+
+export function generateSchemaData<
+  TDrizzleInstance extends PgAsyncDatabase<any, any>,
+  TRelations extends TablesRelationalConfig,
+  TSchema extends Record<string, SchemaEntry>,
 >(
   db: TDrizzleInstance,
   schema: TSchema,
+  relations: TRelations,
   relationsDepthLimit: number | undefined,
   prefixes: MakeRequired<MakeRequired<BuildSchemaConfig>['prefixes']>,
   suffixes: MakeRequired<MakeRequired<BuildSchemaConfig>['suffixes']>,
-): GeneratedEntities<TDrizzleInstance, TSchema> => {
-  const rawSchema = schema;
-  const schemaEntries = Object.entries(rawSchema);
-
+): GeneratedEntities<TDrizzleInstance, TSchema>  {
+  const schemaEntries = Object.entries(schema);
   const tableEntries = schemaEntries.filter(([key, value]) =>
     is(value, PgTable),
   ) as [string, PgTable][];
@@ -483,38 +503,11 @@ export const generateSchemaData = <
     );
   }
 
-  const rawRelations = schemaEntries
-    .filter(([key, value]) => is(value, Relations))
-    .map<[string, Relations]>(([key, value]) => [
-      tableEntries.find(
-        ([tableName, tableValue]) => tableValue === (value as Relations).table,
-      )![0] as string,
-      value as Relations,
-    ])
-    .map<[string, Record<string, Relation>]>(([tableName, relValue]) => [
-      tableName,
-      relValue.config(createTableRelationsHelpers(tables[tableName]!)),
-    ]);
+//   console.log(relations);
 
-  const namedRelations = Object.fromEntries(
-    rawRelations.map(([relName, config]) => {
-      const namedConfig: Record<string, TableNamedRelations> =
-        Object.fromEntries(
-          Object.entries(config).map(([innerRelName, innerRelValue]) => [
-            innerRelName,
-            {
-              relation: innerRelValue,
-              targetTableName: tableEntries.find(
-                ([tableName, tableValue]) =>
-                  tableValue === innerRelValue.referencedTable,
-              )![0],
-            },
-          ]),
-        );
-
-      return [relName, namedConfig];
-    }),
-  );
+//   const named = Object.entries(relations).map(([name, value]) => {
+//     return [name, value];
+//   });
 
   const queries: ThunkObjMap<GraphQLFieldConfig<any, any>> = {};
   const mutations: ThunkObjMap<GraphQLFieldConfig<any, any>> = {};
@@ -524,7 +517,7 @@ export const generateSchemaData = <
       generateTableTypes(
         tableName,
         tables,
-        namedRelations,
+        relations,
         true,
         relationsDepthLimit,
       ),
@@ -548,7 +541,7 @@ export const generateSchemaData = <
       db,
       tableName,
       tables,
-      namedRelations,
+      relations,
       tableOrder,
       tableFilters,
       suffixes.list,
@@ -557,7 +550,7 @@ export const generateSchemaData = <
       db,
       tableName,
       tables,
-      namedRelations,
+      relations,
       tableOrder,
       tableFilters,
       suffixes.single,

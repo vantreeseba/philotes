@@ -17,362 +17,513 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
-export type Contact = {
-  __typename?: 'Contact';
-  /** Date */
-  createdAt: Scalars['String']['output'];
-  email: Scalars['String']['output'];
-  firstName: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  lastName: Scalars['String']['output'];
-  noteId: Maybe<Scalars['String']['output']>;
-  /** Date */
-  updatedAt: Scalars['String']['output'];
-};
-
-export type ContactsCreatedAtFilters = {
-  OR?: InputMaybe<Array<ContactsCreatedAtFiltersOr>>;
-  /** Date */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<Date> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<Date> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactsCreatedAtFiltersOr = {
-  /** Date */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<Date> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<Date> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactsEmailFilters = {
-  OR?: InputMaybe<Array<ContactsEmailFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactsEmailFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactsFilters = {
-  OR?: InputMaybe<Array<ContactsFiltersOr>>;
-  createdAt?: InputMaybe<ContactsCreatedAtFilters>;
-  email?: InputMaybe<ContactsEmailFilters>;
-  firstName?: InputMaybe<ContactsFirstNameFilters>;
-  id?: InputMaybe<ContactsIdFilters>;
-  lastName?: InputMaybe<ContactsLastNameFilters>;
-  noteId?: InputMaybe<ContactsNoteIdFilters>;
-  updatedAt?: InputMaybe<ContactsUpdatedAtFilters>;
-};
-
-export type ContactsFiltersOr = {
-  createdAt?: InputMaybe<ContactsCreatedAtFilters>;
-  email?: InputMaybe<ContactsEmailFilters>;
-  firstName?: InputMaybe<ContactsFirstNameFilters>;
-  id?: InputMaybe<ContactsIdFilters>;
-  lastName?: InputMaybe<ContactsLastNameFilters>;
-  noteId?: InputMaybe<ContactsNoteIdFilters>;
-  updatedAt?: InputMaybe<ContactsUpdatedAtFilters>;
-};
-
-export type ContactsFirstNameFilters = {
-  OR?: InputMaybe<Array<ContactsFirstNameFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactsFirstNameFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactsIdFilters = {
-  OR?: InputMaybe<Array<ContactsIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactsIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactsLastNameFilters = {
-  OR?: InputMaybe<Array<ContactsLastNameFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactsLastNameFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactsNoteIdFilters = {
-  OR?: InputMaybe<Array<ContactsNoteIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactsNoteIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactsOrderBy = {
-  createdAt?: InputMaybe<InnerOrder>;
-  email?: InputMaybe<InnerOrder>;
-  firstName?: InputMaybe<InnerOrder>;
-  id?: InputMaybe<InnerOrder>;
-  lastName?: InputMaybe<InnerOrder>;
-  noteId?: InputMaybe<InnerOrder>;
-  updatedAt?: InputMaybe<InnerOrder>;
-};
-
-export type ContactsUpdatedAtFilters = {
-  OR?: InputMaybe<Array<ContactsUpdatedAtFiltersOr>>;
-  /** Date */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<Date> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<Date> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactsUpdatedAtFiltersOr = {
-  /** Date */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<Date> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<Date> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type CreateContactInput = {
-  /** Date */
-  createdAt?: InputMaybe<Scalars['String']['input']>;
-  email: Scalars['String']['input'];
-  firstName: Scalars['String']['input'];
+export type CreateImportantDateInput = {
+  date: Scalars['String']['input'];
+  description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
-  lastName: Scalars['String']['input'];
-  noteId?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  updatedAt?: InputMaybe<Scalars['String']['input']>;
+  name: Scalars['String']['input'];
+  personId: Scalars['String']['input'];
+  recurrence?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateLabelInput = {
+  color: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['String']['input']>;
+  label: Scalars['String']['input'];
 };
 
 export type CreateNoteInput = {
   body: Scalars['String']['input'];
   id?: InputMaybe<Scalars['String']['input']>;
+  personId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreatePersonInput = {
+  /** JSON */
+  createdAt?: InputMaybe<Scalars['String']['input']>;
+  email: Scalars['String']['input'];
+  firstName: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['String']['input']>;
+  lastName: Scalars['String']['input'];
+  /** JSON */
+  updatedAt?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreatePersonLabelInput = {
+  labelId: Scalars['String']['input'];
+  personId: Scalars['String']['input'];
+};
+
+export type CreatePersonRelationshipInput = {
+  fromPersonId: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['String']['input']>;
+  toPersonId: Scalars['String']['input'];
+  type: Scalars['String']['input'];
+};
+
+export type ImportantDate = {
+  __typename?: 'ImportantDate';
+  date: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  person: Maybe<ImportantDatePersonRelation>;
+  personId: Scalars['String']['output'];
+  recurrence: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ImportantDatePersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ImportantDatePersonRelation = {
+  __typename?: 'ImportantDatePersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  importantDates: Array<ImportantDatePersonRelationImportantDatesRelation>;
+  labels: Array<ImportantDatePersonRelationLabelsRelation>;
+  lastName: Scalars['String']['output'];
+  notes: Array<ImportantDatePersonRelationNotesRelation>;
+  relationshipsFrom: Array<ImportantDatePersonRelationRelationshipsFromRelation>;
+  relationshipsTo: Array<ImportantDatePersonRelationRelationshipsToRelation>;
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+
+export type ImportantDatePersonRelationImportantDatesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ImportantDatesOrderBy>;
+  where?: InputMaybe<ImportantDatesFilters>;
+};
+
+
+export type ImportantDatePersonRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ImportantDatePersonRelationNotesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<NotesOrderBy>;
+  where?: InputMaybe<NotesFilters>;
+};
+
+
+export type ImportantDatePersonRelationRelationshipsFromArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+
+export type ImportantDatePersonRelationRelationshipsToArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+export type ImportantDatePersonRelationImportantDatesRelation = {
+  __typename?: 'ImportantDatePersonRelationImportantDatesRelation';
+  date: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  recurrence: Maybe<Scalars['String']['output']>;
+};
+
+export type ImportantDatePersonRelationLabelsRelation = {
+  __typename?: 'ImportantDatePersonRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type ImportantDatePersonRelationNotesRelation = {
+  __typename?: 'ImportantDatePersonRelationNotesRelation';
+  body: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  person: Maybe<ImportantDatePersonRelationNotesRelationPersonRelation>;
+  personId: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ImportantDatePersonRelationNotesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ImportantDatePersonRelationNotesRelationPersonRelation = {
+  __typename?: 'ImportantDatePersonRelationNotesRelationPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ImportantDatePersonRelationRelationshipsFromRelation = {
+  __typename?: 'ImportantDatePersonRelationRelationshipsFromRelation';
+  fromPerson: Maybe<ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelation>;
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPerson: Maybe<ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation>;
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+
+export type ImportantDatePersonRelationRelationshipsFromRelationFromPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type ImportantDatePersonRelationRelationshipsFromRelationToPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelation = {
+  __typename?: 'ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation = {
+  __typename?: 'ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ImportantDatePersonRelationRelationshipsToRelation = {
+  __typename?: 'ImportantDatePersonRelationRelationshipsToRelation';
+  fromPerson: Maybe<ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation>;
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPerson: Maybe<ImportantDatePersonRelationRelationshipsToRelationToPersonRelation>;
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+
+export type ImportantDatePersonRelationRelationshipsToRelationFromPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type ImportantDatePersonRelationRelationshipsToRelationToPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation = {
+  __typename?: 'ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ImportantDatePersonRelationRelationshipsToRelationToPersonRelation = {
+  __typename?: 'ImportantDatePersonRelationRelationshipsToRelationToPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ImportantDatesDateFilters = {
+  OR?: InputMaybe<Array<ImportantDatesDateFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ImportantDatesDateFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ImportantDatesDescriptionFilters = {
+  OR?: InputMaybe<Array<ImportantDatesDescriptionFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ImportantDatesDescriptionFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ImportantDatesFilters = {
+  OR?: InputMaybe<Array<ImportantDatesFiltersOr>>;
+  date?: InputMaybe<ImportantDatesDateFilters>;
+  description?: InputMaybe<ImportantDatesDescriptionFilters>;
+  id?: InputMaybe<ImportantDatesIdFilters>;
+  name?: InputMaybe<ImportantDatesNameFilters>;
+  personId?: InputMaybe<ImportantDatesPersonIdFilters>;
+  recurrence?: InputMaybe<ImportantDatesRecurrenceFilters>;
+};
+
+export type ImportantDatesFiltersOr = {
+  date?: InputMaybe<ImportantDatesDateFilters>;
+  description?: InputMaybe<ImportantDatesDescriptionFilters>;
+  id?: InputMaybe<ImportantDatesIdFilters>;
+  name?: InputMaybe<ImportantDatesNameFilters>;
+  personId?: InputMaybe<ImportantDatesPersonIdFilters>;
+  recurrence?: InputMaybe<ImportantDatesRecurrenceFilters>;
+};
+
+export type ImportantDatesIdFilters = {
+  OR?: InputMaybe<Array<ImportantDatesIdFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ImportantDatesIdFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ImportantDatesNameFilters = {
+  OR?: InputMaybe<Array<ImportantDatesNameFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ImportantDatesNameFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ImportantDatesOrderBy = {
+  date?: InputMaybe<InnerOrder>;
+  description?: InputMaybe<InnerOrder>;
+  id?: InputMaybe<InnerOrder>;
+  name?: InputMaybe<InnerOrder>;
+  personId?: InputMaybe<InnerOrder>;
+  recurrence?: InputMaybe<InnerOrder>;
+};
+
+export type ImportantDatesPersonIdFilters = {
+  OR?: InputMaybe<Array<ImportantDatesPersonIdFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ImportantDatesPersonIdFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ImportantDatesRecurrenceFilters = {
+  OR?: InputMaybe<Array<ImportantDatesRecurrenceFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ImportantDatesRecurrenceFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type InnerOrder = {
@@ -381,26 +532,195 @@ export type InnerOrder = {
   priority: Scalars['Int']['input'];
 };
 
+export type Label = {
+  __typename?: 'Label';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type LabelsColorFilters = {
+  OR?: InputMaybe<Array<LabelsColorFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type LabelsColorFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type LabelsFilters = {
+  OR?: InputMaybe<Array<LabelsFiltersOr>>;
+  color?: InputMaybe<LabelsColorFilters>;
+  id?: InputMaybe<LabelsIdFilters>;
+  label?: InputMaybe<LabelsLabelFilters>;
+};
+
+export type LabelsFiltersOr = {
+  color?: InputMaybe<LabelsColorFilters>;
+  id?: InputMaybe<LabelsIdFilters>;
+  label?: InputMaybe<LabelsLabelFilters>;
+};
+
+export type LabelsIdFilters = {
+  OR?: InputMaybe<Array<LabelsIdFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type LabelsIdFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type LabelsLabelFilters = {
+  OR?: InputMaybe<Array<LabelsLabelFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type LabelsLabelFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type LabelsOrderBy = {
+  color?: InputMaybe<InnerOrder>;
+  id?: InputMaybe<InnerOrder>;
+  label?: InputMaybe<InnerOrder>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
-  createContact: Maybe<Contact>;
-  createContacts: Array<Contact>;
+  createImportantDate: Maybe<ImportantDate>;
+  createImportantDates: Array<ImportantDate>;
+  createLabel: Maybe<Label>;
+  createLabels: Array<Label>;
   createNote: Maybe<Note>;
   createNotes: Array<Note>;
-  deleteContacts: Array<Contact>;
+  createPerson: Maybe<Person>;
+  createPersonLabel: Maybe<PersonLabel>;
+  createPersonLabels: Array<PersonLabel>;
+  createPersonRelationship: Maybe<PersonRelationship>;
+  createPersonRelationships: Array<PersonRelationship>;
+  createPersons: Array<Person>;
+  deleteImportantDates: Array<ImportantDate>;
+  deleteLabels: Array<Label>;
   deleteNotes: Array<Note>;
-  updateContacts: Array<Contact>;
+  deletePersonLabels: Array<PersonLabel>;
+  deletePersonRelationships: Array<PersonRelationship>;
+  deletePersons: Array<Person>;
+  updateImportantDates: Array<ImportantDate>;
+  updateLabels: Array<Label>;
   updateNotes: Array<Note>;
+  updatePersonLabels: Array<PersonLabel>;
+  updatePersonRelationships: Array<PersonRelationship>;
+  updatePersons: Array<Person>;
 };
 
 
-export type MutationCreateContactArgs = {
-  values: CreateContactInput;
+export type MutationCreateImportantDateArgs = {
+  values: CreateImportantDateInput;
 };
 
 
-export type MutationCreateContactsArgs = {
-  values: Array<CreateContactInput>;
+export type MutationCreateImportantDatesArgs = {
+  values: Array<CreateImportantDateInput>;
+};
+
+
+export type MutationCreateLabelArgs = {
+  values: CreateLabelInput;
+};
+
+
+export type MutationCreateLabelsArgs = {
+  values: Array<CreateLabelInput>;
 };
 
 
@@ -414,8 +734,43 @@ export type MutationCreateNotesArgs = {
 };
 
 
-export type MutationDeleteContactsArgs = {
-  where?: InputMaybe<ContactsFilters>;
+export type MutationCreatePersonArgs = {
+  values: CreatePersonInput;
+};
+
+
+export type MutationCreatePersonLabelArgs = {
+  values: CreatePersonLabelInput;
+};
+
+
+export type MutationCreatePersonLabelsArgs = {
+  values: Array<CreatePersonLabelInput>;
+};
+
+
+export type MutationCreatePersonRelationshipArgs = {
+  values: CreatePersonRelationshipInput;
+};
+
+
+export type MutationCreatePersonRelationshipsArgs = {
+  values: Array<CreatePersonRelationshipInput>;
+};
+
+
+export type MutationCreatePersonsArgs = {
+  values: Array<CreatePersonInput>;
+};
+
+
+export type MutationDeleteImportantDatesArgs = {
+  where?: InputMaybe<ImportantDatesFilters>;
+};
+
+
+export type MutationDeleteLabelsArgs = {
+  where?: InputMaybe<LabelsFilters>;
 };
 
 
@@ -424,9 +779,30 @@ export type MutationDeleteNotesArgs = {
 };
 
 
-export type MutationUpdateContactsArgs = {
-  set: UpdateContactInput;
-  where?: InputMaybe<ContactsFilters>;
+export type MutationDeletePersonLabelsArgs = {
+  where?: InputMaybe<PersonLabelsFilters>;
+};
+
+
+export type MutationDeletePersonRelationshipsArgs = {
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+
+export type MutationDeletePersonsArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type MutationUpdateImportantDatesArgs = {
+  set: UpdateImportantDateInput;
+  where?: InputMaybe<ImportantDatesFilters>;
+};
+
+
+export type MutationUpdateLabelsArgs = {
+  set: UpdateLabelInput;
+  where?: InputMaybe<LabelsFilters>;
 };
 
 
@@ -435,10 +811,222 @@ export type MutationUpdateNotesArgs = {
   where?: InputMaybe<NotesFilters>;
 };
 
+
+export type MutationUpdatePersonLabelsArgs = {
+  set: UpdatePersonLabelInput;
+  where?: InputMaybe<PersonLabelsFilters>;
+};
+
+
+export type MutationUpdatePersonRelationshipsArgs = {
+  set: UpdatePersonRelationshipInput;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+
+export type MutationUpdatePersonsArgs = {
+  set: UpdatePersonInput;
+  where?: InputMaybe<PersonsFilters>;
+};
+
 export type Note = {
   __typename?: 'Note';
   body: Scalars['String']['output'];
   id: Scalars['String']['output'];
+  person: Maybe<NotePersonRelation>;
+  personId: Maybe<Scalars['String']['output']>;
+};
+
+
+export type NotePersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type NotePersonRelation = {
+  __typename?: 'NotePersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  importantDates: Array<NotePersonRelationImportantDatesRelation>;
+  labels: Array<NotePersonRelationLabelsRelation>;
+  lastName: Scalars['String']['output'];
+  notes: Array<NotePersonRelationNotesRelation>;
+  relationshipsFrom: Array<NotePersonRelationRelationshipsFromRelation>;
+  relationshipsTo: Array<NotePersonRelationRelationshipsToRelation>;
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+
+export type NotePersonRelationImportantDatesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ImportantDatesOrderBy>;
+  where?: InputMaybe<ImportantDatesFilters>;
+};
+
+
+export type NotePersonRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type NotePersonRelationNotesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<NotesOrderBy>;
+  where?: InputMaybe<NotesFilters>;
+};
+
+
+export type NotePersonRelationRelationshipsFromArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+
+export type NotePersonRelationRelationshipsToArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+export type NotePersonRelationImportantDatesRelation = {
+  __typename?: 'NotePersonRelationImportantDatesRelation';
+  date: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  person: Maybe<NotePersonRelationImportantDatesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  recurrence: Maybe<Scalars['String']['output']>;
+};
+
+
+export type NotePersonRelationImportantDatesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type NotePersonRelationImportantDatesRelationPersonRelation = {
+  __typename?: 'NotePersonRelationImportantDatesRelationPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type NotePersonRelationLabelsRelation = {
+  __typename?: 'NotePersonRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type NotePersonRelationNotesRelation = {
+  __typename?: 'NotePersonRelationNotesRelation';
+  body: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  personId: Maybe<Scalars['String']['output']>;
+};
+
+export type NotePersonRelationRelationshipsFromRelation = {
+  __typename?: 'NotePersonRelationRelationshipsFromRelation';
+  fromPerson: Maybe<NotePersonRelationRelationshipsFromRelationFromPersonRelation>;
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPerson: Maybe<NotePersonRelationRelationshipsFromRelationToPersonRelation>;
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+
+export type NotePersonRelationRelationshipsFromRelationFromPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type NotePersonRelationRelationshipsFromRelationToPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type NotePersonRelationRelationshipsFromRelationFromPersonRelation = {
+  __typename?: 'NotePersonRelationRelationshipsFromRelationFromPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type NotePersonRelationRelationshipsFromRelationToPersonRelation = {
+  __typename?: 'NotePersonRelationRelationshipsFromRelationToPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type NotePersonRelationRelationshipsToRelation = {
+  __typename?: 'NotePersonRelationRelationshipsToRelation';
+  fromPerson: Maybe<NotePersonRelationRelationshipsToRelationFromPersonRelation>;
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPerson: Maybe<NotePersonRelationRelationshipsToRelationToPersonRelation>;
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+
+export type NotePersonRelationRelationshipsToRelationFromPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type NotePersonRelationRelationshipsToRelationToPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type NotePersonRelationRelationshipsToRelationFromPersonRelation = {
+  __typename?: 'NotePersonRelationRelationshipsToRelationFromPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type NotePersonRelationRelationshipsToRelationToPersonRelation = {
+  __typename?: 'NotePersonRelationRelationshipsToRelationToPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type NotesBodyFilters = {
@@ -484,11 +1072,13 @@ export type NotesFilters = {
   OR?: InputMaybe<Array<NotesFiltersOr>>;
   body?: InputMaybe<NotesBodyFilters>;
   id?: InputMaybe<NotesIdFilters>;
+  personId?: InputMaybe<NotesPersonIdFilters>;
 };
 
 export type NotesFiltersOr = {
   body?: InputMaybe<NotesBodyFilters>;
   id?: InputMaybe<NotesIdFilters>;
+  personId?: InputMaybe<NotesPersonIdFilters>;
 };
 
 export type NotesIdFilters = {
@@ -533,6 +1123,46 @@ export type NotesIdFiltersOr = {
 export type NotesOrderBy = {
   body?: InputMaybe<InnerOrder>;
   id?: InputMaybe<InnerOrder>;
+  personId?: InputMaybe<InnerOrder>;
+};
+
+export type NotesPersonIdFilters = {
+  OR?: InputMaybe<Array<NotesPersonIdFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type NotesPersonIdFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Order by direction */
@@ -543,27 +1173,1115 @@ export enum OrderDirection {
   Desc = 'desc'
 }
 
-export type Query = {
-  __typename?: 'Query';
-  contact: Maybe<Contact>;
-  contacts: Array<Contact>;
-  note: Maybe<Note>;
-  notes: Array<Note>;
+export type Person = {
+  __typename?: 'Person';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  importantDates: Array<PersonImportantDatesRelation>;
+  labels: Array<PersonLabelsRelation>;
+  lastName: Scalars['String']['output'];
+  notes: Array<PersonNotesRelation>;
+  relationships: Array<PersonRelationshipEntry>;
+  relationshipsFrom: Array<PersonRelationshipsFromRelation>;
+  relationshipsTo: Array<PersonRelationshipsToRelation>;
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 
-export type QueryContactArgs = {
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<ContactsOrderBy>;
-  where?: InputMaybe<ContactsFilters>;
-};
-
-
-export type QueryContactsArgs = {
+export type PersonImportantDatesArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<ContactsOrderBy>;
-  where?: InputMaybe<ContactsFilters>;
+  orderBy?: InputMaybe<ImportantDatesOrderBy>;
+  where?: InputMaybe<ImportantDatesFilters>;
+};
+
+
+export type PersonLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type PersonNotesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<NotesOrderBy>;
+  where?: InputMaybe<NotesFilters>;
+};
+
+
+export type PersonRelationshipsFromArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+
+export type PersonRelationshipsToArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+export type PersonImportantDatesRelation = {
+  __typename?: 'PersonImportantDatesRelation';
+  date: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  person: Maybe<PersonImportantDatesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  recurrence: Maybe<Scalars['String']['output']>;
+};
+
+
+export type PersonImportantDatesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonImportantDatesRelationPersonRelation = {
+  __typename?: 'PersonImportantDatesRelationPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type PersonLabel = {
+  __typename?: 'PersonLabel';
+  labelId: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+};
+
+export type PersonLabelsFilters = {
+  OR?: InputMaybe<Array<PersonLabelsFiltersOr>>;
+  labelId?: InputMaybe<PersonLabelsLabelIdFilters>;
+  personId?: InputMaybe<PersonLabelsPersonIdFilters>;
+};
+
+export type PersonLabelsFiltersOr = {
+  labelId?: InputMaybe<PersonLabelsLabelIdFilters>;
+  personId?: InputMaybe<PersonLabelsPersonIdFilters>;
+};
+
+export type PersonLabelsLabelIdFilters = {
+  OR?: InputMaybe<Array<PersonLabelsLabelIdFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonLabelsLabelIdFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonLabelsOrderBy = {
+  labelId?: InputMaybe<InnerOrder>;
+  personId?: InputMaybe<InnerOrder>;
+};
+
+export type PersonLabelsPersonIdFilters = {
+  OR?: InputMaybe<Array<PersonLabelsPersonIdFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonLabelsPersonIdFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonLabelsRelation = {
+  __typename?: 'PersonLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type PersonNotesRelation = {
+  __typename?: 'PersonNotesRelation';
+  body: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  person: Maybe<PersonNotesRelationPersonRelation>;
+  personId: Maybe<Scalars['String']['output']>;
+};
+
+
+export type PersonNotesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonNotesRelationPersonRelation = {
+  __typename?: 'PersonNotesRelationPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type PersonRelationship = {
+  __typename?: 'PersonRelationship';
+  fromPerson: Maybe<PersonRelationshipFromPersonRelation>;
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPerson: Maybe<PersonRelationshipToPersonRelation>;
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipFromPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type PersonRelationshipToPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonRelationshipEntry = {
+  __typename?: 'PersonRelationshipEntry';
+  id: Scalars['String']['output'];
+  relatedPersonFirstName: Scalars['String']['output'];
+  relatedPersonId: Scalars['String']['output'];
+  relatedPersonLastName: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+export type PersonRelationshipFromPersonRelation = {
+  __typename?: 'PersonRelationshipFromPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  importantDates: Array<PersonRelationshipFromPersonRelationImportantDatesRelation>;
+  labels: Array<PersonRelationshipFromPersonRelationLabelsRelation>;
+  lastName: Scalars['String']['output'];
+  notes: Array<PersonRelationshipFromPersonRelationNotesRelation>;
+  relationshipsFrom: Array<PersonRelationshipFromPersonRelationRelationshipsFromRelation>;
+  relationshipsTo: Array<PersonRelationshipFromPersonRelationRelationshipsToRelation>;
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipFromPersonRelationImportantDatesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ImportantDatesOrderBy>;
+  where?: InputMaybe<ImportantDatesFilters>;
+};
+
+
+export type PersonRelationshipFromPersonRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type PersonRelationshipFromPersonRelationNotesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<NotesOrderBy>;
+  where?: InputMaybe<NotesFilters>;
+};
+
+
+export type PersonRelationshipFromPersonRelationRelationshipsFromArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+
+export type PersonRelationshipFromPersonRelationRelationshipsToArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+export type PersonRelationshipFromPersonRelationImportantDatesRelation = {
+  __typename?: 'PersonRelationshipFromPersonRelationImportantDatesRelation';
+  date: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  person: Maybe<PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  recurrence: Maybe<Scalars['String']['output']>;
+};
+
+
+export type PersonRelationshipFromPersonRelationImportantDatesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation = {
+  __typename?: 'PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type PersonRelationshipFromPersonRelationLabelsRelation = {
+  __typename?: 'PersonRelationshipFromPersonRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type PersonRelationshipFromPersonRelationNotesRelation = {
+  __typename?: 'PersonRelationshipFromPersonRelationNotesRelation';
+  body: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  person: Maybe<PersonRelationshipFromPersonRelationNotesRelationPersonRelation>;
+  personId: Maybe<Scalars['String']['output']>;
+};
+
+
+export type PersonRelationshipFromPersonRelationNotesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonRelationshipFromPersonRelationNotesRelationPersonRelation = {
+  __typename?: 'PersonRelationshipFromPersonRelationNotesRelationPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type PersonRelationshipFromPersonRelationRelationshipsFromRelation = {
+  __typename?: 'PersonRelationshipFromPersonRelationRelationshipsFromRelation';
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+export type PersonRelationshipFromPersonRelationRelationshipsToRelation = {
+  __typename?: 'PersonRelationshipFromPersonRelationRelationshipsToRelation';
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+export type PersonRelationshipToPersonRelation = {
+  __typename?: 'PersonRelationshipToPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  importantDates: Array<PersonRelationshipToPersonRelationImportantDatesRelation>;
+  labels: Array<PersonRelationshipToPersonRelationLabelsRelation>;
+  lastName: Scalars['String']['output'];
+  notes: Array<PersonRelationshipToPersonRelationNotesRelation>;
+  relationshipsFrom: Array<PersonRelationshipToPersonRelationRelationshipsFromRelation>;
+  relationshipsTo: Array<PersonRelationshipToPersonRelationRelationshipsToRelation>;
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipToPersonRelationImportantDatesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ImportantDatesOrderBy>;
+  where?: InputMaybe<ImportantDatesFilters>;
+};
+
+
+export type PersonRelationshipToPersonRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type PersonRelationshipToPersonRelationNotesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<NotesOrderBy>;
+  where?: InputMaybe<NotesFilters>;
+};
+
+
+export type PersonRelationshipToPersonRelationRelationshipsFromArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+
+export type PersonRelationshipToPersonRelationRelationshipsToArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+export type PersonRelationshipToPersonRelationImportantDatesRelation = {
+  __typename?: 'PersonRelationshipToPersonRelationImportantDatesRelation';
+  date: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  person: Maybe<PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  recurrence: Maybe<Scalars['String']['output']>;
+};
+
+
+export type PersonRelationshipToPersonRelationImportantDatesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation = {
+  __typename?: 'PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type PersonRelationshipToPersonRelationLabelsRelation = {
+  __typename?: 'PersonRelationshipToPersonRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type PersonRelationshipToPersonRelationNotesRelation = {
+  __typename?: 'PersonRelationshipToPersonRelationNotesRelation';
+  body: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  person: Maybe<PersonRelationshipToPersonRelationNotesRelationPersonRelation>;
+  personId: Maybe<Scalars['String']['output']>;
+};
+
+
+export type PersonRelationshipToPersonRelationNotesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonRelationshipToPersonRelationNotesRelationPersonRelation = {
+  __typename?: 'PersonRelationshipToPersonRelationNotesRelationPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type PersonRelationshipToPersonRelationRelationshipsFromRelation = {
+  __typename?: 'PersonRelationshipToPersonRelationRelationshipsFromRelation';
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+export type PersonRelationshipToPersonRelationRelationshipsToRelation = {
+  __typename?: 'PersonRelationshipToPersonRelationRelationshipsToRelation';
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+export type PersonRelationshipsFilters = {
+  OR?: InputMaybe<Array<PersonRelationshipsFiltersOr>>;
+  fromPersonId?: InputMaybe<PersonRelationshipsFromPersonIdFilters>;
+  id?: InputMaybe<PersonRelationshipsIdFilters>;
+  toPersonId?: InputMaybe<PersonRelationshipsToPersonIdFilters>;
+  type?: InputMaybe<PersonRelationshipsTypeFilters>;
+};
+
+export type PersonRelationshipsFiltersOr = {
+  fromPersonId?: InputMaybe<PersonRelationshipsFromPersonIdFilters>;
+  id?: InputMaybe<PersonRelationshipsIdFilters>;
+  toPersonId?: InputMaybe<PersonRelationshipsToPersonIdFilters>;
+  type?: InputMaybe<PersonRelationshipsTypeFilters>;
+};
+
+export type PersonRelationshipsFromPersonIdFilters = {
+  OR?: InputMaybe<Array<PersonRelationshipsFromPersonIdFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonRelationshipsFromPersonIdFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonRelationshipsFromRelation = {
+  __typename?: 'PersonRelationshipsFromRelation';
+  fromPerson: Maybe<PersonRelationshipsFromRelationFromPersonRelation>;
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPerson: Maybe<PersonRelationshipsFromRelationToPersonRelation>;
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipsFromRelationFromPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type PersonRelationshipsFromRelationToPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonRelationshipsFromRelationFromPersonRelation = {
+  __typename?: 'PersonRelationshipsFromRelationFromPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type PersonRelationshipsFromRelationToPersonRelation = {
+  __typename?: 'PersonRelationshipsFromRelationToPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type PersonRelationshipsIdFilters = {
+  OR?: InputMaybe<Array<PersonRelationshipsIdFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonRelationshipsIdFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonRelationshipsOrderBy = {
+  fromPersonId?: InputMaybe<InnerOrder>;
+  id?: InputMaybe<InnerOrder>;
+  toPersonId?: InputMaybe<InnerOrder>;
+  type?: InputMaybe<InnerOrder>;
+};
+
+export type PersonRelationshipsToPersonIdFilters = {
+  OR?: InputMaybe<Array<PersonRelationshipsToPersonIdFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonRelationshipsToPersonIdFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonRelationshipsToRelation = {
+  __typename?: 'PersonRelationshipsToRelation';
+  fromPerson: Maybe<PersonRelationshipsToRelationFromPersonRelation>;
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPerson: Maybe<PersonRelationshipsToRelationToPersonRelation>;
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipsToRelationFromPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type PersonRelationshipsToRelationToPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonRelationshipsToRelationFromPersonRelation = {
+  __typename?: 'PersonRelationshipsToRelationFromPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type PersonRelationshipsToRelationToPersonRelation = {
+  __typename?: 'PersonRelationshipsToRelationToPersonRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type PersonRelationshipsTypeFilters = {
+  OR?: InputMaybe<Array<PersonRelationshipsTypeFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonRelationshipsTypeFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonsCreatedAtFilters = {
+  OR?: InputMaybe<Array<PersonsCreatedAtFiltersOr>>;
+  /** JSON */
+  eq?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lte?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonsCreatedAtFiltersOr = {
+  /** JSON */
+  eq?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lte?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonsEmailFilters = {
+  OR?: InputMaybe<Array<PersonsEmailFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonsEmailFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonsFilters = {
+  OR?: InputMaybe<Array<PersonsFiltersOr>>;
+  createdAt?: InputMaybe<PersonsCreatedAtFilters>;
+  email?: InputMaybe<PersonsEmailFilters>;
+  firstName?: InputMaybe<PersonsFirstNameFilters>;
+  id?: InputMaybe<PersonsIdFilters>;
+  lastName?: InputMaybe<PersonsLastNameFilters>;
+  updatedAt?: InputMaybe<PersonsUpdatedAtFilters>;
+};
+
+export type PersonsFiltersOr = {
+  createdAt?: InputMaybe<PersonsCreatedAtFilters>;
+  email?: InputMaybe<PersonsEmailFilters>;
+  firstName?: InputMaybe<PersonsFirstNameFilters>;
+  id?: InputMaybe<PersonsIdFilters>;
+  lastName?: InputMaybe<PersonsLastNameFilters>;
+  updatedAt?: InputMaybe<PersonsUpdatedAtFilters>;
+};
+
+export type PersonsFirstNameFilters = {
+  OR?: InputMaybe<Array<PersonsFirstNameFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonsFirstNameFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonsIdFilters = {
+  OR?: InputMaybe<Array<PersonsIdFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonsIdFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonsLastNameFilters = {
+  OR?: InputMaybe<Array<PersonsLastNameFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonsLastNameFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonsOrderBy = {
+  createdAt?: InputMaybe<InnerOrder>;
+  email?: InputMaybe<InnerOrder>;
+  firstName?: InputMaybe<InnerOrder>;
+  id?: InputMaybe<InnerOrder>;
+  lastName?: InputMaybe<InnerOrder>;
+  updatedAt?: InputMaybe<InnerOrder>;
+};
+
+export type PersonsUpdatedAtFilters = {
+  OR?: InputMaybe<Array<PersonsUpdatedAtFiltersOr>>;
+  /** JSON */
+  eq?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lte?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonsUpdatedAtFiltersOr = {
+  /** JSON */
+  eq?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lte?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Query = {
+  __typename?: 'Query';
+  importantDate: Maybe<ImportantDate>;
+  importantDates: Array<ImportantDate>;
+  label: Maybe<Label>;
+  labels: Array<Label>;
+  note: Maybe<Note>;
+  notes: Array<Note>;
+  person: Maybe<Person>;
+  personLabel: Maybe<PersonLabel>;
+  personLabels: Array<PersonLabel>;
+  personRelationship: Maybe<PersonRelationship>;
+  personRelationships: Array<PersonRelationship>;
+  persons: Array<Person>;
+};
+
+
+export type QueryImportantDateArgs = {
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ImportantDatesOrderBy>;
+  where?: InputMaybe<ImportantDatesFilters>;
+};
+
+
+export type QueryImportantDatesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ImportantDatesOrderBy>;
+  where?: InputMaybe<ImportantDatesFilters>;
+};
+
+
+export type QueryLabelArgs = {
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type QueryLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
 };
 
 
@@ -581,21 +2299,93 @@ export type QueryNotesArgs = {
   where?: InputMaybe<NotesFilters>;
 };
 
-export type UpdateContactInput = {
-  /** Date */
-  createdAt?: InputMaybe<Scalars['String']['input']>;
-  email?: InputMaybe<Scalars['String']['input']>;
-  firstName?: InputMaybe<Scalars['String']['input']>;
+
+export type QueryPersonArgs = {
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonsOrderBy>;
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type QueryPersonLabelArgs = {
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonLabelsOrderBy>;
+  where?: InputMaybe<PersonLabelsFilters>;
+};
+
+
+export type QueryPersonLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonLabelsOrderBy>;
+  where?: InputMaybe<PersonLabelsFilters>;
+};
+
+
+export type QueryPersonRelationshipArgs = {
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+
+export type QueryPersonRelationshipsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+
+export type QueryPersonsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonsOrderBy>;
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type UpdateImportantDateInput = {
+  date?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
-  lastName?: InputMaybe<Scalars['String']['input']>;
-  noteId?: InputMaybe<Scalars['String']['input']>;
-  /** Date */
-  updatedAt?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  personId?: InputMaybe<Scalars['String']['input']>;
+  recurrence?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateLabelInput = {
+  color?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  label?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type UpdateNoteInput = {
   body?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
+  personId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdatePersonInput = {
+  /** JSON */
+  createdAt?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  firstName?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  lastName?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  updatedAt?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdatePersonLabelInput = {
+  labelId?: InputMaybe<Scalars['String']['input']>;
+  personId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdatePersonRelationshipInput = {
+  fromPersonId?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  toPersonId?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<Scalars['String']['input']>;
 };
 
 
@@ -672,30 +2462,64 @@ export type DirectiveResolverFn<TResult = Record<PropertyKey, never>, TParent = 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
-  Contact: ResolverTypeWrapper<Contact>;
-  ContactsCreatedAtFilters: ContactsCreatedAtFilters;
-  ContactsCreatedAtFiltersOr: ContactsCreatedAtFiltersOr;
-  ContactsEmailFilters: ContactsEmailFilters;
-  ContactsEmailFiltersOr: ContactsEmailFiltersOr;
-  ContactsFilters: ContactsFilters;
-  ContactsFiltersOr: ContactsFiltersOr;
-  ContactsFirstNameFilters: ContactsFirstNameFilters;
-  ContactsFirstNameFiltersOr: ContactsFirstNameFiltersOr;
-  ContactsIdFilters: ContactsIdFilters;
-  ContactsIdFiltersOr: ContactsIdFiltersOr;
-  ContactsLastNameFilters: ContactsLastNameFilters;
-  ContactsLastNameFiltersOr: ContactsLastNameFiltersOr;
-  ContactsNoteIdFilters: ContactsNoteIdFilters;
-  ContactsNoteIdFiltersOr: ContactsNoteIdFiltersOr;
-  ContactsOrderBy: ContactsOrderBy;
-  ContactsUpdatedAtFilters: ContactsUpdatedAtFilters;
-  ContactsUpdatedAtFiltersOr: ContactsUpdatedAtFiltersOr;
-  CreateContactInput: CreateContactInput;
+  CreateImportantDateInput: CreateImportantDateInput;
+  CreateLabelInput: CreateLabelInput;
   CreateNoteInput: CreateNoteInput;
+  CreatePersonInput: CreatePersonInput;
+  CreatePersonLabelInput: CreatePersonLabelInput;
+  CreatePersonRelationshipInput: CreatePersonRelationshipInput;
+  ImportantDate: ResolverTypeWrapper<ImportantDate>;
+  ImportantDatePersonRelation: ResolverTypeWrapper<ImportantDatePersonRelation>;
+  ImportantDatePersonRelationImportantDatesRelation: ResolverTypeWrapper<ImportantDatePersonRelationImportantDatesRelation>;
+  ImportantDatePersonRelationLabelsRelation: ResolverTypeWrapper<ImportantDatePersonRelationLabelsRelation>;
+  ImportantDatePersonRelationNotesRelation: ResolverTypeWrapper<ImportantDatePersonRelationNotesRelation>;
+  ImportantDatePersonRelationNotesRelationPersonRelation: ResolverTypeWrapper<ImportantDatePersonRelationNotesRelationPersonRelation>;
+  ImportantDatePersonRelationRelationshipsFromRelation: ResolverTypeWrapper<ImportantDatePersonRelationRelationshipsFromRelation>;
+  ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelation: ResolverTypeWrapper<ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelation>;
+  ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation: ResolverTypeWrapper<ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation>;
+  ImportantDatePersonRelationRelationshipsToRelation: ResolverTypeWrapper<ImportantDatePersonRelationRelationshipsToRelation>;
+  ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation: ResolverTypeWrapper<ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation>;
+  ImportantDatePersonRelationRelationshipsToRelationToPersonRelation: ResolverTypeWrapper<ImportantDatePersonRelationRelationshipsToRelationToPersonRelation>;
+  ImportantDatesDateFilters: ImportantDatesDateFilters;
+  ImportantDatesDateFiltersOr: ImportantDatesDateFiltersOr;
+  ImportantDatesDescriptionFilters: ImportantDatesDescriptionFilters;
+  ImportantDatesDescriptionFiltersOr: ImportantDatesDescriptionFiltersOr;
+  ImportantDatesFilters: ImportantDatesFilters;
+  ImportantDatesFiltersOr: ImportantDatesFiltersOr;
+  ImportantDatesIdFilters: ImportantDatesIdFilters;
+  ImportantDatesIdFiltersOr: ImportantDatesIdFiltersOr;
+  ImportantDatesNameFilters: ImportantDatesNameFilters;
+  ImportantDatesNameFiltersOr: ImportantDatesNameFiltersOr;
+  ImportantDatesOrderBy: ImportantDatesOrderBy;
+  ImportantDatesPersonIdFilters: ImportantDatesPersonIdFilters;
+  ImportantDatesPersonIdFiltersOr: ImportantDatesPersonIdFiltersOr;
+  ImportantDatesRecurrenceFilters: ImportantDatesRecurrenceFilters;
+  ImportantDatesRecurrenceFiltersOr: ImportantDatesRecurrenceFiltersOr;
   InnerOrder: InnerOrder;
   Int: ResolverTypeWrapper<Scalars['Int']['output']>;
+  Label: ResolverTypeWrapper<Label>;
+  LabelsColorFilters: LabelsColorFilters;
+  LabelsColorFiltersOr: LabelsColorFiltersOr;
+  LabelsFilters: LabelsFilters;
+  LabelsFiltersOr: LabelsFiltersOr;
+  LabelsIdFilters: LabelsIdFilters;
+  LabelsIdFiltersOr: LabelsIdFiltersOr;
+  LabelsLabelFilters: LabelsLabelFilters;
+  LabelsLabelFiltersOr: LabelsLabelFiltersOr;
+  LabelsOrderBy: LabelsOrderBy;
   Mutation: ResolverTypeWrapper<Record<PropertyKey, never>>;
   Note: ResolverTypeWrapper<Note>;
+  NotePersonRelation: ResolverTypeWrapper<NotePersonRelation>;
+  NotePersonRelationImportantDatesRelation: ResolverTypeWrapper<NotePersonRelationImportantDatesRelation>;
+  NotePersonRelationImportantDatesRelationPersonRelation: ResolverTypeWrapper<NotePersonRelationImportantDatesRelationPersonRelation>;
+  NotePersonRelationLabelsRelation: ResolverTypeWrapper<NotePersonRelationLabelsRelation>;
+  NotePersonRelationNotesRelation: ResolverTypeWrapper<NotePersonRelationNotesRelation>;
+  NotePersonRelationRelationshipsFromRelation: ResolverTypeWrapper<NotePersonRelationRelationshipsFromRelation>;
+  NotePersonRelationRelationshipsFromRelationFromPersonRelation: ResolverTypeWrapper<NotePersonRelationRelationshipsFromRelationFromPersonRelation>;
+  NotePersonRelationRelationshipsFromRelationToPersonRelation: ResolverTypeWrapper<NotePersonRelationRelationshipsFromRelationToPersonRelation>;
+  NotePersonRelationRelationshipsToRelation: ResolverTypeWrapper<NotePersonRelationRelationshipsToRelation>;
+  NotePersonRelationRelationshipsToRelationFromPersonRelation: ResolverTypeWrapper<NotePersonRelationRelationshipsToRelationFromPersonRelation>;
+  NotePersonRelationRelationshipsToRelationToPersonRelation: ResolverTypeWrapper<NotePersonRelationRelationshipsToRelationToPersonRelation>;
   NotesBodyFilters: NotesBodyFilters;
   NotesBodyFiltersOr: NotesBodyFiltersOr;
   NotesFilters: NotesFilters;
@@ -703,40 +2527,144 @@ export type ResolversTypes = {
   NotesIdFilters: NotesIdFilters;
   NotesIdFiltersOr: NotesIdFiltersOr;
   NotesOrderBy: NotesOrderBy;
+  NotesPersonIdFilters: NotesPersonIdFilters;
+  NotesPersonIdFiltersOr: NotesPersonIdFiltersOr;
   OrderDirection: OrderDirection;
+  Person: ResolverTypeWrapper<Person>;
+  PersonImportantDatesRelation: ResolverTypeWrapper<PersonImportantDatesRelation>;
+  PersonImportantDatesRelationPersonRelation: ResolverTypeWrapper<PersonImportantDatesRelationPersonRelation>;
+  PersonLabel: ResolverTypeWrapper<PersonLabel>;
+  PersonLabelsFilters: PersonLabelsFilters;
+  PersonLabelsFiltersOr: PersonLabelsFiltersOr;
+  PersonLabelsLabelIdFilters: PersonLabelsLabelIdFilters;
+  PersonLabelsLabelIdFiltersOr: PersonLabelsLabelIdFiltersOr;
+  PersonLabelsOrderBy: PersonLabelsOrderBy;
+  PersonLabelsPersonIdFilters: PersonLabelsPersonIdFilters;
+  PersonLabelsPersonIdFiltersOr: PersonLabelsPersonIdFiltersOr;
+  PersonLabelsRelation: ResolverTypeWrapper<PersonLabelsRelation>;
+  PersonNotesRelation: ResolverTypeWrapper<PersonNotesRelation>;
+  PersonNotesRelationPersonRelation: ResolverTypeWrapper<PersonNotesRelationPersonRelation>;
+  PersonRelationship: ResolverTypeWrapper<PersonRelationship>;
+  PersonRelationshipEntry: ResolverTypeWrapper<PersonRelationshipEntry>;
+  PersonRelationshipFromPersonRelation: ResolverTypeWrapper<PersonRelationshipFromPersonRelation>;
+  PersonRelationshipFromPersonRelationImportantDatesRelation: ResolverTypeWrapper<PersonRelationshipFromPersonRelationImportantDatesRelation>;
+  PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation: ResolverTypeWrapper<PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation>;
+  PersonRelationshipFromPersonRelationLabelsRelation: ResolverTypeWrapper<PersonRelationshipFromPersonRelationLabelsRelation>;
+  PersonRelationshipFromPersonRelationNotesRelation: ResolverTypeWrapper<PersonRelationshipFromPersonRelationNotesRelation>;
+  PersonRelationshipFromPersonRelationNotesRelationPersonRelation: ResolverTypeWrapper<PersonRelationshipFromPersonRelationNotesRelationPersonRelation>;
+  PersonRelationshipFromPersonRelationRelationshipsFromRelation: ResolverTypeWrapper<PersonRelationshipFromPersonRelationRelationshipsFromRelation>;
+  PersonRelationshipFromPersonRelationRelationshipsToRelation: ResolverTypeWrapper<PersonRelationshipFromPersonRelationRelationshipsToRelation>;
+  PersonRelationshipToPersonRelation: ResolverTypeWrapper<PersonRelationshipToPersonRelation>;
+  PersonRelationshipToPersonRelationImportantDatesRelation: ResolverTypeWrapper<PersonRelationshipToPersonRelationImportantDatesRelation>;
+  PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation: ResolverTypeWrapper<PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation>;
+  PersonRelationshipToPersonRelationLabelsRelation: ResolverTypeWrapper<PersonRelationshipToPersonRelationLabelsRelation>;
+  PersonRelationshipToPersonRelationNotesRelation: ResolverTypeWrapper<PersonRelationshipToPersonRelationNotesRelation>;
+  PersonRelationshipToPersonRelationNotesRelationPersonRelation: ResolverTypeWrapper<PersonRelationshipToPersonRelationNotesRelationPersonRelation>;
+  PersonRelationshipToPersonRelationRelationshipsFromRelation: ResolverTypeWrapper<PersonRelationshipToPersonRelationRelationshipsFromRelation>;
+  PersonRelationshipToPersonRelationRelationshipsToRelation: ResolverTypeWrapper<PersonRelationshipToPersonRelationRelationshipsToRelation>;
+  PersonRelationshipsFilters: PersonRelationshipsFilters;
+  PersonRelationshipsFiltersOr: PersonRelationshipsFiltersOr;
+  PersonRelationshipsFromPersonIdFilters: PersonRelationshipsFromPersonIdFilters;
+  PersonRelationshipsFromPersonIdFiltersOr: PersonRelationshipsFromPersonIdFiltersOr;
+  PersonRelationshipsFromRelation: ResolverTypeWrapper<PersonRelationshipsFromRelation>;
+  PersonRelationshipsFromRelationFromPersonRelation: ResolverTypeWrapper<PersonRelationshipsFromRelationFromPersonRelation>;
+  PersonRelationshipsFromRelationToPersonRelation: ResolverTypeWrapper<PersonRelationshipsFromRelationToPersonRelation>;
+  PersonRelationshipsIdFilters: PersonRelationshipsIdFilters;
+  PersonRelationshipsIdFiltersOr: PersonRelationshipsIdFiltersOr;
+  PersonRelationshipsOrderBy: PersonRelationshipsOrderBy;
+  PersonRelationshipsToPersonIdFilters: PersonRelationshipsToPersonIdFilters;
+  PersonRelationshipsToPersonIdFiltersOr: PersonRelationshipsToPersonIdFiltersOr;
+  PersonRelationshipsToRelation: ResolverTypeWrapper<PersonRelationshipsToRelation>;
+  PersonRelationshipsToRelationFromPersonRelation: ResolverTypeWrapper<PersonRelationshipsToRelationFromPersonRelation>;
+  PersonRelationshipsToRelationToPersonRelation: ResolverTypeWrapper<PersonRelationshipsToRelationToPersonRelation>;
+  PersonRelationshipsTypeFilters: PersonRelationshipsTypeFilters;
+  PersonRelationshipsTypeFiltersOr: PersonRelationshipsTypeFiltersOr;
+  PersonsCreatedAtFilters: PersonsCreatedAtFilters;
+  PersonsCreatedAtFiltersOr: PersonsCreatedAtFiltersOr;
+  PersonsEmailFilters: PersonsEmailFilters;
+  PersonsEmailFiltersOr: PersonsEmailFiltersOr;
+  PersonsFilters: PersonsFilters;
+  PersonsFiltersOr: PersonsFiltersOr;
+  PersonsFirstNameFilters: PersonsFirstNameFilters;
+  PersonsFirstNameFiltersOr: PersonsFirstNameFiltersOr;
+  PersonsIdFilters: PersonsIdFilters;
+  PersonsIdFiltersOr: PersonsIdFiltersOr;
+  PersonsLastNameFilters: PersonsLastNameFilters;
+  PersonsLastNameFiltersOr: PersonsLastNameFiltersOr;
+  PersonsOrderBy: PersonsOrderBy;
+  PersonsUpdatedAtFilters: PersonsUpdatedAtFilters;
+  PersonsUpdatedAtFiltersOr: PersonsUpdatedAtFiltersOr;
   Query: ResolverTypeWrapper<Record<PropertyKey, never>>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
-  UpdateContactInput: UpdateContactInput;
+  UpdateImportantDateInput: UpdateImportantDateInput;
+  UpdateLabelInput: UpdateLabelInput;
   UpdateNoteInput: UpdateNoteInput;
+  UpdatePersonInput: UpdatePersonInput;
+  UpdatePersonLabelInput: UpdatePersonLabelInput;
+  UpdatePersonRelationshipInput: UpdatePersonRelationshipInput;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
   Boolean: Scalars['Boolean']['output'];
-  Contact: Contact;
-  ContactsCreatedAtFilters: ContactsCreatedAtFilters;
-  ContactsCreatedAtFiltersOr: ContactsCreatedAtFiltersOr;
-  ContactsEmailFilters: ContactsEmailFilters;
-  ContactsEmailFiltersOr: ContactsEmailFiltersOr;
-  ContactsFilters: ContactsFilters;
-  ContactsFiltersOr: ContactsFiltersOr;
-  ContactsFirstNameFilters: ContactsFirstNameFilters;
-  ContactsFirstNameFiltersOr: ContactsFirstNameFiltersOr;
-  ContactsIdFilters: ContactsIdFilters;
-  ContactsIdFiltersOr: ContactsIdFiltersOr;
-  ContactsLastNameFilters: ContactsLastNameFilters;
-  ContactsLastNameFiltersOr: ContactsLastNameFiltersOr;
-  ContactsNoteIdFilters: ContactsNoteIdFilters;
-  ContactsNoteIdFiltersOr: ContactsNoteIdFiltersOr;
-  ContactsOrderBy: ContactsOrderBy;
-  ContactsUpdatedAtFilters: ContactsUpdatedAtFilters;
-  ContactsUpdatedAtFiltersOr: ContactsUpdatedAtFiltersOr;
-  CreateContactInput: CreateContactInput;
+  CreateImportantDateInput: CreateImportantDateInput;
+  CreateLabelInput: CreateLabelInput;
   CreateNoteInput: CreateNoteInput;
+  CreatePersonInput: CreatePersonInput;
+  CreatePersonLabelInput: CreatePersonLabelInput;
+  CreatePersonRelationshipInput: CreatePersonRelationshipInput;
+  ImportantDate: ImportantDate;
+  ImportantDatePersonRelation: ImportantDatePersonRelation;
+  ImportantDatePersonRelationImportantDatesRelation: ImportantDatePersonRelationImportantDatesRelation;
+  ImportantDatePersonRelationLabelsRelation: ImportantDatePersonRelationLabelsRelation;
+  ImportantDatePersonRelationNotesRelation: ImportantDatePersonRelationNotesRelation;
+  ImportantDatePersonRelationNotesRelationPersonRelation: ImportantDatePersonRelationNotesRelationPersonRelation;
+  ImportantDatePersonRelationRelationshipsFromRelation: ImportantDatePersonRelationRelationshipsFromRelation;
+  ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelation: ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelation;
+  ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation: ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation;
+  ImportantDatePersonRelationRelationshipsToRelation: ImportantDatePersonRelationRelationshipsToRelation;
+  ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation: ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation;
+  ImportantDatePersonRelationRelationshipsToRelationToPersonRelation: ImportantDatePersonRelationRelationshipsToRelationToPersonRelation;
+  ImportantDatesDateFilters: ImportantDatesDateFilters;
+  ImportantDatesDateFiltersOr: ImportantDatesDateFiltersOr;
+  ImportantDatesDescriptionFilters: ImportantDatesDescriptionFilters;
+  ImportantDatesDescriptionFiltersOr: ImportantDatesDescriptionFiltersOr;
+  ImportantDatesFilters: ImportantDatesFilters;
+  ImportantDatesFiltersOr: ImportantDatesFiltersOr;
+  ImportantDatesIdFilters: ImportantDatesIdFilters;
+  ImportantDatesIdFiltersOr: ImportantDatesIdFiltersOr;
+  ImportantDatesNameFilters: ImportantDatesNameFilters;
+  ImportantDatesNameFiltersOr: ImportantDatesNameFiltersOr;
+  ImportantDatesOrderBy: ImportantDatesOrderBy;
+  ImportantDatesPersonIdFilters: ImportantDatesPersonIdFilters;
+  ImportantDatesPersonIdFiltersOr: ImportantDatesPersonIdFiltersOr;
+  ImportantDatesRecurrenceFilters: ImportantDatesRecurrenceFilters;
+  ImportantDatesRecurrenceFiltersOr: ImportantDatesRecurrenceFiltersOr;
   InnerOrder: InnerOrder;
   Int: Scalars['Int']['output'];
+  Label: Label;
+  LabelsColorFilters: LabelsColorFilters;
+  LabelsColorFiltersOr: LabelsColorFiltersOr;
+  LabelsFilters: LabelsFilters;
+  LabelsFiltersOr: LabelsFiltersOr;
+  LabelsIdFilters: LabelsIdFilters;
+  LabelsIdFiltersOr: LabelsIdFiltersOr;
+  LabelsLabelFilters: LabelsLabelFilters;
+  LabelsLabelFiltersOr: LabelsLabelFiltersOr;
+  LabelsOrderBy: LabelsOrderBy;
   Mutation: Record<PropertyKey, never>;
   Note: Note;
+  NotePersonRelation: NotePersonRelation;
+  NotePersonRelationImportantDatesRelation: NotePersonRelationImportantDatesRelation;
+  NotePersonRelationImportantDatesRelationPersonRelation: NotePersonRelationImportantDatesRelationPersonRelation;
+  NotePersonRelationLabelsRelation: NotePersonRelationLabelsRelation;
+  NotePersonRelationNotesRelation: NotePersonRelationNotesRelation;
+  NotePersonRelationRelationshipsFromRelation: NotePersonRelationRelationshipsFromRelation;
+  NotePersonRelationRelationshipsFromRelationFromPersonRelation: NotePersonRelationRelationshipsFromRelationFromPersonRelation;
+  NotePersonRelationRelationshipsFromRelationToPersonRelation: NotePersonRelationRelationshipsFromRelationToPersonRelation;
+  NotePersonRelationRelationshipsToRelation: NotePersonRelationRelationshipsToRelation;
+  NotePersonRelationRelationshipsToRelationFromPersonRelation: NotePersonRelationRelationshipsToRelationFromPersonRelation;
+  NotePersonRelationRelationshipsToRelationToPersonRelation: NotePersonRelationRelationshipsToRelationToPersonRelation;
   NotesBodyFilters: NotesBodyFilters;
   NotesBodyFiltersOr: NotesBodyFiltersOr;
   NotesFilters: NotesFilters;
@@ -744,49 +2672,673 @@ export type ResolversParentTypes = {
   NotesIdFilters: NotesIdFilters;
   NotesIdFiltersOr: NotesIdFiltersOr;
   NotesOrderBy: NotesOrderBy;
+  NotesPersonIdFilters: NotesPersonIdFilters;
+  NotesPersonIdFiltersOr: NotesPersonIdFiltersOr;
+  Person: Person;
+  PersonImportantDatesRelation: PersonImportantDatesRelation;
+  PersonImportantDatesRelationPersonRelation: PersonImportantDatesRelationPersonRelation;
+  PersonLabel: PersonLabel;
+  PersonLabelsFilters: PersonLabelsFilters;
+  PersonLabelsFiltersOr: PersonLabelsFiltersOr;
+  PersonLabelsLabelIdFilters: PersonLabelsLabelIdFilters;
+  PersonLabelsLabelIdFiltersOr: PersonLabelsLabelIdFiltersOr;
+  PersonLabelsOrderBy: PersonLabelsOrderBy;
+  PersonLabelsPersonIdFilters: PersonLabelsPersonIdFilters;
+  PersonLabelsPersonIdFiltersOr: PersonLabelsPersonIdFiltersOr;
+  PersonLabelsRelation: PersonLabelsRelation;
+  PersonNotesRelation: PersonNotesRelation;
+  PersonNotesRelationPersonRelation: PersonNotesRelationPersonRelation;
+  PersonRelationship: PersonRelationship;
+  PersonRelationshipEntry: PersonRelationshipEntry;
+  PersonRelationshipFromPersonRelation: PersonRelationshipFromPersonRelation;
+  PersonRelationshipFromPersonRelationImportantDatesRelation: PersonRelationshipFromPersonRelationImportantDatesRelation;
+  PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation: PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation;
+  PersonRelationshipFromPersonRelationLabelsRelation: PersonRelationshipFromPersonRelationLabelsRelation;
+  PersonRelationshipFromPersonRelationNotesRelation: PersonRelationshipFromPersonRelationNotesRelation;
+  PersonRelationshipFromPersonRelationNotesRelationPersonRelation: PersonRelationshipFromPersonRelationNotesRelationPersonRelation;
+  PersonRelationshipFromPersonRelationRelationshipsFromRelation: PersonRelationshipFromPersonRelationRelationshipsFromRelation;
+  PersonRelationshipFromPersonRelationRelationshipsToRelation: PersonRelationshipFromPersonRelationRelationshipsToRelation;
+  PersonRelationshipToPersonRelation: PersonRelationshipToPersonRelation;
+  PersonRelationshipToPersonRelationImportantDatesRelation: PersonRelationshipToPersonRelationImportantDatesRelation;
+  PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation: PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation;
+  PersonRelationshipToPersonRelationLabelsRelation: PersonRelationshipToPersonRelationLabelsRelation;
+  PersonRelationshipToPersonRelationNotesRelation: PersonRelationshipToPersonRelationNotesRelation;
+  PersonRelationshipToPersonRelationNotesRelationPersonRelation: PersonRelationshipToPersonRelationNotesRelationPersonRelation;
+  PersonRelationshipToPersonRelationRelationshipsFromRelation: PersonRelationshipToPersonRelationRelationshipsFromRelation;
+  PersonRelationshipToPersonRelationRelationshipsToRelation: PersonRelationshipToPersonRelationRelationshipsToRelation;
+  PersonRelationshipsFilters: PersonRelationshipsFilters;
+  PersonRelationshipsFiltersOr: PersonRelationshipsFiltersOr;
+  PersonRelationshipsFromPersonIdFilters: PersonRelationshipsFromPersonIdFilters;
+  PersonRelationshipsFromPersonIdFiltersOr: PersonRelationshipsFromPersonIdFiltersOr;
+  PersonRelationshipsFromRelation: PersonRelationshipsFromRelation;
+  PersonRelationshipsFromRelationFromPersonRelation: PersonRelationshipsFromRelationFromPersonRelation;
+  PersonRelationshipsFromRelationToPersonRelation: PersonRelationshipsFromRelationToPersonRelation;
+  PersonRelationshipsIdFilters: PersonRelationshipsIdFilters;
+  PersonRelationshipsIdFiltersOr: PersonRelationshipsIdFiltersOr;
+  PersonRelationshipsOrderBy: PersonRelationshipsOrderBy;
+  PersonRelationshipsToPersonIdFilters: PersonRelationshipsToPersonIdFilters;
+  PersonRelationshipsToPersonIdFiltersOr: PersonRelationshipsToPersonIdFiltersOr;
+  PersonRelationshipsToRelation: PersonRelationshipsToRelation;
+  PersonRelationshipsToRelationFromPersonRelation: PersonRelationshipsToRelationFromPersonRelation;
+  PersonRelationshipsToRelationToPersonRelation: PersonRelationshipsToRelationToPersonRelation;
+  PersonRelationshipsTypeFilters: PersonRelationshipsTypeFilters;
+  PersonRelationshipsTypeFiltersOr: PersonRelationshipsTypeFiltersOr;
+  PersonsCreatedAtFilters: PersonsCreatedAtFilters;
+  PersonsCreatedAtFiltersOr: PersonsCreatedAtFiltersOr;
+  PersonsEmailFilters: PersonsEmailFilters;
+  PersonsEmailFiltersOr: PersonsEmailFiltersOr;
+  PersonsFilters: PersonsFilters;
+  PersonsFiltersOr: PersonsFiltersOr;
+  PersonsFirstNameFilters: PersonsFirstNameFilters;
+  PersonsFirstNameFiltersOr: PersonsFirstNameFiltersOr;
+  PersonsIdFilters: PersonsIdFilters;
+  PersonsIdFiltersOr: PersonsIdFiltersOr;
+  PersonsLastNameFilters: PersonsLastNameFilters;
+  PersonsLastNameFiltersOr: PersonsLastNameFiltersOr;
+  PersonsOrderBy: PersonsOrderBy;
+  PersonsUpdatedAtFilters: PersonsUpdatedAtFilters;
+  PersonsUpdatedAtFiltersOr: PersonsUpdatedAtFiltersOr;
   Query: Record<PropertyKey, never>;
   String: Scalars['String']['output'];
-  UpdateContactInput: UpdateContactInput;
+  UpdateImportantDateInput: UpdateImportantDateInput;
+  UpdateLabelInput: UpdateLabelInput;
   UpdateNoteInput: UpdateNoteInput;
+  UpdatePersonInput: UpdatePersonInput;
+  UpdatePersonLabelInput: UpdatePersonLabelInput;
+  UpdatePersonRelationshipInput: UpdatePersonRelationshipInput;
 };
 
-export type ContactResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Contact'] = ResolversParentTypes['Contact']> = {
+export type ImportantDateResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDate'] = ResolversParentTypes['ImportantDate']> = {
+  date?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  person?: Resolver<Maybe<ResolversTypes['ImportantDatePersonRelation']>, ParentType, ContextType, Partial<ImportantDatePersonArgs>>;
+  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  recurrence?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+};
+
+export type ImportantDatePersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelation'] = ResolversParentTypes['ImportantDatePersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  importantDates?: Resolver<Array<ResolversTypes['ImportantDatePersonRelationImportantDatesRelation']>, ParentType, ContextType, Partial<ImportantDatePersonRelationImportantDatesArgs>>;
+  labels?: Resolver<Array<ResolversTypes['ImportantDatePersonRelationLabelsRelation']>, ParentType, ContextType, Partial<ImportantDatePersonRelationLabelsArgs>>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  notes?: Resolver<Array<ResolversTypes['ImportantDatePersonRelationNotesRelation']>, ParentType, ContextType, Partial<ImportantDatePersonRelationNotesArgs>>;
+  relationshipsFrom?: Resolver<Array<ResolversTypes['ImportantDatePersonRelationRelationshipsFromRelation']>, ParentType, ContextType, Partial<ImportantDatePersonRelationRelationshipsFromArgs>>;
+  relationshipsTo?: Resolver<Array<ResolversTypes['ImportantDatePersonRelationRelationshipsToRelation']>, ParentType, ContextType, Partial<ImportantDatePersonRelationRelationshipsToArgs>>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ImportantDatePersonRelationImportantDatesRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelationImportantDatesRelation'] = ResolversParentTypes['ImportantDatePersonRelationImportantDatesRelation']> = {
+  date?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  recurrence?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+};
+
+export type ImportantDatePersonRelationLabelsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelationLabelsRelation'] = ResolversParentTypes['ImportantDatePersonRelationLabelsRelation']> = {
+  color?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  label?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ImportantDatePersonRelationNotesRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelationNotesRelation'] = ResolversParentTypes['ImportantDatePersonRelationNotesRelation']> = {
+  body?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  person?: Resolver<Maybe<ResolversTypes['ImportantDatePersonRelationNotesRelationPersonRelation']>, ParentType, ContextType, Partial<ImportantDatePersonRelationNotesRelationPersonArgs>>;
+  personId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+};
+
+export type ImportantDatePersonRelationNotesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelationNotesRelationPersonRelation'] = ResolversParentTypes['ImportantDatePersonRelationNotesRelationPersonRelation']> = {
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  noteId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
+export type ImportantDatePersonRelationRelationshipsFromRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelationRelationshipsFromRelation'] = ResolversParentTypes['ImportantDatePersonRelationRelationshipsFromRelation']> = {
+  fromPerson?: Resolver<Maybe<ResolversTypes['ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelation']>, ParentType, ContextType, Partial<ImportantDatePersonRelationRelationshipsFromRelationFromPersonArgs>>;
+  fromPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  toPerson?: Resolver<Maybe<ResolversTypes['ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation']>, ParentType, ContextType, Partial<ImportantDatePersonRelationRelationshipsFromRelationToPersonArgs>>;
+  toPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelation'] = ResolversParentTypes['ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ImportantDatePersonRelationRelationshipsFromRelationToPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation'] = ResolversParentTypes['ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ImportantDatePersonRelationRelationshipsToRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelationRelationshipsToRelation'] = ResolversParentTypes['ImportantDatePersonRelationRelationshipsToRelation']> = {
+  fromPerson?: Resolver<Maybe<ResolversTypes['ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation']>, ParentType, ContextType, Partial<ImportantDatePersonRelationRelationshipsToRelationFromPersonArgs>>;
+  fromPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  toPerson?: Resolver<Maybe<ResolversTypes['ImportantDatePersonRelationRelationshipsToRelationToPersonRelation']>, ParentType, ContextType, Partial<ImportantDatePersonRelationRelationshipsToRelationToPersonArgs>>;
+  toPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ImportantDatePersonRelationRelationshipsToRelationFromPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation'] = ResolversParentTypes['ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ImportantDatePersonRelationRelationshipsToRelationToPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelationRelationshipsToRelationToPersonRelation'] = ResolversParentTypes['ImportantDatePersonRelationRelationshipsToRelationToPersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type LabelResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Label'] = ResolversParentTypes['Label']> = {
+  color?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  label?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
 export type MutationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
-  createContact?: Resolver<Maybe<ResolversTypes['Contact']>, ParentType, ContextType, RequireFields<MutationCreateContactArgs, 'values'>>;
-  createContacts?: Resolver<Array<ResolversTypes['Contact']>, ParentType, ContextType, RequireFields<MutationCreateContactsArgs, 'values'>>;
+  createImportantDate?: Resolver<Maybe<ResolversTypes['ImportantDate']>, ParentType, ContextType, RequireFields<MutationCreateImportantDateArgs, 'values'>>;
+  createImportantDates?: Resolver<Array<ResolversTypes['ImportantDate']>, ParentType, ContextType, RequireFields<MutationCreateImportantDatesArgs, 'values'>>;
+  createLabel?: Resolver<Maybe<ResolversTypes['Label']>, ParentType, ContextType, RequireFields<MutationCreateLabelArgs, 'values'>>;
+  createLabels?: Resolver<Array<ResolversTypes['Label']>, ParentType, ContextType, RequireFields<MutationCreateLabelsArgs, 'values'>>;
   createNote?: Resolver<Maybe<ResolversTypes['Note']>, ParentType, ContextType, RequireFields<MutationCreateNoteArgs, 'values'>>;
   createNotes?: Resolver<Array<ResolversTypes['Note']>, ParentType, ContextType, RequireFields<MutationCreateNotesArgs, 'values'>>;
-  deleteContacts?: Resolver<Array<ResolversTypes['Contact']>, ParentType, ContextType, Partial<MutationDeleteContactsArgs>>;
+  createPerson?: Resolver<Maybe<ResolversTypes['Person']>, ParentType, ContextType, RequireFields<MutationCreatePersonArgs, 'values'>>;
+  createPersonLabel?: Resolver<Maybe<ResolversTypes['PersonLabel']>, ParentType, ContextType, RequireFields<MutationCreatePersonLabelArgs, 'values'>>;
+  createPersonLabels?: Resolver<Array<ResolversTypes['PersonLabel']>, ParentType, ContextType, RequireFields<MutationCreatePersonLabelsArgs, 'values'>>;
+  createPersonRelationship?: Resolver<Maybe<ResolversTypes['PersonRelationship']>, ParentType, ContextType, RequireFields<MutationCreatePersonRelationshipArgs, 'values'>>;
+  createPersonRelationships?: Resolver<Array<ResolversTypes['PersonRelationship']>, ParentType, ContextType, RequireFields<MutationCreatePersonRelationshipsArgs, 'values'>>;
+  createPersons?: Resolver<Array<ResolversTypes['Person']>, ParentType, ContextType, RequireFields<MutationCreatePersonsArgs, 'values'>>;
+  deleteImportantDates?: Resolver<Array<ResolversTypes['ImportantDate']>, ParentType, ContextType, Partial<MutationDeleteImportantDatesArgs>>;
+  deleteLabels?: Resolver<Array<ResolversTypes['Label']>, ParentType, ContextType, Partial<MutationDeleteLabelsArgs>>;
   deleteNotes?: Resolver<Array<ResolversTypes['Note']>, ParentType, ContextType, Partial<MutationDeleteNotesArgs>>;
-  updateContacts?: Resolver<Array<ResolversTypes['Contact']>, ParentType, ContextType, RequireFields<MutationUpdateContactsArgs, 'set'>>;
+  deletePersonLabels?: Resolver<Array<ResolversTypes['PersonLabel']>, ParentType, ContextType, Partial<MutationDeletePersonLabelsArgs>>;
+  deletePersonRelationships?: Resolver<Array<ResolversTypes['PersonRelationship']>, ParentType, ContextType, Partial<MutationDeletePersonRelationshipsArgs>>;
+  deletePersons?: Resolver<Array<ResolversTypes['Person']>, ParentType, ContextType, Partial<MutationDeletePersonsArgs>>;
+  updateImportantDates?: Resolver<Array<ResolversTypes['ImportantDate']>, ParentType, ContextType, RequireFields<MutationUpdateImportantDatesArgs, 'set'>>;
+  updateLabels?: Resolver<Array<ResolversTypes['Label']>, ParentType, ContextType, RequireFields<MutationUpdateLabelsArgs, 'set'>>;
   updateNotes?: Resolver<Array<ResolversTypes['Note']>, ParentType, ContextType, RequireFields<MutationUpdateNotesArgs, 'set'>>;
+  updatePersonLabels?: Resolver<Array<ResolversTypes['PersonLabel']>, ParentType, ContextType, RequireFields<MutationUpdatePersonLabelsArgs, 'set'>>;
+  updatePersonRelationships?: Resolver<Array<ResolversTypes['PersonRelationship']>, ParentType, ContextType, RequireFields<MutationUpdatePersonRelationshipsArgs, 'set'>>;
+  updatePersons?: Resolver<Array<ResolversTypes['Person']>, ParentType, ContextType, RequireFields<MutationUpdatePersonsArgs, 'set'>>;
 };
 
 export type NoteResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Note'] = ResolversParentTypes['Note']> = {
   body?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  person?: Resolver<Maybe<ResolversTypes['NotePersonRelation']>, ParentType, ContextType, Partial<NotePersonArgs>>;
+  personId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+};
+
+export type NotePersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelation'] = ResolversParentTypes['NotePersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  importantDates?: Resolver<Array<ResolversTypes['NotePersonRelationImportantDatesRelation']>, ParentType, ContextType, Partial<NotePersonRelationImportantDatesArgs>>;
+  labels?: Resolver<Array<ResolversTypes['NotePersonRelationLabelsRelation']>, ParentType, ContextType, Partial<NotePersonRelationLabelsArgs>>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  notes?: Resolver<Array<ResolversTypes['NotePersonRelationNotesRelation']>, ParentType, ContextType, Partial<NotePersonRelationNotesArgs>>;
+  relationshipsFrom?: Resolver<Array<ResolversTypes['NotePersonRelationRelationshipsFromRelation']>, ParentType, ContextType, Partial<NotePersonRelationRelationshipsFromArgs>>;
+  relationshipsTo?: Resolver<Array<ResolversTypes['NotePersonRelationRelationshipsToRelation']>, ParentType, ContextType, Partial<NotePersonRelationRelationshipsToArgs>>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type NotePersonRelationImportantDatesRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelationImportantDatesRelation'] = ResolversParentTypes['NotePersonRelationImportantDatesRelation']> = {
+  date?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  person?: Resolver<Maybe<ResolversTypes['NotePersonRelationImportantDatesRelationPersonRelation']>, ParentType, ContextType, Partial<NotePersonRelationImportantDatesRelationPersonArgs>>;
+  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  recurrence?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+};
+
+export type NotePersonRelationImportantDatesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelationImportantDatesRelationPersonRelation'] = ResolversParentTypes['NotePersonRelationImportantDatesRelationPersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type NotePersonRelationLabelsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelationLabelsRelation'] = ResolversParentTypes['NotePersonRelationLabelsRelation']> = {
+  color?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  label?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type NotePersonRelationNotesRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelationNotesRelation'] = ResolversParentTypes['NotePersonRelationNotesRelation']> = {
+  body?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  personId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+};
+
+export type NotePersonRelationRelationshipsFromRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelationRelationshipsFromRelation'] = ResolversParentTypes['NotePersonRelationRelationshipsFromRelation']> = {
+  fromPerson?: Resolver<Maybe<ResolversTypes['NotePersonRelationRelationshipsFromRelationFromPersonRelation']>, ParentType, ContextType, Partial<NotePersonRelationRelationshipsFromRelationFromPersonArgs>>;
+  fromPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  toPerson?: Resolver<Maybe<ResolversTypes['NotePersonRelationRelationshipsFromRelationToPersonRelation']>, ParentType, ContextType, Partial<NotePersonRelationRelationshipsFromRelationToPersonArgs>>;
+  toPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type NotePersonRelationRelationshipsFromRelationFromPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelationRelationshipsFromRelationFromPersonRelation'] = ResolversParentTypes['NotePersonRelationRelationshipsFromRelationFromPersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type NotePersonRelationRelationshipsFromRelationToPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelationRelationshipsFromRelationToPersonRelation'] = ResolversParentTypes['NotePersonRelationRelationshipsFromRelationToPersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type NotePersonRelationRelationshipsToRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelationRelationshipsToRelation'] = ResolversParentTypes['NotePersonRelationRelationshipsToRelation']> = {
+  fromPerson?: Resolver<Maybe<ResolversTypes['NotePersonRelationRelationshipsToRelationFromPersonRelation']>, ParentType, ContextType, Partial<NotePersonRelationRelationshipsToRelationFromPersonArgs>>;
+  fromPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  toPerson?: Resolver<Maybe<ResolversTypes['NotePersonRelationRelationshipsToRelationToPersonRelation']>, ParentType, ContextType, Partial<NotePersonRelationRelationshipsToRelationToPersonArgs>>;
+  toPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type NotePersonRelationRelationshipsToRelationFromPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelationRelationshipsToRelationFromPersonRelation'] = ResolversParentTypes['NotePersonRelationRelationshipsToRelationFromPersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type NotePersonRelationRelationshipsToRelationToPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelationRelationshipsToRelationToPersonRelation'] = ResolversParentTypes['NotePersonRelationRelationshipsToRelationToPersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Person'] = ResolversParentTypes['Person']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  importantDates?: Resolver<Array<ResolversTypes['PersonImportantDatesRelation']>, ParentType, ContextType, Partial<PersonImportantDatesArgs>>;
+  labels?: Resolver<Array<ResolversTypes['PersonLabelsRelation']>, ParentType, ContextType, Partial<PersonLabelsArgs>>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  notes?: Resolver<Array<ResolversTypes['PersonNotesRelation']>, ParentType, ContextType, Partial<PersonNotesArgs>>;
+  relationships?: Resolver<Array<ResolversTypes['PersonRelationshipEntry']>, ParentType, ContextType>;
+  relationshipsFrom?: Resolver<Array<ResolversTypes['PersonRelationshipsFromRelation']>, ParentType, ContextType, Partial<PersonRelationshipsFromArgs>>;
+  relationshipsTo?: Resolver<Array<ResolversTypes['PersonRelationshipsToRelation']>, ParentType, ContextType, Partial<PersonRelationshipsToArgs>>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonImportantDatesRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonImportantDatesRelation'] = ResolversParentTypes['PersonImportantDatesRelation']> = {
+  date?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  person?: Resolver<Maybe<ResolversTypes['PersonImportantDatesRelationPersonRelation']>, ParentType, ContextType, Partial<PersonImportantDatesRelationPersonArgs>>;
+  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  recurrence?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+};
+
+export type PersonImportantDatesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonImportantDatesRelationPersonRelation'] = ResolversParentTypes['PersonImportantDatesRelationPersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonLabelResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonLabel'] = ResolversParentTypes['PersonLabel']> = {
+  labelId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonLabelsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonLabelsRelation'] = ResolversParentTypes['PersonLabelsRelation']> = {
+  color?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  label?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonNotesRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonNotesRelation'] = ResolversParentTypes['PersonNotesRelation']> = {
+  body?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  person?: Resolver<Maybe<ResolversTypes['PersonNotesRelationPersonRelation']>, ParentType, ContextType, Partial<PersonNotesRelationPersonArgs>>;
+  personId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+};
+
+export type PersonNotesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonNotesRelationPersonRelation'] = ResolversParentTypes['PersonNotesRelationPersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationship'] = ResolversParentTypes['PersonRelationship']> = {
+  fromPerson?: Resolver<Maybe<ResolversTypes['PersonRelationshipFromPersonRelation']>, ParentType, ContextType, Partial<PersonRelationshipFromPersonArgs>>;
+  fromPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  toPerson?: Resolver<Maybe<ResolversTypes['PersonRelationshipToPersonRelation']>, ParentType, ContextType, Partial<PersonRelationshipToPersonArgs>>;
+  toPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipEntryResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipEntry'] = ResolversParentTypes['PersonRelationshipEntry']> = {
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  relatedPersonFirstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  relatedPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  relatedPersonLastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipFromPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipFromPersonRelation'] = ResolversParentTypes['PersonRelationshipFromPersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  importantDates?: Resolver<Array<ResolversTypes['PersonRelationshipFromPersonRelationImportantDatesRelation']>, ParentType, ContextType, Partial<PersonRelationshipFromPersonRelationImportantDatesArgs>>;
+  labels?: Resolver<Array<ResolversTypes['PersonRelationshipFromPersonRelationLabelsRelation']>, ParentType, ContextType, Partial<PersonRelationshipFromPersonRelationLabelsArgs>>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  notes?: Resolver<Array<ResolversTypes['PersonRelationshipFromPersonRelationNotesRelation']>, ParentType, ContextType, Partial<PersonRelationshipFromPersonRelationNotesArgs>>;
+  relationshipsFrom?: Resolver<Array<ResolversTypes['PersonRelationshipFromPersonRelationRelationshipsFromRelation']>, ParentType, ContextType, Partial<PersonRelationshipFromPersonRelationRelationshipsFromArgs>>;
+  relationshipsTo?: Resolver<Array<ResolversTypes['PersonRelationshipFromPersonRelationRelationshipsToRelation']>, ParentType, ContextType, Partial<PersonRelationshipFromPersonRelationRelationshipsToArgs>>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipFromPersonRelationImportantDatesRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipFromPersonRelationImportantDatesRelation'] = ResolversParentTypes['PersonRelationshipFromPersonRelationImportantDatesRelation']> = {
+  date?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  person?: Resolver<Maybe<ResolversTypes['PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation']>, ParentType, ContextType, Partial<PersonRelationshipFromPersonRelationImportantDatesRelationPersonArgs>>;
+  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  recurrence?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+};
+
+export type PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation'] = ResolversParentTypes['PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipFromPersonRelationLabelsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipFromPersonRelationLabelsRelation'] = ResolversParentTypes['PersonRelationshipFromPersonRelationLabelsRelation']> = {
+  color?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  label?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipFromPersonRelationNotesRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipFromPersonRelationNotesRelation'] = ResolversParentTypes['PersonRelationshipFromPersonRelationNotesRelation']> = {
+  body?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  person?: Resolver<Maybe<ResolversTypes['PersonRelationshipFromPersonRelationNotesRelationPersonRelation']>, ParentType, ContextType, Partial<PersonRelationshipFromPersonRelationNotesRelationPersonArgs>>;
+  personId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+};
+
+export type PersonRelationshipFromPersonRelationNotesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipFromPersonRelationNotesRelationPersonRelation'] = ResolversParentTypes['PersonRelationshipFromPersonRelationNotesRelationPersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipFromPersonRelationRelationshipsFromRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipFromPersonRelationRelationshipsFromRelation'] = ResolversParentTypes['PersonRelationshipFromPersonRelationRelationshipsFromRelation']> = {
+  fromPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  toPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipFromPersonRelationRelationshipsToRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipFromPersonRelationRelationshipsToRelation'] = ResolversParentTypes['PersonRelationshipFromPersonRelationRelationshipsToRelation']> = {
+  fromPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  toPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipToPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipToPersonRelation'] = ResolversParentTypes['PersonRelationshipToPersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  importantDates?: Resolver<Array<ResolversTypes['PersonRelationshipToPersonRelationImportantDatesRelation']>, ParentType, ContextType, Partial<PersonRelationshipToPersonRelationImportantDatesArgs>>;
+  labels?: Resolver<Array<ResolversTypes['PersonRelationshipToPersonRelationLabelsRelation']>, ParentType, ContextType, Partial<PersonRelationshipToPersonRelationLabelsArgs>>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  notes?: Resolver<Array<ResolversTypes['PersonRelationshipToPersonRelationNotesRelation']>, ParentType, ContextType, Partial<PersonRelationshipToPersonRelationNotesArgs>>;
+  relationshipsFrom?: Resolver<Array<ResolversTypes['PersonRelationshipToPersonRelationRelationshipsFromRelation']>, ParentType, ContextType, Partial<PersonRelationshipToPersonRelationRelationshipsFromArgs>>;
+  relationshipsTo?: Resolver<Array<ResolversTypes['PersonRelationshipToPersonRelationRelationshipsToRelation']>, ParentType, ContextType, Partial<PersonRelationshipToPersonRelationRelationshipsToArgs>>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipToPersonRelationImportantDatesRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipToPersonRelationImportantDatesRelation'] = ResolversParentTypes['PersonRelationshipToPersonRelationImportantDatesRelation']> = {
+  date?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  person?: Resolver<Maybe<ResolversTypes['PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation']>, ParentType, ContextType, Partial<PersonRelationshipToPersonRelationImportantDatesRelationPersonArgs>>;
+  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  recurrence?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+};
+
+export type PersonRelationshipToPersonRelationImportantDatesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation'] = ResolversParentTypes['PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipToPersonRelationLabelsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipToPersonRelationLabelsRelation'] = ResolversParentTypes['PersonRelationshipToPersonRelationLabelsRelation']> = {
+  color?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  label?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipToPersonRelationNotesRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipToPersonRelationNotesRelation'] = ResolversParentTypes['PersonRelationshipToPersonRelationNotesRelation']> = {
+  body?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  person?: Resolver<Maybe<ResolversTypes['PersonRelationshipToPersonRelationNotesRelationPersonRelation']>, ParentType, ContextType, Partial<PersonRelationshipToPersonRelationNotesRelationPersonArgs>>;
+  personId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+};
+
+export type PersonRelationshipToPersonRelationNotesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipToPersonRelationNotesRelationPersonRelation'] = ResolversParentTypes['PersonRelationshipToPersonRelationNotesRelationPersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipToPersonRelationRelationshipsFromRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipToPersonRelationRelationshipsFromRelation'] = ResolversParentTypes['PersonRelationshipToPersonRelationRelationshipsFromRelation']> = {
+  fromPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  toPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipToPersonRelationRelationshipsToRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipToPersonRelationRelationshipsToRelation'] = ResolversParentTypes['PersonRelationshipToPersonRelationRelationshipsToRelation']> = {
+  fromPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  toPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipsFromRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipsFromRelation'] = ResolversParentTypes['PersonRelationshipsFromRelation']> = {
+  fromPerson?: Resolver<Maybe<ResolversTypes['PersonRelationshipsFromRelationFromPersonRelation']>, ParentType, ContextType, Partial<PersonRelationshipsFromRelationFromPersonArgs>>;
+  fromPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  toPerson?: Resolver<Maybe<ResolversTypes['PersonRelationshipsFromRelationToPersonRelation']>, ParentType, ContextType, Partial<PersonRelationshipsFromRelationToPersonArgs>>;
+  toPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipsFromRelationFromPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipsFromRelationFromPersonRelation'] = ResolversParentTypes['PersonRelationshipsFromRelationFromPersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipsFromRelationToPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipsFromRelationToPersonRelation'] = ResolversParentTypes['PersonRelationshipsFromRelationToPersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipsToRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipsToRelation'] = ResolversParentTypes['PersonRelationshipsToRelation']> = {
+  fromPerson?: Resolver<Maybe<ResolversTypes['PersonRelationshipsToRelationFromPersonRelation']>, ParentType, ContextType, Partial<PersonRelationshipsToRelationFromPersonArgs>>;
+  fromPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  toPerson?: Resolver<Maybe<ResolversTypes['PersonRelationshipsToRelationToPersonRelation']>, ParentType, ContextType, Partial<PersonRelationshipsToRelationToPersonArgs>>;
+  toPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipsToRelationFromPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipsToRelationFromPersonRelation'] = ResolversParentTypes['PersonRelationshipsToRelationFromPersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipsToRelationToPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipsToRelationToPersonRelation'] = ResolversParentTypes['PersonRelationshipsToRelationToPersonRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
 export type QueryResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  contact?: Resolver<Maybe<ResolversTypes['Contact']>, ParentType, ContextType, Partial<QueryContactArgs>>;
-  contacts?: Resolver<Array<ResolversTypes['Contact']>, ParentType, ContextType, Partial<QueryContactsArgs>>;
+  importantDate?: Resolver<Maybe<ResolversTypes['ImportantDate']>, ParentType, ContextType, Partial<QueryImportantDateArgs>>;
+  importantDates?: Resolver<Array<ResolversTypes['ImportantDate']>, ParentType, ContextType, Partial<QueryImportantDatesArgs>>;
+  label?: Resolver<Maybe<ResolversTypes['Label']>, ParentType, ContextType, Partial<QueryLabelArgs>>;
+  labels?: Resolver<Array<ResolversTypes['Label']>, ParentType, ContextType, Partial<QueryLabelsArgs>>;
   note?: Resolver<Maybe<ResolversTypes['Note']>, ParentType, ContextType, Partial<QueryNoteArgs>>;
   notes?: Resolver<Array<ResolversTypes['Note']>, ParentType, ContextType, Partial<QueryNotesArgs>>;
+  person?: Resolver<Maybe<ResolversTypes['Person']>, ParentType, ContextType, Partial<QueryPersonArgs>>;
+  personLabel?: Resolver<Maybe<ResolversTypes['PersonLabel']>, ParentType, ContextType, Partial<QueryPersonLabelArgs>>;
+  personLabels?: Resolver<Array<ResolversTypes['PersonLabel']>, ParentType, ContextType, Partial<QueryPersonLabelsArgs>>;
+  personRelationship?: Resolver<Maybe<ResolversTypes['PersonRelationship']>, ParentType, ContextType, Partial<QueryPersonRelationshipArgs>>;
+  personRelationships?: Resolver<Array<ResolversTypes['PersonRelationship']>, ParentType, ContextType, Partial<QueryPersonRelationshipsArgs>>;
+  persons?: Resolver<Array<ResolversTypes['Person']>, ParentType, ContextType, Partial<QueryPersonsArgs>>;
 };
 
 export type Resolvers<ContextType = Context> = {
-  Contact?: ContactResolvers<ContextType>;
+  ImportantDate?: ImportantDateResolvers<ContextType>;
+  ImportantDatePersonRelation?: ImportantDatePersonRelationResolvers<ContextType>;
+  ImportantDatePersonRelationImportantDatesRelation?: ImportantDatePersonRelationImportantDatesRelationResolvers<ContextType>;
+  ImportantDatePersonRelationLabelsRelation?: ImportantDatePersonRelationLabelsRelationResolvers<ContextType>;
+  ImportantDatePersonRelationNotesRelation?: ImportantDatePersonRelationNotesRelationResolvers<ContextType>;
+  ImportantDatePersonRelationNotesRelationPersonRelation?: ImportantDatePersonRelationNotesRelationPersonRelationResolvers<ContextType>;
+  ImportantDatePersonRelationRelationshipsFromRelation?: ImportantDatePersonRelationRelationshipsFromRelationResolvers<ContextType>;
+  ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelation?: ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelationResolvers<ContextType>;
+  ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation?: ImportantDatePersonRelationRelationshipsFromRelationToPersonRelationResolvers<ContextType>;
+  ImportantDatePersonRelationRelationshipsToRelation?: ImportantDatePersonRelationRelationshipsToRelationResolvers<ContextType>;
+  ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation?: ImportantDatePersonRelationRelationshipsToRelationFromPersonRelationResolvers<ContextType>;
+  ImportantDatePersonRelationRelationshipsToRelationToPersonRelation?: ImportantDatePersonRelationRelationshipsToRelationToPersonRelationResolvers<ContextType>;
+  Label?: LabelResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
   Note?: NoteResolvers<ContextType>;
+  NotePersonRelation?: NotePersonRelationResolvers<ContextType>;
+  NotePersonRelationImportantDatesRelation?: NotePersonRelationImportantDatesRelationResolvers<ContextType>;
+  NotePersonRelationImportantDatesRelationPersonRelation?: NotePersonRelationImportantDatesRelationPersonRelationResolvers<ContextType>;
+  NotePersonRelationLabelsRelation?: NotePersonRelationLabelsRelationResolvers<ContextType>;
+  NotePersonRelationNotesRelation?: NotePersonRelationNotesRelationResolvers<ContextType>;
+  NotePersonRelationRelationshipsFromRelation?: NotePersonRelationRelationshipsFromRelationResolvers<ContextType>;
+  NotePersonRelationRelationshipsFromRelationFromPersonRelation?: NotePersonRelationRelationshipsFromRelationFromPersonRelationResolvers<ContextType>;
+  NotePersonRelationRelationshipsFromRelationToPersonRelation?: NotePersonRelationRelationshipsFromRelationToPersonRelationResolvers<ContextType>;
+  NotePersonRelationRelationshipsToRelation?: NotePersonRelationRelationshipsToRelationResolvers<ContextType>;
+  NotePersonRelationRelationshipsToRelationFromPersonRelation?: NotePersonRelationRelationshipsToRelationFromPersonRelationResolvers<ContextType>;
+  NotePersonRelationRelationshipsToRelationToPersonRelation?: NotePersonRelationRelationshipsToRelationToPersonRelationResolvers<ContextType>;
+  Person?: PersonResolvers<ContextType>;
+  PersonImportantDatesRelation?: PersonImportantDatesRelationResolvers<ContextType>;
+  PersonImportantDatesRelationPersonRelation?: PersonImportantDatesRelationPersonRelationResolvers<ContextType>;
+  PersonLabel?: PersonLabelResolvers<ContextType>;
+  PersonLabelsRelation?: PersonLabelsRelationResolvers<ContextType>;
+  PersonNotesRelation?: PersonNotesRelationResolvers<ContextType>;
+  PersonNotesRelationPersonRelation?: PersonNotesRelationPersonRelationResolvers<ContextType>;
+  PersonRelationship?: PersonRelationshipResolvers<ContextType>;
+  PersonRelationshipEntry?: PersonRelationshipEntryResolvers<ContextType>;
+  PersonRelationshipFromPersonRelation?: PersonRelationshipFromPersonRelationResolvers<ContextType>;
+  PersonRelationshipFromPersonRelationImportantDatesRelation?: PersonRelationshipFromPersonRelationImportantDatesRelationResolvers<ContextType>;
+  PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation?: PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelationResolvers<ContextType>;
+  PersonRelationshipFromPersonRelationLabelsRelation?: PersonRelationshipFromPersonRelationLabelsRelationResolvers<ContextType>;
+  PersonRelationshipFromPersonRelationNotesRelation?: PersonRelationshipFromPersonRelationNotesRelationResolvers<ContextType>;
+  PersonRelationshipFromPersonRelationNotesRelationPersonRelation?: PersonRelationshipFromPersonRelationNotesRelationPersonRelationResolvers<ContextType>;
+  PersonRelationshipFromPersonRelationRelationshipsFromRelation?: PersonRelationshipFromPersonRelationRelationshipsFromRelationResolvers<ContextType>;
+  PersonRelationshipFromPersonRelationRelationshipsToRelation?: PersonRelationshipFromPersonRelationRelationshipsToRelationResolvers<ContextType>;
+  PersonRelationshipToPersonRelation?: PersonRelationshipToPersonRelationResolvers<ContextType>;
+  PersonRelationshipToPersonRelationImportantDatesRelation?: PersonRelationshipToPersonRelationImportantDatesRelationResolvers<ContextType>;
+  PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation?: PersonRelationshipToPersonRelationImportantDatesRelationPersonRelationResolvers<ContextType>;
+  PersonRelationshipToPersonRelationLabelsRelation?: PersonRelationshipToPersonRelationLabelsRelationResolvers<ContextType>;
+  PersonRelationshipToPersonRelationNotesRelation?: PersonRelationshipToPersonRelationNotesRelationResolvers<ContextType>;
+  PersonRelationshipToPersonRelationNotesRelationPersonRelation?: PersonRelationshipToPersonRelationNotesRelationPersonRelationResolvers<ContextType>;
+  PersonRelationshipToPersonRelationRelationshipsFromRelation?: PersonRelationshipToPersonRelationRelationshipsFromRelationResolvers<ContextType>;
+  PersonRelationshipToPersonRelationRelationshipsToRelation?: PersonRelationshipToPersonRelationRelationshipsToRelationResolvers<ContextType>;
+  PersonRelationshipsFromRelation?: PersonRelationshipsFromRelationResolvers<ContextType>;
+  PersonRelationshipsFromRelationFromPersonRelation?: PersonRelationshipsFromRelationFromPersonRelationResolvers<ContextType>;
+  PersonRelationshipsFromRelationToPersonRelation?: PersonRelationshipsFromRelationToPersonRelationResolvers<ContextType>;
+  PersonRelationshipsToRelation?: PersonRelationshipsToRelationResolvers<ContextType>;
+  PersonRelationshipsToRelationFromPersonRelation?: PersonRelationshipsToRelationFromPersonRelationResolvers<ContextType>;
+  PersonRelationshipsToRelationToPersonRelation?: PersonRelationshipsToRelationToPersonRelationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
 };
 

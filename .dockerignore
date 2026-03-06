@@ -1,0 +1,27 @@
+# Dependencies (reinstalled in Docker)
+node_modules
+**/node_modules
+
+# Build outputs (rebuilt in Docker)
+**/dist
+app/dist
+server/dist
+db/dist
+
+# PGlite data directory
+pgdata
+**/pgdata
+
+# Dev tools
+.env
+.env.*
+*.log
+
+# Version control
+.git
+.gitignore
+
+# Editor
+.vscode
+.idea
+*.swp

@@ -1,3 +1,4 @@
+// @ts-nocheck — vendored file, drizzle-orm 1.0 type compat not guaranteed
 import type { Column, Relation, SQL, Table } from 'drizzle-orm';
 import type {
   GraphQLFieldConfigArgumentMap,

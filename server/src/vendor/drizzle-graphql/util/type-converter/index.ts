@@ -1,7 +1,6 @@
-import type { Column } from 'drizzle-orm';
-import { is } from 'drizzle-orm';
+import type { Column, Table } from 'drizzle-orm';
+import { extractExtendedColumnType, getColumns, is } from 'drizzle-orm';
 import { MySqlInt, MySqlSerial } from 'drizzle-orm/mysql-core';
-import type { PgArray } from 'drizzle-orm/pg-core';
 import { PgInteger, PgSerial } from 'drizzle-orm/pg-core';
 import { SQLiteInteger } from 'drizzle-orm/sqlite-core';
 import {
@@ -18,6 +17,8 @@ import {
 } from 'graphql';
 import { capitalize } from '../case-ops/index.ts';
 import type { ConvertedColumn } from './types.ts';
+import type {TableNamedRelations} from '../builders/types.ts';
+import {extractFilters} from '../builders/common.ts';
 
 const allowedNameChars = /^[a-zA-Z0-9_]+$/;
 
@@ -69,18 +70,22 @@ const columnToGraphQLCore = (
   tableName: string,
   isInput: boolean,
 ): ConvertedColumn<boolean> => {
-  switch (column.dataType) {
+  const { type: baseType } = extractExtendedColumnType(column);
+  switch (baseType) {
     case 'boolean':
       return { type: GraphQLBoolean, description: 'Boolean' };
-    case 'json':
+    case 'object':
       return column.columnType === 'PgGeometryObject'
         ? {
             type: isInput ? geoXyInputType : geoXyType,
             description: 'Geometry points XY',
           }
-        : { type: GraphQLString, description: 'JSON' };
-    case 'date':
-      return { type: GraphQLString, description: 'Date' };
+        : column.columnType === 'PgBytea'
+          ? {
+              type: new GraphQLList(new GraphQLNonNull(GraphQLInt)),
+              description: 'Buffer',
+            }
+          : { type: GraphQLString, description: 'JSON' };
     case 'string':
       if (column.enumValues?.length)
         return { type: generateEnumCached(column, columnName, tableName) };
@@ -96,11 +101,6 @@ const columnToGraphQLCore = (
         is(column, SQLiteInteger)
         ? { type: GraphQLInt, description: 'Integer' }
         : { type: GraphQLFloat, description: 'Float' };
-    case 'buffer':
-      return {
-        type: new GraphQLList(new GraphQLNonNull(GraphQLInt)),
-        description: 'Buffer',
-      };
     case 'array': {
       if (column.columnType === 'PgVector') {
         return {
@@ -117,7 +117,7 @@ const columnToGraphQLCore = (
       }
 
       const innerType = columnToGraphQLCore(
-        (column as Column as PgArray<any, any>).baseColumn,
+        (column as unknown as { baseColumn: Column }).baseColumn,
         columnName,
         tableName,
         isInput,
@@ -138,6 +138,59 @@ const columnToGraphQLCore = (
   }
 };
 
+export const drizzleRelationToGraphQLInsertType = (
+  tables: Record<string, Table>,
+  relationMap: TableNamedRelations,
+) => {
+
+  if(!relationMap){
+    return null
+  }
+
+  for(const [tableName, val] of Object.entries(relationMap)){
+    const table = tables[tableName];
+    if(!table) {
+      continue;
+    }
+    const columns = getColumns(table)
+    const columnEntries = Object.entries(columns).filter(([key, value]) => value.primary);
+
+    const connectFields = Object.fromEntries(
+      columnEntries.map(([columnName, columnDescription]) => [
+        columnName,
+        drizzleColumnToGraphQLType(
+          columnDescription,
+          columnName,
+          tableName,
+          false,
+          true,
+          true,
+        ),
+      ]),
+    );
+
+  }
+
+
+//   const typeDesc = columnToGraphQLCore(column, columnName, tableName, isInput);
+//   const noDesc = ['string', 'boolean', 'number'];
+//   const { type: baseType } = extractExtendedColumnType(column);
+//   if (noDesc.find((e) => e === baseType)) delete typeDesc.description;
+//
+//   if (forceNullable) return typeDesc as ConvertedColumn<TIsInput>;
+//   if (
+//     column.notNull &&
+//     !(defaultIsNullable && (column.hasDefault || column.defaultFn))
+//   ) {
+//     return {
+//       type: new GraphQLNonNull(typeDesc.type),
+//       description: typeDesc.description,
+//     } as ConvertedColumn<TIsInput>;
+//   }
+//
+//   return typeDesc as ConvertedColumn<TIsInput>;
+};
+
 export const drizzleColumnToGraphQLType = <
   TColumn extends Column,
   TIsInput extends boolean,
@@ -151,7 +204,8 @@ export const drizzleColumnToGraphQLType = <
 ): ConvertedColumn<TIsInput> => {
   const typeDesc = columnToGraphQLCore(column, columnName, tableName, isInput);
   const noDesc = ['string', 'boolean', 'number'];
-  if (noDesc.find((e) => e === column.dataType)) delete typeDesc.description;
+  const { type: baseType } = extractExtendedColumnType(column);
+  if (noDesc.find((e) => e === baseType)) delete typeDesc.description;
 
   if (forceNullable) return typeDesc as ConvertedColumn<TIsInput>;
   if (

@@ -9,11 +9,11 @@ export const Route = createRootRoute({
             Philotes
           </Link>
           <nav className="ml-6 flex gap-4">
-            <Link
-              to="/contacts"
-              className="text-muted-foreground text-sm hover:text-foreground"
-            >
-              Contacts
+            <Link to="/persons" className="text-muted-foreground text-sm hover:text-foreground">
+              Persons
+            </Link>
+            <Link to="/tags" className="text-muted-foreground text-sm hover:text-foreground">
+              Tags
             </Link>
           </nav>
         </div>

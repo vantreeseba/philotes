@@ -5,8 +5,8 @@
   "type": "module",
   "main": "./src/index.ts",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "build": "tsc",
+    "dev": "tsx watch --env-file=../.env src/index.ts",
+    "build": "tsc -p tsconfig.build.json",
     "start": "node dist/index.js",
     "clean": "rm -rf src/__generated__"
   },
@@ -14,9 +14,13 @@
     "@apollo/server": "^5.x.x",
     "@philotes/db": "*",
     "graphql": "^16.10.0",
-    "graphql-tag": "^2.12.6"
+    "graphql-tag": "^2.12.6",
+    "sirv": "^3.0.2"
   },
   "devDependencies": {
+    "@types/body-parser": "^1.19.6",
+    "@types/cors": "^2.8.19",
+    "@types/finalhandler": "^1.2.4",
     "tsx": "^4.19.3"
   }
 }

@@ -1,0 +1,1 @@
+ALTER TABLE "important_dates" ADD COLUMN "recurrence" text;

@@ -1,6 +1,6 @@
 import { is } from 'drizzle-orm';
 import { MySqlDatabase } from 'drizzle-orm/mysql-core';
-import { PgDatabase } from 'drizzle-orm/pg-core';
+import { PgAsyncDatabase } from 'drizzle-orm/pg-core';
 import { BaseSQLiteDatabase } from 'drizzle-orm/sqlite-core';
 import {
   type GraphQLFieldConfig,
@@ -27,6 +27,7 @@ export const buildSchema = <TDbClient extends AnyDrizzleDB<any>>(
   config?: BuildSchemaConfig,
 ): GeneratedData<TDbClient> => {
   const schema = db._.fullSchema;
+  const relations = db._.relations;
   if (!schema) {
     throw new Error(
       "Drizzle-GraphQL Error: Schema not found in drizzle instance. Make sure you're using drizzle-orm v0.30.9 or above and schema is passed to drizzle constructor!",
@@ -71,10 +72,11 @@ export const buildSchema = <TDbClient extends AnyDrizzleDB<any>>(
       prefixes,
       suffixes,
     );
-  } else if (is(db, PgDatabase)) {
+  } else if (is(db, PgAsyncDatabase)) {
     generatorOutput = generatePG(
       db,
       schema,
+      relations,
       config?.relationsDepthLimit,
       prefixes,
       suffixes,

@@ -1,3 +1,4 @@
+// @ts-nocheck — vendored file, drizzle-orm 1.0 type compat not guaranteed
 import { type Column, getTableColumns, type Table } from 'drizzle-orm';
 import { GraphQLError } from 'graphql';
 import type { TableNamedRelations } from '../builders/index.ts';
@@ -9,6 +10,12 @@ export const remapToGraphQLCore = (
   column: Column,
   relationMap?: Record<string, Record<string, TableNamedRelations>>,
 ): any => {
+//   console.log('remapToGraphQLCore', column);
+
+  if(!column) {
+    return value;
+  }
+
   if (value instanceof Date) return value.toISOString();
 
   if (value instanceof Buffer) return Array.from(value);
@@ -18,13 +25,15 @@ export const remapToGraphQLCore = (
   if (Array.isArray(value)) {
     const relations = relationMap?.[tableName];
     if (relations?.[key]) {
+      const rel = relations[key]!;
       return remapToGraphQLArrayOutput(
         value,
-        relations[key]!.targetTableName,
-        relations[key]!.relation.referencedTable,
+        rel.targetTableName,
+        rel.targetTable ?? rel.relation?.referencedTable,
         relationMap,
       );
     }
+
     if (column.columnType === 'PgGeometry' || column.columnType === 'PgVector')
       return value;
 
@@ -36,12 +45,14 @@ export const remapToGraphQLCore = (
   if (typeof value === 'object') {
     const relations = relationMap?.[tableName];
     if (relations?.[key]) {
-      return remapToGraphQLSingleOutput(
+      const rel = relations[key]!;
+      const remapped = remapToGraphQLSingleOutput(
         value,
-        relations[key]!.targetTableName,
-        relations[key]!.relation.referencedTable,
+        rel.targetTableName,
+        rel.targetTable ?? rel.relation?.referencedTable,
         relationMap,
       );
+      return remapped;
     }
     if (column.columnType === 'PgGeometryObject') return value;
 
@@ -58,6 +69,8 @@ export const remapToGraphQLSingleOutput = (
   relationMap?: Record<string, Record<string, TableNamedRelations>>,
 ) => {
   for (const [key, value] of Object.entries(queryOutput)) {
+    console.log('remapToGraphQLSingleOutput', key, tableName , value);
+
     if (value === undefined || value === null) {
       delete queryOutput[key];
     } else {

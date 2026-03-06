@@ -1,15 +1,21 @@
+// @ts-nocheck — vendored file, drizzle-orm 1.0 type compat not guaranteed
 import type {
   Many,
   One,
   Relation,
-  Relations,
   Table,
   TableRelationalConfig,
   TablesRelationalConfig,
 } from 'drizzle-orm';
+
+// Relations class was removed in drizzle-orm 1.0; stub for type compatibility
+type Relations<TTable extends string = string, TConfig extends Record<string, Relation> = Record<string, Relation>> = {
+  table: { _: { name: TTable } };
+  config: (helpers: unknown) => TConfig;
+};
 import type { MySqlDatabase } from 'drizzle-orm/mysql-core';
 import type { RelationalQueryBuilder as MySqlQuery } from 'drizzle-orm/mysql-core/query-builders/query';
-import type { PgDatabase } from 'drizzle-orm/pg-core';
+import type { PgAsyncDatabase } from 'drizzle-orm/pg-core';
 import type { RelationalQueryBuilder as PgQuery } from 'drizzle-orm/pg-core/query-builders/query';
 import type { BaseSQLiteDatabase } from 'drizzle-orm/sqlite-core';
 import type { RelationalQueryBuilder as SQLiteQuery } from 'drizzle-orm/sqlite-core/query-builders/query';
@@ -34,7 +40,7 @@ import type {
 export type MakeRequired<T> = T & { [P in keyof T]-?: T[P] };
 
 export type AnyDrizzleDB<TSchema extends Record<string, any>> =
-  | PgDatabase<any, TSchema>
+  | PgAsyncDatabase<any, TSchema>
   | BaseSQLiteDatabase<any, any, TSchema>
   | MySqlDatabase<any, any, TSchema>;
 

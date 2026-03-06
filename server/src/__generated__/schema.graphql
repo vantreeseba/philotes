@@ -3,361 +3,431 @@ schema {
   mutation: Mutation
 }
 
-type Contact {
-  """Date"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  noteId: String
-  """Date"""
-  updatedAt: String!
-}
-
-input ContactsCreatedAtFilters {
-  OR: [ContactsCreatedAtFiltersOr!]
-  """Date"""
-  eq: String
-  """Date"""
-  gt: String
-  """Date"""
-  gte: String
-  ilike: String
-  """Array<Date>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """Date"""
-  lt: String
-  """Date"""
-  lte: String
-  """Date"""
-  ne: String
-  notIlike: String
-  """Array<Date>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ContactsCreatedAtFiltersOr {
-  """Date"""
-  eq: String
-  """Date"""
-  gt: String
-  """Date"""
-  gte: String
-  ilike: String
-  """Array<Date>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """Date"""
-  lt: String
-  """Date"""
-  lte: String
-  """Date"""
-  ne: String
-  notIlike: String
-  """Array<Date>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ContactsEmailFilters {
-  OR: [ContactsEmailFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ContactsEmailFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ContactsFilters {
-  OR: [ContactsFiltersOr!]
-  createdAt: ContactsCreatedAtFilters
-  email: ContactsEmailFilters
-  firstName: ContactsFirstNameFilters
-  id: ContactsIdFilters
-  lastName: ContactsLastNameFilters
-  noteId: ContactsNoteIdFilters
-  updatedAt: ContactsUpdatedAtFilters
-}
-
-input ContactsFiltersOr {
-  createdAt: ContactsCreatedAtFilters
-  email: ContactsEmailFilters
-  firstName: ContactsFirstNameFilters
-  id: ContactsIdFilters
-  lastName: ContactsLastNameFilters
-  noteId: ContactsNoteIdFilters
-  updatedAt: ContactsUpdatedAtFilters
-}
-
-input ContactsFirstNameFilters {
-  OR: [ContactsFirstNameFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ContactsFirstNameFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ContactsIdFilters {
-  OR: [ContactsIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ContactsIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ContactsLastNameFilters {
-  OR: [ContactsLastNameFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ContactsLastNameFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ContactsNoteIdFilters {
-  OR: [ContactsNoteIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ContactsNoteIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ContactsOrderBy {
-  createdAt: InnerOrder
-  email: InnerOrder
-  firstName: InnerOrder
-  id: InnerOrder
-  lastName: InnerOrder
-  noteId: InnerOrder
-  updatedAt: InnerOrder
-}
-
-input ContactsUpdatedAtFilters {
-  OR: [ContactsUpdatedAtFiltersOr!]
-  """Date"""
-  eq: String
-  """Date"""
-  gt: String
-  """Date"""
-  gte: String
-  ilike: String
-  """Array<Date>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """Date"""
-  lt: String
-  """Date"""
-  lte: String
-  """Date"""
-  ne: String
-  notIlike: String
-  """Array<Date>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ContactsUpdatedAtFiltersOr {
-  """Date"""
-  eq: String
-  """Date"""
-  gt: String
-  """Date"""
-  gte: String
-  ilike: String
-  """Array<Date>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """Date"""
-  lt: String
-  """Date"""
-  lte: String
-  """Date"""
-  ne: String
-  notIlike: String
-  """Array<Date>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input CreateContactInput {
-  """Date"""
-  createdAt: String
-  email: String!
-  firstName: String!
+input CreateImportantDateInput {
+  date: String!
+  description: String
   id: String
-  lastName: String!
-  noteId: String
-  """Date"""
-  updatedAt: String
+  name: String!
+  personId: String!
+  recurrence: String
+}
+
+input CreateLabelInput {
+  color: String!
+  id: String
+  label: String!
 }
 
 input CreateNoteInput {
   body: String!
   id: String
+  personId: String
+}
+
+input CreatePersonInput {
+  """JSON"""
+  createdAt: String
+  email: String!
+  firstName: String!
+  id: String
+  lastName: String!
+  """JSON"""
+  updatedAt: String
+}
+
+input CreatePersonLabelInput {
+  labelId: String!
+  personId: String!
+}
+
+input CreatePersonRelationshipInput {
+  fromPersonId: String!
+  id: String
+  toPersonId: String!
+  type: String!
+}
+
+type ImportantDate {
+  date: String!
+  description: String
+  id: String!
+  name: String!
+  person(where: PersonsFilters): ImportantDatePersonRelation
+  personId: String!
+  recurrence: String
+}
+
+type ImportantDatePersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [ImportantDatePersonRelationImportantDatesRelation!]!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ImportantDatePersonRelationLabelsRelation!]!
+  lastName: String!
+  notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [ImportantDatePersonRelationNotesRelation!]!
+  relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [ImportantDatePersonRelationRelationshipsFromRelation!]!
+  relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [ImportantDatePersonRelationRelationshipsToRelation!]!
+  """JSON"""
+  updatedAt: String!
+}
+
+type ImportantDatePersonRelationImportantDatesRelation {
+  date: String!
+  description: String
+  id: String!
+  name: String!
+  personId: String!
+  recurrence: String
+}
+
+type ImportantDatePersonRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type ImportantDatePersonRelationNotesRelation {
+  body: String!
+  id: String!
+  person(where: PersonsFilters): ImportantDatePersonRelationNotesRelationPersonRelation
+  personId: String
+}
+
+type ImportantDatePersonRelationNotesRelationPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type ImportantDatePersonRelationRelationshipsFromRelation {
+  fromPerson(where: PersonsFilters): ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelation
+  fromPersonId: String!
+  id: String!
+  toPerson(where: PersonsFilters): ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation
+  toPersonId: String!
+  type: String!
+}
+
+type ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type ImportantDatePersonRelationRelationshipsToRelation {
+  fromPerson(where: PersonsFilters): ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation
+  fromPersonId: String!
+  id: String!
+  toPerson(where: PersonsFilters): ImportantDatePersonRelationRelationshipsToRelationToPersonRelation
+  toPersonId: String!
+  type: String!
+}
+
+type ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type ImportantDatePersonRelationRelationshipsToRelationToPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+input ImportantDatesDateFilters {
+  OR: [ImportantDatesDateFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ImportantDatesDateFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ImportantDatesDescriptionFilters {
+  OR: [ImportantDatesDescriptionFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ImportantDatesDescriptionFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ImportantDatesFilters {
+  OR: [ImportantDatesFiltersOr!]
+  date: ImportantDatesDateFilters
+  description: ImportantDatesDescriptionFilters
+  id: ImportantDatesIdFilters
+  name: ImportantDatesNameFilters
+  personId: ImportantDatesPersonIdFilters
+  recurrence: ImportantDatesRecurrenceFilters
+}
+
+input ImportantDatesFiltersOr {
+  date: ImportantDatesDateFilters
+  description: ImportantDatesDescriptionFilters
+  id: ImportantDatesIdFilters
+  name: ImportantDatesNameFilters
+  personId: ImportantDatesPersonIdFilters
+  recurrence: ImportantDatesRecurrenceFilters
+}
+
+input ImportantDatesIdFilters {
+  OR: [ImportantDatesIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ImportantDatesIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ImportantDatesNameFilters {
+  OR: [ImportantDatesNameFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ImportantDatesNameFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ImportantDatesOrderBy {
+  date: InnerOrder
+  description: InnerOrder
+  id: InnerOrder
+  name: InnerOrder
+  personId: InnerOrder
+  recurrence: InnerOrder
+}
+
+input ImportantDatesPersonIdFilters {
+  OR: [ImportantDatesPersonIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ImportantDatesPersonIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ImportantDatesRecurrenceFilters {
+  OR: [ImportantDatesRecurrenceFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ImportantDatesRecurrenceFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
 }
 
 input InnerOrder {
@@ -366,20 +436,291 @@ input InnerOrder {
   priority: Int!
 }
 
+type Label {
+  color: String!
+  id: String!
+  label: String!
+}
+
+input LabelsColorFilters {
+  OR: [LabelsColorFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input LabelsColorFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input LabelsFilters {
+  OR: [LabelsFiltersOr!]
+  color: LabelsColorFilters
+  id: LabelsIdFilters
+  label: LabelsLabelFilters
+}
+
+input LabelsFiltersOr {
+  color: LabelsColorFilters
+  id: LabelsIdFilters
+  label: LabelsLabelFilters
+}
+
+input LabelsIdFilters {
+  OR: [LabelsIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input LabelsIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input LabelsLabelFilters {
+  OR: [LabelsLabelFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input LabelsLabelFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input LabelsOrderBy {
+  color: InnerOrder
+  id: InnerOrder
+  label: InnerOrder
+}
+
 type Mutation {
-  createContact(values: CreateContactInput!): Contact
-  createContacts(values: [CreateContactInput!]!): [Contact!]!
+  createImportantDate(values: CreateImportantDateInput!): ImportantDate
+  createImportantDates(values: [CreateImportantDateInput!]!): [ImportantDate!]!
+  createLabel(values: CreateLabelInput!): Label
+  createLabels(values: [CreateLabelInput!]!): [Label!]!
   createNote(values: CreateNoteInput!): Note
   createNotes(values: [CreateNoteInput!]!): [Note!]!
-  deleteContacts(where: ContactsFilters): [Contact!]!
+  createPerson(values: CreatePersonInput!): Person
+  createPersonLabel(values: CreatePersonLabelInput!): PersonLabel
+  createPersonLabels(values: [CreatePersonLabelInput!]!): [PersonLabel!]!
+  createPersonRelationship(values: CreatePersonRelationshipInput!): PersonRelationship
+  createPersonRelationships(values: [CreatePersonRelationshipInput!]!): [PersonRelationship!]!
+  createPersons(values: [CreatePersonInput!]!): [Person!]!
+  deleteImportantDates(where: ImportantDatesFilters): [ImportantDate!]!
+  deleteLabels(where: LabelsFilters): [Label!]!
   deleteNotes(where: NotesFilters): [Note!]!
-  updateContacts(set: UpdateContactInput!, where: ContactsFilters): [Contact!]!
+  deletePersonLabels(where: PersonLabelsFilters): [PersonLabel!]!
+  deletePersonRelationships(where: PersonRelationshipsFilters): [PersonRelationship!]!
+  deletePersons(where: PersonsFilters): [Person!]!
+  updateImportantDates(set: UpdateImportantDateInput!, where: ImportantDatesFilters): [ImportantDate!]!
+  updateLabels(set: UpdateLabelInput!, where: LabelsFilters): [Label!]!
   updateNotes(set: UpdateNoteInput!, where: NotesFilters): [Note!]!
+  updatePersonLabels(set: UpdatePersonLabelInput!, where: PersonLabelsFilters): [PersonLabel!]!
+  updatePersonRelationships(set: UpdatePersonRelationshipInput!, where: PersonRelationshipsFilters): [PersonRelationship!]!
+  updatePersons(set: UpdatePersonInput!, where: PersonsFilters): [Person!]!
 }
 
 type Note {
   body: String!
   id: String!
+  person(where: PersonsFilters): NotePersonRelation
+  personId: String
+}
+
+type NotePersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [NotePersonRelationImportantDatesRelation!]!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [NotePersonRelationLabelsRelation!]!
+  lastName: String!
+  notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [NotePersonRelationNotesRelation!]!
+  relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [NotePersonRelationRelationshipsFromRelation!]!
+  relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [NotePersonRelationRelationshipsToRelation!]!
+  """JSON"""
+  updatedAt: String!
+}
+
+type NotePersonRelationImportantDatesRelation {
+  date: String!
+  description: String
+  id: String!
+  name: String!
+  person(where: PersonsFilters): NotePersonRelationImportantDatesRelationPersonRelation
+  personId: String!
+  recurrence: String
+}
+
+type NotePersonRelationImportantDatesRelationPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type NotePersonRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type NotePersonRelationNotesRelation {
+  body: String!
+  id: String!
+  personId: String
+}
+
+type NotePersonRelationRelationshipsFromRelation {
+  fromPerson(where: PersonsFilters): NotePersonRelationRelationshipsFromRelationFromPersonRelation
+  fromPersonId: String!
+  id: String!
+  toPerson(where: PersonsFilters): NotePersonRelationRelationshipsFromRelationToPersonRelation
+  toPersonId: String!
+  type: String!
+}
+
+type NotePersonRelationRelationshipsFromRelationFromPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type NotePersonRelationRelationshipsFromRelationToPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type NotePersonRelationRelationshipsToRelation {
+  fromPerson(where: PersonsFilters): NotePersonRelationRelationshipsToRelationFromPersonRelation
+  fromPersonId: String!
+  id: String!
+  toPerson(where: PersonsFilters): NotePersonRelationRelationshipsToRelationToPersonRelation
+  toPersonId: String!
+  type: String!
+}
+
+type NotePersonRelationRelationshipsToRelationFromPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type NotePersonRelationRelationshipsToRelationToPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
 }
 
 input NotesBodyFilters {
@@ -425,11 +766,13 @@ input NotesFilters {
   OR: [NotesFiltersOr!]
   body: NotesBodyFilters
   id: NotesIdFilters
+  personId: NotesPersonIdFilters
 }
 
 input NotesFiltersOr {
   body: NotesBodyFilters
   id: NotesIdFilters
+  personId: NotesPersonIdFilters
 }
 
 input NotesIdFilters {
@@ -474,6 +817,46 @@ input NotesIdFiltersOr {
 input NotesOrderBy {
   body: InnerOrder
   id: InnerOrder
+  personId: InnerOrder
+}
+
+input NotesPersonIdFilters {
+  OR: [NotesPersonIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input NotesPersonIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
 }
 
 """Order by direction"""
@@ -484,26 +867,915 @@ enum OrderDirection {
   desc
 }
 
-type Query {
-  contact(offset: Int, orderBy: ContactsOrderBy, where: ContactsFilters): Contact
-  contacts(limit: Int, offset: Int, orderBy: ContactsOrderBy, where: ContactsFilters): [Contact!]!
-  note(offset: Int, orderBy: NotesOrderBy, where: NotesFilters): Note
-  notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [Note!]!
+type Person {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [PersonImportantDatesRelation!]!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonLabelsRelation!]!
+  lastName: String!
+  notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [PersonNotesRelation!]!
+  relationships: [PersonRelationshipEntry!]!
+  relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipsFromRelation!]!
+  relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipsToRelation!]!
+  """JSON"""
+  updatedAt: String!
 }
 
-input UpdateContactInput {
-  """Date"""
-  createdAt: String
-  email: String
-  firstName: String
+type PersonImportantDatesRelation {
+  date: String!
+  description: String
+  id: String!
+  name: String!
+  person(where: PersonsFilters): PersonImportantDatesRelationPersonRelation
+  personId: String!
+  recurrence: String
+}
+
+type PersonImportantDatesRelationPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type PersonLabel {
+  labelId: String!
+  personId: String!
+}
+
+input PersonLabelsFilters {
+  OR: [PersonLabelsFiltersOr!]
+  labelId: PersonLabelsLabelIdFilters
+  personId: PersonLabelsPersonIdFilters
+}
+
+input PersonLabelsFiltersOr {
+  labelId: PersonLabelsLabelIdFilters
+  personId: PersonLabelsPersonIdFilters
+}
+
+input PersonLabelsLabelIdFilters {
+  OR: [PersonLabelsLabelIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonLabelsLabelIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonLabelsOrderBy {
+  labelId: InnerOrder
+  personId: InnerOrder
+}
+
+input PersonLabelsPersonIdFilters {
+  OR: [PersonLabelsPersonIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonLabelsPersonIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+type PersonLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type PersonNotesRelation {
+  body: String!
+  id: String!
+  person(where: PersonsFilters): PersonNotesRelationPersonRelation
+  personId: String
+}
+
+type PersonNotesRelationPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type PersonRelationship {
+  fromPerson(where: PersonsFilters): PersonRelationshipFromPersonRelation
+  fromPersonId: String!
+  id: String!
+  toPerson(where: PersonsFilters): PersonRelationshipToPersonRelation
+  toPersonId: String!
+  type: String!
+}
+
+type PersonRelationshipEntry {
+  id: String!
+  relatedPersonFirstName: String!
+  relatedPersonId: String!
+  relatedPersonLastName: String!
+  type: String!
+}
+
+type PersonRelationshipFromPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [PersonRelationshipFromPersonRelationImportantDatesRelation!]!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipFromPersonRelationLabelsRelation!]!
+  lastName: String!
+  notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [PersonRelationshipFromPersonRelationNotesRelation!]!
+  relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipFromPersonRelationRelationshipsFromRelation!]!
+  relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipFromPersonRelationRelationshipsToRelation!]!
+  """JSON"""
+  updatedAt: String!
+}
+
+type PersonRelationshipFromPersonRelationImportantDatesRelation {
+  date: String!
+  description: String
+  id: String!
+  name: String!
+  person(where: PersonsFilters): PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation
+  personId: String!
+  recurrence: String
+}
+
+type PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type PersonRelationshipFromPersonRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type PersonRelationshipFromPersonRelationNotesRelation {
+  body: String!
+  id: String!
+  person(where: PersonsFilters): PersonRelationshipFromPersonRelationNotesRelationPersonRelation
+  personId: String
+}
+
+type PersonRelationshipFromPersonRelationNotesRelationPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type PersonRelationshipFromPersonRelationRelationshipsFromRelation {
+  fromPersonId: String!
+  id: String!
+  toPersonId: String!
+  type: String!
+}
+
+type PersonRelationshipFromPersonRelationRelationshipsToRelation {
+  fromPersonId: String!
+  id: String!
+  toPersonId: String!
+  type: String!
+}
+
+type PersonRelationshipToPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [PersonRelationshipToPersonRelationImportantDatesRelation!]!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipToPersonRelationLabelsRelation!]!
+  lastName: String!
+  notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [PersonRelationshipToPersonRelationNotesRelation!]!
+  relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipToPersonRelationRelationshipsFromRelation!]!
+  relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipToPersonRelationRelationshipsToRelation!]!
+  """JSON"""
+  updatedAt: String!
+}
+
+type PersonRelationshipToPersonRelationImportantDatesRelation {
+  date: String!
+  description: String
+  id: String!
+  name: String!
+  person(where: PersonsFilters): PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation
+  personId: String!
+  recurrence: String
+}
+
+type PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type PersonRelationshipToPersonRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type PersonRelationshipToPersonRelationNotesRelation {
+  body: String!
+  id: String!
+  person(where: PersonsFilters): PersonRelationshipToPersonRelationNotesRelationPersonRelation
+  personId: String
+}
+
+type PersonRelationshipToPersonRelationNotesRelationPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type PersonRelationshipToPersonRelationRelationshipsFromRelation {
+  fromPersonId: String!
+  id: String!
+  toPersonId: String!
+  type: String!
+}
+
+type PersonRelationshipToPersonRelationRelationshipsToRelation {
+  fromPersonId: String!
+  id: String!
+  toPersonId: String!
+  type: String!
+}
+
+input PersonRelationshipsFilters {
+  OR: [PersonRelationshipsFiltersOr!]
+  fromPersonId: PersonRelationshipsFromPersonIdFilters
+  id: PersonRelationshipsIdFilters
+  toPersonId: PersonRelationshipsToPersonIdFilters
+  type: PersonRelationshipsTypeFilters
+}
+
+input PersonRelationshipsFiltersOr {
+  fromPersonId: PersonRelationshipsFromPersonIdFilters
+  id: PersonRelationshipsIdFilters
+  toPersonId: PersonRelationshipsToPersonIdFilters
+  type: PersonRelationshipsTypeFilters
+}
+
+input PersonRelationshipsFromPersonIdFilters {
+  OR: [PersonRelationshipsFromPersonIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonRelationshipsFromPersonIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+type PersonRelationshipsFromRelation {
+  fromPerson(where: PersonsFilters): PersonRelationshipsFromRelationFromPersonRelation
+  fromPersonId: String!
+  id: String!
+  toPerson(where: PersonsFilters): PersonRelationshipsFromRelationToPersonRelation
+  toPersonId: String!
+  type: String!
+}
+
+type PersonRelationshipsFromRelationFromPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type PersonRelationshipsFromRelationToPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+input PersonRelationshipsIdFilters {
+  OR: [PersonRelationshipsIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonRelationshipsIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonRelationshipsOrderBy {
+  fromPersonId: InnerOrder
+  id: InnerOrder
+  toPersonId: InnerOrder
+  type: InnerOrder
+}
+
+input PersonRelationshipsToPersonIdFilters {
+  OR: [PersonRelationshipsToPersonIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonRelationshipsToPersonIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+type PersonRelationshipsToRelation {
+  fromPerson(where: PersonsFilters): PersonRelationshipsToRelationFromPersonRelation
+  fromPersonId: String!
+  id: String!
+  toPerson(where: PersonsFilters): PersonRelationshipsToRelationToPersonRelation
+  toPersonId: String!
+  type: String!
+}
+
+type PersonRelationshipsToRelationFromPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type PersonRelationshipsToRelationToPersonRelation {
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+input PersonRelationshipsTypeFilters {
+  OR: [PersonRelationshipsTypeFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonRelationshipsTypeFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonsCreatedAtFilters {
+  OR: [PersonsCreatedAtFiltersOr!]
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonsCreatedAtFiltersOr {
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonsEmailFilters {
+  OR: [PersonsEmailFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonsEmailFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonsFilters {
+  OR: [PersonsFiltersOr!]
+  createdAt: PersonsCreatedAtFilters
+  email: PersonsEmailFilters
+  firstName: PersonsFirstNameFilters
+  id: PersonsIdFilters
+  lastName: PersonsLastNameFilters
+  updatedAt: PersonsUpdatedAtFilters
+}
+
+input PersonsFiltersOr {
+  createdAt: PersonsCreatedAtFilters
+  email: PersonsEmailFilters
+  firstName: PersonsFirstNameFilters
+  id: PersonsIdFilters
+  lastName: PersonsLastNameFilters
+  updatedAt: PersonsUpdatedAtFilters
+}
+
+input PersonsFirstNameFilters {
+  OR: [PersonsFirstNameFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonsFirstNameFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonsIdFilters {
+  OR: [PersonsIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonsIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonsLastNameFilters {
+  OR: [PersonsLastNameFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonsLastNameFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonsOrderBy {
+  createdAt: InnerOrder
+  email: InnerOrder
+  firstName: InnerOrder
+  id: InnerOrder
+  lastName: InnerOrder
+  updatedAt: InnerOrder
+}
+
+input PersonsUpdatedAtFilters {
+  OR: [PersonsUpdatedAtFiltersOr!]
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonsUpdatedAtFiltersOr {
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+type Query {
+  importantDate(offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): ImportantDate
+  importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [ImportantDate!]!
+  label(offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): Label
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [Label!]!
+  note(offset: Int, orderBy: NotesOrderBy, where: NotesFilters): Note
+  notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [Note!]!
+  person(offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): Person
+  personLabel(offset: Int, orderBy: PersonLabelsOrderBy, where: PersonLabelsFilters): PersonLabel
+  personLabels(limit: Int, offset: Int, orderBy: PersonLabelsOrderBy, where: PersonLabelsFilters): [PersonLabel!]!
+  personRelationship(offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): PersonRelationship
+  personRelationships(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationship!]!
+  persons(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [Person!]!
+}
+
+input UpdateImportantDateInput {
+  date: String
+  description: String
   id: String
-  lastName: String
-  noteId: String
-  """Date"""
-  updatedAt: String
+  name: String
+  personId: String
+  recurrence: String
+}
+
+input UpdateLabelInput {
+  color: String
+  id: String
+  label: String
 }
 
 input UpdateNoteInput {
   body: String
   id: String
+  personId: String
+}
+
+input UpdatePersonInput {
+  """JSON"""
+  createdAt: String
+  email: String
+  firstName: String
+  id: String
+  lastName: String
+  """JSON"""
+  updatedAt: String
+}
+
+input UpdatePersonLabelInput {
+  labelId: String
+  personId: String
+}
+
+input UpdatePersonRelationshipInput {
+  fromPersonId: String
+  id: String
+  toPersonId: String
+  type: String
 }
