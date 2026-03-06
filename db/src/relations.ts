@@ -23,6 +23,10 @@ export const relations = defineRelations(schema, (r) => ({
       from: r.notes.personId,
       to: r.persons.id,
     }),
+    labels: r.many.labels({
+      from: r.notes.id.through(r.noteTags.noteId),
+      to: r.labels.id.through(r.noteTags.labelId),
+    }),
   },
   importantDates: {
     person: r.one.persons({

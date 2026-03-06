@@ -53,6 +53,19 @@ export const importantDates = pgTable('important_dates', {
   recurrence: text('recurrence').$type<Recurrence>(),
 });
 
+export const noteTags = pgTable(
+  'note_tags',
+  {
+    noteId: uuid('note_id')
+      .notNull()
+      .references(() => notes.id, { onDelete: 'cascade' }),
+    labelId: uuid('label_id')
+      .notNull()
+      .references(() => labels.id, { onDelete: 'cascade' }),
+  },
+  (t) => [primaryKey({ columns: [t.noteId, t.labelId] })],
+);
+
 export const importantDateTags = pgTable(
   'important_date_tags',
   {
@@ -91,3 +104,5 @@ export type PersonRelationship = typeof personRelationships.$inferSelect;
 export type NewPersonRelationship = typeof personRelationships.$inferInsert;
 export type ImportantDateTag = typeof importantDateTags.$inferSelect;
 export type NewImportantDateTag = typeof importantDateTags.$inferInsert;
+export type NoteTag = typeof noteTags.$inferSelect;
+export type NewNoteTag = typeof noteTags.$inferInsert;

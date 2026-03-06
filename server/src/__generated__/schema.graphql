@@ -29,6 +29,11 @@ input CreateNoteInput {
   personId: String
 }
 
+input CreateNoteTagInput {
+  labelId: String!
+  noteId: String!
+}
+
 input CreatePersonInput {
   """JSON"""
   createdAt: String
@@ -103,8 +108,15 @@ type ImportantDatePersonRelationLabelsRelation {
 type ImportantDatePersonRelationNotesRelation {
   body: String!
   id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ImportantDatePersonRelationNotesRelationLabelsRelation!]!
   person(where: PersonsFilters): ImportantDatePersonRelationNotesRelationPersonRelation
   personId: String
+}
+
+type ImportantDatePersonRelationNotesRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
 }
 
 type ImportantDatePersonRelationNotesRelationPersonRelation {
@@ -697,6 +709,8 @@ type Mutation {
   createLabel(values: CreateLabelInput!): Label
   createLabels(values: [CreateLabelInput!]!): [Label!]!
   createNote(values: CreateNoteInput!): Note
+  createNoteTag(values: CreateNoteTagInput!): NoteTag
+  createNoteTags(values: [CreateNoteTagInput!]!): [NoteTag!]!
   createNotes(values: [CreateNoteInput!]!): [Note!]!
   createPerson(values: CreatePersonInput!): Person
   createPersonLabel(values: CreatePersonLabelInput!): PersonLabel
@@ -707,6 +721,7 @@ type Mutation {
   deleteImportantDateTags(where: ImportantDateTagsFilters): [ImportantDateTag!]!
   deleteImportantDates(where: ImportantDatesFilters): [ImportantDate!]!
   deleteLabels(where: LabelsFilters): [Label!]!
+  deleteNoteTags(where: NoteTagsFilters): [NoteTag!]!
   deleteNotes(where: NotesFilters): [Note!]!
   deletePersonLabels(where: PersonLabelsFilters): [PersonLabel!]!
   deletePersonRelationships(where: PersonRelationshipsFilters): [PersonRelationship!]!
@@ -714,6 +729,7 @@ type Mutation {
   updateImportantDateTags(set: UpdateImportantDateTagInput!, where: ImportantDateTagsFilters): [ImportantDateTag!]!
   updateImportantDates(set: UpdateImportantDateInput!, where: ImportantDatesFilters): [ImportantDate!]!
   updateLabels(set: UpdateLabelInput!, where: LabelsFilters): [Label!]!
+  updateNoteTags(set: UpdateNoteTagInput!, where: NoteTagsFilters): [NoteTag!]!
   updateNotes(set: UpdateNoteInput!, where: NotesFilters): [Note!]!
   updatePersonLabels(set: UpdatePersonLabelInput!, where: PersonLabelsFilters): [PersonLabel!]!
   updatePersonRelationships(set: UpdatePersonRelationshipInput!, where: PersonRelationshipsFilters): [PersonRelationship!]!
@@ -723,8 +739,15 @@ type Mutation {
 type Note {
   body: String!
   id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [NoteLabelsRelation!]!
   person(where: PersonsFilters): NotePersonRelation
   personId: String
+}
+
+type NoteLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
 }
 
 type NotePersonRelation {
@@ -843,6 +866,105 @@ type NotePersonRelationRelationshipsToRelationToPersonRelation {
   lastName: String!
   """JSON"""
   updatedAt: String!
+}
+
+type NoteTag {
+  labelId: String!
+  noteId: String!
+}
+
+input NoteTagsFilters {
+  OR: [NoteTagsFiltersOr!]
+  labelId: NoteTagsLabelIdFilters
+  noteId: NoteTagsNoteIdFilters
+}
+
+input NoteTagsFiltersOr {
+  labelId: NoteTagsLabelIdFilters
+  noteId: NoteTagsNoteIdFilters
+}
+
+input NoteTagsLabelIdFilters {
+  OR: [NoteTagsLabelIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input NoteTagsLabelIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input NoteTagsNoteIdFilters {
+  OR: [NoteTagsNoteIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input NoteTagsNoteIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input NoteTagsOrderBy {
+  labelId: InnerOrder
+  noteId: InnerOrder
 }
 
 input NotesBodyFilters {
@@ -1142,8 +1264,15 @@ type PersonLabelsRelation {
 type PersonNotesRelation {
   body: String!
   id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonNotesRelationLabelsRelation!]!
   person(where: PersonsFilters): PersonNotesRelationPersonRelation
   personId: String
+}
+
+type PersonNotesRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
 }
 
 type PersonNotesRelationPersonRelation {
@@ -1227,8 +1356,15 @@ type PersonRelationshipFromPersonRelationLabelsRelation {
 type PersonRelationshipFromPersonRelationNotesRelation {
   body: String!
   id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipFromPersonRelationNotesRelationLabelsRelation!]!
   person(where: PersonsFilters): PersonRelationshipFromPersonRelationNotesRelationPersonRelation
   personId: String
+}
+
+type PersonRelationshipFromPersonRelationNotesRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
 }
 
 type PersonRelationshipFromPersonRelationNotesRelationPersonRelation {
@@ -1309,8 +1445,15 @@ type PersonRelationshipToPersonRelationLabelsRelation {
 type PersonRelationshipToPersonRelationNotesRelation {
   body: String!
   id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipToPersonRelationNotesRelationLabelsRelation!]!
   person(where: PersonsFilters): PersonRelationshipToPersonRelationNotesRelationPersonRelation
   personId: String
+}
+
+type PersonRelationshipToPersonRelationNotesRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
 }
 
 type PersonRelationshipToPersonRelationNotesRelationPersonRelation {
@@ -1872,6 +2015,8 @@ type Query {
   label(offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): Label
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [Label!]!
   note(offset: Int, orderBy: NotesOrderBy, where: NotesFilters): Note
+  noteTag(offset: Int, orderBy: NoteTagsOrderBy, where: NoteTagsFilters): NoteTag
+  noteTags(limit: Int, offset: Int, orderBy: NoteTagsOrderBy, where: NoteTagsFilters): [NoteTag!]!
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [Note!]!
   person(offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): Person
   personLabel(offset: Int, orderBy: PersonLabelsOrderBy, where: PersonLabelsFilters): PersonLabel
@@ -1905,6 +2050,11 @@ input UpdateNoteInput {
   body: String
   id: String
   personId: String
+}
+
+input UpdateNoteTagInput {
+  labelId: String
+  noteId: String
 }
 
 input UpdatePersonInput {

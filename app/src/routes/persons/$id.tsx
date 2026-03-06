@@ -10,6 +10,7 @@ import {
 } from '@/components/domain/person/important-date-form.js';
 import { ImportantDateTags } from '@/components/domain/person/important-date-tags.js';
 import { PersonLabels } from '@/components/domain/person/labels.js';
+import { PersonNotes } from '@/components/domain/person/notes.js';
 import { PersonRelationships } from '@/components/domain/person/relationships.js';
 import { Button } from '@/components/ui/button.js';
 import { Card, CardContent } from '@/components/ui/card.js';
@@ -41,6 +42,15 @@ const GET_PERSON_DETAIL = graphql(`
         description
         date
         recurrence
+        labels {
+          id
+          label
+          color
+        }
+      }
+      notes {
+        id
+        body
         labels {
           id
           label
@@ -442,6 +452,23 @@ function PersonDetailPage() {
                 ))}
               </div>
             )}
+          </CardContent>
+        </Card>
+
+        {/* Notes */}
+        <Card>
+          <CardContent className="p-4 space-y-3">
+            <h2 className="font-semibold text-base">Notes</h2>
+            <PersonNotes
+              personId={person.id}
+              notes={(person.notes ?? []).map((n) => ({
+                id: n.id,
+                body: n.body,
+                labels: n.labels ?? [],
+              }))}
+              allTags={allLabels}
+              onChanged={() => refetch()}
+            />
           </CardContent>
         </Card>
 
