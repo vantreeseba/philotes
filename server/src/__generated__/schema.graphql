@@ -12,6 +12,11 @@ input CreateImportantDateInput {
   recurrence: String
 }
 
+input CreateImportantDateTagInput {
+  importantDateId: String!
+  labelId: String!
+}
+
 input CreateLabelInput {
   color: String!
   id: String
@@ -51,10 +56,17 @@ type ImportantDate {
   date: String!
   description: String
   id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ImportantDateLabelsRelation!]!
   name: String!
   person(where: PersonsFilters): ImportantDatePersonRelation
   personId: String!
   recurrence: String
+}
+
+type ImportantDateLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
 }
 
 type ImportantDatePersonRelation {
@@ -166,6 +178,105 @@ type ImportantDatePersonRelationRelationshipsToRelationToPersonRelation {
   lastName: String!
   """JSON"""
   updatedAt: String!
+}
+
+type ImportantDateTag {
+  importantDateId: String!
+  labelId: String!
+}
+
+input ImportantDateTagsFilters {
+  OR: [ImportantDateTagsFiltersOr!]
+  importantDateId: ImportantDateTagsImportantDateIdFilters
+  labelId: ImportantDateTagsLabelIdFilters
+}
+
+input ImportantDateTagsFiltersOr {
+  importantDateId: ImportantDateTagsImportantDateIdFilters
+  labelId: ImportantDateTagsLabelIdFilters
+}
+
+input ImportantDateTagsImportantDateIdFilters {
+  OR: [ImportantDateTagsImportantDateIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ImportantDateTagsImportantDateIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ImportantDateTagsLabelIdFilters {
+  OR: [ImportantDateTagsLabelIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ImportantDateTagsLabelIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ImportantDateTagsOrderBy {
+  importantDateId: InnerOrder
+  labelId: InnerOrder
 }
 
 input ImportantDatesDateFilters {
@@ -580,6 +691,8 @@ input LabelsOrderBy {
 
 type Mutation {
   createImportantDate(values: CreateImportantDateInput!): ImportantDate
+  createImportantDateTag(values: CreateImportantDateTagInput!): ImportantDateTag
+  createImportantDateTags(values: [CreateImportantDateTagInput!]!): [ImportantDateTag!]!
   createImportantDates(values: [CreateImportantDateInput!]!): [ImportantDate!]!
   createLabel(values: CreateLabelInput!): Label
   createLabels(values: [CreateLabelInput!]!): [Label!]!
@@ -591,12 +704,14 @@ type Mutation {
   createPersonRelationship(values: CreatePersonRelationshipInput!): PersonRelationship
   createPersonRelationships(values: [CreatePersonRelationshipInput!]!): [PersonRelationship!]!
   createPersons(values: [CreatePersonInput!]!): [Person!]!
+  deleteImportantDateTags(where: ImportantDateTagsFilters): [ImportantDateTag!]!
   deleteImportantDates(where: ImportantDatesFilters): [ImportantDate!]!
   deleteLabels(where: LabelsFilters): [Label!]!
   deleteNotes(where: NotesFilters): [Note!]!
   deletePersonLabels(where: PersonLabelsFilters): [PersonLabel!]!
   deletePersonRelationships(where: PersonRelationshipsFilters): [PersonRelationship!]!
   deletePersons(where: PersonsFilters): [Person!]!
+  updateImportantDateTags(set: UpdateImportantDateTagInput!, where: ImportantDateTagsFilters): [ImportantDateTag!]!
   updateImportantDates(set: UpdateImportantDateInput!, where: ImportantDatesFilters): [ImportantDate!]!
   updateLabels(set: UpdateLabelInput!, where: LabelsFilters): [Label!]!
   updateNotes(set: UpdateNoteInput!, where: NotesFilters): [Note!]!
@@ -632,10 +747,17 @@ type NotePersonRelationImportantDatesRelation {
   date: String!
   description: String
   id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [NotePersonRelationImportantDatesRelationLabelsRelation!]!
   name: String!
   person(where: PersonsFilters): NotePersonRelationImportantDatesRelationPersonRelation
   personId: String!
   recurrence: String
+}
+
+type NotePersonRelationImportantDatesRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
 }
 
 type NotePersonRelationImportantDatesRelationPersonRelation {
@@ -888,10 +1010,17 @@ type PersonImportantDatesRelation {
   date: String!
   description: String
   id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonImportantDatesRelationLabelsRelation!]!
   name: String!
   person(where: PersonsFilters): PersonImportantDatesRelationPersonRelation
   personId: String!
   recurrence: String
+}
+
+type PersonImportantDatesRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
 }
 
 type PersonImportantDatesRelationPersonRelation {
@@ -1065,10 +1194,17 @@ type PersonRelationshipFromPersonRelationImportantDatesRelation {
   date: String!
   description: String
   id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelation!]!
   name: String!
   person(where: PersonsFilters): PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation
   personId: String!
   recurrence: String
+}
+
+type PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
 }
 
 type PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation {
@@ -1140,10 +1276,17 @@ type PersonRelationshipToPersonRelationImportantDatesRelation {
   date: String!
   description: String
   id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelation!]!
   name: String!
   person(where: PersonsFilters): PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation
   personId: String!
   recurrence: String
+}
+
+type PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
 }
 
 type PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation {
@@ -1723,6 +1866,8 @@ input PersonsUpdatedAtFiltersOr {
 
 type Query {
   importantDate(offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): ImportantDate
+  importantDateTag(offset: Int, orderBy: ImportantDateTagsOrderBy, where: ImportantDateTagsFilters): ImportantDateTag
+  importantDateTags(limit: Int, offset: Int, orderBy: ImportantDateTagsOrderBy, where: ImportantDateTagsFilters): [ImportantDateTag!]!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [ImportantDate!]!
   label(offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): Label
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [Label!]!
@@ -1743,6 +1888,11 @@ input UpdateImportantDateInput {
   name: String
   personId: String
   recurrence: String
+}
+
+input UpdateImportantDateTagInput {
+  importantDateId: String
+  labelId: String
 }
 
 input UpdateLabelInput {

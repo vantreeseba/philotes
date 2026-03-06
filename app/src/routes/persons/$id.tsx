@@ -8,6 +8,7 @@ import {
   type ImportantDateFormValue,
   RECURRENCE_OPTIONS,
 } from '@/components/domain/person/important-date-form.js';
+import { ImportantDateTags } from '@/components/domain/person/important-date-tags.js';
 import { PersonLabels } from '@/components/domain/person/labels.js';
 import { PersonRelationships } from '@/components/domain/person/relationships.js';
 import { Button } from '@/components/ui/button.js';
@@ -40,6 +41,11 @@ const GET_PERSON_DETAIL = graphql(`
         description
         date
         recurrence
+        labels {
+          id
+          label
+          color
+        }
       }
       relationships {
         id
@@ -151,13 +157,28 @@ interface ImportantDateRowProps {
   date: string;
   description: string | null | undefined;
   recurrence: string | null | undefined;
+  tags: Array<{ id: string; label: string; color: string }>;
+  allTags: Array<{ id: string; label: string; color: string }>;
   onDelete: (id: string) => void;
   onEdit: () => void;
+  onTagChanged: () => void;
 }
 
-function ImportantDateRow({ id, name, date, description, recurrence, onDelete, onEdit }: ImportantDateRowProps) {
+function ImportantDateRow({
+  id,
+  name,
+  date,
+  description,
+  recurrence,
+  tags,
+  allTags,
+  onDelete,
+  onEdit,
+  onTagChanged,
+}: ImportantDateRowProps) {
   const recurrenceLabel = RECURRENCE_OPTIONS.find((o) => o.value === recurrence)?.label;
   const [editOpen, setEditOpen] = useState(false);
+  const [showAddTag, setShowAddTag] = useState(false);
   const [updateImportantDate] = useMutation(UPDATE_IMPORTANT_DATE, {
     refetchQueries: [],
   });
@@ -178,33 +199,45 @@ function ImportantDateRow({ id, name, date, description, recurrence, onDelete, o
 
   return (
     <>
-      <div className="flex items-center justify-between gap-3 rounded-md border border-border px-3 py-2 text-sm">
-        <div className="min-w-0 flex-1">
-          <span className="font-medium">{name}</span>
-          {description && <span className="ml-2 text-muted-foreground text-xs">{description}</span>}
-          <div className="text-muted-foreground text-xs mt-0.5 flex items-center gap-1.5">
-            <span>{date}</span>
-            {recurrenceLabel && <span className="rounded-full bg-muted px-1.5 py-0.5 text-xs">{recurrenceLabel}</span>}
+      <div className="rounded-md border border-border px-3 py-2 text-sm">
+        <div className="flex items-start justify-between gap-3">
+          <div className="min-w-0 flex-1">
+            <span className="font-medium">{name}</span>
+            {description && <span className="ml-2 text-muted-foreground text-xs">{description}</span>}
+            <div className="text-muted-foreground text-xs mt-0.5 flex items-center gap-1.5">
+              <span>{date}</span>
+              {recurrenceLabel && (
+                <span className="rounded-full bg-muted px-1.5 py-0.5 text-xs">{recurrenceLabel}</span>
+              )}
+            </div>
+          </div>
+          <div className="flex shrink-0 gap-1 text-muted-foreground">
+            <button
+              type="button"
+              onClick={() => setEditOpen(true)}
+              className="hover:text-foreground transition-colors"
+              aria-label="Edit important date"
+            >
+              <Pencil className="h-3.5 w-3.5" />
+            </button>
+            <button
+              type="button"
+              onClick={() => onDelete(id)}
+              className="hover:text-destructive transition-colors"
+              aria-label="Remove important date"
+            >
+              <Trash2 className="h-3.5 w-3.5" />
+            </button>
           </div>
         </div>
-        <div className="flex shrink-0 gap-1 text-muted-foreground">
-          <button
-            type="button"
-            onClick={() => setEditOpen(true)}
-            className="hover:text-foreground transition-colors"
-            aria-label="Edit important date"
-          >
-            <Pencil className="h-3.5 w-3.5" />
-          </button>
-          <button
-            type="button"
-            onClick={() => onDelete(id)}
-            className="hover:text-destructive transition-colors"
-            aria-label="Remove important date"
-          >
-            <Trash2 className="h-3.5 w-3.5" />
-          </button>
-        </div>
+        <ImportantDateTags
+          importantDateId={id}
+          tags={tags}
+          allTags={allTags}
+          showAdd={showAddTag}
+          onShowAdd={setShowAddTag}
+          onChanged={onTagChanged}
+        />
       </div>
 
       <Dialog open={editOpen} onOpenChange={setEditOpen}>
@@ -272,6 +305,10 @@ function PersonDetailPage() {
   };
 
   const handleEditDate = () => {
+    refetch();
+  };
+
+  const handleTagChanged = () => {
     refetch();
   };
 
@@ -396,8 +433,11 @@ function PersonDetailPage() {
                     date={d.date}
                     description={d.description}
                     recurrence={d.recurrence}
+                    tags={d.labels ?? []}
+                    allTags={allLabels}
                     onDelete={handleDeleteDate}
                     onEdit={handleEditDate}
+                    onTagChanged={handleTagChanged}
                   />
                 ))}
               </div>

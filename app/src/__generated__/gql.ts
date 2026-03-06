@@ -16,6 +16,8 @@ import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-
 type Documents = {
     "\n  query GetUpcomingDates {\n    importantDates {\n      id\n      name\n      description\n      date\n      recurrence\n      person {\n        id\n        firstName\n        lastName\n      }\n    }\n  }\n": typeof types.GetUpcomingDatesDocument,
     "\n  fragment Label_List on Label {\n    id\n    color\n    label\n  }\n": typeof types.Label_ListFragmentDoc,
+    "\n  mutation AttachTagToImportantDate($importantDateId: String!, $labelId: String!) {\n    createImportantDateTag(\n      values: { importantDateId: $importantDateId, labelId: $labelId }\n    ) {\n      importantDateId\n      labelId\n    }\n  }\n": typeof types.AttachTagToImportantDateDocument,
+    "\n  mutation DetachTagFromImportantDate($importantDateId: String!, $labelId: String!) {\n    deleteImportantDateTags(\n      where: {\n        importantDateId: { eq: $importantDateId }\n        labelId: { eq: $labelId }\n      }\n    ) {\n      importantDateId\n      labelId\n    }\n  }\n": typeof types.DetachTagFromImportantDateDocument,
     "\n  fragment Person_Labels on Person {\n    id\n    labels {\n      id\n      label\n      color\n    }\n  }\n": typeof types.Person_LabelsFragmentDoc,
     "\n  mutation AttachLabelToPerson($personId: String!, $labelId: String!) {\n    createPersonLabel(values: { personId: $personId, labelId: $labelId }) {\n      personId\n      labelId\n    }\n  }\n": typeof types.AttachLabelToPersonDocument,
     "\n  mutation DetachLabelFromPerson($personId: String!, $labelId: String!) {\n    deletePersonLabels(\n      where: { personId: { eq: $personId }, labelId: { eq: $labelId } }\n    ) {\n      personId\n      labelId\n    }\n  }\n": typeof types.DetachLabelFromPersonDocument,
@@ -25,10 +27,7 @@ type Documents = {
     "\n  mutation UpdatePersonRelationship($id: String!, $type: String!) {\n    updatePersonRelationships(\n      set: { type: $type }\n      where: { id: { eq: $id } }\n    ) {\n      id\n      fromPersonId\n      toPersonId\n      type\n    }\n  }\n": typeof types.UpdatePersonRelationshipDocument,
     "\n  mutation DeletePersonRelationship($id: String!) {\n    deletePersonRelationships(where: { id: { eq: $id } }) {\n      id\n    }\n  }\n": typeof types.DeletePersonRelationshipDocument,
     "\n  fragment Tag_List on Label {\n    id\n    color\n    label\n  }\n": typeof types.Tag_ListFragmentDoc,
-    "\n  query GetLabels {\n    labels {\n      id\n      ...Label_List\n    }\n  }\n": typeof types.GetLabelsDocument,
-    "\n  mutation CreateLabel($values: CreateLabelInput!) {\n    createLabel(values: $values) {\n      id\n      ...Label_List\n    }\n  }\n": typeof types.CreateLabelDocument,
-    "\n  mutation DeleteLabel($id: String!) {\n    deleteLabels(where: { id: { eq: $id } }) {\n      id\n    }\n  }\n": typeof types.DeleteLabelDocument,
-    "\n  query GetPersonDetail($id: String!) {\n    persons(where: { id: { eq: $id } }) {\n      id\n      firstName\n      lastName\n      email\n      createdAt\n      updatedAt\n      labels {\n        id\n        label\n        color\n      }\n      importantDates {\n        id\n        name\n        description\n        date\n        recurrence\n      }\n      relationships {\n        id\n        type\n        relatedPersonId\n        relatedPersonFirstName\n        relatedPersonLastName\n      }\n    }\n  }\n": typeof types.GetPersonDetailDocument,
+    "\n  query GetPersonDetail($id: String!) {\n    persons(where: { id: { eq: $id } }) {\n      id\n      firstName\n      lastName\n      email\n      createdAt\n      updatedAt\n      labels {\n        id\n        label\n        color\n      }\n      importantDates {\n        id\n        name\n        description\n        date\n        recurrence\n        labels {\n          id\n          label\n          color\n        }\n      }\n      relationships {\n        id\n        type\n        relatedPersonId\n        relatedPersonFirstName\n        relatedPersonLastName\n      }\n    }\n  }\n": typeof types.GetPersonDetailDocument,
     "\n  query GetAllPersonsForDetail {\n    persons {\n      id\n      firstName\n      lastName\n    }\n  }\n": typeof types.GetAllPersonsForDetailDocument,
     "\n  query GetAllLabelsForDetail {\n    labels {\n      id\n      label\n      color\n    }\n  }\n": typeof types.GetAllLabelsForDetailDocument,
     "\n  mutation DeleteImportantDate($id: String!) {\n    deleteImportantDates(where: { id: { eq: $id } }) {\n      id\n    }\n  }\n": typeof types.DeleteImportantDateDocument,
@@ -45,6 +44,8 @@ type Documents = {
 const documents: Documents = {
     "\n  query GetUpcomingDates {\n    importantDates {\n      id\n      name\n      description\n      date\n      recurrence\n      person {\n        id\n        firstName\n        lastName\n      }\n    }\n  }\n": types.GetUpcomingDatesDocument,
     "\n  fragment Label_List on Label {\n    id\n    color\n    label\n  }\n": types.Label_ListFragmentDoc,
+    "\n  mutation AttachTagToImportantDate($importantDateId: String!, $labelId: String!) {\n    createImportantDateTag(\n      values: { importantDateId: $importantDateId, labelId: $labelId }\n    ) {\n      importantDateId\n      labelId\n    }\n  }\n": types.AttachTagToImportantDateDocument,
+    "\n  mutation DetachTagFromImportantDate($importantDateId: String!, $labelId: String!) {\n    deleteImportantDateTags(\n      where: {\n        importantDateId: { eq: $importantDateId }\n        labelId: { eq: $labelId }\n      }\n    ) {\n      importantDateId\n      labelId\n    }\n  }\n": types.DetachTagFromImportantDateDocument,
     "\n  fragment Person_Labels on Person {\n    id\n    labels {\n      id\n      label\n      color\n    }\n  }\n": types.Person_LabelsFragmentDoc,
     "\n  mutation AttachLabelToPerson($personId: String!, $labelId: String!) {\n    createPersonLabel(values: { personId: $personId, labelId: $labelId }) {\n      personId\n      labelId\n    }\n  }\n": types.AttachLabelToPersonDocument,
     "\n  mutation DetachLabelFromPerson($personId: String!, $labelId: String!) {\n    deletePersonLabels(\n      where: { personId: { eq: $personId }, labelId: { eq: $labelId } }\n    ) {\n      personId\n      labelId\n    }\n  }\n": types.DetachLabelFromPersonDocument,
@@ -54,10 +55,7 @@ const documents: Documents = {
     "\n  mutation UpdatePersonRelationship($id: String!, $type: String!) {\n    updatePersonRelationships(\n      set: { type: $type }\n      where: { id: { eq: $id } }\n    ) {\n      id\n      fromPersonId\n      toPersonId\n      type\n    }\n  }\n": types.UpdatePersonRelationshipDocument,
     "\n  mutation DeletePersonRelationship($id: String!) {\n    deletePersonRelationships(where: { id: { eq: $id } }) {\n      id\n    }\n  }\n": types.DeletePersonRelationshipDocument,
     "\n  fragment Tag_List on Label {\n    id\n    color\n    label\n  }\n": types.Tag_ListFragmentDoc,
-    "\n  query GetLabels {\n    labels {\n      id\n      ...Label_List\n    }\n  }\n": types.GetLabelsDocument,
-    "\n  mutation CreateLabel($values: CreateLabelInput!) {\n    createLabel(values: $values) {\n      id\n      ...Label_List\n    }\n  }\n": types.CreateLabelDocument,
-    "\n  mutation DeleteLabel($id: String!) {\n    deleteLabels(where: { id: { eq: $id } }) {\n      id\n    }\n  }\n": types.DeleteLabelDocument,
-    "\n  query GetPersonDetail($id: String!) {\n    persons(where: { id: { eq: $id } }) {\n      id\n      firstName\n      lastName\n      email\n      createdAt\n      updatedAt\n      labels {\n        id\n        label\n        color\n      }\n      importantDates {\n        id\n        name\n        description\n        date\n        recurrence\n      }\n      relationships {\n        id\n        type\n        relatedPersonId\n        relatedPersonFirstName\n        relatedPersonLastName\n      }\n    }\n  }\n": types.GetPersonDetailDocument,
+    "\n  query GetPersonDetail($id: String!) {\n    persons(where: { id: { eq: $id } }) {\n      id\n      firstName\n      lastName\n      email\n      createdAt\n      updatedAt\n      labels {\n        id\n        label\n        color\n      }\n      importantDates {\n        id\n        name\n        description\n        date\n        recurrence\n        labels {\n          id\n          label\n          color\n        }\n      }\n      relationships {\n        id\n        type\n        relatedPersonId\n        relatedPersonFirstName\n        relatedPersonLastName\n      }\n    }\n  }\n": types.GetPersonDetailDocument,
     "\n  query GetAllPersonsForDetail {\n    persons {\n      id\n      firstName\n      lastName\n    }\n  }\n": types.GetAllPersonsForDetailDocument,
     "\n  query GetAllLabelsForDetail {\n    labels {\n      id\n      label\n      color\n    }\n  }\n": types.GetAllLabelsForDetailDocument,
     "\n  mutation DeleteImportantDate($id: String!) {\n    deleteImportantDates(where: { id: { eq: $id } }) {\n      id\n    }\n  }\n": types.DeleteImportantDateDocument,
@@ -97,6 +95,14 @@ export function graphql(source: "\n  fragment Label_List on Label {\n    id\n   
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
+export function graphql(source: "\n  mutation AttachTagToImportantDate($importantDateId: String!, $labelId: String!) {\n    createImportantDateTag(\n      values: { importantDateId: $importantDateId, labelId: $labelId }\n    ) {\n      importantDateId\n      labelId\n    }\n  }\n"): (typeof documents)["\n  mutation AttachTagToImportantDate($importantDateId: String!, $labelId: String!) {\n    createImportantDateTag(\n      values: { importantDateId: $importantDateId, labelId: $labelId }\n    ) {\n      importantDateId\n      labelId\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  mutation DetachTagFromImportantDate($importantDateId: String!, $labelId: String!) {\n    deleteImportantDateTags(\n      where: {\n        importantDateId: { eq: $importantDateId }\n        labelId: { eq: $labelId }\n      }\n    ) {\n      importantDateId\n      labelId\n    }\n  }\n"): (typeof documents)["\n  mutation DetachTagFromImportantDate($importantDateId: String!, $labelId: String!) {\n    deleteImportantDateTags(\n      where: {\n        importantDateId: { eq: $importantDateId }\n        labelId: { eq: $labelId }\n      }\n    ) {\n      importantDateId\n      labelId\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
 export function graphql(source: "\n  fragment Person_Labels on Person {\n    id\n    labels {\n      id\n      label\n      color\n    }\n  }\n"): (typeof documents)["\n  fragment Person_Labels on Person {\n    id\n    labels {\n      id\n      label\n      color\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
@@ -133,19 +139,7 @@ export function graphql(source: "\n  fragment Tag_List on Label {\n    id\n    c
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query GetLabels {\n    labels {\n      id\n      ...Label_List\n    }\n  }\n"): (typeof documents)["\n  query GetLabels {\n    labels {\n      id\n      ...Label_List\n    }\n  }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "\n  mutation CreateLabel($values: CreateLabelInput!) {\n    createLabel(values: $values) {\n      id\n      ...Label_List\n    }\n  }\n"): (typeof documents)["\n  mutation CreateLabel($values: CreateLabelInput!) {\n    createLabel(values: $values) {\n      id\n      ...Label_List\n    }\n  }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "\n  mutation DeleteLabel($id: String!) {\n    deleteLabels(where: { id: { eq: $id } }) {\n      id\n    }\n  }\n"): (typeof documents)["\n  mutation DeleteLabel($id: String!) {\n    deleteLabels(where: { id: { eq: $id } }) {\n      id\n    }\n  }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "\n  query GetPersonDetail($id: String!) {\n    persons(where: { id: { eq: $id } }) {\n      id\n      firstName\n      lastName\n      email\n      createdAt\n      updatedAt\n      labels {\n        id\n        label\n        color\n      }\n      importantDates {\n        id\n        name\n        description\n        date\n        recurrence\n      }\n      relationships {\n        id\n        type\n        relatedPersonId\n        relatedPersonFirstName\n        relatedPersonLastName\n      }\n    }\n  }\n"): (typeof documents)["\n  query GetPersonDetail($id: String!) {\n    persons(where: { id: { eq: $id } }) {\n      id\n      firstName\n      lastName\n      email\n      createdAt\n      updatedAt\n      labels {\n        id\n        label\n        color\n      }\n      importantDates {\n        id\n        name\n        description\n        date\n        recurrence\n      }\n      relationships {\n        id\n        type\n        relatedPersonId\n        relatedPersonFirstName\n        relatedPersonLastName\n      }\n    }\n  }\n"];
+export function graphql(source: "\n  query GetPersonDetail($id: String!) {\n    persons(where: { id: { eq: $id } }) {\n      id\n      firstName\n      lastName\n      email\n      createdAt\n      updatedAt\n      labels {\n        id\n        label\n        color\n      }\n      importantDates {\n        id\n        name\n        description\n        date\n        recurrence\n        labels {\n          id\n          label\n          color\n        }\n      }\n      relationships {\n        id\n        type\n        relatedPersonId\n        relatedPersonFirstName\n        relatedPersonLastName\n      }\n    }\n  }\n"): (typeof documents)["\n  query GetPersonDetail($id: String!) {\n    persons(where: { id: { eq: $id } }) {\n      id\n      firstName\n      lastName\n      email\n      createdAt\n      updatedAt\n      labels {\n        id\n        label\n        color\n      }\n      importantDates {\n        id\n        name\n        description\n        date\n        recurrence\n        labels {\n          id\n          label\n          color\n        }\n      }\n      relationships {\n        id\n        type\n        relatedPersonId\n        relatedPersonFirstName\n        relatedPersonLastName\n      }\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
