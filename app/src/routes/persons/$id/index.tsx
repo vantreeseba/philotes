@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from '@apollo/client';
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { ArrowLeft, CalendarPlus, NotebookPen, Pencil, Tag, Trash2, UserRoundPlus } from 'lucide-react';
-import { useState } from 'react';
+import { ArrowLeft, CalendarPlus, Camera, NotebookPen, Pencil, Tag, Trash2, UserRoundPlus } from 'lucide-react';
+import { useRef, useState } from 'react';
 import { graphql } from '@/__generated__/gql.js';
 import { PersonForm, type PersonFormValue } from '@/components/domain/person/form.js';
 import {
@@ -14,6 +14,7 @@ import { PersonLabels } from '@/components/domain/person/labels.js';
 import { PersonNotes } from '@/components/domain/person/notes.js';
 import { PersonRelationships } from '@/components/domain/person/relationships.js';
 import { ListLayout } from '@/components/layouts/list.js';
+import { Avatar } from '@/components/ui/avatar.js';
 import { Button } from '@/components/ui/button.js';
 import { Card, CardContent } from '@/components/ui/card.js';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog.js';
@@ -31,6 +32,7 @@ const GET_PERSON_DETAIL = graphql(`
       firstName
       lastName
       email
+      avatarPath
       createdAt
       updatedAt
       labels {
@@ -346,6 +348,18 @@ function PersonDetailPage() {
   const [showAddLabel, setShowAddLabel] = useState(false);
   const [showAddRelationship, setShowAddRelationship] = useState(false);
   const [editPersonOpen, setEditPersonOpen] = useState(false);
+  const avatarInputRef = useRef<HTMLInputElement>(null);
+
+  const handleAvatarUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const formData = new FormData();
+    formData.append('avatar', file);
+    await fetch(`/avatars/${id}`, { method: 'POST', body: formData });
+    // Reset input so the same file can be re-selected
+    if (avatarInputRef.current) avatarInputRef.current.value = '';
+    refetch();
+  };
 
   if (loading) return <Spinner />;
   if (error) return <p>Error loading person: {error.message}</p>;
@@ -464,11 +478,37 @@ function PersonDetailPage() {
 
         {/* Header */}
         <div className="flex items-start justify-between gap-4">
-          <div>
-            <h1 className="font-bold text-3xl">
-              {person.firstName} {person.lastName}
-            </h1>
-            <p className="text-muted-foreground">{person.email}</p>
+          <div className="flex items-center gap-4">
+            {/* Avatar with upload overlay */}
+            <div className="relative group">
+              <Avatar
+                firstName={person.firstName}
+                lastName={person.lastName}
+                avatarPath={person.avatarPath}
+                size="lg"
+              />
+              <label
+                htmlFor="avatar-upload"
+                className="absolute inset-0 flex items-center justify-center rounded-full bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
+                aria-label="Upload photo"
+              >
+                <Camera className="h-5 w-5 text-white" />
+              </label>
+              <input
+                id="avatar-upload"
+                type="file"
+                accept="image/jpeg,image/png,image/gif,image/webp"
+                className="sr-only"
+                ref={avatarInputRef}
+                onChange={handleAvatarUpload}
+              />
+            </div>
+            <div>
+              <h1 className="font-bold text-3xl">
+                {person.firstName} {person.lastName}
+              </h1>
+              <p className="text-muted-foreground">{person.email}</p>
+            </div>
           </div>
           <Button variant="outline" size="sm" onClick={() => setEditPersonOpen(true)}>
             <Pencil className="mr-1.5 h-4 w-4" />

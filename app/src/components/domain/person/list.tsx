@@ -6,6 +6,7 @@ import { graphql } from '@/__generated__/gql.js';
 import type { Person_ListFragment } from '@/__generated__/graphql.ts';
 import { PERSON_RELATIONSHIPS } from '@/components/domain/person/relationships.js';
 import { ListLayout } from '@/components/layouts/list.js';
+import { Avatar } from '@/components/ui/avatar.js';
 import { Button } from '@/components/ui/button.js';
 import { Card, CardContent } from '@/components/ui/card.js';
 import { Spinner } from '@/components/ui/spinner.tsx';
@@ -16,6 +17,7 @@ const PERSON_LIST = graphql(`
     firstName
     lastName
     email
+    avatarPath
     createdAt
     updatedAt
     labels {
@@ -55,7 +57,8 @@ function PersonRow({ person: from, onClickDelete, activeLabelIds }: PersonRowPro
 
   return (
     <Card>
-      <CardContent className="flex items-start justify-between p-4">
+      <CardContent className="flex items-start gap-3 justify-between p-4">
+        <Avatar firstName={person.firstName} lastName={person.lastName} avatarPath={person.avatarPath} size="md" />
         <div className="min-w-0 flex-1 space-y-1">
           <p className="font-medium">
             <Link to="/persons/$id" params={{ id: person.id }} className="hover:underline">
@@ -105,6 +108,7 @@ interface FilterablePersonRow {
   firstName: string;
   lastName: string;
   email: string;
+  avatarPath?: string | null;
   labels: Array<{ id: string; label: string; color: string }>;
 }
 

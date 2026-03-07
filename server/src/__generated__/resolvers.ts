@@ -49,6 +49,7 @@ export type CreateNoteTagInput = {
 };
 
 export type CreatePersonInput = {
+  avatarPath?: InputMaybe<Scalars['String']['input']>;
   /** JSON */
   createdAt?: InputMaybe<Scalars['String']['input']>;
   email: Scalars['String']['input'];
@@ -105,6 +106,7 @@ export type ImportantDateLabelsRelation = {
 
 export type ImportantDatePersonRelation = {
   __typename?: 'ImportantDatePersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -208,6 +210,7 @@ export type ImportantDatePersonRelationNotesRelationLabelsRelation = {
 
 export type ImportantDatePersonRelationNotesRelationPersonRelation = {
   __typename?: 'ImportantDatePersonRelationNotesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -240,6 +243,7 @@ export type ImportantDatePersonRelationRelationshipsFromRelationToPersonArgs = {
 
 export type ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelation = {
   __typename?: 'ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -252,6 +256,7 @@ export type ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelati
 
 export type ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation = {
   __typename?: 'ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -284,6 +289,7 @@ export type ImportantDatePersonRelationRelationshipsToRelationToPersonArgs = {
 
 export type ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation = {
   __typename?: 'ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -296,6 +302,7 @@ export type ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation
 
 export type ImportantDatePersonRelationRelationshipsToRelationToPersonRelation = {
   __typename?: 'ImportantDatePersonRelationRelationshipsToRelationToPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -1052,6 +1059,7 @@ export type NoteLabelsRelation = {
 
 export type NotePersonRelation = {
   __typename?: 'NotePersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -1141,6 +1149,7 @@ export type NotePersonRelationImportantDatesRelationLabelsRelation = {
 
 export type NotePersonRelationImportantDatesRelationPersonRelation = {
   __typename?: 'NotePersonRelationImportantDatesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -1187,6 +1196,7 @@ export type NotePersonRelationRelationshipsFromRelationToPersonArgs = {
 
 export type NotePersonRelationRelationshipsFromRelationFromPersonRelation = {
   __typename?: 'NotePersonRelationRelationshipsFromRelationFromPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -1199,6 +1209,7 @@ export type NotePersonRelationRelationshipsFromRelationFromPersonRelation = {
 
 export type NotePersonRelationRelationshipsFromRelationToPersonRelation = {
   __typename?: 'NotePersonRelationRelationshipsFromRelationToPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -1231,6 +1242,7 @@ export type NotePersonRelationRelationshipsToRelationToPersonArgs = {
 
 export type NotePersonRelationRelationshipsToRelationFromPersonRelation = {
   __typename?: 'NotePersonRelationRelationshipsToRelationFromPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -1243,6 +1255,7 @@ export type NotePersonRelationRelationshipsToRelationFromPersonRelation = {
 
 export type NotePersonRelationRelationshipsToRelationToPersonRelation = {
   __typename?: 'NotePersonRelationRelationshipsToRelationToPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -1499,6 +1512,7 @@ export enum OrderDirection {
 
 export type Person = {
   __typename?: 'Person';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -1589,6 +1603,7 @@ export type PersonImportantDatesRelationLabelsRelation = {
 
 export type PersonImportantDatesRelationPersonRelation = {
   __typename?: 'PersonImportantDatesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -1737,6 +1752,7 @@ export type PersonNotesRelationLabelsRelation = {
 
 export type PersonNotesRelationPersonRelation = {
   __typename?: 'PersonNotesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -1778,6 +1794,7 @@ export type PersonRelationshipEntry = {
 
 export type PersonRelationshipFromPersonRelation = {
   __typename?: 'PersonRelationshipFromPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -1867,6 +1884,7 @@ export type PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRela
 
 export type PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation = {
   __typename?: 'PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -1915,6 +1933,7 @@ export type PersonRelationshipFromPersonRelationNotesRelationLabelsRelation = {
 
 export type PersonRelationshipFromPersonRelationNotesRelationPersonRelation = {
   __typename?: 'PersonRelationshipFromPersonRelationNotesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -1943,6 +1962,7 @@ export type PersonRelationshipFromPersonRelationRelationshipsToRelation = {
 
 export type PersonRelationshipToPersonRelation = {
   __typename?: 'PersonRelationshipToPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -2032,6 +2052,7 @@ export type PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelati
 
 export type PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation = {
   __typename?: 'PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -2080,6 +2101,7 @@ export type PersonRelationshipToPersonRelationNotesRelationLabelsRelation = {
 
 export type PersonRelationshipToPersonRelationNotesRelationPersonRelation = {
   __typename?: 'PersonRelationshipToPersonRelationNotesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -2182,6 +2204,7 @@ export type PersonRelationshipsFromRelationToPersonArgs = {
 
 export type PersonRelationshipsFromRelationFromPersonRelation = {
   __typename?: 'PersonRelationshipsFromRelationFromPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -2194,6 +2217,7 @@ export type PersonRelationshipsFromRelationFromPersonRelation = {
 
 export type PersonRelationshipsFromRelationToPersonRelation = {
   __typename?: 'PersonRelationshipsFromRelationToPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -2311,6 +2335,7 @@ export type PersonRelationshipsToRelationToPersonArgs = {
 
 export type PersonRelationshipsToRelationFromPersonRelation = {
   __typename?: 'PersonRelationshipsToRelationFromPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -2323,6 +2348,7 @@ export type PersonRelationshipsToRelationFromPersonRelation = {
 
 export type PersonRelationshipsToRelationToPersonRelation = {
   __typename?: 'PersonRelationshipsToRelationToPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -2354,6 +2380,45 @@ export type PersonRelationshipsTypeFilters = {
 };
 
 export type PersonRelationshipsTypeFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonsAvatarPathFilters = {
+  OR?: InputMaybe<Array<PersonsAvatarPathFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonsAvatarPathFiltersOr = {
   eq?: InputMaybe<Scalars['String']['input']>;
   gt?: InputMaybe<Scalars['String']['input']>;
   gte?: InputMaybe<Scalars['String']['input']>;
@@ -2464,6 +2529,7 @@ export type PersonsEmailFiltersOr = {
 
 export type PersonsFilters = {
   OR?: InputMaybe<Array<PersonsFiltersOr>>;
+  avatarPath?: InputMaybe<PersonsAvatarPathFilters>;
   createdAt?: InputMaybe<PersonsCreatedAtFilters>;
   email?: InputMaybe<PersonsEmailFilters>;
   firstName?: InputMaybe<PersonsFirstNameFilters>;
@@ -2473,6 +2539,7 @@ export type PersonsFilters = {
 };
 
 export type PersonsFiltersOr = {
+  avatarPath?: InputMaybe<PersonsAvatarPathFilters>;
   createdAt?: InputMaybe<PersonsCreatedAtFilters>;
   email?: InputMaybe<PersonsEmailFilters>;
   firstName?: InputMaybe<PersonsFirstNameFilters>;
@@ -2599,6 +2666,7 @@ export type PersonsLastNameFiltersOr = {
 };
 
 export type PersonsOrderBy = {
+  avatarPath?: InputMaybe<InnerOrder>;
   createdAt?: InputMaybe<InnerOrder>;
   email?: InputMaybe<InnerOrder>;
   firstName?: InputMaybe<InnerOrder>;
@@ -2830,6 +2898,7 @@ export type UpdateNoteTagInput = {
 };
 
 export type UpdatePersonInput = {
+  avatarPath?: InputMaybe<Scalars['String']['input']>;
   /** JSON */
   createdAt?: InputMaybe<Scalars['String']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
@@ -3071,6 +3140,8 @@ export type ResolversTypes = {
   PersonRelationshipsToRelationToPersonRelation: ResolverTypeWrapper<PersonRelationshipsToRelationToPersonRelation>;
   PersonRelationshipsTypeFilters: PersonRelationshipsTypeFilters;
   PersonRelationshipsTypeFiltersOr: PersonRelationshipsTypeFiltersOr;
+  PersonsAvatarPathFilters: PersonsAvatarPathFilters;
+  PersonsAvatarPathFiltersOr: PersonsAvatarPathFiltersOr;
   PersonsCreatedAtFilters: PersonsCreatedAtFilters;
   PersonsCreatedAtFiltersOr: PersonsCreatedAtFiltersOr;
   PersonsEmailFilters: PersonsEmailFilters;
@@ -3245,6 +3316,8 @@ export type ResolversParentTypes = {
   PersonRelationshipsToRelationToPersonRelation: PersonRelationshipsToRelationToPersonRelation;
   PersonRelationshipsTypeFilters: PersonRelationshipsTypeFilters;
   PersonRelationshipsTypeFiltersOr: PersonRelationshipsTypeFiltersOr;
+  PersonsAvatarPathFilters: PersonsAvatarPathFilters;
+  PersonsAvatarPathFiltersOr: PersonsAvatarPathFiltersOr;
   PersonsCreatedAtFilters: PersonsCreatedAtFilters;
   PersonsCreatedAtFiltersOr: PersonsCreatedAtFiltersOr;
   PersonsEmailFilters: PersonsEmailFilters;
@@ -3290,6 +3363,7 @@ export type ImportantDateLabelsRelationResolvers<ContextType = Context, ParentTy
 };
 
 export type ImportantDatePersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelation'] = ResolversParentTypes['ImportantDatePersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3333,6 +3407,7 @@ export type ImportantDatePersonRelationNotesRelationLabelsRelationResolvers<Cont
 };
 
 export type ImportantDatePersonRelationNotesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelationNotesRelationPersonRelation'] = ResolversParentTypes['ImportantDatePersonRelationNotesRelationPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3351,6 +3426,7 @@ export type ImportantDatePersonRelationRelationshipsFromRelationResolvers<Contex
 };
 
 export type ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelation'] = ResolversParentTypes['ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3360,6 +3436,7 @@ export type ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelati
 };
 
 export type ImportantDatePersonRelationRelationshipsFromRelationToPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation'] = ResolversParentTypes['ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3378,6 +3455,7 @@ export type ImportantDatePersonRelationRelationshipsToRelationResolvers<ContextT
 };
 
 export type ImportantDatePersonRelationRelationshipsToRelationFromPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation'] = ResolversParentTypes['ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3387,6 +3465,7 @@ export type ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation
 };
 
 export type ImportantDatePersonRelationRelationshipsToRelationToPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelationRelationshipsToRelationToPersonRelation'] = ResolversParentTypes['ImportantDatePersonRelationRelationshipsToRelationToPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3456,6 +3535,7 @@ export type NoteLabelsRelationResolvers<ContextType = Context, ParentType extend
 };
 
 export type NotePersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelation'] = ResolversParentTypes['NotePersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3487,6 +3567,7 @@ export type NotePersonRelationImportantDatesRelationLabelsRelationResolvers<Cont
 };
 
 export type NotePersonRelationImportantDatesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelationImportantDatesRelationPersonRelation'] = ResolversParentTypes['NotePersonRelationImportantDatesRelationPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3517,6 +3598,7 @@ export type NotePersonRelationRelationshipsFromRelationResolvers<ContextType = C
 };
 
 export type NotePersonRelationRelationshipsFromRelationFromPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelationRelationshipsFromRelationFromPersonRelation'] = ResolversParentTypes['NotePersonRelationRelationshipsFromRelationFromPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3526,6 +3608,7 @@ export type NotePersonRelationRelationshipsFromRelationFromPersonRelationResolve
 };
 
 export type NotePersonRelationRelationshipsFromRelationToPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelationRelationshipsFromRelationToPersonRelation'] = ResolversParentTypes['NotePersonRelationRelationshipsFromRelationToPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3544,6 +3627,7 @@ export type NotePersonRelationRelationshipsToRelationResolvers<ContextType = Con
 };
 
 export type NotePersonRelationRelationshipsToRelationFromPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelationRelationshipsToRelationFromPersonRelation'] = ResolversParentTypes['NotePersonRelationRelationshipsToRelationFromPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3553,6 +3637,7 @@ export type NotePersonRelationRelationshipsToRelationFromPersonRelationResolvers
 };
 
 export type NotePersonRelationRelationshipsToRelationToPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelationRelationshipsToRelationToPersonRelation'] = ResolversParentTypes['NotePersonRelationRelationshipsToRelationToPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3567,6 +3652,7 @@ export type NoteTagResolvers<ContextType = Context, ParentType extends Resolvers
 };
 
 export type PersonResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Person'] = ResolversParentTypes['Person']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3599,6 +3685,7 @@ export type PersonImportantDatesRelationLabelsRelationResolvers<ContextType = Co
 };
 
 export type PersonImportantDatesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonImportantDatesRelationPersonRelation'] = ResolversParentTypes['PersonImportantDatesRelationPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3633,6 +3720,7 @@ export type PersonNotesRelationLabelsRelationResolvers<ContextType = Context, Pa
 };
 
 export type PersonNotesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonNotesRelationPersonRelation'] = ResolversParentTypes['PersonNotesRelationPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3659,6 +3747,7 @@ export type PersonRelationshipEntryResolvers<ContextType = Context, ParentType e
 };
 
 export type PersonRelationshipFromPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipFromPersonRelation'] = ResolversParentTypes['PersonRelationshipFromPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3690,6 +3779,7 @@ export type PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRela
 };
 
 export type PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation'] = ResolversParentTypes['PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3719,6 +3809,7 @@ export type PersonRelationshipFromPersonRelationNotesRelationLabelsRelationResol
 };
 
 export type PersonRelationshipFromPersonRelationNotesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipFromPersonRelationNotesRelationPersonRelation'] = ResolversParentTypes['PersonRelationshipFromPersonRelationNotesRelationPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3742,6 +3833,7 @@ export type PersonRelationshipFromPersonRelationRelationshipsToRelationResolvers
 };
 
 export type PersonRelationshipToPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipToPersonRelation'] = ResolversParentTypes['PersonRelationshipToPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3773,6 +3865,7 @@ export type PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelati
 };
 
 export type PersonRelationshipToPersonRelationImportantDatesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation'] = ResolversParentTypes['PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3802,6 +3895,7 @@ export type PersonRelationshipToPersonRelationNotesRelationLabelsRelationResolve
 };
 
 export type PersonRelationshipToPersonRelationNotesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipToPersonRelationNotesRelationPersonRelation'] = ResolversParentTypes['PersonRelationshipToPersonRelationNotesRelationPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3834,6 +3928,7 @@ export type PersonRelationshipsFromRelationResolvers<ContextType = Context, Pare
 };
 
 export type PersonRelationshipsFromRelationFromPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipsFromRelationFromPersonRelation'] = ResolversParentTypes['PersonRelationshipsFromRelationFromPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3843,6 +3938,7 @@ export type PersonRelationshipsFromRelationFromPersonRelationResolvers<ContextTy
 };
 
 export type PersonRelationshipsFromRelationToPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipsFromRelationToPersonRelation'] = ResolversParentTypes['PersonRelationshipsFromRelationToPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3861,6 +3957,7 @@ export type PersonRelationshipsToRelationResolvers<ContextType = Context, Parent
 };
 
 export type PersonRelationshipsToRelationFromPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipsToRelationFromPersonRelation'] = ResolversParentTypes['PersonRelationshipsToRelationFromPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -3870,6 +3967,7 @@ export type PersonRelationshipsToRelationFromPersonRelationResolvers<ContextType
 };
 
 export type PersonRelationshipsToRelationToPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipsToRelationToPersonRelation'] = ResolversParentTypes['PersonRelationshipsToRelationToPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;

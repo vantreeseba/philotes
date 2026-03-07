@@ -11,6 +11,15 @@ const GET_PERSONS = graphql(`
   query GetPersons {
     persons {
       id
+      firstName
+      lastName
+      email
+      avatarPath
+      labels {
+        id
+        label
+        color
+      }
       ...Person_List
     }
   }
@@ -93,6 +102,7 @@ function PersonsPage() {
           firstName: p.firstName,
           lastName: p.lastName,
           email: p.email,
+          avatarPath: p.avatarPath,
           labels: p.labels ?? [],
         }))}
         onClickAdd={() => setDialogOpen(true)}

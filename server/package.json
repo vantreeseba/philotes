@@ -13,6 +13,8 @@
   "dependencies": {
     "@apollo/server": "^5.x.x",
     "@philotes/db": "*",
+    "@types/busboy": "^1.5.4",
+    "busboy": "^1.6.0",
     "graphql": "^16.10.0",
     "graphql-tag": "^2.12.6",
     "sirv": "^3.0.2"
