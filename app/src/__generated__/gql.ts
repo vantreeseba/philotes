@@ -14,6 +14,7 @@ import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-
  * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
 type Documents = {
+    "\n  query GetRecentPersons {\n    persons(orderBy: { createdAt: { direction: desc, priority: 1 } }) {\n      id\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n": typeof types.GetRecentPersonsDocument,
     "\n  query GetUpcomingDates {\n    importantDates {\n      id\n      name\n      description\n      date\n      recurrence\n      person {\n        id\n        firstName\n        lastName\n      }\n    }\n  }\n": typeof types.GetUpcomingDatesDocument,
     "\n  fragment Label_List on Label {\n    id\n    color\n    label\n  }\n": typeof types.Label_ListFragmentDoc,
     "\n  mutation AttachTagToImportantDate($importantDateId: String!, $labelId: String!) {\n    createImportantDateTag(\n      values: { importantDateId: $importantDateId, labelId: $labelId }\n    ) {\n      importantDateId\n      labelId\n    }\n  }\n": typeof types.AttachTagToImportantDateDocument,
@@ -51,6 +52,7 @@ type Documents = {
     "\n  mutation DeleteTag($id: String!) {\n    deleteLabels(where: { id: { eq: $id } }) {\n      id\n    }\n  }\n": typeof types.DeleteTagDocument,
 };
 const documents: Documents = {
+    "\n  query GetRecentPersons {\n    persons(orderBy: { createdAt: { direction: desc, priority: 1 } }) {\n      id\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n": types.GetRecentPersonsDocument,
     "\n  query GetUpcomingDates {\n    importantDates {\n      id\n      name\n      description\n      date\n      recurrence\n      person {\n        id\n        firstName\n        lastName\n      }\n    }\n  }\n": types.GetUpcomingDatesDocument,
     "\n  fragment Label_List on Label {\n    id\n    color\n    label\n  }\n": types.Label_ListFragmentDoc,
     "\n  mutation AttachTagToImportantDate($importantDateId: String!, $labelId: String!) {\n    createImportantDateTag(\n      values: { importantDateId: $importantDateId, labelId: $labelId }\n    ) {\n      importantDateId\n      labelId\n    }\n  }\n": types.AttachTagToImportantDateDocument,
@@ -102,6 +104,10 @@ const documents: Documents = {
  */
 export function graphql(source: string): unknown;
 
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  query GetRecentPersons {\n    persons(orderBy: { createdAt: { direction: desc, priority: 1 } }) {\n      id\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n"): (typeof documents)["\n  query GetRecentPersons {\n    persons(orderBy: { createdAt: { direction: desc, priority: 1 } }) {\n      id\n      firstName\n      lastName\n      email\n      createdAt\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
