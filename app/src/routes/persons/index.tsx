@@ -86,7 +86,18 @@ function PersonsPage() {
         </DialogContent>
       </Dialog>
 
-      <PersonList persons={data?.persons ?? []} onClickAdd={() => setDialogOpen(true)} onClickDelete={handleDelete} />
+      <PersonList
+        persons={(data?.persons ?? []).map((p) => ({
+          ref: p,
+          id: p.id,
+          firstName: p.firstName,
+          lastName: p.lastName,
+          email: p.email,
+          labels: p.labels ?? [],
+        }))}
+        onClickAdd={() => setDialogOpen(true)}
+        onClickDelete={handleDelete}
+      />
     </>
   );
 }
