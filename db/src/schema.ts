@@ -1,5 +1,11 @@
 import { date, pgTable, primaryKey, text, timestamp, uuid } from 'drizzle-orm/pg-core';
 
+export const INTERACTION_CHANNELS = ['call', 'text', 'email', 'in-person', 'other'] as const;
+export type InteractionChannel = (typeof INTERACTION_CHANNELS)[number];
+
+export const INTERACTION_SENTIMENTS = ['great', 'good', 'neutral', 'difficult'] as const;
+export type InteractionSentiment = (typeof INTERACTION_SENTIMENTS)[number];
+
 export const persons = pgTable('persons', {
   id: uuid('id').primaryKey().defaultRandom(),
   firstName: text('first_name').notNull(),
@@ -91,6 +97,30 @@ export const personRelationships = pgTable('person_relationships', {
   type: text('type').notNull(),
 });
 
+export const interactions = pgTable('interactions', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  personId: uuid('person_id')
+    .notNull()
+    .references(() => persons.id, { onDelete: 'cascade' }),
+  occurredAt: timestamp('occurred_at', { withTimezone: true }).notNull().defaultNow(),
+  channel: text('channel').$type<InteractionChannel>().notNull(),
+  sentiment: text('sentiment').$type<InteractionSentiment>(),
+  note: text('note'),
+});
+
+export const interactionTags = pgTable(
+  'interaction_tags',
+  {
+    interactionId: uuid('interaction_id')
+      .notNull()
+      .references(() => interactions.id, { onDelete: 'cascade' }),
+    labelId: uuid('label_id')
+      .notNull()
+      .references(() => labels.id, { onDelete: 'cascade' }),
+  },
+  (t) => [primaryKey({ columns: [t.interactionId, t.labelId] })],
+);
+
 export type Person = typeof persons.$inferSelect;
 export type NewPerson = typeof persons.$inferInsert;
 export type Note = typeof notes.$inferSelect;
@@ -107,3 +137,7 @@ export type ImportantDateTag = typeof importantDateTags.$inferSelect;
 export type NewImportantDateTag = typeof importantDateTags.$inferInsert;
 export type NoteTag = typeof noteTags.$inferSelect;
 export type NewNoteTag = typeof noteTags.$inferInsert;
+export type Interaction = typeof interactions.$inferSelect;
+export type NewInteraction = typeof interactions.$inferInsert;
+export type InteractionTag = typeof interactionTags.$inferSelect;
+export type NewInteractionTag = typeof interactionTags.$inferInsert;

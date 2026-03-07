@@ -1,6 +1,16 @@
 import { useMutation, useQuery } from '@apollo/client';
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { ArrowLeft, CalendarPlus, Camera, NotebookPen, Pencil, Tag, Trash2, UserRoundPlus } from 'lucide-react';
+import {
+  ArrowLeft,
+  CalendarPlus,
+  Camera,
+  MessageSquare,
+  NotebookPen,
+  Pencil,
+  Tag,
+  Trash2,
+  UserRoundPlus,
+} from 'lucide-react';
 import { useRef, useState } from 'react';
 import { graphql } from '@/__generated__/gql.js';
 import { PersonForm, type PersonFormValue } from '@/components/domain/person/form.js';
@@ -10,6 +20,7 @@ import {
   RECURRENCE_OPTIONS,
 } from '@/components/domain/person/important-date-form.js';
 import { ImportantDateTags } from '@/components/domain/person/important-date-tags.js';
+import { PersonInteractions } from '@/components/domain/person/interactions.js';
 import { PersonLabels } from '@/components/domain/person/labels.js';
 import { PersonNotes } from '@/components/domain/person/notes.js';
 import { PersonRelationships } from '@/components/domain/person/relationships.js';
@@ -55,6 +66,19 @@ const GET_PERSON_DETAIL = graphql(`
       notes {
         id
         body
+        labels {
+          id
+          label
+          color
+        }
+      }
+      interactions(orderBy: { occurredAt: { direction: desc, priority: 1 } }) {
+        id
+        personId
+        channel
+        occurredAt
+        sentiment
+        note
         labels {
           id
           label
@@ -345,6 +369,7 @@ function PersonDetailPage() {
 
   const [dateDialogOpen, setDateDialogOpen] = useState(false);
   const [noteDialogOpen, setNoteDialogOpen] = useState(false);
+  const [interactionDialogOpen, setInteractionDialogOpen] = useState(false);
   const [showAddLabel, setShowAddLabel] = useState(false);
   const [showAddRelationship, setShowAddRelationship] = useState(false);
   const [editPersonOpen, setEditPersonOpen] = useState(false);
@@ -572,24 +597,22 @@ function PersonDetailPage() {
                 person.importantDates.length === 0 ? (
                   <p className="text-muted-foreground text-sm">No important dates yet.</p>
                 ) : (
-                  <>
-                    {person.importantDates.map((d) => (
-                      <ImportantDateRow
-                        key={d.id}
-                        id={d.id}
-                        personId={person.id}
-                        name={d.name}
-                        date={d.date}
-                        description={d.description}
-                        recurrence={d.recurrence}
-                        tags={d.labels ?? []}
-                        allTags={allLabels}
-                        onDelete={handleDeleteDate}
-                        onEdit={handleEditDate}
-                        onTagChanged={handleTagChanged}
-                      />
-                    ))}
-                  </>
+                  person.importantDates.map((d) => (
+                    <ImportantDateRow
+                      key={d.id}
+                      id={d.id}
+                      personId={person.id}
+                      name={d.name}
+                      date={d.date}
+                      description={d.description}
+                      recurrence={d.recurrence}
+                      tags={d.labels ?? []}
+                      allTags={allLabels}
+                      onDelete={handleDeleteDate}
+                      onEdit={handleEditDate}
+                      onTagChanged={handleTagChanged}
+                    />
+                  ))
                 )
               }
             />
@@ -621,6 +644,41 @@ function PersonDetailPage() {
                   onChanged={() => refetch()}
                   createOpen={noteDialogOpen}
                   onCreateOpenChange={setNoteDialogOpen}
+                />
+              }
+            />
+          </CardContent>
+        </Card>
+
+        {/* Interactions */}
+        <Card>
+          <CardContent className="p-4">
+            <ListLayout
+              header={
+                <>
+                  <h2 className="font-semibold text-base">Interactions</h2>
+                  <Button size="sm" variant="outline" onClick={() => setInteractionDialogOpen(true)}>
+                    <MessageSquare className="mr-1.5 h-4 w-4" />
+                    Log Interaction
+                  </Button>
+                </>
+              }
+              body={
+                <PersonInteractions
+                  personId={person.id}
+                  interactions={(person.interactions ?? []).map((i) => ({
+                    id: i.id,
+                    personId: i.personId,
+                    channel: i.channel,
+                    occurredAt: i.occurredAt,
+                    sentiment: i.sentiment,
+                    note: i.note,
+                    labels: i.labels ?? [],
+                  }))}
+                  allTags={allLabels}
+                  onChanged={() => refetch()}
+                  createOpen={interactionDialogOpen}
+                  onCreateOpenChange={setInteractionDialogOpen}
                 />
               }
             />

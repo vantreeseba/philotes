@@ -9,6 +9,7 @@ export const relations = defineRelations(schema, (r) => ({
       to: r.labels.id.through(r.personLabels.labelId),
     }),
     importantDates: r.many.importantDates(),
+    interactions: r.many.interactions(),
     relationshipsFrom: r.many.personRelationships({
       from: r.persons.id,
       to: r.personRelationships.fromPersonId,
@@ -46,6 +47,16 @@ export const relations = defineRelations(schema, (r) => ({
     toPerson: r.one.persons({
       from: r.personRelationships.toPersonId,
       to: r.persons.id,
+    }),
+  },
+  interactions: {
+    person: r.one.persons({
+      from: r.interactions.personId,
+      to: r.persons.id,
+    }),
+    labels: r.many.labels({
+      from: r.interactions.id.through(r.interactionTags.interactionId),
+      to: r.labels.id.through(r.interactionTags.labelId),
     }),
   },
 }));

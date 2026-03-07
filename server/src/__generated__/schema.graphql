@@ -17,6 +17,21 @@ input CreateImportantDateTagInput {
   labelId: String!
 }
 
+input CreateInteractionInput {
+  channel: String!
+  id: String
+  note: String
+  """JSON"""
+  occurredAt: String
+  personId: String!
+  sentiment: String
+}
+
+input CreateInteractionTagInput {
+  interactionId: String!
+  labelId: String!
+}
+
 input CreateLabelInput {
   color: String!
   id: String
@@ -83,6 +98,7 @@ type ImportantDatePersonRelation {
   firstName: String!
   id: String!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [ImportantDatePersonRelationImportantDatesRelation!]!
+  interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [ImportantDatePersonRelationInteractionsRelation!]!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ImportantDatePersonRelationLabelsRelation!]!
   lastName: String!
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [ImportantDatePersonRelationNotesRelation!]!
@@ -99,6 +115,36 @@ type ImportantDatePersonRelationImportantDatesRelation {
   name: String!
   personId: String!
   recurrence: String
+}
+
+type ImportantDatePersonRelationInteractionsRelation {
+  channel: String!
+  id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ImportantDatePersonRelationInteractionsRelationLabelsRelation!]!
+  note: String
+  """JSON"""
+  occurredAt: String!
+  person(where: PersonsFilters): ImportantDatePersonRelationInteractionsRelationPersonRelation
+  personId: String!
+  sentiment: String
+}
+
+type ImportantDatePersonRelationInteractionsRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type ImportantDatePersonRelationInteractionsRelationPersonRelation {
+  avatarPath: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
 }
 
 type ImportantDatePersonRelationLabelsRelation {
@@ -566,6 +612,552 @@ input InnerOrder {
   priority: Int!
 }
 
+type Interaction {
+  channel: String!
+  id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [InteractionLabelsRelation!]!
+  note: String
+  """JSON"""
+  occurredAt: String!
+  person(where: PersonsFilters): InteractionPersonRelation
+  personId: String!
+  sentiment: String
+}
+
+type InteractionLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type InteractionPersonRelation {
+  avatarPath: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [InteractionPersonRelationImportantDatesRelation!]!
+  interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [InteractionPersonRelationInteractionsRelation!]!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [InteractionPersonRelationLabelsRelation!]!
+  lastName: String!
+  notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [InteractionPersonRelationNotesRelation!]!
+  relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [InteractionPersonRelationRelationshipsFromRelation!]!
+  relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [InteractionPersonRelationRelationshipsToRelation!]!
+  """JSON"""
+  updatedAt: String!
+}
+
+type InteractionPersonRelationImportantDatesRelation {
+  date: String!
+  description: String
+  id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [InteractionPersonRelationImportantDatesRelationLabelsRelation!]!
+  name: String!
+  person(where: PersonsFilters): InteractionPersonRelationImportantDatesRelationPersonRelation
+  personId: String!
+  recurrence: String
+}
+
+type InteractionPersonRelationImportantDatesRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type InteractionPersonRelationImportantDatesRelationPersonRelation {
+  avatarPath: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type InteractionPersonRelationInteractionsRelation {
+  channel: String!
+  id: String!
+  note: String
+  """JSON"""
+  occurredAt: String!
+  personId: String!
+  sentiment: String
+}
+
+type InteractionPersonRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type InteractionPersonRelationNotesRelation {
+  body: String!
+  id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [InteractionPersonRelationNotesRelationLabelsRelation!]!
+  person(where: PersonsFilters): InteractionPersonRelationNotesRelationPersonRelation
+  personId: String
+}
+
+type InteractionPersonRelationNotesRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type InteractionPersonRelationNotesRelationPersonRelation {
+  avatarPath: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type InteractionPersonRelationRelationshipsFromRelation {
+  fromPerson(where: PersonsFilters): InteractionPersonRelationRelationshipsFromRelationFromPersonRelation
+  fromPersonId: String!
+  id: String!
+  toPerson(where: PersonsFilters): InteractionPersonRelationRelationshipsFromRelationToPersonRelation
+  toPersonId: String!
+  type: String!
+}
+
+type InteractionPersonRelationRelationshipsFromRelationFromPersonRelation {
+  avatarPath: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type InteractionPersonRelationRelationshipsFromRelationToPersonRelation {
+  avatarPath: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type InteractionPersonRelationRelationshipsToRelation {
+  fromPerson(where: PersonsFilters): InteractionPersonRelationRelationshipsToRelationFromPersonRelation
+  fromPersonId: String!
+  id: String!
+  toPerson(where: PersonsFilters): InteractionPersonRelationRelationshipsToRelationToPersonRelation
+  toPersonId: String!
+  type: String!
+}
+
+type InteractionPersonRelationRelationshipsToRelationFromPersonRelation {
+  avatarPath: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type InteractionPersonRelationRelationshipsToRelationToPersonRelation {
+  avatarPath: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type InteractionTag {
+  interactionId: String!
+  labelId: String!
+}
+
+input InteractionTagsFilters {
+  OR: [InteractionTagsFiltersOr!]
+  interactionId: InteractionTagsInteractionIdFilters
+  labelId: InteractionTagsLabelIdFilters
+}
+
+input InteractionTagsFiltersOr {
+  interactionId: InteractionTagsInteractionIdFilters
+  labelId: InteractionTagsLabelIdFilters
+}
+
+input InteractionTagsInteractionIdFilters {
+  OR: [InteractionTagsInteractionIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input InteractionTagsInteractionIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input InteractionTagsLabelIdFilters {
+  OR: [InteractionTagsLabelIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input InteractionTagsLabelIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input InteractionTagsOrderBy {
+  interactionId: InnerOrder
+  labelId: InnerOrder
+}
+
+input InteractionsChannelFilters {
+  OR: [InteractionsChannelFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input InteractionsChannelFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input InteractionsFilters {
+  OR: [InteractionsFiltersOr!]
+  channel: InteractionsChannelFilters
+  id: InteractionsIdFilters
+  note: InteractionsNoteFilters
+  occurredAt: InteractionsOccurredAtFilters
+  personId: InteractionsPersonIdFilters
+  sentiment: InteractionsSentimentFilters
+}
+
+input InteractionsFiltersOr {
+  channel: InteractionsChannelFilters
+  id: InteractionsIdFilters
+  note: InteractionsNoteFilters
+  occurredAt: InteractionsOccurredAtFilters
+  personId: InteractionsPersonIdFilters
+  sentiment: InteractionsSentimentFilters
+}
+
+input InteractionsIdFilters {
+  OR: [InteractionsIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input InteractionsIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input InteractionsNoteFilters {
+  OR: [InteractionsNoteFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input InteractionsNoteFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input InteractionsOccurredAtFilters {
+  OR: [InteractionsOccurredAtFiltersOr!]
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input InteractionsOccurredAtFiltersOr {
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input InteractionsOrderBy {
+  channel: InnerOrder
+  id: InnerOrder
+  note: InnerOrder
+  occurredAt: InnerOrder
+  personId: InnerOrder
+  sentiment: InnerOrder
+}
+
+input InteractionsPersonIdFilters {
+  OR: [InteractionsPersonIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input InteractionsPersonIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input InteractionsSentimentFilters {
+  OR: [InteractionsSentimentFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input InteractionsSentimentFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
 type Label {
   color: String!
   id: String!
@@ -713,6 +1305,10 @@ type Mutation {
   createImportantDateTag(values: CreateImportantDateTagInput!): ImportantDateTag
   createImportantDateTags(values: [CreateImportantDateTagInput!]!): [ImportantDateTag!]!
   createImportantDates(values: [CreateImportantDateInput!]!): [ImportantDate!]!
+  createInteraction(values: CreateInteractionInput!): Interaction
+  createInteractionTag(values: CreateInteractionTagInput!): InteractionTag
+  createInteractionTags(values: [CreateInteractionTagInput!]!): [InteractionTag!]!
+  createInteractions(values: [CreateInteractionInput!]!): [Interaction!]!
   createLabel(values: CreateLabelInput!): Label
   createLabels(values: [CreateLabelInput!]!): [Label!]!
   createNote(values: CreateNoteInput!): Note
@@ -727,6 +1323,8 @@ type Mutation {
   createPersons(values: [CreatePersonInput!]!): [Person!]!
   deleteImportantDateTags(where: ImportantDateTagsFilters): [ImportantDateTag!]!
   deleteImportantDates(where: ImportantDatesFilters): [ImportantDate!]!
+  deleteInteractionTags(where: InteractionTagsFilters): [InteractionTag!]!
+  deleteInteractions(where: InteractionsFilters): [Interaction!]!
   deleteLabels(where: LabelsFilters): [Label!]!
   deleteNoteTags(where: NoteTagsFilters): [NoteTag!]!
   deleteNotes(where: NotesFilters): [Note!]!
@@ -735,6 +1333,8 @@ type Mutation {
   deletePersons(where: PersonsFilters): [Person!]!
   updateImportantDateTags(set: UpdateImportantDateTagInput!, where: ImportantDateTagsFilters): [ImportantDateTag!]!
   updateImportantDates(set: UpdateImportantDateInput!, where: ImportantDatesFilters): [ImportantDate!]!
+  updateInteractionTags(set: UpdateInteractionTagInput!, where: InteractionTagsFilters): [InteractionTag!]!
+  updateInteractions(set: UpdateInteractionInput!, where: InteractionsFilters): [Interaction!]!
   updateLabels(set: UpdateLabelInput!, where: LabelsFilters): [Label!]!
   updateNoteTags(set: UpdateNoteTagInput!, where: NoteTagsFilters): [NoteTag!]!
   updateNotes(set: UpdateNoteInput!, where: NotesFilters): [Note!]!
@@ -765,6 +1365,7 @@ type NotePersonRelation {
   firstName: String!
   id: String!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [NotePersonRelationImportantDatesRelation!]!
+  interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [NotePersonRelationInteractionsRelation!]!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [NotePersonRelationLabelsRelation!]!
   lastName: String!
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [NotePersonRelationNotesRelation!]!
@@ -792,6 +1393,36 @@ type NotePersonRelationImportantDatesRelationLabelsRelation {
 }
 
 type NotePersonRelationImportantDatesRelationPersonRelation {
+  avatarPath: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type NotePersonRelationInteractionsRelation {
+  channel: String!
+  id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [NotePersonRelationInteractionsRelationLabelsRelation!]!
+  note: String
+  """JSON"""
+  occurredAt: String!
+  person(where: PersonsFilters): NotePersonRelationInteractionsRelationPersonRelation
+  personId: String!
+  sentiment: String
+}
+
+type NotePersonRelationInteractionsRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type NotePersonRelationInteractionsRelationPersonRelation {
   avatarPath: String
   """JSON"""
   createdAt: String!
@@ -1132,6 +1763,7 @@ type Person {
   firstName: String!
   id: String!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [PersonImportantDatesRelation!]!
+  interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [PersonInteractionsRelation!]!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonLabelsRelation!]!
   lastName: String!
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [PersonNotesRelation!]!
@@ -1160,6 +1792,36 @@ type PersonImportantDatesRelationLabelsRelation {
 }
 
 type PersonImportantDatesRelationPersonRelation {
+  avatarPath: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type PersonInteractionsRelation {
+  channel: String!
+  id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonInteractionsRelationLabelsRelation!]!
+  note: String
+  """JSON"""
+  occurredAt: String!
+  person(where: PersonsFilters): PersonInteractionsRelationPersonRelation
+  personId: String!
+  sentiment: String
+}
+
+type PersonInteractionsRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type PersonInteractionsRelationPersonRelation {
   avatarPath: String
   """JSON"""
   createdAt: String!
@@ -1327,6 +1989,7 @@ type PersonRelationshipFromPersonRelation {
   firstName: String!
   id: String!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [PersonRelationshipFromPersonRelationImportantDatesRelation!]!
+  interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [PersonRelationshipFromPersonRelationInteractionsRelation!]!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipFromPersonRelationLabelsRelation!]!
   lastName: String!
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [PersonRelationshipFromPersonRelationNotesRelation!]!
@@ -1354,6 +2017,36 @@ type PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelation {
 }
 
 type PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation {
+  avatarPath: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type PersonRelationshipFromPersonRelationInteractionsRelation {
+  channel: String!
+  id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelation!]!
+  note: String
+  """JSON"""
+  occurredAt: String!
+  person(where: PersonsFilters): PersonRelationshipFromPersonRelationInteractionsRelationPersonRelation
+  personId: String!
+  sentiment: String
+}
+
+type PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type PersonRelationshipFromPersonRelationInteractionsRelationPersonRelation {
   avatarPath: String
   """JSON"""
   createdAt: String!
@@ -1419,6 +2112,7 @@ type PersonRelationshipToPersonRelation {
   firstName: String!
   id: String!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [PersonRelationshipToPersonRelationImportantDatesRelation!]!
+  interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [PersonRelationshipToPersonRelationInteractionsRelation!]!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipToPersonRelationLabelsRelation!]!
   lastName: String!
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [PersonRelationshipToPersonRelationNotesRelation!]!
@@ -1446,6 +2140,36 @@ type PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelation {
 }
 
 type PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation {
+  avatarPath: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type PersonRelationshipToPersonRelationInteractionsRelation {
+  channel: String!
+  id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipToPersonRelationInteractionsRelationLabelsRelation!]!
+  note: String
+  """JSON"""
+  occurredAt: String!
+  person(where: PersonsFilters): PersonRelationshipToPersonRelationInteractionsRelationPersonRelation
+  personId: String!
+  sentiment: String
+}
+
+type PersonRelationshipToPersonRelationInteractionsRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type PersonRelationshipToPersonRelationInteractionsRelationPersonRelation {
   avatarPath: String
   """JSON"""
   createdAt: String!
@@ -2080,6 +2804,10 @@ type Query {
   importantDateTag(offset: Int, orderBy: ImportantDateTagsOrderBy, where: ImportantDateTagsFilters): ImportantDateTag
   importantDateTags(limit: Int, offset: Int, orderBy: ImportantDateTagsOrderBy, where: ImportantDateTagsFilters): [ImportantDateTag!]!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [ImportantDate!]!
+  interaction(offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): Interaction
+  interactionTag(offset: Int, orderBy: InteractionTagsOrderBy, where: InteractionTagsFilters): InteractionTag
+  interactionTags(limit: Int, offset: Int, orderBy: InteractionTagsOrderBy, where: InteractionTagsFilters): [InteractionTag!]!
+  interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [Interaction!]!
   label(offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): Label
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [Label!]!
   note(offset: Int, orderBy: NotesOrderBy, where: NotesFilters): Note
@@ -2105,6 +2833,21 @@ input UpdateImportantDateInput {
 
 input UpdateImportantDateTagInput {
   importantDateId: String
+  labelId: String
+}
+
+input UpdateInteractionInput {
+  channel: String
+  id: String
+  note: String
+  """JSON"""
+  occurredAt: String
+  personId: String
+  sentiment: String
+}
+
+input UpdateInteractionTagInput {
+  interactionId: String
   labelId: String
 }
 

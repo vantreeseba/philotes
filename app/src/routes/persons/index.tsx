@@ -20,6 +20,9 @@ const GET_PERSONS = graphql(`
         label
         color
       }
+      interactions(limit: 1, orderBy: { occurredAt: { direction: desc, priority: 1 } }) {
+        occurredAt
+      }
       ...Person_List
     }
   }
@@ -104,6 +107,7 @@ function PersonsPage() {
           email: p.email,
           avatarPath: p.avatarPath,
           labels: p.labels ?? [],
+          lastContactedAt: p.interactions?.[0]?.occurredAt ?? null,
         }))}
         onClickAdd={() => setDialogOpen(true)}
         onClickDelete={handleDelete}

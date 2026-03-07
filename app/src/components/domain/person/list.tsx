@@ -42,9 +42,23 @@ interface PersonRowProps {
   onClickDelete: (id: string) => void;
   /** Label IDs currently active as filters — highlighted when matched. */
   activeLabelIds: Set<string>;
+  lastContactedAt?: string | null;
 }
 
-function PersonRow({ person: from, onClickDelete, activeLabelIds }: PersonRowProps) {
+function relativeTime(dateStr: string): string {
+  const date = new Date(dateStr);
+  const now = new Date();
+  const diffMs = now.getTime() - date.getTime();
+  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  if (diffDays === 0) return 'Today';
+  if (diffDays === 1) return 'Yesterday';
+  if (diffDays < 7) return `${diffDays}d ago`;
+  if (diffDays < 30) return `${Math.floor(diffDays / 7)}w ago`;
+  if (diffDays < 365) return `${Math.floor(diffDays / 30)}mo ago`;
+  return `${Math.floor(diffDays / 365)}y ago`;
+}
+
+function PersonRow({ person: from, onClickDelete, activeLabelIds, lastContactedAt }: PersonRowProps) {
   const { data: person, complete } = useFragment({
     fragment: PERSON_LIST,
     fragmentName: 'Person_List',
@@ -66,6 +80,9 @@ function PersonRow({ person: from, onClickDelete, activeLabelIds }: PersonRowPro
             </Link>
           </p>
           <p className="text-muted-foreground text-sm">{person.email}</p>
+          {lastContactedAt && (
+            <p className="text-muted-foreground text-xs">Last contact: {relativeTime(lastContactedAt)}</p>
+          )}
           {person.labels.length > 0 && (
             <div className="mt-1 flex flex-wrap gap-1">
               {person.labels.map((l) => (
@@ -110,6 +127,7 @@ interface FilterablePersonRow {
   email: string;
   avatarPath?: string | null;
   labels: Array<{ id: string; label: string; color: string }>;
+  lastContactedAt?: string | null;
 }
 
 interface PersonListProps {
@@ -226,7 +244,13 @@ export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListPro
           ) : (
             <div className="grid gap-4">
               {filtered.map((p) => (
-                <PersonRow key={p.id} person={p.ref} onClickDelete={onClickDelete} activeLabelIds={activeLabelIds} />
+                <PersonRow
+                  key={p.id}
+                  person={p.ref}
+                  onClickDelete={onClickDelete}
+                  activeLabelIds={activeLabelIds}
+                  lastContactedAt={p.lastContactedAt}
+                />
               ))}
             </div>
           )}
