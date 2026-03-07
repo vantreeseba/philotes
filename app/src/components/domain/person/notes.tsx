@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { graphql } from '@/__generated__/gql.js';
 import { Button } from '@/components/ui/button.js';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog.js';
+import { TagMultiSelect } from '@/components/ui/tag-multi-select.js';
 
 // ---------------------------------------------------------------------------
 // Mutations
@@ -71,10 +72,12 @@ export interface PersonNotesProps {
   notes: NoteData[];
   allTags: Array<{ id: string; label: string; color: string }>;
   onChanged: () => void;
+  createOpen: boolean;
+  onCreateOpenChange: (open: boolean) => void;
 }
 
 // ---------------------------------------------------------------------------
-// Tag chip on a note
+// Tag chip on a note (for existing notes)
 // ---------------------------------------------------------------------------
 
 interface NoteTagChipProps {
@@ -114,7 +117,7 @@ function NoteTagChip({ noteId, labelId, label, color, onDetach }: NoteTagChipPro
 }
 
 // ---------------------------------------------------------------------------
-// Add-tag picker on a note
+// Add-tag picker on a note (for existing notes)
 // ---------------------------------------------------------------------------
 
 interface NoteTagPickerProps {
@@ -175,17 +178,16 @@ function NoteTagPicker({ noteId, allTags, attachedTagIds, onClose, onAdd }: Note
 }
 
 // ---------------------------------------------------------------------------
-// Note form (shared for create + edit)
+// Edit note form (body only — tags managed inline on the row)
 // ---------------------------------------------------------------------------
 
-interface NoteFormProps {
-  initialBody?: string;
+interface EditNoteFormProps {
+  initialBody: string;
   onSubmit: (body: string) => Promise<void>;
   onCancel: () => void;
-  submitLabel?: string;
 }
 
-function NoteForm({ initialBody = '', onSubmit, onCancel, submitLabel = 'Save' }: NoteFormProps) {
+function EditNoteForm({ initialBody, onSubmit, onCancel }: EditNoteFormProps) {
   const [body, setBody] = useState(initialBody);
   const [submitting, setSubmitting] = useState(false);
 
@@ -213,7 +215,80 @@ function NoteForm({ initialBody = '', onSubmit, onCancel, submitLabel = 'Save' }
       />
       <div className="flex gap-2">
         <Button type="submit" disabled={!body.trim() || submitting}>
-          {submitting ? 'Saving...' : submitLabel}
+          {submitting ? 'Saving...' : 'Save'}
+        </Button>
+        <Button type="button" variant="outline" onClick={onCancel}>
+          Cancel
+        </Button>
+      </div>
+    </form>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Create note form (body + tag multi-select)
+// ---------------------------------------------------------------------------
+
+interface CreateNoteFormProps {
+  personId: string;
+  allTags: Array<{ id: string; label: string; color: string }>;
+  onAdded: () => void;
+  onCancel: () => void;
+}
+
+function CreateNoteForm({ personId, allTags, onAdded, onCancel }: CreateNoteFormProps) {
+  const [body, setBody] = useState('');
+  const [selectedTagIds, setSelectedTagIds] = useState<string[]>([]);
+  const [submitting, setSubmitting] = useState(false);
+  const [createNote] = useMutation(CREATE_NOTE);
+  const [attachTag] = useMutation(ATTACH_NOTE_TAG);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!body.trim()) return;
+    setSubmitting(true);
+    try {
+      const result = await createNote({ variables: { body: body.trim(), personId } });
+      const noteId = result.data?.createNote?.id;
+      if (noteId && selectedTagIds.length > 0) {
+        for (const labelId of selectedTagIds) {
+          await attachTag({ variables: { noteId, labelId } });
+        }
+      }
+      onAdded();
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <textarea
+        value={body}
+        onChange={(e) => setBody(e.target.value)}
+        rows={4}
+        placeholder="Write your note..."
+        className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring resize-none"
+        // biome-ignore lint/a11y/noAutofocus: intentional for modal forms
+        autoFocus
+      />
+      {allTags.length > 0 && (
+        <div className="space-y-1.5">
+          <label htmlFor="note-tags" className="text-sm font-medium">
+            Tags
+          </label>
+          <TagMultiSelect
+            id="note-tags"
+            options={allTags}
+            selected={selectedTagIds}
+            onChange={setSelectedTagIds}
+            placeholder="Add tags..."
+          />
+        </div>
+      )}
+      <div className="flex gap-2">
+        <Button type="submit" disabled={!body.trim() || submitting}>
+          {submitting ? 'Saving...' : 'Add Note'}
         </Button>
         <Button type="button" variant="outline" onClick={onCancel}>
           Cancel
@@ -319,12 +394,7 @@ function NoteRow({ note, allTags, onChanged }: NoteRowProps) {
           <DialogHeader>
             <DialogTitle>Edit Note</DialogTitle>
           </DialogHeader>
-          <NoteForm
-            initialBody={note.body}
-            onSubmit={handleEdit}
-            onCancel={() => setEditOpen(false)}
-            submitLabel="Save"
-          />
+          <EditNoteForm initialBody={note.body} onSubmit={handleEdit} onCancel={() => setEditOpen(false)} />
         </DialogContent>
       </Dialog>
     </>
@@ -332,55 +402,34 @@ function NoteRow({ note, allTags, onChanged }: NoteRowProps) {
 }
 
 // ---------------------------------------------------------------------------
-// Add note inline form
-// ---------------------------------------------------------------------------
-
-interface AddNoteFormProps {
-  personId: string;
-  onAdded: () => void;
-  onCancel: () => void;
-}
-
-function AddNoteForm({ personId, onAdded, onCancel }: AddNoteFormProps) {
-  const [createNote] = useMutation(CREATE_NOTE);
-
-  const handleSubmit = async (body: string) => {
-    await createNote({ variables: { body, personId } });
-    onAdded();
-  };
-
-  return <NoteForm onSubmit={handleSubmit} onCancel={onCancel} submitLabel="Add Note" />;
-}
-
-// ---------------------------------------------------------------------------
 // Main export
 // ---------------------------------------------------------------------------
 
-export function PersonNotes({ personId, notes, allTags, onChanged }: PersonNotesProps) {
-  const [showAdd, setShowAdd] = useState(false);
-
+export function PersonNotes({ personId, notes, allTags, onChanged, createOpen, onCreateOpenChange }: PersonNotesProps) {
   return (
     <div className="space-y-2">
-      {notes.length === 0 && !showAdd && <p className="text-muted-foreground text-sm">No notes yet.</p>}
+      {notes.length === 0 && <p className="text-muted-foreground text-sm">No notes yet.</p>}
 
       {notes.map((note) => (
         <NoteRow key={note.id} note={note} allTags={allTags} onChanged={onChanged} />
       ))}
 
-      {showAdd ? (
-        <AddNoteForm
-          personId={personId}
-          onAdded={() => {
-            setShowAdd(false);
-            onChanged();
-          }}
-          onCancel={() => setShowAdd(false)}
-        />
-      ) : (
-        <Button size="sm" variant="outline" onClick={() => setShowAdd(true)}>
-          Add Note
-        </Button>
-      )}
+      <Dialog open={createOpen} onOpenChange={onCreateOpenChange}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle>Add Note</DialogTitle>
+          </DialogHeader>
+          <CreateNoteForm
+            personId={personId}
+            allTags={allTags}
+            onAdded={() => {
+              onCreateOpenChange(false);
+              onChanged();
+            }}
+            onCancel={() => onCreateOpenChange(false)}
+          />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

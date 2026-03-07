@@ -4,6 +4,7 @@ import { Trash2, UserPlus } from 'lucide-react';
 import { graphql } from '@/__generated__/gql.js';
 import type { Person_ListFragment } from '@/__generated__/graphql.ts';
 import { PERSON_RELATIONSHIPS } from '@/components/domain/person/relationships.js';
+import { ListLayout } from '@/components/layouts/list.js';
 import { Button } from '@/components/ui/button.js';
 import { Card, CardContent } from '@/components/ui/card.js';
 import { Spinner } from '@/components/ui/spinner.tsx';
@@ -90,20 +91,23 @@ interface PersonListProps {
 
 export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListProps) {
   return (
-    <div className="space-y-2">
-      <div className="flex items-center justify-between">
-        <h1 className="font-bold text-3xl">Persons</h1>
-        <Button onClick={onClickAdd}>
-          <UserPlus className="mr-2 h-4 w-4" />
-          Add Person
-        </Button>
-      </div>
-
-      <div className="grid gap-4">
-        {persons.map((person) => (
-          <PersonRow key={person.id} person={person} onClickDelete={onClickDelete} />
-        ))}
-      </div>
-    </div>
+    <ListLayout
+      header={
+        <>
+          <h1 className="font-bold text-3xl">Persons</h1>
+          <Button onClick={onClickAdd}>
+            <UserPlus className="mr-2 h-4 w-4" />
+            Add Person
+          </Button>
+        </>
+      }
+      body={
+        <div className="grid gap-4">
+          {persons.map((person) => (
+            <PersonRow key={person.id} person={person} onClickDelete={onClickDelete} />
+          ))}
+        </div>
+      }
+    />
   );
 }

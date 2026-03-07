@@ -1,8 +1,9 @@
 import { useMutation, useQuery } from '@apollo/client';
 import { createFileRoute, Link } from '@tanstack/react-router';
-import { ArrowLeft, CalendarPlus, Pencil, Tag, Trash2, UserRoundPlus } from 'lucide-react';
+import { ArrowLeft, CalendarPlus, NotebookPen, Pencil, Tag, Trash2, UserRoundPlus } from 'lucide-react';
 import { useState } from 'react';
 import { graphql } from '@/__generated__/gql.js';
+import { PersonForm, type PersonFormValue } from '@/components/domain/person/form.js';
 import {
   ImportantDateForm,
   type ImportantDateFormValue,
@@ -12,6 +13,7 @@ import { ImportantDateTags } from '@/components/domain/person/important-date-tag
 import { PersonLabels } from '@/components/domain/person/labels.js';
 import { PersonNotes } from '@/components/domain/person/notes.js';
 import { PersonRelationships } from '@/components/domain/person/relationships.js';
+import { ListLayout } from '@/components/layouts/list.js';
 import { Button } from '@/components/ui/button.js';
 import { Card, CardContent } from '@/components/ui/card.js';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog.js';
@@ -145,6 +147,45 @@ const UPDATE_IMPORTANT_DATE = graphql(`
       date
       description
       recurrence
+    }
+  }
+`);
+
+const UPDATE_PERSON = graphql(`
+  mutation UpdatePerson(
+    $id: String!
+    $firstName: String!
+    $lastName: String!
+    $email: String!
+  ) {
+    updatePersons(
+      set: { firstName: $firstName, lastName: $lastName, email: $email }
+      where: { id: { eq: $id } }
+    ) {
+      id
+      firstName
+      lastName
+      email
+    }
+  }
+`);
+
+const ATTACH_LABEL_TO_PERSON = graphql(`
+  mutation AttachLabelToPersonEdit($personId: String!, $labelId: String!) {
+    createPersonLabel(values: { personId: $personId, labelId: $labelId }) {
+      personId
+      labelId
+    }
+  }
+`);
+
+const DETACH_LABEL_FROM_PERSON = graphql(`
+  mutation DetachLabelFromPersonEdit($personId: String!, $labelId: String!) {
+    deletePersonLabels(
+      where: { personId: { eq: $personId }, labelId: { eq: $labelId } }
+    ) {
+      personId
+      labelId
     }
   }
 `);
@@ -296,9 +337,15 @@ function PersonDetailPage() {
     refetchQueries: [{ query: GET_PERSON_DETAIL, variables: { id } }],
   });
 
+  const [updatePerson] = useMutation(UPDATE_PERSON);
+  const [attachLabel] = useMutation(ATTACH_LABEL_TO_PERSON);
+  const [detachLabel] = useMutation(DETACH_LABEL_FROM_PERSON);
+
   const [dateDialogOpen, setDateDialogOpen] = useState(false);
+  const [noteDialogOpen, setNoteDialogOpen] = useState(false);
   const [showAddLabel, setShowAddLabel] = useState(false);
   const [showAddRelationship, setShowAddRelationship] = useState(false);
+  const [editPersonOpen, setEditPersonOpen] = useState(false);
 
   if (loading) return <Spinner />;
   if (error) return <p>Error loading person: {error.message}</p>;
@@ -368,6 +415,34 @@ function PersonDetailPage() {
     setDateDialogOpen(false);
   };
 
+  const handleEditPerson = async ({ person: fields, labelIds }: PersonFormValue): Promise<void> => {
+    await updatePerson({
+      variables: {
+        id,
+        firstName: fields.firstName,
+        lastName: fields.lastName,
+        email: fields.email,
+      },
+    });
+
+    // Re-sync labels: detach removed, attach added
+    const currentLabelIds = new Set(person.labels.map((l) => l.id));
+    const nextLabelIds = new Set(labelIds);
+    for (const labelId of currentLabelIds) {
+      if (!nextLabelIds.has(labelId)) {
+        await detachLabel({ variables: { personId: id, labelId } });
+      }
+    }
+    for (const labelId of nextLabelIds) {
+      if (!currentLabelIds.has(labelId)) {
+        await attachLabel({ variables: { personId: id, labelId } });
+      }
+    }
+
+    setEditPersonOpen(false);
+    refetch();
+  };
+
   const allLabelsAttached = allLabels.length > 0 && allLabels.length === person.labels.length;
   const allPersonsLinked =
     allPersonStubs.filter((p) => p.id !== person.id && !person.relationships.some((r) => r.relatedPersonId === p.id))
@@ -388,129 +463,166 @@ function PersonDetailPage() {
         </div>
 
         {/* Header */}
-        <div>
-          <h1 className="font-bold text-3xl">
-            {person.firstName} {person.lastName}
-          </h1>
-          <p className="text-muted-foreground">{person.email}</p>
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h1 className="font-bold text-3xl">
+              {person.firstName} {person.lastName}
+            </h1>
+            <p className="text-muted-foreground">{person.email}</p>
+          </div>
+          <Button variant="outline" size="sm" onClick={() => setEditPersonOpen(true)}>
+            <Pencil className="mr-1.5 h-4 w-4" />
+            Edit
+          </Button>
         </div>
 
         {/* Labels */}
         <Card>
-          <CardContent className="p-4 space-y-3">
-            <div className="flex items-center justify-between">
-              <h2 className="font-semibold text-base">Tags</h2>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <span tabIndex={allLabelsAttached ? 0 : undefined}>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      onClick={() => setShowAddLabel(true)}
-                      disabled={allLabelsAttached}
-                    >
-                      <Tag className="mr-1.5 h-4 w-4" />
-                      Add Tag
-                    </Button>
-                  </span>
-                </TooltipTrigger>
-                {allLabelsAttached && <TooltipContent>All tags are already attached</TooltipContent>}
-              </Tooltip>
-            </div>
-            <PersonLabels
-              person={person}
-              allLabels={allLabels}
-              onDelete={handleDeleteLabel}
-              onAdd={handleAddLabel}
-              showAdd={showAddLabel}
-              onShowAdd={setShowAddLabel}
+          <CardContent className="p-4">
+            <ListLayout
+              header={
+                <>
+                  <h2 className="font-semibold text-base">Tags</h2>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <span tabIndex={allLabelsAttached ? 0 : undefined}>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => setShowAddLabel(true)}
+                          disabled={allLabelsAttached}
+                        >
+                          <Tag className="mr-1.5 h-4 w-4" />
+                          Add Tag
+                        </Button>
+                      </span>
+                    </TooltipTrigger>
+                    {allLabelsAttached && <TooltipContent>All tags are already attached</TooltipContent>}
+                  </Tooltip>
+                </>
+              }
+              body={
+                <PersonLabels
+                  person={person}
+                  allLabels={allLabels}
+                  onDelete={handleDeleteLabel}
+                  onAdd={handleAddLabel}
+                  showAdd={showAddLabel}
+                  onShowAdd={setShowAddLabel}
+                />
+              }
             />
           </CardContent>
         </Card>
 
         {/* Important Dates */}
         <Card>
-          <CardContent className="p-4 space-y-3">
-            <div className="flex items-center justify-between">
-              <h2 className="font-semibold text-base">Important Dates</h2>
-              <Button size="sm" variant="outline" onClick={() => setDateDialogOpen(true)}>
-                <CalendarPlus className="mr-1.5 h-4 w-4" />
-                Add Date
-              </Button>
-            </div>
-
-            {person.importantDates.length === 0 ? (
-              <p className="text-muted-foreground text-sm">No important dates yet.</p>
-            ) : (
-              <div className="space-y-2">
-                {person.importantDates.map((d) => (
-                  <ImportantDateRow
-                    key={d.id}
-                    id={d.id}
-                    personId={person.id}
-                    name={d.name}
-                    date={d.date}
-                    description={d.description}
-                    recurrence={d.recurrence}
-                    tags={d.labels ?? []}
-                    allTags={allLabels}
-                    onDelete={handleDeleteDate}
-                    onEdit={handleEditDate}
-                    onTagChanged={handleTagChanged}
-                  />
-                ))}
-              </div>
-            )}
+          <CardContent className="p-4">
+            <ListLayout
+              header={
+                <>
+                  <h2 className="font-semibold text-base">Important Dates</h2>
+                  <Button size="sm" variant="outline" onClick={() => setDateDialogOpen(true)}>
+                    <CalendarPlus className="mr-1.5 h-4 w-4" />
+                    Add Date
+                  </Button>
+                </>
+              }
+              body={
+                person.importantDates.length === 0 ? (
+                  <p className="text-muted-foreground text-sm">No important dates yet.</p>
+                ) : (
+                  <>
+                    {person.importantDates.map((d) => (
+                      <ImportantDateRow
+                        key={d.id}
+                        id={d.id}
+                        personId={person.id}
+                        name={d.name}
+                        date={d.date}
+                        description={d.description}
+                        recurrence={d.recurrence}
+                        tags={d.labels ?? []}
+                        allTags={allLabels}
+                        onDelete={handleDeleteDate}
+                        onEdit={handleEditDate}
+                        onTagChanged={handleTagChanged}
+                      />
+                    ))}
+                  </>
+                )
+              }
+            />
           </CardContent>
         </Card>
 
         {/* Notes */}
         <Card>
-          <CardContent className="p-4 space-y-3">
-            <h2 className="font-semibold text-base">Notes</h2>
-            <PersonNotes
-              personId={person.id}
-              notes={(person.notes ?? []).map((n) => ({
-                id: n.id,
-                body: n.body,
-                labels: n.labels ?? [],
-              }))}
-              allTags={allLabels}
-              onChanged={() => refetch()}
+          <CardContent className="p-4">
+            <ListLayout
+              header={
+                <>
+                  <h2 className="font-semibold text-base">Notes</h2>
+                  <Button size="sm" variant="outline" onClick={() => setNoteDialogOpen(true)}>
+                    <NotebookPen className="mr-1.5 h-4 w-4" />
+                    Add Note
+                  </Button>
+                </>
+              }
+              body={
+                <PersonNotes
+                  personId={person.id}
+                  notes={(person.notes ?? []).map((n) => ({
+                    id: n.id,
+                    body: n.body,
+                    labels: n.labels ?? [],
+                  }))}
+                  allTags={allLabels}
+                  onChanged={() => refetch()}
+                  createOpen={noteDialogOpen}
+                  onCreateOpenChange={setNoteDialogOpen}
+                />
+              }
             />
           </CardContent>
         </Card>
 
         {/* Relationships */}
         <Card>
-          <CardContent className="p-4 space-y-3">
-            <div className="flex items-center justify-between">
-              <h2 className="font-semibold text-base">Relationships</h2>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <span tabIndex={allPersonsLinked ? 0 : undefined}>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      onClick={() => setShowAddRelationship(true)}
-                      disabled={allPersonsLinked}
-                    >
-                      <UserRoundPlus className="mr-1.5 h-4 w-4" />
-                      Add Relationship
-                    </Button>
-                  </span>
-                </TooltipTrigger>
-                {allPersonsLinked && <TooltipContent>All persons are already linked</TooltipContent>}
-              </Tooltip>
-            </div>
-            <PersonRelationships
-              person={person}
-              allPersons={allPersonStubs}
-              onDelete={handleDeleteRelationship}
-              onAdd={handleAddRelationship}
-              onEdit={handleEditRelationship}
-              showAdd={showAddRelationship}
-              onShowAdd={setShowAddRelationship}
+          <CardContent className="p-4">
+            <ListLayout
+              header={
+                <>
+                  <h2 className="font-semibold text-base">Relationships</h2>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <span tabIndex={allPersonsLinked ? 0 : undefined}>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => setShowAddRelationship(true)}
+                          disabled={allPersonsLinked}
+                        >
+                          <UserRoundPlus className="mr-1.5 h-4 w-4" />
+                          Add Relationship
+                        </Button>
+                      </span>
+                    </TooltipTrigger>
+                    {allPersonsLinked && <TooltipContent>All persons are already linked</TooltipContent>}
+                  </Tooltip>
+                </>
+              }
+              body={
+                <PersonRelationships
+                  person={person}
+                  allPersons={allPersonStubs}
+                  onDelete={handleDeleteRelationship}
+                  onAdd={handleAddRelationship}
+                  onEdit={handleEditRelationship}
+                  showAdd={showAddRelationship}
+                  onShowAdd={setShowAddRelationship}
+                />
+              }
             />
           </CardContent>
         </Card>
@@ -525,6 +637,35 @@ function PersonDetailPage() {
               </DialogDescription>
             </DialogHeader>
             <ImportantDateForm onSubmit={handleCreateDate} onCancel={() => setDateDialogOpen(false)} />
+          </DialogContent>
+        </Dialog>
+
+        {/* Edit Person Dialog */}
+        <Dialog open={editPersonOpen} onOpenChange={setEditPersonOpen}>
+          <DialogContent className="max-w-xl">
+            <DialogHeader>
+              <DialogTitle>Edit Person</DialogTitle>
+              <DialogDescription>
+                Update details for {person.firstName} {person.lastName}.
+              </DialogDescription>
+            </DialogHeader>
+            <PersonForm
+              availableLabels={allLabels.map((l) => ({
+                id: l.id,
+                label: l.label,
+                color: l.color,
+                __typename: 'Label' as const,
+              }))}
+              initialValues={{
+                firstName: person.firstName,
+                lastName: person.lastName,
+                email: person.email,
+                labelIds: person.labels.map((l) => l.id),
+              }}
+              submitLabel="Save Changes"
+              onSubmit={handleEditPerson}
+              onCancel={() => setEditPersonOpen(false)}
+            />
           </DialogContent>
         </Dialog>
       </div>

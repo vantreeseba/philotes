@@ -146,6 +146,28 @@ function PersonRow({ person: from, onClickDelete }) {
 The parent query fetches `id` + spreads the fragment; the row reads from cache
 via `useFragment`. This is the Apollo data masking / colocation pattern.
 
+## Form Presentation Rule
+
+**All forms must be presented inside a `Dialog`.** Never render a form inline
+on a page or expand it in-place (e.g. toggling a section open). Always open a
+`Dialog` with a clear title and a cancel button. This keeps the UI consistent
+and avoids layout shift.
+
+```tsx
+// Correct — form in a Dialog
+<Dialog open={open} onOpenChange={setOpen}>
+  <DialogContent className="max-w-md">
+    <DialogHeader>
+      <DialogTitle>Add Note</DialogTitle>
+    </DialogHeader>
+    <NoteForm onSubmit={handleSubmit} onCancel={() => setOpen(false)} />
+  </DialogContent>
+</Dialog>
+
+// Wrong — inline form
+{showForm && <NoteForm onSubmit={handleSubmit} onCancel={() => setShowForm(false)} />}
+```
+
 ## Form Pattern
 
 Forms use TanStack Form with Zod validation:

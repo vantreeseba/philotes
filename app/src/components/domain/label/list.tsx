@@ -2,6 +2,7 @@ import { useFragment } from '@apollo/client';
 import { Tag, Trash2 } from 'lucide-react';
 import { graphql } from '@/__generated__/gql.js';
 import type { Label_ListFragment } from '@/__generated__/graphql.ts';
+import { ListLayout } from '@/components/layouts/list.js';
 import { Button } from '@/components/ui/button.js';
 import { Card, CardContent } from '@/components/ui/card.js';
 import { Spinner } from '@/components/ui/spinner.tsx';
@@ -57,20 +58,23 @@ interface LabelListProps {
 
 export function LabelList({ labels, onClickAdd, onClickDelete }: LabelListProps) {
   return (
-    <div className="space-y-2">
-      <div className="flex items-center justify-between">
-        <h1 className="font-bold text-3xl">Labels</h1>
-        <Button onClick={onClickAdd}>
-          <Tag className="mr-2 h-4 w-4" />
-          Add Label
-        </Button>
-      </div>
-
-      <div className="grid gap-4">
-        {labels.map((label) => (
-          <LabelRow key={label.id} label={label} onClickDelete={onClickDelete} />
-        ))}
-      </div>
-    </div>
+    <ListLayout
+      header={
+        <>
+          <h1 className="font-bold text-3xl">Labels</h1>
+          <Button onClick={onClickAdd}>
+            <Tag className="mr-2 h-4 w-4" />
+            Add Label
+          </Button>
+        </>
+      }
+      body={
+        <div className="grid gap-4">
+          {labels.map((label) => (
+            <LabelRow key={label.id} label={label} onClickDelete={onClickDelete} />
+          ))}
+        </div>
+      }
+    />
   );
 }

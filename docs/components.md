@@ -126,6 +126,18 @@ fragment Label_List on Label {
 
 ---
 
+## Layout Preference
+
+**Prefer using a layout component whenever it makes sense.** If a component
+renders a header/body structure (e.g. a title with an action button above a
+list of items), reach for `ListLayout` instead of hand-rolling
+`<div className="space-y-2">` / `<div className="flex items-center
+justify-between">` inline. Consistent use of layout components ensures visual
+and structural uniformity across all list pages and detail-view sections, and
+makes future changes (spacing, alignment) a single-point edit.
+
+---
+
 ## Layouts (`components/layouts/`)
 
 ### `FormListLayout`
@@ -141,6 +153,44 @@ interface FormListLayoutProps {
 Renders `form` above `list` when `showForm` is `true`. All CRUD pages use
 this pattern: clicking "Add" sets `showForm = true`; submitting or cancelling
 sets it back to `false`.
+
+---
+
+## Add Button Placement in List Sections
+
+Every list section on a detail page (Tags, Important Dates, Notes, Relationships,
+etc.) must follow this layout pattern:
+
+```tsx
+<Card>
+  <CardContent className="p-4 space-y-3">
+    <div className="flex items-center justify-between">
+      <h2 className="font-semibold text-base">Section Title</h2>
+      <Button size="sm" variant="outline" onClick={() => setDialogOpen(true)}>
+        <SomeIcon className="mr-1.5 h-4 w-4" />
+        Add Item
+      </Button>
+    </div>
+    <SectionList ... createOpen={dialogOpen} onCreateOpenChange={setDialogOpen} />
+  </CardContent>
+</Card>
+```
+
+**Rules:**
+
+- The "Add" button lives in the **card header row**, right-aligned, never
+  inside the list component itself.
+- Dialog open state (`dialogOpen`, `setDialogOpen`) is owned by the **page**
+  (route component), not the list component.
+- The list component receives `createOpen: boolean` and
+  `onCreateOpenChange: (open: boolean) => void` as props and renders the
+  `<Dialog>` internally — keeping the Dialog markup co-located with the form
+  it opens.
+- If all items are already added (e.g. all tags attached), wrap the `Button`
+  in a `<Tooltip>` and disable it, explaining why.
+
+This ensures consistent UX: the add button is always in the same position
+relative to the section title across all list sections.
 
 ---
 

@@ -18,8 +18,17 @@ export interface PersonFormValue {
   labelIds: string[];
 }
 
+export interface PersonFormInitialValues {
+  firstName: string;
+  lastName: string;
+  email: string;
+  labelIds?: string[];
+}
+
 interface PersonFormProps {
   availableLabels: Label_ListFragment[];
+  initialValues?: PersonFormInitialValues;
+  submitLabel?: string;
   onSubmit: (value: PersonFormValue) => Promise<void>;
   onCancel: () => void;
 }
@@ -31,9 +40,9 @@ export const { useAppForm, withForm, withFieldGroup } = createFormHook({
   formContext,
 });
 
-export function PersonForm({ availableLabels, onSubmit, onCancel }: PersonFormProps) {
+export function PersonForm({ availableLabels, initialValues, submitLabel, onSubmit, onCancel }: PersonFormProps) {
   const [formError, setFormError] = useState<string | null>(null);
-  const [selectedLabelIds, setSelectedLabelIds] = useState<Set<string>>(new Set());
+  const [selectedLabelIds, setSelectedLabelIds] = useState<Set<string>>(new Set(initialValues?.labelIds ?? []));
 
   const toggleLabel = (id: string) => {
     setSelectedLabelIds((prev) => {
@@ -49,9 +58,9 @@ export function PersonForm({ availableLabels, onSubmit, onCancel }: PersonFormPr
 
   const form = useAppForm({
     defaultValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
+      firstName: initialValues?.firstName ?? '',
+      lastName: initialValues?.lastName ?? '',
+      email: initialValues?.email ?? '',
     },
     validators: {
       onSubmit: personSchema,
@@ -63,8 +72,10 @@ export function PersonForm({ availableLabels, onSubmit, onCancel }: PersonFormPr
           person: value,
           labelIds: Array.from(selectedLabelIds),
         });
-        form.reset();
-        setSelectedLabelIds(new Set());
+        if (!initialValues) {
+          form.reset();
+          setSelectedLabelIds(new Set());
+        }
       } catch (err: unknown) {
         if (err instanceof Error) {
           setFormError(err.message);
@@ -74,6 +85,9 @@ export function PersonForm({ availableLabels, onSubmit, onCancel }: PersonFormPr
       }
     },
   });
+
+  const defaultSubmitLabel = initialValues ? 'Save' : 'Create';
+  const submittingLabel = initialValues ? 'Saving...' : 'Creating...';
 
   return (
     <form
@@ -145,7 +159,7 @@ export function PersonForm({ availableLabels, onSubmit, onCancel }: PersonFormPr
           <form.Subscribe selector={(state) => [state.canSubmit, state.isSubmitting]}>
             {([canSubmit, isSubmitting]) => (
               <Button type="submit" disabled={!canSubmit || isSubmitting}>
-                {isSubmitting ? 'Creating...' : 'Create'}
+                {isSubmitting ? submittingLabel : (submitLabel ?? defaultSubmitLabel)}
               </Button>
             )}
           </form.Subscribe>

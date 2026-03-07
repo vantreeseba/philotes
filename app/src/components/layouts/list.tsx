@@ -3,22 +3,15 @@ import type { ReactNode } from 'react';
 interface ListLayoutProps {
   header: ReactNode;
   body: ReactNode;
-  footer: ReactNode;
+  footer?: ReactNode;
 }
 
 export function ListLayout(props: ListLayoutProps) {
   return (
-    <div>
+    <div className="space-y-2">
       <div className="flex items-center justify-between">{props.header}</div>
-      <div className="grid gap-4">{props.body}</div>
+      <div className="space-y-2">{props.body}</div>
+      {props.footer && <div>{props.footer}</div>}
     </div>
   );
 }
-
-//   return (
-//     <div>
-//       <div>{props.header}</div>
-//       <div>{props.body}</div>
-//       <div>{props.footer}</div>
-//     </div>
-//   );
