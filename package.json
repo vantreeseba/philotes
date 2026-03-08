@@ -30,6 +30,8 @@
     "test:single": "vitest run",
     "db:generate": "npm run generate -w db",
     "db:migrate": "npm run migrate -w db",
+    "db:seed": "npm run seed -w db",
+    "db:cleanup": "npm run cleanup -w db",
     "db:push": "npm run push -w db",
     "db:studio": "npm run studio -w db",
     "check:types": "tsc --noEmit -p app/tsconfig.json && tsc --noEmit -p server/tsconfig.json && tsc --noEmit -p db/tsconfig.json",

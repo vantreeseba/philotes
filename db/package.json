@@ -8,6 +8,8 @@
     "build": "tsc -p tsconfig.build.json",
     "generate": "drizzle-kit generate",
     "migrate": "node --env-file=../.env src/migrate.ts",
+    "seed": "node --env-file=../.env src/seed.ts",
+    "cleanup": "node --env-file=../.env src/cleanup.ts",
     "push": "drizzle-kit push",
     "studio": "drizzle-kit studio",
     "clean": "echo no clean for db"
@@ -17,6 +19,7 @@
     "drizzle-orm": "^1.0.0-beta.15-859cf75"
   },
   "devDependencies": {
+    "@faker-js/faker": "^10.3.0",
     "drizzle-kit": "^1.0.0-beta.15-859cf75"
   }
 }
