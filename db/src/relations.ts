@@ -14,6 +14,7 @@ export const relations = defineRelations(schema, (r) => ({
     }),
     importantDates: r.many.importantDates(),
     interactions: r.many.interactions(),
+    activities: r.many.activities(),
     relationshipsFrom: r.many.personRelationships({
       from: r.persons.id,
       to: r.personRelationships.fromPersonId,
@@ -72,6 +73,22 @@ export const relations = defineRelations(schema, (r) => ({
     labels: r.many.labels({
       from: r.interactions.id.through(r.interactionTags.interactionId),
       to: r.labels.id.through(r.interactionTags.labelId),
+    }),
+  },
+  activities: {
+    person: r.one.persons({
+      from: r.activities.personId,
+      to: r.persons.id,
+    }),
+    labels: r.many.labels({
+      from: r.activities.id.through(r.activityTags.activityId),
+      to: r.labels.id.through(r.activityTags.labelId),
+    }),
+  },
+  labels: {
+    activities: r.many.activities({
+      from: r.labels.id.through(r.activityTags.labelId),
+      to: r.activities.id.through(r.activityTags.activityId),
     }),
   },
 }));
