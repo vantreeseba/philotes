@@ -120,10 +120,10 @@ const generateSelectArray = (
           /*extractSelectedColumnsFromNode(tableSelection, info.fragments, table) */,
           offset,
           limit,
-          // drizzle-orm v1 `orderBy` must be a callback or col-keyed object —
-          // wrap pre-built SQL[] so `relationsOrderToSQL` handles it correctly.
+          // drizzle-orm v1 RQB calls orderBy with the aliased table proxy (e.g.
+          // d0, d1) — use it directly so column refs match the CTE alias.
           orderBy: orderBy
-            ? (() => { const sql = extractOrderBy(table, orderBy); return () => sql; })()
+            ? (aliasedTable: Table) => extractOrderBy(aliasedTable, orderBy)
             : undefined,
           where: where ? { RAW: (aliased) => extractFilters(aliased, tableName, where) } : undefined,
           with: withParams,
@@ -196,10 +196,10 @@ const generateSelectSingle = (
             table,
           ),
           offset,
-          // drizzle-orm v1 `orderBy` must be a callback or col-keyed object —
-          // wrap pre-built SQL[] so `relationsOrderToSQL` handles it correctly.
+          // drizzle-orm v1 RQB calls orderBy with the aliased table proxy (e.g.
+          // d0, d1) — use it directly so column refs match the CTE alias.
           orderBy: orderBy
-            ? (() => { const sql = extractOrderBy(table, orderBy); return () => sql; })()
+            ? (aliasedTable: Table) => extractOrderBy(aliasedTable, orderBy)
             : undefined,
           where: where ? { RAW: (aliased) => extractFilters(aliased, tableName, where) } : undefined,
           with: relationMap[tableName]
