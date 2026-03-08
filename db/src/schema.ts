@@ -160,3 +160,31 @@ export type InteractionTag = typeof interactionTags.$inferSelect;
 export type NewInteractionTag = typeof interactionTags.$inferInsert;
 export type NoteMention = typeof noteMentions.$inferSelect;
 export type NewNoteMention = typeof noteMentions.$inferInsert;
+
+export const activities = pgTable('activities', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  personId: uuid('person_id')
+    .notNull()
+    .references(() => persons.id, { onDelete: 'cascade' }),
+  title: text('title').notNull(),
+  description: text('description'),
+  location: text('location'),
+  occurredAt: timestamp('occurred_at').notNull(),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+export const activityTags = pgTable(
+  'activity_tags',
+  {
+    activityId: uuid('activity_id')
+      .notNull()
+      .references(() => activities.id, { onDelete: 'cascade' }),
+    labelId: uuid('label_id')
+      .notNull()
+      .references(() => labels.id, { onDelete: 'cascade' }),
+  },
+  (t) => [primaryKey({ columns: [t.activityId, t.labelId] })],
+);
+
+export type Activity = typeof activities.$inferSelect;
+export type NewActivity = typeof activities.$inferInsert;

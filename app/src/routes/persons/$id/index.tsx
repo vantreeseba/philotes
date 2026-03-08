@@ -1,6 +1,7 @@
 import { useMutation, useQuery } from '@apollo/client';
 import { createFileRoute, Link } from '@tanstack/react-router';
 import {
+  Activity,
   ArrowLeft,
   CalendarPlus,
   Camera,
@@ -13,6 +14,7 @@ import {
 } from 'lucide-react';
 import { useRef, useState } from 'react';
 import { graphql } from '@/__generated__/gql.js';
+import { ActivityList } from '@/components/domain/activity/list.js';
 import { PersonForm, type PersonFormValue } from '@/components/domain/person/form.js';
 import {
   ImportantDateForm,
@@ -108,6 +110,14 @@ const GET_PERSON_DETAIL = graphql(`
         relatedPersonFirstName
         relatedPersonLastName
       }
+      activities {
+        id
+        title
+        description
+        location
+        occurredAt
+      }
+      ...Person_ActivityList
     }
   }
 `);
@@ -400,6 +410,7 @@ function PersonDetailPage() {
   const [dateDialogOpen, setDateDialogOpen] = useState(false);
   const [noteDialogOpen, setNoteDialogOpen] = useState(false);
   const [interactionDialogOpen, setInteractionDialogOpen] = useState(false);
+  const [activityDialogOpen, setActivityDialogOpen] = useState(false);
   const [showAddLabel, setShowAddLabel] = useState(false);
   const [showAddRelationship, setShowAddRelationship] = useState(false);
   const [editPersonOpen, setEditPersonOpen] = useState(false);
@@ -749,6 +760,32 @@ function PersonDetailPage() {
                   onChanged={() => refetch()}
                   createOpen={interactionDialogOpen}
                   onCreateOpenChange={setInteractionDialogOpen}
+                />
+              }
+            />
+          </CardContent>
+        </Card>
+
+        {/* Activities */}
+        <Card>
+          <CardContent className="p-4">
+            <ListLayout
+              header={
+                <>
+                  <h2 className="font-semibold text-base">Activities</h2>
+                  <Button size="sm" variant="outline" onClick={() => setActivityDialogOpen(true)}>
+                    <Activity className="mr-1.5 h-4 w-4" />
+                    Add Activity
+                  </Button>
+                </>
+              }
+              body={
+                <ActivityList
+                  person={person}
+                  onAdd={() => refetch()}
+                  onDelete={() => refetch()}
+                  createOpen={activityDialogOpen}
+                  onCreateOpenChange={setActivityDialogOpen}
                 />
               }
             />

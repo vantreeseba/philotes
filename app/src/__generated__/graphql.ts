@@ -16,6 +16,1045 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
+export type ActivitiesCreatedAtFilters = {
+  OR?: InputMaybe<Array<ActivitiesCreatedAtFiltersOr>>;
+  /** JSON */
+  eq?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lte?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ActivitiesCreatedAtFiltersOr = {
+  /** JSON */
+  eq?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lte?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ActivitiesDescriptionFilters = {
+  OR?: InputMaybe<Array<ActivitiesDescriptionFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ActivitiesDescriptionFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ActivitiesFilters = {
+  OR?: InputMaybe<Array<ActivitiesFiltersOr>>;
+  createdAt?: InputMaybe<ActivitiesCreatedAtFilters>;
+  description?: InputMaybe<ActivitiesDescriptionFilters>;
+  id?: InputMaybe<ActivitiesIdFilters>;
+  location?: InputMaybe<ActivitiesLocationFilters>;
+  occurredAt?: InputMaybe<ActivitiesOccurredAtFilters>;
+  personId?: InputMaybe<ActivitiesPersonIdFilters>;
+  title?: InputMaybe<ActivitiesTitleFilters>;
+};
+
+export type ActivitiesFiltersOr = {
+  createdAt?: InputMaybe<ActivitiesCreatedAtFilters>;
+  description?: InputMaybe<ActivitiesDescriptionFilters>;
+  id?: InputMaybe<ActivitiesIdFilters>;
+  location?: InputMaybe<ActivitiesLocationFilters>;
+  occurredAt?: InputMaybe<ActivitiesOccurredAtFilters>;
+  personId?: InputMaybe<ActivitiesPersonIdFilters>;
+  title?: InputMaybe<ActivitiesTitleFilters>;
+};
+
+export type ActivitiesIdFilters = {
+  OR?: InputMaybe<Array<ActivitiesIdFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ActivitiesIdFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ActivitiesLocationFilters = {
+  OR?: InputMaybe<Array<ActivitiesLocationFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ActivitiesLocationFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ActivitiesOccurredAtFilters = {
+  OR?: InputMaybe<Array<ActivitiesOccurredAtFiltersOr>>;
+  /** JSON */
+  eq?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lte?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ActivitiesOccurredAtFiltersOr = {
+  /** JSON */
+  eq?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lte?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ActivitiesOrderBy = {
+  createdAt?: InputMaybe<InnerOrder>;
+  description?: InputMaybe<InnerOrder>;
+  id?: InputMaybe<InnerOrder>;
+  location?: InputMaybe<InnerOrder>;
+  occurredAt?: InputMaybe<InnerOrder>;
+  personId?: InputMaybe<InnerOrder>;
+  title?: InputMaybe<InnerOrder>;
+};
+
+export type ActivitiesPersonIdFilters = {
+  OR?: InputMaybe<Array<ActivitiesPersonIdFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ActivitiesPersonIdFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ActivitiesTitleFilters = {
+  OR?: InputMaybe<Array<ActivitiesTitleFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ActivitiesTitleFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Activity = {
+  __typename: 'Activity';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<ActivityLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<ActivityPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type ActivityLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ActivityPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ActivityLabelsRelation = {
+  __typename: 'ActivityLabelsRelation';
+  activities: Array<ActivityLabelsRelationActivitiesRelation>;
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+
+export type ActivityLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type ActivityLabelsRelationActivitiesRelation = {
+  __typename: 'ActivityLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type ActivityPersonRelation = {
+  __typename: 'ActivityPersonRelation';
+  activities: Array<ActivityPersonRelationActivitiesRelation>;
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  importantDates: Array<ActivityPersonRelationImportantDatesRelation>;
+  interactions: Array<ActivityPersonRelationInteractionsRelation>;
+  labels: Array<ActivityPersonRelationLabelsRelation>;
+  lastName: Scalars['String']['output'];
+  mentionedInNotes: Array<ActivityPersonRelationMentionedInNotesRelation>;
+  notes: Array<ActivityPersonRelationNotesRelation>;
+  relationshipsFrom: Array<ActivityPersonRelationRelationshipsFromRelation>;
+  relationshipsTo: Array<ActivityPersonRelationRelationshipsToRelation>;
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+
+export type ActivityPersonRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+
+export type ActivityPersonRelationImportantDatesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ImportantDatesOrderBy>;
+  where?: InputMaybe<ImportantDatesFilters>;
+};
+
+
+export type ActivityPersonRelationInteractionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<InteractionsOrderBy>;
+  where?: InputMaybe<InteractionsFilters>;
+};
+
+
+export type ActivityPersonRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ActivityPersonRelationMentionedInNotesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<NotesOrderBy>;
+  where?: InputMaybe<NotesFilters>;
+};
+
+
+export type ActivityPersonRelationNotesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<NotesOrderBy>;
+  where?: InputMaybe<NotesFilters>;
+};
+
+
+export type ActivityPersonRelationRelationshipsFromArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+
+export type ActivityPersonRelationRelationshipsToArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+export type ActivityPersonRelationActivitiesRelation = {
+  __typename: 'ActivityPersonRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type ActivityPersonRelationImportantDatesRelation = {
+  __typename: 'ActivityPersonRelationImportantDatesRelation';
+  date: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<ActivityPersonRelationImportantDatesRelationLabelsRelation>;
+  name: Scalars['String']['output'];
+  person: Maybe<ActivityPersonRelationImportantDatesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  recurrence: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ActivityPersonRelationImportantDatesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ActivityPersonRelationImportantDatesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ActivityPersonRelationImportantDatesRelationLabelsRelation = {
+  __typename: 'ActivityPersonRelationImportantDatesRelationLabelsRelation';
+  activities: Array<ActivityPersonRelationImportantDatesRelationLabelsRelationActivitiesRelation>;
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+
+export type ActivityPersonRelationImportantDatesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type ActivityPersonRelationImportantDatesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'ActivityPersonRelationImportantDatesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type ActivityPersonRelationImportantDatesRelationPersonRelation = {
+  __typename: 'ActivityPersonRelationImportantDatesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ActivityPersonRelationInteractionsRelation = {
+  __typename: 'ActivityPersonRelationInteractionsRelation';
+  channel: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  labels: Array<ActivityPersonRelationInteractionsRelationLabelsRelation>;
+  note: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<ActivityPersonRelationInteractionsRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  sentiment: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ActivityPersonRelationInteractionsRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ActivityPersonRelationInteractionsRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ActivityPersonRelationInteractionsRelationLabelsRelation = {
+  __typename: 'ActivityPersonRelationInteractionsRelationLabelsRelation';
+  activities: Array<ActivityPersonRelationInteractionsRelationLabelsRelationActivitiesRelation>;
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+
+export type ActivityPersonRelationInteractionsRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type ActivityPersonRelationInteractionsRelationLabelsRelationActivitiesRelation = {
+  __typename: 'ActivityPersonRelationInteractionsRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type ActivityPersonRelationInteractionsRelationPersonRelation = {
+  __typename: 'ActivityPersonRelationInteractionsRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ActivityPersonRelationLabelsRelation = {
+  __typename: 'ActivityPersonRelationLabelsRelation';
+  activities: Array<ActivityPersonRelationLabelsRelationActivitiesRelation>;
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+
+export type ActivityPersonRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type ActivityPersonRelationLabelsRelationActivitiesRelation = {
+  __typename: 'ActivityPersonRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type ActivityPersonRelationMentionedInNotesRelation = {
+  __typename: 'ActivityPersonRelationMentionedInNotesRelation';
+  body: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  labels: Array<ActivityPersonRelationMentionedInNotesRelationLabelsRelation>;
+  mentions: Array<ActivityPersonRelationMentionedInNotesRelationMentionsRelation>;
+  person: Maybe<ActivityPersonRelationMentionedInNotesRelationPersonRelation>;
+  personId: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ActivityPersonRelationMentionedInNotesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ActivityPersonRelationMentionedInNotesRelationMentionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonsOrderBy>;
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type ActivityPersonRelationMentionedInNotesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ActivityPersonRelationMentionedInNotesRelationLabelsRelation = {
+  __typename: 'ActivityPersonRelationMentionedInNotesRelationLabelsRelation';
+  activities: Array<ActivityPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation>;
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+
+export type ActivityPersonRelationMentionedInNotesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type ActivityPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'ActivityPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type ActivityPersonRelationMentionedInNotesRelationMentionsRelation = {
+  __typename: 'ActivityPersonRelationMentionedInNotesRelationMentionsRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ActivityPersonRelationMentionedInNotesRelationPersonRelation = {
+  __typename: 'ActivityPersonRelationMentionedInNotesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ActivityPersonRelationNotesRelation = {
+  __typename: 'ActivityPersonRelationNotesRelation';
+  body: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  labels: Array<ActivityPersonRelationNotesRelationLabelsRelation>;
+  mentions: Array<ActivityPersonRelationNotesRelationMentionsRelation>;
+  person: Maybe<ActivityPersonRelationNotesRelationPersonRelation>;
+  personId: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ActivityPersonRelationNotesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ActivityPersonRelationNotesRelationMentionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonsOrderBy>;
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type ActivityPersonRelationNotesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ActivityPersonRelationNotesRelationLabelsRelation = {
+  __typename: 'ActivityPersonRelationNotesRelationLabelsRelation';
+  activities: Array<ActivityPersonRelationNotesRelationLabelsRelationActivitiesRelation>;
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+
+export type ActivityPersonRelationNotesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type ActivityPersonRelationNotesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'ActivityPersonRelationNotesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type ActivityPersonRelationNotesRelationMentionsRelation = {
+  __typename: 'ActivityPersonRelationNotesRelationMentionsRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ActivityPersonRelationNotesRelationPersonRelation = {
+  __typename: 'ActivityPersonRelationNotesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ActivityPersonRelationRelationshipsFromRelation = {
+  __typename: 'ActivityPersonRelationRelationshipsFromRelation';
+  fromPerson: Maybe<ActivityPersonRelationRelationshipsFromRelationFromPersonRelation>;
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPerson: Maybe<ActivityPersonRelationRelationshipsFromRelationToPersonRelation>;
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+
+export type ActivityPersonRelationRelationshipsFromRelationFromPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type ActivityPersonRelationRelationshipsFromRelationToPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ActivityPersonRelationRelationshipsFromRelationFromPersonRelation = {
+  __typename: 'ActivityPersonRelationRelationshipsFromRelationFromPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ActivityPersonRelationRelationshipsFromRelationToPersonRelation = {
+  __typename: 'ActivityPersonRelationRelationshipsFromRelationToPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ActivityPersonRelationRelationshipsToRelation = {
+  __typename: 'ActivityPersonRelationRelationshipsToRelation';
+  fromPerson: Maybe<ActivityPersonRelationRelationshipsToRelationFromPersonRelation>;
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPerson: Maybe<ActivityPersonRelationRelationshipsToRelationToPersonRelation>;
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+
+export type ActivityPersonRelationRelationshipsToRelationFromPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type ActivityPersonRelationRelationshipsToRelationToPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ActivityPersonRelationRelationshipsToRelationFromPersonRelation = {
+  __typename: 'ActivityPersonRelationRelationshipsToRelationFromPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ActivityPersonRelationRelationshipsToRelationToPersonRelation = {
+  __typename: 'ActivityPersonRelationRelationshipsToRelationToPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ActivityTag = {
+  __typename: 'ActivityTag';
+  activityId: Scalars['String']['output'];
+  labelId: Scalars['String']['output'];
+};
+
+export type ActivityTagsActivityIdFilters = {
+  OR?: InputMaybe<Array<ActivityTagsActivityIdFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ActivityTagsActivityIdFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ActivityTagsFilters = {
+  OR?: InputMaybe<Array<ActivityTagsFiltersOr>>;
+  activityId?: InputMaybe<ActivityTagsActivityIdFilters>;
+  labelId?: InputMaybe<ActivityTagsLabelIdFilters>;
+};
+
+export type ActivityTagsFiltersOr = {
+  activityId?: InputMaybe<ActivityTagsActivityIdFilters>;
+  labelId?: InputMaybe<ActivityTagsLabelIdFilters>;
+};
+
+export type ActivityTagsLabelIdFilters = {
+  OR?: InputMaybe<Array<ActivityTagsLabelIdFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ActivityTagsLabelIdFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ActivityTagsOrderBy = {
+  activityId?: InputMaybe<InnerOrder>;
+  labelId?: InputMaybe<InnerOrder>;
+};
+
+export type CreateActivityInput = {
+  /** JSON */
+  createdAt?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  location?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  occurredAt: Scalars['String']['input'];
+  personId: Scalars['String']['input'];
+  title: Scalars['String']['input'];
+};
+
+export type CreateActivityTagInput = {
+  activityId: Scalars['String']['input'];
+  labelId: Scalars['String']['input'];
+};
+
 export type CreateImportantDateInput = {
   date: Scalars['String']['input'];
   description?: InputMaybe<Scalars['String']['input']>;
@@ -119,13 +1158,449 @@ export type ImportantDatePersonArgs = {
 
 export type ImportantDateLabelsRelation = {
   __typename: 'ImportantDateLabelsRelation';
+  activities: Array<ImportantDateLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
 };
 
+
+export type ImportantDateLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type ImportantDateLabelsRelationActivitiesRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<ImportantDateLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<ImportantDateLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationPersonRelation';
+  activities: Array<ImportantDateLabelsRelationActivitiesRelationPersonRelationActivitiesRelation>;
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  importantDates: Array<ImportantDateLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation>;
+  interactions: Array<ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRelation>;
+  labels: Array<ImportantDateLabelsRelationActivitiesRelationPersonRelationLabelsRelation>;
+  lastName: Scalars['String']['output'];
+  mentionedInNotes: Array<ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelation>;
+  notes: Array<ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelation>;
+  relationshipsFrom: Array<ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelation>;
+  relationshipsTo: Array<ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelation>;
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationImportantDatesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ImportantDatesOrderBy>;
+  where?: InputMaybe<ImportantDatesFilters>;
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<InteractionsOrderBy>;
+  where?: InputMaybe<InteractionsFilters>;
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<NotesOrderBy>;
+  where?: InputMaybe<NotesFilters>;
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<NotesOrderBy>;
+  where?: InputMaybe<NotesFilters>;
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsFromArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsToArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationActivitiesRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationPersonRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation';
+  date: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  recurrence: Maybe<Scalars['String']['output']>;
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRelation';
+  channel: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  labels: Array<ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRelationLabelsRelation>;
+  note: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  sentiment: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRelationLabelsRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRelationPersonRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationLabelsRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationPersonRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelation';
+  body: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  labels: Array<ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationLabelsRelation>;
+  mentions: Array<ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationMentionsRelation>;
+  person: Maybe<ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationPersonRelation>;
+  personId: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationMentionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonsOrderBy>;
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationLabelsRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationMentionsRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationMentionsRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationPersonRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelation';
+  body: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  labels: Array<ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelationLabelsRelation>;
+  mentions: Array<ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelationMentionsRelation>;
+  person: Maybe<ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelationPersonRelation>;
+  personId: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelationMentionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonsOrderBy>;
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelationLabelsRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelationMentionsRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelationMentionsRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelationPersonRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelation';
+  fromPerson: Maybe<ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonRelation>;
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPerson: Maybe<ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationToPersonRelation>;
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationToPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationToPersonRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationToPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelation';
+  fromPerson: Maybe<ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationFromPersonRelation>;
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPerson: Maybe<ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationToPersonRelation>;
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationFromPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationToPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationFromPersonRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationFromPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationToPersonRelation = {
+  __typename: 'ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationToPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
 export type ImportantDatePersonRelation = {
   __typename: 'ImportantDatePersonRelation';
+  activities: Array<ImportantDatePersonRelationActivitiesRelation>;
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -143,6 +1618,14 @@ export type ImportantDatePersonRelation = {
   relationshipsTo: Array<ImportantDatePersonRelationRelationshipsToRelation>;
   /** JSON */
   updatedAt: Scalars['String']['output'];
+};
+
+
+export type ImportantDatePersonRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
 };
 
 
@@ -201,6 +1684,77 @@ export type ImportantDatePersonRelationRelationshipsToArgs = {
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
+export type ImportantDatePersonRelationActivitiesRelation = {
+  __typename: 'ImportantDatePersonRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<ImportantDatePersonRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<ImportantDatePersonRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type ImportantDatePersonRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ImportantDatePersonRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ImportantDatePersonRelationActivitiesRelationLabelsRelation = {
+  __typename: 'ImportantDatePersonRelationActivitiesRelationLabelsRelation';
+  activities: Array<ImportantDatePersonRelationActivitiesRelationLabelsRelationActivitiesRelation>;
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+
+export type ImportantDatePersonRelationActivitiesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type ImportantDatePersonRelationActivitiesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'ImportantDatePersonRelationActivitiesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type ImportantDatePersonRelationActivitiesRelationPersonRelation = {
+  __typename: 'ImportantDatePersonRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
 export type ImportantDatePersonRelationImportantDatesRelation = {
   __typename: 'ImportantDatePersonRelationImportantDatesRelation';
   date: Scalars['String']['output'];
@@ -239,9 +1793,67 @@ export type ImportantDatePersonRelationInteractionsRelationPersonArgs = {
 
 export type ImportantDatePersonRelationInteractionsRelationLabelsRelation = {
   __typename: 'ImportantDatePersonRelationInteractionsRelationLabelsRelation';
+  activities: Array<ImportantDatePersonRelationInteractionsRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type ImportantDatePersonRelationInteractionsRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type ImportantDatePersonRelationInteractionsRelationLabelsRelationActivitiesRelation = {
+  __typename: 'ImportantDatePersonRelationInteractionsRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<ImportantDatePersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<ImportantDatePersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type ImportantDatePersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ImportantDatePersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ImportantDatePersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'ImportantDatePersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type ImportantDatePersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'ImportantDatePersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type ImportantDatePersonRelationInteractionsRelationPersonRelation = {
@@ -260,9 +1872,67 @@ export type ImportantDatePersonRelationInteractionsRelationPersonRelation = {
 
 export type ImportantDatePersonRelationLabelsRelation = {
   __typename: 'ImportantDatePersonRelationLabelsRelation';
+  activities: Array<ImportantDatePersonRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type ImportantDatePersonRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type ImportantDatePersonRelationLabelsRelationActivitiesRelation = {
+  __typename: 'ImportantDatePersonRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<ImportantDatePersonRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<ImportantDatePersonRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type ImportantDatePersonRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ImportantDatePersonRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ImportantDatePersonRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'ImportantDatePersonRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type ImportantDatePersonRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'ImportantDatePersonRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type ImportantDatePersonRelationMentionedInNotesRelation = {
@@ -298,9 +1968,67 @@ export type ImportantDatePersonRelationMentionedInNotesRelationPersonArgs = {
 
 export type ImportantDatePersonRelationMentionedInNotesRelationLabelsRelation = {
   __typename: 'ImportantDatePersonRelationMentionedInNotesRelationLabelsRelation';
+  activities: Array<ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type ImportantDatePersonRelationMentionedInNotesRelationMentionsRelation = {
@@ -364,9 +2092,67 @@ export type ImportantDatePersonRelationNotesRelationPersonArgs = {
 
 export type ImportantDatePersonRelationNotesRelationLabelsRelation = {
   __typename: 'ImportantDatePersonRelationNotesRelationLabelsRelation';
+  activities: Array<ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type ImportantDatePersonRelationNotesRelationMentionsRelation = {
@@ -889,13 +2675,449 @@ export type InteractionPersonArgs = {
 
 export type InteractionLabelsRelation = {
   __typename: 'InteractionLabelsRelation';
+  activities: Array<InteractionLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
 };
 
+
+export type InteractionLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type InteractionLabelsRelationActivitiesRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<InteractionLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<InteractionLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type InteractionLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationPersonRelation';
+  activities: Array<InteractionLabelsRelationActivitiesRelationPersonRelationActivitiesRelation>;
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  importantDates: Array<InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation>;
+  interactions: Array<InteractionLabelsRelationActivitiesRelationPersonRelationInteractionsRelation>;
+  labels: Array<InteractionLabelsRelationActivitiesRelationPersonRelationLabelsRelation>;
+  lastName: Scalars['String']['output'];
+  mentionedInNotes: Array<InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelation>;
+  notes: Array<InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelation>;
+  relationshipsFrom: Array<InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelation>;
+  relationshipsTo: Array<InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelation>;
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ImportantDatesOrderBy>;
+  where?: InputMaybe<ImportantDatesFilters>;
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationInteractionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<InteractionsOrderBy>;
+  where?: InputMaybe<InteractionsFilters>;
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<NotesOrderBy>;
+  where?: InputMaybe<NotesFilters>;
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationNotesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<NotesOrderBy>;
+  where?: InputMaybe<NotesFilters>;
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsFromArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsToArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationActivitiesRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationPersonRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation';
+  date: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation>;
+  name: Scalars['String']['output'];
+  person: Maybe<InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  recurrence: Maybe<Scalars['String']['output']>;
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationInteractionsRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationPersonRelationInteractionsRelation';
+  channel: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  note: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  sentiment: Maybe<Scalars['String']['output']>;
+};
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationLabelsRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationPersonRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelation';
+  body: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  labels: Array<InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationLabelsRelation>;
+  mentions: Array<InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationMentionsRelation>;
+  person: Maybe<InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationPersonRelation>;
+  personId: Maybe<Scalars['String']['output']>;
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationMentionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonsOrderBy>;
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationLabelsRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationMentionsRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationMentionsRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationPersonRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelation';
+  body: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  labels: Array<InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelationLabelsRelation>;
+  mentions: Array<InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelationMentionsRelation>;
+  person: Maybe<InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelationPersonRelation>;
+  personId: Maybe<Scalars['String']['output']>;
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelationMentionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonsOrderBy>;
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelationLabelsRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelationMentionsRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelationMentionsRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelationPersonRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelation';
+  fromPerson: Maybe<InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonRelation>;
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPerson: Maybe<InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationToPersonRelation>;
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationToPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationToPersonRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationToPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelation';
+  fromPerson: Maybe<InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationFromPersonRelation>;
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPerson: Maybe<InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationToPersonRelation>;
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationFromPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationToPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationFromPersonRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationFromPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationToPersonRelation = {
+  __typename: 'InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationToPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
 export type InteractionPersonRelation = {
   __typename: 'InteractionPersonRelation';
+  activities: Array<InteractionPersonRelationActivitiesRelation>;
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -913,6 +3135,14 @@ export type InteractionPersonRelation = {
   relationshipsTo: Array<InteractionPersonRelationRelationshipsToRelation>;
   /** JSON */
   updatedAt: Scalars['String']['output'];
+};
+
+
+export type InteractionPersonRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
 };
 
 
@@ -971,6 +3201,77 @@ export type InteractionPersonRelationRelationshipsToArgs = {
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
+export type InteractionPersonRelationActivitiesRelation = {
+  __typename: 'InteractionPersonRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<InteractionPersonRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<InteractionPersonRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type InteractionPersonRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type InteractionPersonRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type InteractionPersonRelationActivitiesRelationLabelsRelation = {
+  __typename: 'InteractionPersonRelationActivitiesRelationLabelsRelation';
+  activities: Array<InteractionPersonRelationActivitiesRelationLabelsRelationActivitiesRelation>;
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+
+export type InteractionPersonRelationActivitiesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type InteractionPersonRelationActivitiesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'InteractionPersonRelationActivitiesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type InteractionPersonRelationActivitiesRelationPersonRelation = {
+  __typename: 'InteractionPersonRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
 export type InteractionPersonRelationImportantDatesRelation = {
   __typename: 'InteractionPersonRelationImportantDatesRelation';
   date: Scalars['String']['output'];
@@ -998,9 +3299,67 @@ export type InteractionPersonRelationImportantDatesRelationPersonArgs = {
 
 export type InteractionPersonRelationImportantDatesRelationLabelsRelation = {
   __typename: 'InteractionPersonRelationImportantDatesRelationLabelsRelation';
+  activities: Array<InteractionPersonRelationImportantDatesRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type InteractionPersonRelationImportantDatesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type InteractionPersonRelationImportantDatesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'InteractionPersonRelationImportantDatesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<InteractionPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<InteractionPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type InteractionPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type InteractionPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type InteractionPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'InteractionPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type InteractionPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'InteractionPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type InteractionPersonRelationImportantDatesRelationPersonRelation = {
@@ -1030,9 +3389,67 @@ export type InteractionPersonRelationInteractionsRelation = {
 
 export type InteractionPersonRelationLabelsRelation = {
   __typename: 'InteractionPersonRelationLabelsRelation';
+  activities: Array<InteractionPersonRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type InteractionPersonRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type InteractionPersonRelationLabelsRelationActivitiesRelation = {
+  __typename: 'InteractionPersonRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<InteractionPersonRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<InteractionPersonRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type InteractionPersonRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type InteractionPersonRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type InteractionPersonRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'InteractionPersonRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type InteractionPersonRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'InteractionPersonRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type InteractionPersonRelationMentionedInNotesRelation = {
@@ -1068,9 +3485,67 @@ export type InteractionPersonRelationMentionedInNotesRelationPersonArgs = {
 
 export type InteractionPersonRelationMentionedInNotesRelationLabelsRelation = {
   __typename: 'InteractionPersonRelationMentionedInNotesRelationLabelsRelation';
+  activities: Array<InteractionPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type InteractionPersonRelationMentionedInNotesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type InteractionPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'InteractionPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<InteractionPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<InteractionPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type InteractionPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type InteractionPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type InteractionPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'InteractionPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type InteractionPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'InteractionPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type InteractionPersonRelationMentionedInNotesRelationMentionsRelation = {
@@ -1134,9 +3609,67 @@ export type InteractionPersonRelationNotesRelationPersonArgs = {
 
 export type InteractionPersonRelationNotesRelationLabelsRelation = {
   __typename: 'InteractionPersonRelationNotesRelationLabelsRelation';
+  activities: Array<InteractionPersonRelationNotesRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type InteractionPersonRelationNotesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type InteractionPersonRelationNotesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'InteractionPersonRelationNotesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<InteractionPersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<InteractionPersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type InteractionPersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type InteractionPersonRelationNotesRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type InteractionPersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'InteractionPersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type InteractionPersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'InteractionPersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type InteractionPersonRelationNotesRelationMentionsRelation = {
@@ -1639,9 +4172,480 @@ export type InteractionsSentimentFiltersOr = {
 
 export type Label = {
   __typename: 'Label';
+  activities: Array<LabelActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type LabelActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type LabelActivitiesRelation = {
+  __typename: 'LabelActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<LabelActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<LabelActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type LabelActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type LabelActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type LabelActivitiesRelationLabelsRelation = {
+  __typename: 'LabelActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type LabelActivitiesRelationPersonRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelation';
+  activities: Array<LabelActivitiesRelationPersonRelationActivitiesRelation>;
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  importantDates: Array<LabelActivitiesRelationPersonRelationImportantDatesRelation>;
+  interactions: Array<LabelActivitiesRelationPersonRelationInteractionsRelation>;
+  labels: Array<LabelActivitiesRelationPersonRelationLabelsRelation>;
+  lastName: Scalars['String']['output'];
+  mentionedInNotes: Array<LabelActivitiesRelationPersonRelationMentionedInNotesRelation>;
+  notes: Array<LabelActivitiesRelationPersonRelationNotesRelation>;
+  relationshipsFrom: Array<LabelActivitiesRelationPersonRelationRelationshipsFromRelation>;
+  relationshipsTo: Array<LabelActivitiesRelationPersonRelationRelationshipsToRelation>;
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+
+export type LabelActivitiesRelationPersonRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+
+export type LabelActivitiesRelationPersonRelationImportantDatesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ImportantDatesOrderBy>;
+  where?: InputMaybe<ImportantDatesFilters>;
+};
+
+
+export type LabelActivitiesRelationPersonRelationInteractionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<InteractionsOrderBy>;
+  where?: InputMaybe<InteractionsFilters>;
+};
+
+
+export type LabelActivitiesRelationPersonRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type LabelActivitiesRelationPersonRelationMentionedInNotesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<NotesOrderBy>;
+  where?: InputMaybe<NotesFilters>;
+};
+
+
+export type LabelActivitiesRelationPersonRelationNotesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<NotesOrderBy>;
+  where?: InputMaybe<NotesFilters>;
+};
+
+
+export type LabelActivitiesRelationPersonRelationRelationshipsFromArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+
+export type LabelActivitiesRelationPersonRelationRelationshipsToArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+export type LabelActivitiesRelationPersonRelationActivitiesRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type LabelActivitiesRelationPersonRelationImportantDatesRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationImportantDatesRelation';
+  date: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<LabelActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation>;
+  name: Scalars['String']['output'];
+  person: Maybe<LabelActivitiesRelationPersonRelationImportantDatesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  recurrence: Maybe<Scalars['String']['output']>;
+};
+
+
+export type LabelActivitiesRelationPersonRelationImportantDatesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type LabelActivitiesRelationPersonRelationImportantDatesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type LabelActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type LabelActivitiesRelationPersonRelationImportantDatesRelationPersonRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationImportantDatesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type LabelActivitiesRelationPersonRelationInteractionsRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationInteractionsRelation';
+  channel: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  labels: Array<LabelActivitiesRelationPersonRelationInteractionsRelationLabelsRelation>;
+  note: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<LabelActivitiesRelationPersonRelationInteractionsRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  sentiment: Maybe<Scalars['String']['output']>;
+};
+
+
+export type LabelActivitiesRelationPersonRelationInteractionsRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type LabelActivitiesRelationPersonRelationInteractionsRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type LabelActivitiesRelationPersonRelationInteractionsRelationLabelsRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationInteractionsRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type LabelActivitiesRelationPersonRelationInteractionsRelationPersonRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationInteractionsRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type LabelActivitiesRelationPersonRelationLabelsRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type LabelActivitiesRelationPersonRelationMentionedInNotesRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationMentionedInNotesRelation';
+  body: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  labels: Array<LabelActivitiesRelationPersonRelationMentionedInNotesRelationLabelsRelation>;
+  mentions: Array<LabelActivitiesRelationPersonRelationMentionedInNotesRelationMentionsRelation>;
+  person: Maybe<LabelActivitiesRelationPersonRelationMentionedInNotesRelationPersonRelation>;
+  personId: Maybe<Scalars['String']['output']>;
+};
+
+
+export type LabelActivitiesRelationPersonRelationMentionedInNotesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type LabelActivitiesRelationPersonRelationMentionedInNotesRelationMentionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonsOrderBy>;
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type LabelActivitiesRelationPersonRelationMentionedInNotesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type LabelActivitiesRelationPersonRelationMentionedInNotesRelationLabelsRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationMentionedInNotesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type LabelActivitiesRelationPersonRelationMentionedInNotesRelationMentionsRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationMentionedInNotesRelationMentionsRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type LabelActivitiesRelationPersonRelationMentionedInNotesRelationPersonRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationMentionedInNotesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type LabelActivitiesRelationPersonRelationNotesRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationNotesRelation';
+  body: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  labels: Array<LabelActivitiesRelationPersonRelationNotesRelationLabelsRelation>;
+  mentions: Array<LabelActivitiesRelationPersonRelationNotesRelationMentionsRelation>;
+  person: Maybe<LabelActivitiesRelationPersonRelationNotesRelationPersonRelation>;
+  personId: Maybe<Scalars['String']['output']>;
+};
+
+
+export type LabelActivitiesRelationPersonRelationNotesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type LabelActivitiesRelationPersonRelationNotesRelationMentionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonsOrderBy>;
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type LabelActivitiesRelationPersonRelationNotesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type LabelActivitiesRelationPersonRelationNotesRelationLabelsRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationNotesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type LabelActivitiesRelationPersonRelationNotesRelationMentionsRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationNotesRelationMentionsRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type LabelActivitiesRelationPersonRelationNotesRelationPersonRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationNotesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type LabelActivitiesRelationPersonRelationRelationshipsFromRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationRelationshipsFromRelation';
+  fromPerson: Maybe<LabelActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonRelation>;
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPerson: Maybe<LabelActivitiesRelationPersonRelationRelationshipsFromRelationToPersonRelation>;
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+
+export type LabelActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type LabelActivitiesRelationPersonRelationRelationshipsFromRelationToPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type LabelActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type LabelActivitiesRelationPersonRelationRelationshipsFromRelationToPersonRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationRelationshipsFromRelationToPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type LabelActivitiesRelationPersonRelationRelationshipsToRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationRelationshipsToRelation';
+  fromPerson: Maybe<LabelActivitiesRelationPersonRelationRelationshipsToRelationFromPersonRelation>;
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPerson: Maybe<LabelActivitiesRelationPersonRelationRelationshipsToRelationToPersonRelation>;
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+
+export type LabelActivitiesRelationPersonRelationRelationshipsToRelationFromPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type LabelActivitiesRelationPersonRelationRelationshipsToRelationToPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type LabelActivitiesRelationPersonRelationRelationshipsToRelationFromPersonRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationRelationshipsToRelationFromPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type LabelActivitiesRelationPersonRelationRelationshipsToRelationToPersonRelation = {
+  __typename: 'LabelActivitiesRelationPersonRelationRelationshipsToRelationToPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type LabelsColorFilters = {
@@ -1782,6 +4786,10 @@ export type LabelsOrderBy = {
 
 export type Mutation = {
   __typename: 'Mutation';
+  createActivities: Array<Activity>;
+  createActivity: Maybe<Activity>;
+  createActivityTag: Maybe<ActivityTag>;
+  createActivityTags: Array<ActivityTag>;
   createImportantDate: Maybe<ImportantDate>;
   createImportantDateTag: Maybe<ImportantDateTag>;
   createImportantDateTags: Array<ImportantDateTag>;
@@ -1804,6 +4812,8 @@ export type Mutation = {
   createPersonRelationship: Maybe<PersonRelationship>;
   createPersonRelationships: Array<PersonRelationship>;
   createPersons: Array<Person>;
+  deleteActivities: Array<Activity>;
+  deleteActivityTags: Array<ActivityTag>;
   deleteImportantDateTags: Array<ImportantDateTag>;
   deleteImportantDates: Array<ImportantDate>;
   deleteInteractionTags: Array<InteractionTag>;
@@ -1815,6 +4825,8 @@ export type Mutation = {
   deletePersonLabels: Array<PersonLabel>;
   deletePersonRelationships: Array<PersonRelationship>;
   deletePersons: Array<Person>;
+  updateActivities: Array<Activity>;
+  updateActivityTags: Array<ActivityTag>;
   updateImportantDateTags: Array<ImportantDateTag>;
   updateImportantDates: Array<ImportantDate>;
   updateInteractionTags: Array<InteractionTag>;
@@ -1826,6 +4838,26 @@ export type Mutation = {
   updatePersonLabels: Array<PersonLabel>;
   updatePersonRelationships: Array<PersonRelationship>;
   updatePersons: Array<Person>;
+};
+
+
+export type MutationCreateActivitiesArgs = {
+  values: Array<CreateActivityInput>;
+};
+
+
+export type MutationCreateActivityArgs = {
+  values: CreateActivityInput;
+};
+
+
+export type MutationCreateActivityTagArgs = {
+  values: CreateActivityTagInput;
+};
+
+
+export type MutationCreateActivityTagsArgs = {
+  values: Array<CreateActivityTagInput>;
 };
 
 
@@ -1939,6 +4971,16 @@ export type MutationCreatePersonsArgs = {
 };
 
 
+export type MutationDeleteActivitiesArgs = {
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+
+export type MutationDeleteActivityTagsArgs = {
+  where?: InputMaybe<ActivityTagsFilters>;
+};
+
+
 export type MutationDeleteImportantDateTagsArgs = {
   where?: InputMaybe<ImportantDateTagsFilters>;
 };
@@ -1991,6 +5033,18 @@ export type MutationDeletePersonRelationshipsArgs = {
 
 export type MutationDeletePersonsArgs = {
   where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type MutationUpdateActivitiesArgs = {
+  set: UpdateActivityInput;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+
+export type MutationUpdateActivityTagsArgs = {
+  set: UpdateActivityTagInput;
+  where?: InputMaybe<ActivityTagsFilters>;
 };
 
 
@@ -2092,9 +5146,362 @@ export type NotePersonArgs = {
 
 export type NoteLabelsRelation = {
   __typename: 'NoteLabelsRelation';
+  activities: Array<NoteLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type NoteLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type NoteLabelsRelationActivitiesRelation = {
+  __typename: 'NoteLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<NoteLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<NoteLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type NoteLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type NoteLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type NoteLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'NoteLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type NoteLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'NoteLabelsRelationActivitiesRelationPersonRelation';
+  activities: Array<NoteLabelsRelationActivitiesRelationPersonRelationActivitiesRelation>;
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  importantDates: Array<NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation>;
+  interactions: Array<NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelation>;
+  labels: Array<NoteLabelsRelationActivitiesRelationPersonRelationLabelsRelation>;
+  lastName: Scalars['String']['output'];
+  mentionedInNotes: Array<NoteLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelation>;
+  notes: Array<NoteLabelsRelationActivitiesRelationPersonRelationNotesRelation>;
+  relationshipsFrom: Array<NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelation>;
+  relationshipsTo: Array<NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelation>;
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ImportantDatesOrderBy>;
+  where?: InputMaybe<ImportantDatesFilters>;
+};
+
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationInteractionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<InteractionsOrderBy>;
+  where?: InputMaybe<InteractionsFilters>;
+};
+
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationMentionedInNotesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<NotesOrderBy>;
+  where?: InputMaybe<NotesFilters>;
+};
+
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationNotesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<NotesOrderBy>;
+  where?: InputMaybe<NotesFilters>;
+};
+
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationActivitiesRelation = {
+  __typename: 'NoteLabelsRelationActivitiesRelationPersonRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation = {
+  __typename: 'NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation';
+  date: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation>;
+  name: Scalars['String']['output'];
+  person: Maybe<NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  recurrence: Maybe<Scalars['String']['output']>;
+};
+
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation = {
+  __typename: 'NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonRelation = {
+  __typename: 'NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelation = {
+  __typename: 'NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelation';
+  channel: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  labels: Array<NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelationLabelsRelation>;
+  note: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  sentiment: Maybe<Scalars['String']['output']>;
+};
+
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelationLabelsRelation = {
+  __typename: 'NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelationPersonRelation = {
+  __typename: 'NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationLabelsRelation = {
+  __typename: 'NoteLabelsRelationActivitiesRelationPersonRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelation = {
+  __typename: 'NoteLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelation';
+  body: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  personId: Maybe<Scalars['String']['output']>;
+};
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationNotesRelation = {
+  __typename: 'NoteLabelsRelationActivitiesRelationPersonRelationNotesRelation';
+  body: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  personId: Maybe<Scalars['String']['output']>;
+};
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelation = {
+  __typename: 'NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelation';
+  fromPerson: Maybe<NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonRelation>;
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPerson: Maybe<NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationToPersonRelation>;
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationToPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonRelation = {
+  __typename: 'NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationToPersonRelation = {
+  __typename: 'NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationToPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelation = {
+  __typename: 'NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelation';
+  fromPerson: Maybe<NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationFromPersonRelation>;
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPerson: Maybe<NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationToPersonRelation>;
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationFromPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationToPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationFromPersonRelation = {
+  __typename: 'NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationFromPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationToPersonRelation = {
+  __typename: 'NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationToPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type NoteMention = {
@@ -2199,6 +5606,7 @@ export type NoteMentionsOrderBy = {
 
 export type NoteMentionsRelation = {
   __typename: 'NoteMentionsRelation';
+  activities: Array<NoteMentionsRelationActivitiesRelation>;
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -2216,6 +5624,14 @@ export type NoteMentionsRelation = {
   relationshipsTo: Array<NoteMentionsRelationRelationshipsToRelation>;
   /** JSON */
   updatedAt: Scalars['String']['output'];
+};
+
+
+export type NoteMentionsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
 };
 
 
@@ -2274,6 +5690,77 @@ export type NoteMentionsRelationRelationshipsToArgs = {
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
+export type NoteMentionsRelationActivitiesRelation = {
+  __typename: 'NoteMentionsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<NoteMentionsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<NoteMentionsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type NoteMentionsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type NoteMentionsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type NoteMentionsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'NoteMentionsRelationActivitiesRelationLabelsRelation';
+  activities: Array<NoteMentionsRelationActivitiesRelationLabelsRelationActivitiesRelation>;
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+
+export type NoteMentionsRelationActivitiesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type NoteMentionsRelationActivitiesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'NoteMentionsRelationActivitiesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type NoteMentionsRelationActivitiesRelationPersonRelation = {
+  __typename: 'NoteMentionsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
 export type NoteMentionsRelationImportantDatesRelation = {
   __typename: 'NoteMentionsRelationImportantDatesRelation';
   date: Scalars['String']['output'];
@@ -2301,9 +5788,67 @@ export type NoteMentionsRelationImportantDatesRelationPersonArgs = {
 
 export type NoteMentionsRelationImportantDatesRelationLabelsRelation = {
   __typename: 'NoteMentionsRelationImportantDatesRelationLabelsRelation';
+  activities: Array<NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type NoteMentionsRelationImportantDatesRelationPersonRelation = {
@@ -2348,9 +5893,67 @@ export type NoteMentionsRelationInteractionsRelationPersonArgs = {
 
 export type NoteMentionsRelationInteractionsRelationLabelsRelation = {
   __typename: 'NoteMentionsRelationInteractionsRelationLabelsRelation';
+  activities: Array<NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesRelation = {
+  __typename: 'NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type NoteMentionsRelationInteractionsRelationPersonRelation = {
@@ -2369,9 +5972,67 @@ export type NoteMentionsRelationInteractionsRelationPersonRelation = {
 
 export type NoteMentionsRelationLabelsRelation = {
   __typename: 'NoteMentionsRelationLabelsRelation';
+  activities: Array<NoteMentionsRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type NoteMentionsRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type NoteMentionsRelationLabelsRelationActivitiesRelation = {
+  __typename: 'NoteMentionsRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<NoteMentionsRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<NoteMentionsRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type NoteMentionsRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type NoteMentionsRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type NoteMentionsRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'NoteMentionsRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type NoteMentionsRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'NoteMentionsRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type NoteMentionsRelationMentionedInNotesRelation = {
@@ -2486,6 +6147,7 @@ export type NoteMentionsRelationRelationshipsToRelationToPersonRelation = {
 
 export type NotePersonRelation = {
   __typename: 'NotePersonRelation';
+  activities: Array<NotePersonRelationActivitiesRelation>;
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -2503,6 +6165,14 @@ export type NotePersonRelation = {
   relationshipsTo: Array<NotePersonRelationRelationshipsToRelation>;
   /** JSON */
   updatedAt: Scalars['String']['output'];
+};
+
+
+export type NotePersonRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
 };
 
 
@@ -2561,6 +6231,77 @@ export type NotePersonRelationRelationshipsToArgs = {
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
+export type NotePersonRelationActivitiesRelation = {
+  __typename: 'NotePersonRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<NotePersonRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<NotePersonRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type NotePersonRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type NotePersonRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type NotePersonRelationActivitiesRelationLabelsRelation = {
+  __typename: 'NotePersonRelationActivitiesRelationLabelsRelation';
+  activities: Array<NotePersonRelationActivitiesRelationLabelsRelationActivitiesRelation>;
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+
+export type NotePersonRelationActivitiesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type NotePersonRelationActivitiesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'NotePersonRelationActivitiesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type NotePersonRelationActivitiesRelationPersonRelation = {
+  __typename: 'NotePersonRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
 export type NotePersonRelationImportantDatesRelation = {
   __typename: 'NotePersonRelationImportantDatesRelation';
   date: Scalars['String']['output'];
@@ -2588,9 +6329,67 @@ export type NotePersonRelationImportantDatesRelationPersonArgs = {
 
 export type NotePersonRelationImportantDatesRelationLabelsRelation = {
   __typename: 'NotePersonRelationImportantDatesRelationLabelsRelation';
+  activities: Array<NotePersonRelationImportantDatesRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type NotePersonRelationImportantDatesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type NotePersonRelationImportantDatesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'NotePersonRelationImportantDatesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<NotePersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<NotePersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type NotePersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type NotePersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type NotePersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'NotePersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type NotePersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'NotePersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type NotePersonRelationImportantDatesRelationPersonRelation = {
@@ -2635,9 +6434,67 @@ export type NotePersonRelationInteractionsRelationPersonArgs = {
 
 export type NotePersonRelationInteractionsRelationLabelsRelation = {
   __typename: 'NotePersonRelationInteractionsRelationLabelsRelation';
+  activities: Array<NotePersonRelationInteractionsRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type NotePersonRelationInteractionsRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type NotePersonRelationInteractionsRelationLabelsRelationActivitiesRelation = {
+  __typename: 'NotePersonRelationInteractionsRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<NotePersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<NotePersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type NotePersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type NotePersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type NotePersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'NotePersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type NotePersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'NotePersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type NotePersonRelationInteractionsRelationPersonRelation = {
@@ -2656,9 +6513,67 @@ export type NotePersonRelationInteractionsRelationPersonRelation = {
 
 export type NotePersonRelationLabelsRelation = {
   __typename: 'NotePersonRelationLabelsRelation';
+  activities: Array<NotePersonRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type NotePersonRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type NotePersonRelationLabelsRelationActivitiesRelation = {
+  __typename: 'NotePersonRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<NotePersonRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<NotePersonRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type NotePersonRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type NotePersonRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type NotePersonRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'NotePersonRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type NotePersonRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'NotePersonRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type NotePersonRelationMentionedInNotesRelation = {
@@ -3017,6 +6932,7 @@ export enum OrderDirection {
 
 export type Person = {
   __typename: 'Person';
+  activities: Array<PersonActivitiesRelation>;
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -3035,6 +6951,14 @@ export type Person = {
   relationshipsTo: Array<PersonRelationshipsToRelation>;
   /** JSON */
   updatedAt: Scalars['String']['output'];
+};
+
+
+export type PersonActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
 };
 
 
@@ -3093,6 +7017,77 @@ export type PersonRelationshipsToArgs = {
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
+export type PersonActivitiesRelation = {
+  __typename: 'PersonActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<PersonActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<PersonActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type PersonActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type PersonActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonActivitiesRelationLabelsRelation = {
+  __typename: 'PersonActivitiesRelationLabelsRelation';
+  activities: Array<PersonActivitiesRelationLabelsRelationActivitiesRelation>;
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+
+export type PersonActivitiesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type PersonActivitiesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'PersonActivitiesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type PersonActivitiesRelationPersonRelation = {
+  __typename: 'PersonActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
 export type PersonImportantDatesRelation = {
   __typename: 'PersonImportantDatesRelation';
   date: Scalars['String']['output'];
@@ -3120,9 +7115,67 @@ export type PersonImportantDatesRelationPersonArgs = {
 
 export type PersonImportantDatesRelationLabelsRelation = {
   __typename: 'PersonImportantDatesRelationLabelsRelation';
+  activities: Array<PersonImportantDatesRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type PersonImportantDatesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type PersonImportantDatesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'PersonImportantDatesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<PersonImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<PersonImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type PersonImportantDatesRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type PersonImportantDatesRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'PersonImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type PersonImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'PersonImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type PersonImportantDatesRelationPersonRelation = {
@@ -3167,9 +7220,67 @@ export type PersonInteractionsRelationPersonArgs = {
 
 export type PersonInteractionsRelationLabelsRelation = {
   __typename: 'PersonInteractionsRelationLabelsRelation';
+  activities: Array<PersonInteractionsRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type PersonInteractionsRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type PersonInteractionsRelationLabelsRelationActivitiesRelation = {
+  __typename: 'PersonInteractionsRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<PersonInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<PersonInteractionsRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type PersonInteractionsRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type PersonInteractionsRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'PersonInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type PersonInteractionsRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'PersonInteractionsRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type PersonInteractionsRelationPersonRelation = {
@@ -3288,9 +7399,67 @@ export type PersonLabelsPersonIdFiltersOr = {
 
 export type PersonLabelsRelation = {
   __typename: 'PersonLabelsRelation';
+  activities: Array<PersonLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type PersonLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type PersonLabelsRelationActivitiesRelation = {
+  __typename: 'PersonLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<PersonLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<PersonLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type PersonLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type PersonLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'PersonLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type PersonLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'PersonLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type PersonMentionedInNotesRelation = {
@@ -3326,9 +7495,67 @@ export type PersonMentionedInNotesRelationPersonArgs = {
 
 export type PersonMentionedInNotesRelationLabelsRelation = {
   __typename: 'PersonMentionedInNotesRelationLabelsRelation';
+  activities: Array<PersonMentionedInNotesRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type PersonMentionedInNotesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type PersonMentionedInNotesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'PersonMentionedInNotesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<PersonMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<PersonMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type PersonMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type PersonMentionedInNotesRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'PersonMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type PersonMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'PersonMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type PersonMentionedInNotesRelationMentionsRelation = {
@@ -3392,9 +7619,67 @@ export type PersonNotesRelationPersonArgs = {
 
 export type PersonNotesRelationLabelsRelation = {
   __typename: 'PersonNotesRelationLabelsRelation';
+  activities: Array<PersonNotesRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type PersonNotesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type PersonNotesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'PersonNotesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<PersonNotesRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<PersonNotesRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type PersonNotesRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type PersonNotesRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonNotesRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'PersonNotesRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type PersonNotesRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'PersonNotesRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type PersonNotesRelationMentionsRelation = {
@@ -3456,6 +7741,7 @@ export type PersonRelationshipEntry = {
 
 export type PersonRelationshipFromPersonRelation = {
   __typename: 'PersonRelationshipFromPersonRelation';
+  activities: Array<PersonRelationshipFromPersonRelationActivitiesRelation>;
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -3473,6 +7759,14 @@ export type PersonRelationshipFromPersonRelation = {
   relationshipsTo: Array<PersonRelationshipFromPersonRelationRelationshipsToRelation>;
   /** JSON */
   updatedAt: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipFromPersonRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
 };
 
 
@@ -3531,6 +7825,77 @@ export type PersonRelationshipFromPersonRelationRelationshipsToArgs = {
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
+export type PersonRelationshipFromPersonRelationActivitiesRelation = {
+  __typename: 'PersonRelationshipFromPersonRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<PersonRelationshipFromPersonRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<PersonRelationshipFromPersonRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipFromPersonRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type PersonRelationshipFromPersonRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonRelationshipFromPersonRelationActivitiesRelationLabelsRelation = {
+  __typename: 'PersonRelationshipFromPersonRelationActivitiesRelationLabelsRelation';
+  activities: Array<PersonRelationshipFromPersonRelationActivitiesRelationLabelsRelationActivitiesRelation>;
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipFromPersonRelationActivitiesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type PersonRelationshipFromPersonRelationActivitiesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'PersonRelationshipFromPersonRelationActivitiesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type PersonRelationshipFromPersonRelationActivitiesRelationPersonRelation = {
+  __typename: 'PersonRelationshipFromPersonRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
 export type PersonRelationshipFromPersonRelationImportantDatesRelation = {
   __typename: 'PersonRelationshipFromPersonRelationImportantDatesRelation';
   date: Scalars['String']['output'];
@@ -3558,9 +7923,67 @@ export type PersonRelationshipFromPersonRelationImportantDatesRelationPersonArgs
 
 export type PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelation = {
   __typename: 'PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelation';
+  activities: Array<PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation = {
@@ -3605,9 +8028,67 @@ export type PersonRelationshipFromPersonRelationInteractionsRelationPersonArgs =
 
 export type PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelation = {
   __typename: 'PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelation';
+  activities: Array<PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelationActivitiesRelation = {
+  __typename: 'PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type PersonRelationshipFromPersonRelationInteractionsRelationPersonRelation = {
@@ -3626,9 +8107,67 @@ export type PersonRelationshipFromPersonRelationInteractionsRelationPersonRelati
 
 export type PersonRelationshipFromPersonRelationLabelsRelation = {
   __typename: 'PersonRelationshipFromPersonRelationLabelsRelation';
+  activities: Array<PersonRelationshipFromPersonRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipFromPersonRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type PersonRelationshipFromPersonRelationLabelsRelationActivitiesRelation = {
+  __typename: 'PersonRelationshipFromPersonRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<PersonRelationshipFromPersonRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<PersonRelationshipFromPersonRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipFromPersonRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type PersonRelationshipFromPersonRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonRelationshipFromPersonRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'PersonRelationshipFromPersonRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type PersonRelationshipFromPersonRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'PersonRelationshipFromPersonRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type PersonRelationshipFromPersonRelationMentionedInNotesRelation = {
@@ -3664,9 +8203,67 @@ export type PersonRelationshipFromPersonRelationMentionedInNotesRelationPersonAr
 
 export type PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelation = {
   __typename: 'PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelation';
+  activities: Array<PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type PersonRelationshipFromPersonRelationMentionedInNotesRelationMentionsRelation = {
@@ -3730,9 +8327,67 @@ export type PersonRelationshipFromPersonRelationNotesRelationPersonArgs = {
 
 export type PersonRelationshipFromPersonRelationNotesRelationLabelsRelation = {
   __typename: 'PersonRelationshipFromPersonRelationNotesRelationLabelsRelation';
+  activities: Array<PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type PersonRelationshipFromPersonRelationNotesRelationMentionsRelation = {
@@ -3781,6 +8436,7 @@ export type PersonRelationshipFromPersonRelationRelationshipsToRelation = {
 
 export type PersonRelationshipToPersonRelation = {
   __typename: 'PersonRelationshipToPersonRelation';
+  activities: Array<PersonRelationshipToPersonRelationActivitiesRelation>;
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -3798,6 +8454,14 @@ export type PersonRelationshipToPersonRelation = {
   relationshipsTo: Array<PersonRelationshipToPersonRelationRelationshipsToRelation>;
   /** JSON */
   updatedAt: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipToPersonRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
 };
 
 
@@ -3856,6 +8520,77 @@ export type PersonRelationshipToPersonRelationRelationshipsToArgs = {
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
+export type PersonRelationshipToPersonRelationActivitiesRelation = {
+  __typename: 'PersonRelationshipToPersonRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<PersonRelationshipToPersonRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<PersonRelationshipToPersonRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipToPersonRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type PersonRelationshipToPersonRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonRelationshipToPersonRelationActivitiesRelationLabelsRelation = {
+  __typename: 'PersonRelationshipToPersonRelationActivitiesRelationLabelsRelation';
+  activities: Array<PersonRelationshipToPersonRelationActivitiesRelationLabelsRelationActivitiesRelation>;
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipToPersonRelationActivitiesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type PersonRelationshipToPersonRelationActivitiesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'PersonRelationshipToPersonRelationActivitiesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type PersonRelationshipToPersonRelationActivitiesRelationPersonRelation = {
+  __typename: 'PersonRelationshipToPersonRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
 export type PersonRelationshipToPersonRelationImportantDatesRelation = {
   __typename: 'PersonRelationshipToPersonRelationImportantDatesRelation';
   date: Scalars['String']['output'];
@@ -3883,9 +8618,67 @@ export type PersonRelationshipToPersonRelationImportantDatesRelationPersonArgs =
 
 export type PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelation = {
   __typename: 'PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelation';
+  activities: Array<PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation = {
@@ -3930,9 +8723,67 @@ export type PersonRelationshipToPersonRelationInteractionsRelationPersonArgs = {
 
 export type PersonRelationshipToPersonRelationInteractionsRelationLabelsRelation = {
   __typename: 'PersonRelationshipToPersonRelationInteractionsRelationLabelsRelation';
+  activities: Array<PersonRelationshipToPersonRelationInteractionsRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipToPersonRelationInteractionsRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type PersonRelationshipToPersonRelationInteractionsRelationLabelsRelationActivitiesRelation = {
+  __typename: 'PersonRelationshipToPersonRelationInteractionsRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<PersonRelationshipToPersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<PersonRelationshipToPersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipToPersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type PersonRelationshipToPersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonRelationshipToPersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'PersonRelationshipToPersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type PersonRelationshipToPersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'PersonRelationshipToPersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type PersonRelationshipToPersonRelationInteractionsRelationPersonRelation = {
@@ -3951,9 +8802,67 @@ export type PersonRelationshipToPersonRelationInteractionsRelationPersonRelation
 
 export type PersonRelationshipToPersonRelationLabelsRelation = {
   __typename: 'PersonRelationshipToPersonRelationLabelsRelation';
+  activities: Array<PersonRelationshipToPersonRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipToPersonRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type PersonRelationshipToPersonRelationLabelsRelationActivitiesRelation = {
+  __typename: 'PersonRelationshipToPersonRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<PersonRelationshipToPersonRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<PersonRelationshipToPersonRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipToPersonRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type PersonRelationshipToPersonRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonRelationshipToPersonRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'PersonRelationshipToPersonRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type PersonRelationshipToPersonRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'PersonRelationshipToPersonRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type PersonRelationshipToPersonRelationMentionedInNotesRelation = {
@@ -3989,9 +8898,67 @@ export type PersonRelationshipToPersonRelationMentionedInNotesRelationPersonArgs
 
 export type PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelation = {
   __typename: 'PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelation';
+  activities: Array<PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type PersonRelationshipToPersonRelationMentionedInNotesRelationMentionsRelation = {
@@ -4055,9 +9022,67 @@ export type PersonRelationshipToPersonRelationNotesRelationPersonArgs = {
 
 export type PersonRelationshipToPersonRelationNotesRelationLabelsRelation = {
   __typename: 'PersonRelationshipToPersonRelationNotesRelationLabelsRelation';
+  activities: Array<PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivitiesRelation>;
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+export type PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivitiesRelation = {
+  __typename: 'PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivitiesRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsRelation>;
+  location: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivitiesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsRelation = {
+  __typename: 'PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRelation = {
+  __typename: 'PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type PersonRelationshipToPersonRelationNotesRelationMentionsRelation = {
@@ -4750,6 +9775,10 @@ export type PersonsUpdatedAtFiltersOr = {
 
 export type Query = {
   __typename: 'Query';
+  activity: Maybe<Activity>;
+  activityTag: Maybe<ActivityTag>;
+  activityTags: Array<ActivityTag>;
+  activitys: Array<Activity>;
   importantDate: Maybe<ImportantDate>;
   importantDateTag: Maybe<ImportantDateTag>;
   importantDateTags: Array<ImportantDateTag>;
@@ -4772,6 +9801,36 @@ export type Query = {
   personRelationship: Maybe<PersonRelationship>;
   personRelationships: Array<PersonRelationship>;
   persons: Array<Person>;
+};
+
+
+export type QueryActivityArgs = {
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
+};
+
+
+export type QueryActivityTagArgs = {
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivityTagsOrderBy>;
+  where?: InputMaybe<ActivityTagsFilters>;
+};
+
+
+export type QueryActivityTagsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivityTagsOrderBy>;
+  where?: InputMaybe<ActivityTagsFilters>;
+};
+
+
+export type QueryActivitysArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivitiesOrderBy>;
+  where?: InputMaybe<ActivitiesFilters>;
 };
 
 
@@ -4939,6 +9998,23 @@ export type QueryPersonsArgs = {
   where?: InputMaybe<PersonsFilters>;
 };
 
+export type UpdateActivityInput = {
+  /** JSON */
+  createdAt?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  location?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  occurredAt?: InputMaybe<Scalars['String']['input']>;
+  personId?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateActivityTagInput = {
+  activityId?: InputMaybe<Scalars['String']['input']>;
+  labelId?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type UpdateImportantDateInput = {
   date?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
@@ -5014,6 +10090,26 @@ export type UpdatePersonRelationshipInput = {
   toPersonId?: InputMaybe<Scalars['String']['input']>;
   type?: InputMaybe<Scalars['String']['input']>;
 };
+
+export type Person_ActivityListFragment = { __typename: 'Person', id: string, activities: Array<{ __typename: 'PersonActivitiesRelation', id: string, title: string, description: string | null, location: string | null, occurredAt: string }> };
+
+export type CreateActivityMutationVariables = Exact<{
+  personId: Scalars['String']['input'];
+  title: Scalars['String']['input'];
+  occurredAt: Scalars['String']['input'];
+  location?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+}>;
+
+
+export type CreateActivityMutation = { createActivity: { __typename: 'Activity', id: string, personId: string, title: string, occurredAt: string, location: string | null, description: string | null } | null };
+
+export type DeleteActivityMutationVariables = Exact<{
+  id: Scalars['String']['input'];
+}>;
+
+
+export type DeleteActivityMutation = { deleteActivities: Array<{ __typename: 'Activity', id: string }> };
 
 export type GetPersonsWithFrequencyQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -5225,7 +10321,7 @@ export type GetPersonDetailQueryVariables = Exact<{
 }>;
 
 
-export type GetPersonDetailQuery = { persons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string, avatarPath: string | null, contactFrequency: string | null, createdAt: string, updatedAt: string, labels: Array<{ __typename: 'PersonLabelsRelation', id: string, label: string, color: string }>, importantDates: Array<{ __typename: 'PersonImportantDatesRelation', id: string, name: string, description: string | null, date: string, recurrence: string | null, labels: Array<{ __typename: 'PersonImportantDatesRelationLabelsRelation', id: string, label: string, color: string }> }>, notes: Array<{ __typename: 'PersonNotesRelation', id: string, body: string, labels: Array<{ __typename: 'PersonNotesRelationLabelsRelation', id: string, label: string, color: string }>, mentions: Array<{ __typename: 'PersonNotesRelationMentionsRelation', id: string, firstName: string, lastName: string }> }>, mentionedInNotes: Array<{ __typename: 'PersonMentionedInNotesRelation', id: string, body: string, person: { __typename: 'PersonMentionedInNotesRelationPersonRelation', id: string, firstName: string, lastName: string } | null }>, interactions: Array<{ __typename: 'PersonInteractionsRelation', id: string, personId: string, channel: string, occurredAt: string, sentiment: string | null, note: string | null, labels: Array<{ __typename: 'PersonInteractionsRelationLabelsRelation', id: string, label: string, color: string }> }>, relationships: Array<{ __typename: 'PersonRelationshipEntry', id: string, type: string, relatedPersonId: string, relatedPersonFirstName: string, relatedPersonLastName: string }> }> };
+export type GetPersonDetailQuery = { persons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string, avatarPath: string | null, contactFrequency: string | null, createdAt: string, updatedAt: string, labels: Array<{ __typename: 'PersonLabelsRelation', id: string, label: string, color: string }>, importantDates: Array<{ __typename: 'PersonImportantDatesRelation', id: string, name: string, description: string | null, date: string, recurrence: string | null, labels: Array<{ __typename: 'PersonImportantDatesRelationLabelsRelation', id: string, label: string, color: string }> }>, notes: Array<{ __typename: 'PersonNotesRelation', id: string, body: string, labels: Array<{ __typename: 'PersonNotesRelationLabelsRelation', id: string, label: string, color: string }>, mentions: Array<{ __typename: 'PersonNotesRelationMentionsRelation', id: string, firstName: string, lastName: string }> }>, mentionedInNotes: Array<{ __typename: 'PersonMentionedInNotesRelation', id: string, body: string, person: { __typename: 'PersonMentionedInNotesRelationPersonRelation', id: string, firstName: string, lastName: string } | null }>, interactions: Array<{ __typename: 'PersonInteractionsRelation', id: string, personId: string, channel: string, occurredAt: string, sentiment: string | null, note: string | null, labels: Array<{ __typename: 'PersonInteractionsRelationLabelsRelation', id: string, label: string, color: string }> }>, relationships: Array<{ __typename: 'PersonRelationshipEntry', id: string, type: string, relatedPersonId: string, relatedPersonFirstName: string, relatedPersonLastName: string }>, activities: Array<{ __typename: 'PersonActivitiesRelation', id: string, title: string, description: string | null, location: string | null, occurredAt: string }> }> };
 
 export type GetAllPersonsForDetailQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -5336,11 +10432,14 @@ export type DeleteTagMutationVariables = Exact<{
 
 export type DeleteTagMutation = { deleteLabels: Array<{ __typename: 'Label', id: string }> };
 
+export const Person_ActivityListFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Person_ActivityList"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Person"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"activities"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"location"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}}]}}]}}]} as unknown as DocumentNode<Person_ActivityListFragment, unknown>;
 export const Label_ListFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Label_List"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Label"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]} as unknown as DocumentNode<Label_ListFragment, unknown>;
 export const Person_LabelsFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Person_Labels"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Person"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}}]} as unknown as DocumentNode<Person_LabelsFragment, unknown>;
 export const Person_RelationshipsFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Person_Relationships"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Person"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"relationships"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonId"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonFirstName"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonLastName"}}]}}]}}]} as unknown as DocumentNode<Person_RelationshipsFragment, unknown>;
 export const Person_ListFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Person_List"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Person"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"importantDates"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"date"}}]}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"Person_Relationships"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Person_Relationships"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Person"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"relationships"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonId"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonFirstName"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonLastName"}}]}}]}}]} as unknown as DocumentNode<Person_ListFragment, unknown>;
 export const Tag_ListFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Tag_List"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Label"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]} as unknown as DocumentNode<Tag_ListFragment, unknown>;
+export const CreateActivityDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateActivity"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"personId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"title"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"occurredAt"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"location"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"description"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createActivity"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"values"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"personId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"personId"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"title"},"value":{"kind":"Variable","name":{"kind":"Name","value":"title"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"occurredAt"},"value":{"kind":"Variable","name":{"kind":"Name","value":"occurredAt"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"location"},"value":{"kind":"Variable","name":{"kind":"Name","value":"location"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"description"},"value":{"kind":"Variable","name":{"kind":"Name","value":"description"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"personId"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}},{"kind":"Field","name":{"kind":"Name","value":"location"}},{"kind":"Field","name":{"kind":"Name","value":"description"}}]}}]}}]} as unknown as DocumentNode<CreateActivityMutation, CreateActivityMutationVariables>;
+export const DeleteActivityDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"DeleteActivity"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"deleteActivities"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<DeleteActivityMutation, DeleteActivityMutationVariables>;
 export const GetPersonsWithFrequencyDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetPersonsWithFrequency"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"persons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"contactFrequency"}},{"kind":"Field","name":{"kind":"Name","value":"interactions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"1"}},{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"occurredAt"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"direction"},"value":{"kind":"EnumValue","value":"desc"}},{"kind":"ObjectField","name":{"kind":"Name","value":"priority"},"value":{"kind":"IntValue","value":"1"}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}}]}}]}}]}}]} as unknown as DocumentNode<GetPersonsWithFrequencyQuery, GetPersonsWithFrequencyQueryVariables>;
 export const GetPersonInteractionsForWidgetDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetPersonInteractionsForWidget"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"personId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"interactions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"personId"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"personId"}}}]}}]}},{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"occurredAt"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"direction"},"value":{"kind":"EnumValue","value":"desc"}},{"kind":"ObjectField","name":{"kind":"Name","value":"priority"},"value":{"kind":"IntValue","value":"1"}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"personId"}},{"kind":"Field","name":{"kind":"Name","value":"channel"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}},{"kind":"Field","name":{"kind":"Name","value":"sentiment"}},{"kind":"Field","name":{"kind":"Name","value":"note"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}}]}}]} as unknown as DocumentNode<GetPersonInteractionsForWidgetQuery, GetPersonInteractionsForWidgetQueryVariables>;
 export const GetAllLabelsForWidgetDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetAllLabelsForWidget"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}}]} as unknown as DocumentNode<GetAllLabelsForWidgetQuery, GetAllLabelsForWidgetQueryVariables>;
@@ -5367,7 +10466,7 @@ export const UpdatePersonRelationshipDocument = {"kind":"Document","definitions"
 export const DeletePersonRelationshipDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"DeletePersonRelationship"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"deletePersonRelationships"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<DeletePersonRelationshipMutation, DeletePersonRelationshipMutationVariables>;
 export const GetNetworkDataDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetNetworkData"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"persons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"relationshipsFrom"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"toPersonId"}},{"kind":"Field","name":{"kind":"Name","value":"type"}}]}}]}}]}}]} as unknown as DocumentNode<GetNetworkDataQuery, GetNetworkDataQueryVariables>;
 export const GetImportantDateDetailDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetImportantDateDetail"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"dateId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"personId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"importantDates"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"dateId"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"recurrence"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"notes"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"personId"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"personId"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}}]}}]} as unknown as DocumentNode<GetImportantDateDetailQuery, GetImportantDateDetailQueryVariables>;
-export const GetPersonDetailDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetPersonDetail"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"persons"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"contactFrequency"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"importantDates"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"recurrence"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"notes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"mentions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"mentionedInNotes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"person"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"interactions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"occurredAt"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"direction"},"value":{"kind":"EnumValue","value":"desc"}},{"kind":"ObjectField","name":{"kind":"Name","value":"priority"},"value":{"kind":"IntValue","value":"1"}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"personId"}},{"kind":"Field","name":{"kind":"Name","value":"channel"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}},{"kind":"Field","name":{"kind":"Name","value":"sentiment"}},{"kind":"Field","name":{"kind":"Name","value":"note"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"relationships"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonId"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonFirstName"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonLastName"}}]}}]}}]}}]} as unknown as DocumentNode<GetPersonDetailQuery, GetPersonDetailQueryVariables>;
+export const GetPersonDetailDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetPersonDetail"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"persons"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"contactFrequency"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"importantDates"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"recurrence"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"notes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"mentions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"mentionedInNotes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"person"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"interactions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"occurredAt"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"direction"},"value":{"kind":"EnumValue","value":"desc"}},{"kind":"ObjectField","name":{"kind":"Name","value":"priority"},"value":{"kind":"IntValue","value":"1"}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"personId"}},{"kind":"Field","name":{"kind":"Name","value":"channel"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}},{"kind":"Field","name":{"kind":"Name","value":"sentiment"}},{"kind":"Field","name":{"kind":"Name","value":"note"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"relationships"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonId"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonFirstName"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonLastName"}}]}},{"kind":"Field","name":{"kind":"Name","value":"activities"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"location"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}}]}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"Person_ActivityList"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Person_ActivityList"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Person"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"activities"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"location"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}}]}}]}}]} as unknown as DocumentNode<GetPersonDetailQuery, GetPersonDetailQueryVariables>;
 export const GetAllPersonsForDetailDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetAllPersonsForDetail"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"persons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}}]}}]} as unknown as DocumentNode<GetAllPersonsForDetailQuery, GetAllPersonsForDetailQueryVariables>;
 export const GetAllLabelsForDetailDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetAllLabelsForDetail"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}}]} as unknown as DocumentNode<GetAllLabelsForDetailQuery, GetAllLabelsForDetailQueryVariables>;
 export const DeleteImportantDateDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"DeleteImportantDate"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"deleteImportantDates"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<DeleteImportantDateMutation, DeleteImportantDateMutationVariables>;
