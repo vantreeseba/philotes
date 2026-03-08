@@ -788,17 +788,25 @@ const extractRelationsParamsInner = (
     const relationArgs: Partial<TableSelectArgs> | undefined =
       relationField?.args;
 
-    const orderBy = relationArgs?.orderBy
+    const rawOrderBy = relationArgs?.orderBy
       ? extractOrderBy(tables[targetTableName]!, relationArgs.orderBy!)
-      : undefined;
-    const where = relationArgs?.where
-      ? extractFilters(tables[targetTableName]!, relName, relationArgs.where!)
       : undefined;
     const offset = relationArgs?.offset ?? undefined;
     const limit = relationArgs?.limit ?? undefined;
 
-    thisRecord.orderBy = orderBy;
-    thisRecord.where = where;
+    // drizzle-orm v1 RQB expects `where` as a RelationsFilter object, not a
+    // pre-built SQL. Use the `RAW` callback escape hatch so the dialect passes
+    // the aliased table to `extractFilters`, matching what drizzle builds SQL
+    // with (e.g. "d1"."column" rather than "notes"."column").
+    // For `orderBy`, wrap pre-built SQL[] in a callback so `relationsOrderToSQL`
+    // receives the correct table alias proxy when building ORDER BY clauses.
+    const relWhere = relationArgs?.where;
+    thisRecord.where = relWhere
+      ? { RAW: (aliasedTable: Table) => extractFilters(aliasedTable, relName, relWhere) }
+      : undefined;
+    thisRecord.orderBy = rawOrderBy?.length
+      ? (_aliasedTable: Table) => rawOrderBy
+      : undefined;
     thisRecord.offset = offset;
     thisRecord.limit = limit;
 

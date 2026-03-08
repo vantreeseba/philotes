@@ -102,6 +102,16 @@ const generateSelectArray = (
           deep: true,
         }) as ResolveTree;
 
+        const withParams = relationMap[tableName]
+          ? extractRelationsParams(
+              relationMap,
+              tables,
+              tableName,
+              parsedInfo,
+              typeName,
+            )
+          : undefined;
+
         const query = queryBase.findMany({
           columns: extractSelectedColumnsFromTree(
             parsedInfo.fieldsByTypeName[typeName]!,
@@ -110,26 +120,18 @@ const generateSelectArray = (
           /*extractSelectedColumnsFromNode(tableSelection, info.fragments, table) */,
           offset,
           limit,
-          orderBy: orderBy ? extractOrderBy(table, orderBy) : undefined,
-          where: where ? { RAW: (aliased) => extractFilters(aliased, tableName, where) } : undefined,
-          with: relationMap[tableName]
-            ? extractRelationsParams(
-                relationMap,
-                tables,
-                tableName,
-                parsedInfo,
-                typeName,
-              )
+          // drizzle-orm v1 `orderBy` must be a callback or col-keyed object —
+          // wrap pre-built SQL[] so `relationsOrderToSQL` handles it correctly.
+          orderBy: orderBy
+            ? (() => { const sql = extractOrderBy(table, orderBy); return () => sql; })()
             : undefined,
+          where: where ? { RAW: (aliased) => extractFilters(aliased, tableName, where) } : undefined,
+          with: withParams,
         });
 
-
         const result = await query;
-        console.log(result);
 
-        const mapped = remapToGraphQLArrayOutput(result, tableName, table, relationMap);
-        console.log('mapped', mapped);
-        return mapped;
+        return remapToGraphQLArrayOutput(result, tableName, table, relationMap);
       } catch (e) {
         if(e instanceof Error) {
           console.trace(e)
@@ -194,7 +196,11 @@ const generateSelectSingle = (
             table,
           ),
           offset,
-          orderBy: orderBy ? extractOrderBy(table, orderBy) : undefined,
+          // drizzle-orm v1 `orderBy` must be a callback or col-keyed object —
+          // wrap pre-built SQL[] so `relationsOrderToSQL` handles it correctly.
+          orderBy: orderBy
+            ? (() => { const sql = extractOrderBy(table, orderBy); return () => sql; })()
+            : undefined,
           where: where ? { RAW: (aliased) => extractFilters(aliased, tableName, where) } : undefined,
           with: relationMap[tableName]
             ? extractRelationsParams(
