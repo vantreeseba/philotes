@@ -79,6 +79,19 @@ input CreatePersonRelationshipInput {
   type: String!
 }
 
+input CreateTaskInput {
+  """JSON"""
+  completedAt: String
+  """JSON"""
+  createdAt: String
+  """JSON"""
+  dueAt: String
+  id: String
+  notes: String
+  personId: String!
+  title: String!
+}
+
 type ImportantDate {
   date: String!
   description: String
@@ -112,6 +125,7 @@ type ImportantDatePersonRelation {
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [ImportantDatePersonRelationNotesRelation!]!
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [ImportantDatePersonRelationRelationshipsFromRelation!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [ImportantDatePersonRelationRelationshipsToRelation!]!
+  tasks(limit: Int, offset: Int, orderBy: TasksOrderBy, where: TasksFilters): [ImportantDatePersonRelationTasksRelation!]!
   """JSON"""
   updatedAt: String!
 }
@@ -302,6 +316,33 @@ type ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation {
 }
 
 type ImportantDatePersonRelationRelationshipsToRelationToPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type ImportantDatePersonRelationTasksRelation {
+  """JSON"""
+  completedAt: String
+  """JSON"""
+  createdAt: String!
+  """JSON"""
+  dueAt: String
+  id: String!
+  notes: String
+  person(where: PersonsFilters): ImportantDatePersonRelationTasksRelationPersonRelation
+  personId: String!
+  title: String!
+}
+
+type ImportantDatePersonRelationTasksRelationPersonRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -715,6 +756,7 @@ type InteractionPersonRelation {
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [InteractionPersonRelationNotesRelation!]!
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [InteractionPersonRelationRelationshipsFromRelation!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [InteractionPersonRelationRelationshipsToRelation!]!
+  tasks(limit: Int, offset: Int, orderBy: TasksOrderBy, where: TasksFilters): [InteractionPersonRelationTasksRelation!]!
   """JSON"""
   updatedAt: String!
 }
@@ -905,6 +947,33 @@ type InteractionPersonRelationRelationshipsToRelationFromPersonRelation {
 }
 
 type InteractionPersonRelationRelationshipsToRelationToPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type InteractionPersonRelationTasksRelation {
+  """JSON"""
+  completedAt: String
+  """JSON"""
+  createdAt: String!
+  """JSON"""
+  dueAt: String
+  id: String!
+  notes: String
+  person(where: PersonsFilters): InteractionPersonRelationTasksRelationPersonRelation
+  personId: String!
+  title: String!
+}
+
+type InteractionPersonRelationTasksRelationPersonRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -1455,6 +1524,8 @@ type Mutation {
   createPersonRelationship(values: CreatePersonRelationshipInput!): PersonRelationship
   createPersonRelationships(values: [CreatePersonRelationshipInput!]!): [PersonRelationship!]!
   createPersons(values: [CreatePersonInput!]!): [Person!]!
+  createTask(values: CreateTaskInput!): Task
+  createTasks(values: [CreateTaskInput!]!): [Task!]!
   deleteImportantDateTags(where: ImportantDateTagsFilters): [ImportantDateTag!]!
   deleteImportantDates(where: ImportantDatesFilters): [ImportantDate!]!
   deleteInteractionTags(where: InteractionTagsFilters): [InteractionTag!]!
@@ -1466,6 +1537,7 @@ type Mutation {
   deletePersonLabels(where: PersonLabelsFilters): [PersonLabel!]!
   deletePersonRelationships(where: PersonRelationshipsFilters): [PersonRelationship!]!
   deletePersons(where: PersonsFilters): [Person!]!
+  deleteTasks(where: TasksFilters): [Task!]!
   updateImportantDateTags(set: UpdateImportantDateTagInput!, where: ImportantDateTagsFilters): [ImportantDateTag!]!
   updateImportantDates(set: UpdateImportantDateInput!, where: ImportantDatesFilters): [ImportantDate!]!
   updateInteractionTags(set: UpdateInteractionTagInput!, where: InteractionTagsFilters): [InteractionTag!]!
@@ -1477,6 +1549,7 @@ type Mutation {
   updatePersonLabels(set: UpdatePersonLabelInput!, where: PersonLabelsFilters): [PersonLabel!]!
   updatePersonRelationships(set: UpdatePersonRelationshipInput!, where: PersonRelationshipsFilters): [PersonRelationship!]!
   updatePersons(set: UpdatePersonInput!, where: PersonsFilters): [Person!]!
+  updateTasks(set: UpdateTaskInput!, where: TasksFilters): [Task!]!
 }
 
 type Note {
@@ -1609,6 +1682,7 @@ type NoteMentionsRelation {
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [NoteMentionsRelationNotesRelation!]!
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [NoteMentionsRelationRelationshipsFromRelation!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [NoteMentionsRelationRelationshipsToRelation!]!
+  tasks(limit: Int, offset: Int, orderBy: TasksOrderBy, where: TasksFilters): [NoteMentionsRelationTasksRelation!]!
   """JSON"""
   updatedAt: String!
 }
@@ -1762,6 +1836,33 @@ type NoteMentionsRelationRelationshipsToRelationToPersonRelation {
   updatedAt: String!
 }
 
+type NoteMentionsRelationTasksRelation {
+  """JSON"""
+  completedAt: String
+  """JSON"""
+  createdAt: String!
+  """JSON"""
+  dueAt: String
+  id: String!
+  notes: String
+  person(where: PersonsFilters): NoteMentionsRelationTasksRelationPersonRelation
+  personId: String!
+  title: String!
+}
+
+type NoteMentionsRelationTasksRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
 type NotePersonRelation {
   avatarPath: String
   contactFrequency: String
@@ -1778,6 +1879,7 @@ type NotePersonRelation {
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [NotePersonRelationNotesRelation!]!
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [NotePersonRelationRelationshipsFromRelation!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [NotePersonRelationRelationshipsToRelation!]!
+  tasks(limit: Int, offset: Int, orderBy: TasksOrderBy, where: TasksFilters): [NotePersonRelationTasksRelation!]!
   """JSON"""
   updatedAt: String!
 }
@@ -1919,6 +2021,33 @@ type NotePersonRelationRelationshipsToRelationFromPersonRelation {
 }
 
 type NotePersonRelationRelationshipsToRelationToPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type NotePersonRelationTasksRelation {
+  """JSON"""
+  completedAt: String
+  """JSON"""
+  createdAt: String!
+  """JSON"""
+  dueAt: String
+  id: String!
+  notes: String
+  person(where: PersonsFilters): NotePersonRelationTasksRelationPersonRelation
+  personId: String!
+  title: String!
+}
+
+type NotePersonRelationTasksRelationPersonRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -2191,6 +2320,7 @@ type Person {
   relationships: [PersonRelationshipEntry!]!
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipsFromRelation!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipsToRelation!]!
+  tasks(limit: Int, offset: Int, orderBy: TasksOrderBy, where: TasksFilters): [PersonTasksRelation!]!
   """JSON"""
   updatedAt: String!
 }
@@ -2476,6 +2606,7 @@ type PersonRelationshipFromPersonRelation {
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [PersonRelationshipFromPersonRelationNotesRelation!]!
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipFromPersonRelationRelationshipsFromRelation!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipFromPersonRelationRelationshipsToRelation!]!
+  tasks(limit: Int, offset: Int, orderBy: TasksOrderBy, where: TasksFilters): [PersonRelationshipFromPersonRelationTasksRelation!]!
   """JSON"""
   updatedAt: String!
 }
@@ -2643,6 +2774,33 @@ type PersonRelationshipFromPersonRelationRelationshipsToRelation {
   type: String!
 }
 
+type PersonRelationshipFromPersonRelationTasksRelation {
+  """JSON"""
+  completedAt: String
+  """JSON"""
+  createdAt: String!
+  """JSON"""
+  dueAt: String
+  id: String!
+  notes: String
+  person(where: PersonsFilters): PersonRelationshipFromPersonRelationTasksRelationPersonRelation
+  personId: String!
+  title: String!
+}
+
+type PersonRelationshipFromPersonRelationTasksRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
 type PersonRelationshipToPersonRelation {
   avatarPath: String
   contactFrequency: String
@@ -2659,6 +2817,7 @@ type PersonRelationshipToPersonRelation {
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [PersonRelationshipToPersonRelationNotesRelation!]!
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipToPersonRelationRelationshipsFromRelation!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipToPersonRelationRelationshipsToRelation!]!
+  tasks(limit: Int, offset: Int, orderBy: TasksOrderBy, where: TasksFilters): [PersonRelationshipToPersonRelationTasksRelation!]!
   """JSON"""
   updatedAt: String!
 }
@@ -2824,6 +2983,33 @@ type PersonRelationshipToPersonRelationRelationshipsToRelation {
   id: String!
   toPersonId: String!
   type: String!
+}
+
+type PersonRelationshipToPersonRelationTasksRelation {
+  """JSON"""
+  completedAt: String
+  """JSON"""
+  createdAt: String!
+  """JSON"""
+  dueAt: String
+  id: String!
+  notes: String
+  person(where: PersonsFilters): PersonRelationshipToPersonRelationTasksRelationPersonRelation
+  personId: String!
+  title: String!
+}
+
+type PersonRelationshipToPersonRelationTasksRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
 }
 
 input PersonRelationshipsFilters {
@@ -3072,6 +3258,33 @@ input PersonRelationshipsTypeFiltersOr {
   """Array<undefined>"""
   notInArray: [String!]
   notLike: String
+}
+
+type PersonTasksRelation {
+  """JSON"""
+  completedAt: String
+  """JSON"""
+  createdAt: String!
+  """JSON"""
+  dueAt: String
+  id: String!
+  notes: String
+  person(where: PersonsFilters): PersonTasksRelationPersonRelation
+  personId: String!
+  title: String!
+}
+
+type PersonTasksRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
 }
 
 input PersonsAvatarPathFilters {
@@ -3467,6 +3680,615 @@ type Query {
   personRelationship(offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): PersonRelationship
   personRelationships(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationship!]!
   persons(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [Person!]!
+  task(offset: Int, orderBy: TasksOrderBy, where: TasksFilters): Task
+  tasks(limit: Int, offset: Int, orderBy: TasksOrderBy, where: TasksFilters): [Task!]!
+}
+
+type Task {
+  """JSON"""
+  completedAt: String
+  """JSON"""
+  createdAt: String!
+  """JSON"""
+  dueAt: String
+  id: String!
+  notes: String
+  person(where: PersonsFilters): TaskPersonRelation
+  personId: String!
+  title: String!
+}
+
+type TaskPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [TaskPersonRelationImportantDatesRelation!]!
+  interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [TaskPersonRelationInteractionsRelation!]!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [TaskPersonRelationLabelsRelation!]!
+  lastName: String!
+  mentionedInNotes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [TaskPersonRelationMentionedInNotesRelation!]!
+  notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [TaskPersonRelationNotesRelation!]!
+  relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [TaskPersonRelationRelationshipsFromRelation!]!
+  relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [TaskPersonRelationRelationshipsToRelation!]!
+  tasks(limit: Int, offset: Int, orderBy: TasksOrderBy, where: TasksFilters): [TaskPersonRelationTasksRelation!]!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationImportantDatesRelation {
+  date: String!
+  description: String
+  id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [TaskPersonRelationImportantDatesRelationLabelsRelation!]!
+  name: String!
+  person(where: PersonsFilters): TaskPersonRelationImportantDatesRelationPersonRelation
+  personId: String!
+  recurrence: String
+}
+
+type TaskPersonRelationImportantDatesRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type TaskPersonRelationImportantDatesRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationInteractionsRelation {
+  channel: String!
+  id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [TaskPersonRelationInteractionsRelationLabelsRelation!]!
+  note: String
+  """JSON"""
+  occurredAt: String!
+  person(where: PersonsFilters): TaskPersonRelationInteractionsRelationPersonRelation
+  personId: String!
+  sentiment: String
+}
+
+type TaskPersonRelationInteractionsRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type TaskPersonRelationInteractionsRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type TaskPersonRelationMentionedInNotesRelation {
+  body: String!
+  id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [TaskPersonRelationMentionedInNotesRelationLabelsRelation!]!
+  mentions(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [TaskPersonRelationMentionedInNotesRelationMentionsRelation!]!
+  person(where: PersonsFilters): TaskPersonRelationMentionedInNotesRelationPersonRelation
+  personId: String
+}
+
+type TaskPersonRelationMentionedInNotesRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type TaskPersonRelationMentionedInNotesRelationMentionsRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationMentionedInNotesRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationNotesRelation {
+  body: String!
+  id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [TaskPersonRelationNotesRelationLabelsRelation!]!
+  mentions(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [TaskPersonRelationNotesRelationMentionsRelation!]!
+  person(where: PersonsFilters): TaskPersonRelationNotesRelationPersonRelation
+  personId: String
+}
+
+type TaskPersonRelationNotesRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type TaskPersonRelationNotesRelationMentionsRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationNotesRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationRelationshipsFromRelation {
+  fromPerson(where: PersonsFilters): TaskPersonRelationRelationshipsFromRelationFromPersonRelation
+  fromPersonId: String!
+  id: String!
+  toPerson(where: PersonsFilters): TaskPersonRelationRelationshipsFromRelationToPersonRelation
+  toPersonId: String!
+  type: String!
+}
+
+type TaskPersonRelationRelationshipsFromRelationFromPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationRelationshipsFromRelationToPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationRelationshipsToRelation {
+  fromPerson(where: PersonsFilters): TaskPersonRelationRelationshipsToRelationFromPersonRelation
+  fromPersonId: String!
+  id: String!
+  toPerson(where: PersonsFilters): TaskPersonRelationRelationshipsToRelationToPersonRelation
+  toPersonId: String!
+  type: String!
+}
+
+type TaskPersonRelationRelationshipsToRelationFromPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationRelationshipsToRelationToPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationTasksRelation {
+  """JSON"""
+  completedAt: String
+  """JSON"""
+  createdAt: String!
+  """JSON"""
+  dueAt: String
+  id: String!
+  notes: String
+  personId: String!
+  title: String!
+}
+
+input TasksCompletedAtFilters {
+  OR: [TasksCompletedAtFiltersOr!]
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksCompletedAtFiltersOr {
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksCreatedAtFilters {
+  OR: [TasksCreatedAtFiltersOr!]
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksCreatedAtFiltersOr {
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksDueAtFilters {
+  OR: [TasksDueAtFiltersOr!]
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksDueAtFiltersOr {
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksFilters {
+  OR: [TasksFiltersOr!]
+  completedAt: TasksCompletedAtFilters
+  createdAt: TasksCreatedAtFilters
+  dueAt: TasksDueAtFilters
+  id: TasksIdFilters
+  notes: TasksNotesFilters
+  personId: TasksPersonIdFilters
+  title: TasksTitleFilters
+}
+
+input TasksFiltersOr {
+  completedAt: TasksCompletedAtFilters
+  createdAt: TasksCreatedAtFilters
+  dueAt: TasksDueAtFilters
+  id: TasksIdFilters
+  notes: TasksNotesFilters
+  personId: TasksPersonIdFilters
+  title: TasksTitleFilters
+}
+
+input TasksIdFilters {
+  OR: [TasksIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksNotesFilters {
+  OR: [TasksNotesFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksNotesFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksOrderBy {
+  completedAt: InnerOrder
+  createdAt: InnerOrder
+  dueAt: InnerOrder
+  id: InnerOrder
+  notes: InnerOrder
+  personId: InnerOrder
+  title: InnerOrder
+}
+
+input TasksPersonIdFilters {
+  OR: [TasksPersonIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksPersonIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksTitleFilters {
+  OR: [TasksTitleFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksTitleFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
 }
 
 input UpdateImportantDateInput {
@@ -3543,4 +4365,17 @@ input UpdatePersonRelationshipInput {
   id: String
   toPersonId: String
   type: String
+}
+
+input UpdateTaskInput {
+  """JSON"""
+  completedAt: String
+  """JSON"""
+  createdAt: String
+  """JSON"""
+  dueAt: String
+  id: String
+  notes: String
+  personId: String
+  title: String
 }

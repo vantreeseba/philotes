@@ -25,6 +25,7 @@ import { PersonIntroductions } from '@/components/domain/person/introductions.js
 import { PersonLabels } from '@/components/domain/person/labels.js';
 import { PersonNotes } from '@/components/domain/person/notes.js';
 import { PersonRelationships } from '@/components/domain/person/relationships.js';
+import { TaskList } from '@/components/domain/task/list.js';
 import { ListLayout } from '@/components/layouts/list.js';
 import { Avatar } from '@/components/ui/avatar.js';
 import { Button } from '@/components/ui/button.js';
@@ -107,6 +108,14 @@ const GET_PERSON_DETAIL = graphql(`
         relatedPersonId
         relatedPersonFirstName
         relatedPersonLastName
+      }
+      tasks {
+        id
+        title
+        notes
+        dueAt
+        completedAt
+        createdAt
       }
     }
   }
@@ -749,6 +758,31 @@ function PersonDetailPage() {
                   onChanged={() => refetch()}
                   createOpen={interactionDialogOpen}
                   onCreateOpenChange={setInteractionDialogOpen}
+                />
+              }
+            />
+          </CardContent>
+        </Card>
+
+        {/* Tasks */}
+        <Card>
+          <CardContent className="p-4">
+            <ListLayout
+              header={<h2 className="font-semibold text-base">Tasks</h2>}
+              body={
+                <TaskList
+                  personId={person.id}
+                  tasks={(person.tasks ?? []).map((t) => ({
+                    id: t.id,
+                    title: t.title,
+                    notes: t.notes,
+                    dueAt: t.dueAt,
+                    completedAt: t.completedAt,
+                    createdAt: t.createdAt,
+                  }))}
+                  onAdd={() => refetch()}
+                  onDelete={() => refetch()}
+                  onUpdate={() => refetch()}
                 />
               }
             />
