@@ -133,6 +133,15 @@ npm run db:push          # Push schema directly to DB (dev only)
 npm run db:studio        # Open Drizzle Studio
 ```
 
+### Worktrees
+
+When working in a git worktree, run the following command to install dependencies
+faster by preferring the local npm cache:
+
+```bash
+npm ci --prefer-offline --no-audit
+```
+
 ## Code Style Guidelines
 
 ### Formatting (Biome)
