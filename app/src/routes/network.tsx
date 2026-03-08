@@ -88,6 +88,7 @@ function getInitials(firstName: string, lastName: string): string {
 function NetworkPage() {
   const navigate = useNavigate();
   const svgRef = useRef<SVGSVGElement>(null);
+  const zoomRef = useRef<d3.ZoomBehavior<SVGSVGElement, unknown> | null>(null);
   const [tooltip, setTooltip] = useState<TooltipState>(null);
 
   const { data, loading, error } = useQuery(GET_NETWORK_DATA);
@@ -137,6 +138,29 @@ function NetworkPage() {
 
     const svg = d3.select(svgEl).attr('width', width).attr('height', height);
 
+    // All drawn content lives here so zoom/pan transforms it as one unit
+    const container = svg.append('g').attr('class', 'zoom-container');
+
+    // Zoom + pan behaviour
+    const zoom = d3
+      .zoom<SVGSVGElement, unknown>()
+      .scaleExtent([0.1, 4])
+      .on('zoom', (event: d3.D3ZoomEvent<SVGSVGElement, unknown>) => {
+        container.attr('transform', event.transform.toString());
+      });
+
+    zoomRef.current = zoom;
+    d3.select(svgEl).call(zoom);
+
+    // Start at a comfortable zoom level centred on the graph
+    d3.select(svgEl).call(
+      zoom.transform,
+      d3.zoomIdentity
+        .translate(width / 2, height / 2)
+        .scale(0.8)
+        .translate(-width / 2, -height / 2),
+    );
+
     const simulation = d3
       .forceSimulation<SimNode>(nodes)
       .force(
@@ -154,7 +178,7 @@ function NetworkPage() {
       );
 
     // Draw edges
-    const link = svg
+    const link = container
       .append('g')
       .attr('class', 'links')
       .selectAll<SVGLineElement, SimLink>('line')
@@ -165,7 +189,7 @@ function NetworkPage() {
       .style('cursor', 'default');
 
     // Draw edge labels (always visible)
-    const edgeLabels = svg
+    const edgeLabels = container
       .append('g')
       .attr('class', 'edge-labels')
       .selectAll<SVGTextElement, SimLink>('text')
@@ -181,7 +205,7 @@ function NetworkPage() {
       .style('opacity', '0.75');
 
     // Draw nodes
-    const nodeGroup = svg
+    const nodeGroup = container
       .append('g')
       .attr('class', 'nodes')
       .selectAll<SVGGElement, SimNode>('g')
@@ -201,10 +225,11 @@ function NetworkPage() {
         setTooltip(null);
       });
 
-    // Apply drag
+    // Apply drag — stopPropagation prevents drag events from bubbling to zoom
     const drag = d3
       .drag<SVGGElement, SimNode>()
       .on('start', (event, d) => {
+        event.sourceEvent.stopPropagation();
         if (!event.active) simulation.alphaTarget(0.3).restart();
         d.fx = d.x;
         d.fy = d.y;
@@ -312,6 +337,19 @@ function NetworkPage() {
   return (
     <div className="relative w-full" style={{ height: '80vh' }}>
       <svg ref={svgRef} className="w-full h-full" style={{ display: 'block' }} />
+
+      {/* Reset zoom button */}
+      <button
+        type="button"
+        className="absolute top-3 right-3 z-10 bg-background border border-border rounded px-2 py-1 text-xs text-muted-foreground hover:text-foreground shadow-sm"
+        onClick={() => {
+          if (svgRef.current && zoomRef.current) {
+            d3.select(svgRef.current).transition().duration(400).call(zoomRef.current.transform, d3.zoomIdentity);
+          }
+        }}
+      >
+        Reset zoom
+      </button>
 
       {/* Node tooltip */}
       {tooltip && (
