@@ -3,6 +3,7 @@ import { createFileRoute, Link } from '@tanstack/react-router';
 import {
   Activity,
   ArrowLeft,
+  BookUser,
   CalendarPlus,
   Camera,
   MessageSquare,
@@ -15,6 +16,7 @@ import {
 import { useRef, useState } from 'react';
 import { graphql } from '@/__generated__/gql.js';
 import { ActivityList } from '@/components/domain/activity/list.js';
+import { ContactInfoList } from '@/components/domain/contact-info/list.js';
 import { PersonForm, type PersonFormValue } from '@/components/domain/person/form.js';
 import {
   ImportantDateForm,
@@ -126,6 +128,13 @@ const GET_PERSON_DETAIL = graphql(`
         dueAt
         completedAt
         createdAt
+      }
+      contactInfos {
+        id
+        type
+        value
+        label
+        isPrimary
       }
     }
   }
@@ -643,6 +652,21 @@ function PersonDetailPage() {
                   onShowAdd={setShowAddLabel}
                 />
               }
+            />
+          </CardContent>
+        </Card>
+
+        {/* Contact Info */}
+        <Card>
+          <CardContent className="p-4">
+            <ListLayout
+              header={
+                <>
+                  <h2 className="font-semibold text-base">Contact Info</h2>
+                  <BookUser className="h-4 w-4 text-muted-foreground" />
+                </>
+              }
+              body={<ContactInfoList person={person} onAdd={() => refetch()} onDelete={() => refetch()} />}
             />
           </CardContent>
         </Card>

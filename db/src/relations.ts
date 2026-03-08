@@ -29,6 +29,7 @@ export const relations = defineRelations(schema, (r) => ({
       alias: 'noteMentions',
     }),
     tasks: r.many.tasks(),
+    contactInfos: r.many.contactInfos(),
   },
   notes: {
     person: r.one.persons({
@@ -95,6 +96,12 @@ export const relations = defineRelations(schema, (r) => ({
   tasks: {
     person: r.one.persons({
       from: r.tasks.personId,
+      to: r.persons.id,
+    }),
+  },
+  contactInfos: {
+    person: r.one.persons({
+      from: r.contactInfos.personId,
       to: r.persons.id,
     }),
   },

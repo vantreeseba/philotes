@@ -17,6 +17,796 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
+export type ContactInfo = {
+  __typename?: 'ContactInfo';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  isPrimary: Scalars['Boolean']['output'];
+  label: Maybe<Scalars['String']['output']>;
+  person: Maybe<ContactInfoPersonRelation>;
+  personId: Scalars['String']['output'];
+  type: ContactInfosTypeEnum;
+  value: Scalars['String']['output'];
+};
+
+
+export type ContactInfoPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ContactInfoPersonRelation = {
+  __typename?: 'ContactInfoPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  contactInfos: Array<ContactInfoPersonRelationContactInfosRelation>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  importantDates: Array<ContactInfoPersonRelationImportantDatesRelation>;
+  interactions: Array<ContactInfoPersonRelationInteractionsRelation>;
+  labels: Array<ContactInfoPersonRelationLabelsRelation>;
+  lastName: Scalars['String']['output'];
+  mentionedInNotes: Array<ContactInfoPersonRelationMentionedInNotesRelation>;
+  notes: Array<ContactInfoPersonRelationNotesRelation>;
+  relationshipsFrom: Array<ContactInfoPersonRelationRelationshipsFromRelation>;
+  relationshipsTo: Array<ContactInfoPersonRelationRelationshipsToRelation>;
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+
+export type ContactInfoPersonRelationContactInfosArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ContactInfosOrderBy>;
+  where?: InputMaybe<ContactInfosFilters>;
+};
+
+
+export type ContactInfoPersonRelationImportantDatesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ImportantDatesOrderBy>;
+  where?: InputMaybe<ImportantDatesFilters>;
+};
+
+
+export type ContactInfoPersonRelationInteractionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<InteractionsOrderBy>;
+  where?: InputMaybe<InteractionsFilters>;
+};
+
+
+export type ContactInfoPersonRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ContactInfoPersonRelationMentionedInNotesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<NotesOrderBy>;
+  where?: InputMaybe<NotesFilters>;
+};
+
+
+export type ContactInfoPersonRelationNotesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<NotesOrderBy>;
+  where?: InputMaybe<NotesFilters>;
+};
+
+
+export type ContactInfoPersonRelationRelationshipsFromArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+
+export type ContactInfoPersonRelationRelationshipsToArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
+  where?: InputMaybe<PersonRelationshipsFilters>;
+};
+
+export type ContactInfoPersonRelationContactInfosRelation = {
+  __typename?: 'ContactInfoPersonRelationContactInfosRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  isPrimary: Scalars['Boolean']['output'];
+  label: Maybe<Scalars['String']['output']>;
+  personId: Scalars['String']['output'];
+  type: ContactInfosTypeEnum;
+  value: Scalars['String']['output'];
+};
+
+export type ContactInfoPersonRelationImportantDatesRelation = {
+  __typename?: 'ContactInfoPersonRelationImportantDatesRelation';
+  date: Scalars['String']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  labels: Array<ContactInfoPersonRelationImportantDatesRelationLabelsRelation>;
+  name: Scalars['String']['output'];
+  person: Maybe<ContactInfoPersonRelationImportantDatesRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  recurrence: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ContactInfoPersonRelationImportantDatesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ContactInfoPersonRelationImportantDatesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ContactInfoPersonRelationImportantDatesRelationLabelsRelation = {
+  __typename?: 'ContactInfoPersonRelationImportantDatesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type ContactInfoPersonRelationImportantDatesRelationPersonRelation = {
+  __typename?: 'ContactInfoPersonRelationImportantDatesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ContactInfoPersonRelationInteractionsRelation = {
+  __typename?: 'ContactInfoPersonRelationInteractionsRelation';
+  channel: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  labels: Array<ContactInfoPersonRelationInteractionsRelationLabelsRelation>;
+  note: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  occurredAt: Scalars['String']['output'];
+  person: Maybe<ContactInfoPersonRelationInteractionsRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  sentiment: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ContactInfoPersonRelationInteractionsRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ContactInfoPersonRelationInteractionsRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ContactInfoPersonRelationInteractionsRelationLabelsRelation = {
+  __typename?: 'ContactInfoPersonRelationInteractionsRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type ContactInfoPersonRelationInteractionsRelationPersonRelation = {
+  __typename?: 'ContactInfoPersonRelationInteractionsRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ContactInfoPersonRelationLabelsRelation = {
+  __typename?: 'ContactInfoPersonRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type ContactInfoPersonRelationMentionedInNotesRelation = {
+  __typename?: 'ContactInfoPersonRelationMentionedInNotesRelation';
+  body: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  labels: Array<ContactInfoPersonRelationMentionedInNotesRelationLabelsRelation>;
+  mentions: Array<ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation>;
+  person: Maybe<ContactInfoPersonRelationMentionedInNotesRelationPersonRelation>;
+  personId: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ContactInfoPersonRelationMentionedInNotesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ContactInfoPersonRelationMentionedInNotesRelationMentionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonsOrderBy>;
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type ContactInfoPersonRelationMentionedInNotesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ContactInfoPersonRelationMentionedInNotesRelationLabelsRelation = {
+  __typename?: 'ContactInfoPersonRelationMentionedInNotesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation = {
+  __typename?: 'ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ContactInfoPersonRelationMentionedInNotesRelationPersonRelation = {
+  __typename?: 'ContactInfoPersonRelationMentionedInNotesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ContactInfoPersonRelationNotesRelation = {
+  __typename?: 'ContactInfoPersonRelationNotesRelation';
+  body: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  labels: Array<ContactInfoPersonRelationNotesRelationLabelsRelation>;
+  mentions: Array<ContactInfoPersonRelationNotesRelationMentionsRelation>;
+  person: Maybe<ContactInfoPersonRelationNotesRelationPersonRelation>;
+  personId: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ContactInfoPersonRelationNotesRelationLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelsOrderBy>;
+  where?: InputMaybe<LabelsFilters>;
+};
+
+
+export type ContactInfoPersonRelationNotesRelationMentionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonsOrderBy>;
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type ContactInfoPersonRelationNotesRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ContactInfoPersonRelationNotesRelationLabelsRelation = {
+  __typename?: 'ContactInfoPersonRelationNotesRelationLabelsRelation';
+  color: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type ContactInfoPersonRelationNotesRelationMentionsRelation = {
+  __typename?: 'ContactInfoPersonRelationNotesRelationMentionsRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ContactInfoPersonRelationNotesRelationPersonRelation = {
+  __typename?: 'ContactInfoPersonRelationNotesRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ContactInfoPersonRelationRelationshipsFromRelation = {
+  __typename?: 'ContactInfoPersonRelationRelationshipsFromRelation';
+  fromPerson: Maybe<ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation>;
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPerson: Maybe<ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation>;
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+
+export type ContactInfoPersonRelationRelationshipsFromRelationFromPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type ContactInfoPersonRelationRelationshipsFromRelationToPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation = {
+  __typename?: 'ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation = {
+  __typename?: 'ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ContactInfoPersonRelationRelationshipsToRelation = {
+  __typename?: 'ContactInfoPersonRelationRelationshipsToRelation';
+  fromPerson: Maybe<ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation>;
+  fromPersonId: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  toPerson: Maybe<ContactInfoPersonRelationRelationshipsToRelationToPersonRelation>;
+  toPersonId: Scalars['String']['output'];
+  type: Scalars['String']['output'];
+};
+
+
+export type ContactInfoPersonRelationRelationshipsToRelationFromPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+
+export type ContactInfoPersonRelationRelationshipsToRelationToPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation = {
+  __typename?: 'ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ContactInfoPersonRelationRelationshipsToRelationToPersonRelation = {
+  __typename?: 'ContactInfoPersonRelationRelationshipsToRelationToPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
+};
+
+export type ContactInfosCreatedAtFilters = {
+  OR?: InputMaybe<Array<ContactInfosCreatedAtFiltersOr>>;
+  /** JSON */
+  eq?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lte?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ContactInfosCreatedAtFiltersOr = {
+  /** JSON */
+  eq?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lte?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ContactInfosFilters = {
+  OR?: InputMaybe<Array<ContactInfosFiltersOr>>;
+  createdAt?: InputMaybe<ContactInfosCreatedAtFilters>;
+  id?: InputMaybe<ContactInfosIdFilters>;
+  isPrimary?: InputMaybe<ContactInfosIsPrimaryFilters>;
+  label?: InputMaybe<ContactInfosLabelFilters>;
+  personId?: InputMaybe<ContactInfosPersonIdFilters>;
+  type?: InputMaybe<ContactInfosTypeFilters>;
+  value?: InputMaybe<ContactInfosValueFilters>;
+};
+
+export type ContactInfosFiltersOr = {
+  createdAt?: InputMaybe<ContactInfosCreatedAtFilters>;
+  id?: InputMaybe<ContactInfosIdFilters>;
+  isPrimary?: InputMaybe<ContactInfosIsPrimaryFilters>;
+  label?: InputMaybe<ContactInfosLabelFilters>;
+  personId?: InputMaybe<ContactInfosPersonIdFilters>;
+  type?: InputMaybe<ContactInfosTypeFilters>;
+  value?: InputMaybe<ContactInfosValueFilters>;
+};
+
+export type ContactInfosIdFilters = {
+  OR?: InputMaybe<Array<ContactInfosIdFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ContactInfosIdFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ContactInfosIsPrimaryFilters = {
+  OR?: InputMaybe<Array<ContactInfosIsPrimaryFiltersOr>>;
+  eq?: InputMaybe<Scalars['Boolean']['input']>;
+  gt?: InputMaybe<Scalars['Boolean']['input']>;
+  gte?: InputMaybe<Scalars['Boolean']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['Boolean']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['Boolean']['input']>;
+  lte?: InputMaybe<Scalars['Boolean']['input']>;
+  ne?: InputMaybe<Scalars['Boolean']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['Boolean']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ContactInfosIsPrimaryFiltersOr = {
+  eq?: InputMaybe<Scalars['Boolean']['input']>;
+  gt?: InputMaybe<Scalars['Boolean']['input']>;
+  gte?: InputMaybe<Scalars['Boolean']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['Boolean']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['Boolean']['input']>;
+  lte?: InputMaybe<Scalars['Boolean']['input']>;
+  ne?: InputMaybe<Scalars['Boolean']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['Boolean']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ContactInfosLabelFilters = {
+  OR?: InputMaybe<Array<ContactInfosLabelFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ContactInfosLabelFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ContactInfosOrderBy = {
+  createdAt?: InputMaybe<InnerOrder>;
+  id?: InputMaybe<InnerOrder>;
+  isPrimary?: InputMaybe<InnerOrder>;
+  label?: InputMaybe<InnerOrder>;
+  personId?: InputMaybe<InnerOrder>;
+  type?: InputMaybe<InnerOrder>;
+  value?: InputMaybe<InnerOrder>;
+};
+
+export type ContactInfosPersonIdFilters = {
+  OR?: InputMaybe<Array<ContactInfosPersonIdFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ContactInfosPersonIdFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export enum ContactInfosTypeEnum {
+  /** Value: email */
+  Email = 'email',
+  /** Value: instagram */
+  Instagram = 'instagram',
+  /** Value: linkedin */
+  Linkedin = 'linkedin',
+  /** Value: mobile */
+  Mobile = 'mobile',
+  /** Value: other */
+  Other = 'other',
+  /** Value: phone */
+  Phone = 'phone',
+  /** Value: twitter */
+  Twitter = 'twitter',
+  /** Value: website */
+  Website = 'website'
+}
+
+export type ContactInfosTypeFilters = {
+  OR?: InputMaybe<Array<ContactInfosTypeFiltersOr>>;
+  eq?: InputMaybe<ContactInfosTypeEnum>;
+  gt?: InputMaybe<ContactInfosTypeEnum>;
+  gte?: InputMaybe<ContactInfosTypeEnum>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<ContactInfosTypeEnum>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<ContactInfosTypeEnum>;
+  lte?: InputMaybe<ContactInfosTypeEnum>;
+  ne?: InputMaybe<ContactInfosTypeEnum>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<ContactInfosTypeEnum>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ContactInfosTypeFiltersOr = {
+  eq?: InputMaybe<ContactInfosTypeEnum>;
+  gt?: InputMaybe<ContactInfosTypeEnum>;
+  gte?: InputMaybe<ContactInfosTypeEnum>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<ContactInfosTypeEnum>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<ContactInfosTypeEnum>;
+  lte?: InputMaybe<ContactInfosTypeEnum>;
+  ne?: InputMaybe<ContactInfosTypeEnum>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<ContactInfosTypeEnum>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ContactInfosValueFilters = {
+  OR?: InputMaybe<Array<ContactInfosValueFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ContactInfosValueFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateContactInfoInput = {
+  /** JSON */
+  createdAt?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  isPrimary?: InputMaybe<Scalars['Boolean']['input']>;
+  label?: InputMaybe<Scalars['String']['input']>;
+  personId: Scalars['String']['input'];
+  type: ContactInfosTypeEnum;
+  value: Scalars['String']['input'];
+};
+
 export type CreateImportantDateInput = {
   date: Scalars['String']['input'];
   description?: InputMaybe<Scalars['String']['input']>;
@@ -93,19 +883,6 @@ export type CreatePersonRelationshipInput = {
   type: Scalars['String']['input'];
 };
 
-export type CreateTaskInput = {
-  /** JSON */
-  completedAt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  createdAt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  dueAt?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  notes?: InputMaybe<Scalars['String']['input']>;
-  personId: Scalars['String']['input'];
-  title: Scalars['String']['input'];
-};
-
 export type ImportantDate = {
   __typename?: 'ImportantDate';
   date: Scalars['String']['output'];
@@ -142,6 +919,7 @@ export type ImportantDatePersonRelation = {
   __typename?: 'ImportantDatePersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
+  contactInfos: Array<ImportantDatePersonRelationContactInfosRelation>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -155,9 +933,16 @@ export type ImportantDatePersonRelation = {
   notes: Array<ImportantDatePersonRelationNotesRelation>;
   relationshipsFrom: Array<ImportantDatePersonRelationRelationshipsFromRelation>;
   relationshipsTo: Array<ImportantDatePersonRelationRelationshipsToRelation>;
-  tasks: Array<ImportantDatePersonRelationTasksRelation>;
   /** JSON */
   updatedAt: Scalars['String']['output'];
+};
+
+
+export type ImportantDatePersonRelationContactInfosArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ContactInfosOrderBy>;
+  where?: InputMaybe<ContactInfosFilters>;
 };
 
 
@@ -216,12 +1001,36 @@ export type ImportantDatePersonRelationRelationshipsToArgs = {
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
+export type ImportantDatePersonRelationContactInfosRelation = {
+  __typename?: 'ImportantDatePersonRelationContactInfosRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  isPrimary: Scalars['Boolean']['output'];
+  label: Maybe<Scalars['String']['output']>;
+  person: Maybe<ImportantDatePersonRelationContactInfosRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  type: ContactInfosTypeEnum;
+  value: Scalars['String']['output'];
+};
 
-export type ImportantDatePersonRelationTasksArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<TasksOrderBy>;
-  where?: InputMaybe<TasksFilters>;
+
+export type ImportantDatePersonRelationContactInfosRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type ImportantDatePersonRelationContactInfosRelationPersonRelation = {
+  __typename?: 'ImportantDatePersonRelationContactInfosRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type ImportantDatePersonRelationImportantDatesRelation = {
@@ -504,40 +1313,6 @@ export type ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation
 
 export type ImportantDatePersonRelationRelationshipsToRelationToPersonRelation = {
   __typename?: 'ImportantDatePersonRelationRelationshipsToRelationToPersonRelation';
-  avatarPath: Maybe<Scalars['String']['output']>;
-  contactFrequency: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  email: Scalars['String']['output'];
-  firstName: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  lastName: Scalars['String']['output'];
-  /** JSON */
-  updatedAt: Scalars['String']['output'];
-};
-
-export type ImportantDatePersonRelationTasksRelation = {
-  __typename?: 'ImportantDatePersonRelationTasksRelation';
-  /** JSON */
-  completedAt: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  /** JSON */
-  dueAt: Maybe<Scalars['String']['output']>;
-  id: Scalars['String']['output'];
-  notes: Maybe<Scalars['String']['output']>;
-  person: Maybe<ImportantDatePersonRelationTasksRelationPersonRelation>;
-  personId: Scalars['String']['output'];
-  title: Scalars['String']['output'];
-};
-
-
-export type ImportantDatePersonRelationTasksRelationPersonArgs = {
-  where?: InputMaybe<PersonsFilters>;
-};
-
-export type ImportantDatePersonRelationTasksRelationPersonRelation = {
-  __typename?: 'ImportantDatePersonRelationTasksRelationPersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -955,6 +1730,7 @@ export type InteractionPersonRelation = {
   __typename?: 'InteractionPersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
+  contactInfos: Array<InteractionPersonRelationContactInfosRelation>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -968,9 +1744,16 @@ export type InteractionPersonRelation = {
   notes: Array<InteractionPersonRelationNotesRelation>;
   relationshipsFrom: Array<InteractionPersonRelationRelationshipsFromRelation>;
   relationshipsTo: Array<InteractionPersonRelationRelationshipsToRelation>;
-  tasks: Array<InteractionPersonRelationTasksRelation>;
   /** JSON */
   updatedAt: Scalars['String']['output'];
+};
+
+
+export type InteractionPersonRelationContactInfosArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ContactInfosOrderBy>;
+  where?: InputMaybe<ContactInfosFilters>;
 };
 
 
@@ -1029,12 +1812,36 @@ export type InteractionPersonRelationRelationshipsToArgs = {
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
+export type InteractionPersonRelationContactInfosRelation = {
+  __typename?: 'InteractionPersonRelationContactInfosRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  isPrimary: Scalars['Boolean']['output'];
+  label: Maybe<Scalars['String']['output']>;
+  person: Maybe<InteractionPersonRelationContactInfosRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  type: ContactInfosTypeEnum;
+  value: Scalars['String']['output'];
+};
 
-export type InteractionPersonRelationTasksArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<TasksOrderBy>;
-  where?: InputMaybe<TasksFilters>;
+
+export type InteractionPersonRelationContactInfosRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type InteractionPersonRelationContactInfosRelationPersonRelation = {
+  __typename?: 'InteractionPersonRelationContactInfosRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type InteractionPersonRelationImportantDatesRelation = {
@@ -1317,40 +2124,6 @@ export type InteractionPersonRelationRelationshipsToRelationFromPersonRelation =
 
 export type InteractionPersonRelationRelationshipsToRelationToPersonRelation = {
   __typename?: 'InteractionPersonRelationRelationshipsToRelationToPersonRelation';
-  avatarPath: Maybe<Scalars['String']['output']>;
-  contactFrequency: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  email: Scalars['String']['output'];
-  firstName: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  lastName: Scalars['String']['output'];
-  /** JSON */
-  updatedAt: Scalars['String']['output'];
-};
-
-export type InteractionPersonRelationTasksRelation = {
-  __typename?: 'InteractionPersonRelationTasksRelation';
-  /** JSON */
-  completedAt: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  /** JSON */
-  dueAt: Maybe<Scalars['String']['output']>;
-  id: Scalars['String']['output'];
-  notes: Maybe<Scalars['String']['output']>;
-  person: Maybe<InteractionPersonRelationTasksRelationPersonRelation>;
-  personId: Scalars['String']['output'];
-  title: Scalars['String']['output'];
-};
-
-
-export type InteractionPersonRelationTasksRelationPersonArgs = {
-  where?: InputMaybe<PersonsFilters>;
-};
-
-export type InteractionPersonRelationTasksRelationPersonRelation = {
-  __typename?: 'InteractionPersonRelationTasksRelationPersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -1882,6 +2655,8 @@ export type LabelsOrderBy = {
 
 export type Mutation = {
   __typename?: 'Mutation';
+  createContactInfo: Maybe<ContactInfo>;
+  createContactInfos: Array<ContactInfo>;
   createImportantDate: Maybe<ImportantDate>;
   createImportantDateTag: Maybe<ImportantDateTag>;
   createImportantDateTags: Array<ImportantDateTag>;
@@ -1904,8 +2679,7 @@ export type Mutation = {
   createPersonRelationship: Maybe<PersonRelationship>;
   createPersonRelationships: Array<PersonRelationship>;
   createPersons: Array<Person>;
-  createTask: Maybe<Task>;
-  createTasks: Array<Task>;
+  deleteContactInfos: Array<ContactInfo>;
   deleteImportantDateTags: Array<ImportantDateTag>;
   deleteImportantDates: Array<ImportantDate>;
   deleteInteractionTags: Array<InteractionTag>;
@@ -1917,7 +2691,7 @@ export type Mutation = {
   deletePersonLabels: Array<PersonLabel>;
   deletePersonRelationships: Array<PersonRelationship>;
   deletePersons: Array<Person>;
-  deleteTasks: Array<Task>;
+  updateContactInfos: Array<ContactInfo>;
   updateImportantDateTags: Array<ImportantDateTag>;
   updateImportantDates: Array<ImportantDate>;
   updateInteractionTags: Array<InteractionTag>;
@@ -1929,7 +2703,16 @@ export type Mutation = {
   updatePersonLabels: Array<PersonLabel>;
   updatePersonRelationships: Array<PersonRelationship>;
   updatePersons: Array<Person>;
-  updateTasks: Array<Task>;
+};
+
+
+export type MutationCreateContactInfoArgs = {
+  values: CreateContactInfoInput;
+};
+
+
+export type MutationCreateContactInfosArgs = {
+  values: Array<CreateContactInfoInput>;
 };
 
 
@@ -2043,13 +2826,8 @@ export type MutationCreatePersonsArgs = {
 };
 
 
-export type MutationCreateTaskArgs = {
-  values: CreateTaskInput;
-};
-
-
-export type MutationCreateTasksArgs = {
-  values: Array<CreateTaskInput>;
+export type MutationDeleteContactInfosArgs = {
+  where?: InputMaybe<ContactInfosFilters>;
 };
 
 
@@ -2108,8 +2886,9 @@ export type MutationDeletePersonsArgs = {
 };
 
 
-export type MutationDeleteTasksArgs = {
-  where?: InputMaybe<TasksFilters>;
+export type MutationUpdateContactInfosArgs = {
+  set: UpdateContactInfoInput;
+  where?: InputMaybe<ContactInfosFilters>;
 };
 
 
@@ -2176,12 +2955,6 @@ export type MutationUpdatePersonRelationshipsArgs = {
 export type MutationUpdatePersonsArgs = {
   set: UpdatePersonInput;
   where?: InputMaybe<PersonsFilters>;
-};
-
-
-export type MutationUpdateTasksArgs = {
-  set: UpdateTaskInput;
-  where?: InputMaybe<TasksFilters>;
 };
 
 export type Note = {
@@ -2326,6 +3099,7 @@ export type NoteMentionsRelation = {
   __typename?: 'NoteMentionsRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
+  contactInfos: Array<NoteMentionsRelationContactInfosRelation>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -2339,9 +3113,16 @@ export type NoteMentionsRelation = {
   notes: Array<NoteMentionsRelationNotesRelation>;
   relationshipsFrom: Array<NoteMentionsRelationRelationshipsFromRelation>;
   relationshipsTo: Array<NoteMentionsRelationRelationshipsToRelation>;
-  tasks: Array<NoteMentionsRelationTasksRelation>;
   /** JSON */
   updatedAt: Scalars['String']['output'];
+};
+
+
+export type NoteMentionsRelationContactInfosArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ContactInfosOrderBy>;
+  where?: InputMaybe<ContactInfosFilters>;
 };
 
 
@@ -2400,12 +3181,36 @@ export type NoteMentionsRelationRelationshipsToArgs = {
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
+export type NoteMentionsRelationContactInfosRelation = {
+  __typename?: 'NoteMentionsRelationContactInfosRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  isPrimary: Scalars['Boolean']['output'];
+  label: Maybe<Scalars['String']['output']>;
+  person: Maybe<NoteMentionsRelationContactInfosRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  type: ContactInfosTypeEnum;
+  value: Scalars['String']['output'];
+};
 
-export type NoteMentionsRelationTasksArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<TasksOrderBy>;
-  where?: InputMaybe<TasksFilters>;
+
+export type NoteMentionsRelationContactInfosRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type NoteMentionsRelationContactInfosRelationPersonRelation = {
+  __typename?: 'NoteMentionsRelationContactInfosRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type NoteMentionsRelationImportantDatesRelation = {
@@ -2618,44 +3423,11 @@ export type NoteMentionsRelationRelationshipsToRelationToPersonRelation = {
   updatedAt: Scalars['String']['output'];
 };
 
-export type NoteMentionsRelationTasksRelation = {
-  __typename?: 'NoteMentionsRelationTasksRelation';
-  /** JSON */
-  completedAt: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  /** JSON */
-  dueAt: Maybe<Scalars['String']['output']>;
-  id: Scalars['String']['output'];
-  notes: Maybe<Scalars['String']['output']>;
-  person: Maybe<NoteMentionsRelationTasksRelationPersonRelation>;
-  personId: Scalars['String']['output'];
-  title: Scalars['String']['output'];
-};
-
-
-export type NoteMentionsRelationTasksRelationPersonArgs = {
-  where?: InputMaybe<PersonsFilters>;
-};
-
-export type NoteMentionsRelationTasksRelationPersonRelation = {
-  __typename?: 'NoteMentionsRelationTasksRelationPersonRelation';
-  avatarPath: Maybe<Scalars['String']['output']>;
-  contactFrequency: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  email: Scalars['String']['output'];
-  firstName: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  lastName: Scalars['String']['output'];
-  /** JSON */
-  updatedAt: Scalars['String']['output'];
-};
-
 export type NotePersonRelation = {
   __typename?: 'NotePersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
+  contactInfos: Array<NotePersonRelationContactInfosRelation>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -2669,9 +3441,16 @@ export type NotePersonRelation = {
   notes: Array<NotePersonRelationNotesRelation>;
   relationshipsFrom: Array<NotePersonRelationRelationshipsFromRelation>;
   relationshipsTo: Array<NotePersonRelationRelationshipsToRelation>;
-  tasks: Array<NotePersonRelationTasksRelation>;
   /** JSON */
   updatedAt: Scalars['String']['output'];
+};
+
+
+export type NotePersonRelationContactInfosArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ContactInfosOrderBy>;
+  where?: InputMaybe<ContactInfosFilters>;
 };
 
 
@@ -2730,12 +3509,36 @@ export type NotePersonRelationRelationshipsToArgs = {
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
+export type NotePersonRelationContactInfosRelation = {
+  __typename?: 'NotePersonRelationContactInfosRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  isPrimary: Scalars['Boolean']['output'];
+  label: Maybe<Scalars['String']['output']>;
+  person: Maybe<NotePersonRelationContactInfosRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  type: ContactInfosTypeEnum;
+  value: Scalars['String']['output'];
+};
 
-export type NotePersonRelationTasksArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<TasksOrderBy>;
-  where?: InputMaybe<TasksFilters>;
+
+export type NotePersonRelationContactInfosRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type NotePersonRelationContactInfosRelationPersonRelation = {
+  __typename?: 'NotePersonRelationContactInfosRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type NotePersonRelationImportantDatesRelation = {
@@ -2936,40 +3739,6 @@ export type NotePersonRelationRelationshipsToRelationFromPersonRelation = {
 
 export type NotePersonRelationRelationshipsToRelationToPersonRelation = {
   __typename?: 'NotePersonRelationRelationshipsToRelationToPersonRelation';
-  avatarPath: Maybe<Scalars['String']['output']>;
-  contactFrequency: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  email: Scalars['String']['output'];
-  firstName: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  lastName: Scalars['String']['output'];
-  /** JSON */
-  updatedAt: Scalars['String']['output'];
-};
-
-export type NotePersonRelationTasksRelation = {
-  __typename?: 'NotePersonRelationTasksRelation';
-  /** JSON */
-  completedAt: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  /** JSON */
-  dueAt: Maybe<Scalars['String']['output']>;
-  id: Scalars['String']['output'];
-  notes: Maybe<Scalars['String']['output']>;
-  person: Maybe<NotePersonRelationTasksRelationPersonRelation>;
-  personId: Scalars['String']['output'];
-  title: Scalars['String']['output'];
-};
-
-
-export type NotePersonRelationTasksRelationPersonArgs = {
-  where?: InputMaybe<PersonsFilters>;
-};
-
-export type NotePersonRelationTasksRelationPersonRelation = {
-  __typename?: 'NotePersonRelationTasksRelationPersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -3230,6 +3999,7 @@ export type Person = {
   __typename?: 'Person';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
+  contactInfos: Array<PersonContactInfosRelation>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -3244,9 +4014,16 @@ export type Person = {
   relationships: Array<PersonRelationshipEntry>;
   relationshipsFrom: Array<PersonRelationshipsFromRelation>;
   relationshipsTo: Array<PersonRelationshipsToRelation>;
-  tasks: Array<PersonTasksRelation>;
   /** JSON */
   updatedAt: Scalars['String']['output'];
+};
+
+
+export type PersonContactInfosArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ContactInfosOrderBy>;
+  where?: InputMaybe<ContactInfosFilters>;
 };
 
 
@@ -3305,12 +4082,36 @@ export type PersonRelationshipsToArgs = {
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
+export type PersonContactInfosRelation = {
+  __typename?: 'PersonContactInfosRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  isPrimary: Scalars['Boolean']['output'];
+  label: Maybe<Scalars['String']['output']>;
+  person: Maybe<PersonContactInfosRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  type: ContactInfosTypeEnum;
+  value: Scalars['String']['output'];
+};
 
-export type PersonTasksArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<TasksOrderBy>;
-  where?: InputMaybe<TasksFilters>;
+
+export type PersonContactInfosRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonContactInfosRelationPersonRelation = {
+  __typename?: 'PersonContactInfosRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type PersonImportantDatesRelation = {
@@ -3678,6 +4479,7 @@ export type PersonRelationshipFromPersonRelation = {
   __typename?: 'PersonRelationshipFromPersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
+  contactInfos: Array<PersonRelationshipFromPersonRelationContactInfosRelation>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -3691,9 +4493,16 @@ export type PersonRelationshipFromPersonRelation = {
   notes: Array<PersonRelationshipFromPersonRelationNotesRelation>;
   relationshipsFrom: Array<PersonRelationshipFromPersonRelationRelationshipsFromRelation>;
   relationshipsTo: Array<PersonRelationshipFromPersonRelationRelationshipsToRelation>;
-  tasks: Array<PersonRelationshipFromPersonRelationTasksRelation>;
   /** JSON */
   updatedAt: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipFromPersonRelationContactInfosArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ContactInfosOrderBy>;
+  where?: InputMaybe<ContactInfosFilters>;
 };
 
 
@@ -3752,12 +4561,36 @@ export type PersonRelationshipFromPersonRelationRelationshipsToArgs = {
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
+export type PersonRelationshipFromPersonRelationContactInfosRelation = {
+  __typename?: 'PersonRelationshipFromPersonRelationContactInfosRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  isPrimary: Scalars['Boolean']['output'];
+  label: Maybe<Scalars['String']['output']>;
+  person: Maybe<PersonRelationshipFromPersonRelationContactInfosRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  type: ContactInfosTypeEnum;
+  value: Scalars['String']['output'];
+};
 
-export type PersonRelationshipFromPersonRelationTasksArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<TasksOrderBy>;
-  where?: InputMaybe<TasksFilters>;
+
+export type PersonRelationshipFromPersonRelationContactInfosRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonRelationshipFromPersonRelationContactInfosRelationPersonRelation = {
+  __typename?: 'PersonRelationshipFromPersonRelationContactInfosRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type PersonRelationshipFromPersonRelationImportantDatesRelation = {
@@ -4008,44 +4841,11 @@ export type PersonRelationshipFromPersonRelationRelationshipsToRelation = {
   type: Scalars['String']['output'];
 };
 
-export type PersonRelationshipFromPersonRelationTasksRelation = {
-  __typename?: 'PersonRelationshipFromPersonRelationTasksRelation';
-  /** JSON */
-  completedAt: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  /** JSON */
-  dueAt: Maybe<Scalars['String']['output']>;
-  id: Scalars['String']['output'];
-  notes: Maybe<Scalars['String']['output']>;
-  person: Maybe<PersonRelationshipFromPersonRelationTasksRelationPersonRelation>;
-  personId: Scalars['String']['output'];
-  title: Scalars['String']['output'];
-};
-
-
-export type PersonRelationshipFromPersonRelationTasksRelationPersonArgs = {
-  where?: InputMaybe<PersonsFilters>;
-};
-
-export type PersonRelationshipFromPersonRelationTasksRelationPersonRelation = {
-  __typename?: 'PersonRelationshipFromPersonRelationTasksRelationPersonRelation';
-  avatarPath: Maybe<Scalars['String']['output']>;
-  contactFrequency: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  email: Scalars['String']['output'];
-  firstName: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  lastName: Scalars['String']['output'];
-  /** JSON */
-  updatedAt: Scalars['String']['output'];
-};
-
 export type PersonRelationshipToPersonRelation = {
   __typename?: 'PersonRelationshipToPersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
+  contactInfos: Array<PersonRelationshipToPersonRelationContactInfosRelation>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -4059,9 +4859,16 @@ export type PersonRelationshipToPersonRelation = {
   notes: Array<PersonRelationshipToPersonRelationNotesRelation>;
   relationshipsFrom: Array<PersonRelationshipToPersonRelationRelationshipsFromRelation>;
   relationshipsTo: Array<PersonRelationshipToPersonRelationRelationshipsToRelation>;
-  tasks: Array<PersonRelationshipToPersonRelationTasksRelation>;
   /** JSON */
   updatedAt: Scalars['String']['output'];
+};
+
+
+export type PersonRelationshipToPersonRelationContactInfosArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ContactInfosOrderBy>;
+  where?: InputMaybe<ContactInfosFilters>;
 };
 
 
@@ -4120,12 +4927,36 @@ export type PersonRelationshipToPersonRelationRelationshipsToArgs = {
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
+export type PersonRelationshipToPersonRelationContactInfosRelation = {
+  __typename?: 'PersonRelationshipToPersonRelationContactInfosRelation';
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  isPrimary: Scalars['Boolean']['output'];
+  label: Maybe<Scalars['String']['output']>;
+  person: Maybe<PersonRelationshipToPersonRelationContactInfosRelationPersonRelation>;
+  personId: Scalars['String']['output'];
+  type: ContactInfosTypeEnum;
+  value: Scalars['String']['output'];
+};
 
-export type PersonRelationshipToPersonRelationTasksArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<TasksOrderBy>;
-  where?: InputMaybe<TasksFilters>;
+
+export type PersonRelationshipToPersonRelationContactInfosRelationPersonArgs = {
+  where?: InputMaybe<PersonsFilters>;
+};
+
+export type PersonRelationshipToPersonRelationContactInfosRelationPersonRelation = {
+  __typename?: 'PersonRelationshipToPersonRelationContactInfosRelationPersonRelation';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** JSON */
+  createdAt: Scalars['String']['output'];
+  email: Scalars['String']['output'];
+  firstName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  lastName: Scalars['String']['output'];
+  /** JSON */
+  updatedAt: Scalars['String']['output'];
 };
 
 export type PersonRelationshipToPersonRelationImportantDatesRelation = {
@@ -4374,40 +5205,6 @@ export type PersonRelationshipToPersonRelationRelationshipsToRelation = {
   id: Scalars['String']['output'];
   toPersonId: Scalars['String']['output'];
   type: Scalars['String']['output'];
-};
-
-export type PersonRelationshipToPersonRelationTasksRelation = {
-  __typename?: 'PersonRelationshipToPersonRelationTasksRelation';
-  /** JSON */
-  completedAt: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  /** JSON */
-  dueAt: Maybe<Scalars['String']['output']>;
-  id: Scalars['String']['output'];
-  notes: Maybe<Scalars['String']['output']>;
-  person: Maybe<PersonRelationshipToPersonRelationTasksRelationPersonRelation>;
-  personId: Scalars['String']['output'];
-  title: Scalars['String']['output'];
-};
-
-
-export type PersonRelationshipToPersonRelationTasksRelationPersonArgs = {
-  where?: InputMaybe<PersonsFilters>;
-};
-
-export type PersonRelationshipToPersonRelationTasksRelationPersonRelation = {
-  __typename?: 'PersonRelationshipToPersonRelationTasksRelationPersonRelation';
-  avatarPath: Maybe<Scalars['String']['output']>;
-  contactFrequency: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  email: Scalars['String']['output'];
-  firstName: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  lastName: Scalars['String']['output'];
-  /** JSON */
-  updatedAt: Scalars['String']['output'];
 };
 
 export type PersonRelationshipsFilters = {
@@ -4682,40 +5479,6 @@ export type PersonRelationshipsTypeFiltersOr = {
   /** Array<undefined> */
   notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
   notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonTasksRelation = {
-  __typename?: 'PersonTasksRelation';
-  /** JSON */
-  completedAt: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  /** JSON */
-  dueAt: Maybe<Scalars['String']['output']>;
-  id: Scalars['String']['output'];
-  notes: Maybe<Scalars['String']['output']>;
-  person: Maybe<PersonTasksRelationPersonRelation>;
-  personId: Scalars['String']['output'];
-  title: Scalars['String']['output'];
-};
-
-
-export type PersonTasksRelationPersonArgs = {
-  where?: InputMaybe<PersonsFilters>;
-};
-
-export type PersonTasksRelationPersonRelation = {
-  __typename?: 'PersonTasksRelationPersonRelation';
-  avatarPath: Maybe<Scalars['String']['output']>;
-  contactFrequency: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  email: Scalars['String']['output'];
-  firstName: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  lastName: Scalars['String']['output'];
-  /** JSON */
-  updatedAt: Scalars['String']['output'];
 };
 
 export type PersonsAvatarPathFilters = {
@@ -5090,6 +5853,8 @@ export type PersonsUpdatedAtFiltersOr = {
 
 export type Query = {
   __typename?: 'Query';
+  contactInfo: Maybe<ContactInfo>;
+  contactInfos: Array<ContactInfo>;
   importantDate: Maybe<ImportantDate>;
   importantDateTag: Maybe<ImportantDateTag>;
   importantDateTags: Array<ImportantDateTag>;
@@ -5112,8 +5877,21 @@ export type Query = {
   personRelationship: Maybe<PersonRelationship>;
   personRelationships: Array<PersonRelationship>;
   persons: Array<Person>;
-  task: Maybe<Task>;
-  tasks: Array<Task>;
+};
+
+
+export type QueryContactInfoArgs = {
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ContactInfosOrderBy>;
+  where?: InputMaybe<ContactInfosFilters>;
+};
+
+
+export type QueryContactInfosArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ContactInfosOrderBy>;
+  where?: InputMaybe<ContactInfosFilters>;
 };
 
 
@@ -5281,807 +6059,15 @@ export type QueryPersonsArgs = {
   where?: InputMaybe<PersonsFilters>;
 };
 
-
-export type QueryTaskArgs = {
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<TasksOrderBy>;
-  where?: InputMaybe<TasksFilters>;
-};
-
-
-export type QueryTasksArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<TasksOrderBy>;
-  where?: InputMaybe<TasksFilters>;
-};
-
-export type Task = {
-  __typename?: 'Task';
-  /** JSON */
-  completedAt: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  /** JSON */
-  dueAt: Maybe<Scalars['String']['output']>;
-  id: Scalars['String']['output'];
-  notes: Maybe<Scalars['String']['output']>;
-  person: Maybe<TaskPersonRelation>;
-  personId: Scalars['String']['output'];
-  title: Scalars['String']['output'];
-};
-
-
-export type TaskPersonArgs = {
-  where?: InputMaybe<PersonsFilters>;
-};
-
-export type TaskPersonRelation = {
-  __typename?: 'TaskPersonRelation';
-  avatarPath: Maybe<Scalars['String']['output']>;
-  contactFrequency: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  email: Scalars['String']['output'];
-  firstName: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  importantDates: Array<TaskPersonRelationImportantDatesRelation>;
-  interactions: Array<TaskPersonRelationInteractionsRelation>;
-  labels: Array<TaskPersonRelationLabelsRelation>;
-  lastName: Scalars['String']['output'];
-  mentionedInNotes: Array<TaskPersonRelationMentionedInNotesRelation>;
-  notes: Array<TaskPersonRelationNotesRelation>;
-  relationshipsFrom: Array<TaskPersonRelationRelationshipsFromRelation>;
-  relationshipsTo: Array<TaskPersonRelationRelationshipsToRelation>;
-  tasks: Array<TaskPersonRelationTasksRelation>;
-  /** JSON */
-  updatedAt: Scalars['String']['output'];
-};
-
-
-export type TaskPersonRelationImportantDatesArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<ImportantDatesOrderBy>;
-  where?: InputMaybe<ImportantDatesFilters>;
-};
-
-
-export type TaskPersonRelationInteractionsArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<InteractionsOrderBy>;
-  where?: InputMaybe<InteractionsFilters>;
-};
-
-
-export type TaskPersonRelationLabelsArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<LabelsOrderBy>;
-  where?: InputMaybe<LabelsFilters>;
-};
-
-
-export type TaskPersonRelationMentionedInNotesArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<NotesOrderBy>;
-  where?: InputMaybe<NotesFilters>;
-};
-
-
-export type TaskPersonRelationNotesArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<NotesOrderBy>;
-  where?: InputMaybe<NotesFilters>;
-};
-
-
-export type TaskPersonRelationRelationshipsFromArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
-  where?: InputMaybe<PersonRelationshipsFilters>;
-};
-
-
-export type TaskPersonRelationRelationshipsToArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
-  where?: InputMaybe<PersonRelationshipsFilters>;
-};
-
-
-export type TaskPersonRelationTasksArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<TasksOrderBy>;
-  where?: InputMaybe<TasksFilters>;
-};
-
-export type TaskPersonRelationImportantDatesRelation = {
-  __typename?: 'TaskPersonRelationImportantDatesRelation';
-  date: Scalars['String']['output'];
-  description: Maybe<Scalars['String']['output']>;
-  id: Scalars['String']['output'];
-  labels: Array<TaskPersonRelationImportantDatesRelationLabelsRelation>;
-  name: Scalars['String']['output'];
-  person: Maybe<TaskPersonRelationImportantDatesRelationPersonRelation>;
-  personId: Scalars['String']['output'];
-  recurrence: Maybe<Scalars['String']['output']>;
-};
-
-
-export type TaskPersonRelationImportantDatesRelationLabelsArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<LabelsOrderBy>;
-  where?: InputMaybe<LabelsFilters>;
-};
-
-
-export type TaskPersonRelationImportantDatesRelationPersonArgs = {
-  where?: InputMaybe<PersonsFilters>;
-};
-
-export type TaskPersonRelationImportantDatesRelationLabelsRelation = {
-  __typename?: 'TaskPersonRelationImportantDatesRelationLabelsRelation';
-  color: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  label: Scalars['String']['output'];
-};
-
-export type TaskPersonRelationImportantDatesRelationPersonRelation = {
-  __typename?: 'TaskPersonRelationImportantDatesRelationPersonRelation';
-  avatarPath: Maybe<Scalars['String']['output']>;
-  contactFrequency: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  email: Scalars['String']['output'];
-  firstName: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  lastName: Scalars['String']['output'];
-  /** JSON */
-  updatedAt: Scalars['String']['output'];
-};
-
-export type TaskPersonRelationInteractionsRelation = {
-  __typename?: 'TaskPersonRelationInteractionsRelation';
-  channel: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  labels: Array<TaskPersonRelationInteractionsRelationLabelsRelation>;
-  note: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  occurredAt: Scalars['String']['output'];
-  person: Maybe<TaskPersonRelationInteractionsRelationPersonRelation>;
-  personId: Scalars['String']['output'];
-  sentiment: Maybe<Scalars['String']['output']>;
-};
-
-
-export type TaskPersonRelationInteractionsRelationLabelsArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<LabelsOrderBy>;
-  where?: InputMaybe<LabelsFilters>;
-};
-
-
-export type TaskPersonRelationInteractionsRelationPersonArgs = {
-  where?: InputMaybe<PersonsFilters>;
-};
-
-export type TaskPersonRelationInteractionsRelationLabelsRelation = {
-  __typename?: 'TaskPersonRelationInteractionsRelationLabelsRelation';
-  color: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  label: Scalars['String']['output'];
-};
-
-export type TaskPersonRelationInteractionsRelationPersonRelation = {
-  __typename?: 'TaskPersonRelationInteractionsRelationPersonRelation';
-  avatarPath: Maybe<Scalars['String']['output']>;
-  contactFrequency: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  email: Scalars['String']['output'];
-  firstName: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  lastName: Scalars['String']['output'];
-  /** JSON */
-  updatedAt: Scalars['String']['output'];
-};
-
-export type TaskPersonRelationLabelsRelation = {
-  __typename?: 'TaskPersonRelationLabelsRelation';
-  color: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  label: Scalars['String']['output'];
-};
-
-export type TaskPersonRelationMentionedInNotesRelation = {
-  __typename?: 'TaskPersonRelationMentionedInNotesRelation';
-  body: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  labels: Array<TaskPersonRelationMentionedInNotesRelationLabelsRelation>;
-  mentions: Array<TaskPersonRelationMentionedInNotesRelationMentionsRelation>;
-  person: Maybe<TaskPersonRelationMentionedInNotesRelationPersonRelation>;
-  personId: Maybe<Scalars['String']['output']>;
-};
-
-
-export type TaskPersonRelationMentionedInNotesRelationLabelsArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<LabelsOrderBy>;
-  where?: InputMaybe<LabelsFilters>;
-};
-
-
-export type TaskPersonRelationMentionedInNotesRelationMentionsArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<PersonsOrderBy>;
-  where?: InputMaybe<PersonsFilters>;
-};
-
-
-export type TaskPersonRelationMentionedInNotesRelationPersonArgs = {
-  where?: InputMaybe<PersonsFilters>;
-};
-
-export type TaskPersonRelationMentionedInNotesRelationLabelsRelation = {
-  __typename?: 'TaskPersonRelationMentionedInNotesRelationLabelsRelation';
-  color: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  label: Scalars['String']['output'];
-};
-
-export type TaskPersonRelationMentionedInNotesRelationMentionsRelation = {
-  __typename?: 'TaskPersonRelationMentionedInNotesRelationMentionsRelation';
-  avatarPath: Maybe<Scalars['String']['output']>;
-  contactFrequency: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  email: Scalars['String']['output'];
-  firstName: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  lastName: Scalars['String']['output'];
-  /** JSON */
-  updatedAt: Scalars['String']['output'];
-};
-
-export type TaskPersonRelationMentionedInNotesRelationPersonRelation = {
-  __typename?: 'TaskPersonRelationMentionedInNotesRelationPersonRelation';
-  avatarPath: Maybe<Scalars['String']['output']>;
-  contactFrequency: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  email: Scalars['String']['output'];
-  firstName: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  lastName: Scalars['String']['output'];
-  /** JSON */
-  updatedAt: Scalars['String']['output'];
-};
-
-export type TaskPersonRelationNotesRelation = {
-  __typename?: 'TaskPersonRelationNotesRelation';
-  body: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  labels: Array<TaskPersonRelationNotesRelationLabelsRelation>;
-  mentions: Array<TaskPersonRelationNotesRelationMentionsRelation>;
-  person: Maybe<TaskPersonRelationNotesRelationPersonRelation>;
-  personId: Maybe<Scalars['String']['output']>;
-};
-
-
-export type TaskPersonRelationNotesRelationLabelsArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<LabelsOrderBy>;
-  where?: InputMaybe<LabelsFilters>;
-};
-
-
-export type TaskPersonRelationNotesRelationMentionsArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<PersonsOrderBy>;
-  where?: InputMaybe<PersonsFilters>;
-};
-
-
-export type TaskPersonRelationNotesRelationPersonArgs = {
-  where?: InputMaybe<PersonsFilters>;
-};
-
-export type TaskPersonRelationNotesRelationLabelsRelation = {
-  __typename?: 'TaskPersonRelationNotesRelationLabelsRelation';
-  color: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  label: Scalars['String']['output'];
-};
-
-export type TaskPersonRelationNotesRelationMentionsRelation = {
-  __typename?: 'TaskPersonRelationNotesRelationMentionsRelation';
-  avatarPath: Maybe<Scalars['String']['output']>;
-  contactFrequency: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  email: Scalars['String']['output'];
-  firstName: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  lastName: Scalars['String']['output'];
-  /** JSON */
-  updatedAt: Scalars['String']['output'];
-};
-
-export type TaskPersonRelationNotesRelationPersonRelation = {
-  __typename?: 'TaskPersonRelationNotesRelationPersonRelation';
-  avatarPath: Maybe<Scalars['String']['output']>;
-  contactFrequency: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  email: Scalars['String']['output'];
-  firstName: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  lastName: Scalars['String']['output'];
-  /** JSON */
-  updatedAt: Scalars['String']['output'];
-};
-
-export type TaskPersonRelationRelationshipsFromRelation = {
-  __typename?: 'TaskPersonRelationRelationshipsFromRelation';
-  fromPerson: Maybe<TaskPersonRelationRelationshipsFromRelationFromPersonRelation>;
-  fromPersonId: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  toPerson: Maybe<TaskPersonRelationRelationshipsFromRelationToPersonRelation>;
-  toPersonId: Scalars['String']['output'];
-  type: Scalars['String']['output'];
-};
-
-
-export type TaskPersonRelationRelationshipsFromRelationFromPersonArgs = {
-  where?: InputMaybe<PersonsFilters>;
-};
-
-
-export type TaskPersonRelationRelationshipsFromRelationToPersonArgs = {
-  where?: InputMaybe<PersonsFilters>;
-};
-
-export type TaskPersonRelationRelationshipsFromRelationFromPersonRelation = {
-  __typename?: 'TaskPersonRelationRelationshipsFromRelationFromPersonRelation';
-  avatarPath: Maybe<Scalars['String']['output']>;
-  contactFrequency: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  email: Scalars['String']['output'];
-  firstName: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  lastName: Scalars['String']['output'];
-  /** JSON */
-  updatedAt: Scalars['String']['output'];
-};
-
-export type TaskPersonRelationRelationshipsFromRelationToPersonRelation = {
-  __typename?: 'TaskPersonRelationRelationshipsFromRelationToPersonRelation';
-  avatarPath: Maybe<Scalars['String']['output']>;
-  contactFrequency: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  email: Scalars['String']['output'];
-  firstName: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  lastName: Scalars['String']['output'];
-  /** JSON */
-  updatedAt: Scalars['String']['output'];
-};
-
-export type TaskPersonRelationRelationshipsToRelation = {
-  __typename?: 'TaskPersonRelationRelationshipsToRelation';
-  fromPerson: Maybe<TaskPersonRelationRelationshipsToRelationFromPersonRelation>;
-  fromPersonId: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  toPerson: Maybe<TaskPersonRelationRelationshipsToRelationToPersonRelation>;
-  toPersonId: Scalars['String']['output'];
-  type: Scalars['String']['output'];
-};
-
-
-export type TaskPersonRelationRelationshipsToRelationFromPersonArgs = {
-  where?: InputMaybe<PersonsFilters>;
-};
-
-
-export type TaskPersonRelationRelationshipsToRelationToPersonArgs = {
-  where?: InputMaybe<PersonsFilters>;
-};
-
-export type TaskPersonRelationRelationshipsToRelationFromPersonRelation = {
-  __typename?: 'TaskPersonRelationRelationshipsToRelationFromPersonRelation';
-  avatarPath: Maybe<Scalars['String']['output']>;
-  contactFrequency: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  email: Scalars['String']['output'];
-  firstName: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  lastName: Scalars['String']['output'];
-  /** JSON */
-  updatedAt: Scalars['String']['output'];
-};
-
-export type TaskPersonRelationRelationshipsToRelationToPersonRelation = {
-  __typename?: 'TaskPersonRelationRelationshipsToRelationToPersonRelation';
-  avatarPath: Maybe<Scalars['String']['output']>;
-  contactFrequency: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  email: Scalars['String']['output'];
-  firstName: Scalars['String']['output'];
-  id: Scalars['String']['output'];
-  lastName: Scalars['String']['output'];
-  /** JSON */
-  updatedAt: Scalars['String']['output'];
-};
-
-export type TaskPersonRelationTasksRelation = {
-  __typename?: 'TaskPersonRelationTasksRelation';
-  /** JSON */
-  completedAt: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  /** JSON */
-  dueAt: Maybe<Scalars['String']['output']>;
-  id: Scalars['String']['output'];
-  notes: Maybe<Scalars['String']['output']>;
-  personId: Scalars['String']['output'];
-  title: Scalars['String']['output'];
-};
-
-export type TasksCompletedAtFilters = {
-  OR?: InputMaybe<Array<TasksCompletedAtFiltersOr>>;
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksCompletedAtFiltersOr = {
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksCreatedAtFilters = {
-  OR?: InputMaybe<Array<TasksCreatedAtFiltersOr>>;
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksCreatedAtFiltersOr = {
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksDueAtFilters = {
-  OR?: InputMaybe<Array<TasksDueAtFiltersOr>>;
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksDueAtFiltersOr = {
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksFilters = {
-  OR?: InputMaybe<Array<TasksFiltersOr>>;
-  completedAt?: InputMaybe<TasksCompletedAtFilters>;
-  createdAt?: InputMaybe<TasksCreatedAtFilters>;
-  dueAt?: InputMaybe<TasksDueAtFilters>;
-  id?: InputMaybe<TasksIdFilters>;
-  notes?: InputMaybe<TasksNotesFilters>;
-  personId?: InputMaybe<TasksPersonIdFilters>;
-  title?: InputMaybe<TasksTitleFilters>;
-};
-
-export type TasksFiltersOr = {
-  completedAt?: InputMaybe<TasksCompletedAtFilters>;
-  createdAt?: InputMaybe<TasksCreatedAtFilters>;
-  dueAt?: InputMaybe<TasksDueAtFilters>;
-  id?: InputMaybe<TasksIdFilters>;
-  notes?: InputMaybe<TasksNotesFilters>;
-  personId?: InputMaybe<TasksPersonIdFilters>;
-  title?: InputMaybe<TasksTitleFilters>;
-};
-
-export type TasksIdFilters = {
-  OR?: InputMaybe<Array<TasksIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksNotesFilters = {
-  OR?: InputMaybe<Array<TasksNotesFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksNotesFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksOrderBy = {
-  completedAt?: InputMaybe<InnerOrder>;
-  createdAt?: InputMaybe<InnerOrder>;
-  dueAt?: InputMaybe<InnerOrder>;
-  id?: InputMaybe<InnerOrder>;
-  notes?: InputMaybe<InnerOrder>;
-  personId?: InputMaybe<InnerOrder>;
-  title?: InputMaybe<InnerOrder>;
-};
-
-export type TasksPersonIdFilters = {
-  OR?: InputMaybe<Array<TasksPersonIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksPersonIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksTitleFilters = {
-  OR?: InputMaybe<Array<TasksTitleFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksTitleFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
+export type UpdateContactInfoInput = {
+  /** JSON */
+  createdAt?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  isPrimary?: InputMaybe<Scalars['Boolean']['input']>;
+  label?: InputMaybe<Scalars['String']['input']>;
+  personId?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<ContactInfosTypeEnum>;
+  value?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type UpdateImportantDateInput = {
@@ -6160,19 +6146,6 @@ export type UpdatePersonRelationshipInput = {
   type?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type UpdateTaskInput = {
-  /** JSON */
-  completedAt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  createdAt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  dueAt?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  notes?: InputMaybe<Scalars['String']['input']>;
-  personId?: InputMaybe<Scalars['String']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
-};
-
 
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
@@ -6247,6 +6220,49 @@ export type DirectiveResolverFn<TResult = Record<PropertyKey, never>, TParent = 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
+  ContactInfo: ResolverTypeWrapper<ContactInfo>;
+  ContactInfoPersonRelation: ResolverTypeWrapper<ContactInfoPersonRelation>;
+  ContactInfoPersonRelationContactInfosRelation: ResolverTypeWrapper<ContactInfoPersonRelationContactInfosRelation>;
+  ContactInfoPersonRelationImportantDatesRelation: ResolverTypeWrapper<ContactInfoPersonRelationImportantDatesRelation>;
+  ContactInfoPersonRelationImportantDatesRelationLabelsRelation: ResolverTypeWrapper<ContactInfoPersonRelationImportantDatesRelationLabelsRelation>;
+  ContactInfoPersonRelationImportantDatesRelationPersonRelation: ResolverTypeWrapper<ContactInfoPersonRelationImportantDatesRelationPersonRelation>;
+  ContactInfoPersonRelationInteractionsRelation: ResolverTypeWrapper<ContactInfoPersonRelationInteractionsRelation>;
+  ContactInfoPersonRelationInteractionsRelationLabelsRelation: ResolverTypeWrapper<ContactInfoPersonRelationInteractionsRelationLabelsRelation>;
+  ContactInfoPersonRelationInteractionsRelationPersonRelation: ResolverTypeWrapper<ContactInfoPersonRelationInteractionsRelationPersonRelation>;
+  ContactInfoPersonRelationLabelsRelation: ResolverTypeWrapper<ContactInfoPersonRelationLabelsRelation>;
+  ContactInfoPersonRelationMentionedInNotesRelation: ResolverTypeWrapper<ContactInfoPersonRelationMentionedInNotesRelation>;
+  ContactInfoPersonRelationMentionedInNotesRelationLabelsRelation: ResolverTypeWrapper<ContactInfoPersonRelationMentionedInNotesRelationLabelsRelation>;
+  ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation: ResolverTypeWrapper<ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation>;
+  ContactInfoPersonRelationMentionedInNotesRelationPersonRelation: ResolverTypeWrapper<ContactInfoPersonRelationMentionedInNotesRelationPersonRelation>;
+  ContactInfoPersonRelationNotesRelation: ResolverTypeWrapper<ContactInfoPersonRelationNotesRelation>;
+  ContactInfoPersonRelationNotesRelationLabelsRelation: ResolverTypeWrapper<ContactInfoPersonRelationNotesRelationLabelsRelation>;
+  ContactInfoPersonRelationNotesRelationMentionsRelation: ResolverTypeWrapper<ContactInfoPersonRelationNotesRelationMentionsRelation>;
+  ContactInfoPersonRelationNotesRelationPersonRelation: ResolverTypeWrapper<ContactInfoPersonRelationNotesRelationPersonRelation>;
+  ContactInfoPersonRelationRelationshipsFromRelation: ResolverTypeWrapper<ContactInfoPersonRelationRelationshipsFromRelation>;
+  ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation: ResolverTypeWrapper<ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation>;
+  ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation: ResolverTypeWrapper<ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation>;
+  ContactInfoPersonRelationRelationshipsToRelation: ResolverTypeWrapper<ContactInfoPersonRelationRelationshipsToRelation>;
+  ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation: ResolverTypeWrapper<ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation>;
+  ContactInfoPersonRelationRelationshipsToRelationToPersonRelation: ResolverTypeWrapper<ContactInfoPersonRelationRelationshipsToRelationToPersonRelation>;
+  ContactInfosCreatedAtFilters: ContactInfosCreatedAtFilters;
+  ContactInfosCreatedAtFiltersOr: ContactInfosCreatedAtFiltersOr;
+  ContactInfosFilters: ContactInfosFilters;
+  ContactInfosFiltersOr: ContactInfosFiltersOr;
+  ContactInfosIdFilters: ContactInfosIdFilters;
+  ContactInfosIdFiltersOr: ContactInfosIdFiltersOr;
+  ContactInfosIsPrimaryFilters: ContactInfosIsPrimaryFilters;
+  ContactInfosIsPrimaryFiltersOr: ContactInfosIsPrimaryFiltersOr;
+  ContactInfosLabelFilters: ContactInfosLabelFilters;
+  ContactInfosLabelFiltersOr: ContactInfosLabelFiltersOr;
+  ContactInfosOrderBy: ContactInfosOrderBy;
+  ContactInfosPersonIdFilters: ContactInfosPersonIdFilters;
+  ContactInfosPersonIdFiltersOr: ContactInfosPersonIdFiltersOr;
+  ContactInfosTypeEnum: ContactInfosTypeEnum;
+  ContactInfosTypeFilters: ContactInfosTypeFilters;
+  ContactInfosTypeFiltersOr: ContactInfosTypeFiltersOr;
+  ContactInfosValueFilters: ContactInfosValueFilters;
+  ContactInfosValueFiltersOr: ContactInfosValueFiltersOr;
+  CreateContactInfoInput: CreateContactInfoInput;
   CreateImportantDateInput: CreateImportantDateInput;
   CreateImportantDateTagInput: CreateImportantDateTagInput;
   CreateInteractionInput: CreateInteractionInput;
@@ -6258,10 +6274,11 @@ export type ResolversTypes = {
   CreatePersonInput: CreatePersonInput;
   CreatePersonLabelInput: CreatePersonLabelInput;
   CreatePersonRelationshipInput: CreatePersonRelationshipInput;
-  CreateTaskInput: CreateTaskInput;
   ImportantDate: ResolverTypeWrapper<ImportantDate>;
   ImportantDateLabelsRelation: ResolverTypeWrapper<ImportantDateLabelsRelation>;
   ImportantDatePersonRelation: ResolverTypeWrapper<ImportantDatePersonRelation>;
+  ImportantDatePersonRelationContactInfosRelation: ResolverTypeWrapper<ImportantDatePersonRelationContactInfosRelation>;
+  ImportantDatePersonRelationContactInfosRelationPersonRelation: ResolverTypeWrapper<ImportantDatePersonRelationContactInfosRelationPersonRelation>;
   ImportantDatePersonRelationImportantDatesRelation: ResolverTypeWrapper<ImportantDatePersonRelationImportantDatesRelation>;
   ImportantDatePersonRelationInteractionsRelation: ResolverTypeWrapper<ImportantDatePersonRelationInteractionsRelation>;
   ImportantDatePersonRelationInteractionsRelationLabelsRelation: ResolverTypeWrapper<ImportantDatePersonRelationInteractionsRelationLabelsRelation>;
@@ -6281,8 +6298,6 @@ export type ResolversTypes = {
   ImportantDatePersonRelationRelationshipsToRelation: ResolverTypeWrapper<ImportantDatePersonRelationRelationshipsToRelation>;
   ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation: ResolverTypeWrapper<ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation>;
   ImportantDatePersonRelationRelationshipsToRelationToPersonRelation: ResolverTypeWrapper<ImportantDatePersonRelationRelationshipsToRelationToPersonRelation>;
-  ImportantDatePersonRelationTasksRelation: ResolverTypeWrapper<ImportantDatePersonRelationTasksRelation>;
-  ImportantDatePersonRelationTasksRelationPersonRelation: ResolverTypeWrapper<ImportantDatePersonRelationTasksRelationPersonRelation>;
   ImportantDateTag: ResolverTypeWrapper<ImportantDateTag>;
   ImportantDateTagsFilters: ImportantDateTagsFilters;
   ImportantDateTagsFiltersOr: ImportantDateTagsFiltersOr;
@@ -6311,6 +6326,8 @@ export type ResolversTypes = {
   Interaction: ResolverTypeWrapper<Interaction>;
   InteractionLabelsRelation: ResolverTypeWrapper<InteractionLabelsRelation>;
   InteractionPersonRelation: ResolverTypeWrapper<InteractionPersonRelation>;
+  InteractionPersonRelationContactInfosRelation: ResolverTypeWrapper<InteractionPersonRelationContactInfosRelation>;
+  InteractionPersonRelationContactInfosRelationPersonRelation: ResolverTypeWrapper<InteractionPersonRelationContactInfosRelationPersonRelation>;
   InteractionPersonRelationImportantDatesRelation: ResolverTypeWrapper<InteractionPersonRelationImportantDatesRelation>;
   InteractionPersonRelationImportantDatesRelationLabelsRelation: ResolverTypeWrapper<InteractionPersonRelationImportantDatesRelationLabelsRelation>;
   InteractionPersonRelationImportantDatesRelationPersonRelation: ResolverTypeWrapper<InteractionPersonRelationImportantDatesRelationPersonRelation>;
@@ -6330,8 +6347,6 @@ export type ResolversTypes = {
   InteractionPersonRelationRelationshipsToRelation: ResolverTypeWrapper<InteractionPersonRelationRelationshipsToRelation>;
   InteractionPersonRelationRelationshipsToRelationFromPersonRelation: ResolverTypeWrapper<InteractionPersonRelationRelationshipsToRelationFromPersonRelation>;
   InteractionPersonRelationRelationshipsToRelationToPersonRelation: ResolverTypeWrapper<InteractionPersonRelationRelationshipsToRelationToPersonRelation>;
-  InteractionPersonRelationTasksRelation: ResolverTypeWrapper<InteractionPersonRelationTasksRelation>;
-  InteractionPersonRelationTasksRelationPersonRelation: ResolverTypeWrapper<InteractionPersonRelationTasksRelationPersonRelation>;
   InteractionTag: ResolverTypeWrapper<InteractionTag>;
   InteractionTagsFilters: InteractionTagsFilters;
   InteractionTagsFiltersOr: InteractionTagsFiltersOr;
@@ -6377,6 +6392,8 @@ export type ResolversTypes = {
   NoteMentionsNoteIdFiltersOr: NoteMentionsNoteIdFiltersOr;
   NoteMentionsOrderBy: NoteMentionsOrderBy;
   NoteMentionsRelation: ResolverTypeWrapper<NoteMentionsRelation>;
+  NoteMentionsRelationContactInfosRelation: ResolverTypeWrapper<NoteMentionsRelationContactInfosRelation>;
+  NoteMentionsRelationContactInfosRelationPersonRelation: ResolverTypeWrapper<NoteMentionsRelationContactInfosRelationPersonRelation>;
   NoteMentionsRelationImportantDatesRelation: ResolverTypeWrapper<NoteMentionsRelationImportantDatesRelation>;
   NoteMentionsRelationImportantDatesRelationLabelsRelation: ResolverTypeWrapper<NoteMentionsRelationImportantDatesRelationLabelsRelation>;
   NoteMentionsRelationImportantDatesRelationPersonRelation: ResolverTypeWrapper<NoteMentionsRelationImportantDatesRelationPersonRelation>;
@@ -6392,9 +6409,9 @@ export type ResolversTypes = {
   NoteMentionsRelationRelationshipsToRelation: ResolverTypeWrapper<NoteMentionsRelationRelationshipsToRelation>;
   NoteMentionsRelationRelationshipsToRelationFromPersonRelation: ResolverTypeWrapper<NoteMentionsRelationRelationshipsToRelationFromPersonRelation>;
   NoteMentionsRelationRelationshipsToRelationToPersonRelation: ResolverTypeWrapper<NoteMentionsRelationRelationshipsToRelationToPersonRelation>;
-  NoteMentionsRelationTasksRelation: ResolverTypeWrapper<NoteMentionsRelationTasksRelation>;
-  NoteMentionsRelationTasksRelationPersonRelation: ResolverTypeWrapper<NoteMentionsRelationTasksRelationPersonRelation>;
   NotePersonRelation: ResolverTypeWrapper<NotePersonRelation>;
+  NotePersonRelationContactInfosRelation: ResolverTypeWrapper<NotePersonRelationContactInfosRelation>;
+  NotePersonRelationContactInfosRelationPersonRelation: ResolverTypeWrapper<NotePersonRelationContactInfosRelationPersonRelation>;
   NotePersonRelationImportantDatesRelation: ResolverTypeWrapper<NotePersonRelationImportantDatesRelation>;
   NotePersonRelationImportantDatesRelationLabelsRelation: ResolverTypeWrapper<NotePersonRelationImportantDatesRelationLabelsRelation>;
   NotePersonRelationImportantDatesRelationPersonRelation: ResolverTypeWrapper<NotePersonRelationImportantDatesRelationPersonRelation>;
@@ -6410,8 +6427,6 @@ export type ResolversTypes = {
   NotePersonRelationRelationshipsToRelation: ResolverTypeWrapper<NotePersonRelationRelationshipsToRelation>;
   NotePersonRelationRelationshipsToRelationFromPersonRelation: ResolverTypeWrapper<NotePersonRelationRelationshipsToRelationFromPersonRelation>;
   NotePersonRelationRelationshipsToRelationToPersonRelation: ResolverTypeWrapper<NotePersonRelationRelationshipsToRelationToPersonRelation>;
-  NotePersonRelationTasksRelation: ResolverTypeWrapper<NotePersonRelationTasksRelation>;
-  NotePersonRelationTasksRelationPersonRelation: ResolverTypeWrapper<NotePersonRelationTasksRelationPersonRelation>;
   NoteTag: ResolverTypeWrapper<NoteTag>;
   NoteTagsFilters: NoteTagsFilters;
   NoteTagsFiltersOr: NoteTagsFiltersOr;
@@ -6431,6 +6446,8 @@ export type ResolversTypes = {
   NotesPersonIdFiltersOr: NotesPersonIdFiltersOr;
   OrderDirection: OrderDirection;
   Person: ResolverTypeWrapper<Person>;
+  PersonContactInfosRelation: ResolverTypeWrapper<PersonContactInfosRelation>;
+  PersonContactInfosRelationPersonRelation: ResolverTypeWrapper<PersonContactInfosRelationPersonRelation>;
   PersonImportantDatesRelation: ResolverTypeWrapper<PersonImportantDatesRelation>;
   PersonImportantDatesRelationLabelsRelation: ResolverTypeWrapper<PersonImportantDatesRelationLabelsRelation>;
   PersonImportantDatesRelationPersonRelation: ResolverTypeWrapper<PersonImportantDatesRelationPersonRelation>;
@@ -6457,6 +6474,8 @@ export type ResolversTypes = {
   PersonRelationship: ResolverTypeWrapper<PersonRelationship>;
   PersonRelationshipEntry: ResolverTypeWrapper<PersonRelationshipEntry>;
   PersonRelationshipFromPersonRelation: ResolverTypeWrapper<PersonRelationshipFromPersonRelation>;
+  PersonRelationshipFromPersonRelationContactInfosRelation: ResolverTypeWrapper<PersonRelationshipFromPersonRelationContactInfosRelation>;
+  PersonRelationshipFromPersonRelationContactInfosRelationPersonRelation: ResolverTypeWrapper<PersonRelationshipFromPersonRelationContactInfosRelationPersonRelation>;
   PersonRelationshipFromPersonRelationImportantDatesRelation: ResolverTypeWrapper<PersonRelationshipFromPersonRelationImportantDatesRelation>;
   PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelation: ResolverTypeWrapper<PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelation>;
   PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation: ResolverTypeWrapper<PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation>;
@@ -6474,9 +6493,9 @@ export type ResolversTypes = {
   PersonRelationshipFromPersonRelationNotesRelationPersonRelation: ResolverTypeWrapper<PersonRelationshipFromPersonRelationNotesRelationPersonRelation>;
   PersonRelationshipFromPersonRelationRelationshipsFromRelation: ResolverTypeWrapper<PersonRelationshipFromPersonRelationRelationshipsFromRelation>;
   PersonRelationshipFromPersonRelationRelationshipsToRelation: ResolverTypeWrapper<PersonRelationshipFromPersonRelationRelationshipsToRelation>;
-  PersonRelationshipFromPersonRelationTasksRelation: ResolverTypeWrapper<PersonRelationshipFromPersonRelationTasksRelation>;
-  PersonRelationshipFromPersonRelationTasksRelationPersonRelation: ResolverTypeWrapper<PersonRelationshipFromPersonRelationTasksRelationPersonRelation>;
   PersonRelationshipToPersonRelation: ResolverTypeWrapper<PersonRelationshipToPersonRelation>;
+  PersonRelationshipToPersonRelationContactInfosRelation: ResolverTypeWrapper<PersonRelationshipToPersonRelationContactInfosRelation>;
+  PersonRelationshipToPersonRelationContactInfosRelationPersonRelation: ResolverTypeWrapper<PersonRelationshipToPersonRelationContactInfosRelationPersonRelation>;
   PersonRelationshipToPersonRelationImportantDatesRelation: ResolverTypeWrapper<PersonRelationshipToPersonRelationImportantDatesRelation>;
   PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelation: ResolverTypeWrapper<PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelation>;
   PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation: ResolverTypeWrapper<PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation>;
@@ -6494,8 +6513,6 @@ export type ResolversTypes = {
   PersonRelationshipToPersonRelationNotesRelationPersonRelation: ResolverTypeWrapper<PersonRelationshipToPersonRelationNotesRelationPersonRelation>;
   PersonRelationshipToPersonRelationRelationshipsFromRelation: ResolverTypeWrapper<PersonRelationshipToPersonRelationRelationshipsFromRelation>;
   PersonRelationshipToPersonRelationRelationshipsToRelation: ResolverTypeWrapper<PersonRelationshipToPersonRelationRelationshipsToRelation>;
-  PersonRelationshipToPersonRelationTasksRelation: ResolverTypeWrapper<PersonRelationshipToPersonRelationTasksRelation>;
-  PersonRelationshipToPersonRelationTasksRelationPersonRelation: ResolverTypeWrapper<PersonRelationshipToPersonRelationTasksRelationPersonRelation>;
   PersonRelationshipsFilters: PersonRelationshipsFilters;
   PersonRelationshipsFiltersOr: PersonRelationshipsFiltersOr;
   PersonRelationshipsFromPersonIdFilters: PersonRelationshipsFromPersonIdFilters;
@@ -6513,8 +6530,6 @@ export type ResolversTypes = {
   PersonRelationshipsToRelationToPersonRelation: ResolverTypeWrapper<PersonRelationshipsToRelationToPersonRelation>;
   PersonRelationshipsTypeFilters: PersonRelationshipsTypeFilters;
   PersonRelationshipsTypeFiltersOr: PersonRelationshipsTypeFiltersOr;
-  PersonTasksRelation: ResolverTypeWrapper<PersonTasksRelation>;
-  PersonTasksRelationPersonRelation: ResolverTypeWrapper<PersonTasksRelationPersonRelation>;
   PersonsAvatarPathFilters: PersonsAvatarPathFilters;
   PersonsAvatarPathFiltersOr: PersonsAvatarPathFiltersOr;
   PersonsContactFrequencyFilters: PersonsContactFrequencyFilters;
@@ -6536,47 +6551,7 @@ export type ResolversTypes = {
   PersonsUpdatedAtFiltersOr: PersonsUpdatedAtFiltersOr;
   Query: ResolverTypeWrapper<Record<PropertyKey, never>>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
-  Task: ResolverTypeWrapper<Task>;
-  TaskPersonRelation: ResolverTypeWrapper<TaskPersonRelation>;
-  TaskPersonRelationImportantDatesRelation: ResolverTypeWrapper<TaskPersonRelationImportantDatesRelation>;
-  TaskPersonRelationImportantDatesRelationLabelsRelation: ResolverTypeWrapper<TaskPersonRelationImportantDatesRelationLabelsRelation>;
-  TaskPersonRelationImportantDatesRelationPersonRelation: ResolverTypeWrapper<TaskPersonRelationImportantDatesRelationPersonRelation>;
-  TaskPersonRelationInteractionsRelation: ResolverTypeWrapper<TaskPersonRelationInteractionsRelation>;
-  TaskPersonRelationInteractionsRelationLabelsRelation: ResolverTypeWrapper<TaskPersonRelationInteractionsRelationLabelsRelation>;
-  TaskPersonRelationInteractionsRelationPersonRelation: ResolverTypeWrapper<TaskPersonRelationInteractionsRelationPersonRelation>;
-  TaskPersonRelationLabelsRelation: ResolverTypeWrapper<TaskPersonRelationLabelsRelation>;
-  TaskPersonRelationMentionedInNotesRelation: ResolverTypeWrapper<TaskPersonRelationMentionedInNotesRelation>;
-  TaskPersonRelationMentionedInNotesRelationLabelsRelation: ResolverTypeWrapper<TaskPersonRelationMentionedInNotesRelationLabelsRelation>;
-  TaskPersonRelationMentionedInNotesRelationMentionsRelation: ResolverTypeWrapper<TaskPersonRelationMentionedInNotesRelationMentionsRelation>;
-  TaskPersonRelationMentionedInNotesRelationPersonRelation: ResolverTypeWrapper<TaskPersonRelationMentionedInNotesRelationPersonRelation>;
-  TaskPersonRelationNotesRelation: ResolverTypeWrapper<TaskPersonRelationNotesRelation>;
-  TaskPersonRelationNotesRelationLabelsRelation: ResolverTypeWrapper<TaskPersonRelationNotesRelationLabelsRelation>;
-  TaskPersonRelationNotesRelationMentionsRelation: ResolverTypeWrapper<TaskPersonRelationNotesRelationMentionsRelation>;
-  TaskPersonRelationNotesRelationPersonRelation: ResolverTypeWrapper<TaskPersonRelationNotesRelationPersonRelation>;
-  TaskPersonRelationRelationshipsFromRelation: ResolverTypeWrapper<TaskPersonRelationRelationshipsFromRelation>;
-  TaskPersonRelationRelationshipsFromRelationFromPersonRelation: ResolverTypeWrapper<TaskPersonRelationRelationshipsFromRelationFromPersonRelation>;
-  TaskPersonRelationRelationshipsFromRelationToPersonRelation: ResolverTypeWrapper<TaskPersonRelationRelationshipsFromRelationToPersonRelation>;
-  TaskPersonRelationRelationshipsToRelation: ResolverTypeWrapper<TaskPersonRelationRelationshipsToRelation>;
-  TaskPersonRelationRelationshipsToRelationFromPersonRelation: ResolverTypeWrapper<TaskPersonRelationRelationshipsToRelationFromPersonRelation>;
-  TaskPersonRelationRelationshipsToRelationToPersonRelation: ResolverTypeWrapper<TaskPersonRelationRelationshipsToRelationToPersonRelation>;
-  TaskPersonRelationTasksRelation: ResolverTypeWrapper<TaskPersonRelationTasksRelation>;
-  TasksCompletedAtFilters: TasksCompletedAtFilters;
-  TasksCompletedAtFiltersOr: TasksCompletedAtFiltersOr;
-  TasksCreatedAtFilters: TasksCreatedAtFilters;
-  TasksCreatedAtFiltersOr: TasksCreatedAtFiltersOr;
-  TasksDueAtFilters: TasksDueAtFilters;
-  TasksDueAtFiltersOr: TasksDueAtFiltersOr;
-  TasksFilters: TasksFilters;
-  TasksFiltersOr: TasksFiltersOr;
-  TasksIdFilters: TasksIdFilters;
-  TasksIdFiltersOr: TasksIdFiltersOr;
-  TasksNotesFilters: TasksNotesFilters;
-  TasksNotesFiltersOr: TasksNotesFiltersOr;
-  TasksOrderBy: TasksOrderBy;
-  TasksPersonIdFilters: TasksPersonIdFilters;
-  TasksPersonIdFiltersOr: TasksPersonIdFiltersOr;
-  TasksTitleFilters: TasksTitleFilters;
-  TasksTitleFiltersOr: TasksTitleFiltersOr;
+  UpdateContactInfoInput: UpdateContactInfoInput;
   UpdateImportantDateInput: UpdateImportantDateInput;
   UpdateImportantDateTagInput: UpdateImportantDateTagInput;
   UpdateInteractionInput: UpdateInteractionInput;
@@ -6588,12 +6563,53 @@ export type ResolversTypes = {
   UpdatePersonInput: UpdatePersonInput;
   UpdatePersonLabelInput: UpdatePersonLabelInput;
   UpdatePersonRelationshipInput: UpdatePersonRelationshipInput;
-  UpdateTaskInput: UpdateTaskInput;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
   Boolean: Scalars['Boolean']['output'];
+  ContactInfo: ContactInfo;
+  ContactInfoPersonRelation: ContactInfoPersonRelation;
+  ContactInfoPersonRelationContactInfosRelation: ContactInfoPersonRelationContactInfosRelation;
+  ContactInfoPersonRelationImportantDatesRelation: ContactInfoPersonRelationImportantDatesRelation;
+  ContactInfoPersonRelationImportantDatesRelationLabelsRelation: ContactInfoPersonRelationImportantDatesRelationLabelsRelation;
+  ContactInfoPersonRelationImportantDatesRelationPersonRelation: ContactInfoPersonRelationImportantDatesRelationPersonRelation;
+  ContactInfoPersonRelationInteractionsRelation: ContactInfoPersonRelationInteractionsRelation;
+  ContactInfoPersonRelationInteractionsRelationLabelsRelation: ContactInfoPersonRelationInteractionsRelationLabelsRelation;
+  ContactInfoPersonRelationInteractionsRelationPersonRelation: ContactInfoPersonRelationInteractionsRelationPersonRelation;
+  ContactInfoPersonRelationLabelsRelation: ContactInfoPersonRelationLabelsRelation;
+  ContactInfoPersonRelationMentionedInNotesRelation: ContactInfoPersonRelationMentionedInNotesRelation;
+  ContactInfoPersonRelationMentionedInNotesRelationLabelsRelation: ContactInfoPersonRelationMentionedInNotesRelationLabelsRelation;
+  ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation: ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation;
+  ContactInfoPersonRelationMentionedInNotesRelationPersonRelation: ContactInfoPersonRelationMentionedInNotesRelationPersonRelation;
+  ContactInfoPersonRelationNotesRelation: ContactInfoPersonRelationNotesRelation;
+  ContactInfoPersonRelationNotesRelationLabelsRelation: ContactInfoPersonRelationNotesRelationLabelsRelation;
+  ContactInfoPersonRelationNotesRelationMentionsRelation: ContactInfoPersonRelationNotesRelationMentionsRelation;
+  ContactInfoPersonRelationNotesRelationPersonRelation: ContactInfoPersonRelationNotesRelationPersonRelation;
+  ContactInfoPersonRelationRelationshipsFromRelation: ContactInfoPersonRelationRelationshipsFromRelation;
+  ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation: ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation;
+  ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation: ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation;
+  ContactInfoPersonRelationRelationshipsToRelation: ContactInfoPersonRelationRelationshipsToRelation;
+  ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation: ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation;
+  ContactInfoPersonRelationRelationshipsToRelationToPersonRelation: ContactInfoPersonRelationRelationshipsToRelationToPersonRelation;
+  ContactInfosCreatedAtFilters: ContactInfosCreatedAtFilters;
+  ContactInfosCreatedAtFiltersOr: ContactInfosCreatedAtFiltersOr;
+  ContactInfosFilters: ContactInfosFilters;
+  ContactInfosFiltersOr: ContactInfosFiltersOr;
+  ContactInfosIdFilters: ContactInfosIdFilters;
+  ContactInfosIdFiltersOr: ContactInfosIdFiltersOr;
+  ContactInfosIsPrimaryFilters: ContactInfosIsPrimaryFilters;
+  ContactInfosIsPrimaryFiltersOr: ContactInfosIsPrimaryFiltersOr;
+  ContactInfosLabelFilters: ContactInfosLabelFilters;
+  ContactInfosLabelFiltersOr: ContactInfosLabelFiltersOr;
+  ContactInfosOrderBy: ContactInfosOrderBy;
+  ContactInfosPersonIdFilters: ContactInfosPersonIdFilters;
+  ContactInfosPersonIdFiltersOr: ContactInfosPersonIdFiltersOr;
+  ContactInfosTypeFilters: ContactInfosTypeFilters;
+  ContactInfosTypeFiltersOr: ContactInfosTypeFiltersOr;
+  ContactInfosValueFilters: ContactInfosValueFilters;
+  ContactInfosValueFiltersOr: ContactInfosValueFiltersOr;
+  CreateContactInfoInput: CreateContactInfoInput;
   CreateImportantDateInput: CreateImportantDateInput;
   CreateImportantDateTagInput: CreateImportantDateTagInput;
   CreateInteractionInput: CreateInteractionInput;
@@ -6605,10 +6621,11 @@ export type ResolversParentTypes = {
   CreatePersonInput: CreatePersonInput;
   CreatePersonLabelInput: CreatePersonLabelInput;
   CreatePersonRelationshipInput: CreatePersonRelationshipInput;
-  CreateTaskInput: CreateTaskInput;
   ImportantDate: ImportantDate;
   ImportantDateLabelsRelation: ImportantDateLabelsRelation;
   ImportantDatePersonRelation: ImportantDatePersonRelation;
+  ImportantDatePersonRelationContactInfosRelation: ImportantDatePersonRelationContactInfosRelation;
+  ImportantDatePersonRelationContactInfosRelationPersonRelation: ImportantDatePersonRelationContactInfosRelationPersonRelation;
   ImportantDatePersonRelationImportantDatesRelation: ImportantDatePersonRelationImportantDatesRelation;
   ImportantDatePersonRelationInteractionsRelation: ImportantDatePersonRelationInteractionsRelation;
   ImportantDatePersonRelationInteractionsRelationLabelsRelation: ImportantDatePersonRelationInteractionsRelationLabelsRelation;
@@ -6628,8 +6645,6 @@ export type ResolversParentTypes = {
   ImportantDatePersonRelationRelationshipsToRelation: ImportantDatePersonRelationRelationshipsToRelation;
   ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation: ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation;
   ImportantDatePersonRelationRelationshipsToRelationToPersonRelation: ImportantDatePersonRelationRelationshipsToRelationToPersonRelation;
-  ImportantDatePersonRelationTasksRelation: ImportantDatePersonRelationTasksRelation;
-  ImportantDatePersonRelationTasksRelationPersonRelation: ImportantDatePersonRelationTasksRelationPersonRelation;
   ImportantDateTag: ImportantDateTag;
   ImportantDateTagsFilters: ImportantDateTagsFilters;
   ImportantDateTagsFiltersOr: ImportantDateTagsFiltersOr;
@@ -6658,6 +6673,8 @@ export type ResolversParentTypes = {
   Interaction: Interaction;
   InteractionLabelsRelation: InteractionLabelsRelation;
   InteractionPersonRelation: InteractionPersonRelation;
+  InteractionPersonRelationContactInfosRelation: InteractionPersonRelationContactInfosRelation;
+  InteractionPersonRelationContactInfosRelationPersonRelation: InteractionPersonRelationContactInfosRelationPersonRelation;
   InteractionPersonRelationImportantDatesRelation: InteractionPersonRelationImportantDatesRelation;
   InteractionPersonRelationImportantDatesRelationLabelsRelation: InteractionPersonRelationImportantDatesRelationLabelsRelation;
   InteractionPersonRelationImportantDatesRelationPersonRelation: InteractionPersonRelationImportantDatesRelationPersonRelation;
@@ -6677,8 +6694,6 @@ export type ResolversParentTypes = {
   InteractionPersonRelationRelationshipsToRelation: InteractionPersonRelationRelationshipsToRelation;
   InteractionPersonRelationRelationshipsToRelationFromPersonRelation: InteractionPersonRelationRelationshipsToRelationFromPersonRelation;
   InteractionPersonRelationRelationshipsToRelationToPersonRelation: InteractionPersonRelationRelationshipsToRelationToPersonRelation;
-  InteractionPersonRelationTasksRelation: InteractionPersonRelationTasksRelation;
-  InteractionPersonRelationTasksRelationPersonRelation: InteractionPersonRelationTasksRelationPersonRelation;
   InteractionTag: InteractionTag;
   InteractionTagsFilters: InteractionTagsFilters;
   InteractionTagsFiltersOr: InteractionTagsFiltersOr;
@@ -6724,6 +6739,8 @@ export type ResolversParentTypes = {
   NoteMentionsNoteIdFiltersOr: NoteMentionsNoteIdFiltersOr;
   NoteMentionsOrderBy: NoteMentionsOrderBy;
   NoteMentionsRelation: NoteMentionsRelation;
+  NoteMentionsRelationContactInfosRelation: NoteMentionsRelationContactInfosRelation;
+  NoteMentionsRelationContactInfosRelationPersonRelation: NoteMentionsRelationContactInfosRelationPersonRelation;
   NoteMentionsRelationImportantDatesRelation: NoteMentionsRelationImportantDatesRelation;
   NoteMentionsRelationImportantDatesRelationLabelsRelation: NoteMentionsRelationImportantDatesRelationLabelsRelation;
   NoteMentionsRelationImportantDatesRelationPersonRelation: NoteMentionsRelationImportantDatesRelationPersonRelation;
@@ -6739,9 +6756,9 @@ export type ResolversParentTypes = {
   NoteMentionsRelationRelationshipsToRelation: NoteMentionsRelationRelationshipsToRelation;
   NoteMentionsRelationRelationshipsToRelationFromPersonRelation: NoteMentionsRelationRelationshipsToRelationFromPersonRelation;
   NoteMentionsRelationRelationshipsToRelationToPersonRelation: NoteMentionsRelationRelationshipsToRelationToPersonRelation;
-  NoteMentionsRelationTasksRelation: NoteMentionsRelationTasksRelation;
-  NoteMentionsRelationTasksRelationPersonRelation: NoteMentionsRelationTasksRelationPersonRelation;
   NotePersonRelation: NotePersonRelation;
+  NotePersonRelationContactInfosRelation: NotePersonRelationContactInfosRelation;
+  NotePersonRelationContactInfosRelationPersonRelation: NotePersonRelationContactInfosRelationPersonRelation;
   NotePersonRelationImportantDatesRelation: NotePersonRelationImportantDatesRelation;
   NotePersonRelationImportantDatesRelationLabelsRelation: NotePersonRelationImportantDatesRelationLabelsRelation;
   NotePersonRelationImportantDatesRelationPersonRelation: NotePersonRelationImportantDatesRelationPersonRelation;
@@ -6757,8 +6774,6 @@ export type ResolversParentTypes = {
   NotePersonRelationRelationshipsToRelation: NotePersonRelationRelationshipsToRelation;
   NotePersonRelationRelationshipsToRelationFromPersonRelation: NotePersonRelationRelationshipsToRelationFromPersonRelation;
   NotePersonRelationRelationshipsToRelationToPersonRelation: NotePersonRelationRelationshipsToRelationToPersonRelation;
-  NotePersonRelationTasksRelation: NotePersonRelationTasksRelation;
-  NotePersonRelationTasksRelationPersonRelation: NotePersonRelationTasksRelationPersonRelation;
   NoteTag: NoteTag;
   NoteTagsFilters: NoteTagsFilters;
   NoteTagsFiltersOr: NoteTagsFiltersOr;
@@ -6777,6 +6792,8 @@ export type ResolversParentTypes = {
   NotesPersonIdFilters: NotesPersonIdFilters;
   NotesPersonIdFiltersOr: NotesPersonIdFiltersOr;
   Person: Person;
+  PersonContactInfosRelation: PersonContactInfosRelation;
+  PersonContactInfosRelationPersonRelation: PersonContactInfosRelationPersonRelation;
   PersonImportantDatesRelation: PersonImportantDatesRelation;
   PersonImportantDatesRelationLabelsRelation: PersonImportantDatesRelationLabelsRelation;
   PersonImportantDatesRelationPersonRelation: PersonImportantDatesRelationPersonRelation;
@@ -6803,6 +6820,8 @@ export type ResolversParentTypes = {
   PersonRelationship: PersonRelationship;
   PersonRelationshipEntry: PersonRelationshipEntry;
   PersonRelationshipFromPersonRelation: PersonRelationshipFromPersonRelation;
+  PersonRelationshipFromPersonRelationContactInfosRelation: PersonRelationshipFromPersonRelationContactInfosRelation;
+  PersonRelationshipFromPersonRelationContactInfosRelationPersonRelation: PersonRelationshipFromPersonRelationContactInfosRelationPersonRelation;
   PersonRelationshipFromPersonRelationImportantDatesRelation: PersonRelationshipFromPersonRelationImportantDatesRelation;
   PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelation: PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelation;
   PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation: PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation;
@@ -6820,9 +6839,9 @@ export type ResolversParentTypes = {
   PersonRelationshipFromPersonRelationNotesRelationPersonRelation: PersonRelationshipFromPersonRelationNotesRelationPersonRelation;
   PersonRelationshipFromPersonRelationRelationshipsFromRelation: PersonRelationshipFromPersonRelationRelationshipsFromRelation;
   PersonRelationshipFromPersonRelationRelationshipsToRelation: PersonRelationshipFromPersonRelationRelationshipsToRelation;
-  PersonRelationshipFromPersonRelationTasksRelation: PersonRelationshipFromPersonRelationTasksRelation;
-  PersonRelationshipFromPersonRelationTasksRelationPersonRelation: PersonRelationshipFromPersonRelationTasksRelationPersonRelation;
   PersonRelationshipToPersonRelation: PersonRelationshipToPersonRelation;
+  PersonRelationshipToPersonRelationContactInfosRelation: PersonRelationshipToPersonRelationContactInfosRelation;
+  PersonRelationshipToPersonRelationContactInfosRelationPersonRelation: PersonRelationshipToPersonRelationContactInfosRelationPersonRelation;
   PersonRelationshipToPersonRelationImportantDatesRelation: PersonRelationshipToPersonRelationImportantDatesRelation;
   PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelation: PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelation;
   PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation: PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation;
@@ -6840,8 +6859,6 @@ export type ResolversParentTypes = {
   PersonRelationshipToPersonRelationNotesRelationPersonRelation: PersonRelationshipToPersonRelationNotesRelationPersonRelation;
   PersonRelationshipToPersonRelationRelationshipsFromRelation: PersonRelationshipToPersonRelationRelationshipsFromRelation;
   PersonRelationshipToPersonRelationRelationshipsToRelation: PersonRelationshipToPersonRelationRelationshipsToRelation;
-  PersonRelationshipToPersonRelationTasksRelation: PersonRelationshipToPersonRelationTasksRelation;
-  PersonRelationshipToPersonRelationTasksRelationPersonRelation: PersonRelationshipToPersonRelationTasksRelationPersonRelation;
   PersonRelationshipsFilters: PersonRelationshipsFilters;
   PersonRelationshipsFiltersOr: PersonRelationshipsFiltersOr;
   PersonRelationshipsFromPersonIdFilters: PersonRelationshipsFromPersonIdFilters;
@@ -6859,8 +6876,6 @@ export type ResolversParentTypes = {
   PersonRelationshipsToRelationToPersonRelation: PersonRelationshipsToRelationToPersonRelation;
   PersonRelationshipsTypeFilters: PersonRelationshipsTypeFilters;
   PersonRelationshipsTypeFiltersOr: PersonRelationshipsTypeFiltersOr;
-  PersonTasksRelation: PersonTasksRelation;
-  PersonTasksRelationPersonRelation: PersonTasksRelationPersonRelation;
   PersonsAvatarPathFilters: PersonsAvatarPathFilters;
   PersonsAvatarPathFiltersOr: PersonsAvatarPathFiltersOr;
   PersonsContactFrequencyFilters: PersonsContactFrequencyFilters;
@@ -6882,47 +6897,7 @@ export type ResolversParentTypes = {
   PersonsUpdatedAtFiltersOr: PersonsUpdatedAtFiltersOr;
   Query: Record<PropertyKey, never>;
   String: Scalars['String']['output'];
-  Task: Task;
-  TaskPersonRelation: TaskPersonRelation;
-  TaskPersonRelationImportantDatesRelation: TaskPersonRelationImportantDatesRelation;
-  TaskPersonRelationImportantDatesRelationLabelsRelation: TaskPersonRelationImportantDatesRelationLabelsRelation;
-  TaskPersonRelationImportantDatesRelationPersonRelation: TaskPersonRelationImportantDatesRelationPersonRelation;
-  TaskPersonRelationInteractionsRelation: TaskPersonRelationInteractionsRelation;
-  TaskPersonRelationInteractionsRelationLabelsRelation: TaskPersonRelationInteractionsRelationLabelsRelation;
-  TaskPersonRelationInteractionsRelationPersonRelation: TaskPersonRelationInteractionsRelationPersonRelation;
-  TaskPersonRelationLabelsRelation: TaskPersonRelationLabelsRelation;
-  TaskPersonRelationMentionedInNotesRelation: TaskPersonRelationMentionedInNotesRelation;
-  TaskPersonRelationMentionedInNotesRelationLabelsRelation: TaskPersonRelationMentionedInNotesRelationLabelsRelation;
-  TaskPersonRelationMentionedInNotesRelationMentionsRelation: TaskPersonRelationMentionedInNotesRelationMentionsRelation;
-  TaskPersonRelationMentionedInNotesRelationPersonRelation: TaskPersonRelationMentionedInNotesRelationPersonRelation;
-  TaskPersonRelationNotesRelation: TaskPersonRelationNotesRelation;
-  TaskPersonRelationNotesRelationLabelsRelation: TaskPersonRelationNotesRelationLabelsRelation;
-  TaskPersonRelationNotesRelationMentionsRelation: TaskPersonRelationNotesRelationMentionsRelation;
-  TaskPersonRelationNotesRelationPersonRelation: TaskPersonRelationNotesRelationPersonRelation;
-  TaskPersonRelationRelationshipsFromRelation: TaskPersonRelationRelationshipsFromRelation;
-  TaskPersonRelationRelationshipsFromRelationFromPersonRelation: TaskPersonRelationRelationshipsFromRelationFromPersonRelation;
-  TaskPersonRelationRelationshipsFromRelationToPersonRelation: TaskPersonRelationRelationshipsFromRelationToPersonRelation;
-  TaskPersonRelationRelationshipsToRelation: TaskPersonRelationRelationshipsToRelation;
-  TaskPersonRelationRelationshipsToRelationFromPersonRelation: TaskPersonRelationRelationshipsToRelationFromPersonRelation;
-  TaskPersonRelationRelationshipsToRelationToPersonRelation: TaskPersonRelationRelationshipsToRelationToPersonRelation;
-  TaskPersonRelationTasksRelation: TaskPersonRelationTasksRelation;
-  TasksCompletedAtFilters: TasksCompletedAtFilters;
-  TasksCompletedAtFiltersOr: TasksCompletedAtFiltersOr;
-  TasksCreatedAtFilters: TasksCreatedAtFilters;
-  TasksCreatedAtFiltersOr: TasksCreatedAtFiltersOr;
-  TasksDueAtFilters: TasksDueAtFilters;
-  TasksDueAtFiltersOr: TasksDueAtFiltersOr;
-  TasksFilters: TasksFilters;
-  TasksFiltersOr: TasksFiltersOr;
-  TasksIdFilters: TasksIdFilters;
-  TasksIdFiltersOr: TasksIdFiltersOr;
-  TasksNotesFilters: TasksNotesFilters;
-  TasksNotesFiltersOr: TasksNotesFiltersOr;
-  TasksOrderBy: TasksOrderBy;
-  TasksPersonIdFilters: TasksPersonIdFilters;
-  TasksPersonIdFiltersOr: TasksPersonIdFiltersOr;
-  TasksTitleFilters: TasksTitleFilters;
-  TasksTitleFiltersOr: TasksTitleFiltersOr;
+  UpdateContactInfoInput: UpdateContactInfoInput;
   UpdateImportantDateInput: UpdateImportantDateInput;
   UpdateImportantDateTagInput: UpdateImportantDateTagInput;
   UpdateInteractionInput: UpdateInteractionInput;
@@ -6934,7 +6909,244 @@ export type ResolversParentTypes = {
   UpdatePersonInput: UpdatePersonInput;
   UpdatePersonLabelInput: UpdatePersonLabelInput;
   UpdatePersonRelationshipInput: UpdatePersonRelationshipInput;
-  UpdateTaskInput: UpdateTaskInput;
+};
+
+export type ContactInfoResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfo'] = ResolversParentTypes['ContactInfo']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  isPrimary?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  label?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  person?: Resolver<Maybe<ResolversTypes['ContactInfoPersonRelation']>, ParentType, ContextType, Partial<ContactInfoPersonArgs>>;
+  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['ContactInfosTypeEnum'], ParentType, ContextType>;
+  value?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelation'] = ResolversParentTypes['ContactInfoPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactInfos?: Resolver<Array<ResolversTypes['ContactInfoPersonRelationContactInfosRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationContactInfosArgs>>;
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  importantDates?: Resolver<Array<ResolversTypes['ContactInfoPersonRelationImportantDatesRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationImportantDatesArgs>>;
+  interactions?: Resolver<Array<ResolversTypes['ContactInfoPersonRelationInteractionsRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationInteractionsArgs>>;
+  labels?: Resolver<Array<ResolversTypes['ContactInfoPersonRelationLabelsRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationLabelsArgs>>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  mentionedInNotes?: Resolver<Array<ResolversTypes['ContactInfoPersonRelationMentionedInNotesRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationMentionedInNotesArgs>>;
+  notes?: Resolver<Array<ResolversTypes['ContactInfoPersonRelationNotesRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationNotesArgs>>;
+  relationshipsFrom?: Resolver<Array<ResolversTypes['ContactInfoPersonRelationRelationshipsFromRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationRelationshipsFromArgs>>;
+  relationshipsTo?: Resolver<Array<ResolversTypes['ContactInfoPersonRelationRelationshipsToRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationRelationshipsToArgs>>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationContactInfosRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationContactInfosRelation'] = ResolversParentTypes['ContactInfoPersonRelationContactInfosRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  isPrimary?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  label?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['ContactInfosTypeEnum'], ParentType, ContextType>;
+  value?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationImportantDatesRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationImportantDatesRelation'] = ResolversParentTypes['ContactInfoPersonRelationImportantDatesRelation']> = {
+  date?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  labels?: Resolver<Array<ResolversTypes['ContactInfoPersonRelationImportantDatesRelationLabelsRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationImportantDatesRelationLabelsArgs>>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  person?: Resolver<Maybe<ResolversTypes['ContactInfoPersonRelationImportantDatesRelationPersonRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationImportantDatesRelationPersonArgs>>;
+  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  recurrence?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationImportantDatesRelationLabelsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationImportantDatesRelationLabelsRelation'] = ResolversParentTypes['ContactInfoPersonRelationImportantDatesRelationLabelsRelation']> = {
+  color?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  label?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationImportantDatesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationImportantDatesRelationPersonRelation'] = ResolversParentTypes['ContactInfoPersonRelationImportantDatesRelationPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationInteractionsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationInteractionsRelation'] = ResolversParentTypes['ContactInfoPersonRelationInteractionsRelation']> = {
+  channel?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  labels?: Resolver<Array<ResolversTypes['ContactInfoPersonRelationInteractionsRelationLabelsRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationInteractionsRelationLabelsArgs>>;
+  note?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  occurredAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  person?: Resolver<Maybe<ResolversTypes['ContactInfoPersonRelationInteractionsRelationPersonRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationInteractionsRelationPersonArgs>>;
+  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  sentiment?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationInteractionsRelationLabelsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationInteractionsRelationLabelsRelation'] = ResolversParentTypes['ContactInfoPersonRelationInteractionsRelationLabelsRelation']> = {
+  color?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  label?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationInteractionsRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationInteractionsRelationPersonRelation'] = ResolversParentTypes['ContactInfoPersonRelationInteractionsRelationPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationLabelsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationLabelsRelation'] = ResolversParentTypes['ContactInfoPersonRelationLabelsRelation']> = {
+  color?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  label?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationMentionedInNotesRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationMentionedInNotesRelation'] = ResolversParentTypes['ContactInfoPersonRelationMentionedInNotesRelation']> = {
+  body?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  labels?: Resolver<Array<ResolversTypes['ContactInfoPersonRelationMentionedInNotesRelationLabelsRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationMentionedInNotesRelationLabelsArgs>>;
+  mentions?: Resolver<Array<ResolversTypes['ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationMentionedInNotesRelationMentionsArgs>>;
+  person?: Resolver<Maybe<ResolversTypes['ContactInfoPersonRelationMentionedInNotesRelationPersonRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationMentionedInNotesRelationPersonArgs>>;
+  personId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationMentionedInNotesRelationLabelsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationMentionedInNotesRelationLabelsRelation'] = ResolversParentTypes['ContactInfoPersonRelationMentionedInNotesRelationLabelsRelation']> = {
+  color?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  label?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationMentionedInNotesRelationMentionsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation'] = ResolversParentTypes['ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationMentionedInNotesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationMentionedInNotesRelationPersonRelation'] = ResolversParentTypes['ContactInfoPersonRelationMentionedInNotesRelationPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationNotesRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationNotesRelation'] = ResolversParentTypes['ContactInfoPersonRelationNotesRelation']> = {
+  body?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  labels?: Resolver<Array<ResolversTypes['ContactInfoPersonRelationNotesRelationLabelsRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationNotesRelationLabelsArgs>>;
+  mentions?: Resolver<Array<ResolversTypes['ContactInfoPersonRelationNotesRelationMentionsRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationNotesRelationMentionsArgs>>;
+  person?: Resolver<Maybe<ResolversTypes['ContactInfoPersonRelationNotesRelationPersonRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationNotesRelationPersonArgs>>;
+  personId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationNotesRelationLabelsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationNotesRelationLabelsRelation'] = ResolversParentTypes['ContactInfoPersonRelationNotesRelationLabelsRelation']> = {
+  color?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  label?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationNotesRelationMentionsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationNotesRelationMentionsRelation'] = ResolversParentTypes['ContactInfoPersonRelationNotesRelationMentionsRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationNotesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationNotesRelationPersonRelation'] = ResolversParentTypes['ContactInfoPersonRelationNotesRelationPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationRelationshipsFromRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationRelationshipsFromRelation'] = ResolversParentTypes['ContactInfoPersonRelationRelationshipsFromRelation']> = {
+  fromPerson?: Resolver<Maybe<ResolversTypes['ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationRelationshipsFromRelationFromPersonArgs>>;
+  fromPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  toPerson?: Resolver<Maybe<ResolversTypes['ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationRelationshipsFromRelationToPersonArgs>>;
+  toPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation'] = ResolversParentTypes['ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationRelationshipsFromRelationToPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation'] = ResolversParentTypes['ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationRelationshipsToRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationRelationshipsToRelation'] = ResolversParentTypes['ContactInfoPersonRelationRelationshipsToRelation']> = {
+  fromPerson?: Resolver<Maybe<ResolversTypes['ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationRelationshipsToRelationFromPersonArgs>>;
+  fromPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  toPerson?: Resolver<Maybe<ResolversTypes['ContactInfoPersonRelationRelationshipsToRelationToPersonRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationRelationshipsToRelationToPersonArgs>>;
+  toPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationRelationshipsToRelationFromPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation'] = ResolversParentTypes['ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ContactInfoPersonRelationRelationshipsToRelationToPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfoPersonRelationRelationshipsToRelationToPersonRelation'] = ResolversParentTypes['ContactInfoPersonRelationRelationshipsToRelationToPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
 export type ImportantDateResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDate'] = ResolversParentTypes['ImportantDate']> = {
@@ -6957,6 +7169,7 @@ export type ImportantDateLabelsRelationResolvers<ContextType = Context, ParentTy
 export type ImportantDatePersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelation'] = ResolversParentTypes['ImportantDatePersonRelation']> = {
   avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactInfos?: Resolver<Array<ResolversTypes['ImportantDatePersonRelationContactInfosRelation']>, ParentType, ContextType, Partial<ImportantDatePersonRelationContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -6969,7 +7182,28 @@ export type ImportantDatePersonRelationResolvers<ContextType = Context, ParentTy
   notes?: Resolver<Array<ResolversTypes['ImportantDatePersonRelationNotesRelation']>, ParentType, ContextType, Partial<ImportantDatePersonRelationNotesArgs>>;
   relationshipsFrom?: Resolver<Array<ResolversTypes['ImportantDatePersonRelationRelationshipsFromRelation']>, ParentType, ContextType, Partial<ImportantDatePersonRelationRelationshipsFromArgs>>;
   relationshipsTo?: Resolver<Array<ResolversTypes['ImportantDatePersonRelationRelationshipsToRelation']>, ParentType, ContextType, Partial<ImportantDatePersonRelationRelationshipsToArgs>>;
-  tasks?: Resolver<Array<ResolversTypes['ImportantDatePersonRelationTasksRelation']>, ParentType, ContextType, Partial<ImportantDatePersonRelationTasksArgs>>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ImportantDatePersonRelationContactInfosRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelationContactInfosRelation'] = ResolversParentTypes['ImportantDatePersonRelationContactInfosRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  isPrimary?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  label?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  person?: Resolver<Maybe<ResolversTypes['ImportantDatePersonRelationContactInfosRelationPersonRelation']>, ParentType, ContextType, Partial<ImportantDatePersonRelationContactInfosRelationPersonArgs>>;
+  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['ContactInfosTypeEnum'], ParentType, ContextType>;
+  value?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type ImportantDatePersonRelationContactInfosRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelationContactInfosRelationPersonRelation'] = ResolversParentTypes['ImportantDatePersonRelationContactInfosRelationPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
@@ -7152,28 +7386,6 @@ export type ImportantDatePersonRelationRelationshipsToRelationToPersonRelationRe
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
-export type ImportantDatePersonRelationTasksRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelationTasksRelation'] = ResolversParentTypes['ImportantDatePersonRelationTasksRelation']> = {
-  completedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  dueAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  notes?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  person?: Resolver<Maybe<ResolversTypes['ImportantDatePersonRelationTasksRelationPersonRelation']>, ParentType, ContextType, Partial<ImportantDatePersonRelationTasksRelationPersonArgs>>;
-  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type ImportantDatePersonRelationTasksRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDatePersonRelationTasksRelationPersonRelation'] = ResolversParentTypes['ImportantDatePersonRelationTasksRelationPersonRelation']> = {
-  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
 export type ImportantDateTagResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDateTag'] = ResolversParentTypes['ImportantDateTag']> = {
   importantDateId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   labelId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -7199,6 +7411,7 @@ export type InteractionLabelsRelationResolvers<ContextType = Context, ParentType
 export type InteractionPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['InteractionPersonRelation'] = ResolversParentTypes['InteractionPersonRelation']> = {
   avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactInfos?: Resolver<Array<ResolversTypes['InteractionPersonRelationContactInfosRelation']>, ParentType, ContextType, Partial<InteractionPersonRelationContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -7211,7 +7424,28 @@ export type InteractionPersonRelationResolvers<ContextType = Context, ParentType
   notes?: Resolver<Array<ResolversTypes['InteractionPersonRelationNotesRelation']>, ParentType, ContextType, Partial<InteractionPersonRelationNotesArgs>>;
   relationshipsFrom?: Resolver<Array<ResolversTypes['InteractionPersonRelationRelationshipsFromRelation']>, ParentType, ContextType, Partial<InteractionPersonRelationRelationshipsFromArgs>>;
   relationshipsTo?: Resolver<Array<ResolversTypes['InteractionPersonRelationRelationshipsToRelation']>, ParentType, ContextType, Partial<InteractionPersonRelationRelationshipsToArgs>>;
-  tasks?: Resolver<Array<ResolversTypes['InteractionPersonRelationTasksRelation']>, ParentType, ContextType, Partial<InteractionPersonRelationTasksArgs>>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type InteractionPersonRelationContactInfosRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['InteractionPersonRelationContactInfosRelation'] = ResolversParentTypes['InteractionPersonRelationContactInfosRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  isPrimary?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  label?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  person?: Resolver<Maybe<ResolversTypes['InteractionPersonRelationContactInfosRelationPersonRelation']>, ParentType, ContextType, Partial<InteractionPersonRelationContactInfosRelationPersonArgs>>;
+  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['ContactInfosTypeEnum'], ParentType, ContextType>;
+  value?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type InteractionPersonRelationContactInfosRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['InteractionPersonRelationContactInfosRelationPersonRelation'] = ResolversParentTypes['InteractionPersonRelationContactInfosRelationPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
@@ -7394,28 +7628,6 @@ export type InteractionPersonRelationRelationshipsToRelationToPersonRelationReso
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
-export type InteractionPersonRelationTasksRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['InteractionPersonRelationTasksRelation'] = ResolversParentTypes['InteractionPersonRelationTasksRelation']> = {
-  completedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  dueAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  notes?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  person?: Resolver<Maybe<ResolversTypes['InteractionPersonRelationTasksRelationPersonRelation']>, ParentType, ContextType, Partial<InteractionPersonRelationTasksRelationPersonArgs>>;
-  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type InteractionPersonRelationTasksRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['InteractionPersonRelationTasksRelationPersonRelation'] = ResolversParentTypes['InteractionPersonRelationTasksRelationPersonRelation']> = {
-  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
 export type InteractionTagResolvers<ContextType = Context, ParentType extends ResolversParentTypes['InteractionTag'] = ResolversParentTypes['InteractionTag']> = {
   interactionId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   labelId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -7428,6 +7640,8 @@ export type LabelResolvers<ContextType = Context, ParentType extends ResolversPa
 };
 
 export type MutationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
+  createContactInfo?: Resolver<Maybe<ResolversTypes['ContactInfo']>, ParentType, ContextType, RequireFields<MutationCreateContactInfoArgs, 'values'>>;
+  createContactInfos?: Resolver<Array<ResolversTypes['ContactInfo']>, ParentType, ContextType, RequireFields<MutationCreateContactInfosArgs, 'values'>>;
   createImportantDate?: Resolver<Maybe<ResolversTypes['ImportantDate']>, ParentType, ContextType, RequireFields<MutationCreateImportantDateArgs, 'values'>>;
   createImportantDateTag?: Resolver<Maybe<ResolversTypes['ImportantDateTag']>, ParentType, ContextType, RequireFields<MutationCreateImportantDateTagArgs, 'values'>>;
   createImportantDateTags?: Resolver<Array<ResolversTypes['ImportantDateTag']>, ParentType, ContextType, RequireFields<MutationCreateImportantDateTagsArgs, 'values'>>;
@@ -7450,8 +7664,7 @@ export type MutationResolvers<ContextType = Context, ParentType extends Resolver
   createPersonRelationship?: Resolver<Maybe<ResolversTypes['PersonRelationship']>, ParentType, ContextType, RequireFields<MutationCreatePersonRelationshipArgs, 'values'>>;
   createPersonRelationships?: Resolver<Array<ResolversTypes['PersonRelationship']>, ParentType, ContextType, RequireFields<MutationCreatePersonRelationshipsArgs, 'values'>>;
   createPersons?: Resolver<Array<ResolversTypes['Person']>, ParentType, ContextType, RequireFields<MutationCreatePersonsArgs, 'values'>>;
-  createTask?: Resolver<Maybe<ResolversTypes['Task']>, ParentType, ContextType, RequireFields<MutationCreateTaskArgs, 'values'>>;
-  createTasks?: Resolver<Array<ResolversTypes['Task']>, ParentType, ContextType, RequireFields<MutationCreateTasksArgs, 'values'>>;
+  deleteContactInfos?: Resolver<Array<ResolversTypes['ContactInfo']>, ParentType, ContextType, Partial<MutationDeleteContactInfosArgs>>;
   deleteImportantDateTags?: Resolver<Array<ResolversTypes['ImportantDateTag']>, ParentType, ContextType, Partial<MutationDeleteImportantDateTagsArgs>>;
   deleteImportantDates?: Resolver<Array<ResolversTypes['ImportantDate']>, ParentType, ContextType, Partial<MutationDeleteImportantDatesArgs>>;
   deleteInteractionTags?: Resolver<Array<ResolversTypes['InteractionTag']>, ParentType, ContextType, Partial<MutationDeleteInteractionTagsArgs>>;
@@ -7463,7 +7676,7 @@ export type MutationResolvers<ContextType = Context, ParentType extends Resolver
   deletePersonLabels?: Resolver<Array<ResolversTypes['PersonLabel']>, ParentType, ContextType, Partial<MutationDeletePersonLabelsArgs>>;
   deletePersonRelationships?: Resolver<Array<ResolversTypes['PersonRelationship']>, ParentType, ContextType, Partial<MutationDeletePersonRelationshipsArgs>>;
   deletePersons?: Resolver<Array<ResolversTypes['Person']>, ParentType, ContextType, Partial<MutationDeletePersonsArgs>>;
-  deleteTasks?: Resolver<Array<ResolversTypes['Task']>, ParentType, ContextType, Partial<MutationDeleteTasksArgs>>;
+  updateContactInfos?: Resolver<Array<ResolversTypes['ContactInfo']>, ParentType, ContextType, RequireFields<MutationUpdateContactInfosArgs, 'set'>>;
   updateImportantDateTags?: Resolver<Array<ResolversTypes['ImportantDateTag']>, ParentType, ContextType, RequireFields<MutationUpdateImportantDateTagsArgs, 'set'>>;
   updateImportantDates?: Resolver<Array<ResolversTypes['ImportantDate']>, ParentType, ContextType, RequireFields<MutationUpdateImportantDatesArgs, 'set'>>;
   updateInteractionTags?: Resolver<Array<ResolversTypes['InteractionTag']>, ParentType, ContextType, RequireFields<MutationUpdateInteractionTagsArgs, 'set'>>;
@@ -7475,7 +7688,6 @@ export type MutationResolvers<ContextType = Context, ParentType extends Resolver
   updatePersonLabels?: Resolver<Array<ResolversTypes['PersonLabel']>, ParentType, ContextType, RequireFields<MutationUpdatePersonLabelsArgs, 'set'>>;
   updatePersonRelationships?: Resolver<Array<ResolversTypes['PersonRelationship']>, ParentType, ContextType, RequireFields<MutationUpdatePersonRelationshipsArgs, 'set'>>;
   updatePersons?: Resolver<Array<ResolversTypes['Person']>, ParentType, ContextType, RequireFields<MutationUpdatePersonsArgs, 'set'>>;
-  updateTasks?: Resolver<Array<ResolversTypes['Task']>, ParentType, ContextType, RequireFields<MutationUpdateTasksArgs, 'set'>>;
 };
 
 export type NoteResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Note'] = ResolversParentTypes['Note']> = {
@@ -7501,6 +7713,7 @@ export type NoteMentionResolvers<ContextType = Context, ParentType extends Resol
 export type NoteMentionsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NoteMentionsRelation'] = ResolversParentTypes['NoteMentionsRelation']> = {
   avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactInfos?: Resolver<Array<ResolversTypes['NoteMentionsRelationContactInfosRelation']>, ParentType, ContextType, Partial<NoteMentionsRelationContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -7513,7 +7726,28 @@ export type NoteMentionsRelationResolvers<ContextType = Context, ParentType exte
   notes?: Resolver<Array<ResolversTypes['NoteMentionsRelationNotesRelation']>, ParentType, ContextType, Partial<NoteMentionsRelationNotesArgs>>;
   relationshipsFrom?: Resolver<Array<ResolversTypes['NoteMentionsRelationRelationshipsFromRelation']>, ParentType, ContextType, Partial<NoteMentionsRelationRelationshipsFromArgs>>;
   relationshipsTo?: Resolver<Array<ResolversTypes['NoteMentionsRelationRelationshipsToRelation']>, ParentType, ContextType, Partial<NoteMentionsRelationRelationshipsToArgs>>;
-  tasks?: Resolver<Array<ResolversTypes['NoteMentionsRelationTasksRelation']>, ParentType, ContextType, Partial<NoteMentionsRelationTasksArgs>>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type NoteMentionsRelationContactInfosRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NoteMentionsRelationContactInfosRelation'] = ResolversParentTypes['NoteMentionsRelationContactInfosRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  isPrimary?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  label?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  person?: Resolver<Maybe<ResolversTypes['NoteMentionsRelationContactInfosRelationPersonRelation']>, ParentType, ContextType, Partial<NoteMentionsRelationContactInfosRelationPersonArgs>>;
+  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['ContactInfosTypeEnum'], ParentType, ContextType>;
+  value?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type NoteMentionsRelationContactInfosRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NoteMentionsRelationContactInfosRelationPersonRelation'] = ResolversParentTypes['NoteMentionsRelationContactInfosRelationPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
@@ -7653,31 +7887,10 @@ export type NoteMentionsRelationRelationshipsToRelationToPersonRelationResolvers
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
-export type NoteMentionsRelationTasksRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NoteMentionsRelationTasksRelation'] = ResolversParentTypes['NoteMentionsRelationTasksRelation']> = {
-  completedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  dueAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  notes?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  person?: Resolver<Maybe<ResolversTypes['NoteMentionsRelationTasksRelationPersonRelation']>, ParentType, ContextType, Partial<NoteMentionsRelationTasksRelationPersonArgs>>;
-  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type NoteMentionsRelationTasksRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NoteMentionsRelationTasksRelationPersonRelation'] = ResolversParentTypes['NoteMentionsRelationTasksRelationPersonRelation']> = {
-  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
 export type NotePersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelation'] = ResolversParentTypes['NotePersonRelation']> = {
   avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactInfos?: Resolver<Array<ResolversTypes['NotePersonRelationContactInfosRelation']>, ParentType, ContextType, Partial<NotePersonRelationContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -7690,7 +7903,28 @@ export type NotePersonRelationResolvers<ContextType = Context, ParentType extend
   notes?: Resolver<Array<ResolversTypes['NotePersonRelationNotesRelation']>, ParentType, ContextType, Partial<NotePersonRelationNotesArgs>>;
   relationshipsFrom?: Resolver<Array<ResolversTypes['NotePersonRelationRelationshipsFromRelation']>, ParentType, ContextType, Partial<NotePersonRelationRelationshipsFromArgs>>;
   relationshipsTo?: Resolver<Array<ResolversTypes['NotePersonRelationRelationshipsToRelation']>, ParentType, ContextType, Partial<NotePersonRelationRelationshipsToArgs>>;
-  tasks?: Resolver<Array<ResolversTypes['NotePersonRelationTasksRelation']>, ParentType, ContextType, Partial<NotePersonRelationTasksArgs>>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type NotePersonRelationContactInfosRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelationContactInfosRelation'] = ResolversParentTypes['NotePersonRelationContactInfosRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  isPrimary?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  label?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  person?: Resolver<Maybe<ResolversTypes['NotePersonRelationContactInfosRelationPersonRelation']>, ParentType, ContextType, Partial<NotePersonRelationContactInfosRelationPersonArgs>>;
+  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['ContactInfosTypeEnum'], ParentType, ContextType>;
+  value?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type NotePersonRelationContactInfosRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelationContactInfosRelationPersonRelation'] = ResolversParentTypes['NotePersonRelationContactInfosRelationPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
@@ -7830,28 +8064,6 @@ export type NotePersonRelationRelationshipsToRelationToPersonRelationResolvers<C
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
-export type NotePersonRelationTasksRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelationTasksRelation'] = ResolversParentTypes['NotePersonRelationTasksRelation']> = {
-  completedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  dueAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  notes?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  person?: Resolver<Maybe<ResolversTypes['NotePersonRelationTasksRelationPersonRelation']>, ParentType, ContextType, Partial<NotePersonRelationTasksRelationPersonArgs>>;
-  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type NotePersonRelationTasksRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NotePersonRelationTasksRelationPersonRelation'] = ResolversParentTypes['NotePersonRelationTasksRelationPersonRelation']> = {
-  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
 export type NoteTagResolvers<ContextType = Context, ParentType extends ResolversParentTypes['NoteTag'] = ResolversParentTypes['NoteTag']> = {
   labelId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   noteId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -7860,6 +8072,7 @@ export type NoteTagResolvers<ContextType = Context, ParentType extends Resolvers
 export type PersonResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Person'] = ResolversParentTypes['Person']> = {
   avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactInfos?: Resolver<Array<ResolversTypes['PersonContactInfosRelation']>, ParentType, ContextType, Partial<PersonContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -7873,7 +8086,28 @@ export type PersonResolvers<ContextType = Context, ParentType extends ResolversP
   relationships?: Resolver<Array<ResolversTypes['PersonRelationshipEntry']>, ParentType, ContextType>;
   relationshipsFrom?: Resolver<Array<ResolversTypes['PersonRelationshipsFromRelation']>, ParentType, ContextType, Partial<PersonRelationshipsFromArgs>>;
   relationshipsTo?: Resolver<Array<ResolversTypes['PersonRelationshipsToRelation']>, ParentType, ContextType, Partial<PersonRelationshipsToArgs>>;
-  tasks?: Resolver<Array<ResolversTypes['PersonTasksRelation']>, ParentType, ContextType, Partial<PersonTasksArgs>>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonContactInfosRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonContactInfosRelation'] = ResolversParentTypes['PersonContactInfosRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  isPrimary?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  label?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  person?: Resolver<Maybe<ResolversTypes['PersonContactInfosRelationPersonRelation']>, ParentType, ContextType, Partial<PersonContactInfosRelationPersonArgs>>;
+  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['ContactInfosTypeEnum'], ParentType, ContextType>;
+  value?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonContactInfosRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonContactInfosRelationPersonRelation'] = ResolversParentTypes['PersonContactInfosRelationPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
@@ -8038,6 +8272,7 @@ export type PersonRelationshipEntryResolvers<ContextType = Context, ParentType e
 export type PersonRelationshipFromPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipFromPersonRelation'] = ResolversParentTypes['PersonRelationshipFromPersonRelation']> = {
   avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactInfos?: Resolver<Array<ResolversTypes['PersonRelationshipFromPersonRelationContactInfosRelation']>, ParentType, ContextType, Partial<PersonRelationshipFromPersonRelationContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -8050,7 +8285,28 @@ export type PersonRelationshipFromPersonRelationResolvers<ContextType = Context,
   notes?: Resolver<Array<ResolversTypes['PersonRelationshipFromPersonRelationNotesRelation']>, ParentType, ContextType, Partial<PersonRelationshipFromPersonRelationNotesArgs>>;
   relationshipsFrom?: Resolver<Array<ResolversTypes['PersonRelationshipFromPersonRelationRelationshipsFromRelation']>, ParentType, ContextType, Partial<PersonRelationshipFromPersonRelationRelationshipsFromArgs>>;
   relationshipsTo?: Resolver<Array<ResolversTypes['PersonRelationshipFromPersonRelationRelationshipsToRelation']>, ParentType, ContextType, Partial<PersonRelationshipFromPersonRelationRelationshipsToArgs>>;
-  tasks?: Resolver<Array<ResolversTypes['PersonRelationshipFromPersonRelationTasksRelation']>, ParentType, ContextType, Partial<PersonRelationshipFromPersonRelationTasksArgs>>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipFromPersonRelationContactInfosRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipFromPersonRelationContactInfosRelation'] = ResolversParentTypes['PersonRelationshipFromPersonRelationContactInfosRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  isPrimary?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  label?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  person?: Resolver<Maybe<ResolversTypes['PersonRelationshipFromPersonRelationContactInfosRelationPersonRelation']>, ParentType, ContextType, Partial<PersonRelationshipFromPersonRelationContactInfosRelationPersonArgs>>;
+  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['ContactInfosTypeEnum'], ParentType, ContextType>;
+  value?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipFromPersonRelationContactInfosRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipFromPersonRelationContactInfosRelationPersonRelation'] = ResolversParentTypes['PersonRelationshipFromPersonRelationContactInfosRelationPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
@@ -8204,31 +8460,10 @@ export type PersonRelationshipFromPersonRelationRelationshipsToRelationResolvers
   type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
-export type PersonRelationshipFromPersonRelationTasksRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipFromPersonRelationTasksRelation'] = ResolversParentTypes['PersonRelationshipFromPersonRelationTasksRelation']> = {
-  completedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  dueAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  notes?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  person?: Resolver<Maybe<ResolversTypes['PersonRelationshipFromPersonRelationTasksRelationPersonRelation']>, ParentType, ContextType, Partial<PersonRelationshipFromPersonRelationTasksRelationPersonArgs>>;
-  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type PersonRelationshipFromPersonRelationTasksRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipFromPersonRelationTasksRelationPersonRelation'] = ResolversParentTypes['PersonRelationshipFromPersonRelationTasksRelationPersonRelation']> = {
-  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
 export type PersonRelationshipToPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipToPersonRelation'] = ResolversParentTypes['PersonRelationshipToPersonRelation']> = {
   avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactInfos?: Resolver<Array<ResolversTypes['PersonRelationshipToPersonRelationContactInfosRelation']>, ParentType, ContextType, Partial<PersonRelationshipToPersonRelationContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -8241,7 +8476,28 @@ export type PersonRelationshipToPersonRelationResolvers<ContextType = Context, P
   notes?: Resolver<Array<ResolversTypes['PersonRelationshipToPersonRelationNotesRelation']>, ParentType, ContextType, Partial<PersonRelationshipToPersonRelationNotesArgs>>;
   relationshipsFrom?: Resolver<Array<ResolversTypes['PersonRelationshipToPersonRelationRelationshipsFromRelation']>, ParentType, ContextType, Partial<PersonRelationshipToPersonRelationRelationshipsFromArgs>>;
   relationshipsTo?: Resolver<Array<ResolversTypes['PersonRelationshipToPersonRelationRelationshipsToRelation']>, ParentType, ContextType, Partial<PersonRelationshipToPersonRelationRelationshipsToArgs>>;
-  tasks?: Resolver<Array<ResolversTypes['PersonRelationshipToPersonRelationTasksRelation']>, ParentType, ContextType, Partial<PersonRelationshipToPersonRelationTasksArgs>>;
+  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipToPersonRelationContactInfosRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipToPersonRelationContactInfosRelation'] = ResolversParentTypes['PersonRelationshipToPersonRelationContactInfosRelation']> = {
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  isPrimary?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  label?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  person?: Resolver<Maybe<ResolversTypes['PersonRelationshipToPersonRelationContactInfosRelationPersonRelation']>, ParentType, ContextType, Partial<PersonRelationshipToPersonRelationContactInfosRelationPersonArgs>>;
+  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['ContactInfosTypeEnum'], ParentType, ContextType>;
+  value?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type PersonRelationshipToPersonRelationContactInfosRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipToPersonRelationContactInfosRelationPersonRelation'] = ResolversParentTypes['PersonRelationshipToPersonRelationContactInfosRelationPersonRelation']> = {
+  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
@@ -8395,28 +8651,6 @@ export type PersonRelationshipToPersonRelationRelationshipsToRelationResolvers<C
   type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
-export type PersonRelationshipToPersonRelationTasksRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipToPersonRelationTasksRelation'] = ResolversParentTypes['PersonRelationshipToPersonRelationTasksRelation']> = {
-  completedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  dueAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  notes?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  person?: Resolver<Maybe<ResolversTypes['PersonRelationshipToPersonRelationTasksRelationPersonRelation']>, ParentType, ContextType, Partial<PersonRelationshipToPersonRelationTasksRelationPersonArgs>>;
-  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type PersonRelationshipToPersonRelationTasksRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipToPersonRelationTasksRelationPersonRelation'] = ResolversParentTypes['PersonRelationshipToPersonRelationTasksRelationPersonRelation']> = {
-  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
 export type PersonRelationshipsFromRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonRelationshipsFromRelation'] = ResolversParentTypes['PersonRelationshipsFromRelation']> = {
   fromPerson?: Resolver<Maybe<ResolversTypes['PersonRelationshipsFromRelationFromPersonRelation']>, ParentType, ContextType, Partial<PersonRelationshipsFromRelationFromPersonArgs>>;
   fromPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -8479,29 +8713,9 @@ export type PersonRelationshipsToRelationToPersonRelationResolvers<ContextType =
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
-export type PersonTasksRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonTasksRelation'] = ResolversParentTypes['PersonTasksRelation']> = {
-  completedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  dueAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  notes?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  person?: Resolver<Maybe<ResolversTypes['PersonTasksRelationPersonRelation']>, ParentType, ContextType, Partial<PersonTasksRelationPersonArgs>>;
-  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type PersonTasksRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonTasksRelationPersonRelation'] = ResolversParentTypes['PersonTasksRelationPersonRelation']> = {
-  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
 export type QueryResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
+  contactInfo?: Resolver<Maybe<ResolversTypes['ContactInfo']>, ParentType, ContextType, Partial<QueryContactInfoArgs>>;
+  contactInfos?: Resolver<Array<ResolversTypes['ContactInfo']>, ParentType, ContextType, Partial<QueryContactInfosArgs>>;
   importantDate?: Resolver<Maybe<ResolversTypes['ImportantDate']>, ParentType, ContextType, Partial<QueryImportantDateArgs>>;
   importantDateTag?: Resolver<Maybe<ResolversTypes['ImportantDateTag']>, ParentType, ContextType, Partial<QueryImportantDateTagArgs>>;
   importantDateTags?: Resolver<Array<ResolversTypes['ImportantDateTag']>, ParentType, ContextType, Partial<QueryImportantDateTagsArgs>>;
@@ -8524,252 +8738,38 @@ export type QueryResolvers<ContextType = Context, ParentType extends ResolversPa
   personRelationship?: Resolver<Maybe<ResolversTypes['PersonRelationship']>, ParentType, ContextType, Partial<QueryPersonRelationshipArgs>>;
   personRelationships?: Resolver<Array<ResolversTypes['PersonRelationship']>, ParentType, ContextType, Partial<QueryPersonRelationshipsArgs>>;
   persons?: Resolver<Array<ResolversTypes['Person']>, ParentType, ContextType, Partial<QueryPersonsArgs>>;
-  task?: Resolver<Maybe<ResolversTypes['Task']>, ParentType, ContextType, Partial<QueryTaskArgs>>;
-  tasks?: Resolver<Array<ResolversTypes['Task']>, ParentType, ContextType, Partial<QueryTasksArgs>>;
-};
-
-export type TaskResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Task'] = ResolversParentTypes['Task']> = {
-  completedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  dueAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  notes?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  person?: Resolver<Maybe<ResolversTypes['TaskPersonRelation']>, ParentType, ContextType, Partial<TaskPersonArgs>>;
-  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type TaskPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelation'] = ResolversParentTypes['TaskPersonRelation']> = {
-  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  importantDates?: Resolver<Array<ResolversTypes['TaskPersonRelationImportantDatesRelation']>, ParentType, ContextType, Partial<TaskPersonRelationImportantDatesArgs>>;
-  interactions?: Resolver<Array<ResolversTypes['TaskPersonRelationInteractionsRelation']>, ParentType, ContextType, Partial<TaskPersonRelationInteractionsArgs>>;
-  labels?: Resolver<Array<ResolversTypes['TaskPersonRelationLabelsRelation']>, ParentType, ContextType, Partial<TaskPersonRelationLabelsArgs>>;
-  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  mentionedInNotes?: Resolver<Array<ResolversTypes['TaskPersonRelationMentionedInNotesRelation']>, ParentType, ContextType, Partial<TaskPersonRelationMentionedInNotesArgs>>;
-  notes?: Resolver<Array<ResolversTypes['TaskPersonRelationNotesRelation']>, ParentType, ContextType, Partial<TaskPersonRelationNotesArgs>>;
-  relationshipsFrom?: Resolver<Array<ResolversTypes['TaskPersonRelationRelationshipsFromRelation']>, ParentType, ContextType, Partial<TaskPersonRelationRelationshipsFromArgs>>;
-  relationshipsTo?: Resolver<Array<ResolversTypes['TaskPersonRelationRelationshipsToRelation']>, ParentType, ContextType, Partial<TaskPersonRelationRelationshipsToArgs>>;
-  tasks?: Resolver<Array<ResolversTypes['TaskPersonRelationTasksRelation']>, ParentType, ContextType, Partial<TaskPersonRelationTasksArgs>>;
-  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type TaskPersonRelationImportantDatesRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationImportantDatesRelation'] = ResolversParentTypes['TaskPersonRelationImportantDatesRelation']> = {
-  date?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  labels?: Resolver<Array<ResolversTypes['TaskPersonRelationImportantDatesRelationLabelsRelation']>, ParentType, ContextType, Partial<TaskPersonRelationImportantDatesRelationLabelsArgs>>;
-  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  person?: Resolver<Maybe<ResolversTypes['TaskPersonRelationImportantDatesRelationPersonRelation']>, ParentType, ContextType, Partial<TaskPersonRelationImportantDatesRelationPersonArgs>>;
-  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  recurrence?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-};
-
-export type TaskPersonRelationImportantDatesRelationLabelsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationImportantDatesRelationLabelsRelation'] = ResolversParentTypes['TaskPersonRelationImportantDatesRelationLabelsRelation']> = {
-  color?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  label?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type TaskPersonRelationImportantDatesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationImportantDatesRelationPersonRelation'] = ResolversParentTypes['TaskPersonRelationImportantDatesRelationPersonRelation']> = {
-  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type TaskPersonRelationInteractionsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationInteractionsRelation'] = ResolversParentTypes['TaskPersonRelationInteractionsRelation']> = {
-  channel?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  labels?: Resolver<Array<ResolversTypes['TaskPersonRelationInteractionsRelationLabelsRelation']>, ParentType, ContextType, Partial<TaskPersonRelationInteractionsRelationLabelsArgs>>;
-  note?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  occurredAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  person?: Resolver<Maybe<ResolversTypes['TaskPersonRelationInteractionsRelationPersonRelation']>, ParentType, ContextType, Partial<TaskPersonRelationInteractionsRelationPersonArgs>>;
-  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  sentiment?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-};
-
-export type TaskPersonRelationInteractionsRelationLabelsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationInteractionsRelationLabelsRelation'] = ResolversParentTypes['TaskPersonRelationInteractionsRelationLabelsRelation']> = {
-  color?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  label?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type TaskPersonRelationInteractionsRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationInteractionsRelationPersonRelation'] = ResolversParentTypes['TaskPersonRelationInteractionsRelationPersonRelation']> = {
-  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type TaskPersonRelationLabelsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationLabelsRelation'] = ResolversParentTypes['TaskPersonRelationLabelsRelation']> = {
-  color?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  label?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type TaskPersonRelationMentionedInNotesRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationMentionedInNotesRelation'] = ResolversParentTypes['TaskPersonRelationMentionedInNotesRelation']> = {
-  body?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  labels?: Resolver<Array<ResolversTypes['TaskPersonRelationMentionedInNotesRelationLabelsRelation']>, ParentType, ContextType, Partial<TaskPersonRelationMentionedInNotesRelationLabelsArgs>>;
-  mentions?: Resolver<Array<ResolversTypes['TaskPersonRelationMentionedInNotesRelationMentionsRelation']>, ParentType, ContextType, Partial<TaskPersonRelationMentionedInNotesRelationMentionsArgs>>;
-  person?: Resolver<Maybe<ResolversTypes['TaskPersonRelationMentionedInNotesRelationPersonRelation']>, ParentType, ContextType, Partial<TaskPersonRelationMentionedInNotesRelationPersonArgs>>;
-  personId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-};
-
-export type TaskPersonRelationMentionedInNotesRelationLabelsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationMentionedInNotesRelationLabelsRelation'] = ResolversParentTypes['TaskPersonRelationMentionedInNotesRelationLabelsRelation']> = {
-  color?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  label?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type TaskPersonRelationMentionedInNotesRelationMentionsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationMentionedInNotesRelationMentionsRelation'] = ResolversParentTypes['TaskPersonRelationMentionedInNotesRelationMentionsRelation']> = {
-  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type TaskPersonRelationMentionedInNotesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationMentionedInNotesRelationPersonRelation'] = ResolversParentTypes['TaskPersonRelationMentionedInNotesRelationPersonRelation']> = {
-  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type TaskPersonRelationNotesRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationNotesRelation'] = ResolversParentTypes['TaskPersonRelationNotesRelation']> = {
-  body?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  labels?: Resolver<Array<ResolversTypes['TaskPersonRelationNotesRelationLabelsRelation']>, ParentType, ContextType, Partial<TaskPersonRelationNotesRelationLabelsArgs>>;
-  mentions?: Resolver<Array<ResolversTypes['TaskPersonRelationNotesRelationMentionsRelation']>, ParentType, ContextType, Partial<TaskPersonRelationNotesRelationMentionsArgs>>;
-  person?: Resolver<Maybe<ResolversTypes['TaskPersonRelationNotesRelationPersonRelation']>, ParentType, ContextType, Partial<TaskPersonRelationNotesRelationPersonArgs>>;
-  personId?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-};
-
-export type TaskPersonRelationNotesRelationLabelsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationNotesRelationLabelsRelation'] = ResolversParentTypes['TaskPersonRelationNotesRelationLabelsRelation']> = {
-  color?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  label?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type TaskPersonRelationNotesRelationMentionsRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationNotesRelationMentionsRelation'] = ResolversParentTypes['TaskPersonRelationNotesRelationMentionsRelation']> = {
-  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type TaskPersonRelationNotesRelationPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationNotesRelationPersonRelation'] = ResolversParentTypes['TaskPersonRelationNotesRelationPersonRelation']> = {
-  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type TaskPersonRelationRelationshipsFromRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationRelationshipsFromRelation'] = ResolversParentTypes['TaskPersonRelationRelationshipsFromRelation']> = {
-  fromPerson?: Resolver<Maybe<ResolversTypes['TaskPersonRelationRelationshipsFromRelationFromPersonRelation']>, ParentType, ContextType, Partial<TaskPersonRelationRelationshipsFromRelationFromPersonArgs>>;
-  fromPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  toPerson?: Resolver<Maybe<ResolversTypes['TaskPersonRelationRelationshipsFromRelationToPersonRelation']>, ParentType, ContextType, Partial<TaskPersonRelationRelationshipsFromRelationToPersonArgs>>;
-  toPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type TaskPersonRelationRelationshipsFromRelationFromPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationRelationshipsFromRelationFromPersonRelation'] = ResolversParentTypes['TaskPersonRelationRelationshipsFromRelationFromPersonRelation']> = {
-  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type TaskPersonRelationRelationshipsFromRelationToPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationRelationshipsFromRelationToPersonRelation'] = ResolversParentTypes['TaskPersonRelationRelationshipsFromRelationToPersonRelation']> = {
-  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type TaskPersonRelationRelationshipsToRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationRelationshipsToRelation'] = ResolversParentTypes['TaskPersonRelationRelationshipsToRelation']> = {
-  fromPerson?: Resolver<Maybe<ResolversTypes['TaskPersonRelationRelationshipsToRelationFromPersonRelation']>, ParentType, ContextType, Partial<TaskPersonRelationRelationshipsToRelationFromPersonArgs>>;
-  fromPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  toPerson?: Resolver<Maybe<ResolversTypes['TaskPersonRelationRelationshipsToRelationToPersonRelation']>, ParentType, ContextType, Partial<TaskPersonRelationRelationshipsToRelationToPersonArgs>>;
-  toPersonId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type TaskPersonRelationRelationshipsToRelationFromPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationRelationshipsToRelationFromPersonRelation'] = ResolversParentTypes['TaskPersonRelationRelationshipsToRelationFromPersonRelation']> = {
-  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type TaskPersonRelationRelationshipsToRelationToPersonRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationRelationshipsToRelationToPersonRelation'] = ResolversParentTypes['TaskPersonRelationRelationshipsToRelationToPersonRelation']> = {
-  avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-};
-
-export type TaskPersonRelationTasksRelationResolvers<ContextType = Context, ParentType extends ResolversParentTypes['TaskPersonRelationTasksRelation'] = ResolversParentTypes['TaskPersonRelationTasksRelation']> = {
-  completedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  dueAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  notes?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
 export type Resolvers<ContextType = Context> = {
+  ContactInfo?: ContactInfoResolvers<ContextType>;
+  ContactInfoPersonRelation?: ContactInfoPersonRelationResolvers<ContextType>;
+  ContactInfoPersonRelationContactInfosRelation?: ContactInfoPersonRelationContactInfosRelationResolvers<ContextType>;
+  ContactInfoPersonRelationImportantDatesRelation?: ContactInfoPersonRelationImportantDatesRelationResolvers<ContextType>;
+  ContactInfoPersonRelationImportantDatesRelationLabelsRelation?: ContactInfoPersonRelationImportantDatesRelationLabelsRelationResolvers<ContextType>;
+  ContactInfoPersonRelationImportantDatesRelationPersonRelation?: ContactInfoPersonRelationImportantDatesRelationPersonRelationResolvers<ContextType>;
+  ContactInfoPersonRelationInteractionsRelation?: ContactInfoPersonRelationInteractionsRelationResolvers<ContextType>;
+  ContactInfoPersonRelationInteractionsRelationLabelsRelation?: ContactInfoPersonRelationInteractionsRelationLabelsRelationResolvers<ContextType>;
+  ContactInfoPersonRelationInteractionsRelationPersonRelation?: ContactInfoPersonRelationInteractionsRelationPersonRelationResolvers<ContextType>;
+  ContactInfoPersonRelationLabelsRelation?: ContactInfoPersonRelationLabelsRelationResolvers<ContextType>;
+  ContactInfoPersonRelationMentionedInNotesRelation?: ContactInfoPersonRelationMentionedInNotesRelationResolvers<ContextType>;
+  ContactInfoPersonRelationMentionedInNotesRelationLabelsRelation?: ContactInfoPersonRelationMentionedInNotesRelationLabelsRelationResolvers<ContextType>;
+  ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation?: ContactInfoPersonRelationMentionedInNotesRelationMentionsRelationResolvers<ContextType>;
+  ContactInfoPersonRelationMentionedInNotesRelationPersonRelation?: ContactInfoPersonRelationMentionedInNotesRelationPersonRelationResolvers<ContextType>;
+  ContactInfoPersonRelationNotesRelation?: ContactInfoPersonRelationNotesRelationResolvers<ContextType>;
+  ContactInfoPersonRelationNotesRelationLabelsRelation?: ContactInfoPersonRelationNotesRelationLabelsRelationResolvers<ContextType>;
+  ContactInfoPersonRelationNotesRelationMentionsRelation?: ContactInfoPersonRelationNotesRelationMentionsRelationResolvers<ContextType>;
+  ContactInfoPersonRelationNotesRelationPersonRelation?: ContactInfoPersonRelationNotesRelationPersonRelationResolvers<ContextType>;
+  ContactInfoPersonRelationRelationshipsFromRelation?: ContactInfoPersonRelationRelationshipsFromRelationResolvers<ContextType>;
+  ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation?: ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelationResolvers<ContextType>;
+  ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation?: ContactInfoPersonRelationRelationshipsFromRelationToPersonRelationResolvers<ContextType>;
+  ContactInfoPersonRelationRelationshipsToRelation?: ContactInfoPersonRelationRelationshipsToRelationResolvers<ContextType>;
+  ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation?: ContactInfoPersonRelationRelationshipsToRelationFromPersonRelationResolvers<ContextType>;
+  ContactInfoPersonRelationRelationshipsToRelationToPersonRelation?: ContactInfoPersonRelationRelationshipsToRelationToPersonRelationResolvers<ContextType>;
   ImportantDate?: ImportantDateResolvers<ContextType>;
   ImportantDateLabelsRelation?: ImportantDateLabelsRelationResolvers<ContextType>;
   ImportantDatePersonRelation?: ImportantDatePersonRelationResolvers<ContextType>;
+  ImportantDatePersonRelationContactInfosRelation?: ImportantDatePersonRelationContactInfosRelationResolvers<ContextType>;
+  ImportantDatePersonRelationContactInfosRelationPersonRelation?: ImportantDatePersonRelationContactInfosRelationPersonRelationResolvers<ContextType>;
   ImportantDatePersonRelationImportantDatesRelation?: ImportantDatePersonRelationImportantDatesRelationResolvers<ContextType>;
   ImportantDatePersonRelationInteractionsRelation?: ImportantDatePersonRelationInteractionsRelationResolvers<ContextType>;
   ImportantDatePersonRelationInteractionsRelationLabelsRelation?: ImportantDatePersonRelationInteractionsRelationLabelsRelationResolvers<ContextType>;
@@ -8789,12 +8789,12 @@ export type Resolvers<ContextType = Context> = {
   ImportantDatePersonRelationRelationshipsToRelation?: ImportantDatePersonRelationRelationshipsToRelationResolvers<ContextType>;
   ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation?: ImportantDatePersonRelationRelationshipsToRelationFromPersonRelationResolvers<ContextType>;
   ImportantDatePersonRelationRelationshipsToRelationToPersonRelation?: ImportantDatePersonRelationRelationshipsToRelationToPersonRelationResolvers<ContextType>;
-  ImportantDatePersonRelationTasksRelation?: ImportantDatePersonRelationTasksRelationResolvers<ContextType>;
-  ImportantDatePersonRelationTasksRelationPersonRelation?: ImportantDatePersonRelationTasksRelationPersonRelationResolvers<ContextType>;
   ImportantDateTag?: ImportantDateTagResolvers<ContextType>;
   Interaction?: InteractionResolvers<ContextType>;
   InteractionLabelsRelation?: InteractionLabelsRelationResolvers<ContextType>;
   InteractionPersonRelation?: InteractionPersonRelationResolvers<ContextType>;
+  InteractionPersonRelationContactInfosRelation?: InteractionPersonRelationContactInfosRelationResolvers<ContextType>;
+  InteractionPersonRelationContactInfosRelationPersonRelation?: InteractionPersonRelationContactInfosRelationPersonRelationResolvers<ContextType>;
   InteractionPersonRelationImportantDatesRelation?: InteractionPersonRelationImportantDatesRelationResolvers<ContextType>;
   InteractionPersonRelationImportantDatesRelationLabelsRelation?: InteractionPersonRelationImportantDatesRelationLabelsRelationResolvers<ContextType>;
   InteractionPersonRelationImportantDatesRelationPersonRelation?: InteractionPersonRelationImportantDatesRelationPersonRelationResolvers<ContextType>;
@@ -8814,8 +8814,6 @@ export type Resolvers<ContextType = Context> = {
   InteractionPersonRelationRelationshipsToRelation?: InteractionPersonRelationRelationshipsToRelationResolvers<ContextType>;
   InteractionPersonRelationRelationshipsToRelationFromPersonRelation?: InteractionPersonRelationRelationshipsToRelationFromPersonRelationResolvers<ContextType>;
   InteractionPersonRelationRelationshipsToRelationToPersonRelation?: InteractionPersonRelationRelationshipsToRelationToPersonRelationResolvers<ContextType>;
-  InteractionPersonRelationTasksRelation?: InteractionPersonRelationTasksRelationResolvers<ContextType>;
-  InteractionPersonRelationTasksRelationPersonRelation?: InteractionPersonRelationTasksRelationPersonRelationResolvers<ContextType>;
   InteractionTag?: InteractionTagResolvers<ContextType>;
   Label?: LabelResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
@@ -8823,6 +8821,8 @@ export type Resolvers<ContextType = Context> = {
   NoteLabelsRelation?: NoteLabelsRelationResolvers<ContextType>;
   NoteMention?: NoteMentionResolvers<ContextType>;
   NoteMentionsRelation?: NoteMentionsRelationResolvers<ContextType>;
+  NoteMentionsRelationContactInfosRelation?: NoteMentionsRelationContactInfosRelationResolvers<ContextType>;
+  NoteMentionsRelationContactInfosRelationPersonRelation?: NoteMentionsRelationContactInfosRelationPersonRelationResolvers<ContextType>;
   NoteMentionsRelationImportantDatesRelation?: NoteMentionsRelationImportantDatesRelationResolvers<ContextType>;
   NoteMentionsRelationImportantDatesRelationLabelsRelation?: NoteMentionsRelationImportantDatesRelationLabelsRelationResolvers<ContextType>;
   NoteMentionsRelationImportantDatesRelationPersonRelation?: NoteMentionsRelationImportantDatesRelationPersonRelationResolvers<ContextType>;
@@ -8838,9 +8838,9 @@ export type Resolvers<ContextType = Context> = {
   NoteMentionsRelationRelationshipsToRelation?: NoteMentionsRelationRelationshipsToRelationResolvers<ContextType>;
   NoteMentionsRelationRelationshipsToRelationFromPersonRelation?: NoteMentionsRelationRelationshipsToRelationFromPersonRelationResolvers<ContextType>;
   NoteMentionsRelationRelationshipsToRelationToPersonRelation?: NoteMentionsRelationRelationshipsToRelationToPersonRelationResolvers<ContextType>;
-  NoteMentionsRelationTasksRelation?: NoteMentionsRelationTasksRelationResolvers<ContextType>;
-  NoteMentionsRelationTasksRelationPersonRelation?: NoteMentionsRelationTasksRelationPersonRelationResolvers<ContextType>;
   NotePersonRelation?: NotePersonRelationResolvers<ContextType>;
+  NotePersonRelationContactInfosRelation?: NotePersonRelationContactInfosRelationResolvers<ContextType>;
+  NotePersonRelationContactInfosRelationPersonRelation?: NotePersonRelationContactInfosRelationPersonRelationResolvers<ContextType>;
   NotePersonRelationImportantDatesRelation?: NotePersonRelationImportantDatesRelationResolvers<ContextType>;
   NotePersonRelationImportantDatesRelationLabelsRelation?: NotePersonRelationImportantDatesRelationLabelsRelationResolvers<ContextType>;
   NotePersonRelationImportantDatesRelationPersonRelation?: NotePersonRelationImportantDatesRelationPersonRelationResolvers<ContextType>;
@@ -8856,10 +8856,10 @@ export type Resolvers<ContextType = Context> = {
   NotePersonRelationRelationshipsToRelation?: NotePersonRelationRelationshipsToRelationResolvers<ContextType>;
   NotePersonRelationRelationshipsToRelationFromPersonRelation?: NotePersonRelationRelationshipsToRelationFromPersonRelationResolvers<ContextType>;
   NotePersonRelationRelationshipsToRelationToPersonRelation?: NotePersonRelationRelationshipsToRelationToPersonRelationResolvers<ContextType>;
-  NotePersonRelationTasksRelation?: NotePersonRelationTasksRelationResolvers<ContextType>;
-  NotePersonRelationTasksRelationPersonRelation?: NotePersonRelationTasksRelationPersonRelationResolvers<ContextType>;
   NoteTag?: NoteTagResolvers<ContextType>;
   Person?: PersonResolvers<ContextType>;
+  PersonContactInfosRelation?: PersonContactInfosRelationResolvers<ContextType>;
+  PersonContactInfosRelationPersonRelation?: PersonContactInfosRelationPersonRelationResolvers<ContextType>;
   PersonImportantDatesRelation?: PersonImportantDatesRelationResolvers<ContextType>;
   PersonImportantDatesRelationLabelsRelation?: PersonImportantDatesRelationLabelsRelationResolvers<ContextType>;
   PersonImportantDatesRelationPersonRelation?: PersonImportantDatesRelationPersonRelationResolvers<ContextType>;
@@ -8879,6 +8879,8 @@ export type Resolvers<ContextType = Context> = {
   PersonRelationship?: PersonRelationshipResolvers<ContextType>;
   PersonRelationshipEntry?: PersonRelationshipEntryResolvers<ContextType>;
   PersonRelationshipFromPersonRelation?: PersonRelationshipFromPersonRelationResolvers<ContextType>;
+  PersonRelationshipFromPersonRelationContactInfosRelation?: PersonRelationshipFromPersonRelationContactInfosRelationResolvers<ContextType>;
+  PersonRelationshipFromPersonRelationContactInfosRelationPersonRelation?: PersonRelationshipFromPersonRelationContactInfosRelationPersonRelationResolvers<ContextType>;
   PersonRelationshipFromPersonRelationImportantDatesRelation?: PersonRelationshipFromPersonRelationImportantDatesRelationResolvers<ContextType>;
   PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelation?: PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelationResolvers<ContextType>;
   PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation?: PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelationResolvers<ContextType>;
@@ -8896,9 +8898,9 @@ export type Resolvers<ContextType = Context> = {
   PersonRelationshipFromPersonRelationNotesRelationPersonRelation?: PersonRelationshipFromPersonRelationNotesRelationPersonRelationResolvers<ContextType>;
   PersonRelationshipFromPersonRelationRelationshipsFromRelation?: PersonRelationshipFromPersonRelationRelationshipsFromRelationResolvers<ContextType>;
   PersonRelationshipFromPersonRelationRelationshipsToRelation?: PersonRelationshipFromPersonRelationRelationshipsToRelationResolvers<ContextType>;
-  PersonRelationshipFromPersonRelationTasksRelation?: PersonRelationshipFromPersonRelationTasksRelationResolvers<ContextType>;
-  PersonRelationshipFromPersonRelationTasksRelationPersonRelation?: PersonRelationshipFromPersonRelationTasksRelationPersonRelationResolvers<ContextType>;
   PersonRelationshipToPersonRelation?: PersonRelationshipToPersonRelationResolvers<ContextType>;
+  PersonRelationshipToPersonRelationContactInfosRelation?: PersonRelationshipToPersonRelationContactInfosRelationResolvers<ContextType>;
+  PersonRelationshipToPersonRelationContactInfosRelationPersonRelation?: PersonRelationshipToPersonRelationContactInfosRelationPersonRelationResolvers<ContextType>;
   PersonRelationshipToPersonRelationImportantDatesRelation?: PersonRelationshipToPersonRelationImportantDatesRelationResolvers<ContextType>;
   PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelation?: PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelationResolvers<ContextType>;
   PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation?: PersonRelationshipToPersonRelationImportantDatesRelationPersonRelationResolvers<ContextType>;
@@ -8916,40 +8918,12 @@ export type Resolvers<ContextType = Context> = {
   PersonRelationshipToPersonRelationNotesRelationPersonRelation?: PersonRelationshipToPersonRelationNotesRelationPersonRelationResolvers<ContextType>;
   PersonRelationshipToPersonRelationRelationshipsFromRelation?: PersonRelationshipToPersonRelationRelationshipsFromRelationResolvers<ContextType>;
   PersonRelationshipToPersonRelationRelationshipsToRelation?: PersonRelationshipToPersonRelationRelationshipsToRelationResolvers<ContextType>;
-  PersonRelationshipToPersonRelationTasksRelation?: PersonRelationshipToPersonRelationTasksRelationResolvers<ContextType>;
-  PersonRelationshipToPersonRelationTasksRelationPersonRelation?: PersonRelationshipToPersonRelationTasksRelationPersonRelationResolvers<ContextType>;
   PersonRelationshipsFromRelation?: PersonRelationshipsFromRelationResolvers<ContextType>;
   PersonRelationshipsFromRelationFromPersonRelation?: PersonRelationshipsFromRelationFromPersonRelationResolvers<ContextType>;
   PersonRelationshipsFromRelationToPersonRelation?: PersonRelationshipsFromRelationToPersonRelationResolvers<ContextType>;
   PersonRelationshipsToRelation?: PersonRelationshipsToRelationResolvers<ContextType>;
   PersonRelationshipsToRelationFromPersonRelation?: PersonRelationshipsToRelationFromPersonRelationResolvers<ContextType>;
   PersonRelationshipsToRelationToPersonRelation?: PersonRelationshipsToRelationToPersonRelationResolvers<ContextType>;
-  PersonTasksRelation?: PersonTasksRelationResolvers<ContextType>;
-  PersonTasksRelationPersonRelation?: PersonTasksRelationPersonRelationResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
-  Task?: TaskResolvers<ContextType>;
-  TaskPersonRelation?: TaskPersonRelationResolvers<ContextType>;
-  TaskPersonRelationImportantDatesRelation?: TaskPersonRelationImportantDatesRelationResolvers<ContextType>;
-  TaskPersonRelationImportantDatesRelationLabelsRelation?: TaskPersonRelationImportantDatesRelationLabelsRelationResolvers<ContextType>;
-  TaskPersonRelationImportantDatesRelationPersonRelation?: TaskPersonRelationImportantDatesRelationPersonRelationResolvers<ContextType>;
-  TaskPersonRelationInteractionsRelation?: TaskPersonRelationInteractionsRelationResolvers<ContextType>;
-  TaskPersonRelationInteractionsRelationLabelsRelation?: TaskPersonRelationInteractionsRelationLabelsRelationResolvers<ContextType>;
-  TaskPersonRelationInteractionsRelationPersonRelation?: TaskPersonRelationInteractionsRelationPersonRelationResolvers<ContextType>;
-  TaskPersonRelationLabelsRelation?: TaskPersonRelationLabelsRelationResolvers<ContextType>;
-  TaskPersonRelationMentionedInNotesRelation?: TaskPersonRelationMentionedInNotesRelationResolvers<ContextType>;
-  TaskPersonRelationMentionedInNotesRelationLabelsRelation?: TaskPersonRelationMentionedInNotesRelationLabelsRelationResolvers<ContextType>;
-  TaskPersonRelationMentionedInNotesRelationMentionsRelation?: TaskPersonRelationMentionedInNotesRelationMentionsRelationResolvers<ContextType>;
-  TaskPersonRelationMentionedInNotesRelationPersonRelation?: TaskPersonRelationMentionedInNotesRelationPersonRelationResolvers<ContextType>;
-  TaskPersonRelationNotesRelation?: TaskPersonRelationNotesRelationResolvers<ContextType>;
-  TaskPersonRelationNotesRelationLabelsRelation?: TaskPersonRelationNotesRelationLabelsRelationResolvers<ContextType>;
-  TaskPersonRelationNotesRelationMentionsRelation?: TaskPersonRelationNotesRelationMentionsRelationResolvers<ContextType>;
-  TaskPersonRelationNotesRelationPersonRelation?: TaskPersonRelationNotesRelationPersonRelationResolvers<ContextType>;
-  TaskPersonRelationRelationshipsFromRelation?: TaskPersonRelationRelationshipsFromRelationResolvers<ContextType>;
-  TaskPersonRelationRelationshipsFromRelationFromPersonRelation?: TaskPersonRelationRelationshipsFromRelationFromPersonRelationResolvers<ContextType>;
-  TaskPersonRelationRelationshipsFromRelationToPersonRelation?: TaskPersonRelationRelationshipsFromRelationToPersonRelationResolvers<ContextType>;
-  TaskPersonRelationRelationshipsToRelation?: TaskPersonRelationRelationshipsToRelationResolvers<ContextType>;
-  TaskPersonRelationRelationshipsToRelationFromPersonRelation?: TaskPersonRelationRelationshipsToRelationFromPersonRelationResolvers<ContextType>;
-  TaskPersonRelationRelationshipsToRelationToPersonRelation?: TaskPersonRelationRelationshipsToRelationToPersonRelationResolvers<ContextType>;
-  TaskPersonRelationTasksRelation?: TaskPersonRelationTasksRelationResolvers<ContextType>;
 };
 
