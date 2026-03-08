@@ -12,6 +12,7 @@ export const persons = pgTable('persons', {
   lastName: text('last_name').notNull(),
   email: text('email').notNull().unique(),
   avatarPath: text('avatar_path'),
+  contactFrequency: text('contact_frequency').$type<ContactFrequency>(),
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
   updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
 });
@@ -48,6 +49,9 @@ export const personLabels = pgTable(
 // "weekly"  = repeats every week on the same day-of-week.
 export const RECURRENCE_VALUES = ['yearly', 'monthly', 'weekly'] as const;
 export type Recurrence = (typeof RECURRENCE_VALUES)[number];
+
+export const CONTACT_FREQUENCY_VALUES = ['weekly', 'monthly', 'quarterly', 'yearly'] as const;
+export type ContactFrequency = (typeof CONTACT_FREQUENCY_VALUES)[number];
 
 export const importantDates = pgTable('important_dates', {
   id: uuid('id').primaryKey().defaultRandom(),

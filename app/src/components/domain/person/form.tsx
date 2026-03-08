@@ -7,10 +7,21 @@ import { Button } from '@/components/ui/button.js';
 import { FieldGroup } from '@/components/ui/field.js';
 import { FormError, fieldContext, formContext, TextField } from '@/components/ui/form-field.tsx';
 
+const CONTACT_FREQUENCY_OPTIONS = [
+  { value: '', label: 'None' },
+  { value: 'weekly', label: 'Weekly' },
+  { value: 'monthly', label: 'Monthly' },
+  { value: 'quarterly', label: 'Quarterly' },
+  { value: 'yearly', label: 'Yearly' },
+] as const;
+
+export { CONTACT_FREQUENCY_OPTIONS };
+
 const personSchema = z.object({
   firstName: z.string().min(1, 'First name is required.'),
   lastName: z.string().min(1, 'Last name is required.'),
   email: z.string().min(1, 'Email is required.').email('Please enter a valid email address.'),
+  contactFrequency: z.string(),
 });
 
 export interface PersonFormValue {
@@ -23,6 +34,7 @@ export interface PersonFormInitialValues {
   lastName: string;
   email: string;
   labelIds?: string[];
+  contactFrequency?: string | null;
 }
 
 interface PersonFormProps {
@@ -61,6 +73,7 @@ export function PersonForm({ availableLabels, initialValues, submitLabel, onSubm
       firstName: initialValues?.firstName ?? '',
       lastName: initialValues?.lastName ?? '',
       email: initialValues?.email ?? '',
+      contactFrequency: initialValues?.contactFrequency ?? '',
     },
     validators: {
       onSubmit: personSchema,
@@ -69,7 +82,10 @@ export function PersonForm({ availableLabels, initialValues, submitLabel, onSubm
       setFormError(null);
       try {
         await onSubmit({
-          person: value,
+          person: {
+            ...value,
+            contactFrequency: value.contactFrequency || null,
+          },
           labelIds: Array.from(selectedLabelIds),
         });
         if (!initialValues) {
@@ -102,6 +118,27 @@ export function PersonForm({ availableLabels, initialValues, submitLabel, onSubm
           <form.AppField name="lastName">{() => <TextField label="Last Name" />}</form.AppField>
         </div>
         <form.AppField name="email">{() => <TextField label="Email" />}</form.AppField>
+        <form.AppField name="contactFrequency">
+          {(field) => (
+            <div className="space-y-1.5">
+              <label htmlFor="contact-frequency" className="text-sm font-medium">
+                Contact Frequency
+              </label>
+              <select
+                id="contact-frequency"
+                value={field.state.value}
+                onChange={(e) => field.handleChange(e.target.value)}
+                className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+              >
+                {CONTACT_FREQUENCY_OPTIONS.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
+        </form.AppField>
         {availableLabels.length > 0 && (
           <div className="space-y-2">
             <p className="font-medium text-sm">Labels</p>

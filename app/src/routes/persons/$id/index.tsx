@@ -44,6 +44,7 @@ const GET_PERSON_DETAIL = graphql(`
       lastName
       email
       avatarPath
+      contactFrequency
       createdAt
       updatedAt
       labels {
@@ -183,15 +184,22 @@ const UPDATE_PERSON = graphql(`
     $firstName: String!
     $lastName: String!
     $email: String!
+    $contactFrequency: String
   ) {
     updatePersons(
-      set: { firstName: $firstName, lastName: $lastName, email: $email }
+      set: {
+        firstName: $firstName
+        lastName: $lastName
+        email: $email
+        contactFrequency: $contactFrequency
+      }
       where: { id: { eq: $id } }
     ) {
       id
       firstName
       lastName
       email
+      contactFrequency
     }
   }
 `);
@@ -461,6 +469,7 @@ function PersonDetailPage() {
         firstName: fields.firstName,
         lastName: fields.lastName,
         email: fields.email,
+        contactFrequency: fields.contactFrequency || null,
       },
     });
 
@@ -533,6 +542,9 @@ function PersonDetailPage() {
                 {person.firstName} {person.lastName}
               </h1>
               <p className="text-muted-foreground">{person.email}</p>
+              {person.contactFrequency && (
+                <p className="text-muted-foreground text-xs mt-0.5 capitalize">Contact: {person.contactFrequency}</p>
+              )}
             </div>
           </div>
           <Button variant="outline" size="sm" onClick={() => setEditPersonOpen(true)}>
@@ -759,6 +771,7 @@ function PersonDetailPage() {
                 lastName: person.lastName,
                 email: person.email,
                 labelIds: person.labels.map((l) => l.id),
+                contactFrequency: person.contactFrequency,
               }}
               submitLabel="Save Changes"
               onSubmit={handleEditPerson}

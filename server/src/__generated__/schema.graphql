@@ -51,6 +51,7 @@ input CreateNoteTagInput {
 
 input CreatePersonInput {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String
   email: String!
@@ -92,6 +93,7 @@ type ImportantDateLabelsRelation {
 
 type ImportantDatePersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -137,6 +139,7 @@ type ImportantDatePersonRelationInteractionsRelationLabelsRelation {
 
 type ImportantDatePersonRelationInteractionsRelationPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -169,6 +172,7 @@ type ImportantDatePersonRelationNotesRelationLabelsRelation {
 
 type ImportantDatePersonRelationNotesRelationPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -190,6 +194,7 @@ type ImportantDatePersonRelationRelationshipsFromRelation {
 
 type ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -202,6 +207,7 @@ type ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelation {
 
 type ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -223,6 +229,7 @@ type ImportantDatePersonRelationRelationshipsToRelation {
 
 type ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -235,6 +242,7 @@ type ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation {
 
 type ImportantDatePersonRelationRelationshipsToRelationToPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -632,6 +640,7 @@ type InteractionLabelsRelation {
 
 type InteractionPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -667,6 +676,7 @@ type InteractionPersonRelationImportantDatesRelationLabelsRelation {
 
 type InteractionPersonRelationImportantDatesRelationPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -709,6 +719,7 @@ type InteractionPersonRelationNotesRelationLabelsRelation {
 
 type InteractionPersonRelationNotesRelationPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -730,6 +741,7 @@ type InteractionPersonRelationRelationshipsFromRelation {
 
 type InteractionPersonRelationRelationshipsFromRelationFromPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -742,6 +754,7 @@ type InteractionPersonRelationRelationshipsFromRelationFromPersonRelation {
 
 type InteractionPersonRelationRelationshipsFromRelationToPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -763,6 +776,7 @@ type InteractionPersonRelationRelationshipsToRelation {
 
 type InteractionPersonRelationRelationshipsToRelationFromPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -775,6 +789,7 @@ type InteractionPersonRelationRelationshipsToRelationFromPersonRelation {
 
 type InteractionPersonRelationRelationshipsToRelationToPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -1359,6 +1374,7 @@ type NoteLabelsRelation {
 
 type NotePersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -1394,6 +1410,7 @@ type NotePersonRelationImportantDatesRelationLabelsRelation {
 
 type NotePersonRelationImportantDatesRelationPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -1424,6 +1441,7 @@ type NotePersonRelationInteractionsRelationLabelsRelation {
 
 type NotePersonRelationInteractionsRelationPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -1457,6 +1475,7 @@ type NotePersonRelationRelationshipsFromRelation {
 
 type NotePersonRelationRelationshipsFromRelationFromPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -1469,6 +1488,7 @@ type NotePersonRelationRelationshipsFromRelationFromPersonRelation {
 
 type NotePersonRelationRelationshipsFromRelationToPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -1490,6 +1510,7 @@ type NotePersonRelationRelationshipsToRelation {
 
 type NotePersonRelationRelationshipsToRelationFromPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -1502,6 +1523,7 @@ type NotePersonRelationRelationshipsToRelationFromPersonRelation {
 
 type NotePersonRelationRelationshipsToRelationToPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -1757,6 +1779,7 @@ enum OrderDirection {
 
 type Person {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -1793,6 +1816,7 @@ type PersonImportantDatesRelationLabelsRelation {
 
 type PersonImportantDatesRelationPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -1823,6 +1847,7 @@ type PersonInteractionsRelationLabelsRelation {
 
 type PersonInteractionsRelationPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -1954,6 +1979,7 @@ type PersonNotesRelationLabelsRelation {
 
 type PersonNotesRelationPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -1983,6 +2009,7 @@ type PersonRelationshipEntry {
 
 type PersonRelationshipFromPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -2018,6 +2045,7 @@ type PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelation {
 
 type PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -2048,6 +2076,7 @@ type PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelation {
 
 type PersonRelationshipFromPersonRelationInteractionsRelationPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -2080,6 +2109,7 @@ type PersonRelationshipFromPersonRelationNotesRelationLabelsRelation {
 
 type PersonRelationshipFromPersonRelationNotesRelationPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -2106,6 +2136,7 @@ type PersonRelationshipFromPersonRelationRelationshipsToRelation {
 
 type PersonRelationshipToPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -2141,6 +2172,7 @@ type PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelation {
 
 type PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -2171,6 +2203,7 @@ type PersonRelationshipToPersonRelationInteractionsRelationLabelsRelation {
 
 type PersonRelationshipToPersonRelationInteractionsRelationPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -2203,6 +2236,7 @@ type PersonRelationshipToPersonRelationNotesRelationLabelsRelation {
 
 type PersonRelationshipToPersonRelationNotesRelationPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -2292,6 +2326,7 @@ type PersonRelationshipsFromRelation {
 
 type PersonRelationshipsFromRelationFromPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -2304,6 +2339,7 @@ type PersonRelationshipsFromRelationFromPersonRelation {
 
 type PersonRelationshipsFromRelationToPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -2410,6 +2446,7 @@ type PersonRelationshipsToRelation {
 
 type PersonRelationshipsToRelationFromPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -2422,6 +2459,7 @@ type PersonRelationshipsToRelationFromPersonRelation {
 
 type PersonRelationshipsToRelationToPersonRelation {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String!
   email: String!
@@ -2492,6 +2530,45 @@ input PersonsAvatarPathFilters {
 }
 
 input PersonsAvatarPathFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonsContactFrequencyFilters {
+  OR: [PersonsContactFrequencyFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonsContactFrequencyFiltersOr {
   eq: String
   gt: String
   gte: String
@@ -2603,6 +2680,7 @@ input PersonsEmailFiltersOr {
 input PersonsFilters {
   OR: [PersonsFiltersOr!]
   avatarPath: PersonsAvatarPathFilters
+  contactFrequency: PersonsContactFrequencyFilters
   createdAt: PersonsCreatedAtFilters
   email: PersonsEmailFilters
   firstName: PersonsFirstNameFilters
@@ -2613,6 +2691,7 @@ input PersonsFilters {
 
 input PersonsFiltersOr {
   avatarPath: PersonsAvatarPathFilters
+  contactFrequency: PersonsContactFrequencyFilters
   createdAt: PersonsCreatedAtFilters
   email: PersonsEmailFilters
   firstName: PersonsFirstNameFilters
@@ -2740,6 +2819,7 @@ input PersonsLastNameFiltersOr {
 
 input PersonsOrderBy {
   avatarPath: InnerOrder
+  contactFrequency: InnerOrder
   createdAt: InnerOrder
   email: InnerOrder
   firstName: InnerOrder
@@ -2870,6 +2950,7 @@ input UpdateNoteTagInput {
 
 input UpdatePersonInput {
   avatarPath: String
+  contactFrequency: String
   """JSON"""
   createdAt: String
   email: String
