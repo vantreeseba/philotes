@@ -74,12 +74,6 @@ type TooltipState = {
   person: PersonNode;
 } | null;
 
-type EdgeLabelState = {
-  x: number;
-  y: number;
-  type: string;
-} | null;
-
 function getNodeRadius(connections: number): number {
   const min = 20;
   const max = 40;
@@ -95,7 +89,6 @@ function NetworkPage() {
   const navigate = useNavigate();
   const svgRef = useRef<SVGSVGElement>(null);
   const [tooltip, setTooltip] = useState<TooltipState>(null);
-  const [edgeLabel, setEdgeLabel] = useState<EdgeLabelState>(null);
 
   const { data, loading, error } = useQuery(GET_NETWORK_DATA);
 
@@ -153,11 +146,11 @@ function NetworkPage() {
           .id((d) => d.id)
           .strength(0.3),
       )
-      .force('charge', d3.forceManyBody<SimNode>().strength(-200))
+      .force('charge', d3.forceManyBody<SimNode>().strength(-400))
       .force('center', d3.forceCenter(width / 2, height / 2))
       .force(
         'collide',
-        d3.forceCollide<SimNode>((d) => getNodeRadius(connectionCount.get(d.id) ?? 0) + 10).strength(0.8),
+        d3.forceCollide<SimNode>((d) => getNodeRadius(connectionCount.get(d.id) ?? 0) + 40).strength(0.8),
       );
 
     // Draw edges
@@ -169,20 +162,23 @@ function NetworkPage() {
       .join('line')
       .attr('stroke', '#cbd5e1')
       .attr('stroke-width', 1.5)
-      .style('cursor', 'default')
-      .on('mouseenter', (event: MouseEvent, d: SimLink) => {
-        setEdgeLabel({
-          x: event.clientX,
-          y: event.clientY,
-          type: d.type,
-        });
-      })
-      .on('mousemove', (event: MouseEvent) => {
-        setEdgeLabel((prev) => (prev ? { ...prev, x: event.clientX, y: event.clientY } : prev));
-      })
-      .on('mouseleave', () => {
-        setEdgeLabel(null);
-      });
+      .style('cursor', 'default');
+
+    // Draw edge labels (always visible)
+    const edgeLabels = svg
+      .append('g')
+      .attr('class', 'edge-labels')
+      .selectAll<SVGTextElement, SimLink>('text')
+      .data(links)
+      .join('text')
+      .text((d) => d.type)
+      .attr('text-anchor', 'middle')
+      .attr('dominant-baseline', 'central')
+      .attr('fill', 'currentColor')
+      .attr('font-size', '10px')
+      .attr('pointer-events', 'none')
+      .style('user-select', 'none')
+      .style('opacity', '0.75');
 
     // Draw nodes
     const nodeGroup = svg
@@ -251,6 +247,18 @@ function NetworkPage() {
       })
       .attr('pointer-events', 'none');
 
+    // Full name label below node
+    nodeGroup
+      .append('text')
+      .text((d) => `${d.firstName} ${d.lastName}`)
+      .attr('text-anchor', 'middle')
+      .attr('dominant-baseline', 'hanging')
+      .attr('fill', 'currentColor')
+      .attr('font-size', '11px')
+      .attr('y', (d) => getNodeRadius(connectionCount.get(d.id) ?? 0) + 5)
+      .attr('pointer-events', 'none')
+      .style('user-select', 'none');
+
     // Tick
     simulation.on('tick', () => {
       link
@@ -258,6 +266,18 @@ function NetworkPage() {
         .attr('y1', (d) => (d.source as SimNode).y ?? 0)
         .attr('x2', (d) => (d.target as SimNode).x ?? 0)
         .attr('y2', (d) => (d.target as SimNode).y ?? 0);
+
+      edgeLabels
+        .attr('x', (d) => {
+          const sx = (d.source as SimNode).x ?? 0;
+          const tx = (d.target as SimNode).x ?? 0;
+          return (sx + tx) / 2;
+        })
+        .attr('y', (d) => {
+          const sy = (d.source as SimNode).y ?? 0;
+          const ty = (d.target as SimNode).y ?? 0;
+          return (sy + ty) / 2;
+        });
 
       nodeGroup.attr('transform', (d) => `translate(${d.x ?? 0},${d.y ?? 0})`);
     });
@@ -292,16 +312,6 @@ function NetworkPage() {
   return (
     <div className="relative w-full" style={{ height: '80vh' }}>
       <svg ref={svgRef} className="w-full h-full" style={{ display: 'block' }} />
-
-      {/* Edge label tooltip */}
-      {edgeLabel && (
-        <div
-          className="fixed z-50 pointer-events-none bg-popover border border-border rounded px-2 py-1 text-xs shadow-md text-popover-foreground"
-          style={{ left: edgeLabel.x + 12, top: edgeLabel.y - 8 }}
-        >
-          {edgeLabel.type}
-        </div>
-      )}
 
       {/* Node tooltip */}
       {tooltip && (
