@@ -2,6 +2,7 @@ import { useQuery } from '@apollo/client';
 import type { GetPersonQuery } from '@/__generated__/graphql';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { GET_PERSON } from '@/graphql/queries';
+import { PersonContactInfo } from './person-contact-info';
 import { PersonLabels } from './person-labels';
 import { PersonNotes } from './person-notes';
 import { PersonTasks } from './person-tasks';
@@ -36,6 +37,7 @@ export function PersonDetail({ personId }: PersonDetailProps) {
       <PersonLabels personId={personId} labels={person.labels ?? []} />
       <PersonNotes personId={personId} notes={person.notes ?? []} />
       <PersonTasks personId={personId} tasks={person.tasks ?? []} />
+      <PersonContactInfo personId={personId} contactInfo={person.contactInfo ?? []} />
     </div>
   );
 }
