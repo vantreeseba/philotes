@@ -178,6 +178,33 @@ export const contactInfos = pgTable('contact_infos', {
   createdAt: timestamp('created_at').notNull().defaultNow(),
 });
 
+export type ContactInfo = typeof contactInfos.$inferSelect;
+export type NewContactInfo = typeof contactInfos.$inferInsert;
+
+export const ADDRESS_TYPE_VALUES = ['home', 'work', 'other'] as const;
+
+export const addressTypeEnum = pgEnum('address_type', ADDRESS_TYPE_VALUES);
+
+export const addresses = pgTable('addresses', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  personId: uuid('person_id')
+    .notNull()
+    .references(() => persons.id, { onDelete: 'cascade' }),
+  type: addressTypeEnum('type').notNull(),
+  label: text('label'),
+  line1: text('line1').notNull(),
+  line2: text('line2'),
+  city: text('city'),
+  state: text('state'),
+  postalCode: text('postal_code'),
+  country: text('country').default('US'),
+  isPrimary: boolean('is_primary').notNull().default(false),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+export type Address = typeof addresses.$inferSelect;
+export type NewAddress = typeof addresses.$inferInsert;
+
 export type Person = typeof persons.$inferSelect;
 export type NewPerson = typeof persons.$inferInsert;
 export type Note = typeof notes.$inferSelect;
@@ -200,8 +227,6 @@ export type InteractionTag = typeof interactionTags.$inferSelect;
 export type NewInteractionTag = typeof interactionTags.$inferInsert;
 export type NoteMention = typeof noteMentions.$inferSelect;
 export type NewNoteMention = typeof noteMentions.$inferInsert;
-export type ContactInfo = typeof contactInfos.$inferSelect;
-export type NewContactInfo = typeof contactInfos.$inferInsert;
 
 export const activities = pgTable('activities', {
   id: uuid('id').primaryKey().defaultRandom(),

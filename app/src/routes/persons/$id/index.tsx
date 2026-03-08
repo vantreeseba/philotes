@@ -16,6 +16,7 @@ import {
 import { useRef, useState } from 'react';
 import { graphql } from '@/__generated__/gql.js';
 import { ActivityList } from '@/components/domain/activity/list.js';
+import { AddressList } from '@/components/domain/address/list.js';
 import { ContactInfoList } from '@/components/domain/contact-info/list.js';
 import { PersonForm, type PersonFormValue } from '@/components/domain/person/form.js';
 import {
@@ -134,6 +135,18 @@ const GET_PERSON_DETAIL = graphql(`
         type
         value
         label
+        isPrimary
+      }
+      addresses {
+        id
+        type
+        label
+        line1
+        line2
+        city
+        state
+        postalCode
+        country
         isPrimary
       }
     }
@@ -760,6 +773,16 @@ function PersonDetailPage() {
                   onCreateOpenChange={setNoteDialogOpen}
                 />
               }
+            />
+          </CardContent>
+        </Card>
+
+        {/* Addresses */}
+        <Card>
+          <CardContent className="p-4">
+            <ListLayout
+              header={<h2 className="font-semibold text-base">Addresses</h2>}
+              body={<AddressList fragmentRef={person} onAdd={() => refetch()} onDelete={() => refetch()} />}
             />
           </CardContent>
         </Card>

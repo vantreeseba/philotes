@@ -16,56 +16,61 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
-export type ContactInfo = {
-  __typename: 'ContactInfo';
+export type Address = {
+  __typename: 'Address';
+  city: Maybe<Scalars['String']['output']>;
+  country: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   id: Scalars['String']['output'];
   isPrimary: Scalars['Boolean']['output'];
   label: Maybe<Scalars['String']['output']>;
-  person: Maybe<ContactInfoPersonRelation>;
+  line1: Scalars['String']['output'];
+  line2: Maybe<Scalars['String']['output']>;
+  person: Maybe<AddressPersonRelation>;
   personId: Scalars['String']['output'];
-  type: ContactInfosTypeEnum;
-  value: Scalars['String']['output'];
+  postalCode: Maybe<Scalars['String']['output']>;
+  state: Maybe<Scalars['String']['output']>;
+  type: AddressesTypeEnum;
 };
 
 
-export type ContactInfoPersonArgs = {
+export type AddressPersonArgs = {
   where?: InputMaybe<PersonsFilters>;
 };
 
-export type ContactInfoPersonRelation = {
-  __typename: 'ContactInfoPersonRelation';
+export type AddressPersonRelation = {
+  __typename: 'AddressPersonRelation';
+  addresses: Array<AddressPersonRelationAddressesRelation>;
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
-  contactInfos: Array<ContactInfoPersonRelationContactInfosRelation>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
   firstName: Scalars['String']['output'];
   id: Scalars['String']['output'];
-  importantDates: Array<ContactInfoPersonRelationImportantDatesRelation>;
-  interactions: Array<ContactInfoPersonRelationInteractionsRelation>;
-  labels: Array<ContactInfoPersonRelationLabelsRelation>;
+  importantDates: Array<AddressPersonRelationImportantDatesRelation>;
+  interactions: Array<AddressPersonRelationInteractionsRelation>;
+  labels: Array<AddressPersonRelationLabelsRelation>;
   lastName: Scalars['String']['output'];
-  mentionedInNotes: Array<ContactInfoPersonRelationMentionedInNotesRelation>;
-  notes: Array<ContactInfoPersonRelationNotesRelation>;
-  relationshipsFrom: Array<ContactInfoPersonRelationRelationshipsFromRelation>;
-  relationshipsTo: Array<ContactInfoPersonRelationRelationshipsToRelation>;
+  mentionedInNotes: Array<AddressPersonRelationMentionedInNotesRelation>;
+  notes: Array<AddressPersonRelationNotesRelation>;
+  relationshipsFrom: Array<AddressPersonRelationRelationshipsFromRelation>;
+  relationshipsTo: Array<AddressPersonRelationRelationshipsToRelation>;
   /** JSON */
   updatedAt: Scalars['String']['output'];
 };
 
 
-export type ContactInfoPersonRelationContactInfosArgs = {
+export type AddressPersonRelationAddressesArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<ContactInfosOrderBy>;
-  where?: InputMaybe<ContactInfosFilters>;
+  orderBy?: InputMaybe<AddressesOrderBy>;
+  where?: InputMaybe<AddressesFilters>;
 };
 
 
-export type ContactInfoPersonRelationImportantDatesArgs = {
+export type AddressPersonRelationImportantDatesArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<ImportantDatesOrderBy>;
@@ -73,7 +78,7 @@ export type ContactInfoPersonRelationImportantDatesArgs = {
 };
 
 
-export type ContactInfoPersonRelationInteractionsArgs = {
+export type AddressPersonRelationInteractionsArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<InteractionsOrderBy>;
@@ -81,7 +86,7 @@ export type ContactInfoPersonRelationInteractionsArgs = {
 };
 
 
-export type ContactInfoPersonRelationLabelsArgs = {
+export type AddressPersonRelationLabelsArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<LabelsOrderBy>;
@@ -89,7 +94,7 @@ export type ContactInfoPersonRelationLabelsArgs = {
 };
 
 
-export type ContactInfoPersonRelationMentionedInNotesArgs = {
+export type AddressPersonRelationMentionedInNotesArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<NotesOrderBy>;
@@ -97,7 +102,7 @@ export type ContactInfoPersonRelationMentionedInNotesArgs = {
 };
 
 
-export type ContactInfoPersonRelationNotesArgs = {
+export type AddressPersonRelationNotesArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<NotesOrderBy>;
@@ -105,7 +110,7 @@ export type ContactInfoPersonRelationNotesArgs = {
 };
 
 
-export type ContactInfoPersonRelationRelationshipsFromArgs = {
+export type AddressPersonRelationRelationshipsFromArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
@@ -113,39 +118,44 @@ export type ContactInfoPersonRelationRelationshipsFromArgs = {
 };
 
 
-export type ContactInfoPersonRelationRelationshipsToArgs = {
+export type AddressPersonRelationRelationshipsToArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<PersonRelationshipsOrderBy>;
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
-export type ContactInfoPersonRelationContactInfosRelation = {
-  __typename: 'ContactInfoPersonRelationContactInfosRelation';
+export type AddressPersonRelationAddressesRelation = {
+  __typename: 'AddressPersonRelationAddressesRelation';
+  city: Maybe<Scalars['String']['output']>;
+  country: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   id: Scalars['String']['output'];
   isPrimary: Scalars['Boolean']['output'];
   label: Maybe<Scalars['String']['output']>;
+  line1: Scalars['String']['output'];
+  line2: Maybe<Scalars['String']['output']>;
   personId: Scalars['String']['output'];
-  type: ContactInfosTypeEnum;
-  value: Scalars['String']['output'];
+  postalCode: Maybe<Scalars['String']['output']>;
+  state: Maybe<Scalars['String']['output']>;
+  type: AddressesTypeEnum;
 };
 
-export type ContactInfoPersonRelationImportantDatesRelation = {
-  __typename: 'ContactInfoPersonRelationImportantDatesRelation';
+export type AddressPersonRelationImportantDatesRelation = {
+  __typename: 'AddressPersonRelationImportantDatesRelation';
   date: Scalars['String']['output'];
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
-  labels: Array<ContactInfoPersonRelationImportantDatesRelationLabelsRelation>;
+  labels: Array<AddressPersonRelationImportantDatesRelationLabelsRelation>;
   name: Scalars['String']['output'];
-  person: Maybe<ContactInfoPersonRelationImportantDatesRelationPersonRelation>;
+  person: Maybe<AddressPersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
   recurrence: Maybe<Scalars['String']['output']>;
 };
 
 
-export type ContactInfoPersonRelationImportantDatesRelationLabelsArgs = {
+export type AddressPersonRelationImportantDatesRelationLabelsArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<LabelsOrderBy>;
@@ -153,19 +163,19 @@ export type ContactInfoPersonRelationImportantDatesRelationLabelsArgs = {
 };
 
 
-export type ContactInfoPersonRelationImportantDatesRelationPersonArgs = {
+export type AddressPersonRelationImportantDatesRelationPersonArgs = {
   where?: InputMaybe<PersonsFilters>;
 };
 
-export type ContactInfoPersonRelationImportantDatesRelationLabelsRelation = {
-  __typename: 'ContactInfoPersonRelationImportantDatesRelationLabelsRelation';
+export type AddressPersonRelationImportantDatesRelationLabelsRelation = {
+  __typename: 'AddressPersonRelationImportantDatesRelationLabelsRelation';
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
 };
 
-export type ContactInfoPersonRelationImportantDatesRelationPersonRelation = {
-  __typename: 'ContactInfoPersonRelationImportantDatesRelationPersonRelation';
+export type AddressPersonRelationImportantDatesRelationPersonRelation = {
+  __typename: 'AddressPersonRelationImportantDatesRelationPersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -178,21 +188,21 @@ export type ContactInfoPersonRelationImportantDatesRelationPersonRelation = {
   updatedAt: Scalars['String']['output'];
 };
 
-export type ContactInfoPersonRelationInteractionsRelation = {
-  __typename: 'ContactInfoPersonRelationInteractionsRelation';
+export type AddressPersonRelationInteractionsRelation = {
+  __typename: 'AddressPersonRelationInteractionsRelation';
   channel: Scalars['String']['output'];
   id: Scalars['String']['output'];
-  labels: Array<ContactInfoPersonRelationInteractionsRelationLabelsRelation>;
+  labels: Array<AddressPersonRelationInteractionsRelationLabelsRelation>;
   note: Maybe<Scalars['String']['output']>;
   /** JSON */
   occurredAt: Scalars['String']['output'];
-  person: Maybe<ContactInfoPersonRelationInteractionsRelationPersonRelation>;
+  person: Maybe<AddressPersonRelationInteractionsRelationPersonRelation>;
   personId: Scalars['String']['output'];
   sentiment: Maybe<Scalars['String']['output']>;
 };
 
 
-export type ContactInfoPersonRelationInteractionsRelationLabelsArgs = {
+export type AddressPersonRelationInteractionsRelationLabelsArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<LabelsOrderBy>;
@@ -200,19 +210,19 @@ export type ContactInfoPersonRelationInteractionsRelationLabelsArgs = {
 };
 
 
-export type ContactInfoPersonRelationInteractionsRelationPersonArgs = {
+export type AddressPersonRelationInteractionsRelationPersonArgs = {
   where?: InputMaybe<PersonsFilters>;
 };
 
-export type ContactInfoPersonRelationInteractionsRelationLabelsRelation = {
-  __typename: 'ContactInfoPersonRelationInteractionsRelationLabelsRelation';
+export type AddressPersonRelationInteractionsRelationLabelsRelation = {
+  __typename: 'AddressPersonRelationInteractionsRelationLabelsRelation';
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
 };
 
-export type ContactInfoPersonRelationInteractionsRelationPersonRelation = {
-  __typename: 'ContactInfoPersonRelationInteractionsRelationPersonRelation';
+export type AddressPersonRelationInteractionsRelationPersonRelation = {
+  __typename: 'AddressPersonRelationInteractionsRelationPersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -225,25 +235,25 @@ export type ContactInfoPersonRelationInteractionsRelationPersonRelation = {
   updatedAt: Scalars['String']['output'];
 };
 
-export type ContactInfoPersonRelationLabelsRelation = {
-  __typename: 'ContactInfoPersonRelationLabelsRelation';
+export type AddressPersonRelationLabelsRelation = {
+  __typename: 'AddressPersonRelationLabelsRelation';
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
 };
 
-export type ContactInfoPersonRelationMentionedInNotesRelation = {
-  __typename: 'ContactInfoPersonRelationMentionedInNotesRelation';
+export type AddressPersonRelationMentionedInNotesRelation = {
+  __typename: 'AddressPersonRelationMentionedInNotesRelation';
   body: Scalars['String']['output'];
   id: Scalars['String']['output'];
-  labels: Array<ContactInfoPersonRelationMentionedInNotesRelationLabelsRelation>;
-  mentions: Array<ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation>;
-  person: Maybe<ContactInfoPersonRelationMentionedInNotesRelationPersonRelation>;
+  labels: Array<AddressPersonRelationMentionedInNotesRelationLabelsRelation>;
+  mentions: Array<AddressPersonRelationMentionedInNotesRelationMentionsRelation>;
+  person: Maybe<AddressPersonRelationMentionedInNotesRelationPersonRelation>;
   personId: Maybe<Scalars['String']['output']>;
 };
 
 
-export type ContactInfoPersonRelationMentionedInNotesRelationLabelsArgs = {
+export type AddressPersonRelationMentionedInNotesRelationLabelsArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<LabelsOrderBy>;
@@ -251,7 +261,7 @@ export type ContactInfoPersonRelationMentionedInNotesRelationLabelsArgs = {
 };
 
 
-export type ContactInfoPersonRelationMentionedInNotesRelationMentionsArgs = {
+export type AddressPersonRelationMentionedInNotesRelationMentionsArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<PersonsOrderBy>;
@@ -259,19 +269,19 @@ export type ContactInfoPersonRelationMentionedInNotesRelationMentionsArgs = {
 };
 
 
-export type ContactInfoPersonRelationMentionedInNotesRelationPersonArgs = {
+export type AddressPersonRelationMentionedInNotesRelationPersonArgs = {
   where?: InputMaybe<PersonsFilters>;
 };
 
-export type ContactInfoPersonRelationMentionedInNotesRelationLabelsRelation = {
-  __typename: 'ContactInfoPersonRelationMentionedInNotesRelationLabelsRelation';
+export type AddressPersonRelationMentionedInNotesRelationLabelsRelation = {
+  __typename: 'AddressPersonRelationMentionedInNotesRelationLabelsRelation';
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
 };
 
-export type ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation = {
-  __typename: 'ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation';
+export type AddressPersonRelationMentionedInNotesRelationMentionsRelation = {
+  __typename: 'AddressPersonRelationMentionedInNotesRelationMentionsRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -284,8 +294,8 @@ export type ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation = 
   updatedAt: Scalars['String']['output'];
 };
 
-export type ContactInfoPersonRelationMentionedInNotesRelationPersonRelation = {
-  __typename: 'ContactInfoPersonRelationMentionedInNotesRelationPersonRelation';
+export type AddressPersonRelationMentionedInNotesRelationPersonRelation = {
+  __typename: 'AddressPersonRelationMentionedInNotesRelationPersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -298,18 +308,18 @@ export type ContactInfoPersonRelationMentionedInNotesRelationPersonRelation = {
   updatedAt: Scalars['String']['output'];
 };
 
-export type ContactInfoPersonRelationNotesRelation = {
-  __typename: 'ContactInfoPersonRelationNotesRelation';
+export type AddressPersonRelationNotesRelation = {
+  __typename: 'AddressPersonRelationNotesRelation';
   body: Scalars['String']['output'];
   id: Scalars['String']['output'];
-  labels: Array<ContactInfoPersonRelationNotesRelationLabelsRelation>;
-  mentions: Array<ContactInfoPersonRelationNotesRelationMentionsRelation>;
-  person: Maybe<ContactInfoPersonRelationNotesRelationPersonRelation>;
+  labels: Array<AddressPersonRelationNotesRelationLabelsRelation>;
+  mentions: Array<AddressPersonRelationNotesRelationMentionsRelation>;
+  person: Maybe<AddressPersonRelationNotesRelationPersonRelation>;
   personId: Maybe<Scalars['String']['output']>;
 };
 
 
-export type ContactInfoPersonRelationNotesRelationLabelsArgs = {
+export type AddressPersonRelationNotesRelationLabelsArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<LabelsOrderBy>;
@@ -317,7 +327,7 @@ export type ContactInfoPersonRelationNotesRelationLabelsArgs = {
 };
 
 
-export type ContactInfoPersonRelationNotesRelationMentionsArgs = {
+export type AddressPersonRelationNotesRelationMentionsArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<PersonsOrderBy>;
@@ -325,19 +335,19 @@ export type ContactInfoPersonRelationNotesRelationMentionsArgs = {
 };
 
 
-export type ContactInfoPersonRelationNotesRelationPersonArgs = {
+export type AddressPersonRelationNotesRelationPersonArgs = {
   where?: InputMaybe<PersonsFilters>;
 };
 
-export type ContactInfoPersonRelationNotesRelationLabelsRelation = {
-  __typename: 'ContactInfoPersonRelationNotesRelationLabelsRelation';
+export type AddressPersonRelationNotesRelationLabelsRelation = {
+  __typename: 'AddressPersonRelationNotesRelationLabelsRelation';
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
 };
 
-export type ContactInfoPersonRelationNotesRelationMentionsRelation = {
-  __typename: 'ContactInfoPersonRelationNotesRelationMentionsRelation';
+export type AddressPersonRelationNotesRelationMentionsRelation = {
+  __typename: 'AddressPersonRelationNotesRelationMentionsRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -350,8 +360,8 @@ export type ContactInfoPersonRelationNotesRelationMentionsRelation = {
   updatedAt: Scalars['String']['output'];
 };
 
-export type ContactInfoPersonRelationNotesRelationPersonRelation = {
-  __typename: 'ContactInfoPersonRelationNotesRelationPersonRelation';
+export type AddressPersonRelationNotesRelationPersonRelation = {
+  __typename: 'AddressPersonRelationNotesRelationPersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -364,28 +374,28 @@ export type ContactInfoPersonRelationNotesRelationPersonRelation = {
   updatedAt: Scalars['String']['output'];
 };
 
-export type ContactInfoPersonRelationRelationshipsFromRelation = {
-  __typename: 'ContactInfoPersonRelationRelationshipsFromRelation';
-  fromPerson: Maybe<ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation>;
+export type AddressPersonRelationRelationshipsFromRelation = {
+  __typename: 'AddressPersonRelationRelationshipsFromRelation';
+  fromPerson: Maybe<AddressPersonRelationRelationshipsFromRelationFromPersonRelation>;
   fromPersonId: Scalars['String']['output'];
   id: Scalars['String']['output'];
-  toPerson: Maybe<ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation>;
+  toPerson: Maybe<AddressPersonRelationRelationshipsFromRelationToPersonRelation>;
   toPersonId: Scalars['String']['output'];
   type: Scalars['String']['output'];
 };
 
 
-export type ContactInfoPersonRelationRelationshipsFromRelationFromPersonArgs = {
+export type AddressPersonRelationRelationshipsFromRelationFromPersonArgs = {
   where?: InputMaybe<PersonsFilters>;
 };
 
 
-export type ContactInfoPersonRelationRelationshipsFromRelationToPersonArgs = {
+export type AddressPersonRelationRelationshipsFromRelationToPersonArgs = {
   where?: InputMaybe<PersonsFilters>;
 };
 
-export type ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation = {
-  __typename: 'ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation';
+export type AddressPersonRelationRelationshipsFromRelationFromPersonRelation = {
+  __typename: 'AddressPersonRelationRelationshipsFromRelationFromPersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -398,8 +408,8 @@ export type ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation
   updatedAt: Scalars['String']['output'];
 };
 
-export type ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation = {
-  __typename: 'ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation';
+export type AddressPersonRelationRelationshipsFromRelationToPersonRelation = {
+  __typename: 'AddressPersonRelationRelationshipsFromRelationToPersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -412,28 +422,28 @@ export type ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation =
   updatedAt: Scalars['String']['output'];
 };
 
-export type ContactInfoPersonRelationRelationshipsToRelation = {
-  __typename: 'ContactInfoPersonRelationRelationshipsToRelation';
-  fromPerson: Maybe<ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation>;
+export type AddressPersonRelationRelationshipsToRelation = {
+  __typename: 'AddressPersonRelationRelationshipsToRelation';
+  fromPerson: Maybe<AddressPersonRelationRelationshipsToRelationFromPersonRelation>;
   fromPersonId: Scalars['String']['output'];
   id: Scalars['String']['output'];
-  toPerson: Maybe<ContactInfoPersonRelationRelationshipsToRelationToPersonRelation>;
+  toPerson: Maybe<AddressPersonRelationRelationshipsToRelationToPersonRelation>;
   toPersonId: Scalars['String']['output'];
   type: Scalars['String']['output'];
 };
 
 
-export type ContactInfoPersonRelationRelationshipsToRelationFromPersonArgs = {
+export type AddressPersonRelationRelationshipsToRelationFromPersonArgs = {
   where?: InputMaybe<PersonsFilters>;
 };
 
 
-export type ContactInfoPersonRelationRelationshipsToRelationToPersonArgs = {
+export type AddressPersonRelationRelationshipsToRelationToPersonArgs = {
   where?: InputMaybe<PersonsFilters>;
 };
 
-export type ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation = {
-  __typename: 'ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation';
+export type AddressPersonRelationRelationshipsToRelationFromPersonRelation = {
+  __typename: 'AddressPersonRelationRelationshipsToRelationFromPersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -446,8 +456,8 @@ export type ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation =
   updatedAt: Scalars['String']['output'];
 };
 
-export type ContactInfoPersonRelationRelationshipsToRelationToPersonRelation = {
-  __typename: 'ContactInfoPersonRelationRelationshipsToRelationToPersonRelation';
+export type AddressPersonRelationRelationshipsToRelationToPersonRelation = {
+  __typename: 'AddressPersonRelationRelationshipsToRelationToPersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -460,8 +470,86 @@ export type ContactInfoPersonRelationRelationshipsToRelationToPersonRelation = {
   updatedAt: Scalars['String']['output'];
 };
 
-export type ContactInfosCreatedAtFilters = {
-  OR?: InputMaybe<Array<ContactInfosCreatedAtFiltersOr>>;
+export type AddressesCityFilters = {
+  OR?: InputMaybe<Array<AddressesCityFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AddressesCityFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AddressesCountryFilters = {
+  OR?: InputMaybe<Array<AddressesCountryFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AddressesCountryFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AddressesCreatedAtFilters = {
+  OR?: InputMaybe<Array<AddressesCreatedAtFiltersOr>>;
   /** JSON */
   eq?: InputMaybe<Scalars['String']['input']>;
   /** JSON */
@@ -486,7 +574,7 @@ export type ContactInfosCreatedAtFilters = {
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type ContactInfosCreatedAtFiltersOr = {
+export type AddressesCreatedAtFiltersOr = {
   /** JSON */
   eq?: InputMaybe<Scalars['String']['input']>;
   /** JSON */
@@ -511,29 +599,39 @@ export type ContactInfosCreatedAtFiltersOr = {
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type ContactInfosFilters = {
-  OR?: InputMaybe<Array<ContactInfosFiltersOr>>;
-  createdAt?: InputMaybe<ContactInfosCreatedAtFilters>;
-  id?: InputMaybe<ContactInfosIdFilters>;
-  isPrimary?: InputMaybe<ContactInfosIsPrimaryFilters>;
-  label?: InputMaybe<ContactInfosLabelFilters>;
-  personId?: InputMaybe<ContactInfosPersonIdFilters>;
-  type?: InputMaybe<ContactInfosTypeFilters>;
-  value?: InputMaybe<ContactInfosValueFilters>;
+export type AddressesFilters = {
+  OR?: InputMaybe<Array<AddressesFiltersOr>>;
+  city?: InputMaybe<AddressesCityFilters>;
+  country?: InputMaybe<AddressesCountryFilters>;
+  createdAt?: InputMaybe<AddressesCreatedAtFilters>;
+  id?: InputMaybe<AddressesIdFilters>;
+  isPrimary?: InputMaybe<AddressesIsPrimaryFilters>;
+  label?: InputMaybe<AddressesLabelFilters>;
+  line1?: InputMaybe<AddressesLine1Filters>;
+  line2?: InputMaybe<AddressesLine2Filters>;
+  personId?: InputMaybe<AddressesPersonIdFilters>;
+  postalCode?: InputMaybe<AddressesPostalCodeFilters>;
+  state?: InputMaybe<AddressesStateFilters>;
+  type?: InputMaybe<AddressesTypeFilters>;
 };
 
-export type ContactInfosFiltersOr = {
-  createdAt?: InputMaybe<ContactInfosCreatedAtFilters>;
-  id?: InputMaybe<ContactInfosIdFilters>;
-  isPrimary?: InputMaybe<ContactInfosIsPrimaryFilters>;
-  label?: InputMaybe<ContactInfosLabelFilters>;
-  personId?: InputMaybe<ContactInfosPersonIdFilters>;
-  type?: InputMaybe<ContactInfosTypeFilters>;
-  value?: InputMaybe<ContactInfosValueFilters>;
+export type AddressesFiltersOr = {
+  city?: InputMaybe<AddressesCityFilters>;
+  country?: InputMaybe<AddressesCountryFilters>;
+  createdAt?: InputMaybe<AddressesCreatedAtFilters>;
+  id?: InputMaybe<AddressesIdFilters>;
+  isPrimary?: InputMaybe<AddressesIsPrimaryFilters>;
+  label?: InputMaybe<AddressesLabelFilters>;
+  line1?: InputMaybe<AddressesLine1Filters>;
+  line2?: InputMaybe<AddressesLine2Filters>;
+  personId?: InputMaybe<AddressesPersonIdFilters>;
+  postalCode?: InputMaybe<AddressesPostalCodeFilters>;
+  state?: InputMaybe<AddressesStateFilters>;
+  type?: InputMaybe<AddressesTypeFilters>;
 };
 
-export type ContactInfosIdFilters = {
-  OR?: InputMaybe<Array<ContactInfosIdFiltersOr>>;
+export type AddressesIdFilters = {
+  OR?: InputMaybe<Array<AddressesIdFiltersOr>>;
   eq?: InputMaybe<Scalars['String']['input']>;
   gt?: InputMaybe<Scalars['String']['input']>;
   gte?: InputMaybe<Scalars['String']['input']>;
@@ -552,7 +650,7 @@ export type ContactInfosIdFilters = {
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type ContactInfosIdFiltersOr = {
+export type AddressesIdFiltersOr = {
   eq?: InputMaybe<Scalars['String']['input']>;
   gt?: InputMaybe<Scalars['String']['input']>;
   gte?: InputMaybe<Scalars['String']['input']>;
@@ -571,8 +669,8 @@ export type ContactInfosIdFiltersOr = {
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type ContactInfosIsPrimaryFilters = {
-  OR?: InputMaybe<Array<ContactInfosIsPrimaryFiltersOr>>;
+export type AddressesIsPrimaryFilters = {
+  OR?: InputMaybe<Array<AddressesIsPrimaryFiltersOr>>;
   eq?: InputMaybe<Scalars['Boolean']['input']>;
   gt?: InputMaybe<Scalars['Boolean']['input']>;
   gte?: InputMaybe<Scalars['Boolean']['input']>;
@@ -591,7 +689,7 @@ export type ContactInfosIsPrimaryFilters = {
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type ContactInfosIsPrimaryFiltersOr = {
+export type AddressesIsPrimaryFiltersOr = {
   eq?: InputMaybe<Scalars['Boolean']['input']>;
   gt?: InputMaybe<Scalars['Boolean']['input']>;
   gte?: InputMaybe<Scalars['Boolean']['input']>;
@@ -610,8 +708,8 @@ export type ContactInfosIsPrimaryFiltersOr = {
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type ContactInfosLabelFilters = {
-  OR?: InputMaybe<Array<ContactInfosLabelFiltersOr>>;
+export type AddressesLabelFilters = {
+  OR?: InputMaybe<Array<AddressesLabelFiltersOr>>;
   eq?: InputMaybe<Scalars['String']['input']>;
   gt?: InputMaybe<Scalars['String']['input']>;
   gte?: InputMaybe<Scalars['String']['input']>;
@@ -630,7 +728,7 @@ export type ContactInfosLabelFilters = {
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type ContactInfosLabelFiltersOr = {
+export type AddressesLabelFiltersOr = {
   eq?: InputMaybe<Scalars['String']['input']>;
   gt?: InputMaybe<Scalars['String']['input']>;
   gte?: InputMaybe<Scalars['String']['input']>;
@@ -649,18 +747,101 @@ export type ContactInfosLabelFiltersOr = {
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type ContactInfosOrderBy = {
+export type AddressesLine1Filters = {
+  OR?: InputMaybe<Array<AddressesLine1FiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AddressesLine1FiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AddressesLine2Filters = {
+  OR?: InputMaybe<Array<AddressesLine2FiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AddressesLine2FiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AddressesOrderBy = {
+  city?: InputMaybe<InnerOrder>;
+  country?: InputMaybe<InnerOrder>;
   createdAt?: InputMaybe<InnerOrder>;
   id?: InputMaybe<InnerOrder>;
   isPrimary?: InputMaybe<InnerOrder>;
   label?: InputMaybe<InnerOrder>;
+  line1?: InputMaybe<InnerOrder>;
+  line2?: InputMaybe<InnerOrder>;
   personId?: InputMaybe<InnerOrder>;
+  postalCode?: InputMaybe<InnerOrder>;
+  state?: InputMaybe<InnerOrder>;
   type?: InputMaybe<InnerOrder>;
-  value?: InputMaybe<InnerOrder>;
 };
 
-export type ContactInfosPersonIdFilters = {
-  OR?: InputMaybe<Array<ContactInfosPersonIdFiltersOr>>;
+export type AddressesPersonIdFilters = {
+  OR?: InputMaybe<Array<AddressesPersonIdFiltersOr>>;
   eq?: InputMaybe<Scalars['String']['input']>;
   gt?: InputMaybe<Scalars['String']['input']>;
   gte?: InputMaybe<Scalars['String']['input']>;
@@ -679,7 +860,7 @@ export type ContactInfosPersonIdFilters = {
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type ContactInfosPersonIdFiltersOr = {
+export type AddressesPersonIdFiltersOr = {
   eq?: InputMaybe<Scalars['String']['input']>;
   gt?: InputMaybe<Scalars['String']['input']>;
   gte?: InputMaybe<Scalars['String']['input']>;
@@ -698,112 +879,146 @@ export type ContactInfosPersonIdFiltersOr = {
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
-export enum ContactInfosTypeEnum {
-  /** Value: email */
-  Email = 'email',
-  /** Value: instagram */
-  Instagram = 'instagram',
-  /** Value: linkedin */
-  Linkedin = 'linkedin',
-  /** Value: mobile */
-  Mobile = 'mobile',
+export type AddressesPostalCodeFilters = {
+  OR?: InputMaybe<Array<AddressesPostalCodeFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AddressesPostalCodeFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AddressesStateFilters = {
+  OR?: InputMaybe<Array<AddressesStateFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AddressesStateFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export enum AddressesTypeEnum {
+  /** Value: home */
+  Home = 'home',
   /** Value: other */
   Other = 'other',
-  /** Value: phone */
-  Phone = 'phone',
-  /** Value: twitter */
-  Twitter = 'twitter',
-  /** Value: website */
-  Website = 'website'
+  /** Value: work */
+  Work = 'work'
 }
 
-export type ContactInfosTypeFilters = {
-  OR?: InputMaybe<Array<ContactInfosTypeFiltersOr>>;
-  eq?: InputMaybe<ContactInfosTypeEnum>;
-  gt?: InputMaybe<ContactInfosTypeEnum>;
-  gte?: InputMaybe<ContactInfosTypeEnum>;
+export type AddressesTypeFilters = {
+  OR?: InputMaybe<Array<AddressesTypeFiltersOr>>;
+  eq?: InputMaybe<AddressesTypeEnum>;
+  gt?: InputMaybe<AddressesTypeEnum>;
+  gte?: InputMaybe<AddressesTypeEnum>;
   ilike?: InputMaybe<Scalars['String']['input']>;
   /** Array<undefined> */
-  inArray?: InputMaybe<Array<ContactInfosTypeEnum>>;
+  inArray?: InputMaybe<Array<AddressesTypeEnum>>;
   isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
   isNull?: InputMaybe<Scalars['Boolean']['input']>;
   like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<ContactInfosTypeEnum>;
-  lte?: InputMaybe<ContactInfosTypeEnum>;
-  ne?: InputMaybe<ContactInfosTypeEnum>;
+  lt?: InputMaybe<AddressesTypeEnum>;
+  lte?: InputMaybe<AddressesTypeEnum>;
+  ne?: InputMaybe<AddressesTypeEnum>;
   notIlike?: InputMaybe<Scalars['String']['input']>;
   /** Array<undefined> */
-  notInArray?: InputMaybe<Array<ContactInfosTypeEnum>>;
+  notInArray?: InputMaybe<Array<AddressesTypeEnum>>;
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type ContactInfosTypeFiltersOr = {
-  eq?: InputMaybe<ContactInfosTypeEnum>;
-  gt?: InputMaybe<ContactInfosTypeEnum>;
-  gte?: InputMaybe<ContactInfosTypeEnum>;
+export type AddressesTypeFiltersOr = {
+  eq?: InputMaybe<AddressesTypeEnum>;
+  gt?: InputMaybe<AddressesTypeEnum>;
+  gte?: InputMaybe<AddressesTypeEnum>;
   ilike?: InputMaybe<Scalars['String']['input']>;
   /** Array<undefined> */
-  inArray?: InputMaybe<Array<ContactInfosTypeEnum>>;
+  inArray?: InputMaybe<Array<AddressesTypeEnum>>;
   isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
   isNull?: InputMaybe<Scalars['Boolean']['input']>;
   like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<ContactInfosTypeEnum>;
-  lte?: InputMaybe<ContactInfosTypeEnum>;
-  ne?: InputMaybe<ContactInfosTypeEnum>;
+  lt?: InputMaybe<AddressesTypeEnum>;
+  lte?: InputMaybe<AddressesTypeEnum>;
+  ne?: InputMaybe<AddressesTypeEnum>;
   notIlike?: InputMaybe<Scalars['String']['input']>;
   /** Array<undefined> */
-  notInArray?: InputMaybe<Array<ContactInfosTypeEnum>>;
+  notInArray?: InputMaybe<Array<AddressesTypeEnum>>;
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type ContactInfosValueFilters = {
-  OR?: InputMaybe<Array<ContactInfosValueFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactInfosValueFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type CreateContactInfoInput = {
+export type CreateAddressInput = {
+  city?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
   /** JSON */
   createdAt?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   isPrimary?: InputMaybe<Scalars['Boolean']['input']>;
   label?: InputMaybe<Scalars['String']['input']>;
+  line1: Scalars['String']['input'];
+  line2?: InputMaybe<Scalars['String']['input']>;
   personId: Scalars['String']['input'];
-  type: ContactInfosTypeEnum;
-  value: Scalars['String']['input'];
+  postalCode?: InputMaybe<Scalars['String']['input']>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  type: AddressesTypeEnum;
 };
 
 export type CreateImportantDateInput = {
@@ -916,9 +1131,9 @@ export type ImportantDateLabelsRelation = {
 
 export type ImportantDatePersonRelation = {
   __typename: 'ImportantDatePersonRelation';
+  addresses: Array<ImportantDatePersonRelationAddressesRelation>;
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
-  contactInfos: Array<ImportantDatePersonRelationContactInfosRelation>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -937,11 +1152,11 @@ export type ImportantDatePersonRelation = {
 };
 
 
-export type ImportantDatePersonRelationContactInfosArgs = {
+export type ImportantDatePersonRelationAddressesArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<ContactInfosOrderBy>;
-  where?: InputMaybe<ContactInfosFilters>;
+  orderBy?: InputMaybe<AddressesOrderBy>;
+  where?: InputMaybe<AddressesFilters>;
 };
 
 
@@ -1000,26 +1215,31 @@ export type ImportantDatePersonRelationRelationshipsToArgs = {
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
-export type ImportantDatePersonRelationContactInfosRelation = {
-  __typename: 'ImportantDatePersonRelationContactInfosRelation';
+export type ImportantDatePersonRelationAddressesRelation = {
+  __typename: 'ImportantDatePersonRelationAddressesRelation';
+  city: Maybe<Scalars['String']['output']>;
+  country: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   id: Scalars['String']['output'];
   isPrimary: Scalars['Boolean']['output'];
   label: Maybe<Scalars['String']['output']>;
-  person: Maybe<ImportantDatePersonRelationContactInfosRelationPersonRelation>;
+  line1: Scalars['String']['output'];
+  line2: Maybe<Scalars['String']['output']>;
+  person: Maybe<ImportantDatePersonRelationAddressesRelationPersonRelation>;
   personId: Scalars['String']['output'];
-  type: ContactInfosTypeEnum;
-  value: Scalars['String']['output'];
+  postalCode: Maybe<Scalars['String']['output']>;
+  state: Maybe<Scalars['String']['output']>;
+  type: AddressesTypeEnum;
 };
 
 
-export type ImportantDatePersonRelationContactInfosRelationPersonArgs = {
+export type ImportantDatePersonRelationAddressesRelationPersonArgs = {
   where?: InputMaybe<PersonsFilters>;
 };
 
-export type ImportantDatePersonRelationContactInfosRelationPersonRelation = {
-  __typename: 'ImportantDatePersonRelationContactInfosRelationPersonRelation';
+export type ImportantDatePersonRelationAddressesRelationPersonRelation = {
+  __typename: 'ImportantDatePersonRelationAddressesRelationPersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -1727,9 +1947,9 @@ export type InteractionLabelsRelation = {
 
 export type InteractionPersonRelation = {
   __typename: 'InteractionPersonRelation';
+  addresses: Array<InteractionPersonRelationAddressesRelation>;
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
-  contactInfos: Array<InteractionPersonRelationContactInfosRelation>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -1748,11 +1968,11 @@ export type InteractionPersonRelation = {
 };
 
 
-export type InteractionPersonRelationContactInfosArgs = {
+export type InteractionPersonRelationAddressesArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<ContactInfosOrderBy>;
-  where?: InputMaybe<ContactInfosFilters>;
+  orderBy?: InputMaybe<AddressesOrderBy>;
+  where?: InputMaybe<AddressesFilters>;
 };
 
 
@@ -1811,26 +2031,31 @@ export type InteractionPersonRelationRelationshipsToArgs = {
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
-export type InteractionPersonRelationContactInfosRelation = {
-  __typename: 'InteractionPersonRelationContactInfosRelation';
+export type InteractionPersonRelationAddressesRelation = {
+  __typename: 'InteractionPersonRelationAddressesRelation';
+  city: Maybe<Scalars['String']['output']>;
+  country: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   id: Scalars['String']['output'];
   isPrimary: Scalars['Boolean']['output'];
   label: Maybe<Scalars['String']['output']>;
-  person: Maybe<InteractionPersonRelationContactInfosRelationPersonRelation>;
+  line1: Scalars['String']['output'];
+  line2: Maybe<Scalars['String']['output']>;
+  person: Maybe<InteractionPersonRelationAddressesRelationPersonRelation>;
   personId: Scalars['String']['output'];
-  type: ContactInfosTypeEnum;
-  value: Scalars['String']['output'];
+  postalCode: Maybe<Scalars['String']['output']>;
+  state: Maybe<Scalars['String']['output']>;
+  type: AddressesTypeEnum;
 };
 
 
-export type InteractionPersonRelationContactInfosRelationPersonArgs = {
+export type InteractionPersonRelationAddressesRelationPersonArgs = {
   where?: InputMaybe<PersonsFilters>;
 };
 
-export type InteractionPersonRelationContactInfosRelationPersonRelation = {
-  __typename: 'InteractionPersonRelationContactInfosRelationPersonRelation';
+export type InteractionPersonRelationAddressesRelationPersonRelation = {
+  __typename: 'InteractionPersonRelationAddressesRelationPersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -2654,8 +2879,8 @@ export type LabelsOrderBy = {
 
 export type Mutation = {
   __typename: 'Mutation';
-  createContactInfo: Maybe<ContactInfo>;
-  createContactInfos: Array<ContactInfo>;
+  createAddress: Maybe<Address>;
+  createAddresses: Array<Address>;
   createImportantDate: Maybe<ImportantDate>;
   createImportantDateTag: Maybe<ImportantDateTag>;
   createImportantDateTags: Array<ImportantDateTag>;
@@ -2678,7 +2903,7 @@ export type Mutation = {
   createPersonRelationship: Maybe<PersonRelationship>;
   createPersonRelationships: Array<PersonRelationship>;
   createPersons: Array<Person>;
-  deleteContactInfos: Array<ContactInfo>;
+  deleteAddresses: Array<Address>;
   deleteImportantDateTags: Array<ImportantDateTag>;
   deleteImportantDates: Array<ImportantDate>;
   deleteInteractionTags: Array<InteractionTag>;
@@ -2690,7 +2915,7 @@ export type Mutation = {
   deletePersonLabels: Array<PersonLabel>;
   deletePersonRelationships: Array<PersonRelationship>;
   deletePersons: Array<Person>;
-  updateContactInfos: Array<ContactInfo>;
+  updateAddresses: Array<Address>;
   updateImportantDateTags: Array<ImportantDateTag>;
   updateImportantDates: Array<ImportantDate>;
   updateInteractionTags: Array<InteractionTag>;
@@ -2705,13 +2930,13 @@ export type Mutation = {
 };
 
 
-export type MutationCreateContactInfoArgs = {
-  values: CreateContactInfoInput;
+export type MutationCreateAddressArgs = {
+  values: CreateAddressInput;
 };
 
 
-export type MutationCreateContactInfosArgs = {
-  values: Array<CreateContactInfoInput>;
+export type MutationCreateAddressesArgs = {
+  values: Array<CreateAddressInput>;
 };
 
 
@@ -2825,8 +3050,8 @@ export type MutationCreatePersonsArgs = {
 };
 
 
-export type MutationDeleteContactInfosArgs = {
-  where?: InputMaybe<ContactInfosFilters>;
+export type MutationDeleteAddressesArgs = {
+  where?: InputMaybe<AddressesFilters>;
 };
 
 
@@ -2885,9 +3110,9 @@ export type MutationDeletePersonsArgs = {
 };
 
 
-export type MutationUpdateContactInfosArgs = {
-  set: UpdateContactInfoInput;
-  where?: InputMaybe<ContactInfosFilters>;
+export type MutationUpdateAddressesArgs = {
+  set: UpdateAddressInput;
+  where?: InputMaybe<AddressesFilters>;
 };
 
 
@@ -3096,9 +3321,9 @@ export type NoteMentionsOrderBy = {
 
 export type NoteMentionsRelation = {
   __typename: 'NoteMentionsRelation';
+  addresses: Array<NoteMentionsRelationAddressesRelation>;
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
-  contactInfos: Array<NoteMentionsRelationContactInfosRelation>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -3117,11 +3342,11 @@ export type NoteMentionsRelation = {
 };
 
 
-export type NoteMentionsRelationContactInfosArgs = {
+export type NoteMentionsRelationAddressesArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<ContactInfosOrderBy>;
-  where?: InputMaybe<ContactInfosFilters>;
+  orderBy?: InputMaybe<AddressesOrderBy>;
+  where?: InputMaybe<AddressesFilters>;
 };
 
 
@@ -3180,26 +3405,31 @@ export type NoteMentionsRelationRelationshipsToArgs = {
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
-export type NoteMentionsRelationContactInfosRelation = {
-  __typename: 'NoteMentionsRelationContactInfosRelation';
+export type NoteMentionsRelationAddressesRelation = {
+  __typename: 'NoteMentionsRelationAddressesRelation';
+  city: Maybe<Scalars['String']['output']>;
+  country: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   id: Scalars['String']['output'];
   isPrimary: Scalars['Boolean']['output'];
   label: Maybe<Scalars['String']['output']>;
-  person: Maybe<NoteMentionsRelationContactInfosRelationPersonRelation>;
+  line1: Scalars['String']['output'];
+  line2: Maybe<Scalars['String']['output']>;
+  person: Maybe<NoteMentionsRelationAddressesRelationPersonRelation>;
   personId: Scalars['String']['output'];
-  type: ContactInfosTypeEnum;
-  value: Scalars['String']['output'];
+  postalCode: Maybe<Scalars['String']['output']>;
+  state: Maybe<Scalars['String']['output']>;
+  type: AddressesTypeEnum;
 };
 
 
-export type NoteMentionsRelationContactInfosRelationPersonArgs = {
+export type NoteMentionsRelationAddressesRelationPersonArgs = {
   where?: InputMaybe<PersonsFilters>;
 };
 
-export type NoteMentionsRelationContactInfosRelationPersonRelation = {
-  __typename: 'NoteMentionsRelationContactInfosRelationPersonRelation';
+export type NoteMentionsRelationAddressesRelationPersonRelation = {
+  __typename: 'NoteMentionsRelationAddressesRelationPersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -3424,9 +3654,9 @@ export type NoteMentionsRelationRelationshipsToRelationToPersonRelation = {
 
 export type NotePersonRelation = {
   __typename: 'NotePersonRelation';
+  addresses: Array<NotePersonRelationAddressesRelation>;
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
-  contactInfos: Array<NotePersonRelationContactInfosRelation>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -3445,11 +3675,11 @@ export type NotePersonRelation = {
 };
 
 
-export type NotePersonRelationContactInfosArgs = {
+export type NotePersonRelationAddressesArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<ContactInfosOrderBy>;
-  where?: InputMaybe<ContactInfosFilters>;
+  orderBy?: InputMaybe<AddressesOrderBy>;
+  where?: InputMaybe<AddressesFilters>;
 };
 
 
@@ -3508,26 +3738,31 @@ export type NotePersonRelationRelationshipsToArgs = {
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
-export type NotePersonRelationContactInfosRelation = {
-  __typename: 'NotePersonRelationContactInfosRelation';
+export type NotePersonRelationAddressesRelation = {
+  __typename: 'NotePersonRelationAddressesRelation';
+  city: Maybe<Scalars['String']['output']>;
+  country: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   id: Scalars['String']['output'];
   isPrimary: Scalars['Boolean']['output'];
   label: Maybe<Scalars['String']['output']>;
-  person: Maybe<NotePersonRelationContactInfosRelationPersonRelation>;
+  line1: Scalars['String']['output'];
+  line2: Maybe<Scalars['String']['output']>;
+  person: Maybe<NotePersonRelationAddressesRelationPersonRelation>;
   personId: Scalars['String']['output'];
-  type: ContactInfosTypeEnum;
-  value: Scalars['String']['output'];
+  postalCode: Maybe<Scalars['String']['output']>;
+  state: Maybe<Scalars['String']['output']>;
+  type: AddressesTypeEnum;
 };
 
 
-export type NotePersonRelationContactInfosRelationPersonArgs = {
+export type NotePersonRelationAddressesRelationPersonArgs = {
   where?: InputMaybe<PersonsFilters>;
 };
 
-export type NotePersonRelationContactInfosRelationPersonRelation = {
-  __typename: 'NotePersonRelationContactInfosRelationPersonRelation';
+export type NotePersonRelationAddressesRelationPersonRelation = {
+  __typename: 'NotePersonRelationAddressesRelationPersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -3996,9 +4231,9 @@ export enum OrderDirection {
 
 export type Person = {
   __typename: 'Person';
+  addresses: Array<PersonAddressesRelation>;
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
-  contactInfos: Array<PersonContactInfosRelation>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -4018,11 +4253,11 @@ export type Person = {
 };
 
 
-export type PersonContactInfosArgs = {
+export type PersonAddressesArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<ContactInfosOrderBy>;
-  where?: InputMaybe<ContactInfosFilters>;
+  orderBy?: InputMaybe<AddressesOrderBy>;
+  where?: InputMaybe<AddressesFilters>;
 };
 
 
@@ -4081,26 +4316,31 @@ export type PersonRelationshipsToArgs = {
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
-export type PersonContactInfosRelation = {
-  __typename: 'PersonContactInfosRelation';
+export type PersonAddressesRelation = {
+  __typename: 'PersonAddressesRelation';
+  city: Maybe<Scalars['String']['output']>;
+  country: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   id: Scalars['String']['output'];
   isPrimary: Scalars['Boolean']['output'];
   label: Maybe<Scalars['String']['output']>;
-  person: Maybe<PersonContactInfosRelationPersonRelation>;
+  line1: Scalars['String']['output'];
+  line2: Maybe<Scalars['String']['output']>;
+  person: Maybe<PersonAddressesRelationPersonRelation>;
   personId: Scalars['String']['output'];
-  type: ContactInfosTypeEnum;
-  value: Scalars['String']['output'];
+  postalCode: Maybe<Scalars['String']['output']>;
+  state: Maybe<Scalars['String']['output']>;
+  type: AddressesTypeEnum;
 };
 
 
-export type PersonContactInfosRelationPersonArgs = {
+export type PersonAddressesRelationPersonArgs = {
   where?: InputMaybe<PersonsFilters>;
 };
 
-export type PersonContactInfosRelationPersonRelation = {
-  __typename: 'PersonContactInfosRelationPersonRelation';
+export type PersonAddressesRelationPersonRelation = {
+  __typename: 'PersonAddressesRelationPersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -4476,9 +4716,9 @@ export type PersonRelationshipEntry = {
 
 export type PersonRelationshipFromPersonRelation = {
   __typename: 'PersonRelationshipFromPersonRelation';
+  addresses: Array<PersonRelationshipFromPersonRelationAddressesRelation>;
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
-  contactInfos: Array<PersonRelationshipFromPersonRelationContactInfosRelation>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -4497,11 +4737,11 @@ export type PersonRelationshipFromPersonRelation = {
 };
 
 
-export type PersonRelationshipFromPersonRelationContactInfosArgs = {
+export type PersonRelationshipFromPersonRelationAddressesArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<ContactInfosOrderBy>;
-  where?: InputMaybe<ContactInfosFilters>;
+  orderBy?: InputMaybe<AddressesOrderBy>;
+  where?: InputMaybe<AddressesFilters>;
 };
 
 
@@ -4560,26 +4800,31 @@ export type PersonRelationshipFromPersonRelationRelationshipsToArgs = {
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
-export type PersonRelationshipFromPersonRelationContactInfosRelation = {
-  __typename: 'PersonRelationshipFromPersonRelationContactInfosRelation';
+export type PersonRelationshipFromPersonRelationAddressesRelation = {
+  __typename: 'PersonRelationshipFromPersonRelationAddressesRelation';
+  city: Maybe<Scalars['String']['output']>;
+  country: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   id: Scalars['String']['output'];
   isPrimary: Scalars['Boolean']['output'];
   label: Maybe<Scalars['String']['output']>;
-  person: Maybe<PersonRelationshipFromPersonRelationContactInfosRelationPersonRelation>;
+  line1: Scalars['String']['output'];
+  line2: Maybe<Scalars['String']['output']>;
+  person: Maybe<PersonRelationshipFromPersonRelationAddressesRelationPersonRelation>;
   personId: Scalars['String']['output'];
-  type: ContactInfosTypeEnum;
-  value: Scalars['String']['output'];
+  postalCode: Maybe<Scalars['String']['output']>;
+  state: Maybe<Scalars['String']['output']>;
+  type: AddressesTypeEnum;
 };
 
 
-export type PersonRelationshipFromPersonRelationContactInfosRelationPersonArgs = {
+export type PersonRelationshipFromPersonRelationAddressesRelationPersonArgs = {
   where?: InputMaybe<PersonsFilters>;
 };
 
-export type PersonRelationshipFromPersonRelationContactInfosRelationPersonRelation = {
-  __typename: 'PersonRelationshipFromPersonRelationContactInfosRelationPersonRelation';
+export type PersonRelationshipFromPersonRelationAddressesRelationPersonRelation = {
+  __typename: 'PersonRelationshipFromPersonRelationAddressesRelationPersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -4842,9 +5087,9 @@ export type PersonRelationshipFromPersonRelationRelationshipsToRelation = {
 
 export type PersonRelationshipToPersonRelation = {
   __typename: 'PersonRelationshipToPersonRelation';
+  addresses: Array<PersonRelationshipToPersonRelationAddressesRelation>;
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
-  contactInfos: Array<PersonRelationshipToPersonRelationContactInfosRelation>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
@@ -4863,11 +5108,11 @@ export type PersonRelationshipToPersonRelation = {
 };
 
 
-export type PersonRelationshipToPersonRelationContactInfosArgs = {
+export type PersonRelationshipToPersonRelationAddressesArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<ContactInfosOrderBy>;
-  where?: InputMaybe<ContactInfosFilters>;
+  orderBy?: InputMaybe<AddressesOrderBy>;
+  where?: InputMaybe<AddressesFilters>;
 };
 
 
@@ -4926,26 +5171,31 @@ export type PersonRelationshipToPersonRelationRelationshipsToArgs = {
   where?: InputMaybe<PersonRelationshipsFilters>;
 };
 
-export type PersonRelationshipToPersonRelationContactInfosRelation = {
-  __typename: 'PersonRelationshipToPersonRelationContactInfosRelation';
+export type PersonRelationshipToPersonRelationAddressesRelation = {
+  __typename: 'PersonRelationshipToPersonRelationAddressesRelation';
+  city: Maybe<Scalars['String']['output']>;
+  country: Maybe<Scalars['String']['output']>;
   /** JSON */
   createdAt: Scalars['String']['output'];
   id: Scalars['String']['output'];
   isPrimary: Scalars['Boolean']['output'];
   label: Maybe<Scalars['String']['output']>;
-  person: Maybe<PersonRelationshipToPersonRelationContactInfosRelationPersonRelation>;
+  line1: Scalars['String']['output'];
+  line2: Maybe<Scalars['String']['output']>;
+  person: Maybe<PersonRelationshipToPersonRelationAddressesRelationPersonRelation>;
   personId: Scalars['String']['output'];
-  type: ContactInfosTypeEnum;
-  value: Scalars['String']['output'];
+  postalCode: Maybe<Scalars['String']['output']>;
+  state: Maybe<Scalars['String']['output']>;
+  type: AddressesTypeEnum;
 };
 
 
-export type PersonRelationshipToPersonRelationContactInfosRelationPersonArgs = {
+export type PersonRelationshipToPersonRelationAddressesRelationPersonArgs = {
   where?: InputMaybe<PersonsFilters>;
 };
 
-export type PersonRelationshipToPersonRelationContactInfosRelationPersonRelation = {
-  __typename: 'PersonRelationshipToPersonRelationContactInfosRelationPersonRelation';
+export type PersonRelationshipToPersonRelationAddressesRelationPersonRelation = {
+  __typename: 'PersonRelationshipToPersonRelationAddressesRelationPersonRelation';
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   /** JSON */
@@ -5852,8 +6102,8 @@ export type PersonsUpdatedAtFiltersOr = {
 
 export type Query = {
   __typename: 'Query';
-  contactInfo: Maybe<ContactInfo>;
-  contactInfos: Array<ContactInfo>;
+  address: Maybe<Address>;
+  addresss: Array<Address>;
   importantDate: Maybe<ImportantDate>;
   importantDateTag: Maybe<ImportantDateTag>;
   importantDateTags: Array<ImportantDateTag>;
@@ -5879,18 +6129,18 @@ export type Query = {
 };
 
 
-export type QueryContactInfoArgs = {
+export type QueryAddressArgs = {
   offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<ContactInfosOrderBy>;
-  where?: InputMaybe<ContactInfosFilters>;
+  orderBy?: InputMaybe<AddressesOrderBy>;
+  where?: InputMaybe<AddressesFilters>;
 };
 
 
-export type QueryContactInfosArgs = {
+export type QueryAddresssArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
-  orderBy?: InputMaybe<ContactInfosOrderBy>;
-  where?: InputMaybe<ContactInfosFilters>;
+  orderBy?: InputMaybe<AddressesOrderBy>;
+  where?: InputMaybe<AddressesFilters>;
 };
 
 
@@ -6058,15 +6308,20 @@ export type QueryPersonsArgs = {
   where?: InputMaybe<PersonsFilters>;
 };
 
-export type UpdateContactInfoInput = {
+export type UpdateAddressInput = {
+  city?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
   /** JSON */
   createdAt?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   isPrimary?: InputMaybe<Scalars['Boolean']['input']>;
   label?: InputMaybe<Scalars['String']['input']>;
+  line1?: InputMaybe<Scalars['String']['input']>;
+  line2?: InputMaybe<Scalars['String']['input']>;
   personId?: InputMaybe<Scalars['String']['input']>;
-  type?: InputMaybe<ContactInfosTypeEnum>;
-  value?: InputMaybe<Scalars['String']['input']>;
+  postalCode?: InputMaybe<Scalars['String']['input']>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<AddressesTypeEnum>;
 };
 
 export type UpdateImportantDateInput = {
@@ -6145,25 +6400,21 @@ export type UpdatePersonRelationshipInput = {
   type?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type ContactInfo_ListFragment = { __typename: 'Person', id: string, contactInfos: Array<{ __typename: 'PersonContactInfosRelation', id: string, type: ContactInfosTypeEnum, value: string, label: string | null, isPrimary: boolean }> };
+export type AddressListFragment = { __typename: 'Person', id: string, addresses: Array<{ __typename: 'PersonAddressesRelation', id: string, type: AddressesTypeEnum, label: string | null, line1: string, line2: string | null, city: string | null, state: string | null, postalCode: string | null, country: string | null, isPrimary: boolean }> };
 
-export type CreateContactInfoMutationVariables = Exact<{
-  personId: Scalars['String']['input'];
-  type: ContactInfosTypeEnum;
-  value: Scalars['String']['input'];
-  label?: InputMaybe<Scalars['String']['input']>;
-  isPrimary?: InputMaybe<Scalars['Boolean']['input']>;
+export type CreateAddressesMutationVariables = Exact<{
+  values: Array<CreateAddressInput> | CreateAddressInput;
 }>;
 
 
-export type CreateContactInfoMutation = { createContactInfo: { __typename: 'ContactInfo', id: string, personId: string, type: ContactInfosTypeEnum, value: string, label: string | null, isPrimary: boolean } | null };
+export type CreateAddressesMutation = { createAddresses: Array<{ __typename: 'Address', id: string, type: AddressesTypeEnum, label: string | null, line1: string, line2: string | null, city: string | null, state: string | null, postalCode: string | null, country: string | null, isPrimary: boolean }> };
 
-export type DeleteContactInfoMutationVariables = Exact<{
+export type DeleteAddressesMutationVariables = Exact<{
   id: Scalars['String']['input'];
 }>;
 
 
-export type DeleteContactInfoMutation = { deleteContactInfos: Array<{ __typename: 'ContactInfo', id: string }> };
+export type DeleteAddressesMutation = { deleteAddresses: Array<{ __typename: 'Address', id: string }> };
 
 export type GetPersonsWithFrequencyQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -6375,7 +6626,7 @@ export type GetPersonDetailQueryVariables = Exact<{
 }>;
 
 
-export type GetPersonDetailQuery = { persons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string, avatarPath: string | null, contactFrequency: string | null, createdAt: string, updatedAt: string, labels: Array<{ __typename: 'PersonLabelsRelation', id: string, label: string, color: string }>, importantDates: Array<{ __typename: 'PersonImportantDatesRelation', id: string, name: string, description: string | null, date: string, recurrence: string | null, labels: Array<{ __typename: 'PersonImportantDatesRelationLabelsRelation', id: string, label: string, color: string }> }>, notes: Array<{ __typename: 'PersonNotesRelation', id: string, body: string, labels: Array<{ __typename: 'PersonNotesRelationLabelsRelation', id: string, label: string, color: string }>, mentions: Array<{ __typename: 'PersonNotesRelationMentionsRelation', id: string, firstName: string, lastName: string }> }>, mentionedInNotes: Array<{ __typename: 'PersonMentionedInNotesRelation', id: string, body: string, person: { __typename: 'PersonMentionedInNotesRelationPersonRelation', id: string, firstName: string, lastName: string } | null }>, interactions: Array<{ __typename: 'PersonInteractionsRelation', id: string, personId: string, channel: string, occurredAt: string, sentiment: string | null, note: string | null, labels: Array<{ __typename: 'PersonInteractionsRelationLabelsRelation', id: string, label: string, color: string }> }>, relationships: Array<{ __typename: 'PersonRelationshipEntry', id: string, type: string, relatedPersonId: string, relatedPersonFirstName: string, relatedPersonLastName: string }>, contactInfos: Array<{ __typename: 'PersonContactInfosRelation', id: string, type: ContactInfosTypeEnum, value: string, label: string | null, isPrimary: boolean }> }> };
+export type GetPersonDetailQuery = { persons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string, avatarPath: string | null, contactFrequency: string | null, createdAt: string, updatedAt: string, labels: Array<{ __typename: 'PersonLabelsRelation', id: string, label: string, color: string }>, importantDates: Array<{ __typename: 'PersonImportantDatesRelation', id: string, name: string, description: string | null, date: string, recurrence: string | null, labels: Array<{ __typename: 'PersonImportantDatesRelationLabelsRelation', id: string, label: string, color: string }> }>, notes: Array<{ __typename: 'PersonNotesRelation', id: string, body: string, labels: Array<{ __typename: 'PersonNotesRelationLabelsRelation', id: string, label: string, color: string }>, mentions: Array<{ __typename: 'PersonNotesRelationMentionsRelation', id: string, firstName: string, lastName: string }> }>, mentionedInNotes: Array<{ __typename: 'PersonMentionedInNotesRelation', id: string, body: string, person: { __typename: 'PersonMentionedInNotesRelationPersonRelation', id: string, firstName: string, lastName: string } | null }>, interactions: Array<{ __typename: 'PersonInteractionsRelation', id: string, personId: string, channel: string, occurredAt: string, sentiment: string | null, note: string | null, labels: Array<{ __typename: 'PersonInteractionsRelationLabelsRelation', id: string, label: string, color: string }> }>, relationships: Array<{ __typename: 'PersonRelationshipEntry', id: string, type: string, relatedPersonId: string, relatedPersonFirstName: string, relatedPersonLastName: string }>, addresses: Array<{ __typename: 'PersonAddressesRelation', id: string, type: AddressesTypeEnum, label: string | null, line1: string, line2: string | null, city: string | null, state: string | null, postalCode: string | null, country: string | null, isPrimary: boolean }> }> };
 
 export type GetAllPersonsForDetailQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -6486,14 +6737,14 @@ export type DeleteTagMutationVariables = Exact<{
 
 export type DeleteTagMutation = { deleteLabels: Array<{ __typename: 'Label', id: string }> };
 
-export const ContactInfo_ListFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"ContactInfo_List"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Person"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"contactInfos"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"value"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"isPrimary"}}]}}]}}]} as unknown as DocumentNode<ContactInfo_ListFragment, unknown>;
+export const AddressListFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"AddressList"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Person"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"addresses"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"line1"}},{"kind":"Field","name":{"kind":"Name","value":"line2"}},{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"state"}},{"kind":"Field","name":{"kind":"Name","value":"postalCode"}},{"kind":"Field","name":{"kind":"Name","value":"country"}},{"kind":"Field","name":{"kind":"Name","value":"isPrimary"}}]}}]}}]} as unknown as DocumentNode<AddressListFragment, unknown>;
 export const Label_ListFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Label_List"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Label"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]} as unknown as DocumentNode<Label_ListFragment, unknown>;
 export const Person_LabelsFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Person_Labels"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Person"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}}]} as unknown as DocumentNode<Person_LabelsFragment, unknown>;
 export const Person_RelationshipsFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Person_Relationships"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Person"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"relationships"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonId"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonFirstName"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonLastName"}}]}}]}}]} as unknown as DocumentNode<Person_RelationshipsFragment, unknown>;
 export const Person_ListFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Person_List"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Person"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"importantDates"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"date"}}]}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"Person_Relationships"}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Person_Relationships"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Person"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"relationships"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonId"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonFirstName"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonLastName"}}]}}]}}]} as unknown as DocumentNode<Person_ListFragment, unknown>;
 export const Tag_ListFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Tag_List"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Label"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]} as unknown as DocumentNode<Tag_ListFragment, unknown>;
-export const CreateContactInfoDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateContactInfo"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"personId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"type"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ContactInfosTypeEnum"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"value"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"label"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"isPrimary"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Boolean"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createContactInfo"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"values"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"personId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"personId"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"type"},"value":{"kind":"Variable","name":{"kind":"Name","value":"type"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"value"},"value":{"kind":"Variable","name":{"kind":"Name","value":"value"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"label"},"value":{"kind":"Variable","name":{"kind":"Name","value":"label"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"isPrimary"},"value":{"kind":"Variable","name":{"kind":"Name","value":"isPrimary"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"personId"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"value"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"isPrimary"}}]}}]}}]} as unknown as DocumentNode<CreateContactInfoMutation, CreateContactInfoMutationVariables>;
-export const DeleteContactInfoDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"DeleteContactInfo"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"deleteContactInfos"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<DeleteContactInfoMutation, DeleteContactInfoMutationVariables>;
+export const CreateAddressesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateAddresses"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"values"}},"type":{"kind":"NonNullType","type":{"kind":"ListType","type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"CreateAddressInput"}}}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createAddresses"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"values"},"value":{"kind":"Variable","name":{"kind":"Name","value":"values"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"line1"}},{"kind":"Field","name":{"kind":"Name","value":"line2"}},{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"state"}},{"kind":"Field","name":{"kind":"Name","value":"postalCode"}},{"kind":"Field","name":{"kind":"Name","value":"country"}},{"kind":"Field","name":{"kind":"Name","value":"isPrimary"}}]}}]}}]} as unknown as DocumentNode<CreateAddressesMutation, CreateAddressesMutationVariables>;
+export const DeleteAddressesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"DeleteAddresses"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"deleteAddresses"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<DeleteAddressesMutation, DeleteAddressesMutationVariables>;
 export const GetPersonsWithFrequencyDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetPersonsWithFrequency"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"persons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"contactFrequency"}},{"kind":"Field","name":{"kind":"Name","value":"interactions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"1"}},{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"occurredAt"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"direction"},"value":{"kind":"EnumValue","value":"desc"}},{"kind":"ObjectField","name":{"kind":"Name","value":"priority"},"value":{"kind":"IntValue","value":"1"}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}}]}}]}}]}}]} as unknown as DocumentNode<GetPersonsWithFrequencyQuery, GetPersonsWithFrequencyQueryVariables>;
 export const GetPersonInteractionsForWidgetDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetPersonInteractionsForWidget"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"personId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"interactions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"personId"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"personId"}}}]}}]}},{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"occurredAt"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"direction"},"value":{"kind":"EnumValue","value":"desc"}},{"kind":"ObjectField","name":{"kind":"Name","value":"priority"},"value":{"kind":"IntValue","value":"1"}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"personId"}},{"kind":"Field","name":{"kind":"Name","value":"channel"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}},{"kind":"Field","name":{"kind":"Name","value":"sentiment"}},{"kind":"Field","name":{"kind":"Name","value":"note"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}}]}}]} as unknown as DocumentNode<GetPersonInteractionsForWidgetQuery, GetPersonInteractionsForWidgetQueryVariables>;
 export const GetAllLabelsForWidgetDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetAllLabelsForWidget"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}}]} as unknown as DocumentNode<GetAllLabelsForWidgetQuery, GetAllLabelsForWidgetQueryVariables>;
@@ -6520,7 +6771,7 @@ export const UpdatePersonRelationshipDocument = {"kind":"Document","definitions"
 export const DeletePersonRelationshipDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"DeletePersonRelationship"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"deletePersonRelationships"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<DeletePersonRelationshipMutation, DeletePersonRelationshipMutationVariables>;
 export const GetNetworkDataDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetNetworkData"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"persons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"relationshipsFrom"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"toPersonId"}},{"kind":"Field","name":{"kind":"Name","value":"type"}}]}}]}}]}}]} as unknown as DocumentNode<GetNetworkDataQuery, GetNetworkDataQueryVariables>;
 export const GetImportantDateDetailDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetImportantDateDetail"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"dateId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"personId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"importantDates"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"dateId"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"recurrence"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"notes"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"personId"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"personId"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}}]}}]} as unknown as DocumentNode<GetImportantDateDetailQuery, GetImportantDateDetailQueryVariables>;
-export const GetPersonDetailDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetPersonDetail"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"persons"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"contactFrequency"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"importantDates"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"recurrence"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"notes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"mentions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"mentionedInNotes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"person"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"interactions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"occurredAt"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"direction"},"value":{"kind":"EnumValue","value":"desc"}},{"kind":"ObjectField","name":{"kind":"Name","value":"priority"},"value":{"kind":"IntValue","value":"1"}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"personId"}},{"kind":"Field","name":{"kind":"Name","value":"channel"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}},{"kind":"Field","name":{"kind":"Name","value":"sentiment"}},{"kind":"Field","name":{"kind":"Name","value":"note"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"relationships"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonId"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonFirstName"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonLastName"}}]}},{"kind":"Field","name":{"kind":"Name","value":"contactInfos"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"value"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"isPrimary"}}]}}]}}]}}]} as unknown as DocumentNode<GetPersonDetailQuery, GetPersonDetailQueryVariables>;
+export const GetPersonDetailDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetPersonDetail"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"persons"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"contactFrequency"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"importantDates"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"recurrence"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"notes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"mentions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"mentionedInNotes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"person"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"interactions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"occurredAt"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"direction"},"value":{"kind":"EnumValue","value":"desc"}},{"kind":"ObjectField","name":{"kind":"Name","value":"priority"},"value":{"kind":"IntValue","value":"1"}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"personId"}},{"kind":"Field","name":{"kind":"Name","value":"channel"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}},{"kind":"Field","name":{"kind":"Name","value":"sentiment"}},{"kind":"Field","name":{"kind":"Name","value":"note"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"relationships"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonId"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonFirstName"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonLastName"}}]}},{"kind":"Field","name":{"kind":"Name","value":"addresses"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"line1"}},{"kind":"Field","name":{"kind":"Name","value":"line2"}},{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"state"}},{"kind":"Field","name":{"kind":"Name","value":"postalCode"}},{"kind":"Field","name":{"kind":"Name","value":"country"}},{"kind":"Field","name":{"kind":"Name","value":"isPrimary"}}]}}]}}]}}]} as unknown as DocumentNode<GetPersonDetailQuery, GetPersonDetailQueryVariables>;
 export const GetAllPersonsForDetailDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetAllPersonsForDetail"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"persons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}}]}}]} as unknown as DocumentNode<GetAllPersonsForDetailQuery, GetAllPersonsForDetailQueryVariables>;
 export const GetAllLabelsForDetailDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetAllLabelsForDetail"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}}]} as unknown as DocumentNode<GetAllLabelsForDetailQuery, GetAllLabelsForDetailQueryVariables>;
 export const DeleteImportantDateDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"DeleteImportantDate"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"deleteImportantDates"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<DeleteImportantDateMutation, DeleteImportantDateMutationVariables>;

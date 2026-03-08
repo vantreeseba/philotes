@@ -30,6 +30,7 @@ export const relations = defineRelations(schema, (r) => ({
     }),
     tasks: r.many.tasks(),
     contactInfos: r.many.contactInfos(),
+    addresses: r.many.addresses(),
   },
   notes: {
     person: r.one.persons({
@@ -102,6 +103,12 @@ export const relations = defineRelations(schema, (r) => ({
   contactInfos: {
     person: r.one.persons({
       from: r.contactInfos.personId,
+      to: r.persons.id,
+    }),
+  },
+  addresses: {
+    person: r.one.persons({
+      from: r.addresses.personId,
       to: r.persons.id,
     }),
   },

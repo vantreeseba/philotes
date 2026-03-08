@@ -3,68 +3,78 @@ schema {
   mutation: Mutation
 }
 
-type ContactInfo {
+type Address {
+  city: String
+  country: String
   """JSON"""
   createdAt: String!
   id: String!
   isPrimary: Boolean!
   label: String
-  person(where: PersonsFilters): ContactInfoPersonRelation
+  line1: String!
+  line2: String
+  person(where: PersonsFilters): AddressPersonRelation
   personId: String!
-  type: ContactInfosTypeEnum!
-  value: String!
+  postalCode: String
+  state: String
+  type: AddressesTypeEnum!
 }
 
-type ContactInfoPersonRelation {
+type AddressPersonRelation {
+  addresses(limit: Int, offset: Int, orderBy: AddressesOrderBy, where: AddressesFilters): [AddressPersonRelationAddressesRelation!]!
   avatarPath: String
   contactFrequency: String
-  contactInfos(limit: Int, offset: Int, orderBy: ContactInfosOrderBy, where: ContactInfosFilters): [ContactInfoPersonRelationContactInfosRelation!]!
   """JSON"""
   createdAt: String!
   email: String!
   firstName: String!
   id: String!
-  importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [ContactInfoPersonRelationImportantDatesRelation!]!
-  interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [ContactInfoPersonRelationInteractionsRelation!]!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ContactInfoPersonRelationLabelsRelation!]!
+  importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [AddressPersonRelationImportantDatesRelation!]!
+  interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [AddressPersonRelationInteractionsRelation!]!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [AddressPersonRelationLabelsRelation!]!
   lastName: String!
-  mentionedInNotes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [ContactInfoPersonRelationMentionedInNotesRelation!]!
-  notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [ContactInfoPersonRelationNotesRelation!]!
-  relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [ContactInfoPersonRelationRelationshipsFromRelation!]!
-  relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [ContactInfoPersonRelationRelationshipsToRelation!]!
+  mentionedInNotes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [AddressPersonRelationMentionedInNotesRelation!]!
+  notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [AddressPersonRelationNotesRelation!]!
+  relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [AddressPersonRelationRelationshipsFromRelation!]!
+  relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [AddressPersonRelationRelationshipsToRelation!]!
   """JSON"""
   updatedAt: String!
 }
 
-type ContactInfoPersonRelationContactInfosRelation {
+type AddressPersonRelationAddressesRelation {
+  city: String
+  country: String
   """JSON"""
   createdAt: String!
   id: String!
   isPrimary: Boolean!
   label: String
+  line1: String!
+  line2: String
   personId: String!
-  type: ContactInfosTypeEnum!
-  value: String!
+  postalCode: String
+  state: String
+  type: AddressesTypeEnum!
 }
 
-type ContactInfoPersonRelationImportantDatesRelation {
+type AddressPersonRelationImportantDatesRelation {
   date: String!
   description: String
   id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ContactInfoPersonRelationImportantDatesRelationLabelsRelation!]!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [AddressPersonRelationImportantDatesRelationLabelsRelation!]!
   name: String!
-  person(where: PersonsFilters): ContactInfoPersonRelationImportantDatesRelationPersonRelation
+  person(where: PersonsFilters): AddressPersonRelationImportantDatesRelationPersonRelation
   personId: String!
   recurrence: String
 }
 
-type ContactInfoPersonRelationImportantDatesRelationLabelsRelation {
+type AddressPersonRelationImportantDatesRelationLabelsRelation {
   color: String!
   id: String!
   label: String!
 }
 
-type ContactInfoPersonRelationImportantDatesRelationPersonRelation {
+type AddressPersonRelationImportantDatesRelationPersonRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -77,25 +87,25 @@ type ContactInfoPersonRelationImportantDatesRelationPersonRelation {
   updatedAt: String!
 }
 
-type ContactInfoPersonRelationInteractionsRelation {
+type AddressPersonRelationInteractionsRelation {
   channel: String!
   id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ContactInfoPersonRelationInteractionsRelationLabelsRelation!]!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [AddressPersonRelationInteractionsRelationLabelsRelation!]!
   note: String
   """JSON"""
   occurredAt: String!
-  person(where: PersonsFilters): ContactInfoPersonRelationInteractionsRelationPersonRelation
+  person(where: PersonsFilters): AddressPersonRelationInteractionsRelationPersonRelation
   personId: String!
   sentiment: String
 }
 
-type ContactInfoPersonRelationInteractionsRelationLabelsRelation {
+type AddressPersonRelationInteractionsRelationLabelsRelation {
   color: String!
   id: String!
   label: String!
 }
 
-type ContactInfoPersonRelationInteractionsRelationPersonRelation {
+type AddressPersonRelationInteractionsRelationPersonRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -108,28 +118,28 @@ type ContactInfoPersonRelationInteractionsRelationPersonRelation {
   updatedAt: String!
 }
 
-type ContactInfoPersonRelationLabelsRelation {
+type AddressPersonRelationLabelsRelation {
   color: String!
   id: String!
   label: String!
 }
 
-type ContactInfoPersonRelationMentionedInNotesRelation {
+type AddressPersonRelationMentionedInNotesRelation {
   body: String!
   id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ContactInfoPersonRelationMentionedInNotesRelationLabelsRelation!]!
-  mentions(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation!]!
-  person(where: PersonsFilters): ContactInfoPersonRelationMentionedInNotesRelationPersonRelation
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [AddressPersonRelationMentionedInNotesRelationLabelsRelation!]!
+  mentions(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [AddressPersonRelationMentionedInNotesRelationMentionsRelation!]!
+  person(where: PersonsFilters): AddressPersonRelationMentionedInNotesRelationPersonRelation
   personId: String
 }
 
-type ContactInfoPersonRelationMentionedInNotesRelationLabelsRelation {
+type AddressPersonRelationMentionedInNotesRelationLabelsRelation {
   color: String!
   id: String!
   label: String!
 }
 
-type ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation {
+type AddressPersonRelationMentionedInNotesRelationMentionsRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -142,7 +152,7 @@ type ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation {
   updatedAt: String!
 }
 
-type ContactInfoPersonRelationMentionedInNotesRelationPersonRelation {
+type AddressPersonRelationMentionedInNotesRelationPersonRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -155,22 +165,22 @@ type ContactInfoPersonRelationMentionedInNotesRelationPersonRelation {
   updatedAt: String!
 }
 
-type ContactInfoPersonRelationNotesRelation {
+type AddressPersonRelationNotesRelation {
   body: String!
   id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ContactInfoPersonRelationNotesRelationLabelsRelation!]!
-  mentions(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [ContactInfoPersonRelationNotesRelationMentionsRelation!]!
-  person(where: PersonsFilters): ContactInfoPersonRelationNotesRelationPersonRelation
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [AddressPersonRelationNotesRelationLabelsRelation!]!
+  mentions(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [AddressPersonRelationNotesRelationMentionsRelation!]!
+  person(where: PersonsFilters): AddressPersonRelationNotesRelationPersonRelation
   personId: String
 }
 
-type ContactInfoPersonRelationNotesRelationLabelsRelation {
+type AddressPersonRelationNotesRelationLabelsRelation {
   color: String!
   id: String!
   label: String!
 }
 
-type ContactInfoPersonRelationNotesRelationMentionsRelation {
+type AddressPersonRelationNotesRelationMentionsRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -183,7 +193,7 @@ type ContactInfoPersonRelationNotesRelationMentionsRelation {
   updatedAt: String!
 }
 
-type ContactInfoPersonRelationNotesRelationPersonRelation {
+type AddressPersonRelationNotesRelationPersonRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -196,16 +206,16 @@ type ContactInfoPersonRelationNotesRelationPersonRelation {
   updatedAt: String!
 }
 
-type ContactInfoPersonRelationRelationshipsFromRelation {
-  fromPerson(where: PersonsFilters): ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation
+type AddressPersonRelationRelationshipsFromRelation {
+  fromPerson(where: PersonsFilters): AddressPersonRelationRelationshipsFromRelationFromPersonRelation
   fromPersonId: String!
   id: String!
-  toPerson(where: PersonsFilters): ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation
+  toPerson(where: PersonsFilters): AddressPersonRelationRelationshipsFromRelationToPersonRelation
   toPersonId: String!
   type: String!
 }
 
-type ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation {
+type AddressPersonRelationRelationshipsFromRelationFromPersonRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -218,7 +228,7 @@ type ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation {
   updatedAt: String!
 }
 
-type ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation {
+type AddressPersonRelationRelationshipsFromRelationToPersonRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -231,16 +241,16 @@ type ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation {
   updatedAt: String!
 }
 
-type ContactInfoPersonRelationRelationshipsToRelation {
-  fromPerson(where: PersonsFilters): ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation
+type AddressPersonRelationRelationshipsToRelation {
+  fromPerson(where: PersonsFilters): AddressPersonRelationRelationshipsToRelationFromPersonRelation
   fromPersonId: String!
   id: String!
-  toPerson(where: PersonsFilters): ContactInfoPersonRelationRelationshipsToRelationToPersonRelation
+  toPerson(where: PersonsFilters): AddressPersonRelationRelationshipsToRelationToPersonRelation
   toPersonId: String!
   type: String!
 }
 
-type ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation {
+type AddressPersonRelationRelationshipsToRelationFromPersonRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -253,7 +263,7 @@ type ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation {
   updatedAt: String!
 }
 
-type ContactInfoPersonRelationRelationshipsToRelationToPersonRelation {
+type AddressPersonRelationRelationshipsToRelationToPersonRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -266,8 +276,86 @@ type ContactInfoPersonRelationRelationshipsToRelationToPersonRelation {
   updatedAt: String!
 }
 
-input ContactInfosCreatedAtFilters {
-  OR: [ContactInfosCreatedAtFiltersOr!]
+input AddressesCityFilters {
+  OR: [AddressesCityFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input AddressesCityFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input AddressesCountryFilters {
+  OR: [AddressesCountryFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input AddressesCountryFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input AddressesCreatedAtFilters {
+  OR: [AddressesCreatedAtFiltersOr!]
   """JSON"""
   eq: String
   """JSON"""
@@ -292,7 +380,7 @@ input ContactInfosCreatedAtFilters {
   notLike: String
 }
 
-input ContactInfosCreatedAtFiltersOr {
+input AddressesCreatedAtFiltersOr {
   """JSON"""
   eq: String
   """JSON"""
@@ -317,29 +405,39 @@ input ContactInfosCreatedAtFiltersOr {
   notLike: String
 }
 
-input ContactInfosFilters {
-  OR: [ContactInfosFiltersOr!]
-  createdAt: ContactInfosCreatedAtFilters
-  id: ContactInfosIdFilters
-  isPrimary: ContactInfosIsPrimaryFilters
-  label: ContactInfosLabelFilters
-  personId: ContactInfosPersonIdFilters
-  type: ContactInfosTypeFilters
-  value: ContactInfosValueFilters
+input AddressesFilters {
+  OR: [AddressesFiltersOr!]
+  city: AddressesCityFilters
+  country: AddressesCountryFilters
+  createdAt: AddressesCreatedAtFilters
+  id: AddressesIdFilters
+  isPrimary: AddressesIsPrimaryFilters
+  label: AddressesLabelFilters
+  line1: AddressesLine1Filters
+  line2: AddressesLine2Filters
+  personId: AddressesPersonIdFilters
+  postalCode: AddressesPostalCodeFilters
+  state: AddressesStateFilters
+  type: AddressesTypeFilters
 }
 
-input ContactInfosFiltersOr {
-  createdAt: ContactInfosCreatedAtFilters
-  id: ContactInfosIdFilters
-  isPrimary: ContactInfosIsPrimaryFilters
-  label: ContactInfosLabelFilters
-  personId: ContactInfosPersonIdFilters
-  type: ContactInfosTypeFilters
-  value: ContactInfosValueFilters
+input AddressesFiltersOr {
+  city: AddressesCityFilters
+  country: AddressesCountryFilters
+  createdAt: AddressesCreatedAtFilters
+  id: AddressesIdFilters
+  isPrimary: AddressesIsPrimaryFilters
+  label: AddressesLabelFilters
+  line1: AddressesLine1Filters
+  line2: AddressesLine2Filters
+  personId: AddressesPersonIdFilters
+  postalCode: AddressesPostalCodeFilters
+  state: AddressesStateFilters
+  type: AddressesTypeFilters
 }
 
-input ContactInfosIdFilters {
-  OR: [ContactInfosIdFiltersOr!]
+input AddressesIdFilters {
+  OR: [AddressesIdFiltersOr!]
   eq: String
   gt: String
   gte: String
@@ -358,7 +456,7 @@ input ContactInfosIdFilters {
   notLike: String
 }
 
-input ContactInfosIdFiltersOr {
+input AddressesIdFiltersOr {
   eq: String
   gt: String
   gte: String
@@ -377,8 +475,8 @@ input ContactInfosIdFiltersOr {
   notLike: String
 }
 
-input ContactInfosIsPrimaryFilters {
-  OR: [ContactInfosIsPrimaryFiltersOr!]
+input AddressesIsPrimaryFilters {
+  OR: [AddressesIsPrimaryFiltersOr!]
   eq: Boolean
   gt: Boolean
   gte: Boolean
@@ -397,7 +495,7 @@ input ContactInfosIsPrimaryFilters {
   notLike: String
 }
 
-input ContactInfosIsPrimaryFiltersOr {
+input AddressesIsPrimaryFiltersOr {
   eq: Boolean
   gt: Boolean
   gte: Boolean
@@ -416,8 +514,8 @@ input ContactInfosIsPrimaryFiltersOr {
   notLike: String
 }
 
-input ContactInfosLabelFilters {
-  OR: [ContactInfosLabelFiltersOr!]
+input AddressesLabelFilters {
+  OR: [AddressesLabelFiltersOr!]
   eq: String
   gt: String
   gte: String
@@ -436,7 +534,7 @@ input ContactInfosLabelFilters {
   notLike: String
 }
 
-input ContactInfosLabelFiltersOr {
+input AddressesLabelFiltersOr {
   eq: String
   gt: String
   gte: String
@@ -455,18 +553,101 @@ input ContactInfosLabelFiltersOr {
   notLike: String
 }
 
-input ContactInfosOrderBy {
+input AddressesLine1Filters {
+  OR: [AddressesLine1FiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input AddressesLine1FiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input AddressesLine2Filters {
+  OR: [AddressesLine2FiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input AddressesLine2FiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input AddressesOrderBy {
+  city: InnerOrder
+  country: InnerOrder
   createdAt: InnerOrder
   id: InnerOrder
   isPrimary: InnerOrder
   label: InnerOrder
+  line1: InnerOrder
+  line2: InnerOrder
   personId: InnerOrder
+  postalCode: InnerOrder
+  state: InnerOrder
   type: InnerOrder
-  value: InnerOrder
 }
 
-input ContactInfosPersonIdFilters {
-  OR: [ContactInfosPersonIdFiltersOr!]
+input AddressesPersonIdFilters {
+  OR: [AddressesPersonIdFiltersOr!]
   eq: String
   gt: String
   gte: String
@@ -485,7 +666,7 @@ input ContactInfosPersonIdFilters {
   notLike: String
 }
 
-input ContactInfosPersonIdFiltersOr {
+input AddressesPersonIdFiltersOr {
   eq: String
   gt: String
   gte: String
@@ -504,112 +685,146 @@ input ContactInfosPersonIdFiltersOr {
   notLike: String
 }
 
-enum ContactInfosTypeEnum {
-  """Value: email"""
-  email
-  """Value: instagram"""
-  instagram
-  """Value: linkedin"""
-  linkedin
-  """Value: mobile"""
-  mobile
+input AddressesPostalCodeFilters {
+  OR: [AddressesPostalCodeFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input AddressesPostalCodeFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input AddressesStateFilters {
+  OR: [AddressesStateFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input AddressesStateFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+enum AddressesTypeEnum {
+  """Value: home"""
+  home
   """Value: other"""
   other
-  """Value: phone"""
-  phone
-  """Value: twitter"""
-  twitter
-  """Value: website"""
-  website
+  """Value: work"""
+  work
 }
 
-input ContactInfosTypeFilters {
-  OR: [ContactInfosTypeFiltersOr!]
-  eq: ContactInfosTypeEnum
-  gt: ContactInfosTypeEnum
-  gte: ContactInfosTypeEnum
+input AddressesTypeFilters {
+  OR: [AddressesTypeFiltersOr!]
+  eq: AddressesTypeEnum
+  gt: AddressesTypeEnum
+  gte: AddressesTypeEnum
   ilike: String
   """Array<undefined>"""
-  inArray: [ContactInfosTypeEnum!]
+  inArray: [AddressesTypeEnum!]
   isNotNull: Boolean
   isNull: Boolean
   like: String
-  lt: ContactInfosTypeEnum
-  lte: ContactInfosTypeEnum
-  ne: ContactInfosTypeEnum
+  lt: AddressesTypeEnum
+  lte: AddressesTypeEnum
+  ne: AddressesTypeEnum
   notIlike: String
   """Array<undefined>"""
-  notInArray: [ContactInfosTypeEnum!]
+  notInArray: [AddressesTypeEnum!]
   notLike: String
 }
 
-input ContactInfosTypeFiltersOr {
-  eq: ContactInfosTypeEnum
-  gt: ContactInfosTypeEnum
-  gte: ContactInfosTypeEnum
+input AddressesTypeFiltersOr {
+  eq: AddressesTypeEnum
+  gt: AddressesTypeEnum
+  gte: AddressesTypeEnum
   ilike: String
   """Array<undefined>"""
-  inArray: [ContactInfosTypeEnum!]
+  inArray: [AddressesTypeEnum!]
   isNotNull: Boolean
   isNull: Boolean
   like: String
-  lt: ContactInfosTypeEnum
-  lte: ContactInfosTypeEnum
-  ne: ContactInfosTypeEnum
+  lt: AddressesTypeEnum
+  lte: AddressesTypeEnum
+  ne: AddressesTypeEnum
   notIlike: String
   """Array<undefined>"""
-  notInArray: [ContactInfosTypeEnum!]
+  notInArray: [AddressesTypeEnum!]
   notLike: String
 }
 
-input ContactInfosValueFilters {
-  OR: [ContactInfosValueFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ContactInfosValueFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input CreateContactInfoInput {
+input CreateAddressInput {
+  city: String
+  country: String
   """JSON"""
   createdAt: String
   id: String
   isPrimary: Boolean
   label: String
+  line1: String!
+  line2: String
   personId: String!
-  type: ContactInfosTypeEnum!
-  value: String!
+  postalCode: String
+  state: String
+  type: AddressesTypeEnum!
 }
 
 input CreateImportantDateInput {
@@ -706,9 +921,9 @@ type ImportantDateLabelsRelation {
 }
 
 type ImportantDatePersonRelation {
+  addresses(limit: Int, offset: Int, orderBy: AddressesOrderBy, where: AddressesFilters): [ImportantDatePersonRelationAddressesRelation!]!
   avatarPath: String
   contactFrequency: String
-  contactInfos(limit: Int, offset: Int, orderBy: ContactInfosOrderBy, where: ContactInfosFilters): [ImportantDatePersonRelationContactInfosRelation!]!
   """JSON"""
   createdAt: String!
   email: String!
@@ -726,19 +941,24 @@ type ImportantDatePersonRelation {
   updatedAt: String!
 }
 
-type ImportantDatePersonRelationContactInfosRelation {
+type ImportantDatePersonRelationAddressesRelation {
+  city: String
+  country: String
   """JSON"""
   createdAt: String!
   id: String!
   isPrimary: Boolean!
   label: String
-  person(where: PersonsFilters): ImportantDatePersonRelationContactInfosRelationPersonRelation
+  line1: String!
+  line2: String
+  person(where: PersonsFilters): ImportantDatePersonRelationAddressesRelationPersonRelation
   personId: String!
-  type: ContactInfosTypeEnum!
-  value: String!
+  postalCode: String
+  state: String
+  type: AddressesTypeEnum!
 }
 
-type ImportantDatePersonRelationContactInfosRelationPersonRelation {
+type ImportantDatePersonRelationAddressesRelationPersonRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -1335,9 +1555,9 @@ type InteractionLabelsRelation {
 }
 
 type InteractionPersonRelation {
+  addresses(limit: Int, offset: Int, orderBy: AddressesOrderBy, where: AddressesFilters): [InteractionPersonRelationAddressesRelation!]!
   avatarPath: String
   contactFrequency: String
-  contactInfos(limit: Int, offset: Int, orderBy: ContactInfosOrderBy, where: ContactInfosFilters): [InteractionPersonRelationContactInfosRelation!]!
   """JSON"""
   createdAt: String!
   email: String!
@@ -1355,19 +1575,24 @@ type InteractionPersonRelation {
   updatedAt: String!
 }
 
-type InteractionPersonRelationContactInfosRelation {
+type InteractionPersonRelationAddressesRelation {
+  city: String
+  country: String
   """JSON"""
   createdAt: String!
   id: String!
   isPrimary: Boolean!
   label: String
-  person(where: PersonsFilters): InteractionPersonRelationContactInfosRelationPersonRelation
+  line1: String!
+  line2: String
+  person(where: PersonsFilters): InteractionPersonRelationAddressesRelationPersonRelation
   personId: String!
-  type: ContactInfosTypeEnum!
-  value: String!
+  postalCode: String
+  state: String
+  type: AddressesTypeEnum!
 }
 
-type InteractionPersonRelationContactInfosRelationPersonRelation {
+type InteractionPersonRelationAddressesRelationPersonRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -2094,8 +2319,8 @@ input LabelsOrderBy {
 }
 
 type Mutation {
-  createContactInfo(values: CreateContactInfoInput!): ContactInfo
-  createContactInfos(values: [CreateContactInfoInput!]!): [ContactInfo!]!
+  createAddress(values: CreateAddressInput!): Address
+  createAddresses(values: [CreateAddressInput!]!): [Address!]!
   createImportantDate(values: CreateImportantDateInput!): ImportantDate
   createImportantDateTag(values: CreateImportantDateTagInput!): ImportantDateTag
   createImportantDateTags(values: [CreateImportantDateTagInput!]!): [ImportantDateTag!]!
@@ -2118,7 +2343,7 @@ type Mutation {
   createPersonRelationship(values: CreatePersonRelationshipInput!): PersonRelationship
   createPersonRelationships(values: [CreatePersonRelationshipInput!]!): [PersonRelationship!]!
   createPersons(values: [CreatePersonInput!]!): [Person!]!
-  deleteContactInfos(where: ContactInfosFilters): [ContactInfo!]!
+  deleteAddresses(where: AddressesFilters): [Address!]!
   deleteImportantDateTags(where: ImportantDateTagsFilters): [ImportantDateTag!]!
   deleteImportantDates(where: ImportantDatesFilters): [ImportantDate!]!
   deleteInteractionTags(where: InteractionTagsFilters): [InteractionTag!]!
@@ -2130,7 +2355,7 @@ type Mutation {
   deletePersonLabels(where: PersonLabelsFilters): [PersonLabel!]!
   deletePersonRelationships(where: PersonRelationshipsFilters): [PersonRelationship!]!
   deletePersons(where: PersonsFilters): [Person!]!
-  updateContactInfos(set: UpdateContactInfoInput!, where: ContactInfosFilters): [ContactInfo!]!
+  updateAddresses(set: UpdateAddressInput!, where: AddressesFilters): [Address!]!
   updateImportantDateTags(set: UpdateImportantDateTagInput!, where: ImportantDateTagsFilters): [ImportantDateTag!]!
   updateImportantDates(set: UpdateImportantDateInput!, where: ImportantDatesFilters): [ImportantDate!]!
   updateInteractionTags(set: UpdateInteractionTagInput!, where: InteractionTagsFilters): [InteractionTag!]!
@@ -2259,9 +2484,9 @@ input NoteMentionsOrderBy {
 }
 
 type NoteMentionsRelation {
+  addresses(limit: Int, offset: Int, orderBy: AddressesOrderBy, where: AddressesFilters): [NoteMentionsRelationAddressesRelation!]!
   avatarPath: String
   contactFrequency: String
-  contactInfos(limit: Int, offset: Int, orderBy: ContactInfosOrderBy, where: ContactInfosFilters): [NoteMentionsRelationContactInfosRelation!]!
   """JSON"""
   createdAt: String!
   email: String!
@@ -2279,19 +2504,24 @@ type NoteMentionsRelation {
   updatedAt: String!
 }
 
-type NoteMentionsRelationContactInfosRelation {
+type NoteMentionsRelationAddressesRelation {
+  city: String
+  country: String
   """JSON"""
   createdAt: String!
   id: String!
   isPrimary: Boolean!
   label: String
-  person(where: PersonsFilters): NoteMentionsRelationContactInfosRelationPersonRelation
+  line1: String!
+  line2: String
+  person(where: PersonsFilters): NoteMentionsRelationAddressesRelationPersonRelation
   personId: String!
-  type: ContactInfosTypeEnum!
-  value: String!
+  postalCode: String
+  state: String
+  type: AddressesTypeEnum!
 }
 
-type NoteMentionsRelationContactInfosRelationPersonRelation {
+type NoteMentionsRelationAddressesRelationPersonRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -2454,9 +2684,9 @@ type NoteMentionsRelationRelationshipsToRelationToPersonRelation {
 }
 
 type NotePersonRelation {
+  addresses(limit: Int, offset: Int, orderBy: AddressesOrderBy, where: AddressesFilters): [NotePersonRelationAddressesRelation!]!
   avatarPath: String
   contactFrequency: String
-  contactInfos(limit: Int, offset: Int, orderBy: ContactInfosOrderBy, where: ContactInfosFilters): [NotePersonRelationContactInfosRelation!]!
   """JSON"""
   createdAt: String!
   email: String!
@@ -2474,19 +2704,24 @@ type NotePersonRelation {
   updatedAt: String!
 }
 
-type NotePersonRelationContactInfosRelation {
+type NotePersonRelationAddressesRelation {
+  city: String
+  country: String
   """JSON"""
   createdAt: String!
   id: String!
   isPrimary: Boolean!
   label: String
-  person(where: PersonsFilters): NotePersonRelationContactInfosRelationPersonRelation
+  line1: String!
+  line2: String
+  person(where: PersonsFilters): NotePersonRelationAddressesRelationPersonRelation
   personId: String!
-  type: ContactInfosTypeEnum!
-  value: String!
+  postalCode: String
+  state: String
+  type: AddressesTypeEnum!
 }
 
-type NotePersonRelationContactInfosRelationPersonRelation {
+type NotePersonRelationAddressesRelationPersonRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -2892,9 +3127,9 @@ enum OrderDirection {
 }
 
 type Person {
+  addresses(limit: Int, offset: Int, orderBy: AddressesOrderBy, where: AddressesFilters): [PersonAddressesRelation!]!
   avatarPath: String
   contactFrequency: String
-  contactInfos(limit: Int, offset: Int, orderBy: ContactInfosOrderBy, where: ContactInfosFilters): [PersonContactInfosRelation!]!
   """JSON"""
   createdAt: String!
   email: String!
@@ -2913,19 +3148,24 @@ type Person {
   updatedAt: String!
 }
 
-type PersonContactInfosRelation {
+type PersonAddressesRelation {
+  city: String
+  country: String
   """JSON"""
   createdAt: String!
   id: String!
   isPrimary: Boolean!
   label: String
-  person(where: PersonsFilters): PersonContactInfosRelationPersonRelation
+  line1: String!
+  line2: String
+  person(where: PersonsFilters): PersonAddressesRelationPersonRelation
   personId: String!
-  type: ContactInfosTypeEnum!
-  value: String!
+  postalCode: String
+  state: String
+  type: AddressesTypeEnum!
 }
 
-type PersonContactInfosRelationPersonRelation {
+type PersonAddressesRelationPersonRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -3204,9 +3444,9 @@ type PersonRelationshipEntry {
 }
 
 type PersonRelationshipFromPersonRelation {
+  addresses(limit: Int, offset: Int, orderBy: AddressesOrderBy, where: AddressesFilters): [PersonRelationshipFromPersonRelationAddressesRelation!]!
   avatarPath: String
   contactFrequency: String
-  contactInfos(limit: Int, offset: Int, orderBy: ContactInfosOrderBy, where: ContactInfosFilters): [PersonRelationshipFromPersonRelationContactInfosRelation!]!
   """JSON"""
   createdAt: String!
   email: String!
@@ -3224,19 +3464,24 @@ type PersonRelationshipFromPersonRelation {
   updatedAt: String!
 }
 
-type PersonRelationshipFromPersonRelationContactInfosRelation {
+type PersonRelationshipFromPersonRelationAddressesRelation {
+  city: String
+  country: String
   """JSON"""
   createdAt: String!
   id: String!
   isPrimary: Boolean!
   label: String
-  person(where: PersonsFilters): PersonRelationshipFromPersonRelationContactInfosRelationPersonRelation
+  line1: String!
+  line2: String
+  person(where: PersonsFilters): PersonRelationshipFromPersonRelationAddressesRelationPersonRelation
   personId: String!
-  type: ContactInfosTypeEnum!
-  value: String!
+  postalCode: String
+  state: String
+  type: AddressesTypeEnum!
 }
 
-type PersonRelationshipFromPersonRelationContactInfosRelationPersonRelation {
+type PersonRelationshipFromPersonRelationAddressesRelationPersonRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -3413,9 +3658,9 @@ type PersonRelationshipFromPersonRelationRelationshipsToRelation {
 }
 
 type PersonRelationshipToPersonRelation {
+  addresses(limit: Int, offset: Int, orderBy: AddressesOrderBy, where: AddressesFilters): [PersonRelationshipToPersonRelationAddressesRelation!]!
   avatarPath: String
   contactFrequency: String
-  contactInfos(limit: Int, offset: Int, orderBy: ContactInfosOrderBy, where: ContactInfosFilters): [PersonRelationshipToPersonRelationContactInfosRelation!]!
   """JSON"""
   createdAt: String!
   email: String!
@@ -3433,19 +3678,24 @@ type PersonRelationshipToPersonRelation {
   updatedAt: String!
 }
 
-type PersonRelationshipToPersonRelationContactInfosRelation {
+type PersonRelationshipToPersonRelationAddressesRelation {
+  city: String
+  country: String
   """JSON"""
   createdAt: String!
   id: String!
   isPrimary: Boolean!
   label: String
-  person(where: PersonsFilters): PersonRelationshipToPersonRelationContactInfosRelationPersonRelation
+  line1: String!
+  line2: String
+  person(where: PersonsFilters): PersonRelationshipToPersonRelationAddressesRelationPersonRelation
   personId: String!
-  type: ContactInfosTypeEnum!
-  value: String!
+  postalCode: String
+  state: String
+  type: AddressesTypeEnum!
 }
 
-type PersonRelationshipToPersonRelationContactInfosRelationPersonRelation {
+type PersonRelationshipToPersonRelationAddressesRelationPersonRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -4240,8 +4490,8 @@ input PersonsUpdatedAtFiltersOr {
 }
 
 type Query {
-  contactInfo(offset: Int, orderBy: ContactInfosOrderBy, where: ContactInfosFilters): ContactInfo
-  contactInfos(limit: Int, offset: Int, orderBy: ContactInfosOrderBy, where: ContactInfosFilters): [ContactInfo!]!
+  address(offset: Int, orderBy: AddressesOrderBy, where: AddressesFilters): Address
+  addresss(limit: Int, offset: Int, orderBy: AddressesOrderBy, where: AddressesFilters): [Address!]!
   importantDate(offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): ImportantDate
   importantDateTag(offset: Int, orderBy: ImportantDateTagsOrderBy, where: ImportantDateTagsFilters): ImportantDateTag
   importantDateTags(limit: Int, offset: Int, orderBy: ImportantDateTagsOrderBy, where: ImportantDateTagsFilters): [ImportantDateTag!]!
@@ -4266,15 +4516,20 @@ type Query {
   persons(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [Person!]!
 }
 
-input UpdateContactInfoInput {
+input UpdateAddressInput {
+  city: String
+  country: String
   """JSON"""
   createdAt: String
   id: String
   isPrimary: Boolean
   label: String
+  line1: String
+  line2: String
   personId: String
-  type: ContactInfosTypeEnum
-  value: String
+  postalCode: String
+  state: String
+  type: AddressesTypeEnum
 }
 
 input UpdateImportantDateInput {
