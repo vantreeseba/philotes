@@ -186,21 +186,6 @@ function NetworkPage() {
       .alphaDecay(0.02) // slower cooling = better final layout
       .velocityDecay(0.4);
 
-    // ── Arrowhead marker (on svg, not container, so zoom doesn't distort it) ─
-    const defs = svg.append('defs');
-    defs
-      .append('marker')
-      .attr('id', 'arrowhead')
-      .attr('viewBox', '0 -4 8 8')
-      .attr('refX', 8)
-      .attr('refY', 0)
-      .attr('markerWidth', 6)
-      .attr('markerHeight', 6)
-      .attr('orient', 'auto')
-      .append('path')
-      .attr('d', 'M0,-4L8,0L0,4')
-      .attr('fill', '#94a3b8');
-
     // ── Edge lines ──────────────────────────────────────────────────────────
     const link = container
       .append('g')
@@ -211,7 +196,6 @@ function NetworkPage() {
       .attr('stroke', '#94a3b8')
       .attr('stroke-width', 1.5)
       .attr('stroke-opacity', 0.6)
-      .attr('marker-end', 'url(#arrowhead)')
       .style('cursor', 'default');
 
     // ── Edge label groups (pill background + rotated text) ──────────────────
@@ -228,8 +212,8 @@ function NetworkPage() {
       .append('rect')
       .attr('rx', 3)
       .attr('ry', 3)
-      .attr('fill', 'var(--background, #ffffff)')
-      .attr('stroke', '#e2e8f0')
+      .attr('fill', '#1e293b')
+      .attr('stroke', '#334155')
       .attr('stroke-width', 0.5)
       .attr('opacity', 0.9);
 
@@ -239,7 +223,7 @@ function NetworkPage() {
       .text((d) => d.type)
       .attr('text-anchor', 'middle')
       .attr('dominant-baseline', 'central')
-      .attr('fill', 'var(--muted-foreground, #64748b)')
+      .attr('fill', '#f1f5f9')
       .attr('font-size', '9px')
       .style('user-select', 'none');
 
@@ -357,29 +341,12 @@ function NetworkPage() {
       .style('stroke-linejoin', 'round');
 
     // ── Tick handler ────────────────────────────────────────────────────────
-    // Shortens link endpoints so arrowheads don't overlap the target circle
     simulation.on('tick', () => {
       link
         .attr('x1', (d) => (d.source as SimNode).x ?? 0)
         .attr('y1', (d) => (d.source as SimNode).y ?? 0)
-        .attr('x2', (d) => {
-          const s = d.source as SimNode;
-          const t = d.target as SimNode;
-          const dx = (t.x ?? 0) - (s.x ?? 0);
-          const dy = (t.y ?? 0) - (s.y ?? 0);
-          const dist = Math.sqrt(dx * dx + dy * dy) || 1;
-          const r = getNodeRadius(connectionCount.get(t.id) ?? 0) + 8;
-          return (t.x ?? 0) - (dx / dist) * r;
-        })
-        .attr('y2', (d) => {
-          const s = d.source as SimNode;
-          const t = d.target as SimNode;
-          const dx = (t.x ?? 0) - (s.x ?? 0);
-          const dy = (t.y ?? 0) - (s.y ?? 0);
-          const dist = Math.sqrt(dx * dx + dy * dy) || 1;
-          const r = getNodeRadius(connectionCount.get(t.id) ?? 0) + 8;
-          return (t.y ?? 0) - (dy / dist) * r;
-        });
+        .attr('x2', (d) => (d.target as SimNode).x ?? 0)
+        .attr('y2', (d) => (d.target as SimNode).y ?? 0);
 
       edgeLabelGroups.attr('transform', (d) => {
         const sx = (d.source as SimNode).x ?? 0;
