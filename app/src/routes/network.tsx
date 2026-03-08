@@ -75,8 +75,8 @@ type TooltipState = {
 } | null;
 
 function getNodeRadius(connections: number): number {
-  const min = 20;
-  const max = 40;
+  const min = 18;
+  const max = 32;
   const clamped = Math.min(connections, 10);
   return min + ((max - min) * clamped) / 10;
 }
@@ -152,15 +152,17 @@ function NetworkPage() {
     zoomRef.current = zoom;
     d3.select(svgEl).call(zoom);
 
-    // Start at a comfortable zoom level centred on the graph
+    // Start fully zoomed out to show all nodes
     d3.select(svgEl).call(
       zoom.transform,
       d3.zoomIdentity
         .translate(width / 2, height / 2)
-        .scale(0.8)
+        .scale(0.5)
         .translate(-width / 2, -height / 2),
     );
 
+    // ── Force simulation ────────────────────────────────────────────────────
+    // Longer link distances for well-connected nodes so clusters breathe
     const simulation = d3
       .forceSimulation<SimNode>(nodes)
       .force(
@@ -168,43 +170,94 @@ function NetworkPage() {
         d3
           .forceLink<SimNode, SimLink>(links)
           .id((d) => d.id)
-          .strength(0.3),
+          .distance((d) => {
+            const sc = connectionCount.get((d.source as SimNode).id) ?? 0;
+            const tc = connectionCount.get((d.target as SimNode).id) ?? 0;
+            return 120 + (sc + tc) * 8;
+          })
+          .strength(0.5),
       )
-      .force('charge', d3.forceManyBody<SimNode>().strength(-400))
-      .force('center', d3.forceCenter(width / 2, height / 2))
       .force(
-        'collide',
-        d3.forceCollide<SimNode>((d) => getNodeRadius(connectionCount.get(d.id) ?? 0) + 40).strength(0.8),
-      );
+        'charge',
+        d3.forceManyBody<SimNode>().strength((d) => -300 - (connectionCount.get(d.id) ?? 0) * 30),
+      )
+      .force('center', d3.forceCenter(width / 2, height / 2).strength(0.05))
+      .force('collide', d3.forceCollide<SimNode>((d) => getNodeRadius(connectionCount.get(d.id) ?? 0) + 50).strength(1))
+      .alphaDecay(0.02) // slower cooling = better final layout
+      .velocityDecay(0.4);
 
-    // Draw edges
+    // ── Arrowhead marker (on svg, not container, so zoom doesn't distort it) ─
+    const defs = svg.append('defs');
+    defs
+      .append('marker')
+      .attr('id', 'arrowhead')
+      .attr('viewBox', '0 -4 8 8')
+      .attr('refX', 8)
+      .attr('refY', 0)
+      .attr('markerWidth', 6)
+      .attr('markerHeight', 6)
+      .attr('orient', 'auto')
+      .append('path')
+      .attr('d', 'M0,-4L8,0L0,4')
+      .attr('fill', '#94a3b8');
+
+    // ── Edge lines ──────────────────────────────────────────────────────────
     const link = container
       .append('g')
       .attr('class', 'links')
       .selectAll<SVGLineElement, SimLink>('line')
       .data(links)
       .join('line')
-      .attr('stroke', '#cbd5e1')
+      .attr('stroke', '#94a3b8')
       .attr('stroke-width', 1.5)
+      .attr('stroke-opacity', 0.6)
+      .attr('marker-end', 'url(#arrowhead)')
       .style('cursor', 'default');
 
-    // Draw edge labels (always visible)
-    const edgeLabels = container
+    // ── Edge label groups (pill background + rotated text) ──────────────────
+    const edgeLabelGroups = container
       .append('g')
       .attr('class', 'edge-labels')
-      .selectAll<SVGTextElement, SimLink>('text')
+      .selectAll<SVGGElement, SimLink>('g')
       .data(links)
-      .join('text')
+      .join('g')
+      .attr('pointer-events', 'none');
+
+    // Background pill
+    edgeLabelGroups
+      .append('rect')
+      .attr('rx', 3)
+      .attr('ry', 3)
+      .attr('fill', 'var(--background, #ffffff)')
+      .attr('stroke', '#e2e8f0')
+      .attr('stroke-width', 0.5)
+      .attr('opacity', 0.9);
+
+    // Label text
+    edgeLabelGroups
+      .append('text')
       .text((d) => d.type)
       .attr('text-anchor', 'middle')
       .attr('dominant-baseline', 'central')
-      .attr('fill', 'currentColor')
-      .attr('font-size', '10px')
-      .attr('pointer-events', 'none')
-      .style('user-select', 'none')
-      .style('opacity', '0.75');
+      .attr('fill', 'var(--muted-foreground, #64748b)')
+      .attr('font-size', '9px')
+      .style('user-select', 'none');
 
-    // Draw nodes
+    // Size each pill rect to fit its text (approximate via getBBox)
+    edgeLabelGroups.each(function () {
+      const g = d3.select(this);
+      const textEl = g.select('text').node() as SVGTextElement | null;
+      if (!textEl) return;
+      const bbox = textEl.getBBox();
+      const pad = { x: 4, y: 2 };
+      g.select('rect')
+        .attr('x', -bbox.width / 2 - pad.x)
+        .attr('y', -bbox.height / 2 - pad.y)
+        .attr('width', bbox.width + pad.x * 2)
+        .attr('height', bbox.height + pad.y * 2);
+    });
+
+    // ── Node groups ─────────────────────────────────────────────────────────
     const nodeGroup = container
       .append('g')
       .attr('class', 'nodes')
@@ -246,7 +299,21 @@ function NetworkPage() {
 
     nodeGroup.call(drag);
 
-    // Circle
+    // Outer ring for well-connected hub nodes (drawn before main circle so it sits underneath)
+    nodeGroup
+      .filter((d) => (connectionCount.get(d.id) ?? 0) > 3)
+      .append('circle')
+      .attr('r', (d) => getNodeRadius(connectionCount.get(d.id) ?? 0) + 4)
+      .attr('fill', 'none')
+      .attr('stroke', (d) => {
+        if (d.labels && d.labels.length > 0) return d.labels[0].color;
+        return nameToColor(`${d.firstName} ${d.lastName}`);
+      })
+      .attr('stroke-width', 1.5)
+      .attr('stroke-opacity', 0.4)
+      .attr('pointer-events', 'none');
+
+    // Main filled circle
     nodeGroup
       .append('circle')
       .attr('r', (d) => getNodeRadius(connectionCount.get(d.id) ?? 0))
@@ -259,7 +326,7 @@ function NetworkPage() {
       .attr('stroke', '#fff')
       .attr('stroke-width', 2);
 
-    // Initials text
+    // Initials text centred inside the circle
     nodeGroup
       .append('text')
       .text((d) => getInitials(d.firstName, d.lastName))
@@ -272,7 +339,7 @@ function NetworkPage() {
       })
       .attr('pointer-events', 'none');
 
-    // Full name label below node
+    // Full name label below node — paint-order halo keeps it readable over any bg
     nodeGroup
       .append('text')
       .text((d) => `${d.firstName} ${d.lastName}`)
@@ -280,29 +347,52 @@ function NetworkPage() {
       .attr('dominant-baseline', 'hanging')
       .attr('fill', 'currentColor')
       .attr('font-size', '11px')
-      .attr('y', (d) => getNodeRadius(connectionCount.get(d.id) ?? 0) + 5)
+      .attr('font-weight', '500')
+      .attr('y', (d) => getNodeRadius(connectionCount.get(d.id) ?? 0) + 6)
       .attr('pointer-events', 'none')
-      .style('user-select', 'none');
+      .style('user-select', 'none')
+      .style('paint-order', 'stroke')
+      .style('stroke', 'var(--background, white)')
+      .style('stroke-width', '3px')
+      .style('stroke-linejoin', 'round');
 
-    // Tick
+    // ── Tick handler ────────────────────────────────────────────────────────
+    // Shortens link endpoints so arrowheads don't overlap the target circle
     simulation.on('tick', () => {
       link
         .attr('x1', (d) => (d.source as SimNode).x ?? 0)
         .attr('y1', (d) => (d.source as SimNode).y ?? 0)
-        .attr('x2', (d) => (d.target as SimNode).x ?? 0)
-        .attr('y2', (d) => (d.target as SimNode).y ?? 0);
-
-      edgeLabels
-        .attr('x', (d) => {
-          const sx = (d.source as SimNode).x ?? 0;
-          const tx = (d.target as SimNode).x ?? 0;
-          return (sx + tx) / 2;
+        .attr('x2', (d) => {
+          const s = d.source as SimNode;
+          const t = d.target as SimNode;
+          const dx = (t.x ?? 0) - (s.x ?? 0);
+          const dy = (t.y ?? 0) - (s.y ?? 0);
+          const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+          const r = getNodeRadius(connectionCount.get(t.id) ?? 0) + 8;
+          return (t.x ?? 0) - (dx / dist) * r;
         })
-        .attr('y', (d) => {
-          const sy = (d.source as SimNode).y ?? 0;
-          const ty = (d.target as SimNode).y ?? 0;
-          return (sy + ty) / 2;
+        .attr('y2', (d) => {
+          const s = d.source as SimNode;
+          const t = d.target as SimNode;
+          const dx = (t.x ?? 0) - (s.x ?? 0);
+          const dy = (t.y ?? 0) - (s.y ?? 0);
+          const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+          const r = getNodeRadius(connectionCount.get(t.id) ?? 0) + 8;
+          return (t.y ?? 0) - (dy / dist) * r;
         });
+
+      edgeLabelGroups.attr('transform', (d) => {
+        const sx = (d.source as SimNode).x ?? 0;
+        const sy = (d.source as SimNode).y ?? 0;
+        const tx = (d.target as SimNode).x ?? 0;
+        const ty = (d.target as SimNode).y ?? 0;
+        const mx = (sx + tx) / 2;
+        const my = (sy + ty) / 2;
+        // Rotate text to follow edge direction (flip if upside-down)
+        let angle = (Math.atan2(ty - sy, tx - sx) * 180) / Math.PI;
+        if (angle > 90 || angle < -90) angle += 180;
+        return `translate(${mx},${my}) rotate(${angle})`;
+      });
 
       nodeGroup.attr('transform', (d) => `translate(${d.x ?? 0},${d.y ?? 0})`);
     });
