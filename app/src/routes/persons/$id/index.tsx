@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { useRef, useState } from 'react';
 import { graphql } from '@/__generated__/gql.js';
+import { AddressList } from '@/components/domain/address/list.js';
 import { PersonForm, type PersonFormValue } from '@/components/domain/person/form.js';
 import {
   ImportantDateForm,
@@ -107,6 +108,18 @@ const GET_PERSON_DETAIL = graphql(`
         relatedPersonId
         relatedPersonFirstName
         relatedPersonLastName
+      }
+      addresses {
+        id
+        type
+        label
+        line1
+        line2
+        city
+        state
+        postalCode
+        country
+        isPrimary
       }
     }
   }
@@ -716,6 +729,16 @@ function PersonDetailPage() {
                   onCreateOpenChange={setNoteDialogOpen}
                 />
               }
+            />
+          </CardContent>
+        </Card>
+
+        {/* Addresses */}
+        <Card>
+          <CardContent className="p-4">
+            <ListLayout
+              header={<h2 className="font-semibold text-base">Addresses</h2>}
+              body={<AddressList fragmentRef={person} onAdd={() => refetch()} onDelete={() => refetch()} />}
             />
           </CardContent>
         </Card>

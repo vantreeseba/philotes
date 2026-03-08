@@ -27,6 +27,7 @@ export const relations = defineRelations(schema, (r) => ({
       to: r.notes.id.through(r.noteMentions.noteId),
       alias: 'noteMentions',
     }),
+    addresses: r.many.addresses(),
   },
   notes: {
     person: r.one.persons({
@@ -72,6 +73,12 @@ export const relations = defineRelations(schema, (r) => ({
     labels: r.many.labels({
       from: r.interactions.id.through(r.interactionTags.interactionId),
       to: r.labels.id.through(r.interactionTags.labelId),
+    }),
+  },
+  addresses: {
+    person: r.one.persons({
+      from: r.addresses.personId,
+      to: r.persons.id,
     }),
   },
 }));
