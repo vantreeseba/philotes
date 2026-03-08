@@ -3,800 +3,6 @@ schema {
   mutation: Mutation
 }
 
-input ActivitiesCreatedAtFilters {
-  OR: [ActivitiesCreatedAtFiltersOr!]
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesCreatedAtFiltersOr {
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesDescriptionFilters {
-  OR: [ActivitiesDescriptionFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesDescriptionFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesFilters {
-  OR: [ActivitiesFiltersOr!]
-  createdAt: ActivitiesCreatedAtFilters
-  description: ActivitiesDescriptionFilters
-  id: ActivitiesIdFilters
-  location: ActivitiesLocationFilters
-  occurredAt: ActivitiesOccurredAtFilters
-  personId: ActivitiesPersonIdFilters
-  title: ActivitiesTitleFilters
-}
-
-input ActivitiesFiltersOr {
-  createdAt: ActivitiesCreatedAtFilters
-  description: ActivitiesDescriptionFilters
-  id: ActivitiesIdFilters
-  location: ActivitiesLocationFilters
-  occurredAt: ActivitiesOccurredAtFilters
-  personId: ActivitiesPersonIdFilters
-  title: ActivitiesTitleFilters
-}
-
-input ActivitiesIdFilters {
-  OR: [ActivitiesIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesLocationFilters {
-  OR: [ActivitiesLocationFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesLocationFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesOccurredAtFilters {
-  OR: [ActivitiesOccurredAtFiltersOr!]
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesOccurredAtFiltersOr {
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesOrderBy {
-  createdAt: InnerOrder
-  description: InnerOrder
-  id: InnerOrder
-  location: InnerOrder
-  occurredAt: InnerOrder
-  personId: InnerOrder
-  title: InnerOrder
-}
-
-input ActivitiesPersonIdFilters {
-  OR: [ActivitiesPersonIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesPersonIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesTitleFilters {
-  OR: [ActivitiesTitleFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesTitleFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-type Activity {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ActivityLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): ActivityPersonRelation
-  personId: String!
-  title: String!
-}
-
-type ActivityLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [ActivityLabelsRelationActivitiesRelation!]!
-  color: String!
-  id: String!
-  label: String!
-}
-
-type ActivityLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  personId: String!
-  title: String!
-}
-
-type ActivityPersonRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [ActivityPersonRelationActivitiesRelation!]!
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [ActivityPersonRelationImportantDatesRelation!]!
-  interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [ActivityPersonRelationInteractionsRelation!]!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ActivityPersonRelationLabelsRelation!]!
-  lastName: String!
-  mentionedInNotes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [ActivityPersonRelationMentionedInNotesRelation!]!
-  notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [ActivityPersonRelationNotesRelation!]!
-  relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [ActivityPersonRelationRelationshipsFromRelation!]!
-  relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [ActivityPersonRelationRelationshipsToRelation!]!
-  """JSON"""
-  updatedAt: String!
-}
-
-type ActivityPersonRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  personId: String!
-  title: String!
-}
-
-type ActivityPersonRelationImportantDatesRelation {
-  date: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ActivityPersonRelationImportantDatesRelationLabelsRelation!]!
-  name: String!
-  person(where: PersonsFilters): ActivityPersonRelationImportantDatesRelationPersonRelation
-  personId: String!
-  recurrence: String
-}
-
-type ActivityPersonRelationImportantDatesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [ActivityPersonRelationImportantDatesRelationLabelsRelationActivitiesRelation!]!
-  color: String!
-  id: String!
-  label: String!
-}
-
-type ActivityPersonRelationImportantDatesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  personId: String!
-  title: String!
-}
-
-type ActivityPersonRelationImportantDatesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type ActivityPersonRelationInteractionsRelation {
-  channel: String!
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ActivityPersonRelationInteractionsRelationLabelsRelation!]!
-  note: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): ActivityPersonRelationInteractionsRelationPersonRelation
-  personId: String!
-  sentiment: String
-}
-
-type ActivityPersonRelationInteractionsRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [ActivityPersonRelationInteractionsRelationLabelsRelationActivitiesRelation!]!
-  color: String!
-  id: String!
-  label: String!
-}
-
-type ActivityPersonRelationInteractionsRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  personId: String!
-  title: String!
-}
-
-type ActivityPersonRelationInteractionsRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type ActivityPersonRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [ActivityPersonRelationLabelsRelationActivitiesRelation!]!
-  color: String!
-  id: String!
-  label: String!
-}
-
-type ActivityPersonRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  personId: String!
-  title: String!
-}
-
-type ActivityPersonRelationMentionedInNotesRelation {
-  body: String!
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ActivityPersonRelationMentionedInNotesRelationLabelsRelation!]!
-  mentions(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [ActivityPersonRelationMentionedInNotesRelationMentionsRelation!]!
-  person(where: PersonsFilters): ActivityPersonRelationMentionedInNotesRelationPersonRelation
-  personId: String
-}
-
-type ActivityPersonRelationMentionedInNotesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [ActivityPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation!]!
-  color: String!
-  id: String!
-  label: String!
-}
-
-type ActivityPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  personId: String!
-  title: String!
-}
-
-type ActivityPersonRelationMentionedInNotesRelationMentionsRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type ActivityPersonRelationMentionedInNotesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type ActivityPersonRelationNotesRelation {
-  body: String!
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ActivityPersonRelationNotesRelationLabelsRelation!]!
-  mentions(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [ActivityPersonRelationNotesRelationMentionsRelation!]!
-  person(where: PersonsFilters): ActivityPersonRelationNotesRelationPersonRelation
-  personId: String
-}
-
-type ActivityPersonRelationNotesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [ActivityPersonRelationNotesRelationLabelsRelationActivitiesRelation!]!
-  color: String!
-  id: String!
-  label: String!
-}
-
-type ActivityPersonRelationNotesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  personId: String!
-  title: String!
-}
-
-type ActivityPersonRelationNotesRelationMentionsRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type ActivityPersonRelationNotesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type ActivityPersonRelationRelationshipsFromRelation {
-  fromPerson(where: PersonsFilters): ActivityPersonRelationRelationshipsFromRelationFromPersonRelation
-  fromPersonId: String!
-  id: String!
-  toPerson(where: PersonsFilters): ActivityPersonRelationRelationshipsFromRelationToPersonRelation
-  toPersonId: String!
-  type: String!
-}
-
-type ActivityPersonRelationRelationshipsFromRelationFromPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type ActivityPersonRelationRelationshipsFromRelationToPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type ActivityPersonRelationRelationshipsToRelation {
-  fromPerson(where: PersonsFilters): ActivityPersonRelationRelationshipsToRelationFromPersonRelation
-  fromPersonId: String!
-  id: String!
-  toPerson(where: PersonsFilters): ActivityPersonRelationRelationshipsToRelationToPersonRelation
-  toPersonId: String!
-  type: String!
-}
-
-type ActivityPersonRelationRelationshipsToRelationFromPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type ActivityPersonRelationRelationshipsToRelationToPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type ActivityTag {
-  activityId: String!
-  labelId: String!
-}
-
-input ActivityTagsActivityIdFilters {
-  OR: [ActivityTagsActivityIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivityTagsActivityIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivityTagsFilters {
-  OR: [ActivityTagsFiltersOr!]
-  activityId: ActivityTagsActivityIdFilters
-  labelId: ActivityTagsLabelIdFilters
-}
-
-input ActivityTagsFiltersOr {
-  activityId: ActivityTagsActivityIdFilters
-  labelId: ActivityTagsLabelIdFilters
-}
-
-input ActivityTagsLabelIdFilters {
-  OR: [ActivityTagsLabelIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivityTagsLabelIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivityTagsOrderBy {
-  activityId: InnerOrder
-  labelId: InnerOrder
-}
-
-input CreateActivityInput {
-  """JSON"""
-  createdAt: String
-  description: String
-  id: String
-  location: String
-  """JSON"""
-  occurredAt: String!
-  personId: String!
-  title: String!
-}
-
-input CreateActivityTagInput {
-  activityId: String!
-  labelId: String!
-}
-
 input CreateImportantDateInput {
   date: String!
   description: String
@@ -873,6 +79,19 @@ input CreatePersonRelationshipInput {
   type: String!
 }
 
+input CreateTaskInput {
+  """JSON"""
+  completedAt: String
+  """JSON"""
+  createdAt: String
+  """JSON"""
+  dueAt: String
+  id: String
+  notes: String
+  personId: String!
+  title: String!
+}
+
 type ImportantDate {
   date: String!
   description: String
@@ -885,265 +104,12 @@ type ImportantDate {
 }
 
 type ImportantDateLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [ImportantDateLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type ImportantDateLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ImportantDateLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): ImportantDateLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type ImportantDateLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type ImportantDateLabelsRelationActivitiesRelationPersonRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [ImportantDateLabelsRelationActivitiesRelationPersonRelationActivitiesRelation!]!
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [ImportantDateLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation!]!
-  interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRelation!]!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ImportantDateLabelsRelationActivitiesRelationPersonRelationLabelsRelation!]!
-  lastName: String!
-  mentionedInNotes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelation!]!
-  notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelation!]!
-  relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelation!]!
-  relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelation!]!
-  """JSON"""
-  updatedAt: String!
-}
-
-type ImportantDateLabelsRelationActivitiesRelationPersonRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  personId: String!
-  title: String!
-}
-
-type ImportantDateLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation {
-  date: String!
-  description: String
-  id: String!
-  name: String!
-  personId: String!
-  recurrence: String
-}
-
-type ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRelation {
-  channel: String!
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRelationLabelsRelation!]!
-  note: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRelationPersonRelation
-  personId: String!
-  sentiment: String
-}
-
-type ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type ImportantDateLabelsRelationActivitiesRelationPersonRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelation {
-  body: String!
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationLabelsRelation!]!
-  mentions(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationMentionsRelation!]!
-  person(where: PersonsFilters): ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationPersonRelation
-  personId: String
-}
-
-type ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationMentionsRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelation {
-  body: String!
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelationLabelsRelation!]!
-  mentions(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelationMentionsRelation!]!
-  person(where: PersonsFilters): ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelationPersonRelation
-  personId: String
-}
-
-type ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelationMentionsRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelation {
-  fromPerson(where: PersonsFilters): ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonRelation
-  fromPersonId: String!
-  id: String!
-  toPerson(where: PersonsFilters): ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationToPersonRelation
-  toPersonId: String!
-  type: String!
-}
-
-type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationToPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelation {
-  fromPerson(where: PersonsFilters): ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationFromPersonRelation
-  fromPersonId: String!
-  id: String!
-  toPerson(where: PersonsFilters): ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationToPersonRelation
-  toPersonId: String!
-  type: String!
-}
-
-type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationFromPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationToPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type ImportantDatePersonRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [ImportantDatePersonRelationActivitiesRelation!]!
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -1159,52 +125,7 @@ type ImportantDatePersonRelation {
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [ImportantDatePersonRelationNotesRelation!]!
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [ImportantDatePersonRelationRelationshipsFromRelation!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [ImportantDatePersonRelationRelationshipsToRelation!]!
-  """JSON"""
-  updatedAt: String!
-}
-
-type ImportantDatePersonRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ImportantDatePersonRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): ImportantDatePersonRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type ImportantDatePersonRelationActivitiesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [ImportantDatePersonRelationActivitiesRelationLabelsRelationActivitiesRelation!]!
-  color: String!
-  id: String!
-  label: String!
-}
-
-type ImportantDatePersonRelationActivitiesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  personId: String!
-  title: String!
-}
-
-type ImportantDatePersonRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
+  tasks(limit: Int, offset: Int, orderBy: TasksOrderBy, where: TasksFilters): [ImportantDatePersonRelationTasksRelation!]!
   """JSON"""
   updatedAt: String!
 }
@@ -1231,43 +152,9 @@ type ImportantDatePersonRelationInteractionsRelation {
 }
 
 type ImportantDatePersonRelationInteractionsRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [ImportantDatePersonRelationInteractionsRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type ImportantDatePersonRelationInteractionsRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ImportantDatePersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): ImportantDatePersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type ImportantDatePersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type ImportantDatePersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type ImportantDatePersonRelationInteractionsRelationPersonRelation {
@@ -1284,43 +171,9 @@ type ImportantDatePersonRelationInteractionsRelationPersonRelation {
 }
 
 type ImportantDatePersonRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [ImportantDatePersonRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type ImportantDatePersonRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ImportantDatePersonRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): ImportantDatePersonRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type ImportantDatePersonRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type ImportantDatePersonRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type ImportantDatePersonRelationMentionedInNotesRelation {
@@ -1333,43 +186,9 @@ type ImportantDatePersonRelationMentionedInNotesRelation {
 }
 
 type ImportantDatePersonRelationMentionedInNotesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type ImportantDatePersonRelationMentionedInNotesRelationMentionsRelation {
@@ -1408,43 +227,9 @@ type ImportantDatePersonRelationNotesRelation {
 }
 
 type ImportantDatePersonRelationNotesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type ImportantDatePersonRelationNotesRelationMentionsRelation {
@@ -1531,6 +316,33 @@ type ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation {
 }
 
 type ImportantDatePersonRelationRelationshipsToRelationToPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type ImportantDatePersonRelationTasksRelation {
+  """JSON"""
+  completedAt: String
+  """JSON"""
+  createdAt: String!
+  """JSON"""
+  dueAt: String
+  id: String!
+  notes: String
+  person(where: PersonsFilters): ImportantDatePersonRelationTasksRelationPersonRelation
+  personId: String!
+  title: String!
+}
+
+type ImportantDatePersonRelationTasksRelationPersonRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -1923,265 +735,12 @@ type Interaction {
 }
 
 type InteractionLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [InteractionLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type InteractionLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [InteractionLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): InteractionLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type InteractionLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type InteractionLabelsRelationActivitiesRelationPersonRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [InteractionLabelsRelationActivitiesRelationPersonRelationActivitiesRelation!]!
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation!]!
-  interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [InteractionLabelsRelationActivitiesRelationPersonRelationInteractionsRelation!]!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [InteractionLabelsRelationActivitiesRelationPersonRelationLabelsRelation!]!
-  lastName: String!
-  mentionedInNotes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelation!]!
-  notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelation!]!
-  relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelation!]!
-  relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelation!]!
-  """JSON"""
-  updatedAt: String!
-}
-
-type InteractionLabelsRelationActivitiesRelationPersonRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  personId: String!
-  title: String!
-}
-
-type InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation {
-  date: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation!]!
-  name: String!
-  person(where: PersonsFilters): InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonRelation
-  personId: String!
-  recurrence: String
-}
-
-type InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type InteractionLabelsRelationActivitiesRelationPersonRelationInteractionsRelation {
-  channel: String!
-  id: String!
-  note: String
-  """JSON"""
-  occurredAt: String!
-  personId: String!
-  sentiment: String
-}
-
-type InteractionLabelsRelationActivitiesRelationPersonRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelation {
-  body: String!
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationLabelsRelation!]!
-  mentions(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationMentionsRelation!]!
-  person(where: PersonsFilters): InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationPersonRelation
-  personId: String
-}
-
-type InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationMentionsRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelation {
-  body: String!
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelationLabelsRelation!]!
-  mentions(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelationMentionsRelation!]!
-  person(where: PersonsFilters): InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelationPersonRelation
-  personId: String
-}
-
-type InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelationMentionsRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelation {
-  fromPerson(where: PersonsFilters): InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonRelation
-  fromPersonId: String!
-  id: String!
-  toPerson(where: PersonsFilters): InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationToPersonRelation
-  toPersonId: String!
-  type: String!
-}
-
-type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationToPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelation {
-  fromPerson(where: PersonsFilters): InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationFromPersonRelation
-  fromPersonId: String!
-  id: String!
-  toPerson(where: PersonsFilters): InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationToPersonRelation
-  toPersonId: String!
-  type: String!
-}
-
-type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationFromPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationToPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type InteractionPersonRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [InteractionPersonRelationActivitiesRelation!]!
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -2197,52 +756,7 @@ type InteractionPersonRelation {
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [InteractionPersonRelationNotesRelation!]!
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [InteractionPersonRelationRelationshipsFromRelation!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [InteractionPersonRelationRelationshipsToRelation!]!
-  """JSON"""
-  updatedAt: String!
-}
-
-type InteractionPersonRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [InteractionPersonRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): InteractionPersonRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type InteractionPersonRelationActivitiesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [InteractionPersonRelationActivitiesRelationLabelsRelationActivitiesRelation!]!
-  color: String!
-  id: String!
-  label: String!
-}
-
-type InteractionPersonRelationActivitiesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  personId: String!
-  title: String!
-}
-
-type InteractionPersonRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
+  tasks(limit: Int, offset: Int, orderBy: TasksOrderBy, where: TasksFilters): [InteractionPersonRelationTasksRelation!]!
   """JSON"""
   updatedAt: String!
 }
@@ -2259,43 +773,9 @@ type InteractionPersonRelationImportantDatesRelation {
 }
 
 type InteractionPersonRelationImportantDatesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [InteractionPersonRelationImportantDatesRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type InteractionPersonRelationImportantDatesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [InteractionPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): InteractionPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type InteractionPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type InteractionPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type InteractionPersonRelationImportantDatesRelationPersonRelation {
@@ -2322,43 +802,9 @@ type InteractionPersonRelationInteractionsRelation {
 }
 
 type InteractionPersonRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [InteractionPersonRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type InteractionPersonRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [InteractionPersonRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): InteractionPersonRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type InteractionPersonRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type InteractionPersonRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type InteractionPersonRelationMentionedInNotesRelation {
@@ -2371,43 +817,9 @@ type InteractionPersonRelationMentionedInNotesRelation {
 }
 
 type InteractionPersonRelationMentionedInNotesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [InteractionPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type InteractionPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [InteractionPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): InteractionPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type InteractionPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type InteractionPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type InteractionPersonRelationMentionedInNotesRelationMentionsRelation {
@@ -2446,43 +858,9 @@ type InteractionPersonRelationNotesRelation {
 }
 
 type InteractionPersonRelationNotesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [InteractionPersonRelationNotesRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type InteractionPersonRelationNotesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [InteractionPersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): InteractionPersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type InteractionPersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type InteractionPersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type InteractionPersonRelationNotesRelationMentionsRelation {
@@ -2569,6 +947,33 @@ type InteractionPersonRelationRelationshipsToRelationFromPersonRelation {
 }
 
 type InteractionPersonRelationRelationshipsToRelationToPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type InteractionPersonRelationTasksRelation {
+  """JSON"""
+  completedAt: String
+  """JSON"""
+  createdAt: String!
+  """JSON"""
+  dueAt: String
+  id: String!
+  notes: String
+  person(where: PersonsFilters): InteractionPersonRelationTasksRelationPersonRelation
+  personId: String!
+  title: String!
+}
+
+type InteractionPersonRelationTasksRelationPersonRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -2955,282 +1360,9 @@ input InteractionsSentimentFiltersOr {
 }
 
 type Label {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [LabelActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type LabelActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [LabelActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): LabelActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type LabelActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type LabelActivitiesRelationPersonRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [LabelActivitiesRelationPersonRelationActivitiesRelation!]!
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [LabelActivitiesRelationPersonRelationImportantDatesRelation!]!
-  interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [LabelActivitiesRelationPersonRelationInteractionsRelation!]!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [LabelActivitiesRelationPersonRelationLabelsRelation!]!
-  lastName: String!
-  mentionedInNotes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [LabelActivitiesRelationPersonRelationMentionedInNotesRelation!]!
-  notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [LabelActivitiesRelationPersonRelationNotesRelation!]!
-  relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [LabelActivitiesRelationPersonRelationRelationshipsFromRelation!]!
-  relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [LabelActivitiesRelationPersonRelationRelationshipsToRelation!]!
-  """JSON"""
-  updatedAt: String!
-}
-
-type LabelActivitiesRelationPersonRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  personId: String!
-  title: String!
-}
-
-type LabelActivitiesRelationPersonRelationImportantDatesRelation {
-  date: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [LabelActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation!]!
-  name: String!
-  person(where: PersonsFilters): LabelActivitiesRelationPersonRelationImportantDatesRelationPersonRelation
-  personId: String!
-  recurrence: String
-}
-
-type LabelActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type LabelActivitiesRelationPersonRelationImportantDatesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type LabelActivitiesRelationPersonRelationInteractionsRelation {
-  channel: String!
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [LabelActivitiesRelationPersonRelationInteractionsRelationLabelsRelation!]!
-  note: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): LabelActivitiesRelationPersonRelationInteractionsRelationPersonRelation
-  personId: String!
-  sentiment: String
-}
-
-type LabelActivitiesRelationPersonRelationInteractionsRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type LabelActivitiesRelationPersonRelationInteractionsRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type LabelActivitiesRelationPersonRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type LabelActivitiesRelationPersonRelationMentionedInNotesRelation {
-  body: String!
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [LabelActivitiesRelationPersonRelationMentionedInNotesRelationLabelsRelation!]!
-  mentions(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [LabelActivitiesRelationPersonRelationMentionedInNotesRelationMentionsRelation!]!
-  person(where: PersonsFilters): LabelActivitiesRelationPersonRelationMentionedInNotesRelationPersonRelation
-  personId: String
-}
-
-type LabelActivitiesRelationPersonRelationMentionedInNotesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type LabelActivitiesRelationPersonRelationMentionedInNotesRelationMentionsRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type LabelActivitiesRelationPersonRelationMentionedInNotesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type LabelActivitiesRelationPersonRelationNotesRelation {
-  body: String!
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [LabelActivitiesRelationPersonRelationNotesRelationLabelsRelation!]!
-  mentions(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [LabelActivitiesRelationPersonRelationNotesRelationMentionsRelation!]!
-  person(where: PersonsFilters): LabelActivitiesRelationPersonRelationNotesRelationPersonRelation
-  personId: String
-}
-
-type LabelActivitiesRelationPersonRelationNotesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type LabelActivitiesRelationPersonRelationNotesRelationMentionsRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type LabelActivitiesRelationPersonRelationNotesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type LabelActivitiesRelationPersonRelationRelationshipsFromRelation {
-  fromPerson(where: PersonsFilters): LabelActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonRelation
-  fromPersonId: String!
-  id: String!
-  toPerson(where: PersonsFilters): LabelActivitiesRelationPersonRelationRelationshipsFromRelationToPersonRelation
-  toPersonId: String!
-  type: String!
-}
-
-type LabelActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type LabelActivitiesRelationPersonRelationRelationshipsFromRelationToPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type LabelActivitiesRelationPersonRelationRelationshipsToRelation {
-  fromPerson(where: PersonsFilters): LabelActivitiesRelationPersonRelationRelationshipsToRelationFromPersonRelation
-  fromPersonId: String!
-  id: String!
-  toPerson(where: PersonsFilters): LabelActivitiesRelationPersonRelationRelationshipsToRelationToPersonRelation
-  toPersonId: String!
-  type: String!
-}
-
-type LabelActivitiesRelationPersonRelationRelationshipsToRelationFromPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type LabelActivitiesRelationPersonRelationRelationshipsToRelationToPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 input LabelsColorFilters {
@@ -3370,10 +1502,6 @@ input LabelsOrderBy {
 }
 
 type Mutation {
-  createActivities(values: [CreateActivityInput!]!): [Activity!]!
-  createActivity(values: CreateActivityInput!): Activity
-  createActivityTag(values: CreateActivityTagInput!): ActivityTag
-  createActivityTags(values: [CreateActivityTagInput!]!): [ActivityTag!]!
   createImportantDate(values: CreateImportantDateInput!): ImportantDate
   createImportantDateTag(values: CreateImportantDateTagInput!): ImportantDateTag
   createImportantDateTags(values: [CreateImportantDateTagInput!]!): [ImportantDateTag!]!
@@ -3396,8 +1524,8 @@ type Mutation {
   createPersonRelationship(values: CreatePersonRelationshipInput!): PersonRelationship
   createPersonRelationships(values: [CreatePersonRelationshipInput!]!): [PersonRelationship!]!
   createPersons(values: [CreatePersonInput!]!): [Person!]!
-  deleteActivities(where: ActivitiesFilters): [Activity!]!
-  deleteActivityTags(where: ActivityTagsFilters): [ActivityTag!]!
+  createTask(values: CreateTaskInput!): Task
+  createTasks(values: [CreateTaskInput!]!): [Task!]!
   deleteImportantDateTags(where: ImportantDateTagsFilters): [ImportantDateTag!]!
   deleteImportantDates(where: ImportantDatesFilters): [ImportantDate!]!
   deleteInteractionTags(where: InteractionTagsFilters): [InteractionTag!]!
@@ -3409,8 +1537,7 @@ type Mutation {
   deletePersonLabels(where: PersonLabelsFilters): [PersonLabel!]!
   deletePersonRelationships(where: PersonRelationshipsFilters): [PersonRelationship!]!
   deletePersons(where: PersonsFilters): [Person!]!
-  updateActivities(set: UpdateActivityInput!, where: ActivitiesFilters): [Activity!]!
-  updateActivityTags(set: UpdateActivityTagInput!, where: ActivityTagsFilters): [ActivityTag!]!
+  deleteTasks(where: TasksFilters): [Task!]!
   updateImportantDateTags(set: UpdateImportantDateTagInput!, where: ImportantDateTagsFilters): [ImportantDateTag!]!
   updateImportantDates(set: UpdateImportantDateInput!, where: ImportantDatesFilters): [ImportantDate!]!
   updateInteractionTags(set: UpdateInteractionTagInput!, where: InteractionTagsFilters): [InteractionTag!]!
@@ -3422,6 +1549,7 @@ type Mutation {
   updatePersonLabels(set: UpdatePersonLabelInput!, where: PersonLabelsFilters): [PersonLabel!]!
   updatePersonRelationships(set: UpdatePersonRelationshipInput!, where: PersonRelationshipsFilters): [PersonRelationship!]!
   updatePersons(set: UpdatePersonInput!, where: PersonsFilters): [Person!]!
+  updateTasks(set: UpdateTaskInput!, where: TasksFilters): [Task!]!
 }
 
 type Note {
@@ -3434,212 +1562,9 @@ type Note {
 }
 
 type NoteLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [NoteLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type NoteLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [NoteLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): NoteLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type NoteLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type NoteLabelsRelationActivitiesRelationPersonRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [NoteLabelsRelationActivitiesRelationPersonRelationActivitiesRelation!]!
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation!]!
-  interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelation!]!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [NoteLabelsRelationActivitiesRelationPersonRelationLabelsRelation!]!
-  lastName: String!
-  mentionedInNotes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [NoteLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelation!]!
-  notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [NoteLabelsRelationActivitiesRelationPersonRelationNotesRelation!]!
-  relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelation!]!
-  relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelation!]!
-  """JSON"""
-  updatedAt: String!
-}
-
-type NoteLabelsRelationActivitiesRelationPersonRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  personId: String!
-  title: String!
-}
-
-type NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation {
-  date: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation!]!
-  name: String!
-  person(where: PersonsFilters): NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonRelation
-  personId: String!
-  recurrence: String
-}
-
-type NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelation {
-  channel: String!
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelationLabelsRelation!]!
-  note: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelationPersonRelation
-  personId: String!
-  sentiment: String
-}
-
-type NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type NoteLabelsRelationActivitiesRelationPersonRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type NoteLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRelation {
-  body: String!
-  id: String!
-  personId: String
-}
-
-type NoteLabelsRelationActivitiesRelationPersonRelationNotesRelation {
-  body: String!
-  id: String!
-  personId: String
-}
-
-type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelation {
-  fromPerson(where: PersonsFilters): NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonRelation
-  fromPersonId: String!
-  id: String!
-  toPerson(where: PersonsFilters): NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationToPersonRelation
-  toPersonId: String!
-  type: String!
-}
-
-type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelationToPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelation {
-  fromPerson(where: PersonsFilters): NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationFromPersonRelation
-  fromPersonId: String!
-  id: String!
-  toPerson(where: PersonsFilters): NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationToPersonRelation
-  toPersonId: String!
-  type: String!
-}
-
-type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationFromPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
-}
-
-type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationToPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type NoteMention {
@@ -3742,7 +1667,6 @@ input NoteMentionsOrderBy {
 }
 
 type NoteMentionsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [NoteMentionsRelationActivitiesRelation!]!
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -3758,52 +1682,7 @@ type NoteMentionsRelation {
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [NoteMentionsRelationNotesRelation!]!
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [NoteMentionsRelationRelationshipsFromRelation!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [NoteMentionsRelationRelationshipsToRelation!]!
-  """JSON"""
-  updatedAt: String!
-}
-
-type NoteMentionsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [NoteMentionsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): NoteMentionsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type NoteMentionsRelationActivitiesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [NoteMentionsRelationActivitiesRelationLabelsRelationActivitiesRelation!]!
-  color: String!
-  id: String!
-  label: String!
-}
-
-type NoteMentionsRelationActivitiesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  personId: String!
-  title: String!
-}
-
-type NoteMentionsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
+  tasks(limit: Int, offset: Int, orderBy: TasksOrderBy, where: TasksFilters): [NoteMentionsRelationTasksRelation!]!
   """JSON"""
   updatedAt: String!
 }
@@ -3820,43 +1699,9 @@ type NoteMentionsRelationImportantDatesRelation {
 }
 
 type NoteMentionsRelationImportantDatesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type NoteMentionsRelationImportantDatesRelationPersonRelation {
@@ -3885,43 +1730,9 @@ type NoteMentionsRelationInteractionsRelation {
 }
 
 type NoteMentionsRelationInteractionsRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type NoteMentionsRelationInteractionsRelationPersonRelation {
@@ -3938,43 +1749,9 @@ type NoteMentionsRelationInteractionsRelationPersonRelation {
 }
 
 type NoteMentionsRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [NoteMentionsRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type NoteMentionsRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [NoteMentionsRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): NoteMentionsRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type NoteMentionsRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type NoteMentionsRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type NoteMentionsRelationMentionedInNotesRelation {
@@ -4059,8 +1836,34 @@ type NoteMentionsRelationRelationshipsToRelationToPersonRelation {
   updatedAt: String!
 }
 
+type NoteMentionsRelationTasksRelation {
+  """JSON"""
+  completedAt: String
+  """JSON"""
+  createdAt: String!
+  """JSON"""
+  dueAt: String
+  id: String!
+  notes: String
+  person(where: PersonsFilters): NoteMentionsRelationTasksRelationPersonRelation
+  personId: String!
+  title: String!
+}
+
+type NoteMentionsRelationTasksRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
 type NotePersonRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [NotePersonRelationActivitiesRelation!]!
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -4076,52 +1879,7 @@ type NotePersonRelation {
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [NotePersonRelationNotesRelation!]!
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [NotePersonRelationRelationshipsFromRelation!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [NotePersonRelationRelationshipsToRelation!]!
-  """JSON"""
-  updatedAt: String!
-}
-
-type NotePersonRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [NotePersonRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): NotePersonRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type NotePersonRelationActivitiesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [NotePersonRelationActivitiesRelationLabelsRelationActivitiesRelation!]!
-  color: String!
-  id: String!
-  label: String!
-}
-
-type NotePersonRelationActivitiesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  personId: String!
-  title: String!
-}
-
-type NotePersonRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
+  tasks(limit: Int, offset: Int, orderBy: TasksOrderBy, where: TasksFilters): [NotePersonRelationTasksRelation!]!
   """JSON"""
   updatedAt: String!
 }
@@ -4138,43 +1896,9 @@ type NotePersonRelationImportantDatesRelation {
 }
 
 type NotePersonRelationImportantDatesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [NotePersonRelationImportantDatesRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type NotePersonRelationImportantDatesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [NotePersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): NotePersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type NotePersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type NotePersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type NotePersonRelationImportantDatesRelationPersonRelation {
@@ -4203,43 +1927,9 @@ type NotePersonRelationInteractionsRelation {
 }
 
 type NotePersonRelationInteractionsRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [NotePersonRelationInteractionsRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type NotePersonRelationInteractionsRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [NotePersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): NotePersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type NotePersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type NotePersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type NotePersonRelationInteractionsRelationPersonRelation {
@@ -4256,43 +1946,9 @@ type NotePersonRelationInteractionsRelationPersonRelation {
 }
 
 type NotePersonRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [NotePersonRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type NotePersonRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [NotePersonRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): NotePersonRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type NotePersonRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type NotePersonRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type NotePersonRelationMentionedInNotesRelation {
@@ -4365,6 +2021,33 @@ type NotePersonRelationRelationshipsToRelationFromPersonRelation {
 }
 
 type NotePersonRelationRelationshipsToRelationToPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type NotePersonRelationTasksRelation {
+  """JSON"""
+  completedAt: String
+  """JSON"""
+  createdAt: String!
+  """JSON"""
+  dueAt: String
+  id: String!
+  notes: String
+  person(where: PersonsFilters): NotePersonRelationTasksRelationPersonRelation
+  personId: String!
+  title: String!
+}
+
+type NotePersonRelationTasksRelationPersonRelation {
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -4621,7 +2304,6 @@ enum OrderDirection {
 }
 
 type Person {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [PersonActivitiesRelation!]!
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -4638,52 +2320,7 @@ type Person {
   relationships: [PersonRelationshipEntry!]!
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipsFromRelation!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipsToRelation!]!
-  """JSON"""
-  updatedAt: String!
-}
-
-type PersonActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): PersonActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type PersonActivitiesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [PersonActivitiesRelationLabelsRelationActivitiesRelation!]!
-  color: String!
-  id: String!
-  label: String!
-}
-
-type PersonActivitiesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  personId: String!
-  title: String!
-}
-
-type PersonActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
+  tasks(limit: Int, offset: Int, orderBy: TasksOrderBy, where: TasksFilters): [PersonTasksRelation!]!
   """JSON"""
   updatedAt: String!
 }
@@ -4700,43 +2337,9 @@ type PersonImportantDatesRelation {
 }
 
 type PersonImportantDatesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [PersonImportantDatesRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type PersonImportantDatesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): PersonImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type PersonImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type PersonImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type PersonImportantDatesRelationPersonRelation {
@@ -4765,43 +2368,9 @@ type PersonInteractionsRelation {
 }
 
 type PersonInteractionsRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [PersonInteractionsRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type PersonInteractionsRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): PersonInteractionsRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type PersonInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type PersonInteractionsRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type PersonInteractionsRelationPersonRelation {
@@ -4917,43 +2486,9 @@ input PersonLabelsPersonIdFiltersOr {
 }
 
 type PersonLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [PersonLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type PersonLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): PersonLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type PersonLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type PersonLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type PersonMentionedInNotesRelation {
@@ -4966,43 +2501,9 @@ type PersonMentionedInNotesRelation {
 }
 
 type PersonMentionedInNotesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [PersonMentionedInNotesRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type PersonMentionedInNotesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): PersonMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type PersonMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type PersonMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type PersonMentionedInNotesRelationMentionsRelation {
@@ -5041,43 +2542,9 @@ type PersonNotesRelation {
 }
 
 type PersonNotesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [PersonNotesRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type PersonNotesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonNotesRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): PersonNotesRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type PersonNotesRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type PersonNotesRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type PersonNotesRelationMentionsRelation {
@@ -5124,7 +2591,6 @@ type PersonRelationshipEntry {
 }
 
 type PersonRelationshipFromPersonRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [PersonRelationshipFromPersonRelationActivitiesRelation!]!
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -5140,52 +2606,7 @@ type PersonRelationshipFromPersonRelation {
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [PersonRelationshipFromPersonRelationNotesRelation!]!
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipFromPersonRelationRelationshipsFromRelation!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipFromPersonRelationRelationshipsToRelation!]!
-  """JSON"""
-  updatedAt: String!
-}
-
-type PersonRelationshipFromPersonRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipFromPersonRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): PersonRelationshipFromPersonRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type PersonRelationshipFromPersonRelationActivitiesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [PersonRelationshipFromPersonRelationActivitiesRelationLabelsRelationActivitiesRelation!]!
-  color: String!
-  id: String!
-  label: String!
-}
-
-type PersonRelationshipFromPersonRelationActivitiesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  personId: String!
-  title: String!
-}
-
-type PersonRelationshipFromPersonRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
+  tasks(limit: Int, offset: Int, orderBy: TasksOrderBy, where: TasksFilters): [PersonRelationshipFromPersonRelationTasksRelation!]!
   """JSON"""
   updatedAt: String!
 }
@@ -5202,43 +2623,9 @@ type PersonRelationshipFromPersonRelationImportantDatesRelation {
 }
 
 type PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation {
@@ -5267,43 +2654,9 @@ type PersonRelationshipFromPersonRelationInteractionsRelation {
 }
 
 type PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type PersonRelationshipFromPersonRelationInteractionsRelationPersonRelation {
@@ -5320,43 +2673,9 @@ type PersonRelationshipFromPersonRelationInteractionsRelationPersonRelation {
 }
 
 type PersonRelationshipFromPersonRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [PersonRelationshipFromPersonRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type PersonRelationshipFromPersonRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipFromPersonRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): PersonRelationshipFromPersonRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type PersonRelationshipFromPersonRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type PersonRelationshipFromPersonRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type PersonRelationshipFromPersonRelationMentionedInNotesRelation {
@@ -5369,43 +2688,9 @@ type PersonRelationshipFromPersonRelationMentionedInNotesRelation {
 }
 
 type PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type PersonRelationshipFromPersonRelationMentionedInNotesRelationMentionsRelation {
@@ -5444,43 +2729,9 @@ type PersonRelationshipFromPersonRelationNotesRelation {
 }
 
 type PersonRelationshipFromPersonRelationNotesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type PersonRelationshipFromPersonRelationNotesRelationMentionsRelation {
@@ -5523,8 +2774,34 @@ type PersonRelationshipFromPersonRelationRelationshipsToRelation {
   type: String!
 }
 
+type PersonRelationshipFromPersonRelationTasksRelation {
+  """JSON"""
+  completedAt: String
+  """JSON"""
+  createdAt: String!
+  """JSON"""
+  dueAt: String
+  id: String!
+  notes: String
+  person(where: PersonsFilters): PersonRelationshipFromPersonRelationTasksRelationPersonRelation
+  personId: String!
+  title: String!
+}
+
+type PersonRelationshipFromPersonRelationTasksRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
 type PersonRelationshipToPersonRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [PersonRelationshipToPersonRelationActivitiesRelation!]!
   avatarPath: String
   contactFrequency: String
   """JSON"""
@@ -5540,52 +2817,7 @@ type PersonRelationshipToPersonRelation {
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [PersonRelationshipToPersonRelationNotesRelation!]!
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipToPersonRelationRelationshipsFromRelation!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipToPersonRelationRelationshipsToRelation!]!
-  """JSON"""
-  updatedAt: String!
-}
-
-type PersonRelationshipToPersonRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipToPersonRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): PersonRelationshipToPersonRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type PersonRelationshipToPersonRelationActivitiesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [PersonRelationshipToPersonRelationActivitiesRelationLabelsRelationActivitiesRelation!]!
-  color: String!
-  id: String!
-  label: String!
-}
-
-type PersonRelationshipToPersonRelationActivitiesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  personId: String!
-  title: String!
-}
-
-type PersonRelationshipToPersonRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
+  tasks(limit: Int, offset: Int, orderBy: TasksOrderBy, where: TasksFilters): [PersonRelationshipToPersonRelationTasksRelation!]!
   """JSON"""
   updatedAt: String!
 }
@@ -5602,43 +2834,9 @@ type PersonRelationshipToPersonRelationImportantDatesRelation {
 }
 
 type PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation {
@@ -5667,43 +2865,9 @@ type PersonRelationshipToPersonRelationInteractionsRelation {
 }
 
 type PersonRelationshipToPersonRelationInteractionsRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [PersonRelationshipToPersonRelationInteractionsRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type PersonRelationshipToPersonRelationInteractionsRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipToPersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): PersonRelationshipToPersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type PersonRelationshipToPersonRelationInteractionsRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type PersonRelationshipToPersonRelationInteractionsRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type PersonRelationshipToPersonRelationInteractionsRelationPersonRelation {
@@ -5720,43 +2884,9 @@ type PersonRelationshipToPersonRelationInteractionsRelationPersonRelation {
 }
 
 type PersonRelationshipToPersonRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [PersonRelationshipToPersonRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type PersonRelationshipToPersonRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipToPersonRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): PersonRelationshipToPersonRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type PersonRelationshipToPersonRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type PersonRelationshipToPersonRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type PersonRelationshipToPersonRelationMentionedInNotesRelation {
@@ -5769,43 +2899,9 @@ type PersonRelationshipToPersonRelationMentionedInNotesRelation {
 }
 
 type PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type PersonRelationshipToPersonRelationMentionedInNotesRelationMentionsRelation {
@@ -5844,43 +2940,9 @@ type PersonRelationshipToPersonRelationNotesRelation {
 }
 
 type PersonRelationshipToPersonRelationNotesRelationLabelsRelation {
-  activities(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivitiesRelation!]!
   color: String!
   id: String!
   label: String!
-}
-
-type PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivitiesRelation {
-  """JSON"""
-  createdAt: String!
-  description: String
-  id: String!
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsRelation!]!
-  location: String
-  """JSON"""
-  occurredAt: String!
-  person(where: PersonsFilters): PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRelation
-  personId: String!
-  title: String!
-}
-
-type PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivitiesRelationLabelsRelation {
-  color: String!
-  id: String!
-  label: String!
-}
-
-type PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRelation {
-  avatarPath: String
-  contactFrequency: String
-  """JSON"""
-  createdAt: String!
-  email: String!
-  firstName: String!
-  id: String!
-  lastName: String!
-  """JSON"""
-  updatedAt: String!
 }
 
 type PersonRelationshipToPersonRelationNotesRelationMentionsRelation {
@@ -5921,6 +2983,33 @@ type PersonRelationshipToPersonRelationRelationshipsToRelation {
   id: String!
   toPersonId: String!
   type: String!
+}
+
+type PersonRelationshipToPersonRelationTasksRelation {
+  """JSON"""
+  completedAt: String
+  """JSON"""
+  createdAt: String!
+  """JSON"""
+  dueAt: String
+  id: String!
+  notes: String
+  person(where: PersonsFilters): PersonRelationshipToPersonRelationTasksRelationPersonRelation
+  personId: String!
+  title: String!
+}
+
+type PersonRelationshipToPersonRelationTasksRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
 }
 
 input PersonRelationshipsFilters {
@@ -6169,6 +3258,33 @@ input PersonRelationshipsTypeFiltersOr {
   """Array<undefined>"""
   notInArray: [String!]
   notLike: String
+}
+
+type PersonTasksRelation {
+  """JSON"""
+  completedAt: String
+  """JSON"""
+  createdAt: String!
+  """JSON"""
+  dueAt: String
+  id: String!
+  notes: String
+  person(where: PersonsFilters): PersonTasksRelationPersonRelation
+  personId: String!
+  title: String!
+}
+
+type PersonTasksRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
 }
 
 input PersonsAvatarPathFilters {
@@ -6542,10 +3658,6 @@ input PersonsUpdatedAtFiltersOr {
 }
 
 type Query {
-  activity(offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): Activity
-  activityTag(offset: Int, orderBy: ActivityTagsOrderBy, where: ActivityTagsFilters): ActivityTag
-  activityTags(limit: Int, offset: Int, orderBy: ActivityTagsOrderBy, where: ActivityTagsFilters): [ActivityTag!]!
-  activitys(limit: Int, offset: Int, orderBy: ActivitiesOrderBy, where: ActivitiesFilters): [Activity!]!
   importantDate(offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): ImportantDate
   importantDateTag(offset: Int, orderBy: ImportantDateTagsOrderBy, where: ImportantDateTagsFilters): ImportantDateTag
   importantDateTags(limit: Int, offset: Int, orderBy: ImportantDateTagsOrderBy, where: ImportantDateTagsFilters): [ImportantDateTag!]!
@@ -6568,23 +3680,615 @@ type Query {
   personRelationship(offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): PersonRelationship
   personRelationships(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationship!]!
   persons(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [Person!]!
+  task(offset: Int, orderBy: TasksOrderBy, where: TasksFilters): Task
+  tasks(limit: Int, offset: Int, orderBy: TasksOrderBy, where: TasksFilters): [Task!]!
 }
 
-input UpdateActivityInput {
+type Task {
   """JSON"""
-  createdAt: String
+  completedAt: String
+  """JSON"""
+  createdAt: String!
+  """JSON"""
+  dueAt: String
+  id: String!
+  notes: String
+  person(where: PersonsFilters): TaskPersonRelation
+  personId: String!
+  title: String!
+}
+
+type TaskPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [TaskPersonRelationImportantDatesRelation!]!
+  interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [TaskPersonRelationInteractionsRelation!]!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [TaskPersonRelationLabelsRelation!]!
+  lastName: String!
+  mentionedInNotes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [TaskPersonRelationMentionedInNotesRelation!]!
+  notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [TaskPersonRelationNotesRelation!]!
+  relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [TaskPersonRelationRelationshipsFromRelation!]!
+  relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [TaskPersonRelationRelationshipsToRelation!]!
+  tasks(limit: Int, offset: Int, orderBy: TasksOrderBy, where: TasksFilters): [TaskPersonRelationTasksRelation!]!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationImportantDatesRelation {
+  date: String!
   description: String
-  id: String
-  location: String
-  """JSON"""
-  occurredAt: String
-  personId: String
-  title: String
+  id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [TaskPersonRelationImportantDatesRelationLabelsRelation!]!
+  name: String!
+  person(where: PersonsFilters): TaskPersonRelationImportantDatesRelationPersonRelation
+  personId: String!
+  recurrence: String
 }
 
-input UpdateActivityTagInput {
-  activityId: String
-  labelId: String
+type TaskPersonRelationImportantDatesRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type TaskPersonRelationImportantDatesRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationInteractionsRelation {
+  channel: String!
+  id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [TaskPersonRelationInteractionsRelationLabelsRelation!]!
+  note: String
+  """JSON"""
+  occurredAt: String!
+  person(where: PersonsFilters): TaskPersonRelationInteractionsRelationPersonRelation
+  personId: String!
+  sentiment: String
+}
+
+type TaskPersonRelationInteractionsRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type TaskPersonRelationInteractionsRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type TaskPersonRelationMentionedInNotesRelation {
+  body: String!
+  id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [TaskPersonRelationMentionedInNotesRelationLabelsRelation!]!
+  mentions(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [TaskPersonRelationMentionedInNotesRelationMentionsRelation!]!
+  person(where: PersonsFilters): TaskPersonRelationMentionedInNotesRelationPersonRelation
+  personId: String
+}
+
+type TaskPersonRelationMentionedInNotesRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type TaskPersonRelationMentionedInNotesRelationMentionsRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationMentionedInNotesRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationNotesRelation {
+  body: String!
+  id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [TaskPersonRelationNotesRelationLabelsRelation!]!
+  mentions(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [TaskPersonRelationNotesRelationMentionsRelation!]!
+  person(where: PersonsFilters): TaskPersonRelationNotesRelationPersonRelation
+  personId: String
+}
+
+type TaskPersonRelationNotesRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type TaskPersonRelationNotesRelationMentionsRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationNotesRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationRelationshipsFromRelation {
+  fromPerson(where: PersonsFilters): TaskPersonRelationRelationshipsFromRelationFromPersonRelation
+  fromPersonId: String!
+  id: String!
+  toPerson(where: PersonsFilters): TaskPersonRelationRelationshipsFromRelationToPersonRelation
+  toPersonId: String!
+  type: String!
+}
+
+type TaskPersonRelationRelationshipsFromRelationFromPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationRelationshipsFromRelationToPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationRelationshipsToRelation {
+  fromPerson(where: PersonsFilters): TaskPersonRelationRelationshipsToRelationFromPersonRelation
+  fromPersonId: String!
+  id: String!
+  toPerson(where: PersonsFilters): TaskPersonRelationRelationshipsToRelationToPersonRelation
+  toPersonId: String!
+  type: String!
+}
+
+type TaskPersonRelationRelationshipsToRelationFromPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationRelationshipsToRelationToPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type TaskPersonRelationTasksRelation {
+  """JSON"""
+  completedAt: String
+  """JSON"""
+  createdAt: String!
+  """JSON"""
+  dueAt: String
+  id: String!
+  notes: String
+  personId: String!
+  title: String!
+}
+
+input TasksCompletedAtFilters {
+  OR: [TasksCompletedAtFiltersOr!]
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksCompletedAtFiltersOr {
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksCreatedAtFilters {
+  OR: [TasksCreatedAtFiltersOr!]
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksCreatedAtFiltersOr {
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksDueAtFilters {
+  OR: [TasksDueAtFiltersOr!]
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksDueAtFiltersOr {
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksFilters {
+  OR: [TasksFiltersOr!]
+  completedAt: TasksCompletedAtFilters
+  createdAt: TasksCreatedAtFilters
+  dueAt: TasksDueAtFilters
+  id: TasksIdFilters
+  notes: TasksNotesFilters
+  personId: TasksPersonIdFilters
+  title: TasksTitleFilters
+}
+
+input TasksFiltersOr {
+  completedAt: TasksCompletedAtFilters
+  createdAt: TasksCreatedAtFilters
+  dueAt: TasksDueAtFilters
+  id: TasksIdFilters
+  notes: TasksNotesFilters
+  personId: TasksPersonIdFilters
+  title: TasksTitleFilters
+}
+
+input TasksIdFilters {
+  OR: [TasksIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksNotesFilters {
+  OR: [TasksNotesFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksNotesFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksOrderBy {
+  completedAt: InnerOrder
+  createdAt: InnerOrder
+  dueAt: InnerOrder
+  id: InnerOrder
+  notes: InnerOrder
+  personId: InnerOrder
+  title: InnerOrder
+}
+
+input TasksPersonIdFilters {
+  OR: [TasksPersonIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksPersonIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksTitleFilters {
+  OR: [TasksTitleFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input TasksTitleFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
 }
 
 input UpdateImportantDateInput {
@@ -6661,4 +4365,17 @@ input UpdatePersonRelationshipInput {
   id: String
   toPersonId: String
   type: String
+}
+
+input UpdateTaskInput {
+  """JSON"""
+  completedAt: String
+  """JSON"""
+  createdAt: String
+  """JSON"""
+  dueAt: String
+  id: String
+  notes: String
+  personId: String
+  title: String
 }
