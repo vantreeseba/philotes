@@ -15,6 +15,9 @@ export const Route = createRootRoute({
             <Link to="/tags" className="text-muted-foreground text-sm hover:text-foreground">
               Tags
             </Link>
+            <Link to="/network" className="text-muted-foreground text-sm hover:text-foreground">
+              Network
+            </Link>
           </nav>
         </div>
       </header>

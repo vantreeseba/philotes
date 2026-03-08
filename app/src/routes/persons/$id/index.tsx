@@ -21,6 +21,7 @@ import {
 } from '@/components/domain/person/important-date-form.js';
 import { ImportantDateTags } from '@/components/domain/person/important-date-tags.js';
 import { PersonInteractions } from '@/components/domain/person/interactions.js';
+import { PersonIntroductions } from '@/components/domain/person/introductions.js';
 import { PersonLabels } from '@/components/domain/person/labels.js';
 import { PersonNotes } from '@/components/domain/person/notes.js';
 import { PersonRelationships } from '@/components/domain/person/relationships.js';
@@ -72,6 +73,20 @@ const GET_PERSON_DETAIL = graphql(`
           label
           color
         }
+        mentions {
+          id
+          firstName
+          lastName
+        }
+      }
+      mentionedInNotes {
+        id
+        body
+        person {
+          id
+          firstName
+          lastName
+        }
       }
       interactions(orderBy: { occurredAt: { direction: desc, priority: 1 } }) {
         id
@@ -103,6 +118,13 @@ const GET_ALL_PERSONS = graphql(`
       id
       firstName
       lastName
+      email
+      avatarPath
+      labels {
+        id
+        label
+        color
+      }
     }
   }
 `);
@@ -406,6 +428,19 @@ function PersonDetailPage() {
     lastName: p.lastName,
   }));
 
+  const allPersonsWithLabels = (allPersonsData?.persons ?? []).map((p) => ({
+    id: p.id,
+    firstName: p.firstName,
+    lastName: p.lastName,
+    email: p.email,
+    avatarPath: p.avatarPath,
+    labels: (p.labels ?? []).map((l) => ({
+      id: l.id,
+      label: l.label,
+      color: l.color,
+    })),
+  }));
+
   const allLabels = (allLabelsData?.labels ?? []).map((l) => ({
     id: l.id,
     label: l.label,
@@ -592,6 +627,23 @@ function PersonDetailPage() {
           </CardContent>
         </Card>
 
+        {/* Suggested Introductions */}
+        <Card>
+          <CardContent className="p-4">
+            <ListLayout
+              header={<h2 className="font-semibold text-base">Suggested Introductions</h2>}
+              body={
+                <PersonIntroductions
+                  currentPersonId={person.id}
+                  currentPersonLabels={person.labels}
+                  allPersons={allPersonsWithLabels}
+                  linkedPersonIds={new Set(person.relationships.map((r) => r.relatedPersonId))}
+                />
+              }
+            />
+          </CardContent>
+        </Card>
+
         {/* Important Dates */}
         <Card>
           <CardContent className="p-4">
@@ -651,8 +703,14 @@ function PersonDetailPage() {
                     id: n.id,
                     body: n.body,
                     labels: n.labels ?? [],
+                    mentions: (n.mentions ?? []).map((m) => ({
+                      id: m.id,
+                      firstName: m.firstName,
+                      lastName: m.lastName,
+                    })),
                   }))}
                   allTags={allLabels}
+                  allPersons={allPersonStubs}
                   onChanged={() => refetch()}
                   createOpen={noteDialogOpen}
                   onCreateOpenChange={setNoteDialogOpen}
@@ -732,6 +790,38 @@ function PersonDetailPage() {
                   showAdd={showAddRelationship}
                   onShowAdd={setShowAddRelationship}
                 />
+              }
+            />
+          </CardContent>
+        </Card>
+
+        {/* Mentioned In */}
+        <Card>
+          <CardContent className="p-4">
+            <ListLayout
+              header={<h2 className="font-semibold text-base">Mentioned In</h2>}
+              body={
+                (person.mentionedInNotes ?? []).length === 0 ? (
+                  <p className="text-muted-foreground text-sm">Not mentioned in any notes yet.</p>
+                ) : (
+                  <div className="space-y-2">
+                    {(person.mentionedInNotes ?? []).map((n) => (
+                      <div key={n.id} className="rounded-md border border-border px-3 py-2 text-sm space-y-0.5">
+                        <p className="text-sm line-clamp-3">
+                          {n.body.length > 120 ? `${n.body.slice(0, 120)}…` : n.body}
+                        </p>
+                        {n.person && (
+                          <p className="text-xs text-muted-foreground">
+                            by{' '}
+                            <Link to="/persons/$id" params={{ id: n.person.id }} className="hover:underline">
+                              {n.person.firstName} {n.person.lastName}
+                            </Link>
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )
               }
             />
           </CardContent>

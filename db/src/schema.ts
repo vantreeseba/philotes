@@ -90,6 +90,19 @@ export const importantDateTags = pgTable(
   (t) => [primaryKey({ columns: [t.importantDateId, t.labelId] })],
 );
 
+export const noteMentions = pgTable(
+  'note_mentions',
+  {
+    noteId: uuid('note_id')
+      .notNull()
+      .references(() => notes.id, { onDelete: 'cascade' }),
+    mentionedPersonId: uuid('mentioned_person_id')
+      .notNull()
+      .references(() => persons.id, { onDelete: 'cascade' }),
+  },
+  (t) => [primaryKey({ columns: [t.noteId, t.mentionedPersonId] })],
+);
+
 export const personRelationships = pgTable('person_relationships', {
   id: uuid('id').primaryKey().defaultRandom(),
   fromPersonId: uuid('from_person_id')
@@ -145,3 +158,5 @@ export type Interaction = typeof interactions.$inferSelect;
 export type NewInteraction = typeof interactions.$inferInsert;
 export type InteractionTag = typeof interactionTags.$inferSelect;
 export type NewInteractionTag = typeof interactionTags.$inferInsert;
+export type NoteMention = typeof noteMentions.$inferSelect;
+export type NewNoteMention = typeof noteMentions.$inferInsert;

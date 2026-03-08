@@ -3,7 +3,11 @@ import * as schema from './schema.ts';
 
 export const relations = defineRelations(schema, (r) => ({
   persons: {
-    notes: r.many.notes(),
+    notes: r.many.notes({
+      from: r.persons.id,
+      to: r.notes.personId,
+      alias: 'personNotes',
+    }),
     labels: r.many.labels({
       from: r.persons.id.through(r.personLabels.personId),
       to: r.labels.id.through(r.personLabels.labelId),
@@ -18,15 +22,26 @@ export const relations = defineRelations(schema, (r) => ({
       from: r.persons.id,
       to: r.personRelationships.toPersonId,
     }),
+    mentionedInNotes: r.many.notes({
+      from: r.persons.id.through(r.noteMentions.mentionedPersonId),
+      to: r.notes.id.through(r.noteMentions.noteId),
+      alias: 'noteMentions',
+    }),
   },
   notes: {
     person: r.one.persons({
       from: r.notes.personId,
       to: r.persons.id,
+      alias: 'personNotes',
     }),
     labels: r.many.labels({
       from: r.notes.id.through(r.noteTags.noteId),
       to: r.labels.id.through(r.noteTags.labelId),
+    }),
+    mentions: r.many.persons({
+      from: r.notes.id.through(r.noteMentions.noteId),
+      to: r.persons.id.through(r.noteMentions.mentionedPersonId),
+      alias: 'noteMentions',
     }),
   },
   importantDates: {
