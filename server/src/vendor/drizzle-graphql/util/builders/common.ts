@@ -79,7 +79,6 @@ export const extractSelectedColumnsFromTree = (
 
   if (!selectedColumns.length) {
     const columnKeys = Object.entries(tableColumns);
-    console.log('columnKeys', columnKeys);
     const columnName =
       columnKeys.find((e) =>
         rqbCrashTypes.find((haram) => e[1].columnType !== haram),
@@ -114,7 +113,6 @@ export const extractSelectedColumnsFromTreeSQLFormat = <
 
   if (!selectedColumns.length) {
     const columnKeys = Object.entries(tableColumns);
-    console.log('columnKeys sql', columnKeys);
     const columnName =
       columnKeys.find((e) =>
         rqbCrashTypes.find((haram) => e[1].columnType !== haram),
@@ -767,25 +765,14 @@ const extractRelationsParamsInner = (
 
   const args: Record<string, Partial<ProcessedTableSelectArgs>> = {};
 
-  console.log('what', baseField);
-
   for (const [relName, { targetTableName }] of Object.entries(
     relations,
   )) {
-
-
     const relTypeName = `${isInitial ? tableNameToModel(tableName) : typeName}${capitalize(relName)}Relation`;
-    console.log('what is this', relName, relTypeName, baseField);
     const field = baseField[relName];
-    console.log('field', field);
     if (!field) continue;
     const relField = field?.fieldsByTypeName;
-    console.log('relField', relField);
     const relFieldSelection = relField?.[relTypeName];
-    console.log('relFieldSelection', relFieldSelection);
-
-
-    console.log('targetTableName', targetTableName);
 
     const columns = extractSelectedColumnsFromTree(
       relFieldSelection,
@@ -805,7 +792,7 @@ const extractRelationsParamsInner = (
       ? extractOrderBy(tables[targetTableName]!, relationArgs.orderBy!)
       : undefined;
     const where = relationArgs?.where
-      ? { RAW: (aliased: Table) => extractFilters(aliased, relName, relationArgs.where!) }
+      ? extractFilters(tables[targetTableName]!, relName, relationArgs.where!)
       : undefined;
     const offset = relationArgs?.offset ?? undefined;
     const limit = relationArgs?.limit ?? undefined;
