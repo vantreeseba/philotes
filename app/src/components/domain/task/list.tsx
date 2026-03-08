@@ -2,8 +2,11 @@ import { useMutation } from '@apollo/client';
 import { CheckSquare, Square, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 import { graphql } from '@/__generated__/gql.js';
+import { useAppForm } from '@/components/domain/person/form.tsx';
 import { Button } from '@/components/ui/button.js';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog.js';
+import { FieldGroup } from '@/components/ui/field.js';
+import { FormError } from '@/components/ui/form-field.tsx';
 
 // ---------------------------------------------------------------------------
 // Fragment
@@ -174,85 +177,66 @@ interface AddTaskFormProps {
 }
 
 function AddTaskForm({ personId, onAdded, onCancel }: AddTaskFormProps) {
-  const [title, setTitle] = useState('');
-  const [notes, setNotes] = useState('');
-  const [dueAt, setDueAt] = useState('');
-  const [submitting, setSubmitting] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
   const [createTask] = useMutation(CREATE_TASK);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!title.trim()) return;
-    setSubmitting(true);
-    try {
-      await createTask({
-        variables: {
-          personId,
-          title: title.trim(),
-          notes: notes.trim() || null,
-          dueAt: dueAt || null,
-        },
-      });
-      onAdded();
-    } finally {
-      setSubmitting(false);
-    }
-  };
+  const form = useAppForm({
+    defaultValues: {
+      title: '',
+      notes: '',
+      dueAt: '',
+    },
+    onSubmit: async ({ value }) => {
+      setFormError(null);
+      try {
+        await createTask({
+          variables: {
+            personId,
+            title: value.title,
+            notes: value.notes || null,
+            dueAt: value.dueAt ? new Date(value.dueAt).toISOString() : null,
+          },
+        });
+        form.reset();
+        onAdded();
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setFormError(err.message);
+        } else {
+          setFormError('An unexpected error occurred.');
+        }
+      }
+    },
+  });
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="space-y-1.5">
-        <label htmlFor="task-title" className="text-sm font-medium">
-          Title <span className="text-destructive">*</span>
-        </label>
-        <input
-          id="task-title"
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Task title"
-          required
-          className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
-          // biome-ignore lint/a11y/noAutofocus: intentional for modal forms
-          autoFocus
-        />
-      </div>
-
-      <div className="space-y-1.5">
-        <label htmlFor="task-notes" className="text-sm font-medium">
-          Notes
-        </label>
-        <textarea
-          id="task-notes"
-          value={notes}
-          onChange={(e) => setNotes(e.target.value)}
-          rows={3}
-          placeholder="Optional notes..."
-          className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring resize-none"
-        />
-      </div>
-
-      <div className="space-y-1.5">
-        <label htmlFor="task-due-at" className="text-sm font-medium">
-          Due Date
-        </label>
-        <input
-          id="task-due-at"
-          type="datetime-local"
-          value={dueAt}
-          onChange={(e) => setDueAt(e.target.value)}
-          className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
-        />
-      </div>
-
-      <div className="flex gap-2">
-        <Button type="submit" disabled={!title.trim() || submitting}>
-          {submitting ? 'Adding...' : 'Add Task'}
-        </Button>
-        <Button type="button" variant="outline" onClick={onCancel}>
-          Cancel
-        </Button>
-      </div>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        form.handleSubmit();
+      }}
+    >
+      <FieldGroup className="gap-4">
+        <form.AppField name="title">{(field) => <field.TextField label="Title" />}</form.AppField>
+        <form.AppField name="notes">{(field) => <field.TextField label="Notes" />}</form.AppField>
+        <form.AppField name="dueAt">
+          {(field) => <field.TextField label="Due Date" type="datetime-local" />}
+        </form.AppField>
+        <FormError formError={formError} />
+      </FieldGroup>
+      <form.Subscribe selector={(s) => [s.canSubmit, s.isSubmitting]}>
+        {([canSubmit, isSubmitting]) => (
+          <div className="flex gap-2 mt-4">
+            <Button type="submit" disabled={!canSubmit || isSubmitting}>
+              {isSubmitting ? 'Adding...' : 'Add Task'}
+            </Button>
+            <Button type="button" variant="outline" onClick={onCancel}>
+              Cancel
+            </Button>
+          </div>
+        )}
+      </form.Subscribe>
     </form>
   );
 }
