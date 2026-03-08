@@ -3,6 +3,615 @@ schema {
   mutation: Mutation
 }
 
+type ContactInfo {
+  """JSON"""
+  createdAt: String!
+  id: String!
+  isPrimary: Boolean!
+  label: String
+  person(where: PersonsFilters): ContactInfoPersonRelation
+  personId: String!
+  type: ContactInfosTypeEnum!
+  value: String!
+}
+
+type ContactInfoPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  contactInfos(limit: Int, offset: Int, orderBy: ContactInfosOrderBy, where: ContactInfosFilters): [ContactInfoPersonRelationContactInfosRelation!]!
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [ContactInfoPersonRelationImportantDatesRelation!]!
+  interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [ContactInfoPersonRelationInteractionsRelation!]!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ContactInfoPersonRelationLabelsRelation!]!
+  lastName: String!
+  mentionedInNotes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [ContactInfoPersonRelationMentionedInNotesRelation!]!
+  notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [ContactInfoPersonRelationNotesRelation!]!
+  relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [ContactInfoPersonRelationRelationshipsFromRelation!]!
+  relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [ContactInfoPersonRelationRelationshipsToRelation!]!
+  """JSON"""
+  updatedAt: String!
+}
+
+type ContactInfoPersonRelationContactInfosRelation {
+  """JSON"""
+  createdAt: String!
+  id: String!
+  isPrimary: Boolean!
+  label: String
+  personId: String!
+  type: ContactInfosTypeEnum!
+  value: String!
+}
+
+type ContactInfoPersonRelationImportantDatesRelation {
+  date: String!
+  description: String
+  id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ContactInfoPersonRelationImportantDatesRelationLabelsRelation!]!
+  name: String!
+  person(where: PersonsFilters): ContactInfoPersonRelationImportantDatesRelationPersonRelation
+  personId: String!
+  recurrence: String
+}
+
+type ContactInfoPersonRelationImportantDatesRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type ContactInfoPersonRelationImportantDatesRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type ContactInfoPersonRelationInteractionsRelation {
+  channel: String!
+  id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ContactInfoPersonRelationInteractionsRelationLabelsRelation!]!
+  note: String
+  """JSON"""
+  occurredAt: String!
+  person(where: PersonsFilters): ContactInfoPersonRelationInteractionsRelationPersonRelation
+  personId: String!
+  sentiment: String
+}
+
+type ContactInfoPersonRelationInteractionsRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type ContactInfoPersonRelationInteractionsRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type ContactInfoPersonRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type ContactInfoPersonRelationMentionedInNotesRelation {
+  body: String!
+  id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ContactInfoPersonRelationMentionedInNotesRelationLabelsRelation!]!
+  mentions(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation!]!
+  person(where: PersonsFilters): ContactInfoPersonRelationMentionedInNotesRelationPersonRelation
+  personId: String
+}
+
+type ContactInfoPersonRelationMentionedInNotesRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type ContactInfoPersonRelationMentionedInNotesRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type ContactInfoPersonRelationNotesRelation {
+  body: String!
+  id: String!
+  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ContactInfoPersonRelationNotesRelationLabelsRelation!]!
+  mentions(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [ContactInfoPersonRelationNotesRelationMentionsRelation!]!
+  person(where: PersonsFilters): ContactInfoPersonRelationNotesRelationPersonRelation
+  personId: String
+}
+
+type ContactInfoPersonRelationNotesRelationLabelsRelation {
+  color: String!
+  id: String!
+  label: String!
+}
+
+type ContactInfoPersonRelationNotesRelationMentionsRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type ContactInfoPersonRelationNotesRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type ContactInfoPersonRelationRelationshipsFromRelation {
+  fromPerson(where: PersonsFilters): ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation
+  fromPersonId: String!
+  id: String!
+  toPerson(where: PersonsFilters): ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation
+  toPersonId: String!
+  type: String!
+}
+
+type ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type ContactInfoPersonRelationRelationshipsToRelation {
+  fromPerson(where: PersonsFilters): ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation
+  fromPersonId: String!
+  id: String!
+  toPerson(where: PersonsFilters): ContactInfoPersonRelationRelationshipsToRelationToPersonRelation
+  toPersonId: String!
+  type: String!
+}
+
+type ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+type ContactInfoPersonRelationRelationshipsToRelationToPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  """JSON"""
+  updatedAt: String!
+}
+
+input ContactInfosCreatedAtFilters {
+  OR: [ContactInfosCreatedAtFiltersOr!]
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ContactInfosCreatedAtFiltersOr {
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ContactInfosFilters {
+  OR: [ContactInfosFiltersOr!]
+  createdAt: ContactInfosCreatedAtFilters
+  id: ContactInfosIdFilters
+  isPrimary: ContactInfosIsPrimaryFilters
+  label: ContactInfosLabelFilters
+  personId: ContactInfosPersonIdFilters
+  type: ContactInfosTypeFilters
+  value: ContactInfosValueFilters
+}
+
+input ContactInfosFiltersOr {
+  createdAt: ContactInfosCreatedAtFilters
+  id: ContactInfosIdFilters
+  isPrimary: ContactInfosIsPrimaryFilters
+  label: ContactInfosLabelFilters
+  personId: ContactInfosPersonIdFilters
+  type: ContactInfosTypeFilters
+  value: ContactInfosValueFilters
+}
+
+input ContactInfosIdFilters {
+  OR: [ContactInfosIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ContactInfosIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ContactInfosIsPrimaryFilters {
+  OR: [ContactInfosIsPrimaryFiltersOr!]
+  eq: Boolean
+  gt: Boolean
+  gte: Boolean
+  ilike: String
+  """Array<undefined>"""
+  inArray: [Boolean!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: Boolean
+  lte: Boolean
+  ne: Boolean
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [Boolean!]
+  notLike: String
+}
+
+input ContactInfosIsPrimaryFiltersOr {
+  eq: Boolean
+  gt: Boolean
+  gte: Boolean
+  ilike: String
+  """Array<undefined>"""
+  inArray: [Boolean!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: Boolean
+  lte: Boolean
+  ne: Boolean
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [Boolean!]
+  notLike: String
+}
+
+input ContactInfosLabelFilters {
+  OR: [ContactInfosLabelFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ContactInfosLabelFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ContactInfosOrderBy {
+  createdAt: InnerOrder
+  id: InnerOrder
+  isPrimary: InnerOrder
+  label: InnerOrder
+  personId: InnerOrder
+  type: InnerOrder
+  value: InnerOrder
+}
+
+input ContactInfosPersonIdFilters {
+  OR: [ContactInfosPersonIdFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ContactInfosPersonIdFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+enum ContactInfosTypeEnum {
+  """Value: email"""
+  email
+  """Value: instagram"""
+  instagram
+  """Value: linkedin"""
+  linkedin
+  """Value: mobile"""
+  mobile
+  """Value: other"""
+  other
+  """Value: phone"""
+  phone
+  """Value: twitter"""
+  twitter
+  """Value: website"""
+  website
+}
+
+input ContactInfosTypeFilters {
+  OR: [ContactInfosTypeFiltersOr!]
+  eq: ContactInfosTypeEnum
+  gt: ContactInfosTypeEnum
+  gte: ContactInfosTypeEnum
+  ilike: String
+  """Array<undefined>"""
+  inArray: [ContactInfosTypeEnum!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: ContactInfosTypeEnum
+  lte: ContactInfosTypeEnum
+  ne: ContactInfosTypeEnum
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [ContactInfosTypeEnum!]
+  notLike: String
+}
+
+input ContactInfosTypeFiltersOr {
+  eq: ContactInfosTypeEnum
+  gt: ContactInfosTypeEnum
+  gte: ContactInfosTypeEnum
+  ilike: String
+  """Array<undefined>"""
+  inArray: [ContactInfosTypeEnum!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: ContactInfosTypeEnum
+  lte: ContactInfosTypeEnum
+  ne: ContactInfosTypeEnum
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [ContactInfosTypeEnum!]
+  notLike: String
+}
+
+input ContactInfosValueFilters {
+  OR: [ContactInfosValueFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input ContactInfosValueFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input CreateContactInfoInput {
+  """JSON"""
+  createdAt: String
+  id: String
+  isPrimary: Boolean
+  label: String
+  personId: String!
+  type: ContactInfosTypeEnum!
+  value: String!
+}
+
 input CreateImportantDateInput {
   date: String!
   description: String
@@ -99,6 +708,7 @@ type ImportantDateLabelsRelation {
 type ImportantDatePersonRelation {
   avatarPath: String
   contactFrequency: String
+  contactInfos(limit: Int, offset: Int, orderBy: ContactInfosOrderBy, where: ContactInfosFilters): [ImportantDatePersonRelationContactInfosRelation!]!
   """JSON"""
   createdAt: String!
   email: String!
@@ -112,6 +722,31 @@ type ImportantDatePersonRelation {
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [ImportantDatePersonRelationNotesRelation!]!
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [ImportantDatePersonRelationRelationshipsFromRelation!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [ImportantDatePersonRelationRelationshipsToRelation!]!
+  """JSON"""
+  updatedAt: String!
+}
+
+type ImportantDatePersonRelationContactInfosRelation {
+  """JSON"""
+  createdAt: String!
+  id: String!
+  isPrimary: Boolean!
+  label: String
+  person(where: PersonsFilters): ImportantDatePersonRelationContactInfosRelationPersonRelation
+  personId: String!
+  type: ContactInfosTypeEnum!
+  value: String!
+}
+
+type ImportantDatePersonRelationContactInfosRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
   """JSON"""
   updatedAt: String!
 }
@@ -702,6 +1337,7 @@ type InteractionLabelsRelation {
 type InteractionPersonRelation {
   avatarPath: String
   contactFrequency: String
+  contactInfos(limit: Int, offset: Int, orderBy: ContactInfosOrderBy, where: ContactInfosFilters): [InteractionPersonRelationContactInfosRelation!]!
   """JSON"""
   createdAt: String!
   email: String!
@@ -715,6 +1351,31 @@ type InteractionPersonRelation {
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [InteractionPersonRelationNotesRelation!]!
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [InteractionPersonRelationRelationshipsFromRelation!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [InteractionPersonRelationRelationshipsToRelation!]!
+  """JSON"""
+  updatedAt: String!
+}
+
+type InteractionPersonRelationContactInfosRelation {
+  """JSON"""
+  createdAt: String!
+  id: String!
+  isPrimary: Boolean!
+  label: String
+  person(where: PersonsFilters): InteractionPersonRelationContactInfosRelationPersonRelation
+  personId: String!
+  type: ContactInfosTypeEnum!
+  value: String!
+}
+
+type InteractionPersonRelationContactInfosRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
   """JSON"""
   updatedAt: String!
 }
@@ -1433,6 +2094,8 @@ input LabelsOrderBy {
 }
 
 type Mutation {
+  createContactInfo(values: CreateContactInfoInput!): ContactInfo
+  createContactInfos(values: [CreateContactInfoInput!]!): [ContactInfo!]!
   createImportantDate(values: CreateImportantDateInput!): ImportantDate
   createImportantDateTag(values: CreateImportantDateTagInput!): ImportantDateTag
   createImportantDateTags(values: [CreateImportantDateTagInput!]!): [ImportantDateTag!]!
@@ -1455,6 +2118,7 @@ type Mutation {
   createPersonRelationship(values: CreatePersonRelationshipInput!): PersonRelationship
   createPersonRelationships(values: [CreatePersonRelationshipInput!]!): [PersonRelationship!]!
   createPersons(values: [CreatePersonInput!]!): [Person!]!
+  deleteContactInfos(where: ContactInfosFilters): [ContactInfo!]!
   deleteImportantDateTags(where: ImportantDateTagsFilters): [ImportantDateTag!]!
   deleteImportantDates(where: ImportantDatesFilters): [ImportantDate!]!
   deleteInteractionTags(where: InteractionTagsFilters): [InteractionTag!]!
@@ -1466,6 +2130,7 @@ type Mutation {
   deletePersonLabels(where: PersonLabelsFilters): [PersonLabel!]!
   deletePersonRelationships(where: PersonRelationshipsFilters): [PersonRelationship!]!
   deletePersons(where: PersonsFilters): [Person!]!
+  updateContactInfos(set: UpdateContactInfoInput!, where: ContactInfosFilters): [ContactInfo!]!
   updateImportantDateTags(set: UpdateImportantDateTagInput!, where: ImportantDateTagsFilters): [ImportantDateTag!]!
   updateImportantDates(set: UpdateImportantDateInput!, where: ImportantDatesFilters): [ImportantDate!]!
   updateInteractionTags(set: UpdateInteractionTagInput!, where: InteractionTagsFilters): [InteractionTag!]!
@@ -1596,6 +2261,7 @@ input NoteMentionsOrderBy {
 type NoteMentionsRelation {
   avatarPath: String
   contactFrequency: String
+  contactInfos(limit: Int, offset: Int, orderBy: ContactInfosOrderBy, where: ContactInfosFilters): [NoteMentionsRelationContactInfosRelation!]!
   """JSON"""
   createdAt: String!
   email: String!
@@ -1609,6 +2275,31 @@ type NoteMentionsRelation {
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [NoteMentionsRelationNotesRelation!]!
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [NoteMentionsRelationRelationshipsFromRelation!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [NoteMentionsRelationRelationshipsToRelation!]!
+  """JSON"""
+  updatedAt: String!
+}
+
+type NoteMentionsRelationContactInfosRelation {
+  """JSON"""
+  createdAt: String!
+  id: String!
+  isPrimary: Boolean!
+  label: String
+  person(where: PersonsFilters): NoteMentionsRelationContactInfosRelationPersonRelation
+  personId: String!
+  type: ContactInfosTypeEnum!
+  value: String!
+}
+
+type NoteMentionsRelationContactInfosRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
   """JSON"""
   updatedAt: String!
 }
@@ -1765,6 +2456,7 @@ type NoteMentionsRelationRelationshipsToRelationToPersonRelation {
 type NotePersonRelation {
   avatarPath: String
   contactFrequency: String
+  contactInfos(limit: Int, offset: Int, orderBy: ContactInfosOrderBy, where: ContactInfosFilters): [NotePersonRelationContactInfosRelation!]!
   """JSON"""
   createdAt: String!
   email: String!
@@ -1778,6 +2470,31 @@ type NotePersonRelation {
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [NotePersonRelationNotesRelation!]!
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [NotePersonRelationRelationshipsFromRelation!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [NotePersonRelationRelationshipsToRelation!]!
+  """JSON"""
+  updatedAt: String!
+}
+
+type NotePersonRelationContactInfosRelation {
+  """JSON"""
+  createdAt: String!
+  id: String!
+  isPrimary: Boolean!
+  label: String
+  person(where: PersonsFilters): NotePersonRelationContactInfosRelationPersonRelation
+  personId: String!
+  type: ContactInfosTypeEnum!
+  value: String!
+}
+
+type NotePersonRelationContactInfosRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
   """JSON"""
   updatedAt: String!
 }
@@ -2177,6 +2894,7 @@ enum OrderDirection {
 type Person {
   avatarPath: String
   contactFrequency: String
+  contactInfos(limit: Int, offset: Int, orderBy: ContactInfosOrderBy, where: ContactInfosFilters): [PersonContactInfosRelation!]!
   """JSON"""
   createdAt: String!
   email: String!
@@ -2191,6 +2909,31 @@ type Person {
   relationships: [PersonRelationshipEntry!]!
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipsFromRelation!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipsToRelation!]!
+  """JSON"""
+  updatedAt: String!
+}
+
+type PersonContactInfosRelation {
+  """JSON"""
+  createdAt: String!
+  id: String!
+  isPrimary: Boolean!
+  label: String
+  person(where: PersonsFilters): PersonContactInfosRelationPersonRelation
+  personId: String!
+  type: ContactInfosTypeEnum!
+  value: String!
+}
+
+type PersonContactInfosRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
   """JSON"""
   updatedAt: String!
 }
@@ -2463,6 +3206,7 @@ type PersonRelationshipEntry {
 type PersonRelationshipFromPersonRelation {
   avatarPath: String
   contactFrequency: String
+  contactInfos(limit: Int, offset: Int, orderBy: ContactInfosOrderBy, where: ContactInfosFilters): [PersonRelationshipFromPersonRelationContactInfosRelation!]!
   """JSON"""
   createdAt: String!
   email: String!
@@ -2476,6 +3220,31 @@ type PersonRelationshipFromPersonRelation {
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [PersonRelationshipFromPersonRelationNotesRelation!]!
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipFromPersonRelationRelationshipsFromRelation!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipFromPersonRelationRelationshipsToRelation!]!
+  """JSON"""
+  updatedAt: String!
+}
+
+type PersonRelationshipFromPersonRelationContactInfosRelation {
+  """JSON"""
+  createdAt: String!
+  id: String!
+  isPrimary: Boolean!
+  label: String
+  person(where: PersonsFilters): PersonRelationshipFromPersonRelationContactInfosRelationPersonRelation
+  personId: String!
+  type: ContactInfosTypeEnum!
+  value: String!
+}
+
+type PersonRelationshipFromPersonRelationContactInfosRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
   """JSON"""
   updatedAt: String!
 }
@@ -2646,6 +3415,7 @@ type PersonRelationshipFromPersonRelationRelationshipsToRelation {
 type PersonRelationshipToPersonRelation {
   avatarPath: String
   contactFrequency: String
+  contactInfos(limit: Int, offset: Int, orderBy: ContactInfosOrderBy, where: ContactInfosFilters): [PersonRelationshipToPersonRelationContactInfosRelation!]!
   """JSON"""
   createdAt: String!
   email: String!
@@ -2659,6 +3429,31 @@ type PersonRelationshipToPersonRelation {
   notes(limit: Int, offset: Int, orderBy: NotesOrderBy, where: NotesFilters): [PersonRelationshipToPersonRelationNotesRelation!]!
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipToPersonRelationRelationshipsFromRelation!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationshipToPersonRelationRelationshipsToRelation!]!
+  """JSON"""
+  updatedAt: String!
+}
+
+type PersonRelationshipToPersonRelationContactInfosRelation {
+  """JSON"""
+  createdAt: String!
+  id: String!
+  isPrimary: Boolean!
+  label: String
+  person(where: PersonsFilters): PersonRelationshipToPersonRelationContactInfosRelationPersonRelation
+  personId: String!
+  type: ContactInfosTypeEnum!
+  value: String!
+}
+
+type PersonRelationshipToPersonRelationContactInfosRelationPersonRelation {
+  avatarPath: String
+  contactFrequency: String
+  """JSON"""
+  createdAt: String!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
   """JSON"""
   updatedAt: String!
 }
@@ -3445,6 +4240,8 @@ input PersonsUpdatedAtFiltersOr {
 }
 
 type Query {
+  contactInfo(offset: Int, orderBy: ContactInfosOrderBy, where: ContactInfosFilters): ContactInfo
+  contactInfos(limit: Int, offset: Int, orderBy: ContactInfosOrderBy, where: ContactInfosFilters): [ContactInfo!]!
   importantDate(offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): ImportantDate
   importantDateTag(offset: Int, orderBy: ImportantDateTagsOrderBy, where: ImportantDateTagsFilters): ImportantDateTag
   importantDateTags(limit: Int, offset: Int, orderBy: ImportantDateTagsOrderBy, where: ImportantDateTagsFilters): [ImportantDateTag!]!
@@ -3467,6 +4264,17 @@ type Query {
   personRelationship(offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): PersonRelationship
   personRelationships(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationship!]!
   persons(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [Person!]!
+}
+
+input UpdateContactInfoInput {
+  """JSON"""
+  createdAt: String
+  id: String
+  isPrimary: Boolean
+  label: String
+  personId: String
+  type: ContactInfosTypeEnum
+  value: String
 }
 
 input UpdateImportantDateInput {

@@ -1,4 +1,4 @@
-import { date, pgTable, primaryKey, text, timestamp, uuid } from 'drizzle-orm/pg-core';
+import { boolean, date, pgEnum, pgTable, primaryKey, text, timestamp, uuid } from 'drizzle-orm/pg-core';
 
 export const INTERACTION_CHANNELS = ['call', 'text', 'email', 'in-person', 'other'] as const;
 export type InteractionChannel = (typeof INTERACTION_CHANNELS)[number];
@@ -138,6 +138,31 @@ export const interactionTags = pgTable(
   (t) => [primaryKey({ columns: [t.interactionId, t.labelId] })],
 );
 
+export const CONTACT_TYPE_VALUES = [
+  'email',
+  'phone',
+  'mobile',
+  'linkedin',
+  'twitter',
+  'instagram',
+  'website',
+  'other',
+] as const;
+
+export const contactTypeEnum = pgEnum('contact_type', CONTACT_TYPE_VALUES);
+
+export const contactInfos = pgTable('contact_infos', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  personId: uuid('person_id')
+    .notNull()
+    .references(() => persons.id, { onDelete: 'cascade' }),
+  type: contactTypeEnum('type').notNull(),
+  value: text('value').notNull(),
+  label: text('label'),
+  isPrimary: boolean('is_primary').notNull().default(false),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
 export type Person = typeof persons.$inferSelect;
 export type NewPerson = typeof persons.$inferInsert;
 export type Note = typeof notes.$inferSelect;
@@ -160,3 +185,5 @@ export type InteractionTag = typeof interactionTags.$inferSelect;
 export type NewInteractionTag = typeof interactionTags.$inferInsert;
 export type NoteMention = typeof noteMentions.$inferSelect;
 export type NewNoteMention = typeof noteMentions.$inferInsert;
+export type ContactInfo = typeof contactInfos.$inferSelect;
+export type NewContactInfo = typeof contactInfos.$inferInsert;
