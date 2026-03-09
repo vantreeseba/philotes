@@ -76,7 +76,7 @@ const PAGE_SIZE_OPTIONS = [5, 10, 25, 50] as const;
 
 export function UpcomingDates() {
   const [page, setPage] = useState(0);
-  const [pageSize, setPageSize] = useState(10);
+  const [pageSize, setPageSize] = useState(5);
 
   const { data, loading, error } = useQuery(GET_UPCOMING_DATES, {
     variables: { limit: pageSize, offset: page * pageSize },
