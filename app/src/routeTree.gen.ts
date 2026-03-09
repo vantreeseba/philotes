@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ReviewRouteImport } from './routes/review'
 import { Route as NetworkRouteImport } from './routes/network'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TagsIndexRouteImport } from './routes/tags/index'
@@ -18,11 +17,6 @@ import { Route as PersonsIdRouteImport } from './routes/persons/$id'
 import { Route as PersonsIdIndexRouteImport } from './routes/persons/$id/index'
 import { Route as PersonsIdDatesDateIdRouteImport } from './routes/persons/$id/dates/$dateId'
 
-const ReviewRoute = ReviewRouteImport.update({
-  id: '/review',
-  path: '/review',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const NetworkRoute = NetworkRouteImport.update({
   id: '/network',
   path: '/network',
@@ -62,7 +56,6 @@ const PersonsIdDatesDateIdRoute = PersonsIdDatesDateIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/network': typeof NetworkRoute
-  '/review': typeof ReviewRoute
   '/persons/$id': typeof PersonsIdRouteWithChildren
   '/persons/': typeof PersonsIndexRoute
   '/tags/': typeof TagsIndexRoute
@@ -72,7 +65,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/network': typeof NetworkRoute
-  '/review': typeof ReviewRoute
   '/persons': typeof PersonsIndexRoute
   '/tags': typeof TagsIndexRoute
   '/persons/$id': typeof PersonsIdIndexRoute
@@ -82,7 +74,6 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/network': typeof NetworkRoute
-  '/review': typeof ReviewRoute
   '/persons/$id': typeof PersonsIdRouteWithChildren
   '/persons/': typeof PersonsIndexRoute
   '/tags/': typeof TagsIndexRoute
@@ -94,7 +85,6 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/network'
-    | '/review'
     | '/persons/$id'
     | '/persons/'
     | '/tags/'
@@ -104,7 +94,6 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/network'
-    | '/review'
     | '/persons'
     | '/tags'
     | '/persons/$id'
@@ -113,7 +102,6 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/network'
-    | '/review'
     | '/persons/$id'
     | '/persons/'
     | '/tags/'
@@ -124,7 +112,6 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   NetworkRoute: typeof NetworkRoute
-  ReviewRoute: typeof ReviewRoute
   PersonsIdRoute: typeof PersonsIdRouteWithChildren
   PersonsIndexRoute: typeof PersonsIndexRoute
   TagsIndexRoute: typeof TagsIndexRoute
@@ -132,13 +119,6 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/review': {
-      id: '/review'
-      path: '/review'
-      fullPath: '/review'
-      preLoaderRoute: typeof ReviewRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/network': {
       id: '/network'
       path: '/network'
@@ -208,7 +188,6 @@ const PersonsIdRouteWithChildren = PersonsIdRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   NetworkRoute: NetworkRoute,
-  ReviewRoute: ReviewRoute,
   PersonsIdRoute: PersonsIdRouteWithChildren,
   PersonsIndexRoute: PersonsIndexRoute,
   TagsIndexRoute: TagsIndexRoute,
