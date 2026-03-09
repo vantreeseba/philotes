@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/vantreeseba/philotes/compare/v1.0.0...v1.1.0) (2026-03-09)
+
+
+### Features
+
+* initial release ([5688e4a](https://github.com/vantreeseba/philotes/commit/5688e4a769567c719c45ddc278548ea0c021d819))
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
