@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/vantreeseba/philotes/compare/v1.1.2...v1.1.3) (2026-03-09)
+
+
+### Bug Fixes
+
+* trigger docker hub deployment ([f729a6f](https://github.com/vantreeseba/philotes/commit/f729a6f24e4869ec537d87a9f1abfb5e71de4cde))
+
 ## [1.1.2](https://github.com/vantreeseba/philotes/compare/v1.1.1...v1.1.2) (2026-03-09)
 
 
