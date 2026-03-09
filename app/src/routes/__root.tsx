@@ -5,7 +5,7 @@ export const Route = createRootRoute({
     <div className="min-h-screen bg-background">
       <header className="border-b">
         <div className="container mx-auto flex h-14 items-center px-4">
-          <Link to="/" className="font-semibold text-lg">
+          <Link to="/" className="font-semibold text-lg text-primary hover:opacity-75 transition-opacity">
             Philotes
           </Link>
           <nav className="ml-6 flex gap-4">
