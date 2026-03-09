@@ -24,7 +24,7 @@ const config: CodegenConfig = {
         skipTypeNameForRoot: true,
         scalars: {
           DateTime: 'Date',
-          Date: 'Date',
+          Date: { input: 'string', output: 'Date' },
         },
       },
     },
