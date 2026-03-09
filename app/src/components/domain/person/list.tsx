@@ -1,7 +1,6 @@
 import { useFragment } from '@apollo/client';
 import { Link } from '@tanstack/react-router';
 import { Search, Trash2, UserPlus, X } from 'lucide-react';
-import { useState } from 'react';
 import { graphql } from '@/__generated__/gql.js';
 import type { Person_ListFragment } from '@/__generated__/graphql.ts';
 import { PERSON_RELATIONSHIPS } from '@/components/domain/person/relationships.js';
@@ -17,6 +16,7 @@ import {
   PaginationPrevious,
 } from '@/components/ui/pagination.js';
 import { Spinner } from '@/components/ui/spinner.tsx';
+import { useQueryStringState } from '@/hooks/use-query-string-state.js';
 
 const PERSON_LIST = graphql(`
   fragment Person_List on Person {
@@ -144,37 +144,42 @@ interface PersonListProps {
 
 const PAGE_SIZE_OPTIONS = [10, 25, 50];
 
+interface PersonListUrlState {
+  q: string;
+  labels: string[];
+  page: number;
+  pageSize: number;
+}
+
 export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListProps) {
-  const [query, setQuery] = useState('');
-  const [activeLabelIds, setActiveLabelIds] = useState<Set<string>>(new Set());
-  const [page, setPage] = useState(0);
-  const [pageSize, setPageSize] = useState(10);
+  const [urlState, setUrlState] = useQueryStringState<PersonListUrlState>(
+    { q: '', labels: [], page: 0, pageSize: 10 },
+    { typeMap: { page: 'number', pageSize: 'number', labels: 'stringArray' } },
+  );
+  const query = urlState.q ?? '';
+  const activeLabelIds = new Set(urlState.labels ?? []);
+  const page = urlState.page ?? 0;
+  const pageSize = urlState.pageSize ?? 10;
 
   // Collect all unique labels across all persons for the label filter bar
   const allLabels = Array.from(new Map(persons.flatMap((p) => p.labels).map((l) => [l.id, l])).values());
 
   const toggleLabelFilter = (id: string) => {
-    setPage(0);
-    setActiveLabelIds((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) {
-        next.delete(id);
-      } else {
-        next.add(id);
-      }
-      return next;
-    });
+    const next = new Set(activeLabelIds);
+    if (next.has(id)) {
+      next.delete(id);
+    } else {
+      next.add(id);
+    }
+    setUrlState({ labels: [...next], page: 0 });
   };
 
   const clearFilters = () => {
-    setQuery('');
-    setActiveLabelIds(new Set());
-    setPage(0);
+    setUrlState({ q: '', labels: [], page: 0 });
   };
 
   const handleQueryChange = (value: string) => {
-    setQuery(value);
-    setPage(0);
+    setUrlState({ q: value, page: 0 });
   };
 
   const q = query.trim().toLowerCase();
@@ -195,8 +200,7 @@ export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListPro
   });
 
   const handlePageSizeChange = (newSize: number) => {
-    setPageSize(newSize);
-    setPage(0);
+    setUrlState({ pageSize: newSize, page: 0 });
   };
 
   const pageItems = filteredPersons.slice(page * pageSize, (page + 1) * pageSize);
@@ -206,65 +210,64 @@ export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListPro
   return (
     <ListLayout
       header={
-        <div className="flex items-center justify-between">
-          <h1 className="font-bold text-3xl">Persons</h1>
-          <Button onClick={onClickAdd}>
-            <UserPlus className="mr-2 h-4 w-4" />
-            Add Person
-          </Button>
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <h1 className="font-bold text-3xl">Persons</h1>
+            <Button onClick={onClickAdd}>
+              <UserPlus className="mr-2 h-4 w-4" />
+              Add Person
+            </Button>
+          </div>
+          <div className="relative">
+            <Search className="absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground pointer-events-none" />
+            <input
+              type="search"
+              placeholder="Search by name or email…"
+              value={query}
+              onChange={(e) => handleQueryChange(e.target.value)}
+              className="w-full rounded-md border border-border bg-background py-2 pl-9 pr-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+            />
+          </div>
+          {allLabels.length > 0 && (
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="text-xs text-muted-foreground">Filter:</span>
+              {allLabels.map((l) => (
+                <button
+                  key={l.id}
+                  type="button"
+                  onClick={() => toggleLabelFilter(l.id)}
+                  className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs transition-colors ${
+                    activeLabelIds.has(l.id) ? 'border-foreground bg-foreground text-background' : 'hover:bg-muted'
+                  }`}
+                >
+                  <span
+                    className="inline-block h-2 w-2 rounded-full shrink-0"
+                    style={{ backgroundColor: l.color }}
+                    aria-hidden="true"
+                  />
+                  {l.label}
+                  {activeLabelIds.has(l.id) && <X className="h-2.5 w-2.5 ml-0.5" />}
+                </button>
+              ))}
+              {hasFilters && (
+                <button
+                  type="button"
+                  onClick={clearFilters}
+                  className="text-xs text-muted-foreground hover:text-foreground transition-colors ml-1"
+                >
+                  Clear
+                </button>
+              )}
+            </div>
+          )}
         </div>
       }
       body={
         <div className="space-y-3">
-          {/* Search + label filter bar */}
-          <div className="space-y-2">
-            <div className="relative">
-              <Search className="absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground pointer-events-none" />
-              <input
-                type="search"
-                placeholder="Search by name or email…"
-                value={query}
-                onChange={(e) => handleQueryChange(e.target.value)}
-                className="w-full rounded-md border border-border bg-background py-2 pl-9 pr-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
-              />
-            </div>
-            {allLabels.length > 0 && (
-              <div className="flex flex-wrap items-center gap-1.5">
-                <span className="text-xs text-muted-foreground">Filter:</span>
-                {allLabels.map((l) => (
-                  <button
-                    key={l.id}
-                    type="button"
-                    onClick={() => toggleLabelFilter(l.id)}
-                    className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs transition-colors ${
-                      activeLabelIds.has(l.id) ? 'border-foreground bg-foreground text-background' : 'hover:bg-muted'
-                    }`}
-                  >
-                    <span
-                      className="inline-block h-2 w-2 rounded-full shrink-0"
-                      style={{ backgroundColor: l.color }}
-                      aria-hidden="true"
-                    />
-                    {l.label}
-                    {activeLabelIds.has(l.id) && <X className="h-2.5 w-2.5 ml-0.5" />}
-                  </button>
-                ))}
-                {hasFilters && (
-                  <button
-                    type="button"
-                    onClick={clearFilters}
-                    className="text-xs text-muted-foreground hover:text-foreground transition-colors ml-1"
-                  >
-                    Clear
-                  </button>
-                )}
-              </div>
-            )}
-            <p className="text-xs text-muted-foreground">
-              {filteredPersons.length} person
-              {filteredPersons.length !== 1 ? 's' : ''}
-            </p>
-          </div>
+          <p className="text-xs text-muted-foreground">
+            {filteredPersons.length} person
+            {filteredPersons.length !== 1 ? 's' : ''}
+          </p>
 
           {/* Results */}
           {pageItems.length === 0 ? (
@@ -309,14 +312,14 @@ export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListPro
             <PaginationContent>
               <PaginationItem>
                 <PaginationPrevious
-                  onClick={() => setPage((p) => p - 1)}
+                  onClick={() => setUrlState({ page: page - 1 })}
                   className={isFirstPage ? 'pointer-events-none opacity-50' : ''}
                   aria-disabled={isFirstPage}
                 />
               </PaginationItem>
               <PaginationItem>
                 <PaginationNext
-                  onClick={() => setPage((p) => p + 1)}
+                  onClick={() => setUrlState({ page: page + 1 })}
                   className={isLastPage ? 'pointer-events-none opacity-50' : ''}
                   aria-disabled={isLastPage}
                 />
