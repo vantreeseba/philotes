@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/vantreeseba/philotes/compare/v1.1.3...v1.1.4) (2026-03-09)
+
+
+### Bug Fixes
+
+* commit routeTree.gen.ts and restore two-stage Dockerfile ([e9c7165](https://github.com/vantreeseba/philotes/commit/e9c7165fe2d07abd67943f5295e5445cd62779bb))
+
 ## [1.1.3](https://github.com/vantreeseba/philotes/compare/v1.1.2...v1.1.3) (2026-03-09)
 
 
