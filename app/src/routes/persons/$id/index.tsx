@@ -358,7 +358,7 @@ function ImportantDateRow({
       variables: {
         id,
         name: values.name,
-        date: new Date(`${values.date}T00:00:00`),
+        date: values.date,
         description: values.description ?? null,
         recurrence: values.recurrence ?? null,
         milestoneType: (values.milestoneType as ImportantDatesMilestoneTypeEnum | null) ?? null,
@@ -558,7 +558,7 @@ function PersonDetailPage() {
       variables: {
         personId: id,
         name: values.name,
-        date: new Date(`${values.date}T00:00:00`),
+        date: values.date,
         description: values.description ?? null,
         recurrence: values.recurrence ?? null,
         milestoneType: (values.milestoneType as ImportantDatesMilestoneTypeEnum | null) ?? null,
