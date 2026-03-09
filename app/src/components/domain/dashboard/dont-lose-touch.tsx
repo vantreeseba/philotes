@@ -7,6 +7,13 @@ import { PersonInteractions } from '@/components/domain/person/interactions.js';
 import { Avatar } from '@/components/ui/avatar.js';
 import { Card, CardContent } from '@/components/ui/card.js';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog.js';
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationNext,
+  PaginationPrevious,
+} from '@/components/ui/pagination.js';
 import { Spinner } from '@/components/ui/spinner.tsx';
 
 // ---------------------------------------------------------------------------
@@ -146,12 +153,20 @@ function LogInteractionDialog({ personId, personName, open, onOpenChange, onLogg
 }
 
 // ---------------------------------------------------------------------------
+// Constants
+// ---------------------------------------------------------------------------
+
+const PAGE_SIZE_OPTIONS = [5, 10, 25] as const;
+
+// ---------------------------------------------------------------------------
 // Component
 // ---------------------------------------------------------------------------
 
 export function DontLoseTouch() {
   const { data, loading, error, refetch } = useQuery(GET_PERSONS_WITH_FREQUENCY);
   const [logPersonId, setLogPersonId] = useState<string | null>(null);
+  const [page, setPage] = useState(0);
+  const [pageSize, setPageSize] = useState(5);
 
   // Filter to persons with a frequency set, compute overdue, sort by most overdue first
   const overdue = (data?.persons ?? [])
@@ -164,7 +179,16 @@ export function DontLoseTouch() {
     .filter((p) => p.overdueBy >= 0)
     .sort((a, b) => b.overdueBy - a.overdueBy);
 
+  const pageItems = overdue.slice(page * pageSize, (page + 1) * pageSize);
+  const isFirstPage = page === 0;
+  const isLastPage = pageItems.length < pageSize;
+
   const logPerson = logPersonId ? overdue.find((p) => p.id === logPersonId) : null;
+
+  function handlePageSizeChange(nextSize: number) {
+    setPageSize(nextSize);
+    setPage(0);
+  }
 
   return (
     <>
@@ -186,9 +210,9 @@ export function DontLoseTouch() {
             </p>
           )}
 
-          {overdue.length > 0 && (
+          {pageItems.length > 0 && (
             <ul className="space-y-2">
-              {overdue.map((p) => (
+              {pageItems.map((p) => (
                 <li key={p.id} className="flex items-center gap-3 rounded-md border border-border px-3 py-2 text-sm">
                   <Avatar firstName={p.firstName} lastName={p.lastName} avatarPath={p.avatarPath} size="sm" />
                   <div className="min-w-0 flex-1">
@@ -209,6 +233,46 @@ export function DontLoseTouch() {
                 </li>
               ))}
             </ul>
+          )}
+
+          {(overdue.length > 0 || page > 0) && (
+            <div className="flex items-center justify-between gap-2 pt-1">
+              <div className="flex items-center gap-1.5">
+                <label htmlFor="dont-lose-touch-page-size" className="text-xs text-muted-foreground">
+                  Per page
+                </label>
+                <select
+                  id="dont-lose-touch-page-size"
+                  value={pageSize}
+                  onChange={(e) => handlePageSizeChange(Number(e.target.value))}
+                  className="h-8 rounded-md border border-input bg-background px-2 text-xs focus:outline-none focus:ring-2 focus:ring-ring"
+                >
+                  {PAGE_SIZE_OPTIONS.map((n) => (
+                    <option key={n} value={n}>
+                      {n}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <Pagination className="w-auto mx-0 justify-end">
+                <PaginationContent>
+                  <PaginationItem>
+                    <PaginationPrevious
+                      onClick={() => setPage((p) => p - 1)}
+                      className={isFirstPage ? 'pointer-events-none opacity-50' : ''}
+                      aria-disabled={isFirstPage}
+                    />
+                  </PaginationItem>
+                  <PaginationItem>
+                    <PaginationNext
+                      onClick={() => setPage((p) => p + 1)}
+                      className={isLastPage ? 'pointer-events-none opacity-50' : ''}
+                      aria-disabled={isLastPage}
+                    />
+                  </PaginationItem>
+                </PaginationContent>
+              </Pagination>
+            </div>
           )}
         </CardContent>
       </Card>

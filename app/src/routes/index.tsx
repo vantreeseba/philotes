@@ -28,10 +28,10 @@ type DashboardModule = {
 };
 
 const MODULES: DashboardModule[] = [
-  { id: 'upcoming-dates', span: 'full', component: UpcomingDates },
-  { id: 'recent-persons', span: 'full', component: RecentPersons },
-  { id: 'dont-lose-touch', span: 'full', component: DontLoseTouch },
-  { id: 'dormant-ties', span: 'full', component: DormantTies },
+  { id: 'recent-persons', span: 'half', component: RecentPersons },
+  { id: 'dont-lose-touch', span: 'half', component: DontLoseTouch },
+  { id: 'dormant-ties', span: 'half', component: DormantTies },
+  { id: 'upcoming-dates', span: 'half', component: UpcomingDates },
 ];
 
 // ---------------------------------------------------------------------------

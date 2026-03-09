@@ -1,9 +1,17 @@
 import { useQuery } from '@apollo/client';
 import { Link } from '@tanstack/react-router';
 import { Users } from 'lucide-react';
+import { useState } from 'react';
 import { graphql } from '@/__generated__/gql.js';
 import { Avatar } from '@/components/ui/avatar.js';
 import { Card, CardContent } from '@/components/ui/card.js';
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationNext,
+  PaginationPrevious,
+} from '@/components/ui/pagination.js';
 import { Spinner } from '@/components/ui/spinner.tsx';
 
 // ---------------------------------------------------------------------------
@@ -27,7 +35,7 @@ const GET_RECENT_PERSONS = graphql(`
 // Helpers
 // ---------------------------------------------------------------------------
 
-const MAX_SHOWN = 5;
+const PAGE_SIZE_OPTIONS = [5, 10, 25] as const;
 
 function formatRelativeTime(created: Date): string {
   const now = new Date();
@@ -50,9 +58,20 @@ function formatRelativeTime(created: Date): string {
 // ---------------------------------------------------------------------------
 
 export function RecentPersons() {
+  const [page, setPage] = useState(0);
+  const [pageSize, setPageSize] = useState(5);
+
   const { data, loading, error } = useQuery(GET_RECENT_PERSONS);
 
-  const persons = (data?.persons ?? []).slice(0, MAX_SHOWN);
+  const allPersons = data?.persons ?? [];
+  const pageItems = allPersons.slice(page * pageSize, (page + 1) * pageSize);
+  const isFirstPage = page === 0;
+  const isLastPage = pageItems.length < pageSize;
+
+  function handlePageSizeChange(nextSize: number) {
+    setPageSize(nextSize);
+    setPage(0);
+  }
 
   return (
     <Card>
@@ -60,19 +79,18 @@ export function RecentPersons() {
         <div className="flex items-center gap-2">
           <Users className="h-4 w-4 text-muted-foreground" />
           <h2 className="font-semibold text-base">Recently Added</h2>
-          <span className="ml-auto text-xs text-muted-foreground">Last {MAX_SHOWN}</span>
         </div>
 
         {loading && <Spinner />}
         {error && <p className="text-sm text-destructive">Failed to load recent contacts.</p>}
 
-        {!loading && !error && persons.length === 0 && (
+        {!loading && !error && allPersons.length === 0 && (
           <p className="text-sm text-muted-foreground">No contacts added yet.</p>
         )}
 
-        {persons.length > 0 && (
+        {pageItems.length > 0 && (
           <ul className="space-y-2">
-            {persons.map((p) => (
+            {pageItems.map((p) => (
               <li key={p.id} className="flex items-center gap-3 rounded-md border border-border px-3 py-2 text-sm">
                 <Avatar firstName={p.firstName} lastName={p.lastName} avatarPath={p.avatarPath} size="sm" />
                 <div className="min-w-0 flex-1">
@@ -85,6 +103,46 @@ export function RecentPersons() {
               </li>
             ))}
           </ul>
+        )}
+
+        {(allPersons.length > 0 || page > 0) && (
+          <div className="flex items-center justify-between gap-2 pt-1">
+            <div className="flex items-center gap-1.5">
+              <label htmlFor="recent-persons-page-size" className="text-xs text-muted-foreground">
+                Per page
+              </label>
+              <select
+                id="recent-persons-page-size"
+                value={pageSize}
+                onChange={(e) => handlePageSizeChange(Number(e.target.value))}
+                className="h-8 rounded-md border border-input bg-background px-2 text-xs focus:outline-none focus:ring-2 focus:ring-ring"
+              >
+                {PAGE_SIZE_OPTIONS.map((n) => (
+                  <option key={n} value={n}>
+                    {n}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <Pagination className="w-auto mx-0 justify-end">
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious
+                    onClick={() => setPage((p) => p - 1)}
+                    className={isFirstPage ? 'pointer-events-none opacity-50' : ''}
+                    aria-disabled={isFirstPage}
+                  />
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationNext
+                    onClick={() => setPage((p) => p + 1)}
+                    className={isLastPage ? 'pointer-events-none opacity-50' : ''}
+                    aria-disabled={isLastPage}
+                  />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          </div>
         )}
       </CardContent>
     </Card>
