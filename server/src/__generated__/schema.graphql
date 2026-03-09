@@ -373,7 +373,9 @@ type ActivityPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [ActivityPersonRelationImportantDatesRelation!]!
   interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [ActivityPersonRelationInteractionsRelation!]!
@@ -423,7 +425,9 @@ type ActivityPersonRelationAddressesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -448,7 +452,9 @@ type ActivityPersonRelationContactInfosRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -460,6 +466,7 @@ type ActivityPersonRelationImportantDatesRelation {
   description: String
   id: String!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ActivityPersonRelationImportantDatesRelationLabelsRelation!]!
+  milestoneType: ImportantDatesMilestoneTypeEnum
   name: String!
   person(where: PersonsFilters): ActivityPersonRelationImportantDatesRelationPersonRelation
   personId: String!
@@ -491,7 +498,9 @@ type ActivityPersonRelationImportantDatesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -535,7 +544,9 @@ type ActivityPersonRelationInteractionsRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -595,7 +606,9 @@ type ActivityPersonRelationMentionedInNotesRelationMentionsRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -608,7 +621,9 @@ type ActivityPersonRelationMentionedInNotesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -649,7 +664,9 @@ type ActivityPersonRelationNotesRelationMentionsRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -662,7 +679,9 @@ type ActivityPersonRelationNotesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -684,7 +703,9 @@ type ActivityPersonRelationRelationshipsFromRelationFromPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -697,7 +718,9 @@ type ActivityPersonRelationRelationshipsFromRelationToPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -719,7 +742,9 @@ type ActivityPersonRelationRelationshipsToRelationFromPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -732,7 +757,9 @@ type ActivityPersonRelationRelationshipsToRelationToPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -759,7 +786,9 @@ type ActivityPersonRelationTasksRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -891,7 +920,9 @@ type AddressPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [AddressPersonRelationImportantDatesRelation!]!
   interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [AddressPersonRelationInteractionsRelation!]!
@@ -945,7 +976,9 @@ type AddressPersonRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -986,7 +1019,9 @@ type AddressPersonRelationContactInfosRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -998,6 +1033,7 @@ type AddressPersonRelationImportantDatesRelation {
   description: String
   id: String!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [AddressPersonRelationImportantDatesRelationLabelsRelation!]!
+  milestoneType: ImportantDatesMilestoneTypeEnum
   name: String!
   person(where: PersonsFilters): AddressPersonRelationImportantDatesRelationPersonRelation
   personId: String!
@@ -1037,7 +1073,9 @@ type AddressPersonRelationImportantDatesRelationLabelsRelationActivitiesRelation
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -1050,7 +1088,9 @@ type AddressPersonRelationImportantDatesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -1102,7 +1142,9 @@ type AddressPersonRelationInteractionsRelationLabelsRelationActivitiesRelationPe
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -1115,7 +1157,9 @@ type AddressPersonRelationInteractionsRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -1155,7 +1199,9 @@ type AddressPersonRelationLabelsRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -1204,7 +1250,9 @@ type AddressPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelati
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -1217,7 +1265,9 @@ type AddressPersonRelationMentionedInNotesRelationMentionsRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -1230,7 +1280,9 @@ type AddressPersonRelationMentionedInNotesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -1279,7 +1331,9 @@ type AddressPersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRel
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -1292,7 +1346,9 @@ type AddressPersonRelationNotesRelationMentionsRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -1305,7 +1361,9 @@ type AddressPersonRelationNotesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -1327,7 +1385,9 @@ type AddressPersonRelationRelationshipsFromRelationFromPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -1340,7 +1400,9 @@ type AddressPersonRelationRelationshipsFromRelationToPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -1362,7 +1424,9 @@ type AddressPersonRelationRelationshipsToRelationFromPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -1375,7 +1439,9 @@ type AddressPersonRelationRelationshipsToRelationToPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -1402,7 +1468,9 @@ type AddressPersonRelationTasksRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -1965,7 +2033,9 @@ type ContactInfoPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [ContactInfoPersonRelationImportantDatesRelation!]!
   interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [ContactInfoPersonRelationInteractionsRelation!]!
@@ -2019,7 +2089,9 @@ type ContactInfoPersonRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -2049,7 +2121,9 @@ type ContactInfoPersonRelationAddressesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -2072,6 +2146,7 @@ type ContactInfoPersonRelationImportantDatesRelation {
   description: String
   id: String!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ContactInfoPersonRelationImportantDatesRelationLabelsRelation!]!
+  milestoneType: ImportantDatesMilestoneTypeEnum
   name: String!
   person(where: PersonsFilters): ContactInfoPersonRelationImportantDatesRelationPersonRelation
   personId: String!
@@ -2111,7 +2186,9 @@ type ContactInfoPersonRelationImportantDatesRelationLabelsRelationActivitiesRela
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -2124,7 +2201,9 @@ type ContactInfoPersonRelationImportantDatesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -2176,7 +2255,9 @@ type ContactInfoPersonRelationInteractionsRelationLabelsRelationActivitiesRelati
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -2189,7 +2270,9 @@ type ContactInfoPersonRelationInteractionsRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -2229,7 +2312,9 @@ type ContactInfoPersonRelationLabelsRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -2278,7 +2363,9 @@ type ContactInfoPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRe
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -2291,7 +2378,9 @@ type ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -2304,7 +2393,9 @@ type ContactInfoPersonRelationMentionedInNotesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -2353,7 +2444,9 @@ type ContactInfoPersonRelationNotesRelationLabelsRelationActivitiesRelationPerso
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -2366,7 +2459,9 @@ type ContactInfoPersonRelationNotesRelationMentionsRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -2379,7 +2474,9 @@ type ContactInfoPersonRelationNotesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -2401,7 +2498,9 @@ type ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -2414,7 +2513,9 @@ type ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -2436,7 +2537,9 @@ type ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -2449,7 +2552,9 @@ type ContactInfoPersonRelationRelationshipsToRelationToPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -2476,7 +2581,9 @@ type ContactInfoPersonRelationTasksRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -2866,6 +2973,7 @@ input CreateImportantDateInput {
   date: String!
   description: String
   id: String
+  milestoneType: ImportantDatesMilestoneTypeEnum
   name: String!
   personId: String!
   recurrence: String
@@ -2919,7 +3027,9 @@ input CreatePersonInput {
   """JSON"""
   createdAt: String
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String
   lastName: String!
   """JSON"""
@@ -2956,6 +3066,7 @@ type ImportantDate {
   description: String
   id: String!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [ImportantDateLabelsRelation!]!
+  milestoneType: ImportantDatesMilestoneTypeEnum
   name: String!
   person(where: PersonsFilters): ImportantDatePersonRelation
   personId: String!
@@ -2998,7 +3109,9 @@ type ImportantDateLabelsRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [ImportantDateLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation!]!
   interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRelation!]!
@@ -3048,7 +3161,9 @@ type ImportantDateLabelsRelationActivitiesRelationPersonRelationAddressesRelatio
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3073,7 +3188,9 @@ type ImportantDateLabelsRelationActivitiesRelationPersonRelationContactInfosRela
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3084,6 +3201,7 @@ type ImportantDateLabelsRelationActivitiesRelationPersonRelationImportantDatesRe
   date: String!
   description: String
   id: String!
+  milestoneType: ImportantDatesMilestoneTypeEnum
   name: String!
   personId: String!
   recurrence: String
@@ -3113,7 +3231,9 @@ type ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRela
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3147,7 +3267,9 @@ type ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotes
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3160,7 +3282,9 @@ type ImportantDateLabelsRelationActivitiesRelationPersonRelationMentionedInNotes
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3188,7 +3312,9 @@ type ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelationMen
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3201,7 +3327,9 @@ type ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRelationPer
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3223,7 +3351,9 @@ type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsFro
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3236,7 +3366,9 @@ type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsFro
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3258,7 +3390,9 @@ type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsToR
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3271,7 +3405,9 @@ type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelationshipsToR
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3298,7 +3434,9 @@ type ImportantDateLabelsRelationActivitiesRelationPersonRelationTasksRelationPer
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3314,7 +3452,9 @@ type ImportantDatePersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [ImportantDatePersonRelationImportantDatesRelation!]!
   interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [ImportantDatePersonRelationInteractionsRelation!]!
@@ -3368,7 +3508,9 @@ type ImportantDatePersonRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3398,7 +3540,9 @@ type ImportantDatePersonRelationAddressesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3423,7 +3567,9 @@ type ImportantDatePersonRelationContactInfosRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3434,6 +3580,7 @@ type ImportantDatePersonRelationImportantDatesRelation {
   date: String!
   description: String
   id: String!
+  milestoneType: ImportantDatesMilestoneTypeEnum
   name: String!
   personId: String!
   recurrence: String
@@ -3484,7 +3631,9 @@ type ImportantDatePersonRelationInteractionsRelationLabelsRelationActivitiesRela
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3497,7 +3646,9 @@ type ImportantDatePersonRelationInteractionsRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3537,7 +3688,9 @@ type ImportantDatePersonRelationLabelsRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3586,7 +3739,9 @@ type ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationActivities
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3599,7 +3754,9 @@ type ImportantDatePersonRelationMentionedInNotesRelationMentionsRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3612,7 +3769,9 @@ type ImportantDatePersonRelationMentionedInNotesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3661,7 +3820,9 @@ type ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesRelationPer
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3674,7 +3835,9 @@ type ImportantDatePersonRelationNotesRelationMentionsRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3687,7 +3850,9 @@ type ImportantDatePersonRelationNotesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3709,7 +3874,9 @@ type ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3722,7 +3889,9 @@ type ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3744,7 +3913,9 @@ type ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3757,7 +3928,9 @@ type ImportantDatePersonRelationRelationshipsToRelationToPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3784,7 +3957,9 @@ type ImportantDatePersonRelationTasksRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -3973,6 +4148,7 @@ input ImportantDatesFilters {
   date: ImportantDatesDateFilters
   description: ImportantDatesDescriptionFilters
   id: ImportantDatesIdFilters
+  milestoneType: ImportantDatesMilestoneTypeFilters
   name: ImportantDatesNameFilters
   personId: ImportantDatesPersonIdFilters
   recurrence: ImportantDatesRecurrenceFilters
@@ -3982,6 +4158,7 @@ input ImportantDatesFiltersOr {
   date: ImportantDatesDateFilters
   description: ImportantDatesDescriptionFilters
   id: ImportantDatesIdFilters
+  milestoneType: ImportantDatesMilestoneTypeFilters
   name: ImportantDatesNameFilters
   personId: ImportantDatesPersonIdFilters
   recurrence: ImportantDatesRecurrenceFilters
@@ -4023,6 +4200,70 @@ input ImportantDatesIdFiltersOr {
   notIlike: String
   """Array<undefined>"""
   notInArray: [String!]
+  notLike: String
+}
+
+enum ImportantDatesMilestoneTypeEnum {
+  """Value: divorced"""
+  divorced
+  """Value: graduation"""
+  graduation
+  """Value: health_event"""
+  health_event
+  """Value: loss"""
+  loss
+  """Value: married"""
+  married
+  """Value: moved"""
+  moved
+  """Value: new_baby"""
+  new_baby
+  """Value: new_job"""
+  new_job
+  """Value: other"""
+  other
+  """Value: promotion"""
+  promotion
+  """Value: retired"""
+  retired
+}
+
+input ImportantDatesMilestoneTypeFilters {
+  OR: [ImportantDatesMilestoneTypeFiltersOr!]
+  eq: ImportantDatesMilestoneTypeEnum
+  gt: ImportantDatesMilestoneTypeEnum
+  gte: ImportantDatesMilestoneTypeEnum
+  ilike: String
+  """Array<undefined>"""
+  inArray: [ImportantDatesMilestoneTypeEnum!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: ImportantDatesMilestoneTypeEnum
+  lte: ImportantDatesMilestoneTypeEnum
+  ne: ImportantDatesMilestoneTypeEnum
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [ImportantDatesMilestoneTypeEnum!]
+  notLike: String
+}
+
+input ImportantDatesMilestoneTypeFiltersOr {
+  eq: ImportantDatesMilestoneTypeEnum
+  gt: ImportantDatesMilestoneTypeEnum
+  gte: ImportantDatesMilestoneTypeEnum
+  ilike: String
+  """Array<undefined>"""
+  inArray: [ImportantDatesMilestoneTypeEnum!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: ImportantDatesMilestoneTypeEnum
+  lte: ImportantDatesMilestoneTypeEnum
+  ne: ImportantDatesMilestoneTypeEnum
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [ImportantDatesMilestoneTypeEnum!]
   notLike: String
 }
 
@@ -4069,6 +4310,7 @@ input ImportantDatesOrderBy {
   date: InnerOrder
   description: InnerOrder
   id: InnerOrder
+  milestoneType: InnerOrder
   name: InnerOrder
   personId: InnerOrder
   recurrence: InnerOrder
@@ -4206,7 +4448,9 @@ type InteractionLabelsRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation!]!
   interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [InteractionLabelsRelationActivitiesRelationPersonRelationInteractionsRelation!]!
@@ -4256,7 +4500,9 @@ type InteractionLabelsRelationActivitiesRelationPersonRelationAddressesRelationP
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4281,7 +4527,9 @@ type InteractionLabelsRelationActivitiesRelationPersonRelationContactInfosRelati
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4293,6 +4541,7 @@ type InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRela
   description: String
   id: String!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation!]!
+  milestoneType: ImportantDatesMilestoneTypeEnum
   name: String!
   person(where: PersonsFilters): InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonRelation
   personId: String!
@@ -4311,7 +4560,9 @@ type InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRela
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4355,7 +4606,9 @@ type InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRe
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4368,7 +4621,9 @@ type InteractionLabelsRelationActivitiesRelationPersonRelationMentionedInNotesRe
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4396,7 +4651,9 @@ type InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelationMenti
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4409,7 +4666,9 @@ type InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelationPerso
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4431,7 +4690,9 @@ type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsFromR
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4444,7 +4705,9 @@ type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsFromR
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4466,7 +4729,9 @@ type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsToRel
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4479,7 +4744,9 @@ type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshipsToRel
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4506,7 +4773,9 @@ type InteractionLabelsRelationActivitiesRelationPersonRelationTasksRelationPerso
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4522,7 +4791,9 @@ type InteractionPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [InteractionPersonRelationImportantDatesRelation!]!
   interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [InteractionPersonRelationInteractionsRelation!]!
@@ -4576,7 +4847,9 @@ type InteractionPersonRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4606,7 +4879,9 @@ type InteractionPersonRelationAddressesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4631,7 +4906,9 @@ type InteractionPersonRelationContactInfosRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4643,6 +4920,7 @@ type InteractionPersonRelationImportantDatesRelation {
   description: String
   id: String!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [InteractionPersonRelationImportantDatesRelationLabelsRelation!]!
+  milestoneType: ImportantDatesMilestoneTypeEnum
   name: String!
   person(where: PersonsFilters): InteractionPersonRelationImportantDatesRelationPersonRelation
   personId: String!
@@ -4682,7 +4960,9 @@ type InteractionPersonRelationImportantDatesRelationLabelsRelationActivitiesRela
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4695,7 +4975,9 @@ type InteractionPersonRelationImportantDatesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4745,7 +5027,9 @@ type InteractionPersonRelationLabelsRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4794,7 +5078,9 @@ type InteractionPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRe
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4807,7 +5093,9 @@ type InteractionPersonRelationMentionedInNotesRelationMentionsRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4820,7 +5108,9 @@ type InteractionPersonRelationMentionedInNotesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4869,7 +5159,9 @@ type InteractionPersonRelationNotesRelationLabelsRelationActivitiesRelationPerso
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4882,7 +5174,9 @@ type InteractionPersonRelationNotesRelationMentionsRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4895,7 +5189,9 @@ type InteractionPersonRelationNotesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4917,7 +5213,9 @@ type InteractionPersonRelationRelationshipsFromRelationFromPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4930,7 +5228,9 @@ type InteractionPersonRelationRelationshipsFromRelationToPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4952,7 +5252,9 @@ type InteractionPersonRelationRelationshipsToRelationFromPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4965,7 +5267,9 @@ type InteractionPersonRelationRelationshipsToRelationToPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -4992,7 +5296,9 @@ type InteractionPersonRelationTasksRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -5408,7 +5714,9 @@ type LabelActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [LabelActivitiesRelationPersonRelationImportantDatesRelation!]!
   interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [LabelActivitiesRelationPersonRelationInteractionsRelation!]!
@@ -5458,7 +5766,9 @@ type LabelActivitiesRelationPersonRelationAddressesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -5483,7 +5793,9 @@ type LabelActivitiesRelationPersonRelationContactInfosRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -5495,6 +5807,7 @@ type LabelActivitiesRelationPersonRelationImportantDatesRelation {
   description: String
   id: String!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [LabelActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation!]!
+  milestoneType: ImportantDatesMilestoneTypeEnum
   name: String!
   person(where: PersonsFilters): LabelActivitiesRelationPersonRelationImportantDatesRelationPersonRelation
   personId: String!
@@ -5513,7 +5826,9 @@ type LabelActivitiesRelationPersonRelationImportantDatesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -5544,7 +5859,9 @@ type LabelActivitiesRelationPersonRelationInteractionsRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -5578,7 +5895,9 @@ type LabelActivitiesRelationPersonRelationMentionedInNotesRelationMentionsRelati
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -5591,7 +5910,9 @@ type LabelActivitiesRelationPersonRelationMentionedInNotesRelationPersonRelation
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -5619,7 +5940,9 @@ type LabelActivitiesRelationPersonRelationNotesRelationMentionsRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -5632,7 +5955,9 @@ type LabelActivitiesRelationPersonRelationNotesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -5654,7 +5979,9 @@ type LabelActivitiesRelationPersonRelationRelationshipsFromRelationFromPersonRel
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -5667,7 +5994,9 @@ type LabelActivitiesRelationPersonRelationRelationshipsFromRelationToPersonRelat
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -5689,7 +6018,9 @@ type LabelActivitiesRelationPersonRelationRelationshipsToRelationFromPersonRelat
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -5702,7 +6033,9 @@ type LabelActivitiesRelationPersonRelationRelationshipsToRelationToPersonRelatio
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -5729,7 +6062,9 @@ type LabelActivitiesRelationPersonRelationTasksRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -5984,7 +6319,9 @@ type NoteLabelsRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation!]!
   interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelation!]!
@@ -6034,7 +6371,9 @@ type NoteLabelsRelationActivitiesRelationPersonRelationAddressesRelationPersonRe
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6059,7 +6398,9 @@ type NoteLabelsRelationActivitiesRelationPersonRelationContactInfosRelationPerso
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6071,6 +6412,7 @@ type NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation {
   description: String
   id: String!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation!]!
+  milestoneType: ImportantDatesMilestoneTypeEnum
   name: String!
   person(where: PersonsFilters): NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonRelation
   personId: String!
@@ -6089,7 +6431,9 @@ type NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPer
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6120,7 +6464,9 @@ type NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelationPerso
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6160,7 +6506,9 @@ type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelation
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6173,7 +6521,9 @@ type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromRelation
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6195,7 +6545,9 @@ type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationFr
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6208,7 +6560,9 @@ type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRelationTo
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6235,7 +6589,9 @@ type NoteLabelsRelationActivitiesRelationPersonRelationTasksRelationPersonRelati
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6350,7 +6706,9 @@ type NoteMentionsRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [NoteMentionsRelationImportantDatesRelation!]!
   interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [NoteMentionsRelationInteractionsRelation!]!
@@ -6404,7 +6762,9 @@ type NoteMentionsRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6434,7 +6794,9 @@ type NoteMentionsRelationAddressesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6459,7 +6821,9 @@ type NoteMentionsRelationContactInfosRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6471,6 +6835,7 @@ type NoteMentionsRelationImportantDatesRelation {
   description: String
   id: String!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [NoteMentionsRelationImportantDatesRelationLabelsRelation!]!
+  milestoneType: ImportantDatesMilestoneTypeEnum
   name: String!
   person(where: PersonsFilters): NoteMentionsRelationImportantDatesRelationPersonRelation
   personId: String!
@@ -6510,7 +6875,9 @@ type NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesRelationP
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6523,7 +6890,9 @@ type NoteMentionsRelationImportantDatesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6575,7 +6944,9 @@ type NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesRelationPer
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6588,7 +6959,9 @@ type NoteMentionsRelationInteractionsRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6628,7 +7001,9 @@ type NoteMentionsRelationLabelsRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6662,7 +7037,9 @@ type NoteMentionsRelationRelationshipsFromRelationFromPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6675,7 +7052,9 @@ type NoteMentionsRelationRelationshipsFromRelationToPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6697,7 +7076,9 @@ type NoteMentionsRelationRelationshipsToRelationFromPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6710,7 +7091,9 @@ type NoteMentionsRelationRelationshipsToRelationToPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6737,7 +7120,9 @@ type NoteMentionsRelationTasksRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6753,7 +7138,9 @@ type NotePersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [NotePersonRelationImportantDatesRelation!]!
   interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [NotePersonRelationInteractionsRelation!]!
@@ -6807,7 +7194,9 @@ type NotePersonRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6837,7 +7226,9 @@ type NotePersonRelationAddressesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6862,7 +7253,9 @@ type NotePersonRelationContactInfosRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6874,6 +7267,7 @@ type NotePersonRelationImportantDatesRelation {
   description: String
   id: String!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [NotePersonRelationImportantDatesRelationLabelsRelation!]!
+  milestoneType: ImportantDatesMilestoneTypeEnum
   name: String!
   person(where: PersonsFilters): NotePersonRelationImportantDatesRelationPersonRelation
   personId: String!
@@ -6913,7 +7307,9 @@ type NotePersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPer
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6926,7 +7322,9 @@ type NotePersonRelationImportantDatesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6978,7 +7376,9 @@ type NotePersonRelationInteractionsRelationLabelsRelationActivitiesRelationPerso
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -6991,7 +7391,9 @@ type NotePersonRelationInteractionsRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -7031,7 +7433,9 @@ type NotePersonRelationLabelsRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -7065,7 +7469,9 @@ type NotePersonRelationRelationshipsFromRelationFromPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -7078,7 +7484,9 @@ type NotePersonRelationRelationshipsFromRelationToPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -7100,7 +7508,9 @@ type NotePersonRelationRelationshipsToRelationFromPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -7113,7 +7523,9 @@ type NotePersonRelationRelationshipsToRelationToPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -7140,7 +7552,9 @@ type NotePersonRelationTasksRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -7399,7 +7813,9 @@ type Person {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [PersonImportantDatesRelation!]!
   interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [PersonInteractionsRelation!]!
@@ -7454,7 +7870,9 @@ type PersonActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -7484,7 +7902,9 @@ type PersonAddressesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -7509,7 +7929,9 @@ type PersonContactInfosRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -7521,6 +7943,7 @@ type PersonImportantDatesRelation {
   description: String
   id: String!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonImportantDatesRelationLabelsRelation!]!
+  milestoneType: ImportantDatesMilestoneTypeEnum
   name: String!
   person(where: PersonsFilters): PersonImportantDatesRelationPersonRelation
   personId: String!
@@ -7560,7 +7983,9 @@ type PersonImportantDatesRelationLabelsRelationActivitiesRelationPersonRelation 
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -7573,7 +7998,9 @@ type PersonImportantDatesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -7625,7 +8052,9 @@ type PersonInteractionsRelationLabelsRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -7638,7 +8067,9 @@ type PersonInteractionsRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -7777,7 +8208,9 @@ type PersonLabelsRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -7826,7 +8259,9 @@ type PersonMentionedInNotesRelationLabelsRelationActivitiesRelationPersonRelatio
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -7839,7 +8274,9 @@ type PersonMentionedInNotesRelationMentionsRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -7852,7 +8289,9 @@ type PersonMentionedInNotesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -7901,7 +8340,9 @@ type PersonNotesRelationLabelsRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -7914,7 +8355,9 @@ type PersonNotesRelationMentionsRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -7927,7 +8370,9 @@ type PersonNotesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -7960,7 +8405,9 @@ type PersonRelationshipFromPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [PersonRelationshipFromPersonRelationImportantDatesRelation!]!
   interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [PersonRelationshipFromPersonRelationInteractionsRelation!]!
@@ -8014,7 +8461,9 @@ type PersonRelationshipFromPersonRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8044,7 +8493,9 @@ type PersonRelationshipFromPersonRelationAddressesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8069,7 +8520,9 @@ type PersonRelationshipFromPersonRelationContactInfosRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8081,6 +8534,7 @@ type PersonRelationshipFromPersonRelationImportantDatesRelation {
   description: String
   id: String!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelation!]!
+  milestoneType: ImportantDatesMilestoneTypeEnum
   name: String!
   person(where: PersonsFilters): PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation
   personId: String!
@@ -8120,7 +8574,9 @@ type PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelationAct
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8133,7 +8589,9 @@ type PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8185,7 +8643,9 @@ type PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelationActiv
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8198,7 +8658,9 @@ type PersonRelationshipFromPersonRelationInteractionsRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8238,7 +8700,9 @@ type PersonRelationshipFromPersonRelationLabelsRelationActivitiesRelationPersonR
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8287,7 +8751,9 @@ type PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRelationA
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8300,7 +8766,9 @@ type PersonRelationshipFromPersonRelationMentionedInNotesRelationMentionsRelatio
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8313,7 +8781,9 @@ type PersonRelationshipFromPersonRelationMentionedInNotesRelationPersonRelation 
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8362,7 +8832,9 @@ type PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActivitiesRe
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8375,7 +8847,9 @@ type PersonRelationshipFromPersonRelationNotesRelationMentionsRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8388,7 +8862,9 @@ type PersonRelationshipFromPersonRelationNotesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8429,7 +8905,9 @@ type PersonRelationshipFromPersonRelationTasksRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8445,7 +8923,9 @@ type PersonRelationshipToPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [PersonRelationshipToPersonRelationImportantDatesRelation!]!
   interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [PersonRelationshipToPersonRelationInteractionsRelation!]!
@@ -8499,7 +8979,9 @@ type PersonRelationshipToPersonRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8529,7 +9011,9 @@ type PersonRelationshipToPersonRelationAddressesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8554,7 +9038,9 @@ type PersonRelationshipToPersonRelationContactInfosRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8566,6 +9052,7 @@ type PersonRelationshipToPersonRelationImportantDatesRelation {
   description: String
   id: String!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelation!]!
+  milestoneType: ImportantDatesMilestoneTypeEnum
   name: String!
   person(where: PersonsFilters): PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation
   personId: String!
@@ -8605,7 +9092,9 @@ type PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelationActiv
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8618,7 +9107,9 @@ type PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8670,7 +9161,9 @@ type PersonRelationshipToPersonRelationInteractionsRelationLabelsRelationActivit
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8683,7 +9176,9 @@ type PersonRelationshipToPersonRelationInteractionsRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8723,7 +9218,9 @@ type PersonRelationshipToPersonRelationLabelsRelationActivitiesRelationPersonRel
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8772,7 +9269,9 @@ type PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRelationAct
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8785,7 +9284,9 @@ type PersonRelationshipToPersonRelationMentionedInNotesRelationMentionsRelation 
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8798,7 +9299,9 @@ type PersonRelationshipToPersonRelationMentionedInNotesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8847,7 +9350,9 @@ type PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivitiesRela
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8860,7 +9365,9 @@ type PersonRelationshipToPersonRelationNotesRelationMentionsRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8873,7 +9380,9 @@ type PersonRelationshipToPersonRelationNotesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8914,7 +9423,9 @@ type PersonRelationshipToPersonRelationTasksRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -8990,7 +9501,9 @@ type PersonRelationshipsFromRelationFromPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -9003,7 +9516,9 @@ type PersonRelationshipsFromRelationToPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -9110,7 +9625,9 @@ type PersonRelationshipsToRelationFromPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -9123,7 +9640,9 @@ type PersonRelationshipsToRelationToPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -9189,7 +9708,9 @@ type PersonTasksRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -9370,7 +9891,9 @@ input PersonsFilters {
   contactFrequency: PersonsContactFrequencyFilters
   createdAt: PersonsCreatedAtFilters
   email: PersonsEmailFilters
+  firstMetDate: PersonsFirstMetDateFilters
   firstName: PersonsFirstNameFilters
+  howWeMet: PersonsHowWeMetFilters
   id: PersonsIdFilters
   lastName: PersonsLastNameFilters
   updatedAt: PersonsUpdatedAtFilters
@@ -9381,10 +9904,51 @@ input PersonsFiltersOr {
   contactFrequency: PersonsContactFrequencyFilters
   createdAt: PersonsCreatedAtFilters
   email: PersonsEmailFilters
+  firstMetDate: PersonsFirstMetDateFilters
   firstName: PersonsFirstNameFilters
+  howWeMet: PersonsHowWeMetFilters
   id: PersonsIdFilters
   lastName: PersonsLastNameFilters
   updatedAt: PersonsUpdatedAtFilters
+}
+
+input PersonsFirstMetDateFilters {
+  OR: [PersonsFirstMetDateFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonsFirstMetDateFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
 }
 
 input PersonsFirstNameFilters {
@@ -9408,6 +9972,45 @@ input PersonsFirstNameFilters {
 }
 
 input PersonsFirstNameFiltersOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonsHowWeMetFilters {
+  OR: [PersonsHowWeMetFiltersOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input PersonsHowWeMetFiltersOr {
   eq: String
   gt: String
   gte: String
@@ -9509,7 +10112,9 @@ input PersonsOrderBy {
   contactFrequency: InnerOrder
   createdAt: InnerOrder
   email: InnerOrder
+  firstMetDate: InnerOrder
   firstName: InnerOrder
+  howWeMet: InnerOrder
   id: InnerOrder
   lastName: InnerOrder
   updatedAt: InnerOrder
@@ -9624,7 +10229,9 @@ type TaskPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   importantDates(limit: Int, offset: Int, orderBy: ImportantDatesOrderBy, where: ImportantDatesFilters): [TaskPersonRelationImportantDatesRelation!]!
   interactions(limit: Int, offset: Int, orderBy: InteractionsOrderBy, where: InteractionsFilters): [TaskPersonRelationInteractionsRelation!]!
@@ -9678,7 +10285,9 @@ type TaskPersonRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -9708,7 +10317,9 @@ type TaskPersonRelationAddressesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -9733,7 +10344,9 @@ type TaskPersonRelationContactInfosRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -9745,6 +10358,7 @@ type TaskPersonRelationImportantDatesRelation {
   description: String
   id: String!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [TaskPersonRelationImportantDatesRelationLabelsRelation!]!
+  milestoneType: ImportantDatesMilestoneTypeEnum
   name: String!
   person(where: PersonsFilters): TaskPersonRelationImportantDatesRelationPersonRelation
   personId: String!
@@ -9784,7 +10398,9 @@ type TaskPersonRelationImportantDatesRelationLabelsRelationActivitiesRelationPer
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -9797,7 +10413,9 @@ type TaskPersonRelationImportantDatesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -9849,7 +10467,9 @@ type TaskPersonRelationInteractionsRelationLabelsRelationActivitiesRelationPerso
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -9862,7 +10482,9 @@ type TaskPersonRelationInteractionsRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -9902,7 +10524,9 @@ type TaskPersonRelationLabelsRelationActivitiesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -9951,7 +10575,9 @@ type TaskPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRelationP
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -9964,7 +10590,9 @@ type TaskPersonRelationMentionedInNotesRelationMentionsRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -9977,7 +10605,9 @@ type TaskPersonRelationMentionedInNotesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -10026,7 +10656,9 @@ type TaskPersonRelationNotesRelationLabelsRelationActivitiesRelationPersonRelati
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -10039,7 +10671,9 @@ type TaskPersonRelationNotesRelationMentionsRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -10052,7 +10686,9 @@ type TaskPersonRelationNotesRelationPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -10074,7 +10710,9 @@ type TaskPersonRelationRelationshipsFromRelationFromPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -10087,7 +10725,9 @@ type TaskPersonRelationRelationshipsFromRelationToPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -10109,7 +10749,9 @@ type TaskPersonRelationRelationshipsToRelationFromPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -10122,7 +10764,9 @@ type TaskPersonRelationRelationshipsToRelationToPersonRelation {
   """JSON"""
   createdAt: String!
   email: String!
+  firstMetDate: String
   firstName: String!
+  howWeMet: String
   id: String!
   lastName: String!
   """JSON"""
@@ -10530,6 +11174,7 @@ input UpdateImportantDateInput {
   date: String
   description: String
   id: String
+  milestoneType: ImportantDatesMilestoneTypeEnum
   name: String
   personId: String
   recurrence: String
@@ -10583,7 +11228,9 @@ input UpdatePersonInput {
   """JSON"""
   createdAt: String
   email: String
+  firstMetDate: String
   firstName: String
+  howWeMet: String
   id: String
   lastName: String
   """JSON"""

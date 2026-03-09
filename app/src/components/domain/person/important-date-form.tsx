@@ -19,6 +19,39 @@ export const RECURRENCE_OPTIONS = [
 export type RecurrenceValue = '' | 'yearly' | 'monthly' | 'weekly';
 
 // ---------------------------------------------------------------------------
+// Milestone type
+// ---------------------------------------------------------------------------
+
+export const MILESTONE_TYPE_OPTIONS = [
+  { value: '', label: 'None (regular date)' },
+  { value: 'new_job', label: 'New Job' },
+  { value: 'promotion', label: 'Promotion' },
+  { value: 'moved', label: 'Moved' },
+  { value: 'new_baby', label: 'New Baby' },
+  { value: 'married', label: 'Married' },
+  { value: 'divorced', label: 'Divorced' },
+  { value: 'retired', label: 'Retired' },
+  { value: 'health_event', label: 'Health Event' },
+  { value: 'graduation', label: 'Graduation' },
+  { value: 'loss', label: 'Loss / Bereavement' },
+  { value: 'other', label: 'Other' },
+] as const;
+
+export type MilestoneTypeValue =
+  | ''
+  | 'new_job'
+  | 'promotion'
+  | 'moved'
+  | 'new_baby'
+  | 'married'
+  | 'divorced'
+  | 'retired'
+  | 'health_event'
+  | 'graduation'
+  | 'loss'
+  | 'other';
+
+// ---------------------------------------------------------------------------
 // Schema & types
 // ---------------------------------------------------------------------------
 
@@ -27,6 +60,20 @@ const importantDateSchema = z.object({
   date: z.string().min(1, 'Date is required.'),
   description: z.string(),
   recurrence: z.enum(['', 'yearly', 'monthly', 'weekly']),
+  milestoneType: z.enum([
+    '',
+    'new_job',
+    'promotion',
+    'moved',
+    'new_baby',
+    'married',
+    'divorced',
+    'retired',
+    'health_event',
+    'graduation',
+    'loss',
+    'other',
+  ]),
 });
 
 export interface ImportantDateFormValue {
@@ -34,6 +81,7 @@ export interface ImportantDateFormValue {
   date: string;
   description?: string;
   recurrence?: string;
+  milestoneType?: string;
 }
 
 interface ImportantDateFormProps {
@@ -62,6 +110,7 @@ export function ImportantDateForm({ onSubmit, onCancel, initialValues }: Importa
       date: initialValues?.date ?? '',
       description: initialValues?.description ?? '',
       recurrence: (initialValues?.recurrence ?? '') as RecurrenceValue,
+      milestoneType: (initialValues?.milestoneType ?? '') as MilestoneTypeValue,
     },
     validators: {
       onSubmit: importantDateSchema,
@@ -74,6 +123,7 @@ export function ImportantDateForm({ onSubmit, onCancel, initialValues }: Importa
           date: value.date,
           description: value.description || undefined,
           recurrence: value.recurrence || undefined,
+          milestoneType: value.milestoneType || undefined,
         });
         form.reset();
       } catch (err: unknown) {
@@ -111,6 +161,28 @@ export function ImportantDateForm({ onSubmit, onCancel, initialValues }: Importa
                 className="rounded-md border border-border bg-background px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
               >
                 {RECURRENCE_OPTIONS.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
+        </form.Subscribe>
+
+        <form.Subscribe selector={(state) => state.values.milestoneType}>
+          {(milestoneType) => (
+            <div className="flex flex-col gap-1.5">
+              <label htmlFor="milestone-type-select" className="text-sm font-medium">
+                Milestone Type (optional)
+              </label>
+              <select
+                id="milestone-type-select"
+                value={milestoneType}
+                onChange={(e) => form.setFieldValue('milestoneType', e.target.value as MilestoneTypeValue)}
+                className="rounded-md border border-border bg-background px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+              >
+                {MILESTONE_TYPE_OPTIONS.map((opt) => (
                   <option key={opt.value} value={opt.value}>
                     {opt.label}
                   </option>

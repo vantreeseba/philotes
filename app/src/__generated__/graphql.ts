@@ -411,7 +411,9 @@ export type ActivityPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<ActivityPersonRelationImportantDatesRelation>;
   interactions: Array<ActivityPersonRelationInteractionsRelation>;
@@ -557,7 +559,9 @@ export type ActivityPersonRelationAddressesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -589,7 +593,9 @@ export type ActivityPersonRelationContactInfosRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -602,6 +608,7 @@ export type ActivityPersonRelationImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<ActivityPersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<ActivityPersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -657,7 +664,9 @@ export type ActivityPersonRelationImportantDatesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -726,7 +735,9 @@ export type ActivityPersonRelationInteractionsRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -829,7 +840,9 @@ export type ActivityPersonRelationMentionedInNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -843,7 +856,9 @@ export type ActivityPersonRelationMentionedInNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -917,7 +932,9 @@ export type ActivityPersonRelationNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -931,7 +948,9 @@ export type ActivityPersonRelationNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -965,7 +984,9 @@ export type ActivityPersonRelationRelationshipsFromRelationFromPersonRelation = 
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -979,7 +1000,9 @@ export type ActivityPersonRelationRelationshipsFromRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1013,7 +1036,9 @@ export type ActivityPersonRelationRelationshipsToRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1027,7 +1052,9 @@ export type ActivityPersonRelationRelationshipsToRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1061,7 +1088,9 @@ export type ActivityPersonRelationTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1201,7 +1230,9 @@ export type AddressPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<AddressPersonRelationImportantDatesRelation>;
   interactions: Array<AddressPersonRelationInteractionsRelation>;
@@ -1368,7 +1399,9 @@ export type AddressPersonRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1417,7 +1450,9 @@ export type AddressPersonRelationContactInfosRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1430,6 +1465,7 @@ export type AddressPersonRelationImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<AddressPersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<AddressPersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -1507,7 +1543,9 @@ export type AddressPersonRelationImportantDatesRelationLabelsRelationActivitiesR
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1521,7 +1559,9 @@ export type AddressPersonRelationImportantDatesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1612,7 +1652,9 @@ export type AddressPersonRelationInteractionsRelationLabelsRelationActivitiesRel
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1626,7 +1668,9 @@ export type AddressPersonRelationInteractionsRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1691,7 +1735,9 @@ export type AddressPersonRelationLabelsRelationActivitiesRelationPersonRelation 
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1787,7 +1833,9 @@ export type AddressPersonRelationMentionedInNotesRelationLabelsRelationActivitie
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1801,7 +1849,9 @@ export type AddressPersonRelationMentionedInNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1815,7 +1865,9 @@ export type AddressPersonRelationMentionedInNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1911,7 +1963,9 @@ export type AddressPersonRelationNotesRelationLabelsRelationActivitiesRelationPe
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1925,7 +1979,9 @@ export type AddressPersonRelationNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1939,7 +1995,9 @@ export type AddressPersonRelationNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1973,7 +2031,9 @@ export type AddressPersonRelationRelationshipsFromRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1987,7 +2047,9 @@ export type AddressPersonRelationRelationshipsFromRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -2021,7 +2083,9 @@ export type AddressPersonRelationRelationshipsToRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -2035,7 +2099,9 @@ export type AddressPersonRelationRelationshipsToRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -2069,7 +2135,9 @@ export type AddressPersonRelationTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -2639,7 +2707,9 @@ export type ContactInfoPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<ContactInfoPersonRelationImportantDatesRelation>;
   interactions: Array<ContactInfoPersonRelationInteractionsRelation>;
@@ -2806,7 +2876,9 @@ export type ContactInfoPersonRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -2843,7 +2915,9 @@ export type ContactInfoPersonRelationAddressesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -2868,6 +2942,7 @@ export type ContactInfoPersonRelationImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<ContactInfoPersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<ContactInfoPersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -2945,7 +3020,9 @@ export type ContactInfoPersonRelationImportantDatesRelationLabelsRelationActivit
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -2959,7 +3036,9 @@ export type ContactInfoPersonRelationImportantDatesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3050,7 +3129,9 @@ export type ContactInfoPersonRelationInteractionsRelationLabelsRelationActivitie
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3064,7 +3145,9 @@ export type ContactInfoPersonRelationInteractionsRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3129,7 +3212,9 @@ export type ContactInfoPersonRelationLabelsRelationActivitiesRelationPersonRelat
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3225,7 +3310,9 @@ export type ContactInfoPersonRelationMentionedInNotesRelationLabelsRelationActiv
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3239,7 +3326,9 @@ export type ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation = 
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3253,7 +3342,9 @@ export type ContactInfoPersonRelationMentionedInNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3349,7 +3440,9 @@ export type ContactInfoPersonRelationNotesRelationLabelsRelationActivitiesRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3363,7 +3456,9 @@ export type ContactInfoPersonRelationNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3377,7 +3472,9 @@ export type ContactInfoPersonRelationNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3411,7 +3508,9 @@ export type ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3425,7 +3524,9 @@ export type ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation =
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3459,7 +3560,9 @@ export type ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation =
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3473,7 +3576,9 @@ export type ContactInfoPersonRelationRelationshipsToRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3507,7 +3612,9 @@ export type ContactInfoPersonRelationTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3897,6 +4004,7 @@ export type CreateImportantDateInput = {
   date: Scalars['String']['input'];
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
+  milestoneType?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['input'];
   personId: Scalars['String']['input'];
   recurrence?: InputMaybe<Scalars['String']['input']>;
@@ -3950,7 +4058,9 @@ export type CreatePersonInput = {
   /** JSON */
   createdAt?: InputMaybe<Scalars['String']['input']>;
   email: Scalars['String']['input'];
+  firstMetDate?: InputMaybe<Scalars['String']['input']>;
   firstName: Scalars['String']['input'];
+  howWeMet?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   lastName: Scalars['String']['input'];
   /** JSON */
@@ -3988,6 +4098,7 @@ export type ImportantDate = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<ImportantDateLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<ImportantDatePersonRelation>;
   personId: Scalars['String']['output'];
@@ -4068,7 +4179,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<ImportantDateLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation>;
   interactions: Array<ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRelation>;
@@ -4214,7 +4327,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationAddresses
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4246,7 +4361,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationContactIn
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4258,6 +4375,7 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationImportant
   date: Scalars['String']['output'];
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   personId: Scalars['String']['output'];
   recurrence: Maybe<Scalars['String']['output']>;
@@ -4303,7 +4421,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationInteracti
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4362,7 +4482,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationMentioned
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4376,7 +4498,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationMentioned
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4428,7 +4552,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4442,7 +4568,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4476,7 +4604,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelations
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4490,7 +4620,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelations
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4524,7 +4656,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelations
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4538,7 +4672,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelations
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4572,7 +4708,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationTasksRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4589,7 +4727,9 @@ export type ImportantDatePersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<ImportantDatePersonRelationImportantDatesRelation>;
   interactions: Array<ImportantDatePersonRelationInteractionsRelation>;
@@ -4756,7 +4896,9 @@ export type ImportantDatePersonRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4793,7 +4935,9 @@ export type ImportantDatePersonRelationAddressesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4825,7 +4969,9 @@ export type ImportantDatePersonRelationContactInfosRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4837,6 +4983,7 @@ export type ImportantDatePersonRelationImportantDatesRelation = {
   date: Scalars['String']['output'];
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   personId: Scalars['String']['output'];
   recurrence: Maybe<Scalars['String']['output']>;
@@ -4926,7 +5073,9 @@ export type ImportantDatePersonRelationInteractionsRelationLabelsRelationActivit
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4940,7 +5089,9 @@ export type ImportantDatePersonRelationInteractionsRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5005,7 +5156,9 @@ export type ImportantDatePersonRelationLabelsRelationActivitiesRelationPersonRel
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5101,7 +5254,9 @@ export type ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationAct
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5115,7 +5270,9 @@ export type ImportantDatePersonRelationMentionedInNotesRelationMentionsRelation 
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5129,7 +5286,9 @@ export type ImportantDatePersonRelationMentionedInNotesRelationPersonRelation = 
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5225,7 +5384,9 @@ export type ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5239,7 +5400,9 @@ export type ImportantDatePersonRelationNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5253,7 +5416,9 @@ export type ImportantDatePersonRelationNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5287,7 +5452,9 @@ export type ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5301,7 +5468,9 @@ export type ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5335,7 +5504,9 @@ export type ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5349,7 +5520,9 @@ export type ImportantDatePersonRelationRelationshipsToRelationToPersonRelation =
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5383,7 +5556,9 @@ export type ImportantDatePersonRelationTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5573,6 +5748,7 @@ export type ImportantDatesFilters = {
   date?: InputMaybe<ImportantDatesDateFilters>;
   description?: InputMaybe<ImportantDatesDescriptionFilters>;
   id?: InputMaybe<ImportantDatesIdFilters>;
+  milestoneType?: InputMaybe<ImportantDatesMilestoneTypeFilters>;
   name?: InputMaybe<ImportantDatesNameFilters>;
   personId?: InputMaybe<ImportantDatesPersonIdFilters>;
   recurrence?: InputMaybe<ImportantDatesRecurrenceFilters>;
@@ -5582,6 +5758,7 @@ export type ImportantDatesFiltersOr = {
   date?: InputMaybe<ImportantDatesDateFilters>;
   description?: InputMaybe<ImportantDatesDescriptionFilters>;
   id?: InputMaybe<ImportantDatesIdFilters>;
+  milestoneType?: InputMaybe<ImportantDatesMilestoneTypeFilters>;
   name?: InputMaybe<ImportantDatesNameFilters>;
   personId?: InputMaybe<ImportantDatesPersonIdFilters>;
   recurrence?: InputMaybe<ImportantDatesRecurrenceFilters>;
@@ -5623,6 +5800,70 @@ export type ImportantDatesIdFiltersOr = {
   notIlike?: InputMaybe<Scalars['String']['input']>;
   /** Array<undefined> */
   notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export enum ImportantDatesMilestoneTypeEnum {
+  /** Value: divorced */
+  Divorced = 'divorced',
+  /** Value: graduation */
+  Graduation = 'graduation',
+  /** Value: health_event */
+  HealthEvent = 'health_event',
+  /** Value: loss */
+  Loss = 'loss',
+  /** Value: married */
+  Married = 'married',
+  /** Value: moved */
+  Moved = 'moved',
+  /** Value: new_baby */
+  NewBaby = 'new_baby',
+  /** Value: new_job */
+  NewJob = 'new_job',
+  /** Value: other */
+  Other = 'other',
+  /** Value: promotion */
+  Promotion = 'promotion',
+  /** Value: retired */
+  Retired = 'retired'
+}
+
+export type ImportantDatesMilestoneTypeFilters = {
+  OR?: InputMaybe<Array<ImportantDatesMilestoneTypeFiltersOr>>;
+  eq?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  gt?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  gte?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<ImportantDatesMilestoneTypeEnum>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  lte?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  ne?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<ImportantDatesMilestoneTypeEnum>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ImportantDatesMilestoneTypeFiltersOr = {
+  eq?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  gt?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  gte?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<ImportantDatesMilestoneTypeEnum>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  lte?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  ne?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<ImportantDatesMilestoneTypeEnum>>;
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -5669,6 +5910,7 @@ export type ImportantDatesOrderBy = {
   date?: InputMaybe<InnerOrder>;
   description?: InputMaybe<InnerOrder>;
   id?: InputMaybe<InnerOrder>;
+  milestoneType?: InputMaybe<InnerOrder>;
   name?: InputMaybe<InnerOrder>;
   personId?: InputMaybe<InnerOrder>;
   recurrence?: InputMaybe<InnerOrder>;
@@ -5845,7 +6087,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation>;
   interactions: Array<InteractionLabelsRelationActivitiesRelationPersonRelationInteractionsRelation>;
@@ -5991,7 +6235,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationAddressesRe
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6023,7 +6269,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationContactInfo
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6036,6 +6284,7 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationImportantDa
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -6069,7 +6318,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationImportantDa
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6139,7 +6390,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationMentionedIn
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6153,7 +6406,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationMentionedIn
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6205,7 +6460,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6219,7 +6476,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6253,7 +6512,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshi
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6267,7 +6528,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshi
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6301,7 +6564,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshi
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6315,7 +6580,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshi
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6349,7 +6616,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationTasksRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6366,7 +6635,9 @@ export type InteractionPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<InteractionPersonRelationImportantDatesRelation>;
   interactions: Array<InteractionPersonRelationInteractionsRelation>;
@@ -6533,7 +6804,9 @@ export type InteractionPersonRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6570,7 +6843,9 @@ export type InteractionPersonRelationAddressesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6602,7 +6877,9 @@ export type InteractionPersonRelationContactInfosRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6615,6 +6892,7 @@ export type InteractionPersonRelationImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<InteractionPersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<InteractionPersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -6692,7 +6970,9 @@ export type InteractionPersonRelationImportantDatesRelationLabelsRelationActivit
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6706,7 +6986,9 @@ export type InteractionPersonRelationImportantDatesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6782,7 +7064,9 @@ export type InteractionPersonRelationLabelsRelationActivitiesRelationPersonRelat
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6878,7 +7162,9 @@ export type InteractionPersonRelationMentionedInNotesRelationLabelsRelationActiv
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6892,7 +7178,9 @@ export type InteractionPersonRelationMentionedInNotesRelationMentionsRelation = 
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6906,7 +7194,9 @@ export type InteractionPersonRelationMentionedInNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7002,7 +7292,9 @@ export type InteractionPersonRelationNotesRelationLabelsRelationActivitiesRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7016,7 +7308,9 @@ export type InteractionPersonRelationNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7030,7 +7324,9 @@ export type InteractionPersonRelationNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7064,7 +7360,9 @@ export type InteractionPersonRelationRelationshipsFromRelationFromPersonRelation
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7078,7 +7376,9 @@ export type InteractionPersonRelationRelationshipsFromRelationToPersonRelation =
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7112,7 +7412,9 @@ export type InteractionPersonRelationRelationshipsToRelationFromPersonRelation =
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7126,7 +7428,9 @@ export type InteractionPersonRelationRelationshipsToRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7160,7 +7464,9 @@ export type InteractionPersonRelationTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7602,7 +7908,9 @@ export type LabelActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<LabelActivitiesRelationPersonRelationImportantDatesRelation>;
   interactions: Array<LabelActivitiesRelationPersonRelationInteractionsRelation>;
@@ -7748,7 +8056,9 @@ export type LabelActivitiesRelationPersonRelationAddressesRelationPersonRelation
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7780,7 +8090,9 @@ export type LabelActivitiesRelationPersonRelationContactInfosRelationPersonRelat
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7793,6 +8105,7 @@ export type LabelActivitiesRelationPersonRelationImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<LabelActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<LabelActivitiesRelationPersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -7826,7 +8139,9 @@ export type LabelActivitiesRelationPersonRelationImportantDatesRelationPersonRel
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7873,7 +8188,9 @@ export type LabelActivitiesRelationPersonRelationInteractionsRelationPersonRelat
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7932,7 +8249,9 @@ export type LabelActivitiesRelationPersonRelationMentionedInNotesRelationMention
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7946,7 +8265,9 @@ export type LabelActivitiesRelationPersonRelationMentionedInNotesRelationPersonR
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7998,7 +8319,9 @@ export type LabelActivitiesRelationPersonRelationNotesRelationMentionsRelation =
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -8012,7 +8335,9 @@ export type LabelActivitiesRelationPersonRelationNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -8046,7 +8371,9 @@ export type LabelActivitiesRelationPersonRelationRelationshipsFromRelationFromPe
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -8060,7 +8387,9 @@ export type LabelActivitiesRelationPersonRelationRelationshipsFromRelationToPers
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -8094,7 +8423,9 @@ export type LabelActivitiesRelationPersonRelationRelationshipsToRelationFromPers
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -8108,7 +8439,9 @@ export type LabelActivitiesRelationPersonRelationRelationshipsToRelationToPerson
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -8142,7 +8475,9 @@ export type LabelActivitiesRelationPersonRelationTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -8781,7 +9116,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation>;
   interactions: Array<NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelation>;
@@ -8927,7 +9264,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationAddressesRelationP
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -8959,7 +9298,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationContactInfosRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -8972,6 +9313,7 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRela
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -9005,7 +9347,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9052,7 +9396,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9107,7 +9453,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromR
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9121,7 +9469,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromR
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9155,7 +9505,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRel
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9169,7 +9521,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRel
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9203,7 +9557,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationTasksRelationPerso
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9320,7 +9676,9 @@ export type NoteMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<NoteMentionsRelationImportantDatesRelation>;
   interactions: Array<NoteMentionsRelationInteractionsRelation>;
@@ -9487,7 +9845,9 @@ export type NoteMentionsRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9524,7 +9884,9 @@ export type NoteMentionsRelationAddressesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9556,7 +9918,9 @@ export type NoteMentionsRelationContactInfosRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9569,6 +9933,7 @@ export type NoteMentionsRelationImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<NoteMentionsRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<NoteMentionsRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -9646,7 +10011,9 @@ export type NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesRe
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9660,7 +10027,9 @@ export type NoteMentionsRelationImportantDatesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9751,7 +10120,9 @@ export type NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9765,7 +10136,9 @@ export type NoteMentionsRelationInteractionsRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9830,7 +10203,9 @@ export type NoteMentionsRelationLabelsRelationActivitiesRelationPersonRelation =
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9878,7 +10253,9 @@ export type NoteMentionsRelationRelationshipsFromRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9892,7 +10269,9 @@ export type NoteMentionsRelationRelationshipsFromRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9926,7 +10305,9 @@ export type NoteMentionsRelationRelationshipsToRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9940,7 +10321,9 @@ export type NoteMentionsRelationRelationshipsToRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9974,7 +10357,9 @@ export type NoteMentionsRelationTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9991,7 +10376,9 @@ export type NotePersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<NotePersonRelationImportantDatesRelation>;
   interactions: Array<NotePersonRelationInteractionsRelation>;
@@ -10158,7 +10545,9 @@ export type NotePersonRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10195,7 +10584,9 @@ export type NotePersonRelationAddressesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10227,7 +10618,9 @@ export type NotePersonRelationContactInfosRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10240,6 +10633,7 @@ export type NotePersonRelationImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<NotePersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<NotePersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -10317,7 +10711,9 @@ export type NotePersonRelationImportantDatesRelationLabelsRelationActivitiesRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10331,7 +10727,9 @@ export type NotePersonRelationImportantDatesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10422,7 +10820,9 @@ export type NotePersonRelationInteractionsRelationLabelsRelationActivitiesRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10436,7 +10836,9 @@ export type NotePersonRelationInteractionsRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10501,7 +10903,9 @@ export type NotePersonRelationLabelsRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10549,7 +10953,9 @@ export type NotePersonRelationRelationshipsFromRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10563,7 +10969,9 @@ export type NotePersonRelationRelationshipsFromRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10597,7 +11005,9 @@ export type NotePersonRelationRelationshipsToRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10611,7 +11021,9 @@ export type NotePersonRelationRelationshipsToRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10645,7 +11057,9 @@ export type NotePersonRelationTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10906,7 +11320,9 @@ export type Person = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<PersonImportantDatesRelation>;
   interactions: Array<PersonInteractionsRelation>;
@@ -11074,7 +11490,9 @@ export type PersonActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11111,7 +11529,9 @@ export type PersonAddressesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11143,7 +11563,9 @@ export type PersonContactInfosRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11156,6 +11578,7 @@ export type PersonImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<PersonImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<PersonImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -11233,7 +11656,9 @@ export type PersonImportantDatesRelationLabelsRelationActivitiesRelationPersonRe
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11247,7 +11672,9 @@ export type PersonImportantDatesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11338,7 +11765,9 @@ export type PersonInteractionsRelationLabelsRelationActivitiesRelationPersonRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11352,7 +11781,9 @@ export type PersonInteractionsRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11517,7 +11948,9 @@ export type PersonLabelsRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11613,7 +12046,9 @@ export type PersonMentionedInNotesRelationLabelsRelationActivitiesRelationPerson
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11627,7 +12062,9 @@ export type PersonMentionedInNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11641,7 +12078,9 @@ export type PersonMentionedInNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11737,7 +12176,9 @@ export type PersonNotesRelationLabelsRelationActivitiesRelationPersonRelation = 
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11751,7 +12192,9 @@ export type PersonNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11765,7 +12208,9 @@ export type PersonNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11811,7 +12256,9 @@ export type PersonRelationshipFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<PersonRelationshipFromPersonRelationImportantDatesRelation>;
   interactions: Array<PersonRelationshipFromPersonRelationInteractionsRelation>;
@@ -11978,7 +12425,9 @@ export type PersonRelationshipFromPersonRelationActivitiesRelationPersonRelation
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12015,7 +12464,9 @@ export type PersonRelationshipFromPersonRelationAddressesRelationPersonRelation 
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12047,7 +12498,9 @@ export type PersonRelationshipFromPersonRelationContactInfosRelationPersonRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12060,6 +12513,7 @@ export type PersonRelationshipFromPersonRelationImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -12137,7 +12591,9 @@ export type PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12151,7 +12607,9 @@ export type PersonRelationshipFromPersonRelationImportantDatesRelationPersonRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12242,7 +12700,9 @@ export type PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12256,7 +12716,9 @@ export type PersonRelationshipFromPersonRelationInteractionsRelationPersonRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12321,7 +12783,9 @@ export type PersonRelationshipFromPersonRelationLabelsRelationActivitiesRelation
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12417,7 +12881,9 @@ export type PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRe
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12431,7 +12897,9 @@ export type PersonRelationshipFromPersonRelationMentionedInNotesRelationMentions
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12445,7 +12913,9 @@ export type PersonRelationshipFromPersonRelationMentionedInNotesRelationPersonRe
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12541,7 +13011,9 @@ export type PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActiv
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12555,7 +13027,9 @@ export type PersonRelationshipFromPersonRelationNotesRelationMentionsRelation = 
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12569,7 +13043,9 @@ export type PersonRelationshipFromPersonRelationNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12619,7 +13095,9 @@ export type PersonRelationshipFromPersonRelationTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12636,7 +13114,9 @@ export type PersonRelationshipToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<PersonRelationshipToPersonRelationImportantDatesRelation>;
   interactions: Array<PersonRelationshipToPersonRelationInteractionsRelation>;
@@ -12803,7 +13283,9 @@ export type PersonRelationshipToPersonRelationActivitiesRelationPersonRelation =
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12840,7 +13322,9 @@ export type PersonRelationshipToPersonRelationAddressesRelationPersonRelation = 
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12872,7 +13356,9 @@ export type PersonRelationshipToPersonRelationContactInfosRelationPersonRelation
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12885,6 +13371,7 @@ export type PersonRelationshipToPersonRelationImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -12962,7 +13449,9 @@ export type PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12976,7 +13465,9 @@ export type PersonRelationshipToPersonRelationImportantDatesRelationPersonRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13067,7 +13558,9 @@ export type PersonRelationshipToPersonRelationInteractionsRelationLabelsRelation
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13081,7 +13574,9 @@ export type PersonRelationshipToPersonRelationInteractionsRelationPersonRelation
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13146,7 +13641,9 @@ export type PersonRelationshipToPersonRelationLabelsRelationActivitiesRelationPe
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13242,7 +13739,9 @@ export type PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13256,7 +13755,9 @@ export type PersonRelationshipToPersonRelationMentionedInNotesRelationMentionsRe
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13270,7 +13771,9 @@ export type PersonRelationshipToPersonRelationMentionedInNotesRelationPersonRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13366,7 +13869,9 @@ export type PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivit
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13380,7 +13885,9 @@ export type PersonRelationshipToPersonRelationNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13394,7 +13901,9 @@ export type PersonRelationshipToPersonRelationNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13444,7 +13953,9 @@ export type PersonRelationshipToPersonRelationTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13532,7 +14043,9 @@ export type PersonRelationshipsFromRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13546,7 +14059,9 @@ export type PersonRelationshipsFromRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13665,7 +14180,9 @@ export type PersonRelationshipsToRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13679,7 +14196,9 @@ export type PersonRelationshipsToRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13752,7 +14271,9 @@ export type PersonTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13933,7 +14454,9 @@ export type PersonsFilters = {
   contactFrequency?: InputMaybe<PersonsContactFrequencyFilters>;
   createdAt?: InputMaybe<PersonsCreatedAtFilters>;
   email?: InputMaybe<PersonsEmailFilters>;
+  firstMetDate?: InputMaybe<PersonsFirstMetDateFilters>;
   firstName?: InputMaybe<PersonsFirstNameFilters>;
+  howWeMet?: InputMaybe<PersonsHowWeMetFilters>;
   id?: InputMaybe<PersonsIdFilters>;
   lastName?: InputMaybe<PersonsLastNameFilters>;
   updatedAt?: InputMaybe<PersonsUpdatedAtFilters>;
@@ -13944,10 +14467,51 @@ export type PersonsFiltersOr = {
   contactFrequency?: InputMaybe<PersonsContactFrequencyFilters>;
   createdAt?: InputMaybe<PersonsCreatedAtFilters>;
   email?: InputMaybe<PersonsEmailFilters>;
+  firstMetDate?: InputMaybe<PersonsFirstMetDateFilters>;
   firstName?: InputMaybe<PersonsFirstNameFilters>;
+  howWeMet?: InputMaybe<PersonsHowWeMetFilters>;
   id?: InputMaybe<PersonsIdFilters>;
   lastName?: InputMaybe<PersonsLastNameFilters>;
   updatedAt?: InputMaybe<PersonsUpdatedAtFilters>;
+};
+
+export type PersonsFirstMetDateFilters = {
+  OR?: InputMaybe<Array<PersonsFirstMetDateFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonsFirstMetDateFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type PersonsFirstNameFilters = {
@@ -13971,6 +14535,45 @@ export type PersonsFirstNameFilters = {
 };
 
 export type PersonsFirstNameFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonsHowWeMetFilters = {
+  OR?: InputMaybe<Array<PersonsHowWeMetFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonsHowWeMetFiltersOr = {
   eq?: InputMaybe<Scalars['String']['input']>;
   gt?: InputMaybe<Scalars['String']['input']>;
   gte?: InputMaybe<Scalars['String']['input']>;
@@ -14072,7 +14675,9 @@ export type PersonsOrderBy = {
   contactFrequency?: InputMaybe<InnerOrder>;
   createdAt?: InputMaybe<InnerOrder>;
   email?: InputMaybe<InnerOrder>;
+  firstMetDate?: InputMaybe<InnerOrder>;
   firstName?: InputMaybe<InnerOrder>;
+  howWeMet?: InputMaybe<InnerOrder>;
   id?: InputMaybe<InnerOrder>;
   lastName?: InputMaybe<InnerOrder>;
   updatedAt?: InputMaybe<InnerOrder>;
@@ -14435,7 +15040,9 @@ export type TaskPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<TaskPersonRelationImportantDatesRelation>;
   interactions: Array<TaskPersonRelationInteractionsRelation>;
@@ -14602,7 +15209,9 @@ export type TaskPersonRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -14639,7 +15248,9 @@ export type TaskPersonRelationAddressesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -14671,7 +15282,9 @@ export type TaskPersonRelationContactInfosRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -14684,6 +15297,7 @@ export type TaskPersonRelationImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<TaskPersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<TaskPersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -14761,7 +15375,9 @@ export type TaskPersonRelationImportantDatesRelationLabelsRelationActivitiesRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -14775,7 +15391,9 @@ export type TaskPersonRelationImportantDatesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -14866,7 +15484,9 @@ export type TaskPersonRelationInteractionsRelationLabelsRelationActivitiesRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -14880,7 +15500,9 @@ export type TaskPersonRelationInteractionsRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -14945,7 +15567,9 @@ export type TaskPersonRelationLabelsRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15041,7 +15665,9 @@ export type TaskPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRe
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15055,7 +15681,9 @@ export type TaskPersonRelationMentionedInNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15069,7 +15697,9 @@ export type TaskPersonRelationMentionedInNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15165,7 +15795,9 @@ export type TaskPersonRelationNotesRelationLabelsRelationActivitiesRelationPerso
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15179,7 +15811,9 @@ export type TaskPersonRelationNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15193,7 +15827,9 @@ export type TaskPersonRelationNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15227,7 +15863,9 @@ export type TaskPersonRelationRelationshipsFromRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15241,7 +15879,9 @@ export type TaskPersonRelationRelationshipsFromRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15275,7 +15915,9 @@ export type TaskPersonRelationRelationshipsToRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15289,7 +15931,9 @@ export type TaskPersonRelationRelationshipsToRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15698,6 +16342,7 @@ export type UpdateImportantDateInput = {
   date?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
+  milestoneType?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
   name?: InputMaybe<Scalars['String']['input']>;
   personId?: InputMaybe<Scalars['String']['input']>;
   recurrence?: InputMaybe<Scalars['String']['input']>;
@@ -15751,7 +16396,9 @@ export type UpdatePersonInput = {
   /** JSON */
   createdAt?: InputMaybe<Scalars['String']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
+  firstMetDate?: InputMaybe<Scalars['String']['input']>;
   firstName?: InputMaybe<Scalars['String']['input']>;
+  howWeMet?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   lastName?: InputMaybe<Scalars['String']['input']>;
   /** JSON */
@@ -16076,7 +16723,7 @@ export type GetPersonDetailQueryVariables = Exact<{
 }>;
 
 
-export type GetPersonDetailQuery = { persons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string, avatarPath: string | null, contactFrequency: string | null, createdAt: string, updatedAt: string, labels: Array<{ __typename: 'PersonLabelsRelation', id: string, label: string, color: string }>, importantDates: Array<{ __typename: 'PersonImportantDatesRelation', id: string, name: string, description: string | null, date: string, recurrence: string | null, labels: Array<{ __typename: 'PersonImportantDatesRelationLabelsRelation', id: string, label: string, color: string }> }>, notes: Array<{ __typename: 'PersonNotesRelation', id: string, body: string, labels: Array<{ __typename: 'PersonNotesRelationLabelsRelation', id: string, label: string, color: string }>, mentions: Array<{ __typename: 'PersonNotesRelationMentionsRelation', id: string, firstName: string, lastName: string }> }>, mentionedInNotes: Array<{ __typename: 'PersonMentionedInNotesRelation', id: string, body: string, person: { __typename: 'PersonMentionedInNotesRelationPersonRelation', id: string, firstName: string, lastName: string } | null }>, interactions: Array<{ __typename: 'PersonInteractionsRelation', id: string, personId: string, channel: string, occurredAt: string, sentiment: string | null, note: string | null, labels: Array<{ __typename: 'PersonInteractionsRelationLabelsRelation', id: string, label: string, color: string }> }>, relationships: Array<{ __typename: 'PersonRelationshipEntry', id: string, type: string, relatedPersonId: string, relatedPersonFirstName: string, relatedPersonLastName: string }>, activities: Array<{ __typename: 'PersonActivitiesRelation', id: string, title: string, description: string | null, location: string | null, occurredAt: string }>, tasks: Array<{ __typename: 'PersonTasksRelation', id: string, title: string, notes: string | null, dueAt: string | null, completedAt: string | null, createdAt: string }>, contactInfos: Array<{ __typename: 'PersonContactInfosRelation', id: string, type: ContactInfosTypeEnum, value: string, label: string | null, isPrimary: boolean }>, addresses: Array<{ __typename: 'PersonAddressesRelation', id: string, type: AddressesTypeEnum, label: string | null, line1: string, line2: string | null, city: string | null, state: string | null, postalCode: string | null, country: string | null, isPrimary: boolean }> }> };
+export type GetPersonDetailQuery = { persons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string, avatarPath: string | null, contactFrequency: string | null, howWeMet: string | null, firstMetDate: string | null, createdAt: string, updatedAt: string, labels: Array<{ __typename: 'PersonLabelsRelation', id: string, label: string, color: string }>, importantDates: Array<{ __typename: 'PersonImportantDatesRelation', id: string, name: string, description: string | null, date: string, recurrence: string | null, milestoneType: ImportantDatesMilestoneTypeEnum | null, labels: Array<{ __typename: 'PersonImportantDatesRelationLabelsRelation', id: string, label: string, color: string }> }>, notes: Array<{ __typename: 'PersonNotesRelation', id: string, body: string, labels: Array<{ __typename: 'PersonNotesRelationLabelsRelation', id: string, label: string, color: string }>, mentions: Array<{ __typename: 'PersonNotesRelationMentionsRelation', id: string, firstName: string, lastName: string }> }>, mentionedInNotes: Array<{ __typename: 'PersonMentionedInNotesRelation', id: string, body: string, person: { __typename: 'PersonMentionedInNotesRelationPersonRelation', id: string, firstName: string, lastName: string } | null }>, interactions: Array<{ __typename: 'PersonInteractionsRelation', id: string, personId: string, channel: string, occurredAt: string, sentiment: string | null, note: string | null, labels: Array<{ __typename: 'PersonInteractionsRelationLabelsRelation', id: string, label: string, color: string }> }>, relationships: Array<{ __typename: 'PersonRelationshipEntry', id: string, type: string, relatedPersonId: string, relatedPersonFirstName: string, relatedPersonLastName: string }>, activities: Array<{ __typename: 'PersonActivitiesRelation', id: string, title: string, description: string | null, location: string | null, occurredAt: string }>, tasks: Array<{ __typename: 'PersonTasksRelation', id: string, title: string, notes: string | null, dueAt: string | null, completedAt: string | null, createdAt: string }>, contactInfos: Array<{ __typename: 'PersonContactInfosRelation', id: string, type: ContactInfosTypeEnum, value: string, label: string | null, isPrimary: boolean }>, addresses: Array<{ __typename: 'PersonAddressesRelation', id: string, type: AddressesTypeEnum, label: string | null, line1: string, line2: string | null, city: string | null, state: string | null, postalCode: string | null, country: string | null, isPrimary: boolean }> }> };
 
 export type GetAllPersonsForDetailQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -16101,10 +16748,11 @@ export type CreateImportantDateMutationVariables = Exact<{
   personId: Scalars['String']['input'];
   description?: InputMaybe<Scalars['String']['input']>;
   recurrence?: InputMaybe<Scalars['String']['input']>;
+  milestoneType?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
 }>;
 
 
-export type CreateImportantDateMutation = { createImportantDate: { __typename: 'ImportantDate', id: string, name: string, date: string, description: string | null, recurrence: string | null, personId: string } | null };
+export type CreateImportantDateMutation = { createImportantDate: { __typename: 'ImportantDate', id: string, name: string, date: string, description: string | null, recurrence: string | null, milestoneType: ImportantDatesMilestoneTypeEnum | null, personId: string } | null };
 
 export type UpdateImportantDateMutationVariables = Exact<{
   id: Scalars['String']['input'];
@@ -16112,10 +16760,11 @@ export type UpdateImportantDateMutationVariables = Exact<{
   date: Scalars['String']['input'];
   description?: InputMaybe<Scalars['String']['input']>;
   recurrence?: InputMaybe<Scalars['String']['input']>;
+  milestoneType?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
 }>;
 
 
-export type UpdateImportantDateMutation = { updateImportantDates: Array<{ __typename: 'ImportantDate', id: string, name: string, date: string, description: string | null, recurrence: string | null }> };
+export type UpdateImportantDateMutation = { updateImportantDates: Array<{ __typename: 'ImportantDate', id: string, name: string, date: string, description: string | null, recurrence: string | null, milestoneType: ImportantDatesMilestoneTypeEnum | null }> };
 
 export type UpdatePersonMutationVariables = Exact<{
   id: Scalars['String']['input'];
@@ -16123,10 +16772,12 @@ export type UpdatePersonMutationVariables = Exact<{
   lastName: Scalars['String']['input'];
   email: Scalars['String']['input'];
   contactFrequency?: InputMaybe<Scalars['String']['input']>;
+  howWeMet?: InputMaybe<Scalars['String']['input']>;
+  firstMetDate?: InputMaybe<Scalars['String']['input']>;
 }>;
 
 
-export type UpdatePersonMutation = { updatePersons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string, contactFrequency: string | null }> };
+export type UpdatePersonMutation = { updatePersons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string, contactFrequency: string | null, howWeMet: string | null, firstMetDate: string | null }> };
 
 export type AttachLabelToPersonEditMutationVariables = Exact<{
   personId: Scalars['String']['input'];
@@ -16231,13 +16882,13 @@ export const UpdateTaskDocument = {"kind":"Document","definitions":[{"kind":"Ope
 export const DeleteTaskDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"DeleteTask"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"deleteTasks"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<DeleteTaskMutation, DeleteTaskMutationVariables>;
 export const GetNetworkDataDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetNetworkData"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"persons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"relationshipsFrom"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"toPersonId"}},{"kind":"Field","name":{"kind":"Name","value":"type"}}]}}]}}]}}]} as unknown as DocumentNode<GetNetworkDataQuery, GetNetworkDataQueryVariables>;
 export const GetImportantDateDetailDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetImportantDateDetail"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"dateId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"personId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"importantDates"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"dateId"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"recurrence"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"notes"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"personId"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"personId"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}}]}}]} as unknown as DocumentNode<GetImportantDateDetailQuery, GetImportantDateDetailQueryVariables>;
-export const GetPersonDetailDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetPersonDetail"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"persons"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"contactFrequency"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"importantDates"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"recurrence"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"notes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"mentions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"mentionedInNotes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"person"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"interactions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"occurredAt"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"direction"},"value":{"kind":"EnumValue","value":"desc"}},{"kind":"ObjectField","name":{"kind":"Name","value":"priority"},"value":{"kind":"IntValue","value":"1"}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"personId"}},{"kind":"Field","name":{"kind":"Name","value":"channel"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}},{"kind":"Field","name":{"kind":"Name","value":"sentiment"}},{"kind":"Field","name":{"kind":"Name","value":"note"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"relationships"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonId"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonFirstName"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonLastName"}}]}},{"kind":"Field","name":{"kind":"Name","value":"activities"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"location"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}}]}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"Person_ActivityList"}},{"kind":"Field","name":{"kind":"Name","value":"tasks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"notes"}},{"kind":"Field","name":{"kind":"Name","value":"dueAt"}},{"kind":"Field","name":{"kind":"Name","value":"completedAt"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}}]}},{"kind":"Field","name":{"kind":"Name","value":"contactInfos"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"value"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"isPrimary"}}]}},{"kind":"Field","name":{"kind":"Name","value":"addresses"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"line1"}},{"kind":"Field","name":{"kind":"Name","value":"line2"}},{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"state"}},{"kind":"Field","name":{"kind":"Name","value":"postalCode"}},{"kind":"Field","name":{"kind":"Name","value":"country"}},{"kind":"Field","name":{"kind":"Name","value":"isPrimary"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Person_ActivityList"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Person"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"activities"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"location"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}}]}}]}}]} as unknown as DocumentNode<GetPersonDetailQuery, GetPersonDetailQueryVariables>;
+export const GetPersonDetailDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetPersonDetail"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"persons"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"contactFrequency"}},{"kind":"Field","name":{"kind":"Name","value":"howWeMet"}},{"kind":"Field","name":{"kind":"Name","value":"firstMetDate"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"importantDates"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"recurrence"}},{"kind":"Field","name":{"kind":"Name","value":"milestoneType"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"notes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"mentions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"mentionedInNotes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"person"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"interactions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"occurredAt"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"direction"},"value":{"kind":"EnumValue","value":"desc"}},{"kind":"ObjectField","name":{"kind":"Name","value":"priority"},"value":{"kind":"IntValue","value":"1"}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"personId"}},{"kind":"Field","name":{"kind":"Name","value":"channel"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}},{"kind":"Field","name":{"kind":"Name","value":"sentiment"}},{"kind":"Field","name":{"kind":"Name","value":"note"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"relationships"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonId"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonFirstName"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonLastName"}}]}},{"kind":"Field","name":{"kind":"Name","value":"activities"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"location"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}}]}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"Person_ActivityList"}},{"kind":"Field","name":{"kind":"Name","value":"tasks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"notes"}},{"kind":"Field","name":{"kind":"Name","value":"dueAt"}},{"kind":"Field","name":{"kind":"Name","value":"completedAt"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}}]}},{"kind":"Field","name":{"kind":"Name","value":"contactInfos"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"value"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"isPrimary"}}]}},{"kind":"Field","name":{"kind":"Name","value":"addresses"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"line1"}},{"kind":"Field","name":{"kind":"Name","value":"line2"}},{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"state"}},{"kind":"Field","name":{"kind":"Name","value":"postalCode"}},{"kind":"Field","name":{"kind":"Name","value":"country"}},{"kind":"Field","name":{"kind":"Name","value":"isPrimary"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Person_ActivityList"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Person"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"activities"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"location"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}}]}}]}}]} as unknown as DocumentNode<GetPersonDetailQuery, GetPersonDetailQueryVariables>;
 export const GetAllPersonsForDetailDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetAllPersonsForDetail"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"persons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}}]}}]} as unknown as DocumentNode<GetAllPersonsForDetailQuery, GetAllPersonsForDetailQueryVariables>;
 export const GetAllLabelsForDetailDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetAllLabelsForDetail"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}}]} as unknown as DocumentNode<GetAllLabelsForDetailQuery, GetAllLabelsForDetailQueryVariables>;
 export const DeleteImportantDateDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"DeleteImportantDate"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"deleteImportantDates"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<DeleteImportantDateMutation, DeleteImportantDateMutationVariables>;
-export const CreateImportantDateDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateImportantDate"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"name"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"date"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"personId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"description"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"recurrence"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createImportantDate"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"values"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"name"},"value":{"kind":"Variable","name":{"kind":"Name","value":"name"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"date"},"value":{"kind":"Variable","name":{"kind":"Name","value":"date"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"personId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"personId"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"description"},"value":{"kind":"Variable","name":{"kind":"Name","value":"description"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"recurrence"},"value":{"kind":"Variable","name":{"kind":"Name","value":"recurrence"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"recurrence"}},{"kind":"Field","name":{"kind":"Name","value":"personId"}}]}}]}}]} as unknown as DocumentNode<CreateImportantDateMutation, CreateImportantDateMutationVariables>;
-export const UpdateImportantDateDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"UpdateImportantDate"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"name"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"date"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"description"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"recurrence"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateImportantDates"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"set"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"name"},"value":{"kind":"Variable","name":{"kind":"Name","value":"name"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"date"},"value":{"kind":"Variable","name":{"kind":"Name","value":"date"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"description"},"value":{"kind":"Variable","name":{"kind":"Name","value":"description"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"recurrence"},"value":{"kind":"Variable","name":{"kind":"Name","value":"recurrence"}}}]}},{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"recurrence"}}]}}]}}]} as unknown as DocumentNode<UpdateImportantDateMutation, UpdateImportantDateMutationVariables>;
-export const UpdatePersonDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"UpdatePerson"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"firstName"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"lastName"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"email"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"contactFrequency"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updatePersons"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"set"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"firstName"},"value":{"kind":"Variable","name":{"kind":"Name","value":"firstName"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"lastName"},"value":{"kind":"Variable","name":{"kind":"Name","value":"lastName"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"email"},"value":{"kind":"Variable","name":{"kind":"Name","value":"email"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"contactFrequency"},"value":{"kind":"Variable","name":{"kind":"Name","value":"contactFrequency"}}}]}},{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"contactFrequency"}}]}}]}}]} as unknown as DocumentNode<UpdatePersonMutation, UpdatePersonMutationVariables>;
+export const CreateImportantDateDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateImportantDate"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"name"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"date"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"personId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"description"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"recurrence"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"milestoneType"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ImportantDatesMilestoneTypeEnum"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createImportantDate"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"values"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"name"},"value":{"kind":"Variable","name":{"kind":"Name","value":"name"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"date"},"value":{"kind":"Variable","name":{"kind":"Name","value":"date"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"personId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"personId"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"description"},"value":{"kind":"Variable","name":{"kind":"Name","value":"description"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"recurrence"},"value":{"kind":"Variable","name":{"kind":"Name","value":"recurrence"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"milestoneType"},"value":{"kind":"Variable","name":{"kind":"Name","value":"milestoneType"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"recurrence"}},{"kind":"Field","name":{"kind":"Name","value":"milestoneType"}},{"kind":"Field","name":{"kind":"Name","value":"personId"}}]}}]}}]} as unknown as DocumentNode<CreateImportantDateMutation, CreateImportantDateMutationVariables>;
+export const UpdateImportantDateDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"UpdateImportantDate"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"name"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"date"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"description"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"recurrence"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"milestoneType"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ImportantDatesMilestoneTypeEnum"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateImportantDates"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"set"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"name"},"value":{"kind":"Variable","name":{"kind":"Name","value":"name"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"date"},"value":{"kind":"Variable","name":{"kind":"Name","value":"date"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"description"},"value":{"kind":"Variable","name":{"kind":"Name","value":"description"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"recurrence"},"value":{"kind":"Variable","name":{"kind":"Name","value":"recurrence"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"milestoneType"},"value":{"kind":"Variable","name":{"kind":"Name","value":"milestoneType"}}}]}},{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"recurrence"}},{"kind":"Field","name":{"kind":"Name","value":"milestoneType"}}]}}]}}]} as unknown as DocumentNode<UpdateImportantDateMutation, UpdateImportantDateMutationVariables>;
+export const UpdatePersonDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"UpdatePerson"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"firstName"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"lastName"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"email"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"contactFrequency"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"howWeMet"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"firstMetDate"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updatePersons"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"set"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"firstName"},"value":{"kind":"Variable","name":{"kind":"Name","value":"firstName"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"lastName"},"value":{"kind":"Variable","name":{"kind":"Name","value":"lastName"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"email"},"value":{"kind":"Variable","name":{"kind":"Name","value":"email"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"contactFrequency"},"value":{"kind":"Variable","name":{"kind":"Name","value":"contactFrequency"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"howWeMet"},"value":{"kind":"Variable","name":{"kind":"Name","value":"howWeMet"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"firstMetDate"},"value":{"kind":"Variable","name":{"kind":"Name","value":"firstMetDate"}}}]}},{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"contactFrequency"}},{"kind":"Field","name":{"kind":"Name","value":"howWeMet"}},{"kind":"Field","name":{"kind":"Name","value":"firstMetDate"}}]}}]}}]} as unknown as DocumentNode<UpdatePersonMutation, UpdatePersonMutationVariables>;
 export const AttachLabelToPersonEditDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"AttachLabelToPersonEdit"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"personId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"labelId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createPersonLabel"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"values"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"personId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"personId"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"labelId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"labelId"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"personId"}},{"kind":"Field","name":{"kind":"Name","value":"labelId"}}]}}]}}]} as unknown as DocumentNode<AttachLabelToPersonEditMutation, AttachLabelToPersonEditMutationVariables>;
 export const DetachLabelFromPersonEditDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"DetachLabelFromPersonEdit"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"personId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"labelId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"deletePersonLabels"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"personId"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"personId"}}}]}},{"kind":"ObjectField","name":{"kind":"Name","value":"labelId"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"labelId"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"personId"}},{"kind":"Field","name":{"kind":"Name","value":"labelId"}}]}}]}}]} as unknown as DocumentNode<DetachLabelFromPersonEditMutation, DetachLabelFromPersonEditMutationVariables>;
 export const GetPersonsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetPersons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"persons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"interactions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"1"}},{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"occurredAt"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"direction"},"value":{"kind":"EnumValue","value":"desc"}},{"kind":"ObjectField","name":{"kind":"Name","value":"priority"},"value":{"kind":"IntValue","value":"1"}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}}]}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"Person_List"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Person_Relationships"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Person"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"relationships"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonId"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonFirstName"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonLastName"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Person_List"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Person"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"importantDates"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"date"}}]}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"Person_Relationships"}}]}}]} as unknown as DocumentNode<GetPersonsQuery, GetPersonsQueryVariables>;
