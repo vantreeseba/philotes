@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/vantreeseba/philotes/compare/v1.1.4...v1.1.5) (2026-03-09)
+
+
+### Bug Fixes
+
+* use named wildcard route for Express 5 / path-to-regexp v8 compat ([00e17d6](https://github.com/vantreeseba/philotes/commit/00e17d67b1c639f881d133c68c4c709909f08521))
+
 ## [1.1.4](https://github.com/vantreeseba/philotes/compare/v1.1.3...v1.1.4) (2026-03-09)
 
 
