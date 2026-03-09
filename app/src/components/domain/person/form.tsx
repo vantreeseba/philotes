@@ -92,7 +92,7 @@ export function PersonForm({ availableLabels, initialValues, submitLabel, onSubm
             ...value,
             contactFrequency: value.contactFrequency || null,
             howWeMet: value.howWeMet || null,
-            firstMetDate: value.firstMetDate || null,
+            firstMetDate: value.firstMetDate ? new Date(`${value.firstMetDate}T00:00:00`) : null,
           },
           labelIds: Array.from(selectedLabelIds),
         });

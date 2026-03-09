@@ -141,8 +141,7 @@ function sentimentEmoji(sentiment: string | null | undefined): string {
   return SENTIMENT_OPTIONS.find((s) => s.value === sentiment)?.emoji ?? '';
 }
 
-function relativeTime(dateStr: string): string {
-  const date = new Date(dateStr);
+function relativeTime(date: Date): string {
   const now = new Date();
   const diffMs = now.getTime() - date.getTime();
   const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
@@ -162,7 +161,7 @@ export interface InteractionData {
   id: string;
   personId: string;
   channel: string;
-  occurredAt: string;
+  occurredAt: Date;
   sentiment: string | null | undefined;
   note: string | null | undefined;
   labels: Array<{ id: string; label: string; color: string }>;
@@ -467,7 +466,7 @@ function InteractionRow({ interaction, allTags, onChanged }: InteractionRowProps
       variables: {
         id: interaction.id,
         channel: values.channel,
-        occurredAt: new Date(values.occurredAt).toISOString(),
+        occurredAt: new Date(values.occurredAt),
         sentiment: values.sentiment || null,
         note: values.note || null,
       },
@@ -580,7 +579,7 @@ function InteractionRow({ interaction, allTags, onChanged }: InteractionRowProps
             allTags={allTags}
             initialValues={{
               channel: interaction.channel as Channel,
-              occurredAt: interaction.occurredAt,
+              occurredAt: interaction.occurredAt.toISOString().slice(0, 16),
               sentiment: (interaction.sentiment as Sentiment | undefined) ?? '',
               note: interaction.note ?? '',
               labelIds: interaction.labels.map((l) => l.id),
@@ -615,7 +614,7 @@ function CreateInteractionForm({ personId, allTags, onAdded, onCancel }: CreateI
       variables: {
         personId,
         channel: values.channel,
-        occurredAt: new Date(values.occurredAt).toISOString(),
+        occurredAt: new Date(values.occurredAt),
         sentiment: values.sentiment || null,
         note: values.note || null,
       },
@@ -645,7 +644,7 @@ export function PersonInteractions({
   onCreateOpenChange,
 }: PersonInteractionsProps) {
   // Sort by most recent first
-  const sorted = [...interactions].sort((a, b) => new Date(b.occurredAt).getTime() - new Date(a.occurredAt).getTime());
+  const sorted = [...interactions].sort((a, b) => b.occurredAt.getTime() - a.occurredAt.getTime());
 
   return (
     <div className="space-y-2">

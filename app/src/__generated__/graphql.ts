@@ -15,9 +15,9 @@ export type Scalars = {
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
   /** A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
-  Date: { input: string; output: string; }
+  Date: { input: Date; output: Date; }
   /** A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
-  DateTime: { input: string; output: string; }
+  DateTime: { input: Date; output: Date; }
 };
 
 export type ActivitiesFilters = {
@@ -2101,7 +2101,7 @@ export type UpdateTaskInput = {
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type Person_ActivityListFragment = { __typename: 'Person', id: string, activities: Array<{ __typename: 'Activity', id: string, title: string, description: string | null, location: string | null, occurredAt: string }> };
+export type Person_ActivityListFragment = { __typename: 'Person', id: string, activities: Array<{ __typename: 'Activity', id: string, title: string, description: string | null, location: string | null, occurredAt: Date }> };
 
 export type CreateActivityMutationVariables = Exact<{
   personId: Scalars['String']['input'];
@@ -2112,7 +2112,7 @@ export type CreateActivityMutationVariables = Exact<{
 }>;
 
 
-export type CreateActivityMutation = { createActivity: { __typename: 'Activity', id: string, personId: string, title: string, occurredAt: string, location: string | null, description: string | null } | null };
+export type CreateActivityMutation = { createActivity: { __typename: 'Activity', id: string, personId: string, title: string, occurredAt: Date, location: string | null, description: string | null } | null };
 
 export type DeleteActivityMutationVariables = Exact<{
   id: Scalars['String']['input'];
@@ -2160,14 +2160,14 @@ export type DeleteContactInfoMutation = { deleteContactInfos: Array<{ __typename
 export type GetPersonsWithFrequencyQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPersonsWithFrequencyQuery = { persons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string, avatarPath: string | null, contactFrequency: string | null, interactions: Array<{ __typename: 'Interaction', occurredAt: string }> }> };
+export type GetPersonsWithFrequencyQuery = { persons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string, avatarPath: string | null, contactFrequency: string | null, interactions: Array<{ __typename: 'Interaction', occurredAt: Date }> }> };
 
 export type GetPersonInteractionsForWidgetQueryVariables = Exact<{
   personId: Scalars['String']['input'];
 }>;
 
 
-export type GetPersonInteractionsForWidgetQuery = { interactions: Array<{ __typename: 'Interaction', id: string, personId: string, channel: string, occurredAt: string, sentiment: string | null, note: string | null, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }> }> };
+export type GetPersonInteractionsForWidgetQuery = { interactions: Array<{ __typename: 'Interaction', id: string, personId: string, channel: string, occurredAt: Date, sentiment: string | null, note: string | null, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }> }> };
 
 export type GetAllLabelsForWidgetQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -2177,12 +2177,12 @@ export type GetAllLabelsForWidgetQuery = { labels: Array<{ __typename: 'Label', 
 export type DormantTiesPersonsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type DormantTiesPersonsQuery = { persons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, avatarPath: string | null, createdAt: string, interactions: Array<{ __typename: 'Interaction', occurredAt: string }> }> };
+export type DormantTiesPersonsQuery = { persons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, avatarPath: string | null, createdAt: Date, interactions: Array<{ __typename: 'Interaction', occurredAt: Date }> }> };
 
 export type GetRecentPersonsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetRecentPersonsQuery = { persons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string, avatarPath: string | null, createdAt: string }> };
+export type GetRecentPersonsQuery = { persons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string, avatarPath: string | null, createdAt: Date }> };
 
 export type GetUpcomingDatesQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -2219,7 +2219,7 @@ export type CreateInteractionMutationVariables = Exact<{
 }>;
 
 
-export type CreateInteractionMutation = { createInteraction: { __typename: 'Interaction', id: string, personId: string, channel: string, occurredAt: string, sentiment: string | null, note: string | null } | null };
+export type CreateInteractionMutation = { createInteraction: { __typename: 'Interaction', id: string, personId: string, channel: string, occurredAt: Date, sentiment: string | null, note: string | null } | null };
 
 export type UpdateInteractionMutationVariables = Exact<{
   id: Scalars['String']['input'];
@@ -2230,7 +2230,7 @@ export type UpdateInteractionMutationVariables = Exact<{
 }>;
 
 
-export type UpdateInteractionMutation = { updateInteractions: Array<{ __typename: 'Interaction', id: string, channel: string, occurredAt: string, sentiment: string | null, note: string | null }> };
+export type UpdateInteractionMutation = { updateInteractions: Array<{ __typename: 'Interaction', id: string, channel: string, occurredAt: Date, sentiment: string | null, note: string | null }> };
 
 export type DeleteInteractionMutationVariables = Exact<{
   id: Scalars['String']['input'];
@@ -2273,7 +2273,7 @@ export type DetachLabelFromPersonMutationVariables = Exact<{
 
 export type DetachLabelFromPersonMutation = { deletePersonLabels: Array<{ __typename: 'PersonLabel', personId: string, labelId: string }> };
 
-export type Person_ListFragment = { __typename: 'Person', id: string, firstName: string, lastName: string, email: string, avatarPath: string | null, createdAt: string, updatedAt: string, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }>, importantDates: Array<{ __typename: 'ImportantDate', id: string, name: string, description: string | null, date: string }>, relationships: Array<{ __typename: 'PersonRelationshipEntry', id: string, type: string, relatedPersonId: string, relatedPersonFirstName: string, relatedPersonLastName: string }> };
+export type Person_ListFragment = { __typename: 'Person', id: string, firstName: string, lastName: string, email: string, avatarPath: string | null, createdAt: Date, updatedAt: Date, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }>, importantDates: Array<{ __typename: 'ImportantDate', id: string, name: string, description: string | null, date: Date }>, relationships: Array<{ __typename: 'PersonRelationshipEntry', id: string, type: string, relatedPersonId: string, relatedPersonFirstName: string, relatedPersonLastName: string }> };
 
 export type CreateNoteMutationVariables = Exact<{
   body: Scalars['String']['input'];
@@ -2357,7 +2357,7 @@ export type DeletePersonRelationshipMutation = { deletePersonRelationships: Arra
 
 export type Tag_ListFragment = { __typename: 'Label', id: string, color: string, label: string };
 
-export type Person_TasksFragment = { __typename: 'Person', id: string, tasks: Array<{ __typename: 'Task', id: string, title: string, notes: string | null, dueAt: string | null, completedAt: string | null, createdAt: string }> };
+export type Person_TasksFragment = { __typename: 'Person', id: string, tasks: Array<{ __typename: 'Task', id: string, title: string, notes: string | null, dueAt: Date | null, completedAt: Date | null, createdAt: Date }> };
 
 export type CreateTaskMutationVariables = Exact<{
   personId: Scalars['String']['input'];
@@ -2367,7 +2367,7 @@ export type CreateTaskMutationVariables = Exact<{
 }>;
 
 
-export type CreateTaskMutation = { createTask: { __typename: 'Task', id: string, personId: string, title: string, notes: string | null, dueAt: string | null, completedAt: string | null, createdAt: string } | null };
+export type CreateTaskMutation = { createTask: { __typename: 'Task', id: string, personId: string, title: string, notes: string | null, dueAt: Date | null, completedAt: Date | null, createdAt: Date } | null };
 
 export type UpdateTaskMutationVariables = Exact<{
   id: Scalars['String']['input'];
@@ -2375,7 +2375,7 @@ export type UpdateTaskMutationVariables = Exact<{
 }>;
 
 
-export type UpdateTaskMutation = { updateTasks: Array<{ __typename: 'Task', id: string, completedAt: string | null }> };
+export type UpdateTaskMutation = { updateTasks: Array<{ __typename: 'Task', id: string, completedAt: Date | null }> };
 
 export type DeleteTaskMutationVariables = Exact<{
   id: Scalars['String']['input'];
@@ -2395,14 +2395,14 @@ export type GetImportantDateDetailQueryVariables = Exact<{
 }>;
 
 
-export type GetImportantDateDetailQuery = { importantDates: Array<{ __typename: 'ImportantDate', id: string, name: string, description: string | null, date: string, recurrence: string | null, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }> }>, notes: Array<{ __typename: 'Note', id: string, body: string, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }> }> };
+export type GetImportantDateDetailQuery = { importantDates: Array<{ __typename: 'ImportantDate', id: string, name: string, description: string | null, date: Date, recurrence: string | null, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }> }>, notes: Array<{ __typename: 'Note', id: string, body: string, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }> }> };
 
 export type GetPersonDetailQueryVariables = Exact<{
   id: Scalars['String']['input'];
 }>;
 
 
-export type GetPersonDetailQuery = { persons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string, avatarPath: string | null, contactFrequency: string | null, howWeMet: string | null, firstMetDate: string | null, createdAt: string, updatedAt: string, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }>, importantDates: Array<{ __typename: 'ImportantDate', id: string, name: string, description: string | null, date: string, recurrence: string | null, milestoneType: ImportantDatesMilestoneTypeEnum | null, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }> }>, notes: Array<{ __typename: 'Note', id: string, body: string, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }>, mentions: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string }> }>, mentionedInNotes: Array<{ __typename: 'Note', id: string, body: string, person: { __typename: 'Person', id: string, firstName: string, lastName: string } | null }>, interactions: Array<{ __typename: 'Interaction', id: string, personId: string, channel: string, occurredAt: string, sentiment: string | null, note: string | null, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }> }>, relationships: Array<{ __typename: 'PersonRelationshipEntry', id: string, type: string, relatedPersonId: string, relatedPersonFirstName: string, relatedPersonLastName: string }>, activities: Array<{ __typename: 'Activity', id: string, title: string, description: string | null, location: string | null, occurredAt: string }>, tasks: Array<{ __typename: 'Task', id: string, title: string, notes: string | null, dueAt: string | null, completedAt: string | null, createdAt: string }>, contactInfos: Array<{ __typename: 'ContactInfo', id: string, type: ContactInfosTypeEnum, value: string, label: string | null, isPrimary: boolean }>, addresses: Array<{ __typename: 'Address', id: string, type: AddressesTypeEnum, label: string | null, line1: string, line2: string | null, city: string | null, state: string | null, postalCode: string | null, country: string | null, isPrimary: boolean }> }> };
+export type GetPersonDetailQuery = { persons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string, avatarPath: string | null, contactFrequency: string | null, howWeMet: string | null, firstMetDate: Date | null, createdAt: Date, updatedAt: Date, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }>, importantDates: Array<{ __typename: 'ImportantDate', id: string, name: string, description: string | null, date: Date, recurrence: string | null, milestoneType: ImportantDatesMilestoneTypeEnum | null, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }> }>, notes: Array<{ __typename: 'Note', id: string, body: string, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }>, mentions: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string }> }>, mentionedInNotes: Array<{ __typename: 'Note', id: string, body: string, person: { __typename: 'Person', id: string, firstName: string, lastName: string } | null }>, interactions: Array<{ __typename: 'Interaction', id: string, personId: string, channel: string, occurredAt: Date, sentiment: string | null, note: string | null, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }> }>, relationships: Array<{ __typename: 'PersonRelationshipEntry', id: string, type: string, relatedPersonId: string, relatedPersonFirstName: string, relatedPersonLastName: string }>, activities: Array<{ __typename: 'Activity', id: string, title: string, description: string | null, location: string | null, occurredAt: Date }>, tasks: Array<{ __typename: 'Task', id: string, title: string, notes: string | null, dueAt: Date | null, completedAt: Date | null, createdAt: Date }>, contactInfos: Array<{ __typename: 'ContactInfo', id: string, type: ContactInfosTypeEnum, value: string, label: string | null, isPrimary: boolean }>, addresses: Array<{ __typename: 'Address', id: string, type: AddressesTypeEnum, label: string | null, line1: string, line2: string | null, city: string | null, state: string | null, postalCode: string | null, country: string | null, isPrimary: boolean }> }> };
 
 export type GetAllPersonsForDetailQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -2431,7 +2431,7 @@ export type CreateImportantDateMutationVariables = Exact<{
 }>;
 
 
-export type CreateImportantDateMutation = { createImportantDate: { __typename: 'ImportantDate', id: string, name: string, date: string, description: string | null, recurrence: string | null, milestoneType: ImportantDatesMilestoneTypeEnum | null, personId: string } | null };
+export type CreateImportantDateMutation = { createImportantDate: { __typename: 'ImportantDate', id: string, name: string, date: Date, description: string | null, recurrence: string | null, milestoneType: ImportantDatesMilestoneTypeEnum | null, personId: string } | null };
 
 export type UpdateImportantDateMutationVariables = Exact<{
   id: Scalars['String']['input'];
@@ -2443,7 +2443,7 @@ export type UpdateImportantDateMutationVariables = Exact<{
 }>;
 
 
-export type UpdateImportantDateMutation = { updateImportantDates: Array<{ __typename: 'ImportantDate', id: string, name: string, date: string, description: string | null, recurrence: string | null, milestoneType: ImportantDatesMilestoneTypeEnum | null }> };
+export type UpdateImportantDateMutation = { updateImportantDates: Array<{ __typename: 'ImportantDate', id: string, name: string, date: Date, description: string | null, recurrence: string | null, milestoneType: ImportantDatesMilestoneTypeEnum | null }> };
 
 export type UpdatePersonMutationVariables = Exact<{
   id: Scalars['String']['input'];
@@ -2456,7 +2456,7 @@ export type UpdatePersonMutationVariables = Exact<{
 }>;
 
 
-export type UpdatePersonMutation = { updatePersons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string, contactFrequency: string | null, howWeMet: string | null, firstMetDate: string | null }> };
+export type UpdatePersonMutation = { updatePersons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string, contactFrequency: string | null, howWeMet: string | null, firstMetDate: Date | null }> };
 
 export type AttachLabelToPersonEditMutationVariables = Exact<{
   personId: Scalars['String']['input'];
@@ -2477,7 +2477,7 @@ export type DetachLabelFromPersonEditMutation = { deletePersonLabels: Array<{ __
 export type GetPersonsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPersonsQuery = { persons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string, avatarPath: string | null, createdAt: string, updatedAt: string, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }>, interactions: Array<{ __typename: 'Interaction', occurredAt: string }>, importantDates: Array<{ __typename: 'ImportantDate', id: string, name: string, description: string | null, date: string }>, relationships: Array<{ __typename: 'PersonRelationshipEntry', id: string, type: string, relatedPersonId: string, relatedPersonFirstName: string, relatedPersonLastName: string }> }> };
+export type GetPersonsQuery = { persons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string, avatarPath: string | null, createdAt: Date, updatedAt: Date, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }>, interactions: Array<{ __typename: 'Interaction', occurredAt: Date }>, importantDates: Array<{ __typename: 'ImportantDate', id: string, name: string, description: string | null, date: Date }>, relationships: Array<{ __typename: 'PersonRelationshipEntry', id: string, type: string, relatedPersonId: string, relatedPersonFirstName: string, relatedPersonLastName: string }> }> };
 
 export type GetLabelsForPersonFormQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -2489,7 +2489,7 @@ export type CreatePersonMutationVariables = Exact<{
 }>;
 
 
-export type CreatePersonMutation = { createPerson: { __typename: 'Person', id: string, firstName: string, lastName: string, email: string, avatarPath: string | null, createdAt: string, updatedAt: string, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }>, importantDates: Array<{ __typename: 'ImportantDate', id: string, name: string, description: string | null, date: string }>, relationships: Array<{ __typename: 'PersonRelationshipEntry', id: string, type: string, relatedPersonId: string, relatedPersonFirstName: string, relatedPersonLastName: string }> } | null };
+export type CreatePersonMutation = { createPerson: { __typename: 'Person', id: string, firstName: string, lastName: string, email: string, avatarPath: string | null, createdAt: Date, updatedAt: Date, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }>, importantDates: Array<{ __typename: 'ImportantDate', id: string, name: string, description: string | null, date: Date }>, relationships: Array<{ __typename: 'PersonRelationshipEntry', id: string, type: string, relatedPersonId: string, relatedPersonFirstName: string, relatedPersonLastName: string }> } | null };
 
 export type DeletePersonMutationVariables = Exact<{
   id: Scalars['String']['input'];
@@ -2501,7 +2501,7 @@ export type DeletePersonMutation = { deletePersons: Array<{ __typename: 'Person'
 export type WeeklyReviewQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type WeeklyReviewQuery = { persons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, avatarPath: string | null, contactFrequency: string | null, createdAt: string, importantDates: Array<{ __typename: 'ImportantDate', id: string, name: string, date: string, recurrence: string | null }>, tasks: Array<{ __typename: 'Task', id: string, title: string, dueAt: string | null, completedAt: string | null, personId: string }>, interactions: Array<{ __typename: 'Interaction', occurredAt: string }> }> };
+export type WeeklyReviewQuery = { persons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, avatarPath: string | null, contactFrequency: string | null, createdAt: Date, importantDates: Array<{ __typename: 'ImportantDate', id: string, name: string, date: Date, recurrence: string | null }>, tasks: Array<{ __typename: 'Task', id: string, title: string, dueAt: Date | null, completedAt: Date | null, personId: string }>, interactions: Array<{ __typename: 'Interaction', occurredAt: Date }> }> };
 
 export type GetTagsQueryVariables = Exact<{ [key: string]: never; }>;
 

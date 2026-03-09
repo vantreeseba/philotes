@@ -42,11 +42,10 @@ interface PersonRowProps {
   onClickDelete: (id: string) => void;
   /** Label IDs currently active as filters — highlighted when matched. */
   activeLabelIds: Set<string>;
-  lastContactedAt?: string | null;
+  lastContactedAt?: Date | null;
 }
 
-function relativeTime(dateStr: string): string {
-  const date = new Date(dateStr);
+function relativeTime(date: Date): string {
   const now = new Date();
   const diffMs = now.getTime() - date.getTime();
   const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
@@ -127,7 +126,7 @@ interface FilterablePersonRow {
   email: string;
   avatarPath?: string | null;
   labels: Array<{ id: string; label: string; color: string }>;
-  lastContactedAt?: string | null;
+  lastContactedAt?: Date | null;
 }
 
 interface PersonListProps {

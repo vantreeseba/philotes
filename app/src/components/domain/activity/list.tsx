@@ -92,7 +92,7 @@ function ActivityRow({ activity, onDelete }: ActivityRowProps) {
     onDelete();
   };
 
-  const dateLabel = new Date(activity.occurredAt).toLocaleDateString();
+  const dateLabel = activity.occurredAt.toLocaleDateString();
 
   return (
     <div className="rounded-md border border-border px-3 py-2 text-sm space-y-0.5">
@@ -156,7 +156,7 @@ function CreateActivityForm({ personId, onAdded, onCancel }: CreateActivityFormP
         variables: {
           personId,
           title: title.trim(),
-          occurredAt: new Date(occurredAt).toISOString(),
+          occurredAt: new Date(occurredAt),
           location: location.trim() || null,
           description: description.trim() || null,
         },

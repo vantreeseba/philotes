@@ -71,13 +71,13 @@ const FREQUENCY_DAYS: Record<string, number> = {
   yearly: 365,
 };
 
-function daysOverdue(contactFrequency: string, lastContactedAt: string | null | undefined): number {
+function daysOverdue(contactFrequency: string, lastContactedAt: Date | null | undefined): number {
   const periodDays = FREQUENCY_DAYS[contactFrequency] ?? 30;
   if (!lastContactedAt) {
     // Never contacted — treat as maximally overdue
     return periodDays;
   }
-  const daysSince = Math.floor((Date.now() - new Date(lastContactedAt).getTime()) / (1000 * 60 * 60 * 24));
+  const daysSince = Math.floor((Date.now() - lastContactedAt.getTime()) / (1000 * 60 * 60 * 24));
   return daysSince - periodDays;
 }
 

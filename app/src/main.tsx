@@ -2,11 +2,12 @@ import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/c
 import { createRouter, RouterProvider } from '@tanstack/react-router';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { scalarTypePolicies } from './__generated__/type-policies.js';
 import { routeTree } from './routeTree.gen';
 import './index.css';
 
 const client = new ApolloClient({
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({ typePolicies: scalarTypePolicies }),
   dataMasking: true,
   link: new HttpLink({ uri: '/graphql' }),
 });

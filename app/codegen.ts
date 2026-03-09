@@ -23,10 +23,17 @@ const config: CodegenConfig = {
         nonOptionalTypename: true,
         skipTypeNameForRoot: true,
         scalars: {
-          // Apollo Client receives DateTime/Date as ISO strings over the wire.
-          // Map to string so existing frontend code continues to work unchanged.
-          DateTime: 'string',
-          Date: 'string',
+          DateTime: 'Date',
+          Date: 'Date',
+        },
+      },
+    },
+    'src/__generated__/type-policies.ts': {
+      plugins: ['@homebound/graphql-typescript-scalar-type-policies'],
+      config: {
+        scalarTypePolicies: {
+          DateTime: '@/lib/date-type-policy#dateTypePolicy',
+          Date: '@/lib/date-type-policy#dateTypePolicy',
         },
       },
     },

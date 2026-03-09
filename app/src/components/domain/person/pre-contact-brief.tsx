@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.j
 
 interface Interaction {
   id: string;
-  occurredAt: string;
+  occurredAt: Date;
   channel: string;
   sentiment: string | null;
   note: string | null;
@@ -21,14 +21,14 @@ interface Note {
 interface Task {
   id: string;
   title: string;
-  dueAt: string | null;
-  completedAt: string | null;
+  dueAt: Date | null;
+  completedAt: Date | null;
 }
 
 interface ImportantDate {
   id: string;
   name: string;
-  date: string;
+  date: Date;
 }
 
 export interface PreContactBriefProps {
@@ -47,8 +47,7 @@ export interface PreContactBriefProps {
 // Helpers
 // ---------------------------------------------------------------------------
 
-function relativeTime(dateStr: string): string {
-  const date = new Date(dateStr);
+function relativeTime(date: Date): string {
   const now = new Date();
   const diffMs = now.getTime() - date.getTime();
   const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
@@ -60,15 +59,14 @@ function relativeTime(dateStr: string): string {
   return `${Math.floor(diffDays / 365)} year${Math.floor(diffDays / 365) === 1 ? '' : 's'} ago`;
 }
 
-function daysUntil(dateStr: string): number {
-  const target = new Date(dateStr);
+function daysUntil(date: Date): number {
   const now = new Date();
-  const diffMs = target.getTime() - now.getTime();
+  const diffMs = date.getTime() - now.getTime();
   return Math.ceil(diffMs / (1000 * 60 * 60 * 24));
 }
 
 /** Format relative due date for a task. */
-function dueDateLabel(dueAt: string | null): string | null {
+function dueDateLabel(dueAt: Date | null): string | null {
   if (!dueAt) return null;
   const days = daysUntil(dueAt);
   if (days < 0) return `overdue ${Math.abs(days)} day${Math.abs(days) === 1 ? '' : 's'}`;
@@ -82,8 +80,7 @@ function dueDateLabel(dueAt: string | null): string | null {
  * Handles annual recurrence by projecting the stored date to the current year
  * (or next year if this year's occurrence has already passed).
  */
-function nextOccurrenceWithin60Days(dateStr: string): number | null {
-  const stored = new Date(dateStr);
+function nextOccurrenceWithin60Days(stored: Date): number | null {
   const month = stored.getUTCMonth();
   const day = stored.getUTCDate();
 
@@ -148,9 +145,7 @@ function SectionDivider() {
 // ---------------------------------------------------------------------------
 
 export function PreContactBrief({ person }: PreContactBriefProps) {
-  const sortedInteractions = [...person.interactions].sort(
-    (a, b) => new Date(b.occurredAt).getTime() - new Date(a.occurredAt).getTime(),
-  );
+  const sortedInteractions = [...person.interactions].sort((a, b) => b.occurredAt.getTime() - a.occurredAt.getTime());
   const lastInteraction = sortedInteractions[0] ?? null;
 
   const recentNotes = person.notes.slice(0, 3);
