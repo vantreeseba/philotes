@@ -60,28 +60,28 @@ type ReviewPerson = {
   lastName: string;
   avatarPath?: string | null;
   contactFrequency?: string | null;
-  createdAt: string;
+  createdAt: Date;
   importantDates: Array<{
     id: string;
     name: string;
-    date: string;
+    date: Date;
     recurrence?: string | null;
   }>;
   tasks: Array<{
     id: string;
     title: string;
-    dueAt?: string | null;
-    completedAt?: string | null;
+    dueAt?: Date | null;
+    completedAt?: Date | null;
     personId: string;
   }>;
   interactions: Array<{
-    occurredAt: string;
+    occurredAt: Date;
   }>;
 };
 
 type OverduePerson = ReviewPerson & {
   overdueByDays: number;
-  lastContactedAt: string | null;
+  lastContactedAt: Date | null;
 };
 
 type UpcomingDate = {
@@ -96,7 +96,7 @@ type UpcomingDate = {
 type OpenTask = {
   id: string;
   title: string;
-  dueAt: string | null;
+  dueAt: Date | null;
   personId: string;
   personFirstName: string;
   personLastName: string;
@@ -124,29 +124,27 @@ function daysBetween(a: Date, b: Date): number {
   return Math.round((b.getTime() - a.getTime()) / (1000 * 60 * 60 * 24));
 }
 
-function computeOverdueByDays(contactFrequency: string, lastContactedAt: string | null): number {
+function computeOverdueByDays(contactFrequency: string, lastContactedAt: Date | null): number {
   const periodDays = FREQUENCY_DAYS[contactFrequency] ?? 30;
   if (!lastContactedAt) {
     return periodDays;
   }
-  const daysSince = Math.floor((Date.now() - new Date(lastContactedAt).getTime()) / (1000 * 60 * 60 * 24));
+  const daysSince = Math.floor((Date.now() - lastContactedAt.getTime()) / (1000 * 60 * 60 * 24));
   return daysSince - periodDays;
 }
 
 /**
- * Given a YYYY-MM-DD date string and a recurrence type, returns the number of
- * days until the next occurrence on or after today.
+ * Given a Date object (for the stored date) and a recurrence type, returns the
+ * number of days until the next occurrence on or after today.
  * Returns null if the event will never recur (one-time already passed).
  */
-function daysUntilNextOccurrence(dateStr: string, recurrence: string | null | undefined): number | null {
+function daysUntilNextOccurrence(storedDate: Date, recurrence: string | null | undefined): number | null {
   const t = todayMidnight();
-  const [yearStr, monthStr, dayStr] = dateStr.split('-');
-  const storedYear = Number(yearStr);
-  const month = Number(monthStr) - 1;
-  const day = Number(dayStr);
+  const month = storedDate.getMonth();
+  const day = storedDate.getDate();
 
   if (!recurrence) {
-    const stored = new Date(storedYear, month, day);
+    const stored = new Date(storedDate.getFullYear(), month, day);
     const diff = daysBetween(t, stored);
     return diff >= 0 ? diff : null;
   }
@@ -166,7 +164,6 @@ function daysUntilNextOccurrence(dateStr: string, recurrence: string | null | un
   }
 
   if (recurrence === 'weekly') {
-    const storedDate = new Date(storedYear, month, day);
     const targetDow = storedDate.getDay();
     const todayDow = t.getDay();
     return (targetDow - todayDow + 7) % 7;
@@ -226,7 +223,7 @@ function computeOpenTasks(persons: ReviewPerson[]): OpenTask[] {
     for (const task of person.tasks) {
       if (task.completedAt) continue;
 
-      const dueAt = task.dueAt ? new Date(task.dueAt).getTime() : null;
+      const dueAt = task.dueAt ? task.dueAt.getTime() : null;
       const isOverdue = dueAt !== null && dueAt < now;
       const isDueThisWeek = dueAt !== null && dueAt <= sevenDaysFromNow;
 
@@ -248,8 +245,8 @@ function computeOpenTasks(persons: ReviewPerson[]): OpenTask[] {
     // Overdue first, then by due date
     if (a.isOverdue && !b.isOverdue) return -1;
     if (!a.isOverdue && b.isOverdue) return 1;
-    const aTime = a.dueAt ? new Date(a.dueAt).getTime() : 0;
-    const bTime = b.dueAt ? new Date(b.dueAt).getTime() : 0;
+    const aTime = a.dueAt ? a.dueAt.getTime() : 0;
+    const bTime = b.dueAt ? b.dueAt.getTime() : 0;
     return aTime - bTime;
   });
 }
@@ -259,7 +256,7 @@ function computeMostDormantPerson(persons: ReviewPerson[]): (ReviewPerson & { da
     .map((p) => ({
       ...p,
       daysSinceContact: p.interactions[0]?.occurredAt
-        ? Math.floor((Date.now() - new Date(p.interactions[0].occurredAt).getTime()) / (1000 * 60 * 60 * 24))
+        ? Math.floor((Date.now() - p.interactions[0].occurredAt.getTime()) / (1000 * 60 * 60 * 24))
         : Number.POSITIVE_INFINITY,
     }))
     .filter((p) => p.daysSinceContact >= DORMANT_THRESHOLD_DAYS);
@@ -291,10 +288,9 @@ function formatDaysUntil(days: number): string {
   return `In ${days} days`;
 }
 
-function formatDueDate(dueAt: string | null, isOverdue: boolean): string {
+function formatDueDate(dueAt: Date | null, isOverdue: boolean): string {
   if (!dueAt) return 'No due date';
-  const date = new Date(dueAt);
-  const formatted = date.toLocaleDateString(undefined, {
+  const formatted = dueAt.toLocaleDateString(undefined, {
     month: 'short',
     day: 'numeric',
   });

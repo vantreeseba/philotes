@@ -196,7 +196,7 @@ const DELETE_IMPORTANT_DATE = graphql(`
 const CREATE_IMPORTANT_DATE = graphql(`
   mutation CreateImportantDate(
     $name: String!
-    $date: String!
+    $date: Date!
     $personId: String!
     $description: String
     $recurrence: String
@@ -227,7 +227,7 @@ const UPDATE_IMPORTANT_DATE = graphql(`
   mutation UpdateImportantDate(
     $id: String!
     $name: String!
-    $date: String!
+    $date: Date!
     $description: String
     $recurrence: String
     $milestoneType: ImportantDatesMilestoneTypeEnum
@@ -260,7 +260,7 @@ const UPDATE_PERSON = graphql(`
     $email: String!
     $contactFrequency: String
     $howWeMet: String
-    $firstMetDate: String
+    $firstMetDate: Date
   ) {
     updatePersons(
       set: {
@@ -320,7 +320,7 @@ interface ImportantDateRowProps {
   id: string;
   personId: string;
   name: string;
-  date: string;
+  date: Date;
   description: string | null | undefined;
   recurrence: string | null | undefined;
   milestoneType: string | null | undefined;
@@ -358,7 +358,7 @@ function ImportantDateRow({
       variables: {
         id,
         name: values.name,
-        date: values.date,
+        date: new Date(`${values.date}T00:00:00`),
         description: values.description ?? null,
         recurrence: values.recurrence ?? null,
         milestoneType: (values.milestoneType as ImportantDatesMilestoneTypeEnum | null) ?? null,
@@ -382,7 +382,7 @@ function ImportantDateRow({
             </Link>
             {description && <span className="ml-2 text-muted-foreground text-xs">{description}</span>}
             <div className="text-muted-foreground text-xs mt-0.5 flex items-center gap-1.5">
-              <span>{date}</span>
+              <span>{date.toLocaleDateString()}</span>
               {recurrenceLabel && (
                 <span className="rounded-full bg-muted px-1.5 py-0.5 text-xs">{recurrenceLabel}</span>
               )}
@@ -430,7 +430,7 @@ function ImportantDateRow({
           <ImportantDateForm
             initialValues={{
               name,
-              date,
+              date: date.toISOString().slice(0, 10),
               description: description ?? undefined,
               recurrence: recurrence ?? undefined,
               milestoneType: milestoneType ?? undefined,
@@ -558,7 +558,7 @@ function PersonDetailPage() {
       variables: {
         personId: id,
         name: values.name,
-        date: values.date,
+        date: new Date(`${values.date}T00:00:00`),
         description: values.description ?? null,
         recurrence: values.recurrence ?? null,
         milestoneType: (values.milestoneType as ImportantDatesMilestoneTypeEnum | null) ?? null,
@@ -671,7 +671,7 @@ function PersonDetailPage() {
               {person.firstMetDate && (
                 <p className="text-xs text-muted-foreground mt-1">
                   First met:{' '}
-                  {new Date(`${person.firstMetDate}T00:00:00`).toLocaleDateString('en-US', {
+                  {person.firstMetDate.toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric',
@@ -1034,7 +1034,7 @@ function PersonDetailPage() {
                 labelIds: person.labels.map((l) => l.id),
                 contactFrequency: person.contactFrequency,
                 howWeMet: person.howWeMet,
-                firstMetDate: person.firstMetDate,
+                firstMetDate: person.firstMetDate ? person.firstMetDate.toISOString().slice(0, 10) : null,
               }}
               submitLabel="Save Changes"
               onSubmit={handleEditPerson}

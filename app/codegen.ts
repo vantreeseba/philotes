@@ -22,6 +22,19 @@ const config: CodegenConfig = {
         defaultScalarType: 'unknown',
         nonOptionalTypename: true,
         skipTypeNameForRoot: true,
+        scalars: {
+          DateTime: 'Date',
+          Date: 'Date',
+        },
+      },
+    },
+    'src/__generated__/type-policies.ts': {
+      plugins: ['@homebound/graphql-typescript-scalar-type-policies'],
+      config: {
+        scalarTypePolicies: {
+          DateTime: '@/lib/date-type-policy#dateTimeTypePolicy',
+          Date: '@/lib/date-type-policy#dateTypePolicy',
+        },
       },
     },
   },

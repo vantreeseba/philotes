@@ -29,8 +29,7 @@ const GET_RECENT_PERSONS = graphql(`
 
 const MAX_SHOWN = 5;
 
-function formatRelativeTime(isoString: string): string {
-  const created = new Date(isoString);
+function formatRelativeTime(created: Date): string {
   const now = new Date();
   const diffMs = now.getTime() - created.getTime();
   const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));

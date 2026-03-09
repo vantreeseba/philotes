@@ -35,7 +35,7 @@ const CREATE_TASK = graphql(`
     $personId: String!
     $title: String!
     $notes: String
-    $dueAt: String
+    $dueAt: DateTime
   ) {
     createTask(
       values: {
@@ -57,7 +57,7 @@ const CREATE_TASK = graphql(`
 `);
 
 const UPDATE_TASK = graphql(`
-  mutation UpdateTask($id: String!, $completedAt: String) {
+  mutation UpdateTask($id: String!, $completedAt: DateTime) {
     updateTasks(
       set: { completedAt: $completedAt }
       where: { id: { eq: $id } }
@@ -84,9 +84,9 @@ export interface TaskData {
   id: string;
   title: string;
   notes: string | null | undefined;
-  dueAt: string | null | undefined;
-  completedAt: string | null | undefined;
-  createdAt: string | null | undefined;
+  dueAt: Date | null | undefined;
+  completedAt: Date | null | undefined;
+  createdAt: Date | null | undefined;
 }
 
 export interface TaskListProps {
@@ -101,9 +101,8 @@ export interface TaskListProps {
 // Helpers
 // ---------------------------------------------------------------------------
 
-function formatDueDate(dueAt: string): string {
-  const date = new Date(dueAt);
-  return date.toLocaleDateString(undefined, {
+function formatDueDate(dueAt: Date): string {
+  return dueAt.toLocaleDateString(undefined, {
     month: 'short',
     day: 'numeric',
     year: 'numeric',
@@ -127,7 +126,7 @@ function TaskRow({ task, onDelete, onUpdate }: TaskRowProps) {
   const isCompleted = task.completedAt != null;
 
   const handleToggle = async () => {
-    const completedAt = isCompleted ? null : new Date().toISOString();
+    const completedAt = isCompleted ? null : new Date();
     await updateTask({ variables: { id: task.id, completedAt } });
     onUpdate();
   };
@@ -194,7 +193,7 @@ function AddTaskForm({ personId, onAdded, onCancel }: AddTaskFormProps) {
             personId,
             title: value.title,
             notes: value.notes || null,
-            dueAt: value.dueAt ? new Date(value.dueAt).toISOString() : null,
+            dueAt: value.dueAt ? new Date(value.dueAt) : null,
           },
         });
         form.reset();

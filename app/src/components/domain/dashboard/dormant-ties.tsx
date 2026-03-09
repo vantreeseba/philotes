@@ -36,8 +36,8 @@ const DORMANT_THRESHOLD_DAYS = 365;
 const MAX_DORMANT_SHOWN = 8;
 const MS_PER_DAY = 1000 * 60 * 60 * 24;
 
-function daysSince(dateStr: string): number {
-  return Math.floor((Date.now() - new Date(dateStr).getTime()) / MS_PER_DAY);
+function daysSince(date: Date): number {
+  return Math.floor((Date.now() - date.getTime()) / MS_PER_DAY);
 }
 
 function lastContactLabel(dayCount: number): string {

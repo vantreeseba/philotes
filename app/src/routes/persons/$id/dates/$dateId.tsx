@@ -48,9 +48,8 @@ export const Route = createFileRoute('/persons/$id/dates/$dateId')({
 // Helpers
 // ---------------------------------------------------------------------------
 
-function formatDate(dateStr: string): string {
-  const [yearStr, monthStr, dayStr] = dateStr.split('-');
-  return new Date(Number(yearStr), Number(monthStr) - 1, Number(dayStr)).toLocaleDateString(undefined, {
+function formatDate(date: Date): string {
+  return date.toLocaleDateString(undefined, {
     month: 'long',
     day: 'numeric',
     year: 'numeric',

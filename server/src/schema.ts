@@ -1,7 +1,8 @@
 import type { DB } from '@philotes/db';
 import { db as dbInstance, schema as dbSchema } from '@philotes/db';
 import { eq, or } from 'drizzle-orm';
-import { extendSchema, type GraphQLObjectType, parse } from 'graphql';
+import { extendSchema, type GraphQLObjectType, GraphQLScalarType, parse } from 'graphql';
+import { DateResolver, DateTimeResolver } from 'graphql-scalars';
 import { buildSchema } from './vendor/drizzle-graphql/index.ts';
 
 const { persons, personRelationships, importantDates } = dbSchema;
@@ -276,6 +277,30 @@ queryType.getFields().upcomingDates.resolve = async (
   const paginated = entries.slice(offset);
   return args.limit != null ? paginated.slice(0, args.limit) : paginated;
 };
+
+// ---------------------------------------------------------------------------
+// Register graphql-scalars resolver implementations for DateTime and Date.
+// Apollo Server needs serialize/parseValue/parseLiteral on the scalar type
+// instances that are already embedded in the schema by the type-converter.
+// ---------------------------------------------------------------------------
+
+const dateTimeType = fullyExtendedSchema.getType('DateTime');
+if (dateTimeType instanceof GraphQLScalarType) {
+  Object.assign(dateTimeType, {
+    serialize: DateTimeResolver.serialize,
+    parseValue: DateTimeResolver.parseValue,
+    parseLiteral: DateTimeResolver.parseLiteral,
+  });
+}
+
+const dateType = fullyExtendedSchema.getType('Date');
+if (dateType instanceof GraphQLScalarType) {
+  Object.assign(dateType, {
+    serialize: DateResolver.serialize,
+    parseValue: DateResolver.parseValue,
+    parseLiteral: DateResolver.parseLiteral,
+  });
+}
 
 export const schema = fullyExtendedSchema;
 export { entities };
