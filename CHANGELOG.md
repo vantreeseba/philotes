@@ -1,3 +1,10 @@
+## [1.1.8](https://github.com/vantreeseba/philotes/compare/v1.1.7...v1.1.8) (2026-03-09)
+
+
+### Bug Fixes
+
+* coerce null list relation fields to empty arrays ([b5b5ec9](https://github.com/vantreeseba/philotes/commit/b5b5ec9c9f33cb04d1a260f9ead6d47053c811fb))
+
 ## [1.1.7](https://github.com/vantreeseba/philotes/compare/v1.1.6...v1.1.7) (2026-03-09)
 
 
