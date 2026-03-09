@@ -14,7 +14,7 @@ const CREATE_INTERACTION = graphql(`
   mutation CreateInteraction(
     $personId: String!
     $channel: String!
-    $occurredAt: String!
+    $occurredAt: DateTime!
     $sentiment: String
     $note: String
   ) {
@@ -41,7 +41,7 @@ const UPDATE_INTERACTION = graphql(`
   mutation UpdateInteraction(
     $id: String!
     $channel: String!
-    $occurredAt: String!
+    $occurredAt: DateTime!
     $sentiment: String
     $note: String
   ) {

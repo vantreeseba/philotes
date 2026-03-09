@@ -1,4 +1,4 @@
-import { GraphQLResolveInfo } from 'graphql';
+import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
 import { Context } from '../index.js';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = T | undefined;
@@ -15,6 +15,8 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
+  Date: { input: Date | string; output: Date | string; }
+  DateTime: { input: Date | string; output: Date | string; }
 };
 
 export type ActivitiesFilters = {
@@ -50,14 +52,14 @@ export type ActivitiesOrderBy = {
 
 export type Activity = {
   __typename?: 'Activity';
-  /** JSON */
-  createdAt: Scalars['String']['output'];
+  /** DateTime */
+  createdAt: Scalars['DateTime']['output'];
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<Label>;
   location: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  occurredAt: Scalars['String']['output'];
+  /** DateTime */
+  occurredAt: Scalars['DateTime']['output'];
   person: Maybe<Person>;
   personId: Scalars['String']['output'];
   title: Scalars['String']['output'];
@@ -102,8 +104,8 @@ export type Address = {
   __typename?: 'Address';
   city: Maybe<Scalars['String']['output']>;
   country: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
+  /** DateTime */
+  createdAt: Scalars['DateTime']['output'];
   id: Scalars['String']['output'];
   isPrimary: Scalars['Boolean']['output'];
   label: Maybe<Scalars['String']['output']>;
@@ -256,8 +258,8 @@ export type BooleanFilterOr = {
 
 export type ContactInfo = {
   __typename?: 'ContactInfo';
-  /** JSON */
-  createdAt: Scalars['String']['output'];
+  /** DateTime */
+  createdAt: Scalars['DateTime']['output'];
   id: Scalars['String']['output'];
   isPrimary: Scalars['Boolean']['output'];
   label: Maybe<Scalars['String']['output']>;
@@ -362,13 +364,13 @@ export type ContactInfosTypeEnumFilterOr = {
 };
 
 export type CreateActivityInput = {
-  /** JSON */
-  createdAt?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   location?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  occurredAt: Scalars['String']['input'];
+  /** DateTime */
+  occurredAt: Scalars['DateTime']['input'];
   personId: Scalars['String']['input'];
   title: Scalars['String']['input'];
 };
@@ -381,8 +383,8 @@ export type CreateActivityTagInput = {
 export type CreateAddressInput = {
   city?: InputMaybe<Scalars['String']['input']>;
   country?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  createdAt?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   isPrimary?: InputMaybe<Scalars['Boolean']['input']>;
   label?: InputMaybe<Scalars['String']['input']>;
@@ -395,8 +397,8 @@ export type CreateAddressInput = {
 };
 
 export type CreateContactInfoInput = {
-  /** JSON */
-  createdAt?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   isPrimary?: InputMaybe<Scalars['Boolean']['input']>;
   label?: InputMaybe<Scalars['String']['input']>;
@@ -406,7 +408,7 @@ export type CreateContactInfoInput = {
 };
 
 export type CreateImportantDateInput = {
-  date: Scalars['String']['input'];
+  date: Scalars['Date']['input'];
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   milestoneType?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
@@ -424,8 +426,8 @@ export type CreateInteractionInput = {
   channel: Scalars['String']['input'];
   id?: InputMaybe<Scalars['String']['input']>;
   note?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  occurredAt?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  occurredAt?: InputMaybe<Scalars['DateTime']['input']>;
   personId: Scalars['String']['input'];
   sentiment?: InputMaybe<Scalars['String']['input']>;
 };
@@ -460,16 +462,16 @@ export type CreateNoteTagInput = {
 export type CreatePersonInput = {
   avatarPath?: InputMaybe<Scalars['String']['input']>;
   contactFrequency?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  createdAt?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   email: Scalars['String']['input'];
-  firstMetDate?: InputMaybe<Scalars['String']['input']>;
+  firstMetDate?: InputMaybe<Scalars['Date']['input']>;
   firstName: Scalars['String']['input'];
   howWeMet?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   lastName: Scalars['String']['input'];
-  /** JSON */
-  updatedAt?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
 export type CreatePersonLabelInput = {
@@ -485,12 +487,12 @@ export type CreatePersonRelationshipInput = {
 };
 
 export type CreateTaskInput = {
-  /** JSON */
-  completedAt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  createdAt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  dueAt?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  completedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** DateTime */
+  dueAt?: InputMaybe<Scalars['DateTime']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   notes?: InputMaybe<Scalars['String']['input']>;
   personId: Scalars['String']['input'];
@@ -499,52 +501,52 @@ export type CreateTaskInput = {
 
 export type DateTimeFilter = {
   OR?: InputMaybe<Array<DateTimeFilterOr>>;
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  eq?: InputMaybe<Scalars['DateTime']['input']>;
+  /** DateTime */
+  gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** DateTime */
+  gte?: InputMaybe<Scalars['DateTime']['input']>;
   ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  /** Array<DateTime> */
+  inArray?: InputMaybe<Array<Scalars['DateTime']['input']>>;
   isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
   isNull?: InputMaybe<Scalars['Boolean']['input']>;
   like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** DateTime */
+  lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** DateTime */
+  ne?: InputMaybe<Scalars['DateTime']['input']>;
   notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  /** Array<DateTime> */
+  notInArray?: InputMaybe<Array<Scalars['DateTime']['input']>>;
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type DateTimeFilterOr = {
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  eq?: InputMaybe<Scalars['DateTime']['input']>;
+  /** DateTime */
+  gt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** DateTime */
+  gte?: InputMaybe<Scalars['DateTime']['input']>;
   ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  /** Array<DateTime> */
+  inArray?: InputMaybe<Array<Scalars['DateTime']['input']>>;
   isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
   isNull?: InputMaybe<Scalars['Boolean']['input']>;
   like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  lt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** DateTime */
+  lte?: InputMaybe<Scalars['DateTime']['input']>;
+  /** DateTime */
+  ne?: InputMaybe<Scalars['DateTime']['input']>;
   notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  /** Array<DateTime> */
+  notInArray?: InputMaybe<Array<Scalars['DateTime']['input']>>;
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -581,7 +583,7 @@ export type IdFilterOr = {
 
 export type ImportantDate = {
   __typename?: 'ImportantDate';
-  date: Scalars['String']['output'];
+  date: Scalars['Date']['output'];
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<Label>;
@@ -734,8 +736,8 @@ export type Interaction = {
   id: Scalars['String']['output'];
   labels: Array<Label>;
   note: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  occurredAt: Scalars['String']['output'];
+  /** DateTime */
+  occurredAt: Scalars['DateTime']['output'];
   person: Maybe<Person>;
   personId: Scalars['String']['output'];
   sentiment: Maybe<Scalars['String']['output']>;
@@ -1352,10 +1354,10 @@ export type Person = {
   avatarPath: Maybe<Scalars['String']['output']>;
   contactFrequency: Maybe<Scalars['String']['output']>;
   contactInfos: Array<ContactInfo>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
+  /** DateTime */
+  createdAt: Scalars['DateTime']['output'];
   email: Scalars['String']['output'];
-  firstMetDate: Maybe<Scalars['String']['output']>;
+  firstMetDate: Maybe<Scalars['Date']['output']>;
   firstName: Scalars['String']['output'];
   howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
@@ -1369,8 +1371,8 @@ export type Person = {
   relationshipsFrom: Array<PersonRelationship>;
   relationshipsTo: Array<PersonRelationship>;
   tasks: Array<Task>;
-  /** JSON */
-  updatedAt: Scalars['String']['output'];
+  /** DateTime */
+  updatedAt: Scalars['DateTime']['output'];
 };
 
 
@@ -1899,12 +1901,12 @@ export type StringFilterOr = {
 
 export type Task = {
   __typename?: 'Task';
-  /** JSON */
-  completedAt: Maybe<Scalars['String']['output']>;
-  /** JSON */
-  createdAt: Scalars['String']['output'];
-  /** JSON */
-  dueAt: Maybe<Scalars['String']['output']>;
+  /** DateTime */
+  completedAt: Maybe<Scalars['DateTime']['output']>;
+  /** DateTime */
+  createdAt: Scalars['DateTime']['output'];
+  /** DateTime */
+  dueAt: Maybe<Scalars['DateTime']['output']>;
   id: Scalars['String']['output'];
   notes: Maybe<Scalars['String']['output']>;
   person: Maybe<Person>;
@@ -1963,13 +1965,13 @@ export type UpcomingDateEntry = {
 };
 
 export type UpdateActivityInput = {
-  /** JSON */
-  createdAt?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   location?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  occurredAt?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  occurredAt?: InputMaybe<Scalars['DateTime']['input']>;
   personId?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
 };
@@ -1982,8 +1984,8 @@ export type UpdateActivityTagInput = {
 export type UpdateAddressInput = {
   city?: InputMaybe<Scalars['String']['input']>;
   country?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  createdAt?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   isPrimary?: InputMaybe<Scalars['Boolean']['input']>;
   label?: InputMaybe<Scalars['String']['input']>;
@@ -1996,8 +1998,8 @@ export type UpdateAddressInput = {
 };
 
 export type UpdateContactInfoInput = {
-  /** JSON */
-  createdAt?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   isPrimary?: InputMaybe<Scalars['Boolean']['input']>;
   label?: InputMaybe<Scalars['String']['input']>;
@@ -2007,7 +2009,7 @@ export type UpdateContactInfoInput = {
 };
 
 export type UpdateImportantDateInput = {
-  date?: InputMaybe<Scalars['String']['input']>;
+  date?: InputMaybe<Scalars['Date']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   milestoneType?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
@@ -2025,8 +2027,8 @@ export type UpdateInteractionInput = {
   channel?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   note?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  occurredAt?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  occurredAt?: InputMaybe<Scalars['DateTime']['input']>;
   personId?: InputMaybe<Scalars['String']['input']>;
   sentiment?: InputMaybe<Scalars['String']['input']>;
 };
@@ -2061,16 +2063,16 @@ export type UpdateNoteTagInput = {
 export type UpdatePersonInput = {
   avatarPath?: InputMaybe<Scalars['String']['input']>;
   contactFrequency?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  createdAt?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
-  firstMetDate?: InputMaybe<Scalars['String']['input']>;
+  firstMetDate?: InputMaybe<Scalars['Date']['input']>;
   firstName?: InputMaybe<Scalars['String']['input']>;
   howWeMet?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   lastName?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  updatedAt?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
 export type UpdatePersonLabelInput = {
@@ -2086,12 +2088,12 @@ export type UpdatePersonRelationshipInput = {
 };
 
 export type UpdateTaskInput = {
-  /** JSON */
-  completedAt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  createdAt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  dueAt?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  completedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** DateTime */
+  dueAt?: InputMaybe<Scalars['DateTime']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   notes?: InputMaybe<Scalars['String']['input']>;
   personId?: InputMaybe<Scalars['String']['input']>;
@@ -2212,6 +2214,8 @@ export type ResolversTypes = {
   CreatePersonLabelInput: CreatePersonLabelInput;
   CreatePersonRelationshipInput: CreatePersonRelationshipInput;
   CreateTaskInput: CreateTaskInput;
+  Date: ResolverTypeWrapper<Scalars['Date']['output']>;
+  DateTime: ResolverTypeWrapper<Scalars['DateTime']['output']>;
   DateTimeFilter: DateTimeFilter;
   DateTimeFilterOr: DateTimeFilterOr;
   IdFilter: IdFilter;
@@ -2336,6 +2340,8 @@ export type ResolversParentTypes = {
   CreatePersonLabelInput: CreatePersonLabelInput;
   CreatePersonRelationshipInput: CreatePersonRelationshipInput;
   CreateTaskInput: CreateTaskInput;
+  Date: Scalars['Date']['output'];
+  DateTime: Scalars['DateTime']['output'];
   DateTimeFilter: DateTimeFilter;
   DateTimeFilterOr: DateTimeFilterOr;
   IdFilter: IdFilter;
@@ -2418,12 +2424,12 @@ export type ResolversParentTypes = {
 };
 
 export type ActivityResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Activity'] = ResolversParentTypes['Activity']> = {
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   labels?: Resolver<Array<ResolversTypes['Label']>, ParentType, ContextType, Partial<ActivityLabelsArgs>>;
   location?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  occurredAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  occurredAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
   person?: Resolver<Maybe<ResolversTypes['Person']>, ParentType, ContextType, Partial<ActivityPersonArgs>>;
   personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -2437,7 +2443,7 @@ export type ActivityTagResolvers<ContextType = Context, ParentType extends Resol
 export type AddressResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Address'] = ResolversParentTypes['Address']> = {
   city?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   country?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   isPrimary?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   label?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -2451,7 +2457,7 @@ export type AddressResolvers<ContextType = Context, ParentType extends Resolvers
 };
 
 export type ContactInfoResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ContactInfo'] = ResolversParentTypes['ContactInfo']> = {
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   isPrimary?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   label?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -2461,8 +2467,16 @@ export type ContactInfoResolvers<ContextType = Context, ParentType extends Resol
   value?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
 };
 
+export interface DateScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Date'], any> {
+  name: 'Date';
+}
+
+export interface DateTimeScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['DateTime'], any> {
+  name: 'DateTime';
+}
+
 export type ImportantDateResolvers<ContextType = Context, ParentType extends ResolversParentTypes['ImportantDate'] = ResolversParentTypes['ImportantDate']> = {
-  date?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  date?: Resolver<ResolversTypes['Date'], ParentType, ContextType>;
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   labels?: Resolver<Array<ResolversTypes['Label']>, ParentType, ContextType, Partial<ImportantDateLabelsArgs>>;
@@ -2483,7 +2497,7 @@ export type InteractionResolvers<ContextType = Context, ParentType extends Resol
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   labels?: Resolver<Array<ResolversTypes['Label']>, ParentType, ContextType, Partial<InteractionLabelsArgs>>;
   note?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  occurredAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  occurredAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
   person?: Resolver<Maybe<ResolversTypes['Person']>, ParentType, ContextType, Partial<InteractionPersonArgs>>;
   personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   sentiment?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -2593,9 +2607,9 @@ export type PersonResolvers<ContextType = Context, ParentType extends ResolversP
   avatarPath?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   contactInfos?: Resolver<Array<ResolversTypes['ContactInfo']>, ParentType, ContextType, Partial<PersonContactInfosArgs>>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['Date']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -2609,7 +2623,7 @@ export type PersonResolvers<ContextType = Context, ParentType extends ResolversP
   relationshipsFrom?: Resolver<Array<ResolversTypes['PersonRelationship']>, ParentType, ContextType, Partial<PersonRelationshipsFromArgs>>;
   relationshipsTo?: Resolver<Array<ResolversTypes['PersonRelationship']>, ParentType, ContextType, Partial<PersonRelationshipsToArgs>>;
   tasks?: Resolver<Array<ResolversTypes['Task']>, ParentType, ContextType, Partial<PersonTasksArgs>>;
-  updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
 };
 
 export type PersonLabelResolvers<ContextType = Context, ParentType extends ResolversParentTypes['PersonLabel'] = ResolversParentTypes['PersonLabel']> = {
@@ -2671,9 +2685,9 @@ export type QueryResolvers<ContextType = Context, ParentType extends ResolversPa
 };
 
 export type TaskResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Task'] = ResolversParentTypes['Task']> = {
-  completedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  dueAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  completedAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
+  dueAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   notes?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   person?: Resolver<Maybe<ResolversTypes['Person']>, ParentType, ContextType, Partial<TaskPersonArgs>>;
@@ -2699,6 +2713,8 @@ export type Resolvers<ContextType = Context> = {
   ActivityTag?: ActivityTagResolvers<ContextType>;
   Address?: AddressResolvers<ContextType>;
   ContactInfo?: ContactInfoResolvers<ContextType>;
+  Date?: GraphQLScalarType;
+  DateTime?: GraphQLScalarType;
   ImportantDate?: ImportantDateResolvers<ContextType>;
   ImportantDateTag?: ImportantDateTagResolvers<ContextType>;
   Interaction?: InteractionResolvers<ContextType>;

@@ -32,7 +32,7 @@ const CREATE_ACTIVITY = graphql(`
   mutation CreateActivity(
     $personId: String!
     $title: String!
-    $occurredAt: String!
+    $occurredAt: DateTime!
     $location: String
     $description: String
   ) {

@@ -22,6 +22,12 @@ const config: CodegenConfig = {
         defaultScalarType: 'unknown',
         nonOptionalTypename: true,
         skipTypeNameForRoot: true,
+        scalars: {
+          // Apollo Client receives DateTime/Date as ISO strings over the wire.
+          // Map to string so existing frontend code continues to work unchanged.
+          DateTime: 'string',
+          Date: 'string',
+        },
       },
     },
   },

@@ -35,7 +35,7 @@ const CREATE_TASK = graphql(`
     $personId: String!
     $title: String!
     $notes: String
-    $dueAt: String
+    $dueAt: DateTime
   ) {
     createTask(
       values: {
@@ -57,7 +57,7 @@ const CREATE_TASK = graphql(`
 `);
 
 const UPDATE_TASK = graphql(`
-  mutation UpdateTask($id: String!, $completedAt: String) {
+  mutation UpdateTask($id: String!, $completedAt: DateTime) {
     updateTasks(
       set: { completedAt: $completedAt }
       where: { id: { eq: $id } }

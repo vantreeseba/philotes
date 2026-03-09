@@ -196,7 +196,7 @@ const DELETE_IMPORTANT_DATE = graphql(`
 const CREATE_IMPORTANT_DATE = graphql(`
   mutation CreateImportantDate(
     $name: String!
-    $date: String!
+    $date: Date!
     $personId: String!
     $description: String
     $recurrence: String
@@ -227,7 +227,7 @@ const UPDATE_IMPORTANT_DATE = graphql(`
   mutation UpdateImportantDate(
     $id: String!
     $name: String!
-    $date: String!
+    $date: Date!
     $description: String
     $recurrence: String
     $milestoneType: ImportantDatesMilestoneTypeEnum
@@ -260,7 +260,7 @@ const UPDATE_PERSON = graphql(`
     $email: String!
     $contactFrequency: String
     $howWeMet: String
-    $firstMetDate: String
+    $firstMetDate: Date
   ) {
     updatePersons(
       set: {

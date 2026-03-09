@@ -35,14 +35,14 @@ input ActivitiesOrderBy {
 }
 
 type Activity {
-  """JSON"""
-  createdAt: String!
+  """DateTime"""
+  createdAt: DateTime!
   description: String
   id: String!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [Label!]!
   location: String
-  """JSON"""
-  occurredAt: String!
+  """DateTime"""
+  occurredAt: DateTime!
   person(where: PersonsFilters): Person
   personId: String!
   title: String!
@@ -72,8 +72,8 @@ input ActivityTagsOrderBy {
 type Address {
   city: String
   country: String
-  """JSON"""
-  createdAt: String!
+  """DateTime"""
+  createdAt: DateTime!
   id: String!
   isPrimary: Boolean!
   label: String
@@ -220,8 +220,8 @@ input BooleanFilterOr {
 }
 
 type ContactInfo {
-  """JSON"""
-  createdAt: String!
+  """DateTime"""
+  createdAt: DateTime!
   id: String!
   isPrimary: Boolean!
   label: String
@@ -321,13 +321,13 @@ input ContactInfosTypeEnumFilterOr {
 }
 
 input CreateActivityInput {
-  """JSON"""
-  createdAt: String
+  """DateTime"""
+  createdAt: DateTime
   description: String
   id: String
   location: String
-  """JSON"""
-  occurredAt: String!
+  """DateTime"""
+  occurredAt: DateTime!
   personId: String!
   title: String!
 }
@@ -340,8 +340,8 @@ input CreateActivityTagInput {
 input CreateAddressInput {
   city: String
   country: String
-  """JSON"""
-  createdAt: String
+  """DateTime"""
+  createdAt: DateTime
   id: String
   isPrimary: Boolean
   label: String
@@ -354,8 +354,8 @@ input CreateAddressInput {
 }
 
 input CreateContactInfoInput {
-  """JSON"""
-  createdAt: String
+  """DateTime"""
+  createdAt: DateTime
   id: String
   isPrimary: Boolean
   label: String
@@ -365,7 +365,7 @@ input CreateContactInfoInput {
 }
 
 input CreateImportantDateInput {
-  date: String!
+  date: Date!
   description: String
   id: String
   milestoneType: ImportantDatesMilestoneTypeEnum
@@ -383,8 +383,8 @@ input CreateInteractionInput {
   channel: String!
   id: String
   note: String
-  """JSON"""
-  occurredAt: String
+  """DateTime"""
+  occurredAt: DateTime
   personId: String!
   sentiment: String
 }
@@ -419,16 +419,16 @@ input CreateNoteTagInput {
 input CreatePersonInput {
   avatarPath: String
   contactFrequency: String
-  """JSON"""
-  createdAt: String
+  """DateTime"""
+  createdAt: DateTime
   email: String!
-  firstMetDate: String
+  firstMetDate: Date
   firstName: String!
   howWeMet: String
   id: String
   lastName: String!
-  """JSON"""
-  updatedAt: String
+  """DateTime"""
+  updatedAt: DateTime
 }
 
 input CreatePersonLabelInput {
@@ -444,66 +444,76 @@ input CreatePersonRelationshipInput {
 }
 
 input CreateTaskInput {
-  """JSON"""
-  completedAt: String
-  """JSON"""
-  createdAt: String
-  """JSON"""
-  dueAt: String
+  """DateTime"""
+  completedAt: DateTime
+  """DateTime"""
+  createdAt: DateTime
+  """DateTime"""
+  dueAt: DateTime
   id: String
   notes: String
   personId: String!
   title: String!
 }
 
+"""
+A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar Date
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
 input DateTimeFilter {
   OR: [DateTimeFilterOr!]
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
+  """DateTime"""
+  eq: DateTime
+  """DateTime"""
+  gt: DateTime
+  """DateTime"""
+  gte: DateTime
   ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
+  """Array<DateTime>"""
+  inArray: [DateTime!]
   isNotNull: Boolean
   isNull: Boolean
   like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
+  """DateTime"""
+  lt: DateTime
+  """DateTime"""
+  lte: DateTime
+  """DateTime"""
+  ne: DateTime
   notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
+  """Array<DateTime>"""
+  notInArray: [DateTime!]
   notLike: String
 }
 
 input DateTimeFilterOr {
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
+  """DateTime"""
+  eq: DateTime
+  """DateTime"""
+  gt: DateTime
+  """DateTime"""
+  gte: DateTime
   ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
+  """Array<DateTime>"""
+  inArray: [DateTime!]
   isNotNull: Boolean
   isNull: Boolean
   like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
+  """DateTime"""
+  lt: DateTime
+  """DateTime"""
+  lte: DateTime
+  """DateTime"""
+  ne: DateTime
   notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
+  """Array<DateTime>"""
+  notInArray: [DateTime!]
   notLike: String
 }
 
@@ -539,7 +549,7 @@ input IdFilterOr {
 }
 
 type ImportantDate {
-  date: String!
+  date: Date!
   description: String
   id: String!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [Label!]!
@@ -677,8 +687,8 @@ type Interaction {
   id: String!
   labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [Label!]!
   note: String
-  """JSON"""
-  occurredAt: String!
+  """DateTime"""
+  occurredAt: DateTime!
   person(where: PersonsFilters): Person
   personId: String!
   sentiment: String
@@ -910,10 +920,10 @@ type Person {
   avatarPath: String
   contactFrequency: String
   contactInfos(limit: Int, offset: Int, orderBy: ContactInfosOrderBy, where: ContactInfosFilters): [ContactInfo!]!
-  """JSON"""
-  createdAt: String!
+  """DateTime"""
+  createdAt: DateTime!
   email: String!
-  firstMetDate: String
+  firstMetDate: Date
   firstName: String!
   howWeMet: String
   id: String!
@@ -927,8 +937,8 @@ type Person {
   relationshipsFrom(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationship!]!
   relationshipsTo(limit: Int, offset: Int, orderBy: PersonRelationshipsOrderBy, where: PersonRelationshipsFilters): [PersonRelationship!]!
   tasks(limit: Int, offset: Int, orderBy: TasksOrderBy, where: TasksFilters): [Task!]!
-  """JSON"""
-  updatedAt: String!
+  """DateTime"""
+  updatedAt: DateTime!
 }
 
 type PersonLabel {
@@ -1107,12 +1117,12 @@ input StringFilterOr {
 }
 
 type Task {
-  """JSON"""
-  completedAt: String
-  """JSON"""
-  createdAt: String!
-  """JSON"""
-  dueAt: String
+  """DateTime"""
+  completedAt: DateTime
+  """DateTime"""
+  createdAt: DateTime!
+  """DateTime"""
+  dueAt: DateTime
   id: String!
   notes: String
   person(where: PersonsFilters): Person
@@ -1165,13 +1175,13 @@ type UpcomingDateEntry {
 }
 
 input UpdateActivityInput {
-  """JSON"""
-  createdAt: String
+  """DateTime"""
+  createdAt: DateTime
   description: String
   id: String
   location: String
-  """JSON"""
-  occurredAt: String
+  """DateTime"""
+  occurredAt: DateTime
   personId: String
   title: String
 }
@@ -1184,8 +1194,8 @@ input UpdateActivityTagInput {
 input UpdateAddressInput {
   city: String
   country: String
-  """JSON"""
-  createdAt: String
+  """DateTime"""
+  createdAt: DateTime
   id: String
   isPrimary: Boolean
   label: String
@@ -1198,8 +1208,8 @@ input UpdateAddressInput {
 }
 
 input UpdateContactInfoInput {
-  """JSON"""
-  createdAt: String
+  """DateTime"""
+  createdAt: DateTime
   id: String
   isPrimary: Boolean
   label: String
@@ -1209,7 +1219,7 @@ input UpdateContactInfoInput {
 }
 
 input UpdateImportantDateInput {
-  date: String
+  date: Date
   description: String
   id: String
   milestoneType: ImportantDatesMilestoneTypeEnum
@@ -1227,8 +1237,8 @@ input UpdateInteractionInput {
   channel: String
   id: String
   note: String
-  """JSON"""
-  occurredAt: String
+  """DateTime"""
+  occurredAt: DateTime
   personId: String
   sentiment: String
 }
@@ -1263,16 +1273,16 @@ input UpdateNoteTagInput {
 input UpdatePersonInput {
   avatarPath: String
   contactFrequency: String
-  """JSON"""
-  createdAt: String
+  """DateTime"""
+  createdAt: DateTime
   email: String
-  firstMetDate: String
+  firstMetDate: Date
   firstName: String
   howWeMet: String
   id: String
   lastName: String
-  """JSON"""
-  updatedAt: String
+  """DateTime"""
+  updatedAt: DateTime
 }
 
 input UpdatePersonLabelInput {
@@ -1288,12 +1298,12 @@ input UpdatePersonRelationshipInput {
 }
 
 input UpdateTaskInput {
-  """JSON"""
-  completedAt: String
-  """JSON"""
-  createdAt: String
-  """JSON"""
-  dueAt: String
+  """DateTime"""
+  completedAt: DateTime
+  """DateTime"""
+  createdAt: DateTime
+  """DateTime"""
+  dueAt: DateTime
   id: String
   notes: String
   personId: String

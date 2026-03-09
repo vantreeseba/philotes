@@ -1,8 +1,9 @@
 import type { Column, Table } from 'drizzle-orm';
 import { extractExtendedColumnType, getColumns, is } from 'drizzle-orm';
 import { MySqlInt, MySqlSerial } from 'drizzle-orm/mysql-core';
-import { PgInteger, PgSerial } from 'drizzle-orm/pg-core';
+import { PgDateString, PgInteger, PgSerial, PgTimestamp, PgTimestampString } from 'drizzle-orm/pg-core';
 import { SQLiteInteger } from 'drizzle-orm/sqlite-core';
+import { GraphQLDate, GraphQLDateTime } from 'graphql-scalars';
 import {
   GraphQLBoolean,
   GraphQLEnumType,
@@ -75,6 +76,9 @@ const columnToGraphQLCore = (
     case 'boolean':
       return { type: GraphQLBoolean, description: 'Boolean' };
     case 'object':
+      if (column instanceof PgTimestamp) {
+        return { type: GraphQLDateTime, description: 'DateTime' };
+      }
       return column.columnType === 'PgGeometryObject'
         ? {
             type: isInput ? geoXyInputType : geoXyType,
@@ -89,6 +93,13 @@ const columnToGraphQLCore = (
     case 'string':
       if (column.enumValues?.length)
         return { type: generateEnumCached(column, columnName, tableName) };
+
+      if (column instanceof PgTimestamp || column instanceof PgTimestampString) {
+        return { type: GraphQLDateTime, description: 'DateTime' };
+      }
+      if (column instanceof PgDateString) {
+        return { type: GraphQLDate, description: 'Date' };
+      }
 
       return { type: GraphQLString, description: 'String' };
     case 'bigint':
