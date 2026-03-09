@@ -29,6 +29,7 @@ import { PersonInteractions } from '@/components/domain/person/interactions.js';
 import { PersonIntroductions } from '@/components/domain/person/introductions.js';
 import { PersonLabels } from '@/components/domain/person/labels.js';
 import { PersonNotes } from '@/components/domain/person/notes.js';
+import { PreContactBrief } from '@/components/domain/person/pre-contact-brief.js';
 import { PersonRelationships } from '@/components/domain/person/relationships.js';
 import { TaskList } from '@/components/domain/task/list.js';
 import { ListLayout } from '@/components/layouts/list.js';
@@ -629,6 +630,37 @@ function PersonDetailPage() {
             Edit
           </Button>
         </div>
+
+        {/* Pre-contact brief */}
+        <PreContactBrief
+          person={{
+            firstName: person.firstName,
+            lastName: person.lastName,
+            contactFrequency: person.contactFrequency ?? null,
+            interactions: (person.interactions ?? []).map((i) => ({
+              id: i.id,
+              occurredAt: i.occurredAt,
+              channel: i.channel,
+              sentiment: i.sentiment ?? null,
+              note: i.note ?? null,
+            })),
+            notes: (person.notes ?? []).map((n) => ({
+              id: n.id,
+              body: n.body,
+            })),
+            tasks: (person.tasks ?? []).map((t) => ({
+              id: t.id,
+              title: t.title,
+              dueAt: t.dueAt ?? null,
+              completedAt: t.completedAt ?? null,
+            })),
+            importantDates: (person.importantDates ?? []).map((d) => ({
+              id: d.id,
+              name: d.name,
+              date: d.date,
+            })),
+          }}
+        />
 
         {/* Labels */}
         <Card>
