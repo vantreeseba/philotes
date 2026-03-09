@@ -10,8 +10,6 @@ export const remapToGraphQLCore = (
   column: Column,
   relationMap?: Record<string, Record<string, TableNamedRelations>>,
 ): any => {
-//   console.log('remapToGraphQLCore', column);
-
   if(!column) {
     return value;
   }
@@ -69,8 +67,6 @@ export const remapToGraphQLSingleOutput = (
   relationMap?: Record<string, Record<string, TableNamedRelations>>,
 ) => {
   for (const [key, value] of Object.entries(queryOutput)) {
-    console.log('remapToGraphQLSingleOutput', key, tableName , value);
-
     if (value === undefined || value === null) {
       delete queryOutput[key];
     } else {

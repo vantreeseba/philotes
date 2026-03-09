@@ -237,7 +237,6 @@ const generateTableOrderCached = (table: Table) => {
   let remapped = {};
   try{
   const columns = getColumns(table);
-//   console.log('columns', columns);
   const columnEntries = Object.entries(columns);
 
   remapped = Object.fromEntries(
@@ -305,8 +304,6 @@ const orderTypeMap = new WeakMap<Object, GraphQLInputObjectType>();
 const generateTableOrderTypeCached = (table: Table, tableName: string) => {
   if (orderTypeMap.has(table)) return orderTypeMap.get(table)!;
 
-//   console.log('tablename', table[Symbol.for('drizzle:Name')]);
-
   const orderColumns = generateTableOrderCached(table);
   const order = new GraphQLInputObjectType({
     name: `${capitalize(tableName)}OrderBy`,
@@ -356,8 +353,6 @@ const generateSelectFields = <TWithOrder extends boolean>(
   usedTables: Set<string> = new Set(),
 ): SelectData<TWithOrder> => {
   const relations = relationMap[tableName].relations;
-
-//   console.log('generateSelectFields', tableName, relations);
 
   const relationEntries: [string, TableNamedRelations][] = relations
     ? Object.entries(relations)

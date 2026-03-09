@@ -10204,6 +10204,7 @@ type Query {
   persons(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [Person!]!
   task(offset: Int, orderBy: TasksOrderBy, where: TasksFilters): Task
   tasks(limit: Int, offset: Int, orderBy: TasksOrderBy, where: TasksFilters): [Task!]!
+  upcomingDates(limit: Int, lookaheadDays: Int, offset: Int): [UpcomingDateEntry!]!
 }
 
 type Task {
@@ -11124,6 +11125,19 @@ input TasksTitleFiltersOr {
   """Array<undefined>"""
   notInArray: [String!]
   notLike: String
+}
+
+type UpcomingDateEntry {
+  date: String!
+  daysUntil: Int!
+  description: String
+  id: String!
+  name: String!
+  nextDate: String!
+  personFirstName: String!
+  personId: String!
+  personLastName: String!
+  recurrence: String
 }
 
 input UpdateActivityInput {

@@ -14769,6 +14769,7 @@ export type Query = {
   persons: Array<Person>;
   task: Maybe<Task>;
   tasks: Array<Task>;
+  upcomingDates: Array<UpcomingDateEntry>;
 };
 
 
@@ -15009,6 +15010,13 @@ export type QueryTasksArgs = {
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<TasksOrderBy>;
   where?: InputMaybe<TasksFilters>;
+};
+
+
+export type QueryUpcomingDatesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  lookaheadDays?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type Task = {
@@ -16295,6 +16303,20 @@ export type TasksTitleFiltersOr = {
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type UpcomingDateEntry = {
+  __typename?: 'UpcomingDateEntry';
+  date: Scalars['String']['output'];
+  daysUntil: Scalars['Int']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  nextDate: Scalars['String']['output'];
+  personFirstName: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  personLastName: Scalars['String']['output'];
+  recurrence: Maybe<Scalars['String']['output']>;
+};
+
 export type UpdateActivityInput = {
   /** JSON */
   createdAt?: InputMaybe<Scalars['String']['input']>;
@@ -17328,6 +17350,7 @@ export type ResolversTypes = {
   TasksPersonIdFiltersOr: TasksPersonIdFiltersOr;
   TasksTitleFilters: TasksTitleFilters;
   TasksTitleFiltersOr: TasksTitleFiltersOr;
+  UpcomingDateEntry: ResolverTypeWrapper<UpcomingDateEntry>;
   UpdateActivityInput: UpdateActivityInput;
   UpdateActivityTagInput: UpdateActivityTagInput;
   UpdateAddressInput: UpdateAddressInput;
@@ -18168,6 +18191,7 @@ export type ResolversParentTypes = {
   TasksPersonIdFiltersOr: TasksPersonIdFiltersOr;
   TasksTitleFilters: TasksTitleFilters;
   TasksTitleFiltersOr: TasksTitleFiltersOr;
+  UpcomingDateEntry: UpcomingDateEntry;
   UpdateActivityInput: UpdateActivityInput;
   UpdateActivityTagInput: UpdateActivityTagInput;
   UpdateAddressInput: UpdateAddressInput;
@@ -24299,6 +24323,7 @@ export type QueryResolvers<ContextType = Context, ParentType extends ResolversPa
   persons?: Resolver<Array<ResolversTypes['Person']>, ParentType, ContextType, Partial<QueryPersonsArgs>>;
   task?: Resolver<Maybe<ResolversTypes['Task']>, ParentType, ContextType, Partial<QueryTaskArgs>>;
   tasks?: Resolver<Array<ResolversTypes['Task']>, ParentType, ContextType, Partial<QueryTasksArgs>>;
+  upcomingDates?: Resolver<Array<ResolversTypes['UpcomingDateEntry']>, ParentType, ContextType, Partial<QueryUpcomingDatesArgs>>;
 };
 
 export type TaskResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Task'] = ResolversParentTypes['Task']> = {
@@ -24818,6 +24843,19 @@ export type TaskPersonRelationTasksRelationResolvers<ContextType = Context, Pare
   notes?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type UpcomingDateEntryResolvers<ContextType = Context, ParentType extends ResolversParentTypes['UpcomingDateEntry'] = ResolversParentTypes['UpcomingDateEntry']> = {
+  date?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  daysUntil?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  nextDate?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  personFirstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  personLastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  recurrence?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
 };
 
 export type Resolvers<ContextType = Context> = {
@@ -25417,5 +25455,6 @@ export type Resolvers<ContextType = Context> = {
   TaskPersonRelationRelationshipsToRelationFromPersonRelation?: TaskPersonRelationRelationshipsToRelationFromPersonRelationResolvers<ContextType>;
   TaskPersonRelationRelationshipsToRelationToPersonRelation?: TaskPersonRelationRelationshipsToRelationToPersonRelationResolvers<ContextType>;
   TaskPersonRelationTasksRelation?: TaskPersonRelationTasksRelationResolvers<ContextType>;
+  UpcomingDateEntry?: UpcomingDateEntryResolvers<ContextType>;
 };
 
