@@ -412,7 +412,9 @@ export type ActivityPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<ActivityPersonRelationImportantDatesRelation>;
   interactions: Array<ActivityPersonRelationInteractionsRelation>;
@@ -558,7 +560,9 @@ export type ActivityPersonRelationAddressesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -590,7 +594,9 @@ export type ActivityPersonRelationContactInfosRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -603,6 +609,7 @@ export type ActivityPersonRelationImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<ActivityPersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<ActivityPersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -658,7 +665,9 @@ export type ActivityPersonRelationImportantDatesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -727,7 +736,9 @@ export type ActivityPersonRelationInteractionsRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -830,7 +841,9 @@ export type ActivityPersonRelationMentionedInNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -844,7 +857,9 @@ export type ActivityPersonRelationMentionedInNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -918,7 +933,9 @@ export type ActivityPersonRelationNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -932,7 +949,9 @@ export type ActivityPersonRelationNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -966,7 +985,9 @@ export type ActivityPersonRelationRelationshipsFromRelationFromPersonRelation = 
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -980,7 +1001,9 @@ export type ActivityPersonRelationRelationshipsFromRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1014,7 +1037,9 @@ export type ActivityPersonRelationRelationshipsToRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1028,7 +1053,9 @@ export type ActivityPersonRelationRelationshipsToRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1062,7 +1089,9 @@ export type ActivityPersonRelationTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1202,7 +1231,9 @@ export type AddressPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<AddressPersonRelationImportantDatesRelation>;
   interactions: Array<AddressPersonRelationInteractionsRelation>;
@@ -1369,7 +1400,9 @@ export type AddressPersonRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1418,7 +1451,9 @@ export type AddressPersonRelationContactInfosRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1431,6 +1466,7 @@ export type AddressPersonRelationImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<AddressPersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<AddressPersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -1508,7 +1544,9 @@ export type AddressPersonRelationImportantDatesRelationLabelsRelationActivitiesR
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1522,7 +1560,9 @@ export type AddressPersonRelationImportantDatesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1613,7 +1653,9 @@ export type AddressPersonRelationInteractionsRelationLabelsRelationActivitiesRel
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1627,7 +1669,9 @@ export type AddressPersonRelationInteractionsRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1692,7 +1736,9 @@ export type AddressPersonRelationLabelsRelationActivitiesRelationPersonRelation 
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1788,7 +1834,9 @@ export type AddressPersonRelationMentionedInNotesRelationLabelsRelationActivitie
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1802,7 +1850,9 @@ export type AddressPersonRelationMentionedInNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1816,7 +1866,9 @@ export type AddressPersonRelationMentionedInNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1912,7 +1964,9 @@ export type AddressPersonRelationNotesRelationLabelsRelationActivitiesRelationPe
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1926,7 +1980,9 @@ export type AddressPersonRelationNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1940,7 +1996,9 @@ export type AddressPersonRelationNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1974,7 +2032,9 @@ export type AddressPersonRelationRelationshipsFromRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -1988,7 +2048,9 @@ export type AddressPersonRelationRelationshipsFromRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -2022,7 +2084,9 @@ export type AddressPersonRelationRelationshipsToRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -2036,7 +2100,9 @@ export type AddressPersonRelationRelationshipsToRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -2070,7 +2136,9 @@ export type AddressPersonRelationTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -2640,7 +2708,9 @@ export type ContactInfoPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<ContactInfoPersonRelationImportantDatesRelation>;
   interactions: Array<ContactInfoPersonRelationInteractionsRelation>;
@@ -2807,7 +2877,9 @@ export type ContactInfoPersonRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -2844,7 +2916,9 @@ export type ContactInfoPersonRelationAddressesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -2869,6 +2943,7 @@ export type ContactInfoPersonRelationImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<ContactInfoPersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<ContactInfoPersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -2946,7 +3021,9 @@ export type ContactInfoPersonRelationImportantDatesRelationLabelsRelationActivit
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -2960,7 +3037,9 @@ export type ContactInfoPersonRelationImportantDatesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3051,7 +3130,9 @@ export type ContactInfoPersonRelationInteractionsRelationLabelsRelationActivitie
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3065,7 +3146,9 @@ export type ContactInfoPersonRelationInteractionsRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3130,7 +3213,9 @@ export type ContactInfoPersonRelationLabelsRelationActivitiesRelationPersonRelat
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3226,7 +3311,9 @@ export type ContactInfoPersonRelationMentionedInNotesRelationLabelsRelationActiv
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3240,7 +3327,9 @@ export type ContactInfoPersonRelationMentionedInNotesRelationMentionsRelation = 
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3254,7 +3343,9 @@ export type ContactInfoPersonRelationMentionedInNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3350,7 +3441,9 @@ export type ContactInfoPersonRelationNotesRelationLabelsRelationActivitiesRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3364,7 +3457,9 @@ export type ContactInfoPersonRelationNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3378,7 +3473,9 @@ export type ContactInfoPersonRelationNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3412,7 +3509,9 @@ export type ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3426,7 +3525,9 @@ export type ContactInfoPersonRelationRelationshipsFromRelationToPersonRelation =
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3460,7 +3561,9 @@ export type ContactInfoPersonRelationRelationshipsToRelationFromPersonRelation =
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3474,7 +3577,9 @@ export type ContactInfoPersonRelationRelationshipsToRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3508,7 +3613,9 @@ export type ContactInfoPersonRelationTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -3898,6 +4005,7 @@ export type CreateImportantDateInput = {
   date: Scalars['String']['input'];
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
+  milestoneType?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['input'];
   personId: Scalars['String']['input'];
   recurrence?: InputMaybe<Scalars['String']['input']>;
@@ -3951,7 +4059,9 @@ export type CreatePersonInput = {
   /** JSON */
   createdAt?: InputMaybe<Scalars['String']['input']>;
   email: Scalars['String']['input'];
+  firstMetDate?: InputMaybe<Scalars['String']['input']>;
   firstName: Scalars['String']['input'];
+  howWeMet?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   lastName: Scalars['String']['input'];
   /** JSON */
@@ -3989,6 +4099,7 @@ export type ImportantDate = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<ImportantDateLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<ImportantDatePersonRelation>;
   personId: Scalars['String']['output'];
@@ -4069,7 +4180,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<ImportantDateLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation>;
   interactions: Array<ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRelation>;
@@ -4215,7 +4328,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationAddresses
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4247,7 +4362,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationContactIn
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4259,6 +4376,7 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationImportant
   date: Scalars['String']['output'];
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   personId: Scalars['String']['output'];
   recurrence: Maybe<Scalars['String']['output']>;
@@ -4304,7 +4422,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationInteracti
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4363,7 +4483,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationMentioned
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4377,7 +4499,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationMentioned
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4429,7 +4553,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4443,7 +4569,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4477,7 +4605,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelations
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4491,7 +4621,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelations
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4525,7 +4657,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelations
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4539,7 +4673,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelations
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4573,7 +4709,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationTasksRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4590,7 +4728,9 @@ export type ImportantDatePersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<ImportantDatePersonRelationImportantDatesRelation>;
   interactions: Array<ImportantDatePersonRelationInteractionsRelation>;
@@ -4757,7 +4897,9 @@ export type ImportantDatePersonRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4794,7 +4936,9 @@ export type ImportantDatePersonRelationAddressesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4826,7 +4970,9 @@ export type ImportantDatePersonRelationContactInfosRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4838,6 +4984,7 @@ export type ImportantDatePersonRelationImportantDatesRelation = {
   date: Scalars['String']['output'];
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   personId: Scalars['String']['output'];
   recurrence: Maybe<Scalars['String']['output']>;
@@ -4927,7 +5074,9 @@ export type ImportantDatePersonRelationInteractionsRelationLabelsRelationActivit
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -4941,7 +5090,9 @@ export type ImportantDatePersonRelationInteractionsRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5006,7 +5157,9 @@ export type ImportantDatePersonRelationLabelsRelationActivitiesRelationPersonRel
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5102,7 +5255,9 @@ export type ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationAct
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5116,7 +5271,9 @@ export type ImportantDatePersonRelationMentionedInNotesRelationMentionsRelation 
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5130,7 +5287,9 @@ export type ImportantDatePersonRelationMentionedInNotesRelationPersonRelation = 
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5226,7 +5385,9 @@ export type ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5240,7 +5401,9 @@ export type ImportantDatePersonRelationNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5254,7 +5417,9 @@ export type ImportantDatePersonRelationNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5288,7 +5453,9 @@ export type ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5302,7 +5469,9 @@ export type ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5336,7 +5505,9 @@ export type ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5350,7 +5521,9 @@ export type ImportantDatePersonRelationRelationshipsToRelationToPersonRelation =
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5384,7 +5557,9 @@ export type ImportantDatePersonRelationTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -5574,6 +5749,7 @@ export type ImportantDatesFilters = {
   date?: InputMaybe<ImportantDatesDateFilters>;
   description?: InputMaybe<ImportantDatesDescriptionFilters>;
   id?: InputMaybe<ImportantDatesIdFilters>;
+  milestoneType?: InputMaybe<ImportantDatesMilestoneTypeFilters>;
   name?: InputMaybe<ImportantDatesNameFilters>;
   personId?: InputMaybe<ImportantDatesPersonIdFilters>;
   recurrence?: InputMaybe<ImportantDatesRecurrenceFilters>;
@@ -5583,6 +5759,7 @@ export type ImportantDatesFiltersOr = {
   date?: InputMaybe<ImportantDatesDateFilters>;
   description?: InputMaybe<ImportantDatesDescriptionFilters>;
   id?: InputMaybe<ImportantDatesIdFilters>;
+  milestoneType?: InputMaybe<ImportantDatesMilestoneTypeFilters>;
   name?: InputMaybe<ImportantDatesNameFilters>;
   personId?: InputMaybe<ImportantDatesPersonIdFilters>;
   recurrence?: InputMaybe<ImportantDatesRecurrenceFilters>;
@@ -5624,6 +5801,70 @@ export type ImportantDatesIdFiltersOr = {
   notIlike?: InputMaybe<Scalars['String']['input']>;
   /** Array<undefined> */
   notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export enum ImportantDatesMilestoneTypeEnum {
+  /** Value: divorced */
+  Divorced = 'divorced',
+  /** Value: graduation */
+  Graduation = 'graduation',
+  /** Value: health_event */
+  HealthEvent = 'health_event',
+  /** Value: loss */
+  Loss = 'loss',
+  /** Value: married */
+  Married = 'married',
+  /** Value: moved */
+  Moved = 'moved',
+  /** Value: new_baby */
+  NewBaby = 'new_baby',
+  /** Value: new_job */
+  NewJob = 'new_job',
+  /** Value: other */
+  Other = 'other',
+  /** Value: promotion */
+  Promotion = 'promotion',
+  /** Value: retired */
+  Retired = 'retired'
+}
+
+export type ImportantDatesMilestoneTypeFilters = {
+  OR?: InputMaybe<Array<ImportantDatesMilestoneTypeFiltersOr>>;
+  eq?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  gt?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  gte?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<ImportantDatesMilestoneTypeEnum>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  lte?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  ne?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<ImportantDatesMilestoneTypeEnum>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ImportantDatesMilestoneTypeFiltersOr = {
+  eq?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  gt?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  gte?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<ImportantDatesMilestoneTypeEnum>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  lte?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  ne?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<ImportantDatesMilestoneTypeEnum>>;
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -5670,6 +5911,7 @@ export type ImportantDatesOrderBy = {
   date?: InputMaybe<InnerOrder>;
   description?: InputMaybe<InnerOrder>;
   id?: InputMaybe<InnerOrder>;
+  milestoneType?: InputMaybe<InnerOrder>;
   name?: InputMaybe<InnerOrder>;
   personId?: InputMaybe<InnerOrder>;
   recurrence?: InputMaybe<InnerOrder>;
@@ -5846,7 +6088,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation>;
   interactions: Array<InteractionLabelsRelationActivitiesRelationPersonRelationInteractionsRelation>;
@@ -5992,7 +6236,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationAddressesRe
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6024,7 +6270,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationContactInfo
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6037,6 +6285,7 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationImportantDa
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -6070,7 +6319,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationImportantDa
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6140,7 +6391,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationMentionedIn
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6154,7 +6407,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationMentionedIn
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6206,7 +6461,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6220,7 +6477,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6254,7 +6513,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshi
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6268,7 +6529,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshi
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6302,7 +6565,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshi
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6316,7 +6581,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshi
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6350,7 +6617,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationTasksRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6367,7 +6636,9 @@ export type InteractionPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<InteractionPersonRelationImportantDatesRelation>;
   interactions: Array<InteractionPersonRelationInteractionsRelation>;
@@ -6534,7 +6805,9 @@ export type InteractionPersonRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6571,7 +6844,9 @@ export type InteractionPersonRelationAddressesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6603,7 +6878,9 @@ export type InteractionPersonRelationContactInfosRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6616,6 +6893,7 @@ export type InteractionPersonRelationImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<InteractionPersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<InteractionPersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -6693,7 +6971,9 @@ export type InteractionPersonRelationImportantDatesRelationLabelsRelationActivit
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6707,7 +6987,9 @@ export type InteractionPersonRelationImportantDatesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6783,7 +7065,9 @@ export type InteractionPersonRelationLabelsRelationActivitiesRelationPersonRelat
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6879,7 +7163,9 @@ export type InteractionPersonRelationMentionedInNotesRelationLabelsRelationActiv
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6893,7 +7179,9 @@ export type InteractionPersonRelationMentionedInNotesRelationMentionsRelation = 
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -6907,7 +7195,9 @@ export type InteractionPersonRelationMentionedInNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7003,7 +7293,9 @@ export type InteractionPersonRelationNotesRelationLabelsRelationActivitiesRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7017,7 +7309,9 @@ export type InteractionPersonRelationNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7031,7 +7325,9 @@ export type InteractionPersonRelationNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7065,7 +7361,9 @@ export type InteractionPersonRelationRelationshipsFromRelationFromPersonRelation
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7079,7 +7377,9 @@ export type InteractionPersonRelationRelationshipsFromRelationToPersonRelation =
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7113,7 +7413,9 @@ export type InteractionPersonRelationRelationshipsToRelationFromPersonRelation =
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7127,7 +7429,9 @@ export type InteractionPersonRelationRelationshipsToRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7161,7 +7465,9 @@ export type InteractionPersonRelationTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7603,7 +7909,9 @@ export type LabelActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<LabelActivitiesRelationPersonRelationImportantDatesRelation>;
   interactions: Array<LabelActivitiesRelationPersonRelationInteractionsRelation>;
@@ -7749,7 +8057,9 @@ export type LabelActivitiesRelationPersonRelationAddressesRelationPersonRelation
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7781,7 +8091,9 @@ export type LabelActivitiesRelationPersonRelationContactInfosRelationPersonRelat
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7794,6 +8106,7 @@ export type LabelActivitiesRelationPersonRelationImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<LabelActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<LabelActivitiesRelationPersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -7827,7 +8140,9 @@ export type LabelActivitiesRelationPersonRelationImportantDatesRelationPersonRel
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7874,7 +8189,9 @@ export type LabelActivitiesRelationPersonRelationInteractionsRelationPersonRelat
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7933,7 +8250,9 @@ export type LabelActivitiesRelationPersonRelationMentionedInNotesRelationMention
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7947,7 +8266,9 @@ export type LabelActivitiesRelationPersonRelationMentionedInNotesRelationPersonR
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -7999,7 +8320,9 @@ export type LabelActivitiesRelationPersonRelationNotesRelationMentionsRelation =
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -8013,7 +8336,9 @@ export type LabelActivitiesRelationPersonRelationNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -8047,7 +8372,9 @@ export type LabelActivitiesRelationPersonRelationRelationshipsFromRelationFromPe
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -8061,7 +8388,9 @@ export type LabelActivitiesRelationPersonRelationRelationshipsFromRelationToPers
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -8095,7 +8424,9 @@ export type LabelActivitiesRelationPersonRelationRelationshipsToRelationFromPers
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -8109,7 +8440,9 @@ export type LabelActivitiesRelationPersonRelationRelationshipsToRelationToPerson
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -8143,7 +8476,9 @@ export type LabelActivitiesRelationPersonRelationTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -8782,7 +9117,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation>;
   interactions: Array<NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelation>;
@@ -8928,7 +9265,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationAddressesRelationP
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -8960,7 +9299,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationContactInfosRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -8973,6 +9314,7 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRela
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -9006,7 +9348,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9053,7 +9397,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9108,7 +9454,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromR
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9122,7 +9470,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromR
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9156,7 +9506,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRel
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9170,7 +9522,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRel
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9204,7 +9558,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationTasksRelationPerso
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9321,7 +9677,9 @@ export type NoteMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<NoteMentionsRelationImportantDatesRelation>;
   interactions: Array<NoteMentionsRelationInteractionsRelation>;
@@ -9488,7 +9846,9 @@ export type NoteMentionsRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9525,7 +9885,9 @@ export type NoteMentionsRelationAddressesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9557,7 +9919,9 @@ export type NoteMentionsRelationContactInfosRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9570,6 +9934,7 @@ export type NoteMentionsRelationImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<NoteMentionsRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<NoteMentionsRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -9647,7 +10012,9 @@ export type NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesRe
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9661,7 +10028,9 @@ export type NoteMentionsRelationImportantDatesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9752,7 +10121,9 @@ export type NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9766,7 +10137,9 @@ export type NoteMentionsRelationInteractionsRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9831,7 +10204,9 @@ export type NoteMentionsRelationLabelsRelationActivitiesRelationPersonRelation =
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9879,7 +10254,9 @@ export type NoteMentionsRelationRelationshipsFromRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9893,7 +10270,9 @@ export type NoteMentionsRelationRelationshipsFromRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9927,7 +10306,9 @@ export type NoteMentionsRelationRelationshipsToRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9941,7 +10322,9 @@ export type NoteMentionsRelationRelationshipsToRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9975,7 +10358,9 @@ export type NoteMentionsRelationTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -9992,7 +10377,9 @@ export type NotePersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<NotePersonRelationImportantDatesRelation>;
   interactions: Array<NotePersonRelationInteractionsRelation>;
@@ -10159,7 +10546,9 @@ export type NotePersonRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10196,7 +10585,9 @@ export type NotePersonRelationAddressesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10228,7 +10619,9 @@ export type NotePersonRelationContactInfosRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10241,6 +10634,7 @@ export type NotePersonRelationImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<NotePersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<NotePersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -10318,7 +10712,9 @@ export type NotePersonRelationImportantDatesRelationLabelsRelationActivitiesRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10332,7 +10728,9 @@ export type NotePersonRelationImportantDatesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10423,7 +10821,9 @@ export type NotePersonRelationInteractionsRelationLabelsRelationActivitiesRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10437,7 +10837,9 @@ export type NotePersonRelationInteractionsRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10502,7 +10904,9 @@ export type NotePersonRelationLabelsRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10550,7 +10954,9 @@ export type NotePersonRelationRelationshipsFromRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10564,7 +10970,9 @@ export type NotePersonRelationRelationshipsFromRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10598,7 +11006,9 @@ export type NotePersonRelationRelationshipsToRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10612,7 +11022,9 @@ export type NotePersonRelationRelationshipsToRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10646,7 +11058,9 @@ export type NotePersonRelationTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -10907,7 +11321,9 @@ export type Person = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<PersonImportantDatesRelation>;
   interactions: Array<PersonInteractionsRelation>;
@@ -11075,7 +11491,9 @@ export type PersonActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11112,7 +11530,9 @@ export type PersonAddressesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11144,7 +11564,9 @@ export type PersonContactInfosRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11157,6 +11579,7 @@ export type PersonImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<PersonImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<PersonImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -11234,7 +11657,9 @@ export type PersonImportantDatesRelationLabelsRelationActivitiesRelationPersonRe
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11248,7 +11673,9 @@ export type PersonImportantDatesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11339,7 +11766,9 @@ export type PersonInteractionsRelationLabelsRelationActivitiesRelationPersonRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11353,7 +11782,9 @@ export type PersonInteractionsRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11518,7 +11949,9 @@ export type PersonLabelsRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11614,7 +12047,9 @@ export type PersonMentionedInNotesRelationLabelsRelationActivitiesRelationPerson
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11628,7 +12063,9 @@ export type PersonMentionedInNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11642,7 +12079,9 @@ export type PersonMentionedInNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11738,7 +12177,9 @@ export type PersonNotesRelationLabelsRelationActivitiesRelationPersonRelation = 
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11752,7 +12193,9 @@ export type PersonNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11766,7 +12209,9 @@ export type PersonNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -11812,7 +12257,9 @@ export type PersonRelationshipFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<PersonRelationshipFromPersonRelationImportantDatesRelation>;
   interactions: Array<PersonRelationshipFromPersonRelationInteractionsRelation>;
@@ -11979,7 +12426,9 @@ export type PersonRelationshipFromPersonRelationActivitiesRelationPersonRelation
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12016,7 +12465,9 @@ export type PersonRelationshipFromPersonRelationAddressesRelationPersonRelation 
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12048,7 +12499,9 @@ export type PersonRelationshipFromPersonRelationContactInfosRelationPersonRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12061,6 +12514,7 @@ export type PersonRelationshipFromPersonRelationImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -12138,7 +12592,9 @@ export type PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12152,7 +12608,9 @@ export type PersonRelationshipFromPersonRelationImportantDatesRelationPersonRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12243,7 +12701,9 @@ export type PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12257,7 +12717,9 @@ export type PersonRelationshipFromPersonRelationInteractionsRelationPersonRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12322,7 +12784,9 @@ export type PersonRelationshipFromPersonRelationLabelsRelationActivitiesRelation
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12418,7 +12882,9 @@ export type PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRe
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12432,7 +12898,9 @@ export type PersonRelationshipFromPersonRelationMentionedInNotesRelationMentions
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12446,7 +12914,9 @@ export type PersonRelationshipFromPersonRelationMentionedInNotesRelationPersonRe
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12542,7 +13012,9 @@ export type PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActiv
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12556,7 +13028,9 @@ export type PersonRelationshipFromPersonRelationNotesRelationMentionsRelation = 
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12570,7 +13044,9 @@ export type PersonRelationshipFromPersonRelationNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12620,7 +13096,9 @@ export type PersonRelationshipFromPersonRelationTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12637,7 +13115,9 @@ export type PersonRelationshipToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<PersonRelationshipToPersonRelationImportantDatesRelation>;
   interactions: Array<PersonRelationshipToPersonRelationInteractionsRelation>;
@@ -12804,7 +13284,9 @@ export type PersonRelationshipToPersonRelationActivitiesRelationPersonRelation =
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12841,7 +13323,9 @@ export type PersonRelationshipToPersonRelationAddressesRelationPersonRelation = 
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12873,7 +13357,9 @@ export type PersonRelationshipToPersonRelationContactInfosRelationPersonRelation
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12886,6 +13372,7 @@ export type PersonRelationshipToPersonRelationImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -12963,7 +13450,9 @@ export type PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -12977,7 +13466,9 @@ export type PersonRelationshipToPersonRelationImportantDatesRelationPersonRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13068,7 +13559,9 @@ export type PersonRelationshipToPersonRelationInteractionsRelationLabelsRelation
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13082,7 +13575,9 @@ export type PersonRelationshipToPersonRelationInteractionsRelationPersonRelation
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13147,7 +13642,9 @@ export type PersonRelationshipToPersonRelationLabelsRelationActivitiesRelationPe
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13243,7 +13740,9 @@ export type PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13257,7 +13756,9 @@ export type PersonRelationshipToPersonRelationMentionedInNotesRelationMentionsRe
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13271,7 +13772,9 @@ export type PersonRelationshipToPersonRelationMentionedInNotesRelationPersonRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13367,7 +13870,9 @@ export type PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivit
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13381,7 +13886,9 @@ export type PersonRelationshipToPersonRelationNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13395,7 +13902,9 @@ export type PersonRelationshipToPersonRelationNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13445,7 +13954,9 @@ export type PersonRelationshipToPersonRelationTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13533,7 +14044,9 @@ export type PersonRelationshipsFromRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13547,7 +14060,9 @@ export type PersonRelationshipsFromRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13666,7 +14181,9 @@ export type PersonRelationshipsToRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13680,7 +14197,9 @@ export type PersonRelationshipsToRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13753,7 +14272,9 @@ export type PersonTasksRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -13934,7 +14455,9 @@ export type PersonsFilters = {
   contactFrequency?: InputMaybe<PersonsContactFrequencyFilters>;
   createdAt?: InputMaybe<PersonsCreatedAtFilters>;
   email?: InputMaybe<PersonsEmailFilters>;
+  firstMetDate?: InputMaybe<PersonsFirstMetDateFilters>;
   firstName?: InputMaybe<PersonsFirstNameFilters>;
+  howWeMet?: InputMaybe<PersonsHowWeMetFilters>;
   id?: InputMaybe<PersonsIdFilters>;
   lastName?: InputMaybe<PersonsLastNameFilters>;
   updatedAt?: InputMaybe<PersonsUpdatedAtFilters>;
@@ -13945,10 +14468,51 @@ export type PersonsFiltersOr = {
   contactFrequency?: InputMaybe<PersonsContactFrequencyFilters>;
   createdAt?: InputMaybe<PersonsCreatedAtFilters>;
   email?: InputMaybe<PersonsEmailFilters>;
+  firstMetDate?: InputMaybe<PersonsFirstMetDateFilters>;
   firstName?: InputMaybe<PersonsFirstNameFilters>;
+  howWeMet?: InputMaybe<PersonsHowWeMetFilters>;
   id?: InputMaybe<PersonsIdFilters>;
   lastName?: InputMaybe<PersonsLastNameFilters>;
   updatedAt?: InputMaybe<PersonsUpdatedAtFilters>;
+};
+
+export type PersonsFirstMetDateFilters = {
+  OR?: InputMaybe<Array<PersonsFirstMetDateFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonsFirstMetDateFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type PersonsFirstNameFilters = {
@@ -13972,6 +14536,45 @@ export type PersonsFirstNameFilters = {
 };
 
 export type PersonsFirstNameFiltersOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonsHowWeMetFilters = {
+  OR?: InputMaybe<Array<PersonsHowWeMetFiltersOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PersonsHowWeMetFiltersOr = {
   eq?: InputMaybe<Scalars['String']['input']>;
   gt?: InputMaybe<Scalars['String']['input']>;
   gte?: InputMaybe<Scalars['String']['input']>;
@@ -14073,7 +14676,9 @@ export type PersonsOrderBy = {
   contactFrequency?: InputMaybe<InnerOrder>;
   createdAt?: InputMaybe<InnerOrder>;
   email?: InputMaybe<InnerOrder>;
+  firstMetDate?: InputMaybe<InnerOrder>;
   firstName?: InputMaybe<InnerOrder>;
+  howWeMet?: InputMaybe<InnerOrder>;
   id?: InputMaybe<InnerOrder>;
   lastName?: InputMaybe<InnerOrder>;
   updatedAt?: InputMaybe<InnerOrder>;
@@ -14164,6 +14769,7 @@ export type Query = {
   persons: Array<Person>;
   task: Maybe<Task>;
   tasks: Array<Task>;
+  upcomingDates: Array<UpcomingDateEntry>;
 };
 
 
@@ -14406,6 +15012,13 @@ export type QueryTasksArgs = {
   where?: InputMaybe<TasksFilters>;
 };
 
+
+export type QueryUpcomingDatesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  lookaheadDays?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+};
+
 export type Task = {
   __typename?: 'Task';
   /** JSON */
@@ -14436,7 +15049,9 @@ export type TaskPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   importantDates: Array<TaskPersonRelationImportantDatesRelation>;
   interactions: Array<TaskPersonRelationInteractionsRelation>;
@@ -14603,7 +15218,9 @@ export type TaskPersonRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -14640,7 +15257,9 @@ export type TaskPersonRelationAddressesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -14672,7 +15291,9 @@ export type TaskPersonRelationContactInfosRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -14685,6 +15306,7 @@ export type TaskPersonRelationImportantDatesRelation = {
   description: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   labels: Array<TaskPersonRelationImportantDatesRelationLabelsRelation>;
+  milestoneType: Maybe<ImportantDatesMilestoneTypeEnum>;
   name: Scalars['String']['output'];
   person: Maybe<TaskPersonRelationImportantDatesRelationPersonRelation>;
   personId: Scalars['String']['output'];
@@ -14762,7 +15384,9 @@ export type TaskPersonRelationImportantDatesRelationLabelsRelationActivitiesRela
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -14776,7 +15400,9 @@ export type TaskPersonRelationImportantDatesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -14867,7 +15493,9 @@ export type TaskPersonRelationInteractionsRelationLabelsRelationActivitiesRelati
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -14881,7 +15509,9 @@ export type TaskPersonRelationInteractionsRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -14946,7 +15576,9 @@ export type TaskPersonRelationLabelsRelationActivitiesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15042,7 +15674,9 @@ export type TaskPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRe
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15056,7 +15690,9 @@ export type TaskPersonRelationMentionedInNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15070,7 +15706,9 @@ export type TaskPersonRelationMentionedInNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15166,7 +15804,9 @@ export type TaskPersonRelationNotesRelationLabelsRelationActivitiesRelationPerso
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15180,7 +15820,9 @@ export type TaskPersonRelationNotesRelationMentionsRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15194,7 +15836,9 @@ export type TaskPersonRelationNotesRelationPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15228,7 +15872,9 @@ export type TaskPersonRelationRelationshipsFromRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15242,7 +15888,9 @@ export type TaskPersonRelationRelationshipsFromRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15276,7 +15924,9 @@ export type TaskPersonRelationRelationshipsToRelationFromPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15290,7 +15940,9 @@ export type TaskPersonRelationRelationshipsToRelationToPersonRelation = {
   /** JSON */
   createdAt: Scalars['String']['output'];
   email: Scalars['String']['output'];
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
+  howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
   lastName: Scalars['String']['output'];
   /** JSON */
@@ -15651,6 +16303,20 @@ export type TasksTitleFiltersOr = {
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type UpcomingDateEntry = {
+  __typename?: 'UpcomingDateEntry';
+  date: Scalars['String']['output'];
+  daysUntil: Scalars['Int']['output'];
+  description: Maybe<Scalars['String']['output']>;
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  nextDate: Scalars['String']['output'];
+  personFirstName: Scalars['String']['output'];
+  personId: Scalars['String']['output'];
+  personLastName: Scalars['String']['output'];
+  recurrence: Maybe<Scalars['String']['output']>;
+};
+
 export type UpdateActivityInput = {
   /** JSON */
   createdAt?: InputMaybe<Scalars['String']['input']>;
@@ -15699,6 +16365,7 @@ export type UpdateImportantDateInput = {
   date?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
+  milestoneType?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
   name?: InputMaybe<Scalars['String']['input']>;
   personId?: InputMaybe<Scalars['String']['input']>;
   recurrence?: InputMaybe<Scalars['String']['input']>;
@@ -15752,7 +16419,9 @@ export type UpdatePersonInput = {
   /** JSON */
   createdAt?: InputMaybe<Scalars['String']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
+  firstMetDate?: InputMaybe<Scalars['String']['input']>;
   firstName?: InputMaybe<Scalars['String']['input']>;
+  howWeMet?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['String']['input']>;
   lastName?: InputMaybe<Scalars['String']['input']>;
   /** JSON */
@@ -16165,6 +16834,9 @@ export type ResolversTypes = {
   ImportantDatesFiltersOr: ImportantDatesFiltersOr;
   ImportantDatesIdFilters: ImportantDatesIdFilters;
   ImportantDatesIdFiltersOr: ImportantDatesIdFiltersOr;
+  ImportantDatesMilestoneTypeEnum: ImportantDatesMilestoneTypeEnum;
+  ImportantDatesMilestoneTypeFilters: ImportantDatesMilestoneTypeFilters;
+  ImportantDatesMilestoneTypeFiltersOr: ImportantDatesMilestoneTypeFiltersOr;
   ImportantDatesNameFilters: ImportantDatesNameFilters;
   ImportantDatesNameFiltersOr: ImportantDatesNameFiltersOr;
   ImportantDatesOrderBy: ImportantDatesOrderBy;
@@ -16599,8 +17271,12 @@ export type ResolversTypes = {
   PersonsEmailFiltersOr: PersonsEmailFiltersOr;
   PersonsFilters: PersonsFilters;
   PersonsFiltersOr: PersonsFiltersOr;
+  PersonsFirstMetDateFilters: PersonsFirstMetDateFilters;
+  PersonsFirstMetDateFiltersOr: PersonsFirstMetDateFiltersOr;
   PersonsFirstNameFilters: PersonsFirstNameFilters;
   PersonsFirstNameFiltersOr: PersonsFirstNameFiltersOr;
+  PersonsHowWeMetFilters: PersonsHowWeMetFilters;
+  PersonsHowWeMetFiltersOr: PersonsHowWeMetFiltersOr;
   PersonsIdFilters: PersonsIdFilters;
   PersonsIdFiltersOr: PersonsIdFiltersOr;
   PersonsLastNameFilters: PersonsLastNameFilters;
@@ -16674,6 +17350,7 @@ export type ResolversTypes = {
   TasksPersonIdFiltersOr: TasksPersonIdFiltersOr;
   TasksTitleFilters: TasksTitleFilters;
   TasksTitleFiltersOr: TasksTitleFiltersOr;
+  UpcomingDateEntry: ResolverTypeWrapper<UpcomingDateEntry>;
   UpdateActivityInput: UpdateActivityInput;
   UpdateActivityTagInput: UpdateActivityTagInput;
   UpdateAddressInput: UpdateAddressInput;
@@ -17000,6 +17677,8 @@ export type ResolversParentTypes = {
   ImportantDatesFiltersOr: ImportantDatesFiltersOr;
   ImportantDatesIdFilters: ImportantDatesIdFilters;
   ImportantDatesIdFiltersOr: ImportantDatesIdFiltersOr;
+  ImportantDatesMilestoneTypeFilters: ImportantDatesMilestoneTypeFilters;
+  ImportantDatesMilestoneTypeFiltersOr: ImportantDatesMilestoneTypeFiltersOr;
   ImportantDatesNameFilters: ImportantDatesNameFilters;
   ImportantDatesNameFiltersOr: ImportantDatesNameFiltersOr;
   ImportantDatesOrderBy: ImportantDatesOrderBy;
@@ -17433,8 +18112,12 @@ export type ResolversParentTypes = {
   PersonsEmailFiltersOr: PersonsEmailFiltersOr;
   PersonsFilters: PersonsFilters;
   PersonsFiltersOr: PersonsFiltersOr;
+  PersonsFirstMetDateFilters: PersonsFirstMetDateFilters;
+  PersonsFirstMetDateFiltersOr: PersonsFirstMetDateFiltersOr;
   PersonsFirstNameFilters: PersonsFirstNameFilters;
   PersonsFirstNameFiltersOr: PersonsFirstNameFiltersOr;
+  PersonsHowWeMetFilters: PersonsHowWeMetFilters;
+  PersonsHowWeMetFiltersOr: PersonsHowWeMetFiltersOr;
   PersonsIdFilters: PersonsIdFilters;
   PersonsIdFiltersOr: PersonsIdFiltersOr;
   PersonsLastNameFilters: PersonsLastNameFilters;
@@ -17508,6 +18191,7 @@ export type ResolversParentTypes = {
   TasksPersonIdFiltersOr: TasksPersonIdFiltersOr;
   TasksTitleFilters: TasksTitleFilters;
   TasksTitleFiltersOr: TasksTitleFiltersOr;
+  UpcomingDateEntry: UpcomingDateEntry;
   UpdateActivityInput: UpdateActivityInput;
   UpdateActivityTagInput: UpdateActivityTagInput;
   UpdateAddressInput: UpdateAddressInput;
@@ -17563,7 +18247,9 @@ export type ActivityPersonRelationResolvers<ContextType = Context, ParentType ex
   contactInfos?: Resolver<Array<ResolversTypes['ActivityPersonRelationContactInfosRelation']>, ParentType, ContextType, Partial<ActivityPersonRelationContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   importantDates?: Resolver<Array<ResolversTypes['ActivityPersonRelationImportantDatesRelation']>, ParentType, ContextType, Partial<ActivityPersonRelationImportantDatesArgs>>;
   interactions?: Resolver<Array<ResolversTypes['ActivityPersonRelationInteractionsRelation']>, ParentType, ContextType, Partial<ActivityPersonRelationInteractionsArgs>>;
@@ -17608,7 +18294,9 @@ export type ActivityPersonRelationAddressesRelationPersonRelationResolvers<Conte
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -17630,7 +18318,9 @@ export type ActivityPersonRelationContactInfosRelationPersonRelationResolvers<Co
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -17641,6 +18331,7 @@ export type ActivityPersonRelationImportantDatesRelationResolvers<ContextType = 
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   labels?: Resolver<Array<ResolversTypes['ActivityPersonRelationImportantDatesRelationLabelsRelation']>, ParentType, ContextType, Partial<ActivityPersonRelationImportantDatesRelationLabelsArgs>>;
+  milestoneType?: Resolver<Maybe<ResolversTypes['ImportantDatesMilestoneTypeEnum']>, ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   person?: Resolver<Maybe<ResolversTypes['ActivityPersonRelationImportantDatesRelationPersonRelation']>, ParentType, ContextType, Partial<ActivityPersonRelationImportantDatesRelationPersonArgs>>;
   personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -17669,7 +18360,9 @@ export type ActivityPersonRelationImportantDatesRelationPersonRelationResolvers<
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -17708,7 +18401,9 @@ export type ActivityPersonRelationInteractionsRelationPersonRelationResolvers<Co
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -17762,7 +18457,9 @@ export type ActivityPersonRelationMentionedInNotesRelationMentionsRelationResolv
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -17773,7 +18470,9 @@ export type ActivityPersonRelationMentionedInNotesRelationPersonRelationResolver
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -17810,7 +18509,9 @@ export type ActivityPersonRelationNotesRelationMentionsRelationResolvers<Context
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -17821,7 +18522,9 @@ export type ActivityPersonRelationNotesRelationPersonRelationResolvers<ContextTy
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -17841,7 +18544,9 @@ export type ActivityPersonRelationRelationshipsFromRelationFromPersonRelationRes
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -17852,7 +18557,9 @@ export type ActivityPersonRelationRelationshipsFromRelationToPersonRelationResol
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -17872,7 +18579,9 @@ export type ActivityPersonRelationRelationshipsToRelationFromPersonRelationResol
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -17883,7 +18592,9 @@ export type ActivityPersonRelationRelationshipsToRelationToPersonRelationResolve
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -17905,7 +18616,9 @@ export type ActivityPersonRelationTasksRelationPersonRelationResolvers<ContextTy
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -17940,7 +18653,9 @@ export type AddressPersonRelationResolvers<ContextType = Context, ParentType ext
   contactInfos?: Resolver<Array<ResolversTypes['AddressPersonRelationContactInfosRelation']>, ParentType, ContextType, Partial<AddressPersonRelationContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   importantDates?: Resolver<Array<ResolversTypes['AddressPersonRelationImportantDatesRelation']>, ParentType, ContextType, Partial<AddressPersonRelationImportantDatesArgs>>;
   interactions?: Resolver<Array<ResolversTypes['AddressPersonRelationInteractionsRelation']>, ParentType, ContextType, Partial<AddressPersonRelationInteractionsArgs>>;
@@ -17988,7 +18703,9 @@ export type AddressPersonRelationActivitiesRelationPersonRelationResolvers<Conte
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18025,7 +18742,9 @@ export type AddressPersonRelationContactInfosRelationPersonRelationResolvers<Con
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18036,6 +18755,7 @@ export type AddressPersonRelationImportantDatesRelationResolvers<ContextType = C
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   labels?: Resolver<Array<ResolversTypes['AddressPersonRelationImportantDatesRelationLabelsRelation']>, ParentType, ContextType, Partial<AddressPersonRelationImportantDatesRelationLabelsArgs>>;
+  milestoneType?: Resolver<Maybe<ResolversTypes['ImportantDatesMilestoneTypeEnum']>, ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   person?: Resolver<Maybe<ResolversTypes['AddressPersonRelationImportantDatesRelationPersonRelation']>, ParentType, ContextType, Partial<AddressPersonRelationImportantDatesRelationPersonArgs>>;
   personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18072,7 +18792,9 @@ export type AddressPersonRelationImportantDatesRelationLabelsRelationActivitiesR
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18083,7 +18805,9 @@ export type AddressPersonRelationImportantDatesRelationPersonRelationResolvers<C
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18130,7 +18854,9 @@ export type AddressPersonRelationInteractionsRelationLabelsRelationActivitiesRel
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18141,7 +18867,9 @@ export type AddressPersonRelationInteractionsRelationPersonRelationResolvers<Con
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18177,7 +18905,9 @@ export type AddressPersonRelationLabelsRelationActivitiesRelationPersonRelationR
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18222,7 +18952,9 @@ export type AddressPersonRelationMentionedInNotesRelationLabelsRelationActivitie
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18233,7 +18965,9 @@ export type AddressPersonRelationMentionedInNotesRelationMentionsRelationResolve
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18244,7 +18978,9 @@ export type AddressPersonRelationMentionedInNotesRelationPersonRelationResolvers
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18289,7 +19025,9 @@ export type AddressPersonRelationNotesRelationLabelsRelationActivitiesRelationPe
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18300,7 +19038,9 @@ export type AddressPersonRelationNotesRelationMentionsRelationResolvers<ContextT
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18311,7 +19051,9 @@ export type AddressPersonRelationNotesRelationPersonRelationResolvers<ContextTyp
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18331,7 +19073,9 @@ export type AddressPersonRelationRelationshipsFromRelationFromPersonRelationReso
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18342,7 +19086,9 @@ export type AddressPersonRelationRelationshipsFromRelationToPersonRelationResolv
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18362,7 +19108,9 @@ export type AddressPersonRelationRelationshipsToRelationFromPersonRelationResolv
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18373,7 +19121,9 @@ export type AddressPersonRelationRelationshipsToRelationToPersonRelationResolver
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18395,7 +19145,9 @@ export type AddressPersonRelationTasksRelationPersonRelationResolvers<ContextTyp
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18420,7 +19172,9 @@ export type ContactInfoPersonRelationResolvers<ContextType = Context, ParentType
   contactInfos?: Resolver<Array<ResolversTypes['ContactInfoPersonRelationContactInfosRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   importantDates?: Resolver<Array<ResolversTypes['ContactInfoPersonRelationImportantDatesRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationImportantDatesArgs>>;
   interactions?: Resolver<Array<ResolversTypes['ContactInfoPersonRelationInteractionsRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationInteractionsArgs>>;
@@ -18468,7 +19222,9 @@ export type ContactInfoPersonRelationActivitiesRelationPersonRelationResolvers<C
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18495,7 +19251,9 @@ export type ContactInfoPersonRelationAddressesRelationPersonRelationResolvers<Co
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18516,6 +19274,7 @@ export type ContactInfoPersonRelationImportantDatesRelationResolvers<ContextType
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   labels?: Resolver<Array<ResolversTypes['ContactInfoPersonRelationImportantDatesRelationLabelsRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationImportantDatesRelationLabelsArgs>>;
+  milestoneType?: Resolver<Maybe<ResolversTypes['ImportantDatesMilestoneTypeEnum']>, ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   person?: Resolver<Maybe<ResolversTypes['ContactInfoPersonRelationImportantDatesRelationPersonRelation']>, ParentType, ContextType, Partial<ContactInfoPersonRelationImportantDatesRelationPersonArgs>>;
   personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18552,7 +19311,9 @@ export type ContactInfoPersonRelationImportantDatesRelationLabelsRelationActivit
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18563,7 +19324,9 @@ export type ContactInfoPersonRelationImportantDatesRelationPersonRelationResolve
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18610,7 +19373,9 @@ export type ContactInfoPersonRelationInteractionsRelationLabelsRelationActivitie
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18621,7 +19386,9 @@ export type ContactInfoPersonRelationInteractionsRelationPersonRelationResolvers
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18657,7 +19424,9 @@ export type ContactInfoPersonRelationLabelsRelationActivitiesRelationPersonRelat
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18702,7 +19471,9 @@ export type ContactInfoPersonRelationMentionedInNotesRelationLabelsRelationActiv
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18713,7 +19484,9 @@ export type ContactInfoPersonRelationMentionedInNotesRelationMentionsRelationRes
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18724,7 +19497,9 @@ export type ContactInfoPersonRelationMentionedInNotesRelationPersonRelationResol
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18769,7 +19544,9 @@ export type ContactInfoPersonRelationNotesRelationLabelsRelationActivitiesRelati
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18780,7 +19557,9 @@ export type ContactInfoPersonRelationNotesRelationMentionsRelationResolvers<Cont
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18791,7 +19570,9 @@ export type ContactInfoPersonRelationNotesRelationPersonRelationResolvers<Contex
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18811,7 +19592,9 @@ export type ContactInfoPersonRelationRelationshipsFromRelationFromPersonRelation
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18822,7 +19605,9 @@ export type ContactInfoPersonRelationRelationshipsFromRelationToPersonRelationRe
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18842,7 +19627,9 @@ export type ContactInfoPersonRelationRelationshipsToRelationFromPersonRelationRe
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18853,7 +19640,9 @@ export type ContactInfoPersonRelationRelationshipsToRelationToPersonRelationReso
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18875,7 +19664,9 @@ export type ContactInfoPersonRelationTasksRelationPersonRelationResolvers<Contex
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18886,6 +19677,7 @@ export type ImportantDateResolvers<ContextType = Context, ParentType extends Res
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   labels?: Resolver<Array<ResolversTypes['ImportantDateLabelsRelation']>, ParentType, ContextType, Partial<ImportantDateLabelsArgs>>;
+  milestoneType?: Resolver<Maybe<ResolversTypes['ImportantDatesMilestoneTypeEnum']>, ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   person?: Resolver<Maybe<ResolversTypes['ImportantDatePersonRelation']>, ParentType, ContextType, Partial<ImportantDatePersonArgs>>;
   personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18925,7 +19717,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationResolvers
   contactInfos?: Resolver<Array<ResolversTypes['ImportantDateLabelsRelationActivitiesRelationPersonRelationContactInfosRelation']>, ParentType, ContextType, Partial<ImportantDateLabelsRelationActivitiesRelationPersonRelationContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   importantDates?: Resolver<Array<ResolversTypes['ImportantDateLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation']>, ParentType, ContextType, Partial<ImportantDateLabelsRelationActivitiesRelationPersonRelationImportantDatesArgs>>;
   interactions?: Resolver<Array<ResolversTypes['ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsRelation']>, ParentType, ContextType, Partial<ImportantDateLabelsRelationActivitiesRelationPersonRelationInteractionsArgs>>;
@@ -18970,7 +19764,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationAddresses
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -18992,7 +19788,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationContactIn
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19002,6 +19800,7 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationImportant
   date?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  milestoneType?: Resolver<Maybe<ResolversTypes['ImportantDatesMilestoneTypeEnum']>, ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   recurrence?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -19029,7 +19828,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationInteracti
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19061,7 +19862,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationMentioned
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19072,7 +19875,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationMentioned
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19098,7 +19903,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRela
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19109,7 +19916,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationNotesRela
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19129,7 +19938,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelations
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19140,7 +19951,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelations
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19160,7 +19973,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelations
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19171,7 +19986,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationRelations
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19193,7 +20010,9 @@ export type ImportantDateLabelsRelationActivitiesRelationPersonRelationTasksRela
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19207,7 +20026,9 @@ export type ImportantDatePersonRelationResolvers<ContextType = Context, ParentTy
   contactInfos?: Resolver<Array<ResolversTypes['ImportantDatePersonRelationContactInfosRelation']>, ParentType, ContextType, Partial<ImportantDatePersonRelationContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   importantDates?: Resolver<Array<ResolversTypes['ImportantDatePersonRelationImportantDatesRelation']>, ParentType, ContextType, Partial<ImportantDatePersonRelationImportantDatesArgs>>;
   interactions?: Resolver<Array<ResolversTypes['ImportantDatePersonRelationInteractionsRelation']>, ParentType, ContextType, Partial<ImportantDatePersonRelationInteractionsArgs>>;
@@ -19255,7 +20076,9 @@ export type ImportantDatePersonRelationActivitiesRelationPersonRelationResolvers
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19282,7 +20105,9 @@ export type ImportantDatePersonRelationAddressesRelationPersonRelationResolvers<
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19304,7 +20129,9 @@ export type ImportantDatePersonRelationContactInfosRelationPersonRelationResolve
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19314,6 +20141,7 @@ export type ImportantDatePersonRelationImportantDatesRelationResolvers<ContextTy
   date?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  milestoneType?: Resolver<Maybe<ResolversTypes['ImportantDatesMilestoneTypeEnum']>, ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   recurrence?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -19360,7 +20188,9 @@ export type ImportantDatePersonRelationInteractionsRelationLabelsRelationActivit
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19371,7 +20201,9 @@ export type ImportantDatePersonRelationInteractionsRelationPersonRelationResolve
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19407,7 +20239,9 @@ export type ImportantDatePersonRelationLabelsRelationActivitiesRelationPersonRel
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19452,7 +20286,9 @@ export type ImportantDatePersonRelationMentionedInNotesRelationLabelsRelationAct
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19463,7 +20299,9 @@ export type ImportantDatePersonRelationMentionedInNotesRelationMentionsRelationR
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19474,7 +20312,9 @@ export type ImportantDatePersonRelationMentionedInNotesRelationPersonRelationRes
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19519,7 +20359,9 @@ export type ImportantDatePersonRelationNotesRelationLabelsRelationActivitiesRela
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19530,7 +20372,9 @@ export type ImportantDatePersonRelationNotesRelationMentionsRelationResolvers<Co
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19541,7 +20385,9 @@ export type ImportantDatePersonRelationNotesRelationPersonRelationResolvers<Cont
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19561,7 +20407,9 @@ export type ImportantDatePersonRelationRelationshipsFromRelationFromPersonRelati
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19572,7 +20420,9 @@ export type ImportantDatePersonRelationRelationshipsFromRelationToPersonRelation
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19592,7 +20442,9 @@ export type ImportantDatePersonRelationRelationshipsToRelationFromPersonRelation
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19603,7 +20455,9 @@ export type ImportantDatePersonRelationRelationshipsToRelationToPersonRelationRe
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19625,7 +20479,9 @@ export type ImportantDatePersonRelationTasksRelationPersonRelationResolvers<Cont
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19680,7 +20536,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationResolvers<C
   contactInfos?: Resolver<Array<ResolversTypes['InteractionLabelsRelationActivitiesRelationPersonRelationContactInfosRelation']>, ParentType, ContextType, Partial<InteractionLabelsRelationActivitiesRelationPersonRelationContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   importantDates?: Resolver<Array<ResolversTypes['InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation']>, ParentType, ContextType, Partial<InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesArgs>>;
   interactions?: Resolver<Array<ResolversTypes['InteractionLabelsRelationActivitiesRelationPersonRelationInteractionsRelation']>, ParentType, ContextType, Partial<InteractionLabelsRelationActivitiesRelationPersonRelationInteractionsArgs>>;
@@ -19725,7 +20583,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationAddressesRe
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19747,7 +20607,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationContactInfo
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19758,6 +20620,7 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationImportantDa
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   labels?: Resolver<Array<ResolversTypes['InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation']>, ParentType, ContextType, Partial<InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsArgs>>;
+  milestoneType?: Resolver<Maybe<ResolversTypes['ImportantDatesMilestoneTypeEnum']>, ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   person?: Resolver<Maybe<ResolversTypes['InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonRelation']>, ParentType, ContextType, Partial<InteractionLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonArgs>>;
   personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19775,7 +20638,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationImportantDa
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19816,7 +20681,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationMentionedIn
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19827,7 +20694,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationMentionedIn
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19853,7 +20722,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelati
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19864,7 +20735,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationNotesRelati
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19884,7 +20757,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshi
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19895,7 +20770,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshi
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19915,7 +20792,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshi
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19926,7 +20805,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationRelationshi
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19948,7 +20829,9 @@ export type InteractionLabelsRelationActivitiesRelationPersonRelationTasksRelati
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -19962,7 +20845,9 @@ export type InteractionPersonRelationResolvers<ContextType = Context, ParentType
   contactInfos?: Resolver<Array<ResolversTypes['InteractionPersonRelationContactInfosRelation']>, ParentType, ContextType, Partial<InteractionPersonRelationContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   importantDates?: Resolver<Array<ResolversTypes['InteractionPersonRelationImportantDatesRelation']>, ParentType, ContextType, Partial<InteractionPersonRelationImportantDatesArgs>>;
   interactions?: Resolver<Array<ResolversTypes['InteractionPersonRelationInteractionsRelation']>, ParentType, ContextType, Partial<InteractionPersonRelationInteractionsArgs>>;
@@ -20010,7 +20895,9 @@ export type InteractionPersonRelationActivitiesRelationPersonRelationResolvers<C
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20037,7 +20924,9 @@ export type InteractionPersonRelationAddressesRelationPersonRelationResolvers<Co
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20059,7 +20948,9 @@ export type InteractionPersonRelationContactInfosRelationPersonRelationResolvers
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20070,6 +20961,7 @@ export type InteractionPersonRelationImportantDatesRelationResolvers<ContextType
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   labels?: Resolver<Array<ResolversTypes['InteractionPersonRelationImportantDatesRelationLabelsRelation']>, ParentType, ContextType, Partial<InteractionPersonRelationImportantDatesRelationLabelsArgs>>;
+  milestoneType?: Resolver<Maybe<ResolversTypes['ImportantDatesMilestoneTypeEnum']>, ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   person?: Resolver<Maybe<ResolversTypes['InteractionPersonRelationImportantDatesRelationPersonRelation']>, ParentType, ContextType, Partial<InteractionPersonRelationImportantDatesRelationPersonArgs>>;
   personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20106,7 +20998,9 @@ export type InteractionPersonRelationImportantDatesRelationLabelsRelationActivit
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20117,7 +21011,9 @@ export type InteractionPersonRelationImportantDatesRelationPersonRelationResolve
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20162,7 +21058,9 @@ export type InteractionPersonRelationLabelsRelationActivitiesRelationPersonRelat
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20207,7 +21105,9 @@ export type InteractionPersonRelationMentionedInNotesRelationLabelsRelationActiv
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20218,7 +21118,9 @@ export type InteractionPersonRelationMentionedInNotesRelationMentionsRelationRes
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20229,7 +21131,9 @@ export type InteractionPersonRelationMentionedInNotesRelationPersonRelationResol
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20274,7 +21178,9 @@ export type InteractionPersonRelationNotesRelationLabelsRelationActivitiesRelati
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20285,7 +21191,9 @@ export type InteractionPersonRelationNotesRelationMentionsRelationResolvers<Cont
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20296,7 +21204,9 @@ export type InteractionPersonRelationNotesRelationPersonRelationResolvers<Contex
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20316,7 +21226,9 @@ export type InteractionPersonRelationRelationshipsFromRelationFromPersonRelation
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20327,7 +21239,9 @@ export type InteractionPersonRelationRelationshipsFromRelationToPersonRelationRe
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20347,7 +21261,9 @@ export type InteractionPersonRelationRelationshipsToRelationFromPersonRelationRe
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20358,7 +21274,9 @@ export type InteractionPersonRelationRelationshipsToRelationToPersonRelationReso
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20380,7 +21298,9 @@ export type InteractionPersonRelationTasksRelationPersonRelationResolvers<Contex
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20424,7 +21344,9 @@ export type LabelActivitiesRelationPersonRelationResolvers<ContextType = Context
   contactInfos?: Resolver<Array<ResolversTypes['LabelActivitiesRelationPersonRelationContactInfosRelation']>, ParentType, ContextType, Partial<LabelActivitiesRelationPersonRelationContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   importantDates?: Resolver<Array<ResolversTypes['LabelActivitiesRelationPersonRelationImportantDatesRelation']>, ParentType, ContextType, Partial<LabelActivitiesRelationPersonRelationImportantDatesArgs>>;
   interactions?: Resolver<Array<ResolversTypes['LabelActivitiesRelationPersonRelationInteractionsRelation']>, ParentType, ContextType, Partial<LabelActivitiesRelationPersonRelationInteractionsArgs>>;
@@ -20469,7 +21391,9 @@ export type LabelActivitiesRelationPersonRelationAddressesRelationPersonRelation
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20491,7 +21415,9 @@ export type LabelActivitiesRelationPersonRelationContactInfosRelationPersonRelat
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20502,6 +21428,7 @@ export type LabelActivitiesRelationPersonRelationImportantDatesRelationResolvers
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   labels?: Resolver<Array<ResolversTypes['LabelActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation']>, ParentType, ContextType, Partial<LabelActivitiesRelationPersonRelationImportantDatesRelationLabelsArgs>>;
+  milestoneType?: Resolver<Maybe<ResolversTypes['ImportantDatesMilestoneTypeEnum']>, ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   person?: Resolver<Maybe<ResolversTypes['LabelActivitiesRelationPersonRelationImportantDatesRelationPersonRelation']>, ParentType, ContextType, Partial<LabelActivitiesRelationPersonRelationImportantDatesRelationPersonArgs>>;
   personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20519,7 +21446,9 @@ export type LabelActivitiesRelationPersonRelationImportantDatesRelationPersonRel
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20547,7 +21476,9 @@ export type LabelActivitiesRelationPersonRelationInteractionsRelationPersonRelat
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20579,7 +21510,9 @@ export type LabelActivitiesRelationPersonRelationMentionedInNotesRelationMention
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20590,7 +21523,9 @@ export type LabelActivitiesRelationPersonRelationMentionedInNotesRelationPersonR
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20616,7 +21551,9 @@ export type LabelActivitiesRelationPersonRelationNotesRelationMentionsRelationRe
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20627,7 +21564,9 @@ export type LabelActivitiesRelationPersonRelationNotesRelationPersonRelationReso
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20647,7 +21586,9 @@ export type LabelActivitiesRelationPersonRelationRelationshipsFromRelationFromPe
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20658,7 +21599,9 @@ export type LabelActivitiesRelationPersonRelationRelationshipsFromRelationToPers
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20678,7 +21621,9 @@ export type LabelActivitiesRelationPersonRelationRelationshipsToRelationFromPers
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20689,7 +21634,9 @@ export type LabelActivitiesRelationPersonRelationRelationshipsToRelationToPerson
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20711,7 +21658,9 @@ export type LabelActivitiesRelationPersonRelationTasksRelationPersonRelationReso
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20826,7 +21775,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationResolvers<ContextT
   contactInfos?: Resolver<Array<ResolversTypes['NoteLabelsRelationActivitiesRelationPersonRelationContactInfosRelation']>, ParentType, ContextType, Partial<NoteLabelsRelationActivitiesRelationPersonRelationContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   importantDates?: Resolver<Array<ResolversTypes['NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelation']>, ParentType, ContextType, Partial<NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesArgs>>;
   interactions?: Resolver<Array<ResolversTypes['NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelation']>, ParentType, ContextType, Partial<NoteLabelsRelationActivitiesRelationPersonRelationInteractionsArgs>>;
@@ -20871,7 +21822,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationAddressesRelationP
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20893,7 +21846,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationContactInfosRelati
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20904,6 +21859,7 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRela
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   labels?: Resolver<Array<ResolversTypes['NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsRelation']>, ParentType, ContextType, Partial<NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationLabelsArgs>>;
+  milestoneType?: Resolver<Maybe<ResolversTypes['ImportantDatesMilestoneTypeEnum']>, ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   person?: Resolver<Maybe<ResolversTypes['NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonRelation']>, ParentType, ContextType, Partial<NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRelationPersonArgs>>;
   personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20921,7 +21877,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationImportantDatesRela
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20949,7 +21907,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationInteractionsRelati
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20987,7 +21947,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromR
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -20998,7 +21960,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsFromR
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21018,7 +21982,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRel
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21029,7 +21995,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationRelationshipsToRel
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21051,7 +22019,9 @@ export type NoteLabelsRelationActivitiesRelationPersonRelationTasksRelationPerso
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21070,7 +22040,9 @@ export type NoteMentionsRelationResolvers<ContextType = Context, ParentType exte
   contactInfos?: Resolver<Array<ResolversTypes['NoteMentionsRelationContactInfosRelation']>, ParentType, ContextType, Partial<NoteMentionsRelationContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   importantDates?: Resolver<Array<ResolversTypes['NoteMentionsRelationImportantDatesRelation']>, ParentType, ContextType, Partial<NoteMentionsRelationImportantDatesArgs>>;
   interactions?: Resolver<Array<ResolversTypes['NoteMentionsRelationInteractionsRelation']>, ParentType, ContextType, Partial<NoteMentionsRelationInteractionsArgs>>;
@@ -21118,7 +22090,9 @@ export type NoteMentionsRelationActivitiesRelationPersonRelationResolvers<Contex
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21145,7 +22119,9 @@ export type NoteMentionsRelationAddressesRelationPersonRelationResolvers<Context
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21167,7 +22143,9 @@ export type NoteMentionsRelationContactInfosRelationPersonRelationResolvers<Cont
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21178,6 +22156,7 @@ export type NoteMentionsRelationImportantDatesRelationResolvers<ContextType = Co
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   labels?: Resolver<Array<ResolversTypes['NoteMentionsRelationImportantDatesRelationLabelsRelation']>, ParentType, ContextType, Partial<NoteMentionsRelationImportantDatesRelationLabelsArgs>>;
+  milestoneType?: Resolver<Maybe<ResolversTypes['ImportantDatesMilestoneTypeEnum']>, ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   person?: Resolver<Maybe<ResolversTypes['NoteMentionsRelationImportantDatesRelationPersonRelation']>, ParentType, ContextType, Partial<NoteMentionsRelationImportantDatesRelationPersonArgs>>;
   personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21214,7 +22193,9 @@ export type NoteMentionsRelationImportantDatesRelationLabelsRelationActivitiesRe
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21225,7 +22206,9 @@ export type NoteMentionsRelationImportantDatesRelationPersonRelationResolvers<Co
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21272,7 +22255,9 @@ export type NoteMentionsRelationInteractionsRelationLabelsRelationActivitiesRela
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21283,7 +22268,9 @@ export type NoteMentionsRelationInteractionsRelationPersonRelationResolvers<Cont
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21319,7 +22306,9 @@ export type NoteMentionsRelationLabelsRelationActivitiesRelationPersonRelationRe
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21351,7 +22340,9 @@ export type NoteMentionsRelationRelationshipsFromRelationFromPersonRelationResol
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21362,7 +22353,9 @@ export type NoteMentionsRelationRelationshipsFromRelationToPersonRelationResolve
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21382,7 +22375,9 @@ export type NoteMentionsRelationRelationshipsToRelationFromPersonRelationResolve
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21393,7 +22388,9 @@ export type NoteMentionsRelationRelationshipsToRelationToPersonRelationResolvers
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21415,7 +22412,9 @@ export type NoteMentionsRelationTasksRelationPersonRelationResolvers<ContextType
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21429,7 +22428,9 @@ export type NotePersonRelationResolvers<ContextType = Context, ParentType extend
   contactInfos?: Resolver<Array<ResolversTypes['NotePersonRelationContactInfosRelation']>, ParentType, ContextType, Partial<NotePersonRelationContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   importantDates?: Resolver<Array<ResolversTypes['NotePersonRelationImportantDatesRelation']>, ParentType, ContextType, Partial<NotePersonRelationImportantDatesArgs>>;
   interactions?: Resolver<Array<ResolversTypes['NotePersonRelationInteractionsRelation']>, ParentType, ContextType, Partial<NotePersonRelationInteractionsArgs>>;
@@ -21477,7 +22478,9 @@ export type NotePersonRelationActivitiesRelationPersonRelationResolvers<ContextT
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21504,7 +22507,9 @@ export type NotePersonRelationAddressesRelationPersonRelationResolvers<ContextTy
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21526,7 +22531,9 @@ export type NotePersonRelationContactInfosRelationPersonRelationResolvers<Contex
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21537,6 +22544,7 @@ export type NotePersonRelationImportantDatesRelationResolvers<ContextType = Cont
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   labels?: Resolver<Array<ResolversTypes['NotePersonRelationImportantDatesRelationLabelsRelation']>, ParentType, ContextType, Partial<NotePersonRelationImportantDatesRelationLabelsArgs>>;
+  milestoneType?: Resolver<Maybe<ResolversTypes['ImportantDatesMilestoneTypeEnum']>, ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   person?: Resolver<Maybe<ResolversTypes['NotePersonRelationImportantDatesRelationPersonRelation']>, ParentType, ContextType, Partial<NotePersonRelationImportantDatesRelationPersonArgs>>;
   personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21573,7 +22581,9 @@ export type NotePersonRelationImportantDatesRelationLabelsRelationActivitiesRela
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21584,7 +22594,9 @@ export type NotePersonRelationImportantDatesRelationPersonRelationResolvers<Cont
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21631,7 +22643,9 @@ export type NotePersonRelationInteractionsRelationLabelsRelationActivitiesRelati
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21642,7 +22656,9 @@ export type NotePersonRelationInteractionsRelationPersonRelationResolvers<Contex
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21678,7 +22694,9 @@ export type NotePersonRelationLabelsRelationActivitiesRelationPersonRelationReso
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21710,7 +22728,9 @@ export type NotePersonRelationRelationshipsFromRelationFromPersonRelationResolve
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21721,7 +22741,9 @@ export type NotePersonRelationRelationshipsFromRelationToPersonRelationResolvers
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21741,7 +22763,9 @@ export type NotePersonRelationRelationshipsToRelationFromPersonRelationResolvers
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21752,7 +22776,9 @@ export type NotePersonRelationRelationshipsToRelationToPersonRelationResolvers<C
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21774,7 +22800,9 @@ export type NotePersonRelationTasksRelationPersonRelationResolvers<ContextType =
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21793,7 +22821,9 @@ export type PersonResolvers<ContextType = Context, ParentType extends ResolversP
   contactInfos?: Resolver<Array<ResolversTypes['PersonContactInfosRelation']>, ParentType, ContextType, Partial<PersonContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   importantDates?: Resolver<Array<ResolversTypes['PersonImportantDatesRelation']>, ParentType, ContextType, Partial<PersonImportantDatesArgs>>;
   interactions?: Resolver<Array<ResolversTypes['PersonInteractionsRelation']>, ParentType, ContextType, Partial<PersonInteractionsArgs>>;
@@ -21842,7 +22872,9 @@ export type PersonActivitiesRelationPersonRelationResolvers<ContextType = Contex
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21869,7 +22901,9 @@ export type PersonAddressesRelationPersonRelationResolvers<ContextType = Context
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21891,7 +22925,9 @@ export type PersonContactInfosRelationPersonRelationResolvers<ContextType = Cont
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21902,6 +22938,7 @@ export type PersonImportantDatesRelationResolvers<ContextType = Context, ParentT
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   labels?: Resolver<Array<ResolversTypes['PersonImportantDatesRelationLabelsRelation']>, ParentType, ContextType, Partial<PersonImportantDatesRelationLabelsArgs>>;
+  milestoneType?: Resolver<Maybe<ResolversTypes['ImportantDatesMilestoneTypeEnum']>, ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   person?: Resolver<Maybe<ResolversTypes['PersonImportantDatesRelationPersonRelation']>, ParentType, ContextType, Partial<PersonImportantDatesRelationPersonArgs>>;
   personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21938,7 +22975,9 @@ export type PersonImportantDatesRelationLabelsRelationActivitiesRelationPersonRe
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21949,7 +22988,9 @@ export type PersonImportantDatesRelationPersonRelationResolvers<ContextType = Co
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -21996,7 +23037,9 @@ export type PersonInteractionsRelationLabelsRelationActivitiesRelationPersonRela
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22007,7 +23050,9 @@ export type PersonInteractionsRelationPersonRelationResolvers<ContextType = Cont
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22048,7 +23093,9 @@ export type PersonLabelsRelationActivitiesRelationPersonRelationResolvers<Contex
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22093,7 +23140,9 @@ export type PersonMentionedInNotesRelationLabelsRelationActivitiesRelationPerson
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22104,7 +23153,9 @@ export type PersonMentionedInNotesRelationMentionsRelationResolvers<ContextType 
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22115,7 +23166,9 @@ export type PersonMentionedInNotesRelationPersonRelationResolvers<ContextType = 
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22160,7 +23213,9 @@ export type PersonNotesRelationLabelsRelationActivitiesRelationPersonRelationRes
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22171,7 +23226,9 @@ export type PersonNotesRelationMentionsRelationResolvers<ContextType = Context, 
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22182,7 +23239,9 @@ export type PersonNotesRelationPersonRelationResolvers<ContextType = Context, Pa
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22213,7 +23272,9 @@ export type PersonRelationshipFromPersonRelationResolvers<ContextType = Context,
   contactInfos?: Resolver<Array<ResolversTypes['PersonRelationshipFromPersonRelationContactInfosRelation']>, ParentType, ContextType, Partial<PersonRelationshipFromPersonRelationContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   importantDates?: Resolver<Array<ResolversTypes['PersonRelationshipFromPersonRelationImportantDatesRelation']>, ParentType, ContextType, Partial<PersonRelationshipFromPersonRelationImportantDatesArgs>>;
   interactions?: Resolver<Array<ResolversTypes['PersonRelationshipFromPersonRelationInteractionsRelation']>, ParentType, ContextType, Partial<PersonRelationshipFromPersonRelationInteractionsArgs>>;
@@ -22261,7 +23322,9 @@ export type PersonRelationshipFromPersonRelationActivitiesRelationPersonRelation
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22288,7 +23351,9 @@ export type PersonRelationshipFromPersonRelationAddressesRelationPersonRelationR
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22310,7 +23375,9 @@ export type PersonRelationshipFromPersonRelationContactInfosRelationPersonRelati
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22321,6 +23388,7 @@ export type PersonRelationshipFromPersonRelationImportantDatesRelationResolvers<
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   labels?: Resolver<Array<ResolversTypes['PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRelation']>, ParentType, ContextType, Partial<PersonRelationshipFromPersonRelationImportantDatesRelationLabelsArgs>>;
+  milestoneType?: Resolver<Maybe<ResolversTypes['ImportantDatesMilestoneTypeEnum']>, ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   person?: Resolver<Maybe<ResolversTypes['PersonRelationshipFromPersonRelationImportantDatesRelationPersonRelation']>, ParentType, ContextType, Partial<PersonRelationshipFromPersonRelationImportantDatesRelationPersonArgs>>;
   personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22357,7 +23425,9 @@ export type PersonRelationshipFromPersonRelationImportantDatesRelationLabelsRela
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22368,7 +23438,9 @@ export type PersonRelationshipFromPersonRelationImportantDatesRelationPersonRela
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22415,7 +23487,9 @@ export type PersonRelationshipFromPersonRelationInteractionsRelationLabelsRelati
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22426,7 +23500,9 @@ export type PersonRelationshipFromPersonRelationInteractionsRelationPersonRelati
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22462,7 +23538,9 @@ export type PersonRelationshipFromPersonRelationLabelsRelationActivitiesRelation
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22507,7 +23585,9 @@ export type PersonRelationshipFromPersonRelationMentionedInNotesRelationLabelsRe
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22518,7 +23598,9 @@ export type PersonRelationshipFromPersonRelationMentionedInNotesRelationMentions
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22529,7 +23611,9 @@ export type PersonRelationshipFromPersonRelationMentionedInNotesRelationPersonRe
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22574,7 +23658,9 @@ export type PersonRelationshipFromPersonRelationNotesRelationLabelsRelationActiv
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22585,7 +23671,9 @@ export type PersonRelationshipFromPersonRelationNotesRelationMentionsRelationRes
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22596,7 +23684,9 @@ export type PersonRelationshipFromPersonRelationNotesRelationPersonRelationResol
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22632,7 +23722,9 @@ export type PersonRelationshipFromPersonRelationTasksRelationPersonRelationResol
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22646,7 +23738,9 @@ export type PersonRelationshipToPersonRelationResolvers<ContextType = Context, P
   contactInfos?: Resolver<Array<ResolversTypes['PersonRelationshipToPersonRelationContactInfosRelation']>, ParentType, ContextType, Partial<PersonRelationshipToPersonRelationContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   importantDates?: Resolver<Array<ResolversTypes['PersonRelationshipToPersonRelationImportantDatesRelation']>, ParentType, ContextType, Partial<PersonRelationshipToPersonRelationImportantDatesArgs>>;
   interactions?: Resolver<Array<ResolversTypes['PersonRelationshipToPersonRelationInteractionsRelation']>, ParentType, ContextType, Partial<PersonRelationshipToPersonRelationInteractionsArgs>>;
@@ -22694,7 +23788,9 @@ export type PersonRelationshipToPersonRelationActivitiesRelationPersonRelationRe
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22721,7 +23817,9 @@ export type PersonRelationshipToPersonRelationAddressesRelationPersonRelationRes
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22743,7 +23841,9 @@ export type PersonRelationshipToPersonRelationContactInfosRelationPersonRelation
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22754,6 +23854,7 @@ export type PersonRelationshipToPersonRelationImportantDatesRelationResolvers<Co
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   labels?: Resolver<Array<ResolversTypes['PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelation']>, ParentType, ContextType, Partial<PersonRelationshipToPersonRelationImportantDatesRelationLabelsArgs>>;
+  milestoneType?: Resolver<Maybe<ResolversTypes['ImportantDatesMilestoneTypeEnum']>, ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   person?: Resolver<Maybe<ResolversTypes['PersonRelationshipToPersonRelationImportantDatesRelationPersonRelation']>, ParentType, ContextType, Partial<PersonRelationshipToPersonRelationImportantDatesRelationPersonArgs>>;
   personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22790,7 +23891,9 @@ export type PersonRelationshipToPersonRelationImportantDatesRelationLabelsRelati
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22801,7 +23904,9 @@ export type PersonRelationshipToPersonRelationImportantDatesRelationPersonRelati
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22848,7 +23953,9 @@ export type PersonRelationshipToPersonRelationInteractionsRelationLabelsRelation
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22859,7 +23966,9 @@ export type PersonRelationshipToPersonRelationInteractionsRelationPersonRelation
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22895,7 +24004,9 @@ export type PersonRelationshipToPersonRelationLabelsRelationActivitiesRelationPe
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22940,7 +24051,9 @@ export type PersonRelationshipToPersonRelationMentionedInNotesRelationLabelsRela
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22951,7 +24064,9 @@ export type PersonRelationshipToPersonRelationMentionedInNotesRelationMentionsRe
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -22962,7 +24077,9 @@ export type PersonRelationshipToPersonRelationMentionedInNotesRelationPersonRela
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23007,7 +24124,9 @@ export type PersonRelationshipToPersonRelationNotesRelationLabelsRelationActivit
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23018,7 +24137,9 @@ export type PersonRelationshipToPersonRelationNotesRelationMentionsRelationResol
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23029,7 +24150,9 @@ export type PersonRelationshipToPersonRelationNotesRelationPersonRelationResolve
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23065,7 +24188,9 @@ export type PersonRelationshipToPersonRelationTasksRelationPersonRelationResolve
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23085,7 +24210,9 @@ export type PersonRelationshipsFromRelationFromPersonRelationResolvers<ContextTy
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23096,7 +24223,9 @@ export type PersonRelationshipsFromRelationToPersonRelationResolvers<ContextType
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23116,7 +24245,9 @@ export type PersonRelationshipsToRelationFromPersonRelationResolvers<ContextType
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23127,7 +24258,9 @@ export type PersonRelationshipsToRelationToPersonRelationResolvers<ContextType =
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23149,7 +24282,9 @@ export type PersonTasksRelationPersonRelationResolvers<ContextType = Context, Pa
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23188,6 +24323,7 @@ export type QueryResolvers<ContextType = Context, ParentType extends ResolversPa
   persons?: Resolver<Array<ResolversTypes['Person']>, ParentType, ContextType, Partial<QueryPersonsArgs>>;
   task?: Resolver<Maybe<ResolversTypes['Task']>, ParentType, ContextType, Partial<QueryTaskArgs>>;
   tasks?: Resolver<Array<ResolversTypes['Task']>, ParentType, ContextType, Partial<QueryTasksArgs>>;
+  upcomingDates?: Resolver<Array<ResolversTypes['UpcomingDateEntry']>, ParentType, ContextType, Partial<QueryUpcomingDatesArgs>>;
 };
 
 export type TaskResolvers<ContextType = Context, ParentType extends ResolversParentTypes['Task'] = ResolversParentTypes['Task']> = {
@@ -23209,7 +24345,9 @@ export type TaskPersonRelationResolvers<ContextType = Context, ParentType extend
   contactInfos?: Resolver<Array<ResolversTypes['TaskPersonRelationContactInfosRelation']>, ParentType, ContextType, Partial<TaskPersonRelationContactInfosArgs>>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   importantDates?: Resolver<Array<ResolversTypes['TaskPersonRelationImportantDatesRelation']>, ParentType, ContextType, Partial<TaskPersonRelationImportantDatesArgs>>;
   interactions?: Resolver<Array<ResolversTypes['TaskPersonRelationInteractionsRelation']>, ParentType, ContextType, Partial<TaskPersonRelationInteractionsArgs>>;
@@ -23257,7 +24395,9 @@ export type TaskPersonRelationActivitiesRelationPersonRelationResolvers<ContextT
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23284,7 +24424,9 @@ export type TaskPersonRelationAddressesRelationPersonRelationResolvers<ContextTy
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23306,7 +24448,9 @@ export type TaskPersonRelationContactInfosRelationPersonRelationResolvers<Contex
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23317,6 +24461,7 @@ export type TaskPersonRelationImportantDatesRelationResolvers<ContextType = Cont
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   labels?: Resolver<Array<ResolversTypes['TaskPersonRelationImportantDatesRelationLabelsRelation']>, ParentType, ContextType, Partial<TaskPersonRelationImportantDatesRelationLabelsArgs>>;
+  milestoneType?: Resolver<Maybe<ResolversTypes['ImportantDatesMilestoneTypeEnum']>, ParentType, ContextType>;
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   person?: Resolver<Maybe<ResolversTypes['TaskPersonRelationImportantDatesRelationPersonRelation']>, ParentType, ContextType, Partial<TaskPersonRelationImportantDatesRelationPersonArgs>>;
   personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23353,7 +24498,9 @@ export type TaskPersonRelationImportantDatesRelationLabelsRelationActivitiesRela
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23364,7 +24511,9 @@ export type TaskPersonRelationImportantDatesRelationPersonRelationResolvers<Cont
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23411,7 +24560,9 @@ export type TaskPersonRelationInteractionsRelationLabelsRelationActivitiesRelati
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23422,7 +24573,9 @@ export type TaskPersonRelationInteractionsRelationPersonRelationResolvers<Contex
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23458,7 +24611,9 @@ export type TaskPersonRelationLabelsRelationActivitiesRelationPersonRelationReso
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23503,7 +24658,9 @@ export type TaskPersonRelationMentionedInNotesRelationLabelsRelationActivitiesRe
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23514,7 +24671,9 @@ export type TaskPersonRelationMentionedInNotesRelationMentionsRelationResolvers<
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23525,7 +24684,9 @@ export type TaskPersonRelationMentionedInNotesRelationPersonRelationResolvers<Co
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23570,7 +24731,9 @@ export type TaskPersonRelationNotesRelationLabelsRelationActivitiesRelationPerso
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23581,7 +24744,9 @@ export type TaskPersonRelationNotesRelationMentionsRelationResolvers<ContextType
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23592,7 +24757,9 @@ export type TaskPersonRelationNotesRelationPersonRelationResolvers<ContextType =
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23612,7 +24779,9 @@ export type TaskPersonRelationRelationshipsFromRelationFromPersonRelationResolve
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23623,7 +24792,9 @@ export type TaskPersonRelationRelationshipsFromRelationToPersonRelationResolvers
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23643,7 +24814,9 @@ export type TaskPersonRelationRelationshipsToRelationFromPersonRelationResolvers
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23654,7 +24827,9 @@ export type TaskPersonRelationRelationshipsToRelationToPersonRelationResolvers<C
   contactFrequency?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   createdAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   email?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  firstMetDate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   firstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  howWeMet?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   lastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -23668,6 +24843,19 @@ export type TaskPersonRelationTasksRelationResolvers<ContextType = Context, Pare
   notes?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type UpcomingDateEntryResolvers<ContextType = Context, ParentType extends ResolversParentTypes['UpcomingDateEntry'] = ResolversParentTypes['UpcomingDateEntry']> = {
+  date?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  daysUntil?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  nextDate?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  personFirstName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  personId?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  personLastName?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  recurrence?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
 };
 
 export type Resolvers<ContextType = Context> = {
@@ -24267,5 +25455,6 @@ export type Resolvers<ContextType = Context> = {
   TaskPersonRelationRelationshipsToRelationFromPersonRelation?: TaskPersonRelationRelationshipsToRelationFromPersonRelationResolvers<ContextType>;
   TaskPersonRelationRelationshipsToRelationToPersonRelation?: TaskPersonRelationRelationshipsToRelationToPersonRelationResolvers<ContextType>;
   TaskPersonRelationTasksRelation?: TaskPersonRelationTasksRelationResolvers<ContextType>;
+  UpcomingDateEntry?: UpcomingDateEntryResolvers<ContextType>;
 };
 

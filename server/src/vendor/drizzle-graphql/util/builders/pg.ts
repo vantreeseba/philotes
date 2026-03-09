@@ -509,12 +509,6 @@ export function generateSchemaData<
     );
   }
 
-//   console.log(relations);
-
-//   const named = Object.entries(relations).map(([name, value]) => {
-//     return [name, value];
-//   });
-
   const queries: ThunkObjMap<GraphQLFieldConfig<any, any>> = {};
   const mutations: ThunkObjMap<GraphQLFieldConfig<any, any>> = {};
   const gqlSchemaTypes = Object.fromEntries(

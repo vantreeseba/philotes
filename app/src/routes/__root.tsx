@@ -1,4 +1,5 @@
 import { createRootRoute, Link, Outlet } from '@tanstack/react-router';
+import { CalendarCheck } from 'lucide-react';
 
 export const Route = createRootRoute({
   component: () => (
@@ -17,6 +18,13 @@ export const Route = createRootRoute({
             </Link>
             <Link to="/network" className="text-muted-foreground text-sm hover:text-foreground">
               Network
+            </Link>
+            <Link
+              to="/review"
+              className="text-muted-foreground text-sm hover:text-foreground inline-flex items-center gap-1"
+            >
+              <CalendarCheck className="h-3.5 w-3.5" />
+              Review
             </Link>
           </nav>
         </div>

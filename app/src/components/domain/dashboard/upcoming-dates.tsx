@@ -1,8 +1,16 @@
 import { useQuery } from '@apollo/client';
 import { Link } from '@tanstack/react-router';
 import { CalendarDays } from 'lucide-react';
+import { useState } from 'react';
 import { graphql } from '@/__generated__/gql.js';
 import { Card, CardContent } from '@/components/ui/card.js';
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationNext,
+  PaginationPrevious,
+} from '@/components/ui/pagination.js';
 import { Spinner } from '@/components/ui/spinner.tsx';
 
 // ---------------------------------------------------------------------------
@@ -10,135 +18,21 @@ import { Spinner } from '@/components/ui/spinner.tsx';
 // ---------------------------------------------------------------------------
 
 const GET_UPCOMING_DATES = graphql(`
-  query GetUpcomingDates {
-    importantDates {
+  query GetUpcomingDates($limit: Int, $offset: Int) {
+    upcomingDates(limit: $limit, offset: $offset) {
       id
       name
       description
       date
       recurrence
-      person {
-        id
-        firstName
-        lastName
-      }
+      daysUntil
+      nextDate
+      personId
+      personFirstName
+      personLastName
     }
   }
 `);
-
-// ---------------------------------------------------------------------------
-// Recurrence logic
-//
-// For each recurrence type we compute how many days until the *next*
-// occurrence on or after today, then filter to within the lookahead window.
-//
-// null / undefined  →  one-time: show only if the stored date is in the future
-//                       within the lookahead window.
-// "yearly"          →  same month + day each year (e.g. birthdays).
-// "monthly"         →  same day-of-month each month.
-// "weekly"          →  same day-of-week each week.
-// ---------------------------------------------------------------------------
-
-/** Return today at midnight in local time. */
-function today(): Date {
-  const d = new Date();
-  d.setHours(0, 0, 0, 0);
-  return d;
-}
-
-/** Days between two midnight-normalised dates (can be negative). */
-function dayDiff(a: Date, b: Date): number {
-  return Math.round((b.getTime() - a.getTime()) / (1000 * 60 * 60 * 24));
-}
-
-/**
- * Given a stored YYYY-MM-DD string and a recurrence type, return the number
- * of days until the next occurrence on or after today.
- * Returns null if the event will never occur again (one-time already passed).
- */
-function daysUntilNext(dateStr: string, recurrence: string | null | undefined): number | null {
-  const t = today();
-  const [yearStr, monthStr, dayStr] = dateStr.split('-');
-  const storedYear = Number(yearStr);
-  const month = Number(monthStr) - 1; // 0-indexed for Date constructor
-  const day = Number(dayStr);
-
-  if (!recurrence) {
-    // One-time event: only show if the stored date is today or in the future.
-    const stored = new Date(storedYear, month, day);
-    const diff = dayDiff(t, stored);
-    return diff >= 0 ? diff : null;
-  }
-
-  if (recurrence === 'yearly') {
-    // Next occurrence this year.
-    const thisYear = new Date(t.getFullYear(), month, day);
-    const diff = dayDiff(t, thisYear);
-    if (diff >= 0) return diff;
-    // Already passed — next year.
-    return dayDiff(t, new Date(t.getFullYear() + 1, month, day));
-  }
-
-  if (recurrence === 'monthly') {
-    // Next occurrence this month.
-    const thisMonth = new Date(t.getFullYear(), t.getMonth(), day);
-    const diff = dayDiff(t, thisMonth);
-    if (diff >= 0) return diff;
-    // Already passed — next month.
-    return dayDiff(t, new Date(t.getFullYear(), t.getMonth() + 1, day));
-  }
-
-  if (recurrence === 'weekly') {
-    const storedDate = new Date(storedYear, month, day);
-    const targetDow = storedDate.getDay(); // 0 = Sun
-    const todayDow = t.getDay();
-    const daysAhead = (targetDow - todayDow + 7) % 7;
-    return daysAhead; // 0 = today (same day of week)
-  }
-
-  return null;
-}
-
-/**
- * Return the actual Date object of the next occurrence on or after today.
- * Returns null for one-time events that have already passed.
- */
-function nextOccurrenceDate(dateStr: string, recurrence: string | null | undefined): Date | null {
-  const t = today();
-  const [yearStr, monthStr, dayStr] = dateStr.split('-');
-  const storedYear = Number(yearStr);
-  const month = Number(monthStr) - 1;
-  const day = Number(dayStr);
-
-  if (!recurrence) {
-    const stored = new Date(storedYear, month, day);
-    return stored >= t ? stored : null;
-  }
-
-  if (recurrence === 'yearly') {
-    const thisYear = new Date(t.getFullYear(), month, day);
-    if (thisYear >= t) return thisYear;
-    return new Date(t.getFullYear() + 1, month, day);
-  }
-
-  if (recurrence === 'monthly') {
-    const thisMonth = new Date(t.getFullYear(), t.getMonth(), day);
-    if (thisMonth >= t) return thisMonth;
-    return new Date(t.getFullYear(), t.getMonth() + 1, day);
-  }
-
-  if (recurrence === 'weekly') {
-    const storedDate = new Date(storedYear, month, day);
-    const targetDow = storedDate.getDay();
-    const todayDow = t.getDay();
-    const daysAhead = (targetDow - todayDow + 7) % 7;
-    const next = new Date(t);
-    next.setDate(t.getDate() + daysAhead);
-    return next;
-  }
-
-  return null;
-}
 
 // ---------------------------------------------------------------------------
 // Display helpers
@@ -164,8 +58,9 @@ function formatDate(dateStr: string): string {
   });
 }
 
-function formatNextDate(date: Date): string {
-  return date.toLocaleDateString(undefined, {
+function formatNextDate(dateStr: string): string {
+  const [yearStr, monthStr, dayStr] = dateStr.split('-');
+  return new Date(Number(yearStr), Number(monthStr) - 1, Number(dayStr)).toLocaleDateString(undefined, {
     month: 'short',
     day: 'numeric',
     year: 'numeric',
@@ -177,19 +72,24 @@ function formatNextDate(date: Date): string {
 // ---------------------------------------------------------------------------
 
 const LOOKAHEAD_DAYS = 30;
+const PAGE_SIZE_OPTIONS = [5, 10, 25, 50] as const;
 
 export function UpcomingDates() {
-  const { data, loading, error } = useQuery(GET_UPCOMING_DATES);
+  const [page, setPage] = useState(0);
+  const [pageSize, setPageSize] = useState(10);
 
-  const upcoming = (data?.importantDates ?? [])
-    .flatMap((d) => {
-      if (!d.person) return [];
-      const days = daysUntilNext(d.date, d.recurrence);
-      if (days === null || days > LOOKAHEAD_DAYS) return [];
-      const nextDate = nextOccurrenceDate(d.date, d.recurrence);
-      return [{ ...d, daysUntil: days, nextDate }];
-    })
-    .sort((a, b) => a.daysUntil - b.daysUntil);
+  const { data, loading, error } = useQuery(GET_UPCOMING_DATES, {
+    variables: { limit: pageSize, offset: page * pageSize },
+  });
+
+  const items = data?.upcomingDates ?? [];
+  const isFirstPage = page === 0;
+  const isLastPage = items.length < pageSize;
+
+  function handlePageSizeChange(nextSize: number) {
+    setPageSize(nextSize);
+    setPage(0);
+  }
 
   return (
     <Card>
@@ -203,13 +103,13 @@ export function UpcomingDates() {
         {loading && <Spinner />}
         {error && <p className="text-sm text-destructive">Failed to load upcoming dates.</p>}
 
-        {!loading && !error && upcoming.length === 0 && (
+        {!loading && !error && items.length === 0 && (
           <p className="text-sm text-muted-foreground">No upcoming dates in the next {LOOKAHEAD_DAYS} days.</p>
         )}
 
-        {upcoming.length > 0 && (
+        {items.length > 0 && (
           <ul className="space-y-2">
-            {upcoming.map((d) => (
+            {items.map((d) => (
               <li
                 key={d.id}
                 className="flex items-center justify-between gap-3 rounded-md border border-border px-3 py-2 text-sm"
@@ -217,22 +117,20 @@ export function UpcomingDates() {
                 <div className="min-w-0 flex-1">
                   <Link
                     to="/persons/$id/dates/$dateId"
-                    params={{ id: d.person!.id, dateId: d.id }}
+                    params={{ id: d.personId, dateId: d.id }}
                     className="font-medium hover:underline"
                   >
                     {d.name}
                   </Link>
                   {d.description && <span className="ml-2 text-xs text-muted-foreground">{d.description}</span>}
                   <div className="text-xs text-muted-foreground mt-0.5 flex items-center gap-1.5">
-                    <Link to="/persons/$id" params={{ id: d.person!.id }} className="hover:underline">
-                      {d.person!.firstName} {d.person!.lastName}
+                    <Link to="/persons/$id" params={{ id: d.personId }} className="hover:underline">
+                      {d.personFirstName} {d.personLastName}
                     </Link>
                     <span>·</span>
                     {d.recurrence ? (
                       <>
-                        <span title={`Original: ${formatDate(d.date)}`}>
-                          {d.nextDate ? formatNextDate(d.nextDate) : formatDate(d.date)}
-                        </span>
+                        <span title={`Original: ${formatDate(d.date)}`}>{formatNextDate(d.nextDate)}</span>
                         {RECURRENCE_LABELS[d.recurrence] && (
                           <span className="rounded-full bg-muted px-1.5 py-0.5 text-xs">
                             {RECURRENCE_LABELS[d.recurrence]}
@@ -258,6 +156,46 @@ export function UpcomingDates() {
               </li>
             ))}
           </ul>
+        )}
+
+        {(items.length > 0 || page > 0) && (
+          <div className="flex items-center justify-between gap-2 pt-1">
+            <div className="flex items-center gap-1.5">
+              <label htmlFor="upcoming-page-size" className="text-xs text-muted-foreground">
+                Per page
+              </label>
+              <select
+                id="upcoming-page-size"
+                value={pageSize}
+                onChange={(e) => handlePageSizeChange(Number(e.target.value))}
+                className="h-8 rounded-md border border-input bg-background px-2 text-xs focus:outline-none focus:ring-2 focus:ring-ring"
+              >
+                {PAGE_SIZE_OPTIONS.map((n) => (
+                  <option key={n} value={n}>
+                    {n}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <Pagination className="w-auto mx-0 justify-end">
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious
+                    onClick={() => setPage((p) => p - 1)}
+                    className={isFirstPage ? 'pointer-events-none opacity-50' : ''}
+                    aria-disabled={isFirstPage}
+                  />
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationNext
+                    onClick={() => setPage((p) => p + 1)}
+                    className={isLastPage ? 'pointer-events-none opacity-50' : ''}
+                    aria-disabled={isLastPage}
+                  />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          </div>
         )}
       </CardContent>
     </Card>

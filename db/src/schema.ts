@@ -13,6 +13,8 @@ export const persons = pgTable('persons', {
   email: text('email').notNull().unique(),
   avatarPath: text('avatar_path'),
   contactFrequency: text('contact_frequency').$type<ContactFrequency>(),
+  howWeMet: text('how_we_met'),
+  firstMetDate: date('first_met_date'),
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
   updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
 });
@@ -53,6 +55,21 @@ export type Recurrence = (typeof RECURRENCE_VALUES)[number];
 export const CONTACT_FREQUENCY_VALUES = ['weekly', 'monthly', 'quarterly', 'yearly'] as const;
 export type ContactFrequency = (typeof CONTACT_FREQUENCY_VALUES)[number];
 
+export const MILESTONE_TYPES = [
+  'new_job',
+  'promotion',
+  'moved',
+  'new_baby',
+  'married',
+  'divorced',
+  'retired',
+  'health_event',
+  'graduation',
+  'loss',
+  'other',
+] as const;
+export type MilestoneType = (typeof MILESTONE_TYPES)[number];
+
 export const importantDates = pgTable('important_dates', {
   id: uuid('id').primaryKey().defaultRandom(),
   personId: uuid('person_id')
@@ -62,6 +79,21 @@ export const importantDates = pgTable('important_dates', {
   description: text('description'),
   date: date('date').notNull(),
   recurrence: text('recurrence').$type<Recurrence>(),
+  milestoneType: text('milestone_type', {
+    enum: [
+      'new_job',
+      'promotion',
+      'moved',
+      'new_baby',
+      'married',
+      'divorced',
+      'retired',
+      'health_event',
+      'graduation',
+      'loss',
+      'other',
+    ],
+  }).$type<MilestoneType>(),
 });
 
 export const noteTags = pgTable(

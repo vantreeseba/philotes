@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { useRef, useState } from 'react';
 import { graphql } from '@/__generated__/gql.js';
+import type { ImportantDatesMilestoneTypeEnum } from '@/__generated__/graphql.js';
 import { ActivityList } from '@/components/domain/activity/list.js';
 import { AddressList } from '@/components/domain/address/list.js';
 import { ContactInfoList } from '@/components/domain/contact-info/list.js';
@@ -22,6 +23,7 @@ import { PersonForm, type PersonFormValue } from '@/components/domain/person/for
 import {
   ImportantDateForm,
   type ImportantDateFormValue,
+  MILESTONE_TYPE_OPTIONS,
   RECURRENCE_OPTIONS,
 } from '@/components/domain/person/important-date-form.js';
 import { ImportantDateTags } from '@/components/domain/person/important-date-tags.js';
@@ -34,7 +36,7 @@ import { TaskList } from '@/components/domain/task/list.js';
 import { ListLayout } from '@/components/layouts/list.js';
 import { Avatar } from '@/components/ui/avatar.js';
 import { Button } from '@/components/ui/button.js';
-import { Card, CardContent } from '@/components/ui/card.js';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.js';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog.js';
 import { Spinner } from '@/components/ui/spinner.tsx';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip.js';
@@ -52,6 +54,8 @@ const GET_PERSON_DETAIL = graphql(`
       email
       avatarPath
       contactFrequency
+      howWeMet
+      firstMetDate
       createdAt
       updatedAt
       labels {
@@ -65,6 +69,7 @@ const GET_PERSON_DETAIL = graphql(`
         description
         date
         recurrence
+        milestoneType
         labels {
           id
           label
@@ -195,6 +200,7 @@ const CREATE_IMPORTANT_DATE = graphql(`
     $personId: String!
     $description: String
     $recurrence: String
+    $milestoneType: ImportantDatesMilestoneTypeEnum
   ) {
     createImportantDate(
       values: {
@@ -203,6 +209,7 @@ const CREATE_IMPORTANT_DATE = graphql(`
         personId: $personId
         description: $description
         recurrence: $recurrence
+        milestoneType: $milestoneType
       }
     ) {
       id
@@ -210,6 +217,7 @@ const CREATE_IMPORTANT_DATE = graphql(`
       date
       description
       recurrence
+      milestoneType
       personId
     }
   }
@@ -222,6 +230,7 @@ const UPDATE_IMPORTANT_DATE = graphql(`
     $date: String!
     $description: String
     $recurrence: String
+    $milestoneType: ImportantDatesMilestoneTypeEnum
   ) {
     updateImportantDates(
       set: {
@@ -229,6 +238,7 @@ const UPDATE_IMPORTANT_DATE = graphql(`
         date: $date
         description: $description
         recurrence: $recurrence
+        milestoneType: $milestoneType
       }
       where: { id: { eq: $id } }
     ) {
@@ -237,6 +247,7 @@ const UPDATE_IMPORTANT_DATE = graphql(`
       date
       description
       recurrence
+      milestoneType
     }
   }
 `);
@@ -248,6 +259,8 @@ const UPDATE_PERSON = graphql(`
     $lastName: String!
     $email: String!
     $contactFrequency: String
+    $howWeMet: String
+    $firstMetDate: String
   ) {
     updatePersons(
       set: {
@@ -255,6 +268,8 @@ const UPDATE_PERSON = graphql(`
         lastName: $lastName
         email: $email
         contactFrequency: $contactFrequency
+        howWeMet: $howWeMet
+        firstMetDate: $firstMetDate
       }
       where: { id: { eq: $id } }
     ) {
@@ -263,6 +278,8 @@ const UPDATE_PERSON = graphql(`
       lastName
       email
       contactFrequency
+      howWeMet
+      firstMetDate
     }
   }
 `);
@@ -306,6 +323,7 @@ interface ImportantDateRowProps {
   date: string;
   description: string | null | undefined;
   recurrence: string | null | undefined;
+  milestoneType: string | null | undefined;
   tags: Array<{ id: string; label: string; color: string }>;
   allTags: Array<{ id: string; label: string; color: string }>;
   onDelete: (id: string) => void;
@@ -320,6 +338,7 @@ function ImportantDateRow({
   date,
   description,
   recurrence,
+  milestoneType,
   tags,
   allTags,
   onDelete,
@@ -327,6 +346,7 @@ function ImportantDateRow({
   onTagChanged,
 }: ImportantDateRowProps) {
   const recurrenceLabel = RECURRENCE_OPTIONS.find((o) => o.value === recurrence)?.label;
+  const milestoneLabel = MILESTONE_TYPE_OPTIONS.find((o) => o.value === milestoneType)?.label;
   const [editOpen, setEditOpen] = useState(false);
   const [showAddTag, setShowAddTag] = useState(false);
   const [updateImportantDate] = useMutation(UPDATE_IMPORTANT_DATE, {
@@ -341,6 +361,7 @@ function ImportantDateRow({
         date: values.date,
         description: values.description ?? null,
         recurrence: values.recurrence ?? null,
+        milestoneType: (values.milestoneType as ImportantDatesMilestoneTypeEnum | null) ?? null,
       },
     });
     setEditOpen(false);
@@ -364,6 +385,11 @@ function ImportantDateRow({
               <span>{date}</span>
               {recurrenceLabel && (
                 <span className="rounded-full bg-muted px-1.5 py-0.5 text-xs">{recurrenceLabel}</span>
+              )}
+              {milestoneLabel && (
+                <span className="rounded-full bg-primary/10 text-primary px-1.5 py-0.5 text-xs font-medium">
+                  {milestoneLabel}
+                </span>
               )}
             </div>
           </div>
@@ -402,7 +428,13 @@ function ImportantDateRow({
             <DialogTitle>Edit Important Date</DialogTitle>
           </DialogHeader>
           <ImportantDateForm
-            initialValues={{ name, date, description: description ?? undefined, recurrence: recurrence ?? undefined }}
+            initialValues={{
+              name,
+              date,
+              description: description ?? undefined,
+              recurrence: recurrence ?? undefined,
+              milestoneType: milestoneType ?? undefined,
+            }}
             onSubmit={handleEdit}
             onCancel={() => setEditOpen(false)}
           />
@@ -521,12 +553,7 @@ function PersonDetailPage() {
     refetch();
   };
 
-  const handleCreateDate = async (values: {
-    name: string;
-    date: string;
-    description?: string;
-    recurrence?: string;
-  }): Promise<void> => {
+  const handleCreateDate = async (values: ImportantDateFormValue): Promise<void> => {
     await createImportantDate({
       variables: {
         personId: id,
@@ -534,6 +561,7 @@ function PersonDetailPage() {
         date: values.date,
         description: values.description ?? null,
         recurrence: values.recurrence ?? null,
+        milestoneType: (values.milestoneType as ImportantDatesMilestoneTypeEnum | null) ?? null,
       },
     });
     setDateDialogOpen(false);
@@ -547,6 +575,8 @@ function PersonDetailPage() {
         lastName: fields.lastName,
         email: fields.email,
         contactFrequency: fields.contactFrequency || null,
+        howWeMet: fields.howWeMet || null,
+        firstMetDate: fields.firstMetDate || null,
       },
     });
 
@@ -629,6 +659,28 @@ function PersonDetailPage() {
             Edit
           </Button>
         </div>
+
+        {/* How We Met */}
+        {person.howWeMet && (
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-base">How We Met</CardTitle>
+            </CardHeader>
+            <CardContent className="pt-0">
+              <p className="text-sm text-muted-foreground">{person.howWeMet}</p>
+              {person.firstMetDate && (
+                <p className="text-xs text-muted-foreground mt-1">
+                  First met:{' '}
+                  {new Date(`${person.firstMetDate}T00:00:00`).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </p>
+              )}
+            </CardContent>
+          </Card>
+        )}
 
         {/* Labels */}
         <Card>
@@ -727,6 +779,7 @@ function PersonDetailPage() {
                       date={d.date}
                       description={d.description}
                       recurrence={d.recurrence}
+                      milestoneType={d.milestoneType}
                       tags={d.labels ?? []}
                       allTags={allLabels}
                       onDelete={handleDeleteDate}
@@ -980,6 +1033,8 @@ function PersonDetailPage() {
                 email: person.email,
                 labelIds: person.labels.map((l) => l.id),
                 contactFrequency: person.contactFrequency,
+                howWeMet: person.howWeMet,
+                firstMetDate: person.firstMetDate,
               }}
               submitLabel="Save Changes"
               onSubmit={handleEditPerson}
