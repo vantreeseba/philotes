@@ -70,7 +70,7 @@ type Documents = {
     "\n  mutation DetachLabelFromPersonEdit($personId: String!, $labelId: String!) {\n    deletePersonLabels(\n      where: { personId: { eq: $personId }, labelId: { eq: $labelId } }\n    ) {\n      personId\n      labelId\n    }\n  }\n": typeof types.DetachLabelFromPersonEditDocument,
     "\n  query GetPersons {\n    persons {\n      id\n      firstName\n      lastName\n      email\n      avatarPath\n      labels {\n        id\n        label\n        color\n      }\n      interactions(limit: 1, orderBy: { occurredAt: { direction: desc, priority: 1 } }) {\n        occurredAt\n      }\n      ...Person_List\n    }\n  }\n": typeof types.GetPersonsDocument,
     "\n  query GetLabelsForPersonForm {\n    labels {\n      id\n      ...Label_List\n    }\n  }\n": typeof types.GetLabelsForPersonFormDocument,
-    "\n  mutation CreatePerson($values: CreatePersonInput!) {\n    createPerson(values: $values) {\n      id\n      ...Person_List\n    }\n  }\n": typeof types.CreatePersonDocument,
+    "\n  mutation CreatePerson($values: CreatePersonInput!) {\n    createPerson(values: $values) {\n      id\n    }\n  }\n": typeof types.CreatePersonDocument,
     "\n  mutation DeletePerson($id: String!) {\n    deletePersons(where: { id: { eq: $id } }) {\n      id\n    }\n  }\n": typeof types.DeletePersonDocument,
     "\n  query WeeklyReview {\n    persons {\n      id\n      firstName\n      lastName\n      avatarPath\n      contactFrequency\n      createdAt\n      importantDates {\n        id\n        name\n        date\n        recurrence\n      }\n      tasks {\n        id\n        title\n        dueAt\n        completedAt\n        personId\n      }\n      interactions(\n        orderBy: { occurredAt: { direction: desc, priority: 1 } }\n        limit: 1\n      ) {\n        occurredAt\n      }\n    }\n  }\n": typeof types.WeeklyReviewDocument,
     "\n  query GetTags {\n    labels {\n      id\n      ...Label_List\n    }\n  }\n": typeof types.GetTagsDocument,
@@ -134,7 +134,7 @@ const documents: Documents = {
     "\n  mutation DetachLabelFromPersonEdit($personId: String!, $labelId: String!) {\n    deletePersonLabels(\n      where: { personId: { eq: $personId }, labelId: { eq: $labelId } }\n    ) {\n      personId\n      labelId\n    }\n  }\n": types.DetachLabelFromPersonEditDocument,
     "\n  query GetPersons {\n    persons {\n      id\n      firstName\n      lastName\n      email\n      avatarPath\n      labels {\n        id\n        label\n        color\n      }\n      interactions(limit: 1, orderBy: { occurredAt: { direction: desc, priority: 1 } }) {\n        occurredAt\n      }\n      ...Person_List\n    }\n  }\n": types.GetPersonsDocument,
     "\n  query GetLabelsForPersonForm {\n    labels {\n      id\n      ...Label_List\n    }\n  }\n": types.GetLabelsForPersonFormDocument,
-    "\n  mutation CreatePerson($values: CreatePersonInput!) {\n    createPerson(values: $values) {\n      id\n      ...Person_List\n    }\n  }\n": types.CreatePersonDocument,
+    "\n  mutation CreatePerson($values: CreatePersonInput!) {\n    createPerson(values: $values) {\n      id\n    }\n  }\n": types.CreatePersonDocument,
     "\n  mutation DeletePerson($id: String!) {\n    deletePersons(where: { id: { eq: $id } }) {\n      id\n    }\n  }\n": types.DeletePersonDocument,
     "\n  query WeeklyReview {\n    persons {\n      id\n      firstName\n      lastName\n      avatarPath\n      contactFrequency\n      createdAt\n      importantDates {\n        id\n        name\n        date\n        recurrence\n      }\n      tasks {\n        id\n        title\n        dueAt\n        completedAt\n        personId\n      }\n      interactions(\n        orderBy: { occurredAt: { direction: desc, priority: 1 } }\n        limit: 1\n      ) {\n        occurredAt\n      }\n    }\n  }\n": types.WeeklyReviewDocument,
     "\n  query GetTags {\n    labels {\n      id\n      ...Label_List\n    }\n  }\n": types.GetTagsDocument,
@@ -383,7 +383,7 @@ export function graphql(source: "\n  query GetLabelsForPersonForm {\n    labels 
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  mutation CreatePerson($values: CreatePersonInput!) {\n    createPerson(values: $values) {\n      id\n      ...Person_List\n    }\n  }\n"): (typeof documents)["\n  mutation CreatePerson($values: CreatePersonInput!) {\n    createPerson(values: $values) {\n      id\n      ...Person_List\n    }\n  }\n"];
+export function graphql(source: "\n  mutation CreatePerson($values: CreatePersonInput!) {\n    createPerson(values: $values) {\n      id\n    }\n  }\n"): (typeof documents)["\n  mutation CreatePerson($values: CreatePersonInput!) {\n    createPerson(values: $values) {\n      id\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

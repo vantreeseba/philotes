@@ -41,7 +41,6 @@ const CREATE_PERSON = graphql(`
   mutation CreatePerson($values: CreatePersonInput!) {
     createPerson(values: $values) {
       id
-      ...Person_List
     }
   }
 `);
