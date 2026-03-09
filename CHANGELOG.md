@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/vantreeseba/philotes/compare/v1.1.9...v1.2.0) (2026-03-09)
+
+
+### Features
+
+* extract drizzle-graphql vendor code into standalone package ([3b612f0](https://github.com/vantreeseba/philotes/commit/3b612f03fd6d1c45322a90b68ac9e42680c836cb))
+
 ## [1.1.9](https://github.com/vantreeseba/philotes/compare/v1.1.8...v1.1.9) (2026-03-09)
 
 
