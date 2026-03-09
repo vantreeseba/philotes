@@ -1,3 +1,11 @@
+## [1.1.6](https://github.com/vantreeseba/philotes/compare/v1.1.5...v1.1.6) (2026-03-09)
+
+
+### Bug Fixes
+
+* pass firstMetDate as YYYY-MM-DD string, not Date object ([47a225f](https://github.com/vantreeseba/philotes/commit/47a225f14cc6c75532ee3d0bbcb9dc1c2ed1597e))
+* remove new Date() wrapping from ImportantDate date inputs ([56c58cb](https://github.com/vantreeseba/philotes/commit/56c58cbede6a9b7003c20167972ade6443b883ab))
+
 ## [1.1.5](https://github.com/vantreeseba/philotes/compare/v1.1.4...v1.1.5) (2026-03-09)
 
 
