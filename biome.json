@@ -61,10 +61,10 @@
         "**/*.gen.ts",
         "**/drizzle/**",
         "**/__generated__/**",
+        "dist/**",
         "server/dist/**",
         "db/dist/**",
         "app/dist/**",
-        "server/src/vendor/**",
         "app/src/__generated__/**"
       ],
       "linter": {

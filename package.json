@@ -7,7 +7,8 @@
   "workspaces": [
     "app",
     "server",
-    "db"
+    "db",
+    "../drizzle-graphql"
   ],
   "scripts": {
     "clean": "npm run clean -w db && npm run clean -w server && npm run clean -w app",

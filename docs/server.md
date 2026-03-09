@@ -17,17 +17,17 @@ CRUD operations.
 | --- | --- |
 | `server/src/index.ts` | Starts ApolloServer, injects `db` into context |
 | `server/src/schema.ts` | Calls `buildSchema(db)` to auto-generate the full GraphQL schema |
-| `server/src/vendor/drizzle-graphql/` | Vendored library that converts Drizzle schema → GraphQL schema + resolvers |
+| `drizzle-graphql` (npm package) | Local package that converts Drizzle schema → GraphQL schema + resolvers |
 | `server/src/__generated__/schema.graphql` | Auto-generated SDL — do not edit manually |
 | `server/src/__generated__/resolvers.ts` | Auto-generated resolver types — do not edit manually |
 
 ## How the Schema is Built
 
-`server/src/schema.ts` calls `buildSchema` from the vendored `drizzle-graphql`:
+`server/src/schema.ts` calls `buildSchema` from the `drizzle-graphql` package:
 
 ```ts
 import { db } from "@philotes/db";
-import { buildSchema } from "./vendor/drizzle-graphql/index.ts";
+import { buildSchema } from "drizzle-graphql";
 
 const { schema: drizzleSchema, entities } = buildSchema(db, {
   prefixes: { insert: "create", update: "update", delete: "delete" },
