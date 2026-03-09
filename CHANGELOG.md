@@ -1,3 +1,10 @@
+## [1.1.7](https://github.com/vantreeseba/philotes/compare/v1.1.6...v1.1.7) (2026-03-09)
+
+
+### Bug Fixes
+
+* remove relation fields from createPerson mutation response ([354cde3](https://github.com/vantreeseba/philotes/commit/354cde33add80cf4f7bb996adf600e8850598422))
+
 ## [1.1.6](https://github.com/vantreeseba/philotes/compare/v1.1.5...v1.1.6) (2026-03-09)
 
 
