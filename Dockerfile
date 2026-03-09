@@ -1,59 +1,50 @@
 # syntax=docker/dockerfile:1
 
-# ── Stage 1: install all dependencies and build ───────────────────────────────
-FROM node:22-slim AS builder
+# ── Stage 1: build ────────────────────────────────────────────────────────────
+# Install all dependencies (including devDependencies) and compile every package.
+FROM node:22-alpine AS builder
 
 WORKDIR /app
 
-# Copy workspace manifests first for better layer caching
-COPY package.json package-lock.json ./
-COPY db/package.json ./db/
-COPY server/package.json ./server/
-COPY app/package.json ./app/
-
-RUN npm ci --legacy-peer-deps
-
-# Copy all source
+# Copy the full monorepo source
 COPY . .
 
-# Full production build: db → codegen → server (tsc) → app (vite)
+# Install all dependencies (devDependencies needed for codegen + build)
+RUN npm ci
+
+# Build all packages in order: db → codegen → server (tsc) → app (vite)
 RUN npm run build
 
 # ── Stage 2: production image ─────────────────────────────────────────────────
-FROM node:22-slim AS runner
+# Copy the built tree from the builder, then drop devDependencies.
+FROM node:22-alpine
 
 WORKDIR /app
 
+# Copy the complete built workspace from the builder stage.
+# This preserves workspace symlinks and all relative paths the server relies on
+# (e.g. ../../app/dist, ../../db/drizzle resolved at runtime from server/dist/src/).
+COPY --from=builder /app .
+
+# Drop devDependencies to shrink the image. PGlite's WASM files live in the
+# runtime dependency tree and are preserved automatically.
+RUN npm prune --omit=dev
+
 ENV NODE_ENV=production
+ENV PORT=3001
+# PGlite will store its database files here. Mount a volume at /data to persist
+# data across container restarts.
+ENV DATABASE_URL=/data/pgdata
 
-# Only copy what is needed to run
-COPY package.json package-lock.json ./
-COPY db/package.json ./db/
-COPY server/package.json ./server/
-COPY app/package.json ./app/
-
-# Install production dependencies only
-RUN npm ci --omit=dev --legacy-peer-deps
-
-# Compiled server
-COPY --from=builder /app/server/dist ./server/dist
-
-# Built frontend static files (served by the server via sirv)
-COPY --from=builder /app/app/dist ./app/dist
-
-# db package compiled output (imported at runtime by the server)
-COPY --from=builder /app/db/dist ./db/dist
-
-# Drizzle migration files (run on startup by the server)
-COPY --from=builder /app/db/drizzle ./db/drizzle
+# Create persistent-data directories. The server auto-creates /avatars at
+# startup, but declaring them here makes the intent explicit.
+RUN mkdir -p /data /avatars
 
 EXPOSE 3001
 
-# DATABASE_URL controls where PGlite stores its data.
-# Mount a volume at this path to persist data between container restarts.
-# Example: docker run -v /host/data:/data -e DATABASE_URL=/data philotes
-ENV DATABASE_URL=/data
+# Persist the PGlite database and avatar uploads across container restarts.
+VOLUME ["/data", "/avatars"]
 
-VOLUME ["/data"]
-
-CMD ["node", "server/dist/index.js"]
+# server/dist/src/index.js — tsc preserves the src/ directory structure
+# (outDir: ./dist in tsconfig.build.json, source lives under src/).
+CMD ["node", "server/dist/src/index.js"]

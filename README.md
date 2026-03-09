@@ -83,6 +83,42 @@ npm run db:studio    # Open Drizzle Studio to browse the local database
 
 ---
 
+## Running with Docker
+
+Philotes ships with a multi-stage Alpine-based Dockerfile. The container runs the
+GraphQL API and serves the built frontend — no separate web server needed.
+
+**Build the image:**
+```bash
+docker build -t philotes .
+```
+
+**Run with persistent data:**
+```bash
+docker run -d \
+  -p 3001:3001 \
+  -v philotes-data:/data \
+  -v philotes-avatars:/avatars \
+  --name philotes \
+  philotes
+```
+
+Then open [http://localhost:3001](http://localhost:3001).
+
+**Volumes:**
+| Volume | Purpose |
+| --- | --- |
+| `/data` | PGlite database files (persists your contacts) |
+| `/avatars` | Uploaded avatar images |
+
+**Environment variables:**
+| Variable | Default | Description |
+| --- | --- | --- |
+| `PORT` | `3001` | Port the server listens on |
+| `DATABASE_URL` | `/data/pgdata` | Path to the PGlite database directory |
+
+---
+
 ## License
 
 MIT
