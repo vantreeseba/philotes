@@ -22,6 +22,8 @@ const personSchema = z.object({
   lastName: z.string().min(1, 'Last name is required.'),
   email: z.string().min(1, 'Email is required.').email('Please enter a valid email address.'),
   contactFrequency: z.string(),
+  howWeMet: z.string(),
+  firstMetDate: z.string(),
 });
 
 export interface PersonFormValue {
@@ -35,6 +37,8 @@ export interface PersonFormInitialValues {
   email: string;
   labelIds?: string[];
   contactFrequency?: string | null;
+  howWeMet?: string | null;
+  firstMetDate?: string | null;
 }
 
 interface PersonFormProps {
@@ -74,6 +78,8 @@ export function PersonForm({ availableLabels, initialValues, submitLabel, onSubm
       lastName: initialValues?.lastName ?? '',
       email: initialValues?.email ?? '',
       contactFrequency: initialValues?.contactFrequency ?? '',
+      howWeMet: initialValues?.howWeMet ?? '',
+      firstMetDate: initialValues?.firstMetDate ?? '',
     },
     validators: {
       onSubmit: personSchema,
@@ -85,6 +91,8 @@ export function PersonForm({ availableLabels, initialValues, submitLabel, onSubm
           person: {
             ...value,
             contactFrequency: value.contactFrequency || null,
+            howWeMet: value.howWeMet || null,
+            firstMetDate: value.firstMetDate || null,
           },
           labelIds: Array.from(selectedLabelIds),
         });
@@ -136,6 +144,39 @@ export function PersonForm({ availableLabels, initialValues, submitLabel, onSubm
                   </option>
                 ))}
               </select>
+            </div>
+          )}
+        </form.AppField>
+        <form.AppField name="howWeMet">
+          {(field) => (
+            <div className="space-y-1.5">
+              <label htmlFor="how-we-met" className="text-sm font-medium">
+                How We Met (optional)
+              </label>
+              <textarea
+                id="how-we-met"
+                value={field.state.value}
+                onChange={(e) => field.handleChange(e.target.value)}
+                rows={3}
+                placeholder="Share the story of how you met…"
+                className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring resize-none"
+              />
+            </div>
+          )}
+        </form.AppField>
+        <form.AppField name="firstMetDate">
+          {(field) => (
+            <div className="space-y-1.5">
+              <label htmlFor="first-met-date" className="text-sm font-medium">
+                First Met Date (optional)
+              </label>
+              <input
+                id="first-met-date"
+                type="date"
+                value={field.state.value}
+                onChange={(e) => field.handleChange(e.target.value)}
+                className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+              />
             </div>
           )}
         </form.AppField>
