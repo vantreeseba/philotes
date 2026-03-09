@@ -5,5 +5,4 @@ dist
 pgdata/
 .env
 .env.local
-*.gen.ts
 **/tsconfig.tsbuildinfo

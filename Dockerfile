@@ -1,41 +1,42 @@
 # syntax=docker/dockerfile:1
 
-FROM node:22-alpine
+# ── Stage 1: build ───────────────────────────────────────────────────────────
+FROM node:22-alpine AS builder
 
-# Required for PGlite WASM and Vite build
+# Required for PGlite WASM compilation and native addons (sharp, etc.)
 RUN apk add --no-cache python3 make g++
 
 WORKDIR /app
 
-# Copy the full monorepo source
 COPY . .
 
-# Install all dependencies (devDependencies needed for codegen + build)
+# Install all dependencies including devDependencies (needed for codegen + vite build)
 RUN npm ci
 
-# Build db package (needed by server + app at runtime)
-# Run codegen (generates GraphQL types)
-# Build frontend (Vite, output to app/dist)
+# Build db package, run GraphQL codegen, build Vite frontend
 RUN npm run build -w db && npm run codegen && npm run build -w app
 
-# Drop devDependencies to shrink the image. PGlite's WASM files live in the
-# runtime dependency tree and are preserved automatically.
+# ── Stage 2: production ───────────────────────────────────────────────────────
+FROM node:22-alpine
+
+WORKDIR /app
+
+# Copy the full built monorepo from builder (preserves workspace symlinks + source for strip-types)
+COPY --from=builder /app .
+
+# Drop devDependencies — PGlite WASM and all runtime deps are preserved
 RUN npm prune --omit=dev
 
 ENV NODE_ENV=production
 ENV PORT=3001
-# PGlite will store its database files here. Mount a volume at /data to persist
-# data across container restarts.
+# PGlite stores its database files here — mount a volume at /data to persist across restarts
 ENV DATABASE_URL=/data/pgdata
 
-# Create persistent-data directories. The server auto-creates /avatars at
-# startup, but declaring them here makes the intent explicit.
 RUN mkdir -p /data /avatars
 
 EXPOSE 3001
 
-# Persist the PGlite database and avatar uploads across container restarts.
 VOLUME ["/data", "/avatars"]
 
-# Run server directly as TypeScript — no compile step needed.
+# Run server directly as TypeScript — no compile step needed
 CMD ["node", "--experimental-strip-types", "server/src/index.ts"]
