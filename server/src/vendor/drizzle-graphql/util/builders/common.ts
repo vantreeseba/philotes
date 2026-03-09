@@ -1,8 +1,14 @@
 // =============================================================================
 // LOCAL MODIFICATION — diverges from upstream drizzle-graphql
-// generateColumnFilterValues() has been rewritten to produce generic shared
-// filter types (IdFilter, StringFilter, DateTimeFilter, BooleanFilter, and
-// per-enum filters) instead of one type per (table, column) pair.
+//
+// 1. generateColumnFilterValues() rewritten to produce generic shared filter
+//    types (IdFilter, StringFilter, DateTimeFilter, BooleanFilter, per-enum)
+//    instead of one type per (table, column) pair.
+//
+// 2. generateSelectFields() rewritten to produce one shared GraphQLObjectType
+//    per table (e.g. Person, Activity) reused across all relation fields,
+//    instead of path-concatenated types (ActivityPersonRelation, etc.).
+//    extractRelationsParamsInner() updated to match the flattened type names.
 // =============================================================================
 // @ts-nocheck — vendored file, drizzle-orm 1.0 type compat not guaranteed
 import type { Column, Table } from 'drizzle-orm';
@@ -73,6 +79,9 @@ const genericFilterCache = new Map<
   string,
   { main: GraphQLInputObjectType; or: GraphQLInputObjectType }
 >();
+
+/** Cache of shared object types, keyed by table name. One type per table, reused everywhere. */
+const objectTypeCache = new Map<string, GraphQLObjectType>();
 
 export const extractSelectedColumnsFromTree = (
   tree: Record<string, ResolveTree>,
@@ -373,33 +382,26 @@ const generateSelectFields = <TWithOrder extends boolean>(
   tables: Record<string, Table>,
   tableName: string,
   relationMap: Record<string, Record<string, TableNamedRelations>>,
-  typeName: string,
+  _typeName: string,
   withOrder: TWithOrder,
-  relationsDepthLimit: number | undefined,
-  currentDepth: number = 0,
-  usedTables: Set<string> = new Set(),
+  _relationsDepthLimit: number | undefined,
+  _currentDepth: number = 0,
+  _usedTables: Set<string> = new Set(),
 ): SelectData<TWithOrder> => {
-  const relations = relationMap[tableName].relations;
-
-  const relationEntries: [string, TableNamedRelations][] = relations
-    ? Object.entries(relations)
-    : [];
-
   const table = tables[tableName]!;
   const order = withOrder
     ? generateTableOrderTypeCached(table, tableName)
     : undefined;
-
   const filters = generateTableFilterTypeCached(table, tableName);
-
   const tableFields = generateTableSelectTypeFieldsCached(table, tableName);
 
-  if (
-    usedTables.has(tableName) ||
-    (typeof relationsDepthLimit === 'number' &&
-      currentDepth >= relationsDepthLimit) ||
-    !relationEntries.length
-  ) {
+  const relations = relationMap[tableName]?.relations;
+  const relationEntries: [string, TableNamedRelations][] = relations
+    ? Object.entries(relations)
+    : [];
+
+  // If already cached (cycle) or no relations, return early with no relation fields.
+  if (objectTypeCache.has(tableName) || !relationEntries.length) {
     return {
       order,
       filters,
@@ -408,32 +410,45 @@ const generateSelectFields = <TWithOrder extends boolean>(
     } as SelectData<TWithOrder>;
   }
 
+  const typeName = tableNameToModel(tableName);
+
+  // IMPORTANT: declare relationFields before the shell so the thunk can close over it.
+  // It will be assigned after recursion below.
+  let relationFields: Record<string, ConvertedRelationColumnWithArgs> = {};
+
+  // Pre-register the shell with a thunk BEFORE recursing — breaks circular refs.
+  // The thunk captures `relationFields` by reference; it is populated below.
+  const shell = new GraphQLObjectType({
+    name: typeName,
+    fields: () => ({ ...tableFields, ...relationFields }),
+  });
+  objectTypeCache.set(tableName, shell);
+
+  // Build relation fields — recurse into each related table.
   const rawRelationFields: [string, ConvertedRelationColumnWithArgs][] = [];
-  const updatedUsedTables = new Set(usedTables).add(tableName);
-  const newDepth = currentDepth + 1;
 
   for (const [relationName, relEntry] of relationEntries) {
     const { targetTableName } = relEntry;
-    // drizzle-orm v1: the entry itself is the One/Many relation object
     const relation = (relEntry as any).relation ?? relEntry;
-    const relTypeName = `${typeName}${capitalize(relationName)}Relation`;
     const isOne = is(relation, One);
 
+    // Recurse — returns cached shell immediately if target already registered.
     const relData = generateSelectFields(
       tables,
       targetTableName,
       relationMap,
-      relTypeName,
+      tableNameToModel(targetTableName),
       !isOne,
-      relationsDepthLimit,
-      newDepth,
-      updatedUsedTables,
+      undefined,
     );
 
-    const relType = new GraphQLObjectType({
-      name: relTypeName,
-      fields: { ...relData.tableFields, ...relData.relationFields },
-    });
+    // Get or create the type for the related table.
+    const relType =
+      objectTypeCache.get(targetTableName) ??
+      new GraphQLObjectType({
+        name: tableNameToModel(targetTableName),
+        fields: { ...relData.tableFields, ...relData.relationFields },
+      });
 
     if (isOne) {
       rawRelationFields.push([
@@ -445,7 +460,6 @@ const generateSelectFields = <TWithOrder extends boolean>(
           },
         },
       ]);
-
       continue;
     }
 
@@ -463,7 +477,8 @@ const generateSelectFields = <TWithOrder extends boolean>(
     ]);
   }
 
-  const relationFields = Object.fromEntries(rawRelationFields);
+  // Assign into the pre-declared variable — the thunk above will see this value.
+  relationFields = Object.fromEntries(rawRelationFields);
 
   return {
     order,
@@ -530,11 +545,15 @@ export const generateTableTypes = <WithReturning extends boolean>(
     fields: insertFields,
   });
 
-  const selectSingleOutput = new GraphQLObjectType({
-    //     name: `${stylizedName}SelectItem`,
-    name: `${stylizedName}`,
-    fields: { ...tableFields, ...relationFields },
-  });
+  // Reuse the cached type from generateSelectFields so there is only ONE
+  // GraphQLObjectType instance named e.g. "Person" — creating a second instance
+  // with the same name would fail GraphQL schema uniqueness validation.
+  const selectSingleOutput =
+    objectTypeCache.get(tableName) ??
+    new GraphQLObjectType({
+      name: `${stylizedName}`,
+      fields: { ...tableFields, ...relationFields },
+    });
 
   const selectArrOutput = new GraphQLNonNull(
     new GraphQLList(new GraphQLNonNull(selectSingleOutput)),
@@ -790,7 +809,7 @@ const extractRelationsParamsInner = (
   for (const [relName, { targetTableName }] of Object.entries(
     relations,
   )) {
-    const relTypeName = `${isInitial ? tableNameToModel(tableName) : typeName}${capitalize(relName)}Relation`;
+    const relTypeName = tableNameToModel(targetTableName);
     const field = baseField[relName];
     if (!field) continue;
     const relField = field?.fieldsByTypeName;
