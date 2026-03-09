@@ -25,7 +25,7 @@ app.use('/graphql', await createGraphQLRouter(httpServer));
 app.use('/avatars', express.static(avatarDir));
 app.use('/avatars', createAvatarRouter(avatarDir));
 app.use(express.static(staticDir));
-app.get('*', (_req, res) => {
+app.get('/{*path}', (_req, res) => {
   res.sendFile(join(staticDir, 'index.html'));
 });
 
