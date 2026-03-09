@@ -1,4 +1,5 @@
 import { db as dbInstance } from '@philotes/db';
+import { applyNullListCoercion } from './resolvers/null-lists.ts';
 import { applyRelationshipsExtension } from './resolvers/relationships.ts';
 import { applyScalarResolvers } from './resolvers/scalars.ts';
 import { applyUpcomingDatesExtension } from './resolvers/upcoming-dates.ts';
@@ -16,6 +17,8 @@ const { schema: drizzleSchema, entities } = buildSchema(dbInstance, {
   },
 });
 
-const schema = applyScalarResolvers(applyUpcomingDatesExtension(applyRelationshipsExtension(drizzleSchema)));
+const schema = applyNullListCoercion(
+  applyScalarResolvers(applyUpcomingDatesExtension(applyRelationshipsExtension(drizzleSchema))),
+);
 
 export { schema, entities };
