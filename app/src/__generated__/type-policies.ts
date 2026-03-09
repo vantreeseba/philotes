@@ -1,11 +1,11 @@
-import { dateTypePolicy } from "@/lib/date-type-policy";
+import { dateTimeTypePolicy, dateTypePolicy } from "@/lib/date-type-policy";
 
 export const scalarTypePolicies = {
-  Activity: { fields: { createdAt: dateTypePolicy, occurredAt: dateTypePolicy } },
-  Address: { fields: { createdAt: dateTypePolicy } },
-  ContactInfo: { fields: { createdAt: dateTypePolicy } },
+  Activity: { fields: { createdAt: dateTimeTypePolicy, occurredAt: dateTimeTypePolicy } },
+  Address: { fields: { createdAt: dateTimeTypePolicy } },
+  ContactInfo: { fields: { createdAt: dateTimeTypePolicy } },
   ImportantDate: { fields: { date: dateTypePolicy } },
-  Interaction: { fields: { occurredAt: dateTypePolicy } },
-  Person: { fields: { createdAt: dateTypePolicy, firstMetDate: dateTypePolicy, updatedAt: dateTypePolicy } },
-  Task: { fields: { completedAt: dateTypePolicy, createdAt: dateTypePolicy, dueAt: dateTypePolicy } },
+  Interaction: { fields: { occurredAt: dateTimeTypePolicy } },
+  Person: { fields: { createdAt: dateTimeTypePolicy, firstMetDate: dateTypePolicy, updatedAt: dateTimeTypePolicy } },
+  Task: { fields: { completedAt: dateTimeTypePolicy, createdAt: dateTimeTypePolicy, dueAt: dateTimeTypePolicy } },
 };

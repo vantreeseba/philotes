@@ -32,7 +32,7 @@ const config: CodegenConfig = {
       plugins: ['@homebound/graphql-typescript-scalar-type-policies'],
       config: {
         scalarTypePolicies: {
-          DateTime: '@/lib/date-type-policy#dateTypePolicy',
+          DateTime: '@/lib/date-type-policy#dateTimeTypePolicy',
           Date: '@/lib/date-type-policy#dateTypePolicy',
         },
       },
