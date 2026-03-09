@@ -26,6 +26,7 @@ type Documents = {
     "\n  query GetPersonsWithFrequency {\n    persons {\n      id\n      firstName\n      lastName\n      email\n      avatarPath\n      contactFrequency\n      interactions(limit: 1, orderBy: { occurredAt: { direction: desc, priority: 1 } }) {\n        occurredAt\n      }\n    }\n  }\n": typeof types.GetPersonsWithFrequencyDocument,
     "\n  query GetPersonInteractionsForWidget($personId: String!) {\n    interactions(\n      where: { personId: { eq: $personId } }\n      orderBy: { occurredAt: { direction: desc, priority: 1 } }\n    ) {\n      id\n      personId\n      channel\n      occurredAt\n      sentiment\n      note\n      labels {\n        id\n        label\n        color\n      }\n    }\n  }\n": typeof types.GetPersonInteractionsForWidgetDocument,
     "\n  query GetAllLabelsForWidget {\n    labels {\n      id\n      label\n      color\n    }\n  }\n": typeof types.GetAllLabelsForWidgetDocument,
+    "\n  query DormantTiesPersons {\n    persons(orderBy: { firstName: { direction: asc, priority: 1 } }) {\n      id\n      firstName\n      lastName\n      avatarPath\n      createdAt\n      interactions(\n        orderBy: { occurredAt: { direction: desc, priority: 1 } }\n        limit: 1\n      ) {\n        occurredAt\n      }\n    }\n  }\n": typeof types.DormantTiesPersonsDocument,
     "\n  query GetRecentPersons {\n    persons(orderBy: { createdAt: { direction: desc, priority: 1 } }) {\n      id\n      firstName\n      lastName\n      email\n      avatarPath\n      createdAt\n    }\n  }\n": typeof types.GetRecentPersonsDocument,
     "\n  query GetUpcomingDates {\n    importantDates {\n      id\n      name\n      description\n      date\n      recurrence\n      person {\n        id\n        firstName\n        lastName\n      }\n    }\n  }\n": typeof types.GetUpcomingDatesDocument,
     "\n  fragment Label_List on Label {\n    id\n    color\n    label\n  }\n": typeof types.Label_ListFragmentDoc,
@@ -88,6 +89,7 @@ const documents: Documents = {
     "\n  query GetPersonsWithFrequency {\n    persons {\n      id\n      firstName\n      lastName\n      email\n      avatarPath\n      contactFrequency\n      interactions(limit: 1, orderBy: { occurredAt: { direction: desc, priority: 1 } }) {\n        occurredAt\n      }\n    }\n  }\n": types.GetPersonsWithFrequencyDocument,
     "\n  query GetPersonInteractionsForWidget($personId: String!) {\n    interactions(\n      where: { personId: { eq: $personId } }\n      orderBy: { occurredAt: { direction: desc, priority: 1 } }\n    ) {\n      id\n      personId\n      channel\n      occurredAt\n      sentiment\n      note\n      labels {\n        id\n        label\n        color\n      }\n    }\n  }\n": types.GetPersonInteractionsForWidgetDocument,
     "\n  query GetAllLabelsForWidget {\n    labels {\n      id\n      label\n      color\n    }\n  }\n": types.GetAllLabelsForWidgetDocument,
+    "\n  query DormantTiesPersons {\n    persons(orderBy: { firstName: { direction: asc, priority: 1 } }) {\n      id\n      firstName\n      lastName\n      avatarPath\n      createdAt\n      interactions(\n        orderBy: { occurredAt: { direction: desc, priority: 1 } }\n        limit: 1\n      ) {\n        occurredAt\n      }\n    }\n  }\n": types.DormantTiesPersonsDocument,
     "\n  query GetRecentPersons {\n    persons(orderBy: { createdAt: { direction: desc, priority: 1 } }) {\n      id\n      firstName\n      lastName\n      email\n      avatarPath\n      createdAt\n    }\n  }\n": types.GetRecentPersonsDocument,
     "\n  query GetUpcomingDates {\n    importantDates {\n      id\n      name\n      description\n      date\n      recurrence\n      person {\n        id\n        firstName\n        lastName\n      }\n    }\n  }\n": types.GetUpcomingDatesDocument,
     "\n  fragment Label_List on Label {\n    id\n    color\n    label\n  }\n": types.Label_ListFragmentDoc,
@@ -200,6 +202,10 @@ export function graphql(source: "\n  query GetPersonInteractionsForWidget($perso
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "\n  query GetAllLabelsForWidget {\n    labels {\n      id\n      label\n      color\n    }\n  }\n"): (typeof documents)["\n  query GetAllLabelsForWidget {\n    labels {\n      id\n      label\n      color\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  query DormantTiesPersons {\n    persons(orderBy: { firstName: { direction: asc, priority: 1 } }) {\n      id\n      firstName\n      lastName\n      avatarPath\n      createdAt\n      interactions(\n        orderBy: { occurredAt: { direction: desc, priority: 1 } }\n        limit: 1\n      ) {\n        occurredAt\n      }\n    }\n  }\n"): (typeof documents)["\n  query DormantTiesPersons {\n    persons(orderBy: { firstName: { direction: asc, priority: 1 } }) {\n      id\n      firstName\n      lastName\n      avatarPath\n      createdAt\n      interactions(\n        orderBy: { occurredAt: { direction: desc, priority: 1 } }\n        limit: 1\n      ) {\n        occurredAt\n      }\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
