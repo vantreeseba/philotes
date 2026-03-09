@@ -17,6 +17,7 @@
     "cors": "^2.8.6",
     "express": "^5.2.1",
     "graphql": "^16.10.0",
+    "graphql-parse-resolve-info": "^4.14.1",
     "graphql-scalars": "^1.25.0",
     "graphql-tag": "^2.12.6",
     "multer": "^2.1.1"
