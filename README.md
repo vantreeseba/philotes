@@ -29,6 +29,66 @@ and nowhere else.
 
 ---
 
+## The Research
+
+Most people don't lose touch because they stopped caring. They lose touch because
+caring isn't enough without a system. Research on social ties consistently finds
+that the strength and breadth of your relationships is one of the most reliable
+predictors of long-term wellbeing — more reliable than wealth, status, or even
+health habits. And yet we have no infrastructure for it. We have calendars for
+work and apps for deliveries. Relationships get whatever attention is left over.
+
+Dunbar's number — roughly 150 — describes the upper bound of meaningful
+relationships the human brain can track without external support. Below that
+ceiling, we still struggle. The cost isn't dramatic falling-outs; it's quiet
+drift. People slip from "close friend" to "someone I used to know" simply because
+neither party had a nudge to reach out. The contact frequency setting in Philotes
+— weekly, monthly, quarterly — is designed to provide exactly that nudge. It's
+a lightweight externalisation of intent: you decide once how often this person
+matters to your life, and the app holds that decision so your brain doesn't
+have to.
+
+This is adjacent to how GTD thinkers approach trusted systems. The insight is
+that presence requires offloading. When your mind is holding the background task
+of "I should call Marcus", it can't be fully in the room when you're actually
+talking to someone else. The Review page in Philotes makes "overdue" contacts
+visible in one place — not to create guilt, but to create clarity. You can see
+the gap and decide, deliberately, whether to close it.
+
+The Pre-Contact Brief surfaces recent notes, open tasks, and upcoming dates
+before you reach out to someone. The intention is small but meaningful: arriving
+at a conversation with context signals that you've been paying attention, and
+that signal travels. Research on relationship quality consistently points to
+felt attentiveness — not grand gestures — as the thing that makes people feel
+cared for. Preparation isn't performance; it's respect.
+
+The `@mention` system in notes draws from what knowledge management tools like
+Roam and Obsidian demonstrated: linking people through shared context surfaces
+connections that aren't obvious in a flat contact list. Notes about a
+conversation between two friends, or a project shared by three colleagues,
+create edges in a graph that reflects how your social world actually works. The
+network view in Philotes makes that graph visible. Research on social capital
+suggests that seeing the shape of your network — where the clusters are, where
+the bridges are, where the gaps are — has real value. You notice who you've been
+neglecting not because you feel bad about it, but because the picture shows it.
+
+Remembering important dates matters disproportionately to how much effort it
+takes. Studies on perceived thoughtfulness in gift-giving and acknowledgement
+find that timing is what carries the weight — not size or cost. A message on
+the right day, even a short one, lands differently than a belated one. Philotes
+tracks birthdays, anniversaries, and any recurring milestone you define, and
+surfaces upcoming ones in the Review page. The automation doesn't reduce the
+warmth. It just removes the cognitive friction between caring and acting on it.
+
+Finally, privacy as a design constraint. The decision to store everything
+locally — in an embedded Postgres database, on your machine, with no cloud
+sync — is architectural, but it's also philosophical. Intimate relationship
+data is some of the most sensitive information a person generates. Who you know,
+how often you talk, what you remember about them. That data shouldn't be a
+product, and Philotes isn't a platform. It's a tool. The boundary matters.
+
+---
+
 ## Features
 
 - **People** — name, email, avatar, how you met, preferred contact frequency
