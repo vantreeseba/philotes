@@ -1,9 +1,18 @@
 import { useQuery } from '@apollo/client';
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { CalendarCheck, CheckSquare, Heart, Users } from 'lucide-react';
+import { useState } from 'react';
 import { graphql } from '@/__generated__/gql.js';
+import { ListLayout } from '@/components/layouts/list.js';
 import { Avatar } from '@/components/ui/avatar.js';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.js';
+import { Card, CardContent } from '@/components/ui/card.js';
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationNext,
+  PaginationPrevious,
+} from '@/components/ui/pagination.js';
 import { Spinner } from '@/components/ui/spinner.tsx';
 
 // ---------------------------------------------------------------------------
@@ -307,6 +316,12 @@ function formatMonthsAgo(days: number): string {
 }
 
 // ---------------------------------------------------------------------------
+// Pagination helpers
+// ---------------------------------------------------------------------------
+
+const PAGE_SIZE_OPTIONS = [5, 10, 25] as const;
+
+// ---------------------------------------------------------------------------
 // Section components
 // ---------------------------------------------------------------------------
 
@@ -315,21 +330,31 @@ function AllCaughtUp({ message }: { message: string }) {
 }
 
 function ReachOutSection({ persons }: { persons: OverduePerson[] }) {
+  const [page, setPage] = useState(0);
+  const [pageSize, setPageSize] = useState(5);
+
+  const pagedPersons = persons.slice(page * pageSize, (page + 1) * pageSize);
+  const isFirstPage = page === 0;
+  const isLastPage = pagedPersons.length < pageSize;
+
+  function handlePageSizeChange(nextSize: number) {
+    setPageSize(nextSize);
+    setPage(0);
+  }
+
   return (
     <Card>
-      <CardHeader className="pb-3">
+      <CardContent className="pt-4 space-y-3">
         <div className="flex items-center gap-2">
           <Users className="h-4 w-4 text-muted-foreground" />
-          <CardTitle className="text-base font-semibold">Reach Out</CardTitle>
+          <h2 className="font-semibold text-base">Reach Out</h2>
         </div>
         <p className="text-xs text-muted-foreground">Contacts past their check-in window</p>
-      </CardHeader>
-      <CardContent>
         {persons.length === 0 ? (
           <AllCaughtUp message="You're all caught up here" />
         ) : (
           <ul className="space-y-2">
-            {persons.map((p) => (
+            {pagedPersons.map((p) => (
               <li key={p.id} className="flex items-center gap-3 rounded-md border border-border px-3 py-2 text-sm">
                 <Avatar firstName={p.firstName} lastName={p.lastName} avatarPath={p.avatarPath} size="sm" />
                 <div className="min-w-0 flex-1">
@@ -342,27 +367,76 @@ function ReachOutSection({ persons }: { persons: OverduePerson[] }) {
             ))}
           </ul>
         )}
+        {(persons.length > 0 || page > 0) && (
+          <div className="flex items-center justify-between gap-2 pt-1">
+            <div className="flex items-center gap-1.5">
+              <label htmlFor="reach-out-page-size" className="text-xs text-muted-foreground">
+                Per page
+              </label>
+              <select
+                id="reach-out-page-size"
+                value={pageSize}
+                onChange={(e) => handlePageSizeChange(Number(e.target.value))}
+                className="h-8 rounded-md border border-input bg-background px-2 text-xs focus:outline-none focus:ring-2 focus:ring-ring"
+              >
+                {PAGE_SIZE_OPTIONS.map((n) => (
+                  <option key={n} value={n}>
+                    {n}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <Pagination className="w-auto mx-0 justify-end">
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious
+                    onClick={() => setPage((p) => p - 1)}
+                    className={isFirstPage ? 'pointer-events-none opacity-50' : ''}
+                    aria-disabled={isFirstPage}
+                  />
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationNext
+                    onClick={() => setPage((p) => p + 1)}
+                    className={isLastPage ? 'pointer-events-none opacity-50' : ''}
+                    aria-disabled={isLastPage}
+                  />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          </div>
+        )}
       </CardContent>
     </Card>
   );
 }
 
 function ComingUpSection({ dates }: { dates: UpcomingDate[] }) {
+  const [page, setPage] = useState(0);
+  const [pageSize, setPageSize] = useState(5);
+
+  const pagedDates = dates.slice(page * pageSize, (page + 1) * pageSize);
+  const isFirstPage = page === 0;
+  const isLastPage = pagedDates.length < pageSize;
+
+  function handlePageSizeChange(nextSize: number) {
+    setPageSize(nextSize);
+    setPage(0);
+  }
+
   return (
     <Card>
-      <CardHeader className="pb-3">
+      <CardContent className="pt-4 space-y-3">
         <div className="flex items-center gap-2">
           <CalendarCheck className="h-4 w-4 text-muted-foreground" />
-          <CardTitle className="text-base font-semibold">Coming Up</CardTitle>
+          <h2 className="font-semibold text-base">Coming Up</h2>
         </div>
         <p className="text-xs text-muted-foreground">Important dates in the next 14 days</p>
-      </CardHeader>
-      <CardContent>
         {dates.length === 0 ? (
           <AllCaughtUp message="No upcoming dates this fortnight" />
         ) : (
           <ul className="space-y-2">
-            {dates.map((d) => (
+            {pagedDates.map((d) => (
               <li
                 key={d.id}
                 className="flex items-center justify-between gap-3 rounded-md border border-border px-3 py-2 text-sm"
@@ -392,27 +466,76 @@ function ComingUpSection({ dates }: { dates: UpcomingDate[] }) {
             ))}
           </ul>
         )}
+        {(dates.length > 0 || page > 0) && (
+          <div className="flex items-center justify-between gap-2 pt-1">
+            <div className="flex items-center gap-1.5">
+              <label htmlFor="coming-up-page-size" className="text-xs text-muted-foreground">
+                Per page
+              </label>
+              <select
+                id="coming-up-page-size"
+                value={pageSize}
+                onChange={(e) => handlePageSizeChange(Number(e.target.value))}
+                className="h-8 rounded-md border border-input bg-background px-2 text-xs focus:outline-none focus:ring-2 focus:ring-ring"
+              >
+                {PAGE_SIZE_OPTIONS.map((n) => (
+                  <option key={n} value={n}>
+                    {n}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <Pagination className="w-auto mx-0 justify-end">
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious
+                    onClick={() => setPage((p) => p - 1)}
+                    className={isFirstPage ? 'pointer-events-none opacity-50' : ''}
+                    aria-disabled={isFirstPage}
+                  />
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationNext
+                    onClick={() => setPage((p) => p + 1)}
+                    className={isLastPage ? 'pointer-events-none opacity-50' : ''}
+                    aria-disabled={isLastPage}
+                  />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          </div>
+        )}
       </CardContent>
     </Card>
   );
 }
 
 function OpenTasksSection({ tasks }: { tasks: OpenTask[] }) {
+  const [page, setPage] = useState(0);
+  const [pageSize, setPageSize] = useState(5);
+
+  const pagedTasks = tasks.slice(page * pageSize, (page + 1) * pageSize);
+  const isFirstPage = page === 0;
+  const isLastPage = pagedTasks.length < pageSize;
+
+  function handlePageSizeChange(nextSize: number) {
+    setPageSize(nextSize);
+    setPage(0);
+  }
+
   return (
     <Card>
-      <CardHeader className="pb-3">
+      <CardContent className="pt-4 space-y-3">
         <div className="flex items-center gap-2">
           <CheckSquare className="h-4 w-4 text-muted-foreground" />
-          <CardTitle className="text-base font-semibold">Open Tasks</CardTitle>
+          <h2 className="font-semibold text-base">Open Tasks</h2>
         </div>
         <p className="text-xs text-muted-foreground">Tasks due this week or overdue</p>
-      </CardHeader>
-      <CardContent>
         {tasks.length === 0 ? (
           <AllCaughtUp message="No tasks due this week" />
         ) : (
           <ul className="space-y-2">
-            {tasks.map((task) => (
+            {pagedTasks.map((task) => (
               <li
                 key={task.id}
                 className="flex items-center justify-between gap-3 rounded-md border border-border px-3 py-2 text-sm"
@@ -434,6 +557,45 @@ function OpenTasksSection({ tasks }: { tasks: OpenTask[] }) {
             ))}
           </ul>
         )}
+        {(tasks.length > 0 || page > 0) && (
+          <div className="flex items-center justify-between gap-2 pt-1">
+            <div className="flex items-center gap-1.5">
+              <label htmlFor="open-tasks-page-size" className="text-xs text-muted-foreground">
+                Per page
+              </label>
+              <select
+                id="open-tasks-page-size"
+                value={pageSize}
+                onChange={(e) => handlePageSizeChange(Number(e.target.value))}
+                className="h-8 rounded-md border border-input bg-background px-2 text-xs focus:outline-none focus:ring-2 focus:ring-ring"
+              >
+                {PAGE_SIZE_OPTIONS.map((n) => (
+                  <option key={n} value={n}>
+                    {n}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <Pagination className="w-auto mx-0 justify-end">
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious
+                    onClick={() => setPage((p) => p - 1)}
+                    className={isFirstPage ? 'pointer-events-none opacity-50' : ''}
+                    aria-disabled={isFirstPage}
+                  />
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationNext
+                    onClick={() => setPage((p) => p + 1)}
+                    className={isLastPage ? 'pointer-events-none opacity-50' : ''}
+                    aria-disabled={isLastPage}
+                  />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          </div>
+        )}
       </CardContent>
     </Card>
   );
@@ -441,54 +603,66 @@ function OpenTasksSection({ tasks }: { tasks: OpenTask[] }) {
 
 function DormantTieSection({ person }: { person: (ReviewPerson & { daysSinceContact: number }) | null }) {
   return (
-    <Card className="border-muted bg-muted/30">
-      <CardHeader className="pb-3">
+    <Card>
+      <CardContent className="pt-4 space-y-3">
         <div className="flex items-center gap-2">
           <Heart className="h-4 w-4 text-muted-foreground" />
-          <CardTitle className="text-base font-semibold">Someone to Reconnect With</CardTitle>
+          <h2 className="font-semibold text-base">Someone to Reconnect With</h2>
         </div>
-      </CardHeader>
-      <CardContent>
         {!person ? (
           <AllCaughtUp message="No dormant connections right now" />
         ) : (
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <Avatar
-                firstName={person.firstName}
-                lastName={person.lastName}
-                avatarPath={person.avatarPath}
-                size="md"
-              />
-              <div>
-                <p className="font-medium text-sm">
-                  {person.firstName} {person.lastName}
-                </p>
-                <p className="text-xs text-muted-foreground">
-                  Last contact:{' '}
-                  {person.daysSinceContact === Number.POSITIVE_INFINITY
-                    ? 'never recorded'
-                    : `${formatMonthsAgo(person.daysSinceContact)} ago`}
-                </p>
-              </div>
-            </div>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              You haven&apos;t spoken to {person.firstName} in {formatMonthsAgo(person.daysSinceContact)}. Reconnecting
-              is easier than it feels.
+          <>
+            <ul className="space-y-2">
+              <li className="flex items-center gap-3 rounded-md border border-border px-3 py-2 text-sm">
+                <Avatar
+                  firstName={person.firstName}
+                  lastName={person.lastName}
+                  avatarPath={person.avatarPath}
+                  size="sm"
+                />
+                <div className="min-w-0 flex-1">
+                  <Link to="/persons/$id" params={{ id: person.id }} className="font-medium hover:underline">
+                    {person.firstName} {person.lastName}
+                  </Link>
+                  <p className="text-xs text-muted-foreground">
+                    Last contact:{' '}
+                    {person.daysSinceContact === Number.POSITIVE_INFINITY
+                      ? 'never recorded'
+                      : `${formatMonthsAgo(person.daysSinceContact)} ago`}
+                  </p>
+                </div>
+              </li>
+            </ul>
+            <p className="text-xs text-muted-foreground italic px-1">
+              You haven&apos;t spoken to {person.firstName} in{' '}
+              {person.daysSinceContact === Number.POSITIVE_INFINITY
+                ? 'a long time'
+                : formatMonthsAgo(person.daysSinceContact)}{' '}
+              — they might appreciate hearing from you.
             </p>
-            <Link
-              to="/persons/$id"
-              params={{ id: person.id }}
-              className="inline-flex items-center rounded-md border border-border bg-background px-3 py-1.5 text-sm font-medium hover:bg-muted transition-colors"
-            >
-              View {person.firstName}&apos;s profile
-            </Link>
-          </div>
+          </>
         )}
       </CardContent>
     </Card>
   );
 }
+
+// ---------------------------------------------------------------------------
+// Review modules
+// ---------------------------------------------------------------------------
+
+type ReviewModule = {
+  id: string;
+  span: 'half' | 'full';
+};
+
+const REVIEW_MODULES: ReviewModule[] = [
+  { id: 'reach-out', span: 'half' },
+  { id: 'coming-up', span: 'half' },
+  { id: 'open-tasks', span: 'half' },
+  { id: 'dormant-tie', span: 'half' },
+];
 
 // ---------------------------------------------------------------------------
 // Page
@@ -516,19 +690,31 @@ function WeeklyReviewPage() {
   const openTasks = computeOpenTasks(persons);
   const dormantPerson = computeMostDormantPerson(persons);
 
-  return (
-    <div className="max-w-2xl mx-auto space-y-8">
-      <div>
-        <h1 className="font-bold text-2xl">Weekly Review</h1>
-        <p className="text-muted-foreground text-sm mt-1">A moment to tend your relationships.</p>
-      </div>
+  const sectionMap: Record<string, React.ReactNode> = {
+    'reach-out': <ReachOutSection persons={overdueContacts} />,
+    'coming-up': <ComingUpSection dates={upcomingDates} />,
+    'open-tasks': <OpenTasksSection tasks={openTasks} />,
+    'dormant-tie': <DormantTieSection person={dormantPerson} />,
+  };
 
-      <div className="space-y-4">
-        <ReachOutSection persons={overdueContacts} />
-        <ComingUpSection dates={upcomingDates} />
-        <OpenTasksSection tasks={openTasks} />
-        <DormantTieSection person={dormantPerson} />
-      </div>
-    </div>
+  return (
+    <ListLayout
+      header={
+        <div>
+          <h1 className="font-bold text-2xl">Weekly Review</h1>
+          <p className="text-muted-foreground text-sm mt-1">A moment to tend your relationships.</p>
+        </div>
+      }
+      spacing={false}
+      body={
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {REVIEW_MODULES.map(({ id, span }) => (
+            <div key={id} className={span === 'full' ? 'md:col-span-2' : ''}>
+              {sectionMap[id]}
+            </div>
+          ))}
+        </div>
+      }
+    />
   );
 }

@@ -660,34 +660,36 @@ function PersonDetailPage() {
           </Button>
         </div>
 
-        {/* How We Met */}
-        {person.howWeMet && (
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">How We Met</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0">
-              <p className="text-sm text-muted-foreground">{person.howWeMet}</p>
-              {person.firstMetDate && (
-                <p className="text-xs text-muted-foreground mt-1">
-                  First met:{' '}
-                  {person.firstMetDate.toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </p>
-              )}
-            </CardContent>
-          </Card>
-        )}
+        {/* 2-column grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+          {/* LEFT COLUMN */}
+          <div className="space-y-6">
+            {/* How We Met */}
+            {person.howWeMet && (
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-base">How We Met</CardTitle>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <p className="text-sm text-muted-foreground">{person.howWeMet}</p>
+                  {person.firstMetDate && (
+                    <p className="text-xs text-muted-foreground mt-1">
+                      First met:{' '}
+                      {person.firstMetDate.toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </p>
+                  )}
+                </CardContent>
+              </Card>
+            )}
 
-        {/* Labels */}
-        <Card>
-          <CardContent className="p-4">
-            <ListLayout
-              header={
-                <>
+            {/* Tags */}
+            <Card>
+              <CardContent className="p-4">
+                <div className="flex items-center justify-between mb-3">
                   <h2 className="font-semibold text-base">Tags</h2>
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -705,298 +707,302 @@ function PersonDetailPage() {
                     </TooltipTrigger>
                     {allLabelsAttached && <TooltipContent>All tags are already attached</TooltipContent>}
                   </Tooltip>
-                </>
-              }
-              body={
-                <PersonLabels
-                  person={person}
-                  allLabels={allLabels}
-                  onDelete={handleDeleteLabel}
-                  onAdd={handleAddLabel}
-                  showAdd={showAddLabel}
-                  onShowAdd={setShowAddLabel}
-                />
-              }
-            />
-          </CardContent>
-        </Card>
+                </div>
+                <div className="max-h-64 overflow-y-auto space-y-2">
+                  <PersonLabels
+                    person={person}
+                    allLabels={allLabels}
+                    onDelete={handleDeleteLabel}
+                    onAdd={handleAddLabel}
+                    showAdd={showAddLabel}
+                    onShowAdd={setShowAddLabel}
+                  />
+                </div>
+              </CardContent>
+            </Card>
 
-        {/* Contact Info */}
-        <Card>
-          <CardContent className="p-4">
-            <ListLayout
-              header={
-                <>
+            {/* Contact Info */}
+            <Card>
+              <CardContent className="p-4">
+                <div className="flex items-center justify-between mb-3">
                   <h2 className="font-semibold text-base">Contact Info</h2>
                   <BookUser className="h-4 w-4 text-muted-foreground" />
-                </>
-              }
-              body={<ContactInfoList person={person} onAdd={() => refetch()} onDelete={() => refetch()} />}
-            />
-          </CardContent>
-        </Card>
+                </div>
+                <div className="max-h-64 overflow-y-auto space-y-2">
+                  <ContactInfoList person={person} onAdd={() => refetch()} onDelete={() => refetch()} />
+                </div>
+              </CardContent>
+            </Card>
 
-        {/* Suggested Introductions */}
-        <Card>
-          <CardContent className="p-4">
-            <ListLayout
-              header={<h2 className="font-semibold text-base">Suggested Introductions</h2>}
-              body={
-                <PersonIntroductions
-                  currentPersonId={person.id}
-                  currentPersonLabels={person.labels}
-                  allPersons={allPersonsWithLabels}
-                  linkedPersonIds={new Set(person.relationships.map((r) => r.relatedPersonId))}
+            {/* Addresses */}
+            <Card>
+              <CardContent className="p-4">
+                <ListLayout
+                  className="h-64"
+                  header={<h2 className="font-semibold text-base">Addresses</h2>}
+                  body={<AddressList fragmentRef={person} onAdd={() => refetch()} onDelete={() => refetch()} />}
                 />
-              }
-            />
-          </CardContent>
-        </Card>
+              </CardContent>
+            </Card>
 
-        {/* Important Dates */}
-        <Card>
-          <CardContent className="p-4">
-            <ListLayout
-              header={
-                <>
+            {/* Relationships */}
+            <Card>
+              <CardContent className="p-4">
+                <ListLayout
+                  className="h-64"
+                  header={
+                    <>
+                      <h2 className="font-semibold text-base">Relationships</h2>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <span tabIndex={allPersonsLinked ? 0 : undefined}>
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => setShowAddRelationship(true)}
+                              disabled={allPersonsLinked}
+                            >
+                              <UserRoundPlus className="mr-1.5 h-4 w-4" />
+                              Add Relationship
+                            </Button>
+                          </span>
+                        </TooltipTrigger>
+                        {allPersonsLinked && <TooltipContent>All persons are already linked</TooltipContent>}
+                      </Tooltip>
+                    </>
+                  }
+                  body={
+                    <PersonRelationships
+                      person={person}
+                      allPersons={allPersonStubs}
+                      onDelete={handleDeleteRelationship}
+                      onAdd={handleAddRelationship}
+                      onEdit={handleEditRelationship}
+                      showAdd={showAddRelationship}
+                      onShowAdd={setShowAddRelationship}
+                    />
+                  }
+                />
+              </CardContent>
+            </Card>
+
+            {/* Suggested Introductions */}
+            <Card>
+              <CardContent className="p-4">
+                <div className="flex items-center justify-between mb-3">
+                  <h2 className="font-semibold text-base">Suggested Introductions</h2>
+                </div>
+                <div className="max-h-64 overflow-y-auto space-y-2">
+                  <PersonIntroductions
+                    currentPersonId={person.id}
+                    currentPersonLabels={person.labels}
+                    allPersons={allPersonsWithLabels}
+                    linkedPersonIds={new Set(person.relationships.map((r) => r.relatedPersonId))}
+                  />
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* RIGHT COLUMN */}
+          <div className="space-y-6">
+            {/* Notes */}
+            <Card>
+              <CardContent className="p-4">
+                <ListLayout
+                  className="h-64"
+                  header={
+                    <>
+                      <h2 className="font-semibold text-base">Notes</h2>
+                      <Button size="sm" variant="outline" onClick={() => setNoteDialogOpen(true)}>
+                        <NotebookPen className="mr-1.5 h-4 w-4" />
+                        Add Note
+                      </Button>
+                    </>
+                  }
+                  body={
+                    <PersonNotes
+                      personId={person.id}
+                      notes={(person.notes ?? []).map((n) => ({
+                        id: n.id,
+                        body: n.body,
+                        labels: n.labels ?? [],
+                        mentions: (n.mentions ?? []).map((m) => ({
+                          id: m.id,
+                          firstName: m.firstName,
+                          lastName: m.lastName,
+                        })),
+                      }))}
+                      allTags={allLabels}
+                      allPersons={allPersonStubs}
+                      onChanged={() => refetch()}
+                      createOpen={noteDialogOpen}
+                      onCreateOpenChange={setNoteDialogOpen}
+                    />
+                  }
+                />
+              </CardContent>
+            </Card>
+
+            {/* Interactions */}
+            <Card>
+              <CardContent className="p-4">
+                <ListLayout
+                  className="h-64"
+                  header={
+                    <>
+                      <h2 className="font-semibold text-base">Interactions</h2>
+                      <Button size="sm" variant="outline" onClick={() => setInteractionDialogOpen(true)}>
+                        <MessageSquare className="mr-1.5 h-4 w-4" />
+                        Log Interaction
+                      </Button>
+                    </>
+                  }
+                  body={
+                    <PersonInteractions
+                      personId={person.id}
+                      interactions={(person.interactions ?? []).map((i) => ({
+                        id: i.id,
+                        personId: i.personId,
+                        channel: i.channel,
+                        occurredAt: i.occurredAt,
+                        sentiment: i.sentiment,
+                        note: i.note,
+                        labels: i.labels ?? [],
+                      }))}
+                      allTags={allLabels}
+                      onChanged={() => refetch()}
+                      createOpen={interactionDialogOpen}
+                      onCreateOpenChange={setInteractionDialogOpen}
+                    />
+                  }
+                />
+              </CardContent>
+            </Card>
+
+            {/* Important Dates */}
+            <Card>
+              <CardContent className="p-4">
+                <div className="flex items-center justify-between mb-3">
                   <h2 className="font-semibold text-base">Important Dates</h2>
                   <Button size="sm" variant="outline" onClick={() => setDateDialogOpen(true)}>
                     <CalendarPlus className="mr-1.5 h-4 w-4" />
                     Add Date
                   </Button>
-                </>
-              }
-              body={
-                person.importantDates.length === 0 ? (
-                  <p className="text-muted-foreground text-sm">No important dates yet.</p>
-                ) : (
-                  person.importantDates.map((d) => (
-                    <ImportantDateRow
-                      key={d.id}
-                      id={d.id}
-                      personId={person.id}
-                      name={d.name}
-                      date={d.date}
-                      description={d.description}
-                      recurrence={d.recurrence}
-                      milestoneType={d.milestoneType}
-                      tags={d.labels ?? []}
-                      allTags={allLabels}
-                      onDelete={handleDeleteDate}
-                      onEdit={handleEditDate}
-                      onTagChanged={handleTagChanged}
+                </div>
+                <div className="max-h-64 overflow-y-auto space-y-2">
+                  {person.importantDates.length === 0 ? (
+                    <p className="text-muted-foreground text-sm">No important dates yet.</p>
+                  ) : (
+                    person.importantDates.map((d) => (
+                      <ImportantDateRow
+                        key={d.id}
+                        id={d.id}
+                        personId={person.id}
+                        name={d.name}
+                        date={d.date}
+                        description={d.description}
+                        recurrence={d.recurrence}
+                        milestoneType={d.milestoneType}
+                        tags={d.labels ?? []}
+                        allTags={allLabels}
+                        onDelete={handleDeleteDate}
+                        onEdit={handleEditDate}
+                        onTagChanged={handleTagChanged}
+                      />
+                    ))
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Activities */}
+            <Card>
+              <CardContent className="p-4">
+                <ListLayout
+                  className="h-64"
+                  header={
+                    <>
+                      <h2 className="font-semibold text-base">Activities</h2>
+                      <Button size="sm" variant="outline" onClick={() => setActivityDialogOpen(true)}>
+                        <Activity className="mr-1.5 h-4 w-4" />
+                        Add Activity
+                      </Button>
+                    </>
+                  }
+                  body={
+                    <ActivityList
+                      person={person}
+                      onAdd={() => refetch()}
+                      onDelete={() => refetch()}
+                      createOpen={activityDialogOpen}
+                      onCreateOpenChange={setActivityDialogOpen}
                     />
-                  ))
-                )
-              }
-            />
-          </CardContent>
-        </Card>
-
-        {/* Notes */}
-        <Card>
-          <CardContent className="p-4">
-            <ListLayout
-              header={
-                <>
-                  <h2 className="font-semibold text-base">Notes</h2>
-                  <Button size="sm" variant="outline" onClick={() => setNoteDialogOpen(true)}>
-                    <NotebookPen className="mr-1.5 h-4 w-4" />
-                    Add Note
-                  </Button>
-                </>
-              }
-              body={
-                <PersonNotes
-                  personId={person.id}
-                  notes={(person.notes ?? []).map((n) => ({
-                    id: n.id,
-                    body: n.body,
-                    labels: n.labels ?? [],
-                    mentions: (n.mentions ?? []).map((m) => ({
-                      id: m.id,
-                      firstName: m.firstName,
-                      lastName: m.lastName,
-                    })),
-                  }))}
-                  allTags={allLabels}
-                  allPersons={allPersonStubs}
-                  onChanged={() => refetch()}
-                  createOpen={noteDialogOpen}
-                  onCreateOpenChange={setNoteDialogOpen}
+                  }
                 />
-              }
-            />
-          </CardContent>
-        </Card>
+              </CardContent>
+            </Card>
 
-        {/* Addresses */}
-        <Card>
-          <CardContent className="p-4">
-            <ListLayout
-              header={<h2 className="font-semibold text-base">Addresses</h2>}
-              body={<AddressList fragmentRef={person} onAdd={() => refetch()} onDelete={() => refetch()} />}
-            />
-          </CardContent>
-        </Card>
-
-        {/* Interactions */}
-        <Card>
-          <CardContent className="p-4">
-            <ListLayout
-              header={
-                <>
-                  <h2 className="font-semibold text-base">Interactions</h2>
-                  <Button size="sm" variant="outline" onClick={() => setInteractionDialogOpen(true)}>
-                    <MessageSquare className="mr-1.5 h-4 w-4" />
-                    Log Interaction
-                  </Button>
-                </>
-              }
-              body={
-                <PersonInteractions
-                  personId={person.id}
-                  interactions={(person.interactions ?? []).map((i) => ({
-                    id: i.id,
-                    personId: i.personId,
-                    channel: i.channel,
-                    occurredAt: i.occurredAt,
-                    sentiment: i.sentiment,
-                    note: i.note,
-                    labels: i.labels ?? [],
-                  }))}
-                  allTags={allLabels}
-                  onChanged={() => refetch()}
-                  createOpen={interactionDialogOpen}
-                  onCreateOpenChange={setInteractionDialogOpen}
+            {/* Tasks */}
+            <Card>
+              <CardContent className="p-4">
+                <ListLayout
+                  className="h-64"
+                  header={<h2 className="font-semibold text-base">Tasks</h2>}
+                  body={
+                    <TaskList
+                      personId={person.id}
+                      tasks={(person.tasks ?? []).map((t) => ({
+                        id: t.id,
+                        title: t.title,
+                        notes: t.notes,
+                        dueAt: t.dueAt,
+                        completedAt: t.completedAt,
+                        createdAt: t.createdAt,
+                      }))}
+                      onAdd={() => refetch()}
+                      onDelete={() => refetch()}
+                      onUpdate={() => refetch()}
+                    />
+                  }
                 />
-              }
-            />
-          </CardContent>
-        </Card>
+              </CardContent>
+            </Card>
 
-        {/* Activities */}
-        <Card>
-          <CardContent className="p-4">
-            <ListLayout
-              header={
-                <>
-                  <h2 className="font-semibold text-base">Activities</h2>
-                  <Button size="sm" variant="outline" onClick={() => setActivityDialogOpen(true)}>
-                    <Activity className="mr-1.5 h-4 w-4" />
-                    Add Activity
-                  </Button>
-                </>
-              }
-              body={
-                <ActivityList
-                  person={person}
-                  onAdd={() => refetch()}
-                  onDelete={() => refetch()}
-                  createOpen={activityDialogOpen}
-                  onCreateOpenChange={setActivityDialogOpen}
-                />
-              }
-            />
-          </CardContent>
-        </Card>
-
-        {/* Tasks */}
-        <Card>
-          <CardContent className="p-4">
-            <ListLayout
-              header={<h2 className="font-semibold text-base">Tasks</h2>}
-              body={
-                <TaskList
-                  personId={person.id}
-                  tasks={(person.tasks ?? []).map((t) => ({
-                    id: t.id,
-                    title: t.title,
-                    notes: t.notes,
-                    dueAt: t.dueAt,
-                    completedAt: t.completedAt,
-                    createdAt: t.createdAt,
-                  }))}
-                  onAdd={() => refetch()}
-                  onDelete={() => refetch()}
-                  onUpdate={() => refetch()}
-                />
-              }
-            />
-          </CardContent>
-        </Card>
-
-        {/* Relationships */}
-        <Card>
-          <CardContent className="p-4">
-            <ListLayout
-              header={
-                <>
-                  <h2 className="font-semibold text-base">Relationships</h2>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <span tabIndex={allPersonsLinked ? 0 : undefined}>
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          onClick={() => setShowAddRelationship(true)}
-                          disabled={allPersonsLinked}
-                        >
-                          <UserRoundPlus className="mr-1.5 h-4 w-4" />
-                          Add Relationship
-                        </Button>
-                      </span>
-                    </TooltipTrigger>
-                    {allPersonsLinked && <TooltipContent>All persons are already linked</TooltipContent>}
-                  </Tooltip>
-                </>
-              }
-              body={
-                <PersonRelationships
-                  person={person}
-                  allPersons={allPersonStubs}
-                  onDelete={handleDeleteRelationship}
-                  onAdd={handleAddRelationship}
-                  onEdit={handleEditRelationship}
-                  showAdd={showAddRelationship}
-                  onShowAdd={setShowAddRelationship}
-                />
-              }
-            />
-          </CardContent>
-        </Card>
-
-        {/* Mentioned In */}
-        <Card>
-          <CardContent className="p-4">
-            <ListLayout
-              header={<h2 className="font-semibold text-base">Mentioned In</h2>}
-              body={
-                (person.mentionedInNotes ?? []).length === 0 ? (
-                  <p className="text-muted-foreground text-sm">Not mentioned in any notes yet.</p>
-                ) : (
-                  <div className="space-y-2">
-                    {(person.mentionedInNotes ?? []).map((n) => (
-                      <div key={n.id} className="rounded-md border border-border px-3 py-2 text-sm space-y-0.5">
-                        <p className="text-sm line-clamp-3">
-                          {n.body.length > 120 ? `${n.body.slice(0, 120)}…` : n.body}
-                        </p>
-                        {n.person && (
-                          <p className="text-xs text-muted-foreground">
-                            by{' '}
-                            <Link to="/persons/$id" params={{ id: n.person.id }} className="hover:underline">
-                              {n.person.firstName} {n.person.lastName}
-                            </Link>
-                          </p>
-                        )}
+            {/* Mentioned In */}
+            <Card>
+              <CardContent className="p-4">
+                <ListLayout
+                  className="h-64"
+                  header={<h2 className="font-semibold text-base">Mentioned In</h2>}
+                  body={
+                    (person.mentionedInNotes ?? []).length === 0 ? (
+                      <p className="text-muted-foreground text-sm">Not mentioned in any notes yet.</p>
+                    ) : (
+                      <div className="space-y-2">
+                        {(person.mentionedInNotes ?? []).map((n) => (
+                          <div key={n.id} className="rounded-md border border-border px-3 py-2 text-sm space-y-0.5">
+                            <p className="text-sm line-clamp-3">
+                              {n.body.length > 120 ? `${n.body.slice(0, 120)}…` : n.body}
+                            </p>
+                            {n.person && (
+                              <p className="text-xs text-muted-foreground">
+                                by{' '}
+                                <Link to="/persons/$id" params={{ id: n.person.id }} className="hover:underline">
+                                  {n.person.firstName} {n.person.lastName}
+                                </Link>
+                              </p>
+                            )}
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                )
-              }
-            />
-          </CardContent>
-        </Card>
+                    )
+                  }
+                />
+              </CardContent>
+            </Card>
+          </div>
+        </div>
 
         {/* Add Important Date Dialog */}
         <Dialog open={dateDialogOpen} onOpenChange={setDateDialogOpen}>

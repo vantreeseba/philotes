@@ -3,6 +3,7 @@ import { DontLoseTouch } from '@/components/domain/dashboard/dont-lose-touch.js'
 import { DormantTies } from '@/components/domain/dashboard/dormant-ties.js';
 import { RecentPersons } from '@/components/domain/dashboard/recent-persons.js';
 import { UpcomingDates } from '@/components/domain/dashboard/upcoming-dates.js';
+import { ListLayout } from '@/components/layouts/list.js';
 
 // ---------------------------------------------------------------------------
 // Route
@@ -40,15 +41,18 @@ const MODULES: DashboardModule[] = [
 
 function DashboardPage() {
   return (
-    <div className="space-y-4">
-      <h1 className="font-bold text-2xl">Dashboard</h1>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        {MODULES.map(({ id, span, component: Module }) => (
-          <div key={id} className={span === 'full' ? 'md:col-span-2' : ''}>
-            <Module />
-          </div>
-        ))}
-      </div>
-    </div>
+    <ListLayout
+      header={<h1 className="font-bold text-2xl">Dashboard</h1>}
+      spacing={false}
+      body={
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {MODULES.map(({ id, span, component: Module }) => (
+            <div key={id} className={span === 'full' ? 'md:col-span-2' : ''}>
+              <Module />
+            </div>
+          ))}
+        </div>
+      }
+    />
   );
 }
