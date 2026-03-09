@@ -9,6 +9,13 @@ import { ListLayout } from '@/components/layouts/list.js';
 import { Avatar } from '@/components/ui/avatar.js';
 import { Button } from '@/components/ui/button.js';
 import { Card, CardContent } from '@/components/ui/card.js';
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationNext,
+  PaginationPrevious,
+} from '@/components/ui/pagination.js';
 import { Spinner } from '@/components/ui/spinner.tsx';
 
 const PERSON_LIST = graphql(`
@@ -135,14 +142,19 @@ interface PersonListProps {
   onClickDelete: (id: string) => void;
 }
 
+const PAGE_SIZE_OPTIONS = [10, 25, 50];
+
 export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListProps) {
   const [query, setQuery] = useState('');
   const [activeLabelIds, setActiveLabelIds] = useState<Set<string>>(new Set());
+  const [page, setPage] = useState(0);
+  const [pageSize, setPageSize] = useState(10);
 
   // Collect all unique labels across all persons for the label filter bar
   const allLabels = Array.from(new Map(persons.flatMap((p) => p.labels).map((l) => [l.id, l])).values());
 
   const toggleLabelFilter = (id: string) => {
+    setPage(0);
     setActiveLabelIds((prev) => {
       const next = new Set(prev);
       if (next.has(id)) {
@@ -157,12 +169,18 @@ export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListPro
   const clearFilters = () => {
     setQuery('');
     setActiveLabelIds(new Set());
+    setPage(0);
+  };
+
+  const handleQueryChange = (value: string) => {
+    setQuery(value);
+    setPage(0);
   };
 
   const q = query.trim().toLowerCase();
   const hasFilters = q.length > 0 || activeLabelIds.size > 0;
 
-  const filtered = persons.filter((p) => {
+  const filteredPersons = persons.filter((p) => {
     if (q) {
       const fullName = `${p.firstName} ${p.lastName}`.toLowerCase();
       const matchesText = fullName.includes(q) || p.email.toLowerCase().includes(q);
@@ -176,16 +194,25 @@ export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListPro
     return true;
   });
 
+  const handlePageSizeChange = (newSize: number) => {
+    setPageSize(newSize);
+    setPage(0);
+  };
+
+  const pageItems = filteredPersons.slice(page * pageSize, (page + 1) * pageSize);
+  const isFirstPage = page === 0;
+  const isLastPage = pageItems.length < pageSize;
+
   return (
     <ListLayout
       header={
-        <>
+        <div className="flex items-center justify-between">
           <h1 className="font-bold text-3xl">Persons</h1>
           <Button onClick={onClickAdd}>
             <UserPlus className="mr-2 h-4 w-4" />
             Add Person
           </Button>
-        </>
+        </div>
       }
       body={
         <div className="space-y-3">
@@ -197,7 +224,7 @@ export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListPro
                 type="search"
                 placeholder="Search by name or email…"
                 value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={(e) => handleQueryChange(e.target.value)}
                 className="w-full rounded-md border border-border bg-background py-2 pl-9 pr-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
               />
             </div>
@@ -233,16 +260,20 @@ export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListPro
                 )}
               </div>
             )}
+            <p className="text-xs text-muted-foreground">
+              {filteredPersons.length} person
+              {filteredPersons.length !== 1 ? 's' : ''}
+            </p>
           </div>
 
           {/* Results */}
-          {filtered.length === 0 ? (
+          {pageItems.length === 0 ? (
             <p className="text-muted-foreground text-sm">
               {hasFilters ? 'No persons match the current filters.' : 'No persons yet.'}
             </p>
           ) : (
             <div className="grid gap-4">
-              {filtered.map((p) => (
+              {pageItems.map((p) => (
                 <PersonRow
                   key={p.id}
                   person={p.ref}
@@ -253,6 +284,45 @@ export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListPro
               ))}
             </div>
           )}
+        </div>
+      }
+      footer={
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center gap-1.5">
+            <label htmlFor="persons-page-size" className="text-xs text-muted-foreground">
+              Per page
+            </label>
+            <select
+              id="persons-page-size"
+              value={pageSize}
+              onChange={(e) => handlePageSizeChange(Number(e.target.value))}
+              className="h-8 rounded-md border border-input bg-background px-2 text-xs focus:outline-none focus:ring-2 focus:ring-ring"
+            >
+              {PAGE_SIZE_OPTIONS.map((n) => (
+                <option key={n} value={n}>
+                  {n}
+                </option>
+              ))}
+            </select>
+          </div>
+          <Pagination className="w-auto mx-0 justify-end">
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious
+                  onClick={() => setPage((p) => p - 1)}
+                  className={isFirstPage ? 'pointer-events-none opacity-50' : ''}
+                  aria-disabled={isFirstPage}
+                />
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationNext
+                  onClick={() => setPage((p) => p + 1)}
+                  className={isLastPage ? 'pointer-events-none opacity-50' : ''}
+                  aria-disabled={isLastPage}
+                />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
         </div>
       }
     />
