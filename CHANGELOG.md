@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/vantreeseba/philotes/compare/v1.1.1...v1.1.2) (2026-03-09)
+
+
+### Bug Fixes
+
+* resolve build failures from resolver refactor and missing vendored dep ([e89349e](https://github.com/vantreeseba/philotes/commit/e89349e4f020cea4891115b13402e735ec4dad50))
+
 ## [1.1.1](https://github.com/vantreeseba/philotes/compare/v1.1.0...v1.1.1) (2026-03-09)
 
 
