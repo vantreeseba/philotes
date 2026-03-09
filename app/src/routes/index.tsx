@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { DontLoseTouch } from '@/components/domain/dashboard/dont-lose-touch.js';
+import { DormantTies } from '@/components/domain/dashboard/dormant-ties.js';
 import { RecentPersons } from '@/components/domain/dashboard/recent-persons.js';
 import { UpcomingDates } from '@/components/domain/dashboard/upcoming-dates.js';
 
@@ -30,6 +31,7 @@ const MODULES: DashboardModule[] = [
   { id: 'upcoming-dates', span: 'full', component: UpcomingDates },
   { id: 'recent-persons', span: 'full', component: RecentPersons },
   { id: 'dont-lose-touch', span: 'full', component: DontLoseTouch },
+  { id: 'dormant-ties', span: 'full', component: DormantTies },
 ];
 
 // ---------------------------------------------------------------------------
