@@ -3,8 +3,8 @@ import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
 import { graphql } from '@/__generated__/gql.js';
 import type { CreateLabelInput } from '@/__generated__/graphql.js';
+import { LabelList } from '@/components/domain/label/list.js';
 import { TagForm } from '@/components/domain/tag/form.js';
-import { TagList } from '@/components/domain/tag/list.js';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog.js';
 import { Spinner } from '@/components/ui/spinner.tsx';
 
@@ -12,7 +12,7 @@ const GET_TAGS = graphql(`
   query GetTags {
     labels {
       id
-      ...Tag_List
+      ...Label_List
     }
   }
 `);
@@ -21,7 +21,7 @@ const CREATE_TAG = graphql(`
   mutation CreateTag($values: CreateLabelInput!) {
     createLabel(values: $values) {
       id
-      ...Tag_List
+      ...Label_List
     }
   }
 `);
@@ -73,7 +73,7 @@ function TagsPage() {
         </DialogContent>
       </Dialog>
 
-      <TagList labels={data?.labels ?? []} onClickAdd={() => setDialogOpen(true)} onClickDelete={handleDelete} />
+      <LabelList labels={data?.labels ?? []} onClickAdd={() => setDialogOpen(true)} onClickDelete={handleDelete} />
     </>
   );
 }
