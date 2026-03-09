@@ -3,244 +3,25 @@ schema {
   mutation: Mutation
 }
 
-input ActivitiesCreatedAtFilters {
-  OR: [ActivitiesCreatedAtFiltersOr!]
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesCreatedAtFiltersOr {
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesDescriptionFilters {
-  OR: [ActivitiesDescriptionFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesDescriptionFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
 input ActivitiesFilters {
   OR: [ActivitiesFiltersOr!]
-  createdAt: ActivitiesCreatedAtFilters
-  description: ActivitiesDescriptionFilters
-  id: ActivitiesIdFilters
-  location: ActivitiesLocationFilters
-  occurredAt: ActivitiesOccurredAtFilters
-  personId: ActivitiesPersonIdFilters
-  title: ActivitiesTitleFilters
+  createdAt: DateTimeFilter
+  description: StringFilter
+  id: IdFilter
+  location: StringFilter
+  occurredAt: DateTimeFilter
+  personId: IdFilter
+  title: StringFilter
 }
 
 input ActivitiesFiltersOr {
-  createdAt: ActivitiesCreatedAtFilters
-  description: ActivitiesDescriptionFilters
-  id: ActivitiesIdFilters
-  location: ActivitiesLocationFilters
-  occurredAt: ActivitiesOccurredAtFilters
-  personId: ActivitiesPersonIdFilters
-  title: ActivitiesTitleFilters
-}
-
-input ActivitiesIdFilters {
-  OR: [ActivitiesIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesLocationFilters {
-  OR: [ActivitiesLocationFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesLocationFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesOccurredAtFilters {
-  OR: [ActivitiesOccurredAtFiltersOr!]
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesOccurredAtFiltersOr {
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
+  createdAt: DateTimeFilter
+  description: StringFilter
+  id: IdFilter
+  location: StringFilter
+  occurredAt: DateTimeFilter
+  personId: IdFilter
+  title: StringFilter
 }
 
 input ActivitiesOrderBy {
@@ -251,84 +32,6 @@ input ActivitiesOrderBy {
   occurredAt: InnerOrder
   personId: InnerOrder
   title: InnerOrder
-}
-
-input ActivitiesPersonIdFilters {
-  OR: [ActivitiesPersonIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesPersonIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesTitleFilters {
-  OR: [ActivitiesTitleFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivitiesTitleFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
 }
 
 type Activity {
@@ -800,93 +503,15 @@ type ActivityTag {
   labelId: String!
 }
 
-input ActivityTagsActivityIdFilters {
-  OR: [ActivityTagsActivityIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivityTagsActivityIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
 input ActivityTagsFilters {
   OR: [ActivityTagsFiltersOr!]
-  activityId: ActivityTagsActivityIdFilters
-  labelId: ActivityTagsLabelIdFilters
+  activityId: IdFilter
+  labelId: IdFilter
 }
 
 input ActivityTagsFiltersOr {
-  activityId: ActivityTagsActivityIdFilters
-  labelId: ActivityTagsLabelIdFilters
-}
-
-input ActivityTagsLabelIdFilters {
-  OR: [ActivityTagsLabelIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ActivityTagsLabelIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
+  activityId: IdFilter
+  labelId: IdFilter
 }
 
 input ActivityTagsOrderBy {
@@ -1477,359 +1102,35 @@ type AddressPersonRelationTasksRelationPersonRelation {
   updatedAt: String!
 }
 
-input AddressesCityFilters {
-  OR: [AddressesCityFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input AddressesCityFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input AddressesCountryFilters {
-  OR: [AddressesCountryFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input AddressesCountryFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input AddressesCreatedAtFilters {
-  OR: [AddressesCreatedAtFiltersOr!]
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input AddressesCreatedAtFiltersOr {
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
-}
-
 input AddressesFilters {
   OR: [AddressesFiltersOr!]
-  city: AddressesCityFilters
-  country: AddressesCountryFilters
-  createdAt: AddressesCreatedAtFilters
-  id: AddressesIdFilters
-  isPrimary: AddressesIsPrimaryFilters
-  label: AddressesLabelFilters
-  line1: AddressesLine1Filters
-  line2: AddressesLine2Filters
-  personId: AddressesPersonIdFilters
-  postalCode: AddressesPostalCodeFilters
-  state: AddressesStateFilters
-  type: AddressesTypeFilters
+  city: StringFilter
+  country: StringFilter
+  createdAt: DateTimeFilter
+  id: IdFilter
+  isPrimary: BooleanFilter
+  label: StringFilter
+  line1: StringFilter
+  line2: StringFilter
+  personId: IdFilter
+  postalCode: StringFilter
+  state: StringFilter
+  type: AddressesTypeEnumFilter
 }
 
 input AddressesFiltersOr {
-  city: AddressesCityFilters
-  country: AddressesCountryFilters
-  createdAt: AddressesCreatedAtFilters
-  id: AddressesIdFilters
-  isPrimary: AddressesIsPrimaryFilters
-  label: AddressesLabelFilters
-  line1: AddressesLine1Filters
-  line2: AddressesLine2Filters
-  personId: AddressesPersonIdFilters
-  postalCode: AddressesPostalCodeFilters
-  state: AddressesStateFilters
-  type: AddressesTypeFilters
-}
-
-input AddressesIdFilters {
-  OR: [AddressesIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input AddressesIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input AddressesIsPrimaryFilters {
-  OR: [AddressesIsPrimaryFiltersOr!]
-  eq: Boolean
-  gt: Boolean
-  gte: Boolean
-  ilike: String
-  """Array<undefined>"""
-  inArray: [Boolean!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: Boolean
-  lte: Boolean
-  ne: Boolean
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [Boolean!]
-  notLike: String
-}
-
-input AddressesIsPrimaryFiltersOr {
-  eq: Boolean
-  gt: Boolean
-  gte: Boolean
-  ilike: String
-  """Array<undefined>"""
-  inArray: [Boolean!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: Boolean
-  lte: Boolean
-  ne: Boolean
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [Boolean!]
-  notLike: String
-}
-
-input AddressesLabelFilters {
-  OR: [AddressesLabelFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input AddressesLabelFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input AddressesLine1Filters {
-  OR: [AddressesLine1FiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input AddressesLine1FiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input AddressesLine2Filters {
-  OR: [AddressesLine2FiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input AddressesLine2FiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
+  city: StringFilter
+  country: StringFilter
+  createdAt: DateTimeFilter
+  id: IdFilter
+  isPrimary: BooleanFilter
+  label: StringFilter
+  line1: StringFilter
+  line2: StringFilter
+  personId: IdFilter
+  postalCode: StringFilter
+  state: StringFilter
+  type: AddressesTypeEnumFilter
 }
 
 input AddressesOrderBy {
@@ -1847,123 +1148,6 @@ input AddressesOrderBy {
   type: InnerOrder
 }
 
-input AddressesPersonIdFilters {
-  OR: [AddressesPersonIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input AddressesPersonIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input AddressesPostalCodeFilters {
-  OR: [AddressesPostalCodeFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input AddressesPostalCodeFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input AddressesStateFilters {
-  OR: [AddressesStateFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input AddressesStateFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
 enum AddressesTypeEnum {
   """Value: home"""
   home
@@ -1973,8 +1157,8 @@ enum AddressesTypeEnum {
   work
 }
 
-input AddressesTypeFilters {
-  OR: [AddressesTypeFiltersOr!]
+input AddressesTypeEnumFilter {
+  OR: [AddressesTypeEnumFilterOr!]
   eq: AddressesTypeEnum
   gt: AddressesTypeEnum
   gte: AddressesTypeEnum
@@ -1993,7 +1177,7 @@ input AddressesTypeFilters {
   notLike: String
 }
 
-input AddressesTypeFiltersOr {
+input AddressesTypeEnumFilterOr {
   eq: AddressesTypeEnum
   gt: AddressesTypeEnum
   gte: AddressesTypeEnum
@@ -2009,6 +1193,45 @@ input AddressesTypeFiltersOr {
   notIlike: String
   """Array<undefined>"""
   notInArray: [AddressesTypeEnum!]
+  notLike: String
+}
+
+input BooleanFilter {
+  OR: [BooleanFilterOr!]
+  eq: Boolean
+  gt: Boolean
+  gte: Boolean
+  ilike: String
+  """Array<undefined>"""
+  inArray: [Boolean!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: Boolean
+  lte: Boolean
+  ne: Boolean
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [Boolean!]
+  notLike: String
+}
+
+input BooleanFilterOr {
+  eq: Boolean
+  gt: Boolean
+  gte: Boolean
+  ilike: String
+  """Array<undefined>"""
+  inArray: [Boolean!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: Boolean
+  lte: Boolean
+  ne: Boolean
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [Boolean!]
   notLike: String
 }
 
@@ -2590,193 +1813,25 @@ type ContactInfoPersonRelationTasksRelationPersonRelation {
   updatedAt: String!
 }
 
-input ContactInfosCreatedAtFilters {
-  OR: [ContactInfosCreatedAtFiltersOr!]
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ContactInfosCreatedAtFiltersOr {
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
-}
-
 input ContactInfosFilters {
   OR: [ContactInfosFiltersOr!]
-  createdAt: ContactInfosCreatedAtFilters
-  id: ContactInfosIdFilters
-  isPrimary: ContactInfosIsPrimaryFilters
-  label: ContactInfosLabelFilters
-  personId: ContactInfosPersonIdFilters
-  type: ContactInfosTypeFilters
-  value: ContactInfosValueFilters
+  createdAt: DateTimeFilter
+  id: IdFilter
+  isPrimary: BooleanFilter
+  label: StringFilter
+  personId: IdFilter
+  type: ContactInfosTypeEnumFilter
+  value: StringFilter
 }
 
 input ContactInfosFiltersOr {
-  createdAt: ContactInfosCreatedAtFilters
-  id: ContactInfosIdFilters
-  isPrimary: ContactInfosIsPrimaryFilters
-  label: ContactInfosLabelFilters
-  personId: ContactInfosPersonIdFilters
-  type: ContactInfosTypeFilters
-  value: ContactInfosValueFilters
-}
-
-input ContactInfosIdFilters {
-  OR: [ContactInfosIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ContactInfosIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ContactInfosIsPrimaryFilters {
-  OR: [ContactInfosIsPrimaryFiltersOr!]
-  eq: Boolean
-  gt: Boolean
-  gte: Boolean
-  ilike: String
-  """Array<undefined>"""
-  inArray: [Boolean!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: Boolean
-  lte: Boolean
-  ne: Boolean
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [Boolean!]
-  notLike: String
-}
-
-input ContactInfosIsPrimaryFiltersOr {
-  eq: Boolean
-  gt: Boolean
-  gte: Boolean
-  ilike: String
-  """Array<undefined>"""
-  inArray: [Boolean!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: Boolean
-  lte: Boolean
-  ne: Boolean
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [Boolean!]
-  notLike: String
-}
-
-input ContactInfosLabelFilters {
-  OR: [ContactInfosLabelFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ContactInfosLabelFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
+  createdAt: DateTimeFilter
+  id: IdFilter
+  isPrimary: BooleanFilter
+  label: StringFilter
+  personId: IdFilter
+  type: ContactInfosTypeEnumFilter
+  value: StringFilter
 }
 
 input ContactInfosOrderBy {
@@ -2787,45 +1842,6 @@ input ContactInfosOrderBy {
   personId: InnerOrder
   type: InnerOrder
   value: InnerOrder
-}
-
-input ContactInfosPersonIdFilters {
-  OR: [ContactInfosPersonIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ContactInfosPersonIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
 }
 
 enum ContactInfosTypeEnum {
@@ -2847,8 +1863,8 @@ enum ContactInfosTypeEnum {
   website
 }
 
-input ContactInfosTypeFilters {
-  OR: [ContactInfosTypeFiltersOr!]
+input ContactInfosTypeEnumFilter {
+  OR: [ContactInfosTypeEnumFilterOr!]
   eq: ContactInfosTypeEnum
   gt: ContactInfosTypeEnum
   gte: ContactInfosTypeEnum
@@ -2867,7 +1883,7 @@ input ContactInfosTypeFilters {
   notLike: String
 }
 
-input ContactInfosTypeFiltersOr {
+input ContactInfosTypeEnumFilterOr {
   eq: ContactInfosTypeEnum
   gt: ContactInfosTypeEnum
   gte: ContactInfosTypeEnum
@@ -2883,45 +1899,6 @@ input ContactInfosTypeFiltersOr {
   notIlike: String
   """Array<undefined>"""
   notInArray: [ContactInfosTypeEnum!]
-  notLike: String
-}
-
-input ContactInfosValueFilters {
-  OR: [ContactInfosValueFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ContactInfosValueFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
   notLike: String
 }
 
@@ -3059,6 +2036,88 @@ input CreateTaskInput {
   notes: String
   personId: String!
   title: String!
+}
+
+input DateTimeFilter {
+  OR: [DateTimeFilterOr!]
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input DateTimeFilterOr {
+  """JSON"""
+  eq: String
+  """JSON"""
+  gt: String
+  """JSON"""
+  gte: String
+  ilike: String
+  """Array<JSON>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  """JSON"""
+  lt: String
+  """JSON"""
+  lte: String
+  """JSON"""
+  ne: String
+  notIlike: String
+  """Array<JSON>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input IdFilter {
+  OR: [IdFilterOr!]
+  eq: String
+  gt: String
+  gte: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  lt: String
+  lte: String
+  ne: String
+  """Array<undefined>"""
+  notInArray: [String!]
+}
+
+input IdFilterOr {
+  eq: String
+  gt: String
+  gte: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  lt: String
+  lte: String
+  ne: String
+  """Array<undefined>"""
+  notInArray: [String!]
 }
 
 type ImportantDate {
@@ -3973,91 +3032,13 @@ type ImportantDateTag {
 
 input ImportantDateTagsFilters {
   OR: [ImportantDateTagsFiltersOr!]
-  importantDateId: ImportantDateTagsImportantDateIdFilters
-  labelId: ImportantDateTagsLabelIdFilters
+  importantDateId: IdFilter
+  labelId: IdFilter
 }
 
 input ImportantDateTagsFiltersOr {
-  importantDateId: ImportantDateTagsImportantDateIdFilters
-  labelId: ImportantDateTagsLabelIdFilters
-}
-
-input ImportantDateTagsImportantDateIdFilters {
-  OR: [ImportantDateTagsImportantDateIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ImportantDateTagsImportantDateIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ImportantDateTagsLabelIdFilters {
-  OR: [ImportantDateTagsLabelIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ImportantDateTagsLabelIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
+  importantDateId: IdFilter
+  labelId: IdFilter
 }
 
 input ImportantDateTagsOrderBy {
@@ -4065,142 +3046,25 @@ input ImportantDateTagsOrderBy {
   labelId: InnerOrder
 }
 
-input ImportantDatesDateFilters {
-  OR: [ImportantDatesDateFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ImportantDatesDateFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ImportantDatesDescriptionFilters {
-  OR: [ImportantDatesDescriptionFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ImportantDatesDescriptionFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
 input ImportantDatesFilters {
   OR: [ImportantDatesFiltersOr!]
-  date: ImportantDatesDateFilters
-  description: ImportantDatesDescriptionFilters
-  id: ImportantDatesIdFilters
-  milestoneType: ImportantDatesMilestoneTypeFilters
-  name: ImportantDatesNameFilters
-  personId: ImportantDatesPersonIdFilters
-  recurrence: ImportantDatesRecurrenceFilters
+  date: StringFilter
+  description: StringFilter
+  id: IdFilter
+  milestoneType: ImportantDatesMilestoneTypeEnumFilter
+  name: StringFilter
+  personId: IdFilter
+  recurrence: StringFilter
 }
 
 input ImportantDatesFiltersOr {
-  date: ImportantDatesDateFilters
-  description: ImportantDatesDescriptionFilters
-  id: ImportantDatesIdFilters
-  milestoneType: ImportantDatesMilestoneTypeFilters
-  name: ImportantDatesNameFilters
-  personId: ImportantDatesPersonIdFilters
-  recurrence: ImportantDatesRecurrenceFilters
-}
-
-input ImportantDatesIdFilters {
-  OR: [ImportantDatesIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ImportantDatesIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
+  date: StringFilter
+  description: StringFilter
+  id: IdFilter
+  milestoneType: ImportantDatesMilestoneTypeEnumFilter
+  name: StringFilter
+  personId: IdFilter
+  recurrence: StringFilter
 }
 
 enum ImportantDatesMilestoneTypeEnum {
@@ -4228,8 +3092,8 @@ enum ImportantDatesMilestoneTypeEnum {
   retired
 }
 
-input ImportantDatesMilestoneTypeFilters {
-  OR: [ImportantDatesMilestoneTypeFiltersOr!]
+input ImportantDatesMilestoneTypeEnumFilter {
+  OR: [ImportantDatesMilestoneTypeEnumFilterOr!]
   eq: ImportantDatesMilestoneTypeEnum
   gt: ImportantDatesMilestoneTypeEnum
   gte: ImportantDatesMilestoneTypeEnum
@@ -4248,7 +3112,7 @@ input ImportantDatesMilestoneTypeFilters {
   notLike: String
 }
 
-input ImportantDatesMilestoneTypeFiltersOr {
+input ImportantDatesMilestoneTypeEnumFilterOr {
   eq: ImportantDatesMilestoneTypeEnum
   gt: ImportantDatesMilestoneTypeEnum
   gte: ImportantDatesMilestoneTypeEnum
@@ -4264,45 +3128,6 @@ input ImportantDatesMilestoneTypeFiltersOr {
   notIlike: String
   """Array<undefined>"""
   notInArray: [ImportantDatesMilestoneTypeEnum!]
-  notLike: String
-}
-
-input ImportantDatesNameFilters {
-  OR: [ImportantDatesNameFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ImportantDatesNameFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
   notLike: String
 }
 
@@ -4314,84 +3139,6 @@ input ImportantDatesOrderBy {
   name: InnerOrder
   personId: InnerOrder
   recurrence: InnerOrder
-}
-
-input ImportantDatesPersonIdFilters {
-  OR: [ImportantDatesPersonIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ImportantDatesPersonIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ImportantDatesRecurrenceFilters {
-  OR: [ImportantDatesRecurrenceFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input ImportantDatesRecurrenceFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
 }
 
 input InnerOrder {
@@ -5312,91 +4059,13 @@ type InteractionTag {
 
 input InteractionTagsFilters {
   OR: [InteractionTagsFiltersOr!]
-  interactionId: InteractionTagsInteractionIdFilters
-  labelId: InteractionTagsLabelIdFilters
+  interactionId: IdFilter
+  labelId: IdFilter
 }
 
 input InteractionTagsFiltersOr {
-  interactionId: InteractionTagsInteractionIdFilters
-  labelId: InteractionTagsLabelIdFilters
-}
-
-input InteractionTagsInteractionIdFilters {
-  OR: [InteractionTagsInteractionIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input InteractionTagsInteractionIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input InteractionTagsLabelIdFilters {
-  OR: [InteractionTagsLabelIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input InteractionTagsLabelIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
+  interactionId: IdFilter
+  labelId: IdFilter
 }
 
 input InteractionTagsOrderBy {
@@ -5404,191 +4073,23 @@ input InteractionTagsOrderBy {
   labelId: InnerOrder
 }
 
-input InteractionsChannelFilters {
-  OR: [InteractionsChannelFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input InteractionsChannelFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
 input InteractionsFilters {
   OR: [InteractionsFiltersOr!]
-  channel: InteractionsChannelFilters
-  id: InteractionsIdFilters
-  note: InteractionsNoteFilters
-  occurredAt: InteractionsOccurredAtFilters
-  personId: InteractionsPersonIdFilters
-  sentiment: InteractionsSentimentFilters
+  channel: StringFilter
+  id: IdFilter
+  note: StringFilter
+  occurredAt: DateTimeFilter
+  personId: IdFilter
+  sentiment: StringFilter
 }
 
 input InteractionsFiltersOr {
-  channel: InteractionsChannelFilters
-  id: InteractionsIdFilters
-  note: InteractionsNoteFilters
-  occurredAt: InteractionsOccurredAtFilters
-  personId: InteractionsPersonIdFilters
-  sentiment: InteractionsSentimentFilters
-}
-
-input InteractionsIdFilters {
-  OR: [InteractionsIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input InteractionsIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input InteractionsNoteFilters {
-  OR: [InteractionsNoteFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input InteractionsNoteFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input InteractionsOccurredAtFilters {
-  OR: [InteractionsOccurredAtFiltersOr!]
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input InteractionsOccurredAtFiltersOr {
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
+  channel: StringFilter
+  id: IdFilter
+  note: StringFilter
+  occurredAt: DateTimeFilter
+  personId: IdFilter
+  sentiment: StringFilter
 }
 
 input InteractionsOrderBy {
@@ -5598,84 +4099,6 @@ input InteractionsOrderBy {
   occurredAt: InnerOrder
   personId: InnerOrder
   sentiment: InnerOrder
-}
-
-input InteractionsPersonIdFilters {
-  OR: [InteractionsPersonIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input InteractionsPersonIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input InteractionsSentimentFilters {
-  OR: [InteractionsSentimentFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input InteractionsSentimentFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
 }
 
 type Label {
@@ -6071,134 +4494,17 @@ type LabelActivitiesRelationPersonRelationTasksRelationPersonRelation {
   updatedAt: String!
 }
 
-input LabelsColorFilters {
-  OR: [LabelsColorFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input LabelsColorFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
 input LabelsFilters {
   OR: [LabelsFiltersOr!]
-  color: LabelsColorFilters
-  id: LabelsIdFilters
-  label: LabelsLabelFilters
+  color: StringFilter
+  id: IdFilter
+  label: StringFilter
 }
 
 input LabelsFiltersOr {
-  color: LabelsColorFilters
-  id: LabelsIdFilters
-  label: LabelsLabelFilters
-}
-
-input LabelsIdFilters {
-  OR: [LabelsIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input LabelsIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input LabelsLabelFilters {
-  OR: [LabelsLabelFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input LabelsLabelFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
+  color: StringFilter
+  id: IdFilter
+  label: StringFilter
 }
 
 input LabelsOrderBy {
@@ -6605,91 +4911,13 @@ type NoteMention {
 
 input NoteMentionsFilters {
   OR: [NoteMentionsFiltersOr!]
-  mentionedPersonId: NoteMentionsMentionedPersonIdFilters
-  noteId: NoteMentionsNoteIdFilters
+  mentionedPersonId: IdFilter
+  noteId: IdFilter
 }
 
 input NoteMentionsFiltersOr {
-  mentionedPersonId: NoteMentionsMentionedPersonIdFilters
-  noteId: NoteMentionsNoteIdFilters
-}
-
-input NoteMentionsMentionedPersonIdFilters {
-  OR: [NoteMentionsMentionedPersonIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input NoteMentionsMentionedPersonIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input NoteMentionsNoteIdFilters {
-  OR: [NoteMentionsNoteIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input NoteMentionsNoteIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
+  mentionedPersonId: IdFilter
+  noteId: IdFilter
 }
 
 input NoteMentionsOrderBy {
@@ -7568,91 +5796,13 @@ type NoteTag {
 
 input NoteTagsFilters {
   OR: [NoteTagsFiltersOr!]
-  labelId: NoteTagsLabelIdFilters
-  noteId: NoteTagsNoteIdFilters
+  labelId: IdFilter
+  noteId: IdFilter
 }
 
 input NoteTagsFiltersOr {
-  labelId: NoteTagsLabelIdFilters
-  noteId: NoteTagsNoteIdFilters
-}
-
-input NoteTagsLabelIdFilters {
-  OR: [NoteTagsLabelIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input NoteTagsLabelIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input NoteTagsNoteIdFilters {
-  OR: [NoteTagsNoteIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input NoteTagsNoteIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
+  labelId: IdFilter
+  noteId: IdFilter
 }
 
 input NoteTagsOrderBy {
@@ -7660,140 +5810,23 @@ input NoteTagsOrderBy {
   noteId: InnerOrder
 }
 
-input NotesBodyFilters {
-  OR: [NotesBodyFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input NotesBodyFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
 input NotesFilters {
   OR: [NotesFiltersOr!]
-  body: NotesBodyFilters
-  id: NotesIdFilters
-  personId: NotesPersonIdFilters
+  body: StringFilter
+  id: IdFilter
+  personId: IdFilter
 }
 
 input NotesFiltersOr {
-  body: NotesBodyFilters
-  id: NotesIdFilters
-  personId: NotesPersonIdFilters
-}
-
-input NotesIdFilters {
-  OR: [NotesIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input NotesIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
+  body: StringFilter
+  id: IdFilter
+  personId: IdFilter
 }
 
 input NotesOrderBy {
   body: InnerOrder
   id: InnerOrder
   personId: InnerOrder
-}
-
-input NotesPersonIdFilters {
-  OR: [NotesPersonIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input NotesPersonIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
 }
 
 """Order by direction"""
@@ -8083,96 +6116,18 @@ type PersonLabel {
 
 input PersonLabelsFilters {
   OR: [PersonLabelsFiltersOr!]
-  labelId: PersonLabelsLabelIdFilters
-  personId: PersonLabelsPersonIdFilters
+  labelId: IdFilter
+  personId: IdFilter
 }
 
 input PersonLabelsFiltersOr {
-  labelId: PersonLabelsLabelIdFilters
-  personId: PersonLabelsPersonIdFilters
-}
-
-input PersonLabelsLabelIdFilters {
-  OR: [PersonLabelsLabelIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonLabelsLabelIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
+  labelId: IdFilter
+  personId: IdFilter
 }
 
 input PersonLabelsOrderBy {
   labelId: InnerOrder
   personId: InnerOrder
-}
-
-input PersonLabelsPersonIdFilters {
-  OR: [PersonLabelsPersonIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonLabelsPersonIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
 }
 
 type PersonLabelsRelation {
@@ -9434,56 +7389,17 @@ type PersonRelationshipToPersonRelationTasksRelationPersonRelation {
 
 input PersonRelationshipsFilters {
   OR: [PersonRelationshipsFiltersOr!]
-  fromPersonId: PersonRelationshipsFromPersonIdFilters
-  id: PersonRelationshipsIdFilters
-  toPersonId: PersonRelationshipsToPersonIdFilters
-  type: PersonRelationshipsTypeFilters
+  fromPersonId: IdFilter
+  id: IdFilter
+  toPersonId: IdFilter
+  type: StringFilter
 }
 
 input PersonRelationshipsFiltersOr {
-  fromPersonId: PersonRelationshipsFromPersonIdFilters
-  id: PersonRelationshipsIdFilters
-  toPersonId: PersonRelationshipsToPersonIdFilters
-  type: PersonRelationshipsTypeFilters
-}
-
-input PersonRelationshipsFromPersonIdFilters {
-  OR: [PersonRelationshipsFromPersonIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonRelationshipsFromPersonIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
+  fromPersonId: IdFilter
+  id: IdFilter
+  toPersonId: IdFilter
+  type: StringFilter
 }
 
 type PersonRelationshipsFromRelation {
@@ -9525,89 +7441,11 @@ type PersonRelationshipsFromRelationToPersonRelation {
   updatedAt: String!
 }
 
-input PersonRelationshipsIdFilters {
-  OR: [PersonRelationshipsIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonRelationshipsIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
 input PersonRelationshipsOrderBy {
   fromPersonId: InnerOrder
   id: InnerOrder
   toPersonId: InnerOrder
   type: InnerOrder
-}
-
-input PersonRelationshipsToPersonIdFilters {
-  OR: [PersonRelationshipsToPersonIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonRelationshipsToPersonIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
 }
 
 type PersonRelationshipsToRelation {
@@ -9649,45 +7487,6 @@ type PersonRelationshipsToRelationToPersonRelation {
   updatedAt: String!
 }
 
-input PersonRelationshipsTypeFilters {
-  OR: [PersonRelationshipsTypeFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonRelationshipsTypeFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
 type PersonTasksRelation {
   """JSON"""
   completedAt: String
@@ -9717,394 +7516,31 @@ type PersonTasksRelationPersonRelation {
   updatedAt: String!
 }
 
-input PersonsAvatarPathFilters {
-  OR: [PersonsAvatarPathFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonsAvatarPathFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonsContactFrequencyFilters {
-  OR: [PersonsContactFrequencyFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonsContactFrequencyFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonsCreatedAtFilters {
-  OR: [PersonsCreatedAtFiltersOr!]
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonsCreatedAtFiltersOr {
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonsEmailFilters {
-  OR: [PersonsEmailFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonsEmailFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
 input PersonsFilters {
   OR: [PersonsFiltersOr!]
-  avatarPath: PersonsAvatarPathFilters
-  contactFrequency: PersonsContactFrequencyFilters
-  createdAt: PersonsCreatedAtFilters
-  email: PersonsEmailFilters
-  firstMetDate: PersonsFirstMetDateFilters
-  firstName: PersonsFirstNameFilters
-  howWeMet: PersonsHowWeMetFilters
-  id: PersonsIdFilters
-  lastName: PersonsLastNameFilters
-  updatedAt: PersonsUpdatedAtFilters
+  avatarPath: StringFilter
+  contactFrequency: StringFilter
+  createdAt: DateTimeFilter
+  email: StringFilter
+  firstMetDate: StringFilter
+  firstName: StringFilter
+  howWeMet: StringFilter
+  id: IdFilter
+  lastName: StringFilter
+  updatedAt: DateTimeFilter
 }
 
 input PersonsFiltersOr {
-  avatarPath: PersonsAvatarPathFilters
-  contactFrequency: PersonsContactFrequencyFilters
-  createdAt: PersonsCreatedAtFilters
-  email: PersonsEmailFilters
-  firstMetDate: PersonsFirstMetDateFilters
-  firstName: PersonsFirstNameFilters
-  howWeMet: PersonsHowWeMetFilters
-  id: PersonsIdFilters
-  lastName: PersonsLastNameFilters
-  updatedAt: PersonsUpdatedAtFilters
-}
-
-input PersonsFirstMetDateFilters {
-  OR: [PersonsFirstMetDateFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonsFirstMetDateFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonsFirstNameFilters {
-  OR: [PersonsFirstNameFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonsFirstNameFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonsHowWeMetFilters {
-  OR: [PersonsHowWeMetFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonsHowWeMetFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonsIdFilters {
-  OR: [PersonsIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonsIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonsLastNameFilters {
-  OR: [PersonsLastNameFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonsLastNameFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
+  avatarPath: StringFilter
+  contactFrequency: StringFilter
+  createdAt: DateTimeFilter
+  email: StringFilter
+  firstMetDate: StringFilter
+  firstName: StringFilter
+  howWeMet: StringFilter
+  id: IdFilter
+  lastName: StringFilter
+  updatedAt: DateTimeFilter
 }
 
 input PersonsOrderBy {
@@ -10118,57 +7554,6 @@ input PersonsOrderBy {
   id: InnerOrder
   lastName: InnerOrder
   updatedAt: InnerOrder
-}
-
-input PersonsUpdatedAtFilters {
-  OR: [PersonsUpdatedAtFiltersOr!]
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input PersonsUpdatedAtFiltersOr {
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
 }
 
 type Query {
@@ -10205,6 +7590,45 @@ type Query {
   task(offset: Int, orderBy: TasksOrderBy, where: TasksFilters): Task
   tasks(limit: Int, offset: Int, orderBy: TasksOrderBy, where: TasksFilters): [Task!]!
   upcomingDates(limit: Int, lookaheadDays: Int, offset: Int): [UpcomingDateEntry!]!
+}
+
+input StringFilter {
+  OR: [StringFilterOr!]
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
+}
+
+input StringFilterOr {
+  eq: String
+  gt: String
+  gte: String
+  ilike: String
+  """Array<undefined>"""
+  inArray: [String!]
+  isNotNull: Boolean
+  isNull: Boolean
+  like: String
+  lt: String
+  lte: String
+  ne: String
+  notIlike: String
+  """Array<undefined>"""
+  notInArray: [String!]
+  notLike: String
 }
 
 type Task {
@@ -10787,256 +8211,25 @@ type TaskPersonRelationTasksRelation {
   title: String!
 }
 
-input TasksCompletedAtFilters {
-  OR: [TasksCompletedAtFiltersOr!]
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input TasksCompletedAtFiltersOr {
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input TasksCreatedAtFilters {
-  OR: [TasksCreatedAtFiltersOr!]
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input TasksCreatedAtFiltersOr {
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input TasksDueAtFilters {
-  OR: [TasksDueAtFiltersOr!]
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input TasksDueAtFiltersOr {
-  """JSON"""
-  eq: String
-  """JSON"""
-  gt: String
-  """JSON"""
-  gte: String
-  ilike: String
-  """Array<JSON>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  """JSON"""
-  lt: String
-  """JSON"""
-  lte: String
-  """JSON"""
-  ne: String
-  notIlike: String
-  """Array<JSON>"""
-  notInArray: [String!]
-  notLike: String
-}
-
 input TasksFilters {
   OR: [TasksFiltersOr!]
-  completedAt: TasksCompletedAtFilters
-  createdAt: TasksCreatedAtFilters
-  dueAt: TasksDueAtFilters
-  id: TasksIdFilters
-  notes: TasksNotesFilters
-  personId: TasksPersonIdFilters
-  title: TasksTitleFilters
+  completedAt: DateTimeFilter
+  createdAt: DateTimeFilter
+  dueAt: DateTimeFilter
+  id: IdFilter
+  notes: StringFilter
+  personId: IdFilter
+  title: StringFilter
 }
 
 input TasksFiltersOr {
-  completedAt: TasksCompletedAtFilters
-  createdAt: TasksCreatedAtFilters
-  dueAt: TasksDueAtFilters
-  id: TasksIdFilters
-  notes: TasksNotesFilters
-  personId: TasksPersonIdFilters
-  title: TasksTitleFilters
-}
-
-input TasksIdFilters {
-  OR: [TasksIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input TasksIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input TasksNotesFilters {
-  OR: [TasksNotesFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input TasksNotesFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
+  completedAt: DateTimeFilter
+  createdAt: DateTimeFilter
+  dueAt: DateTimeFilter
+  id: IdFilter
+  notes: StringFilter
+  personId: IdFilter
+  title: StringFilter
 }
 
 input TasksOrderBy {
@@ -11047,84 +8240,6 @@ input TasksOrderBy {
   notes: InnerOrder
   personId: InnerOrder
   title: InnerOrder
-}
-
-input TasksPersonIdFilters {
-  OR: [TasksPersonIdFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input TasksPersonIdFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input TasksTitleFilters {
-  OR: [TasksTitleFiltersOr!]
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
-}
-
-input TasksTitleFiltersOr {
-  eq: String
-  gt: String
-  gte: String
-  ilike: String
-  """Array<undefined>"""
-  inArray: [String!]
-  isNotNull: Boolean
-  isNull: Boolean
-  like: String
-  lt: String
-  lte: String
-  ne: String
-  notIlike: String
-  """Array<undefined>"""
-  notInArray: [String!]
-  notLike: String
 }
 
 type UpcomingDateEntry {

@@ -1,3 +1,9 @@
+// =============================================================================
+// LOCAL MODIFICATION — diverges from upstream drizzle-graphql
+// generateColumnFilterValues() has been rewritten to produce generic shared
+// filter types (IdFilter, StringFilter, DateTimeFilter, BooleanFilter, and
+// per-enum filters) instead of one type per (table, column) pair.
+// =============================================================================
 // @ts-nocheck — vendored file, drizzle-orm 1.0 type compat not guaranteed
 import type { Column, Table } from 'drizzle-orm';
 import {
@@ -61,6 +67,12 @@ import type {
 } from './types.ts';
 
 const rqbCrashTypes = ['SQLiteBigInt', 'SQLiteBlobJson', 'SQLiteBlobBuffer'];
+
+/** Cache of generic filter type pairs, keyed by generic name (e.g. "String", "DateTime"). */
+const genericFilterCache = new Map<
+  string,
+  { main: GraphQLInputObjectType; or: GraphQLInputObjectType }
+>();
 
 export const extractSelectedColumnsFromTree = (
   tree: Record<string, ResolveTree>,
@@ -152,6 +164,34 @@ export const innerOrder = new GraphQLInputObjectType({
   } as const,
 });
 
+/**
+ * Maps a Drizzle column to the generic filter type name to use.
+ * - "Id"       → uuid PK/FK columns (no like/ilike operators)
+ * - "DateTime" → timestamp and date columns
+ * - "Boolean"  → boolean columns
+ * - the enum GraphQL type name → enum columns (still unique per enum)
+ * - "String"   → all other text/varchar columns
+ */
+const resolveGenericFilterName = (
+  column: Column,
+  columnName: string,
+  columnGraphQLType: ReturnType<typeof drizzleColumnToGraphQLType>,
+): string => {
+  // ID / foreign-key columns
+  if (columnName === "id" || columnName.endsWith("Id")) return "Id";
+  // Boolean scalar
+  if (columnGraphQLType.type === GraphQLBoolean) return "Boolean";
+  // Enum type — keep unique per enum since values differ
+  if (columnGraphQLType.type instanceof GraphQLEnumType)
+    return columnGraphQLType.type.name;
+  // Date / timestamp columns (check Drizzle internal columnType string)
+  const ct: string = (column as any).columnType ?? "";
+  if (ct === "PgTimestamp" || ct === "PgTimestampString" || ct === "PgDate")
+    return "DateTime";
+  // Default: plain text/varchar
+  return "String";
+};
+
 const generateColumnFilterValues = (
   column: Column,
   tableName: string,
@@ -165,69 +205,56 @@ const generateColumnFilterValues = (
     false,
     true,
   );
-  const columnArr = new GraphQLList(new GraphQLNonNull(columnGraphQLType.type));
+
+  const genericName = resolveGenericFilterName(column, columnName, columnGraphQLType);
+  const cached = genericFilterCache.get(genericName);
+  if (cached) return cached.main;
+
+  const colType = columnGraphQLType.type;
+  const colDesc = columnGraphQLType.description;
+  const colArr = new GraphQLList(new GraphQLNonNull(colType));
+
+  // IdFilter omits like/notLike/ilike/notIlike — they are nonsensical on UUIDs.
+  const isId = genericName === "Id";
 
   const baseFields = {
-    eq: {
-      type: columnGraphQLType.type,
-      description: columnGraphQLType.description,
-    },
-    ne: {
-      type: columnGraphQLType.type,
-      description: columnGraphQLType.description,
-    },
-    lt: {
-      type: columnGraphQLType.type,
-      description: columnGraphQLType.description,
-    },
-    lte: {
-      type: columnGraphQLType.type,
-      description: columnGraphQLType.description,
-    },
-    gt: {
-      type: columnGraphQLType.type,
-      description: columnGraphQLType.description,
-    },
-    gte: {
-      type: columnGraphQLType.type,
-      description: columnGraphQLType.description,
-    },
-    like: { type: GraphQLString },
-    notLike: { type: GraphQLString },
-    ilike: { type: GraphQLString },
-    notIlike: { type: GraphQLString },
-    inArray: {
-      type: columnArr,
-      description: `Array<${columnGraphQLType.description}>`,
-    },
-    notInArray: {
-      type: columnArr,
-      description: `Array<${columnGraphQLType.description}>`,
-    },
+    eq: { type: colType, description: colDesc },
+    ne: { type: colType, description: colDesc },
+    lt: { type: colType, description: colDesc },
+    lte: { type: colType, description: colDesc },
+    gt: { type: colType, description: colDesc },
+    gte: { type: colType, description: colDesc },
+    ...(isId
+      ? {}
+      : {
+          like: { type: GraphQLString },
+          notLike: { type: GraphQLString },
+          ilike: { type: GraphQLString },
+          notIlike: { type: GraphQLString },
+        }),
+    inArray: { type: colArr, description: `Array<${colDesc}>` },
+    notInArray: { type: colArr, description: `Array<${colDesc}>` },
     isNull: { type: GraphQLBoolean },
     isNotNull: { type: GraphQLBoolean },
   };
 
-  const type: GraphQLInputObjectType = new GraphQLInputObjectType({
-    name: `${capitalize(tableName)}${capitalize(columnName)}Filters`,
+  const orType = new GraphQLInputObjectType({
+    name: `${genericName}FilterOr`,
+    fields: { ...baseFields },
+  });
+
+  const mainType = new GraphQLInputObjectType({
+    name: `${genericName}Filter`,
     fields: {
       ...baseFields,
       OR: {
-        type: new GraphQLList(
-          new GraphQLNonNull(
-            new GraphQLInputObjectType({
-              name: `${capitalize(tableName)}${capitalize(columnName)}FiltersOr`,
-              fields: {
-                ...baseFields,
-              },
-            }),
-          ),
-        ),
+        type: new GraphQLList(new GraphQLNonNull(orType)),
       },
     },
   });
 
-  return type;
+  genericFilterCache.set(genericName, { main: mainType, or: orType });
+  return mainType;
 };
 
 const orderMap = new WeakMap<Object, Record<string, ConvertedInputColumn>>();

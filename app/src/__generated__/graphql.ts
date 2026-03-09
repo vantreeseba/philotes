@@ -16,244 +16,25 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
-export type ActivitiesCreatedAtFilters = {
-  OR?: InputMaybe<Array<ActivitiesCreatedAtFiltersOr>>;
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ActivitiesCreatedAtFiltersOr = {
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ActivitiesDescriptionFilters = {
-  OR?: InputMaybe<Array<ActivitiesDescriptionFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ActivitiesDescriptionFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
 export type ActivitiesFilters = {
   OR?: InputMaybe<Array<ActivitiesFiltersOr>>;
-  createdAt?: InputMaybe<ActivitiesCreatedAtFilters>;
-  description?: InputMaybe<ActivitiesDescriptionFilters>;
-  id?: InputMaybe<ActivitiesIdFilters>;
-  location?: InputMaybe<ActivitiesLocationFilters>;
-  occurredAt?: InputMaybe<ActivitiesOccurredAtFilters>;
-  personId?: InputMaybe<ActivitiesPersonIdFilters>;
-  title?: InputMaybe<ActivitiesTitleFilters>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  description?: InputMaybe<StringFilter>;
+  id?: InputMaybe<IdFilter>;
+  location?: InputMaybe<StringFilter>;
+  occurredAt?: InputMaybe<DateTimeFilter>;
+  personId?: InputMaybe<IdFilter>;
+  title?: InputMaybe<StringFilter>;
 };
 
 export type ActivitiesFiltersOr = {
-  createdAt?: InputMaybe<ActivitiesCreatedAtFilters>;
-  description?: InputMaybe<ActivitiesDescriptionFilters>;
-  id?: InputMaybe<ActivitiesIdFilters>;
-  location?: InputMaybe<ActivitiesLocationFilters>;
-  occurredAt?: InputMaybe<ActivitiesOccurredAtFilters>;
-  personId?: InputMaybe<ActivitiesPersonIdFilters>;
-  title?: InputMaybe<ActivitiesTitleFilters>;
-};
-
-export type ActivitiesIdFilters = {
-  OR?: InputMaybe<Array<ActivitiesIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ActivitiesIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ActivitiesLocationFilters = {
-  OR?: InputMaybe<Array<ActivitiesLocationFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ActivitiesLocationFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ActivitiesOccurredAtFilters = {
-  OR?: InputMaybe<Array<ActivitiesOccurredAtFiltersOr>>;
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ActivitiesOccurredAtFiltersOr = {
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  description?: InputMaybe<StringFilter>;
+  id?: InputMaybe<IdFilter>;
+  location?: InputMaybe<StringFilter>;
+  occurredAt?: InputMaybe<DateTimeFilter>;
+  personId?: InputMaybe<IdFilter>;
+  title?: InputMaybe<StringFilter>;
 };
 
 export type ActivitiesOrderBy = {
@@ -264,84 +45,6 @@ export type ActivitiesOrderBy = {
   occurredAt?: InputMaybe<InnerOrder>;
   personId?: InputMaybe<InnerOrder>;
   title?: InputMaybe<InnerOrder>;
-};
-
-export type ActivitiesPersonIdFilters = {
-  OR?: InputMaybe<Array<ActivitiesPersonIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ActivitiesPersonIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ActivitiesTitleFilters = {
-  OR?: InputMaybe<Array<ActivitiesTitleFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ActivitiesTitleFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Activity = {
@@ -1103,93 +806,15 @@ export type ActivityTag = {
   labelId: Scalars['String']['output'];
 };
 
-export type ActivityTagsActivityIdFilters = {
-  OR?: InputMaybe<Array<ActivityTagsActivityIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ActivityTagsActivityIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
 export type ActivityTagsFilters = {
   OR?: InputMaybe<Array<ActivityTagsFiltersOr>>;
-  activityId?: InputMaybe<ActivityTagsActivityIdFilters>;
-  labelId?: InputMaybe<ActivityTagsLabelIdFilters>;
+  activityId?: InputMaybe<IdFilter>;
+  labelId?: InputMaybe<IdFilter>;
 };
 
 export type ActivityTagsFiltersOr = {
-  activityId?: InputMaybe<ActivityTagsActivityIdFilters>;
-  labelId?: InputMaybe<ActivityTagsLabelIdFilters>;
-};
-
-export type ActivityTagsLabelIdFilters = {
-  OR?: InputMaybe<Array<ActivityTagsLabelIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ActivityTagsLabelIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
+  activityId?: InputMaybe<IdFilter>;
+  labelId?: InputMaybe<IdFilter>;
 };
 
 export type ActivityTagsOrderBy = {
@@ -2144,359 +1769,35 @@ export type AddressPersonRelationTasksRelationPersonRelation = {
   updatedAt: Scalars['String']['output'];
 };
 
-export type AddressesCityFilters = {
-  OR?: InputMaybe<Array<AddressesCityFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type AddressesCityFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type AddressesCountryFilters = {
-  OR?: InputMaybe<Array<AddressesCountryFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type AddressesCountryFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type AddressesCreatedAtFilters = {
-  OR?: InputMaybe<Array<AddressesCreatedAtFiltersOr>>;
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type AddressesCreatedAtFiltersOr = {
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
 export type AddressesFilters = {
   OR?: InputMaybe<Array<AddressesFiltersOr>>;
-  city?: InputMaybe<AddressesCityFilters>;
-  country?: InputMaybe<AddressesCountryFilters>;
-  createdAt?: InputMaybe<AddressesCreatedAtFilters>;
-  id?: InputMaybe<AddressesIdFilters>;
-  isPrimary?: InputMaybe<AddressesIsPrimaryFilters>;
-  label?: InputMaybe<AddressesLabelFilters>;
-  line1?: InputMaybe<AddressesLine1Filters>;
-  line2?: InputMaybe<AddressesLine2Filters>;
-  personId?: InputMaybe<AddressesPersonIdFilters>;
-  postalCode?: InputMaybe<AddressesPostalCodeFilters>;
-  state?: InputMaybe<AddressesStateFilters>;
-  type?: InputMaybe<AddressesTypeFilters>;
+  city?: InputMaybe<StringFilter>;
+  country?: InputMaybe<StringFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  id?: InputMaybe<IdFilter>;
+  isPrimary?: InputMaybe<BooleanFilter>;
+  label?: InputMaybe<StringFilter>;
+  line1?: InputMaybe<StringFilter>;
+  line2?: InputMaybe<StringFilter>;
+  personId?: InputMaybe<IdFilter>;
+  postalCode?: InputMaybe<StringFilter>;
+  state?: InputMaybe<StringFilter>;
+  type?: InputMaybe<AddressesTypeEnumFilter>;
 };
 
 export type AddressesFiltersOr = {
-  city?: InputMaybe<AddressesCityFilters>;
-  country?: InputMaybe<AddressesCountryFilters>;
-  createdAt?: InputMaybe<AddressesCreatedAtFilters>;
-  id?: InputMaybe<AddressesIdFilters>;
-  isPrimary?: InputMaybe<AddressesIsPrimaryFilters>;
-  label?: InputMaybe<AddressesLabelFilters>;
-  line1?: InputMaybe<AddressesLine1Filters>;
-  line2?: InputMaybe<AddressesLine2Filters>;
-  personId?: InputMaybe<AddressesPersonIdFilters>;
-  postalCode?: InputMaybe<AddressesPostalCodeFilters>;
-  state?: InputMaybe<AddressesStateFilters>;
-  type?: InputMaybe<AddressesTypeFilters>;
-};
-
-export type AddressesIdFilters = {
-  OR?: InputMaybe<Array<AddressesIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type AddressesIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type AddressesIsPrimaryFilters = {
-  OR?: InputMaybe<Array<AddressesIsPrimaryFiltersOr>>;
-  eq?: InputMaybe<Scalars['Boolean']['input']>;
-  gt?: InputMaybe<Scalars['Boolean']['input']>;
-  gte?: InputMaybe<Scalars['Boolean']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['Boolean']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['Boolean']['input']>;
-  lte?: InputMaybe<Scalars['Boolean']['input']>;
-  ne?: InputMaybe<Scalars['Boolean']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['Boolean']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type AddressesIsPrimaryFiltersOr = {
-  eq?: InputMaybe<Scalars['Boolean']['input']>;
-  gt?: InputMaybe<Scalars['Boolean']['input']>;
-  gte?: InputMaybe<Scalars['Boolean']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['Boolean']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['Boolean']['input']>;
-  lte?: InputMaybe<Scalars['Boolean']['input']>;
-  ne?: InputMaybe<Scalars['Boolean']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['Boolean']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type AddressesLabelFilters = {
-  OR?: InputMaybe<Array<AddressesLabelFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type AddressesLabelFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type AddressesLine1Filters = {
-  OR?: InputMaybe<Array<AddressesLine1FiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type AddressesLine1FiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type AddressesLine2Filters = {
-  OR?: InputMaybe<Array<AddressesLine2FiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type AddressesLine2FiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
+  city?: InputMaybe<StringFilter>;
+  country?: InputMaybe<StringFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  id?: InputMaybe<IdFilter>;
+  isPrimary?: InputMaybe<BooleanFilter>;
+  label?: InputMaybe<StringFilter>;
+  line1?: InputMaybe<StringFilter>;
+  line2?: InputMaybe<StringFilter>;
+  personId?: InputMaybe<IdFilter>;
+  postalCode?: InputMaybe<StringFilter>;
+  state?: InputMaybe<StringFilter>;
+  type?: InputMaybe<AddressesTypeEnumFilter>;
 };
 
 export type AddressesOrderBy = {
@@ -2514,123 +1815,6 @@ export type AddressesOrderBy = {
   type?: InputMaybe<InnerOrder>;
 };
 
-export type AddressesPersonIdFilters = {
-  OR?: InputMaybe<Array<AddressesPersonIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type AddressesPersonIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type AddressesPostalCodeFilters = {
-  OR?: InputMaybe<Array<AddressesPostalCodeFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type AddressesPostalCodeFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type AddressesStateFilters = {
-  OR?: InputMaybe<Array<AddressesStateFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type AddressesStateFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
 export enum AddressesTypeEnum {
   /** Value: home */
   Home = 'home',
@@ -2640,8 +1824,8 @@ export enum AddressesTypeEnum {
   Work = 'work'
 }
 
-export type AddressesTypeFilters = {
-  OR?: InputMaybe<Array<AddressesTypeFiltersOr>>;
+export type AddressesTypeEnumFilter = {
+  OR?: InputMaybe<Array<AddressesTypeEnumFilterOr>>;
   eq?: InputMaybe<AddressesTypeEnum>;
   gt?: InputMaybe<AddressesTypeEnum>;
   gte?: InputMaybe<AddressesTypeEnum>;
@@ -2660,7 +1844,7 @@ export type AddressesTypeFilters = {
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type AddressesTypeFiltersOr = {
+export type AddressesTypeEnumFilterOr = {
   eq?: InputMaybe<AddressesTypeEnum>;
   gt?: InputMaybe<AddressesTypeEnum>;
   gte?: InputMaybe<AddressesTypeEnum>;
@@ -2676,6 +1860,45 @@ export type AddressesTypeFiltersOr = {
   notIlike?: InputMaybe<Scalars['String']['input']>;
   /** Array<undefined> */
   notInArray?: InputMaybe<Array<AddressesTypeEnum>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type BooleanFilter = {
+  OR?: InputMaybe<Array<BooleanFilterOr>>;
+  eq?: InputMaybe<Scalars['Boolean']['input']>;
+  gt?: InputMaybe<Scalars['Boolean']['input']>;
+  gte?: InputMaybe<Scalars['Boolean']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['Boolean']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['Boolean']['input']>;
+  lte?: InputMaybe<Scalars['Boolean']['input']>;
+  ne?: InputMaybe<Scalars['Boolean']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['Boolean']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type BooleanFilterOr = {
+  eq?: InputMaybe<Scalars['Boolean']['input']>;
+  gt?: InputMaybe<Scalars['Boolean']['input']>;
+  gte?: InputMaybe<Scalars['Boolean']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['Boolean']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['Boolean']['input']>;
+  lte?: InputMaybe<Scalars['Boolean']['input']>;
+  ne?: InputMaybe<Scalars['Boolean']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['Boolean']['input']>>;
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -3621,193 +2844,25 @@ export type ContactInfoPersonRelationTasksRelationPersonRelation = {
   updatedAt: Scalars['String']['output'];
 };
 
-export type ContactInfosCreatedAtFilters = {
-  OR?: InputMaybe<Array<ContactInfosCreatedAtFiltersOr>>;
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactInfosCreatedAtFiltersOr = {
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
 export type ContactInfosFilters = {
   OR?: InputMaybe<Array<ContactInfosFiltersOr>>;
-  createdAt?: InputMaybe<ContactInfosCreatedAtFilters>;
-  id?: InputMaybe<ContactInfosIdFilters>;
-  isPrimary?: InputMaybe<ContactInfosIsPrimaryFilters>;
-  label?: InputMaybe<ContactInfosLabelFilters>;
-  personId?: InputMaybe<ContactInfosPersonIdFilters>;
-  type?: InputMaybe<ContactInfosTypeFilters>;
-  value?: InputMaybe<ContactInfosValueFilters>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  id?: InputMaybe<IdFilter>;
+  isPrimary?: InputMaybe<BooleanFilter>;
+  label?: InputMaybe<StringFilter>;
+  personId?: InputMaybe<IdFilter>;
+  type?: InputMaybe<ContactInfosTypeEnumFilter>;
+  value?: InputMaybe<StringFilter>;
 };
 
 export type ContactInfosFiltersOr = {
-  createdAt?: InputMaybe<ContactInfosCreatedAtFilters>;
-  id?: InputMaybe<ContactInfosIdFilters>;
-  isPrimary?: InputMaybe<ContactInfosIsPrimaryFilters>;
-  label?: InputMaybe<ContactInfosLabelFilters>;
-  personId?: InputMaybe<ContactInfosPersonIdFilters>;
-  type?: InputMaybe<ContactInfosTypeFilters>;
-  value?: InputMaybe<ContactInfosValueFilters>;
-};
-
-export type ContactInfosIdFilters = {
-  OR?: InputMaybe<Array<ContactInfosIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactInfosIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactInfosIsPrimaryFilters = {
-  OR?: InputMaybe<Array<ContactInfosIsPrimaryFiltersOr>>;
-  eq?: InputMaybe<Scalars['Boolean']['input']>;
-  gt?: InputMaybe<Scalars['Boolean']['input']>;
-  gte?: InputMaybe<Scalars['Boolean']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['Boolean']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['Boolean']['input']>;
-  lte?: InputMaybe<Scalars['Boolean']['input']>;
-  ne?: InputMaybe<Scalars['Boolean']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['Boolean']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactInfosIsPrimaryFiltersOr = {
-  eq?: InputMaybe<Scalars['Boolean']['input']>;
-  gt?: InputMaybe<Scalars['Boolean']['input']>;
-  gte?: InputMaybe<Scalars['Boolean']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['Boolean']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['Boolean']['input']>;
-  lte?: InputMaybe<Scalars['Boolean']['input']>;
-  ne?: InputMaybe<Scalars['Boolean']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['Boolean']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactInfosLabelFilters = {
-  OR?: InputMaybe<Array<ContactInfosLabelFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactInfosLabelFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  id?: InputMaybe<IdFilter>;
+  isPrimary?: InputMaybe<BooleanFilter>;
+  label?: InputMaybe<StringFilter>;
+  personId?: InputMaybe<IdFilter>;
+  type?: InputMaybe<ContactInfosTypeEnumFilter>;
+  value?: InputMaybe<StringFilter>;
 };
 
 export type ContactInfosOrderBy = {
@@ -3818,45 +2873,6 @@ export type ContactInfosOrderBy = {
   personId?: InputMaybe<InnerOrder>;
   type?: InputMaybe<InnerOrder>;
   value?: InputMaybe<InnerOrder>;
-};
-
-export type ContactInfosPersonIdFilters = {
-  OR?: InputMaybe<Array<ContactInfosPersonIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactInfosPersonIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
 export enum ContactInfosTypeEnum {
@@ -3878,8 +2894,8 @@ export enum ContactInfosTypeEnum {
   Website = 'website'
 }
 
-export type ContactInfosTypeFilters = {
-  OR?: InputMaybe<Array<ContactInfosTypeFiltersOr>>;
+export type ContactInfosTypeEnumFilter = {
+  OR?: InputMaybe<Array<ContactInfosTypeEnumFilterOr>>;
   eq?: InputMaybe<ContactInfosTypeEnum>;
   gt?: InputMaybe<ContactInfosTypeEnum>;
   gte?: InputMaybe<ContactInfosTypeEnum>;
@@ -3898,7 +2914,7 @@ export type ContactInfosTypeFilters = {
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type ContactInfosTypeFiltersOr = {
+export type ContactInfosTypeEnumFilterOr = {
   eq?: InputMaybe<ContactInfosTypeEnum>;
   gt?: InputMaybe<ContactInfosTypeEnum>;
   gte?: InputMaybe<ContactInfosTypeEnum>;
@@ -3914,45 +2930,6 @@ export type ContactInfosTypeFiltersOr = {
   notIlike?: InputMaybe<Scalars['String']['input']>;
   /** Array<undefined> */
   notInArray?: InputMaybe<Array<ContactInfosTypeEnum>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactInfosValueFilters = {
-  OR?: InputMaybe<Array<ContactInfosValueFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ContactInfosValueFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -4090,6 +3067,88 @@ export type CreateTaskInput = {
   notes?: InputMaybe<Scalars['String']['input']>;
   personId: Scalars['String']['input'];
   title: Scalars['String']['input'];
+};
+
+export type DateTimeFilter = {
+  OR?: InputMaybe<Array<DateTimeFilterOr>>;
+  /** JSON */
+  eq?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lte?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type DateTimeFilterOr = {
+  /** JSON */
+  eq?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lt?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  lte?: InputMaybe<Scalars['String']['input']>;
+  /** JSON */
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<JSON> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type IdFilter = {
+  OR?: InputMaybe<Array<IdFilterOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
+export type IdFilterOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
 };
 
 export type ImportantDate = {
@@ -5573,91 +4632,13 @@ export type ImportantDateTag = {
 
 export type ImportantDateTagsFilters = {
   OR?: InputMaybe<Array<ImportantDateTagsFiltersOr>>;
-  importantDateId?: InputMaybe<ImportantDateTagsImportantDateIdFilters>;
-  labelId?: InputMaybe<ImportantDateTagsLabelIdFilters>;
+  importantDateId?: InputMaybe<IdFilter>;
+  labelId?: InputMaybe<IdFilter>;
 };
 
 export type ImportantDateTagsFiltersOr = {
-  importantDateId?: InputMaybe<ImportantDateTagsImportantDateIdFilters>;
-  labelId?: InputMaybe<ImportantDateTagsLabelIdFilters>;
-};
-
-export type ImportantDateTagsImportantDateIdFilters = {
-  OR?: InputMaybe<Array<ImportantDateTagsImportantDateIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ImportantDateTagsImportantDateIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ImportantDateTagsLabelIdFilters = {
-  OR?: InputMaybe<Array<ImportantDateTagsLabelIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ImportantDateTagsLabelIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
+  importantDateId?: InputMaybe<IdFilter>;
+  labelId?: InputMaybe<IdFilter>;
 };
 
 export type ImportantDateTagsOrderBy = {
@@ -5665,142 +4646,25 @@ export type ImportantDateTagsOrderBy = {
   labelId?: InputMaybe<InnerOrder>;
 };
 
-export type ImportantDatesDateFilters = {
-  OR?: InputMaybe<Array<ImportantDatesDateFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ImportantDatesDateFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ImportantDatesDescriptionFilters = {
-  OR?: InputMaybe<Array<ImportantDatesDescriptionFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ImportantDatesDescriptionFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
 export type ImportantDatesFilters = {
   OR?: InputMaybe<Array<ImportantDatesFiltersOr>>;
-  date?: InputMaybe<ImportantDatesDateFilters>;
-  description?: InputMaybe<ImportantDatesDescriptionFilters>;
-  id?: InputMaybe<ImportantDatesIdFilters>;
-  milestoneType?: InputMaybe<ImportantDatesMilestoneTypeFilters>;
-  name?: InputMaybe<ImportantDatesNameFilters>;
-  personId?: InputMaybe<ImportantDatesPersonIdFilters>;
-  recurrence?: InputMaybe<ImportantDatesRecurrenceFilters>;
+  date?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  id?: InputMaybe<IdFilter>;
+  milestoneType?: InputMaybe<ImportantDatesMilestoneTypeEnumFilter>;
+  name?: InputMaybe<StringFilter>;
+  personId?: InputMaybe<IdFilter>;
+  recurrence?: InputMaybe<StringFilter>;
 };
 
 export type ImportantDatesFiltersOr = {
-  date?: InputMaybe<ImportantDatesDateFilters>;
-  description?: InputMaybe<ImportantDatesDescriptionFilters>;
-  id?: InputMaybe<ImportantDatesIdFilters>;
-  milestoneType?: InputMaybe<ImportantDatesMilestoneTypeFilters>;
-  name?: InputMaybe<ImportantDatesNameFilters>;
-  personId?: InputMaybe<ImportantDatesPersonIdFilters>;
-  recurrence?: InputMaybe<ImportantDatesRecurrenceFilters>;
-};
-
-export type ImportantDatesIdFilters = {
-  OR?: InputMaybe<Array<ImportantDatesIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ImportantDatesIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
+  date?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  id?: InputMaybe<IdFilter>;
+  milestoneType?: InputMaybe<ImportantDatesMilestoneTypeEnumFilter>;
+  name?: InputMaybe<StringFilter>;
+  personId?: InputMaybe<IdFilter>;
+  recurrence?: InputMaybe<StringFilter>;
 };
 
 export enum ImportantDatesMilestoneTypeEnum {
@@ -5828,8 +4692,8 @@ export enum ImportantDatesMilestoneTypeEnum {
   Retired = 'retired'
 }
 
-export type ImportantDatesMilestoneTypeFilters = {
-  OR?: InputMaybe<Array<ImportantDatesMilestoneTypeFiltersOr>>;
+export type ImportantDatesMilestoneTypeEnumFilter = {
+  OR?: InputMaybe<Array<ImportantDatesMilestoneTypeEnumFilterOr>>;
   eq?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
   gt?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
   gte?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
@@ -5848,7 +4712,7 @@ export type ImportantDatesMilestoneTypeFilters = {
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type ImportantDatesMilestoneTypeFiltersOr = {
+export type ImportantDatesMilestoneTypeEnumFilterOr = {
   eq?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
   gt?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
   gte?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
@@ -5864,45 +4728,6 @@ export type ImportantDatesMilestoneTypeFiltersOr = {
   notIlike?: InputMaybe<Scalars['String']['input']>;
   /** Array<undefined> */
   notInArray?: InputMaybe<Array<ImportantDatesMilestoneTypeEnum>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ImportantDatesNameFilters = {
-  OR?: InputMaybe<Array<ImportantDatesNameFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ImportantDatesNameFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
   notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -5914,84 +4739,6 @@ export type ImportantDatesOrderBy = {
   name?: InputMaybe<InnerOrder>;
   personId?: InputMaybe<InnerOrder>;
   recurrence?: InputMaybe<InnerOrder>;
-};
-
-export type ImportantDatesPersonIdFilters = {
-  OR?: InputMaybe<Array<ImportantDatesPersonIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ImportantDatesPersonIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ImportantDatesRecurrenceFilters = {
-  OR?: InputMaybe<Array<ImportantDatesRecurrenceFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ImportantDatesRecurrenceFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type InnerOrder = {
@@ -7481,91 +6228,13 @@ export type InteractionTag = {
 
 export type InteractionTagsFilters = {
   OR?: InputMaybe<Array<InteractionTagsFiltersOr>>;
-  interactionId?: InputMaybe<InteractionTagsInteractionIdFilters>;
-  labelId?: InputMaybe<InteractionTagsLabelIdFilters>;
+  interactionId?: InputMaybe<IdFilter>;
+  labelId?: InputMaybe<IdFilter>;
 };
 
 export type InteractionTagsFiltersOr = {
-  interactionId?: InputMaybe<InteractionTagsInteractionIdFilters>;
-  labelId?: InputMaybe<InteractionTagsLabelIdFilters>;
-};
-
-export type InteractionTagsInteractionIdFilters = {
-  OR?: InputMaybe<Array<InteractionTagsInteractionIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type InteractionTagsInteractionIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type InteractionTagsLabelIdFilters = {
-  OR?: InputMaybe<Array<InteractionTagsLabelIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type InteractionTagsLabelIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
+  interactionId?: InputMaybe<IdFilter>;
+  labelId?: InputMaybe<IdFilter>;
 };
 
 export type InteractionTagsOrderBy = {
@@ -7573,191 +6242,23 @@ export type InteractionTagsOrderBy = {
   labelId?: InputMaybe<InnerOrder>;
 };
 
-export type InteractionsChannelFilters = {
-  OR?: InputMaybe<Array<InteractionsChannelFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type InteractionsChannelFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
 export type InteractionsFilters = {
   OR?: InputMaybe<Array<InteractionsFiltersOr>>;
-  channel?: InputMaybe<InteractionsChannelFilters>;
-  id?: InputMaybe<InteractionsIdFilters>;
-  note?: InputMaybe<InteractionsNoteFilters>;
-  occurredAt?: InputMaybe<InteractionsOccurredAtFilters>;
-  personId?: InputMaybe<InteractionsPersonIdFilters>;
-  sentiment?: InputMaybe<InteractionsSentimentFilters>;
+  channel?: InputMaybe<StringFilter>;
+  id?: InputMaybe<IdFilter>;
+  note?: InputMaybe<StringFilter>;
+  occurredAt?: InputMaybe<DateTimeFilter>;
+  personId?: InputMaybe<IdFilter>;
+  sentiment?: InputMaybe<StringFilter>;
 };
 
 export type InteractionsFiltersOr = {
-  channel?: InputMaybe<InteractionsChannelFilters>;
-  id?: InputMaybe<InteractionsIdFilters>;
-  note?: InputMaybe<InteractionsNoteFilters>;
-  occurredAt?: InputMaybe<InteractionsOccurredAtFilters>;
-  personId?: InputMaybe<InteractionsPersonIdFilters>;
-  sentiment?: InputMaybe<InteractionsSentimentFilters>;
-};
-
-export type InteractionsIdFilters = {
-  OR?: InputMaybe<Array<InteractionsIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type InteractionsIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type InteractionsNoteFilters = {
-  OR?: InputMaybe<Array<InteractionsNoteFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type InteractionsNoteFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type InteractionsOccurredAtFilters = {
-  OR?: InputMaybe<Array<InteractionsOccurredAtFiltersOr>>;
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type InteractionsOccurredAtFiltersOr = {
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
+  channel?: InputMaybe<StringFilter>;
+  id?: InputMaybe<IdFilter>;
+  note?: InputMaybe<StringFilter>;
+  occurredAt?: InputMaybe<DateTimeFilter>;
+  personId?: InputMaybe<IdFilter>;
+  sentiment?: InputMaybe<StringFilter>;
 };
 
 export type InteractionsOrderBy = {
@@ -7767,84 +6268,6 @@ export type InteractionsOrderBy = {
   occurredAt?: InputMaybe<InnerOrder>;
   personId?: InputMaybe<InnerOrder>;
   sentiment?: InputMaybe<InnerOrder>;
-};
-
-export type InteractionsPersonIdFilters = {
-  OR?: InputMaybe<Array<InteractionsPersonIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type InteractionsPersonIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type InteractionsSentimentFilters = {
-  OR?: InputMaybe<Array<InteractionsSentimentFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type InteractionsSentimentFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Label = {
@@ -8484,134 +6907,17 @@ export type LabelActivitiesRelationPersonRelationTasksRelationPersonRelation = {
   updatedAt: Scalars['String']['output'];
 };
 
-export type LabelsColorFilters = {
-  OR?: InputMaybe<Array<LabelsColorFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type LabelsColorFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
 export type LabelsFilters = {
   OR?: InputMaybe<Array<LabelsFiltersOr>>;
-  color?: InputMaybe<LabelsColorFilters>;
-  id?: InputMaybe<LabelsIdFilters>;
-  label?: InputMaybe<LabelsLabelFilters>;
+  color?: InputMaybe<StringFilter>;
+  id?: InputMaybe<IdFilter>;
+  label?: InputMaybe<StringFilter>;
 };
 
 export type LabelsFiltersOr = {
-  color?: InputMaybe<LabelsColorFilters>;
-  id?: InputMaybe<LabelsIdFilters>;
-  label?: InputMaybe<LabelsLabelFilters>;
-};
-
-export type LabelsIdFilters = {
-  OR?: InputMaybe<Array<LabelsIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type LabelsIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type LabelsLabelFilters = {
-  OR?: InputMaybe<Array<LabelsLabelFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type LabelsLabelFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
+  color?: InputMaybe<StringFilter>;
+  id?: InputMaybe<IdFilter>;
+  label?: InputMaybe<StringFilter>;
 };
 
 export type LabelsOrderBy = {
@@ -9574,91 +7880,13 @@ export type NoteMention = {
 
 export type NoteMentionsFilters = {
   OR?: InputMaybe<Array<NoteMentionsFiltersOr>>;
-  mentionedPersonId?: InputMaybe<NoteMentionsMentionedPersonIdFilters>;
-  noteId?: InputMaybe<NoteMentionsNoteIdFilters>;
+  mentionedPersonId?: InputMaybe<IdFilter>;
+  noteId?: InputMaybe<IdFilter>;
 };
 
 export type NoteMentionsFiltersOr = {
-  mentionedPersonId?: InputMaybe<NoteMentionsMentionedPersonIdFilters>;
-  noteId?: InputMaybe<NoteMentionsNoteIdFilters>;
-};
-
-export type NoteMentionsMentionedPersonIdFilters = {
-  OR?: InputMaybe<Array<NoteMentionsMentionedPersonIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type NoteMentionsMentionedPersonIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type NoteMentionsNoteIdFilters = {
-  OR?: InputMaybe<Array<NoteMentionsNoteIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type NoteMentionsNoteIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
+  mentionedPersonId?: InputMaybe<IdFilter>;
+  noteId?: InputMaybe<IdFilter>;
 };
 
 export type NoteMentionsOrderBy = {
@@ -11074,91 +9302,13 @@ export type NoteTag = {
 
 export type NoteTagsFilters = {
   OR?: InputMaybe<Array<NoteTagsFiltersOr>>;
-  labelId?: InputMaybe<NoteTagsLabelIdFilters>;
-  noteId?: InputMaybe<NoteTagsNoteIdFilters>;
+  labelId?: InputMaybe<IdFilter>;
+  noteId?: InputMaybe<IdFilter>;
 };
 
 export type NoteTagsFiltersOr = {
-  labelId?: InputMaybe<NoteTagsLabelIdFilters>;
-  noteId?: InputMaybe<NoteTagsNoteIdFilters>;
-};
-
-export type NoteTagsLabelIdFilters = {
-  OR?: InputMaybe<Array<NoteTagsLabelIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type NoteTagsLabelIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type NoteTagsNoteIdFilters = {
-  OR?: InputMaybe<Array<NoteTagsNoteIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type NoteTagsNoteIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
+  labelId?: InputMaybe<IdFilter>;
+  noteId?: InputMaybe<IdFilter>;
 };
 
 export type NoteTagsOrderBy = {
@@ -11166,140 +9316,23 @@ export type NoteTagsOrderBy = {
   noteId?: InputMaybe<InnerOrder>;
 };
 
-export type NotesBodyFilters = {
-  OR?: InputMaybe<Array<NotesBodyFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type NotesBodyFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
 export type NotesFilters = {
   OR?: InputMaybe<Array<NotesFiltersOr>>;
-  body?: InputMaybe<NotesBodyFilters>;
-  id?: InputMaybe<NotesIdFilters>;
-  personId?: InputMaybe<NotesPersonIdFilters>;
+  body?: InputMaybe<StringFilter>;
+  id?: InputMaybe<IdFilter>;
+  personId?: InputMaybe<IdFilter>;
 };
 
 export type NotesFiltersOr = {
-  body?: InputMaybe<NotesBodyFilters>;
-  id?: InputMaybe<NotesIdFilters>;
-  personId?: InputMaybe<NotesPersonIdFilters>;
-};
-
-export type NotesIdFilters = {
-  OR?: InputMaybe<Array<NotesIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type NotesIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
+  body?: InputMaybe<StringFilter>;
+  id?: InputMaybe<IdFilter>;
+  personId?: InputMaybe<IdFilter>;
 };
 
 export type NotesOrderBy = {
   body?: InputMaybe<InnerOrder>;
   id?: InputMaybe<InnerOrder>;
   personId?: InputMaybe<InnerOrder>;
-};
-
-export type NotesPersonIdFilters = {
-  OR?: InputMaybe<Array<NotesPersonIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type NotesPersonIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Order by direction */
@@ -11798,96 +9831,18 @@ export type PersonLabel = {
 
 export type PersonLabelsFilters = {
   OR?: InputMaybe<Array<PersonLabelsFiltersOr>>;
-  labelId?: InputMaybe<PersonLabelsLabelIdFilters>;
-  personId?: InputMaybe<PersonLabelsPersonIdFilters>;
+  labelId?: InputMaybe<IdFilter>;
+  personId?: InputMaybe<IdFilter>;
 };
 
 export type PersonLabelsFiltersOr = {
-  labelId?: InputMaybe<PersonLabelsLabelIdFilters>;
-  personId?: InputMaybe<PersonLabelsPersonIdFilters>;
-};
-
-export type PersonLabelsLabelIdFilters = {
-  OR?: InputMaybe<Array<PersonLabelsLabelIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonLabelsLabelIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
+  labelId?: InputMaybe<IdFilter>;
+  personId?: InputMaybe<IdFilter>;
 };
 
 export type PersonLabelsOrderBy = {
   labelId?: InputMaybe<InnerOrder>;
   personId?: InputMaybe<InnerOrder>;
-};
-
-export type PersonLabelsPersonIdFilters = {
-  OR?: InputMaybe<Array<PersonLabelsPersonIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonLabelsPersonIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type PersonLabelsRelation = {
@@ -13964,56 +11919,17 @@ export type PersonRelationshipToPersonRelationTasksRelationPersonRelation = {
 
 export type PersonRelationshipsFilters = {
   OR?: InputMaybe<Array<PersonRelationshipsFiltersOr>>;
-  fromPersonId?: InputMaybe<PersonRelationshipsFromPersonIdFilters>;
-  id?: InputMaybe<PersonRelationshipsIdFilters>;
-  toPersonId?: InputMaybe<PersonRelationshipsToPersonIdFilters>;
-  type?: InputMaybe<PersonRelationshipsTypeFilters>;
+  fromPersonId?: InputMaybe<IdFilter>;
+  id?: InputMaybe<IdFilter>;
+  toPersonId?: InputMaybe<IdFilter>;
+  type?: InputMaybe<StringFilter>;
 };
 
 export type PersonRelationshipsFiltersOr = {
-  fromPersonId?: InputMaybe<PersonRelationshipsFromPersonIdFilters>;
-  id?: InputMaybe<PersonRelationshipsIdFilters>;
-  toPersonId?: InputMaybe<PersonRelationshipsToPersonIdFilters>;
-  type?: InputMaybe<PersonRelationshipsTypeFilters>;
-};
-
-export type PersonRelationshipsFromPersonIdFilters = {
-  OR?: InputMaybe<Array<PersonRelationshipsFromPersonIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonRelationshipsFromPersonIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
+  fromPersonId?: InputMaybe<IdFilter>;
+  id?: InputMaybe<IdFilter>;
+  toPersonId?: InputMaybe<IdFilter>;
+  type?: InputMaybe<StringFilter>;
 };
 
 export type PersonRelationshipsFromRelation = {
@@ -14068,89 +11984,11 @@ export type PersonRelationshipsFromRelationToPersonRelation = {
   updatedAt: Scalars['String']['output'];
 };
 
-export type PersonRelationshipsIdFilters = {
-  OR?: InputMaybe<Array<PersonRelationshipsIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonRelationshipsIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
 export type PersonRelationshipsOrderBy = {
   fromPersonId?: InputMaybe<InnerOrder>;
   id?: InputMaybe<InnerOrder>;
   toPersonId?: InputMaybe<InnerOrder>;
   type?: InputMaybe<InnerOrder>;
-};
-
-export type PersonRelationshipsToPersonIdFilters = {
-  OR?: InputMaybe<Array<PersonRelationshipsToPersonIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonRelationshipsToPersonIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type PersonRelationshipsToRelation = {
@@ -14205,45 +12043,6 @@ export type PersonRelationshipsToRelationToPersonRelation = {
   updatedAt: Scalars['String']['output'];
 };
 
-export type PersonRelationshipsTypeFilters = {
-  OR?: InputMaybe<Array<PersonRelationshipsTypeFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonRelationshipsTypeFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
 export type PersonTasksRelation = {
   __typename: 'PersonTasksRelation';
   /** JSON */
@@ -14280,394 +12079,31 @@ export type PersonTasksRelationPersonRelation = {
   updatedAt: Scalars['String']['output'];
 };
 
-export type PersonsAvatarPathFilters = {
-  OR?: InputMaybe<Array<PersonsAvatarPathFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonsAvatarPathFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonsContactFrequencyFilters = {
-  OR?: InputMaybe<Array<PersonsContactFrequencyFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonsContactFrequencyFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonsCreatedAtFilters = {
-  OR?: InputMaybe<Array<PersonsCreatedAtFiltersOr>>;
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonsCreatedAtFiltersOr = {
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonsEmailFilters = {
-  OR?: InputMaybe<Array<PersonsEmailFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonsEmailFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
 export type PersonsFilters = {
   OR?: InputMaybe<Array<PersonsFiltersOr>>;
-  avatarPath?: InputMaybe<PersonsAvatarPathFilters>;
-  contactFrequency?: InputMaybe<PersonsContactFrequencyFilters>;
-  createdAt?: InputMaybe<PersonsCreatedAtFilters>;
-  email?: InputMaybe<PersonsEmailFilters>;
-  firstMetDate?: InputMaybe<PersonsFirstMetDateFilters>;
-  firstName?: InputMaybe<PersonsFirstNameFilters>;
-  howWeMet?: InputMaybe<PersonsHowWeMetFilters>;
-  id?: InputMaybe<PersonsIdFilters>;
-  lastName?: InputMaybe<PersonsLastNameFilters>;
-  updatedAt?: InputMaybe<PersonsUpdatedAtFilters>;
+  avatarPath?: InputMaybe<StringFilter>;
+  contactFrequency?: InputMaybe<StringFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  email?: InputMaybe<StringFilter>;
+  firstMetDate?: InputMaybe<StringFilter>;
+  firstName?: InputMaybe<StringFilter>;
+  howWeMet?: InputMaybe<StringFilter>;
+  id?: InputMaybe<IdFilter>;
+  lastName?: InputMaybe<StringFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
 };
 
 export type PersonsFiltersOr = {
-  avatarPath?: InputMaybe<PersonsAvatarPathFilters>;
-  contactFrequency?: InputMaybe<PersonsContactFrequencyFilters>;
-  createdAt?: InputMaybe<PersonsCreatedAtFilters>;
-  email?: InputMaybe<PersonsEmailFilters>;
-  firstMetDate?: InputMaybe<PersonsFirstMetDateFilters>;
-  firstName?: InputMaybe<PersonsFirstNameFilters>;
-  howWeMet?: InputMaybe<PersonsHowWeMetFilters>;
-  id?: InputMaybe<PersonsIdFilters>;
-  lastName?: InputMaybe<PersonsLastNameFilters>;
-  updatedAt?: InputMaybe<PersonsUpdatedAtFilters>;
-};
-
-export type PersonsFirstMetDateFilters = {
-  OR?: InputMaybe<Array<PersonsFirstMetDateFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonsFirstMetDateFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonsFirstNameFilters = {
-  OR?: InputMaybe<Array<PersonsFirstNameFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonsFirstNameFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonsHowWeMetFilters = {
-  OR?: InputMaybe<Array<PersonsHowWeMetFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonsHowWeMetFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonsIdFilters = {
-  OR?: InputMaybe<Array<PersonsIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonsIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonsLastNameFilters = {
-  OR?: InputMaybe<Array<PersonsLastNameFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonsLastNameFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
+  avatarPath?: InputMaybe<StringFilter>;
+  contactFrequency?: InputMaybe<StringFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  email?: InputMaybe<StringFilter>;
+  firstMetDate?: InputMaybe<StringFilter>;
+  firstName?: InputMaybe<StringFilter>;
+  howWeMet?: InputMaybe<StringFilter>;
+  id?: InputMaybe<IdFilter>;
+  lastName?: InputMaybe<StringFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
 };
 
 export type PersonsOrderBy = {
@@ -14681,57 +12117,6 @@ export type PersonsOrderBy = {
   id?: InputMaybe<InnerOrder>;
   lastName?: InputMaybe<InnerOrder>;
   updatedAt?: InputMaybe<InnerOrder>;
-};
-
-export type PersonsUpdatedAtFilters = {
-  OR?: InputMaybe<Array<PersonsUpdatedAtFiltersOr>>;
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonsUpdatedAtFiltersOr = {
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Query = {
@@ -15016,6 +12401,45 @@ export type QueryUpcomingDatesArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   lookaheadDays?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type StringFilter = {
+  OR?: InputMaybe<Array<StringFilterOr>>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type StringFilterOr = {
+  eq?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  ilike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
+  isNull?: InputMaybe<Scalars['Boolean']['input']>;
+  like?: InputMaybe<Scalars['String']['input']>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  ne?: InputMaybe<Scalars['String']['input']>;
+  notIlike?: InputMaybe<Scalars['String']['input']>;
+  /** Array<undefined> */
+  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
+  notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Task = {
@@ -15962,256 +13386,25 @@ export type TaskPersonRelationTasksRelation = {
   title: Scalars['String']['output'];
 };
 
-export type TasksCompletedAtFilters = {
-  OR?: InputMaybe<Array<TasksCompletedAtFiltersOr>>;
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksCompletedAtFiltersOr = {
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksCreatedAtFilters = {
-  OR?: InputMaybe<Array<TasksCreatedAtFiltersOr>>;
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksCreatedAtFiltersOr = {
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksDueAtFilters = {
-  OR?: InputMaybe<Array<TasksDueAtFiltersOr>>;
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksDueAtFiltersOr = {
-  /** JSON */
-  eq?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lt?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  lte?: InputMaybe<Scalars['String']['input']>;
-  /** JSON */
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<JSON> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
 export type TasksFilters = {
   OR?: InputMaybe<Array<TasksFiltersOr>>;
-  completedAt?: InputMaybe<TasksCompletedAtFilters>;
-  createdAt?: InputMaybe<TasksCreatedAtFilters>;
-  dueAt?: InputMaybe<TasksDueAtFilters>;
-  id?: InputMaybe<TasksIdFilters>;
-  notes?: InputMaybe<TasksNotesFilters>;
-  personId?: InputMaybe<TasksPersonIdFilters>;
-  title?: InputMaybe<TasksTitleFilters>;
+  completedAt?: InputMaybe<DateTimeFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  dueAt?: InputMaybe<DateTimeFilter>;
+  id?: InputMaybe<IdFilter>;
+  notes?: InputMaybe<StringFilter>;
+  personId?: InputMaybe<IdFilter>;
+  title?: InputMaybe<StringFilter>;
 };
 
 export type TasksFiltersOr = {
-  completedAt?: InputMaybe<TasksCompletedAtFilters>;
-  createdAt?: InputMaybe<TasksCreatedAtFilters>;
-  dueAt?: InputMaybe<TasksDueAtFilters>;
-  id?: InputMaybe<TasksIdFilters>;
-  notes?: InputMaybe<TasksNotesFilters>;
-  personId?: InputMaybe<TasksPersonIdFilters>;
-  title?: InputMaybe<TasksTitleFilters>;
-};
-
-export type TasksIdFilters = {
-  OR?: InputMaybe<Array<TasksIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksNotesFilters = {
-  OR?: InputMaybe<Array<TasksNotesFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksNotesFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
+  completedAt?: InputMaybe<DateTimeFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  dueAt?: InputMaybe<DateTimeFilter>;
+  id?: InputMaybe<IdFilter>;
+  notes?: InputMaybe<StringFilter>;
+  personId?: InputMaybe<IdFilter>;
+  title?: InputMaybe<StringFilter>;
 };
 
 export type TasksOrderBy = {
@@ -16222,84 +13415,6 @@ export type TasksOrderBy = {
   notes?: InputMaybe<InnerOrder>;
   personId?: InputMaybe<InnerOrder>;
   title?: InputMaybe<InnerOrder>;
-};
-
-export type TasksPersonIdFilters = {
-  OR?: InputMaybe<Array<TasksPersonIdFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksPersonIdFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksTitleFilters = {
-  OR?: InputMaybe<Array<TasksTitleFiltersOr>>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TasksTitleFiltersOr = {
-  eq?: InputMaybe<Scalars['String']['input']>;
-  gt?: InputMaybe<Scalars['String']['input']>;
-  gte?: InputMaybe<Scalars['String']['input']>;
-  ilike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  inArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  isNotNull?: InputMaybe<Scalars['Boolean']['input']>;
-  isNull?: InputMaybe<Scalars['Boolean']['input']>;
-  like?: InputMaybe<Scalars['String']['input']>;
-  lt?: InputMaybe<Scalars['String']['input']>;
-  lte?: InputMaybe<Scalars['String']['input']>;
-  ne?: InputMaybe<Scalars['String']['input']>;
-  notIlike?: InputMaybe<Scalars['String']['input']>;
-  /** Array<undefined> */
-  notInArray?: InputMaybe<Array<Scalars['String']['input']>>;
-  notLike?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type UpcomingDateEntry = {
