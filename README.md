@@ -12,6 +12,10 @@ like the right name.
 
 ---
 
+![Persons list](docs/screenshots/persons-list.png)
+
+---
+
 ## Why Philotes?
 
 Life moves fast and relationships slip through the cracks. You forget to follow
@@ -39,6 +43,20 @@ and nowhere else.
 - **Suggested Introductions** — surfaces people who share labels but aren't yet connected
 - **Network View** — a graph of your relationships
 - **Review Page** — a to-do-style overview for pending follow-ups
+
+---
+
+### Person Detail
+
+![Person detail view](docs/screenshots/person-detail.png)
+
+### Weekly Review
+
+![Weekly review page](docs/screenshots/review.png)
+
+### Relationship Network
+
+![Network graph](docs/screenshots/network.png)
 
 ---
 
