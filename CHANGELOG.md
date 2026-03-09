@@ -1,3 +1,10 @@
+## [1.1.9](https://github.com/vantreeseba/philotes/compare/v1.1.8...v1.1.9) (2026-03-09)
+
+
+### Bug Fixes
+
+* remove sticky positioning from ListLayout header/footer ([e0ee06f](https://github.com/vantreeseba/philotes/commit/e0ee06f82d9676c5fd6483941fe7640fb774caec))
+
 ## [1.1.8](https://github.com/vantreeseba/philotes/compare/v1.1.7...v1.1.8) (2026-03-09)
 
 
