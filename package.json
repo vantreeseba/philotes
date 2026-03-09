@@ -56,7 +56,6 @@
     "vitest": "^3.0.5"
   },
   "dependencies": {
-    "drizzle-graphql": "github:/dmythro/drizzle-graphql",
     "drizzle-orm": "^1.0.0-beta.15-859cf75",
     "pluralize": "^8.0.0"
   }
