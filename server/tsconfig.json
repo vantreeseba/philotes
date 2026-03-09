@@ -9,8 +9,6 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "declaration": true,
-    "rootDir": "./src",
     "allowImportingTsExtensions": true,
     "noEmit": true
   },

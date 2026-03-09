@@ -14,7 +14,7 @@
     "dev": "npm run build -w db && concurrently \"npm run dev:server\" \"npm run dev:app\"",
     "dev:app": "npm run dev -w app",
     "dev:server": "npm run dev -w server",
-    "build": "npm run build -w db && npm run build -w server && npm run codegen && npm run build -w app",
+    "build": "npm run build -w db && npm run codegen && npm run build -w app",
     "build:app": "npm run build -w app",
     "build:server": "npm run build -w server",
     "lint": "biome lint .",

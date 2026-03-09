@@ -1,8 +1,9 @@
 # syntax=docker/dockerfile:1
 
-# ── Stage 1: build ────────────────────────────────────────────────────────────
-# Install all dependencies (including devDependencies) and compile every package.
-FROM node:22-alpine AS builder
+FROM node:22-alpine
+
+# Required for PGlite WASM and Vite build
+RUN apk add --no-cache python3 make g++
 
 WORKDIR /app
 
@@ -12,19 +13,10 @@ COPY . .
 # Install all dependencies (devDependencies needed for codegen + build)
 RUN npm ci
 
-# Build all packages in order: db → codegen → server (tsc) → app (vite)
-RUN npm run build
-
-# ── Stage 2: production image ─────────────────────────────────────────────────
-# Copy the built tree from the builder, then drop devDependencies.
-FROM node:22-alpine
-
-WORKDIR /app
-
-# Copy the complete built workspace from the builder stage.
-# This preserves workspace symlinks and all relative paths the server relies on
-# (e.g. ../../app/dist, ../../db/drizzle resolved at runtime from server/dist/src/).
-COPY --from=builder /app .
+# Build db package (needed by server + app at runtime)
+# Run codegen (generates GraphQL types)
+# Build frontend (Vite, output to app/dist)
+RUN npm run build -w db && npm run codegen && npm run build -w app
 
 # Drop devDependencies to shrink the image. PGlite's WASM files live in the
 # runtime dependency tree and are preserved automatically.
@@ -45,6 +37,5 @@ EXPOSE 3001
 # Persist the PGlite database and avatar uploads across container restarts.
 VOLUME ["/data", "/avatars"]
 
-# server/dist/src/index.js — tsc preserves the src/ directory structure
-# (outDir: ./dist in tsconfig.build.json, source lives under src/).
-CMD ["node", "server/dist/src/index.js"]
+# Run server directly as TypeScript — no compile step needed.
+CMD ["node", "--experimental-strip-types", "server/src/index.ts"]

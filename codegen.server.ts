@@ -1,7 +1,7 @@
 import type { CodegenConfig } from '@graphql-codegen/cli';
 
 const config: CodegenConfig = {
-  schema: './server/dist/schema.js',
+  schema: './server/src/__generated__/schema.graphql',
   importExtension: '.ts',
   generates: {
     'server/src/__generated__/resolvers.ts': {
@@ -9,7 +9,7 @@ const config: CodegenConfig = {
       config: {
         inputMaybeValue: 'T | undefined',
         //         useIndexSignature: true,
-        contextType: '../index.js#Context',
+        contextType: '../index.ts#Context',
         avoidOptionals: {
           // Use `null` for nullable fields instead of optionals
           field: true,
@@ -22,7 +22,7 @@ const config: CodegenConfig = {
       plugins: ['schema-ast'],
       config: {
         inputMaybeValue: 'T | undefined',
-        contextType: '../index.js#Context',
+        contextType: '../index.ts#Context',
         includeDirectives: true,
         avoidOptionals: {
           // Use `null` for nullable fields instead of optionals

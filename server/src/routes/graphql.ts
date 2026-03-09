@@ -5,7 +5,7 @@ import { expressMiddleware } from '@as-integrations/express5';
 import type { DB } from '@philotes/db';
 import { db } from '@philotes/db';
 import express, { Router } from 'express';
-import { schema } from '../schema.js';
+import { schema } from '../schema.ts';
 
 export interface Context {
   db: DB;

@@ -5,10 +5,10 @@ import { db } from '@philotes/db';
 import cors from 'cors';
 import { migrate } from 'drizzle-orm/pglite/migrator';
 import express from 'express';
-import { createAvatarRouter } from './routes/avatars.js';
-import { createGraphQLRouter } from './routes/graphql.js';
+import { createAvatarRouter } from './routes/avatars.ts';
+import { createGraphQLRouter } from './routes/graphql.ts';
 
-export type { Context } from './routes/graphql.js';
+export type { Context } from './routes/graphql.ts';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT ?? 3001;
