@@ -12,9 +12,9 @@ interface ListLayoutProps {
 export function ListLayout({ header, body, footer, className, spacing = true }: ListLayoutProps) {
   return (
     <div className={cn('flex flex-col h-[calc(100vh-3.5rem-3rem)]', className)}>
-      <div className="shrink-0 sticky top-0 bg-background z-10 pb-3">{header}</div>
+      <div className="shrink-0 pb-3">{header}</div>
       <div className={cn('flex-1 overflow-y-auto min-h-0', spacing && 'space-y-2')}>{body}</div>
-      {footer && <div className="shrink-0 sticky bottom-0 bg-background z-10 pt-3 border-t">{footer}</div>}
+      {footer && <div className="shrink-0 pt-3 border-t">{footer}</div>}
     </div>
   );
 }
