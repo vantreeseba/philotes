@@ -53,30 +53,18 @@
     }
   },
   "files": {
-    "includes": ["**/*.ts", "**/*.tsx", "**/*.json", "**/*.css"]
+    "includes": [
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.json",
+      "**/*.css",
+      "!**/dist",
+      "!**/__generated__",
+      "!**/drizzle",
+      "!**/*.gen.ts"
+    ]
   },
   "overrides": [
-    {
-      "includes": [
-        "**/*.gen.ts",
-        "**/drizzle/**",
-        "**/__generated__/**",
-        "dist/**",
-        "server/dist/**",
-        "db/dist/**",
-        "app/dist/**",
-        "app/src/__generated__/**"
-      ],
-      "linter": {
-        "enabled": false
-      },
-      "formatter": {
-        "enabled": false
-      },
-      "assist": {
-        "enabled": false
-      }
-    },
     {
       "includes": ["**/*.css"],
       "linter": {
