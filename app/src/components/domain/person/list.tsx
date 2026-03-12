@@ -144,22 +144,39 @@ interface PersonListProps {
 
 const PAGE_SIZE_OPTIONS = [10, 25, 50];
 
+type SortField = 'name' | 'lastContacted';
+type SortDir = 'asc' | 'desc';
+
+type SortOption = `${SortField}-${SortDir}`;
+
+const SORT_OPTIONS: Array<{ value: SortOption; label: string; field: SortField; dir: SortDir }> = [
+  { value: 'name-asc', label: 'Name (A–Z)', field: 'name', dir: 'asc' },
+  { value: 'name-desc', label: 'Name (Z–A)', field: 'name', dir: 'desc' },
+  { value: 'lastContacted-asc', label: 'Last Contacted (oldest first)', field: 'lastContacted', dir: 'asc' },
+  { value: 'lastContacted-desc', label: 'Last Contacted (recent first)', field: 'lastContacted', dir: 'desc' },
+];
+
 interface PersonListUrlState {
   q: string;
   labels: string[];
   page: number;
   pageSize: number;
+  sortField: SortField;
+  sortDir: SortDir;
 }
 
 export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListProps) {
   const [urlState, setUrlState] = useQueryStringState<PersonListUrlState>(
-    { q: '', labels: [], page: 0, pageSize: 10 },
+    { q: '', labels: [], page: 0, pageSize: 10, sortField: 'name', sortDir: 'asc' },
     { typeMap: { page: 'number', pageSize: 'number', labels: 'stringArray' } },
   );
   const query = urlState.q ?? '';
   const activeLabelIds = new Set(urlState.labels ?? []);
   const page = urlState.page ?? 0;
   const pageSize = urlState.pageSize ?? 10;
+  const sortField: SortField = urlState.sortField ?? 'name';
+  const sortDir: SortDir = urlState.sortDir ?? 'asc';
+  const sortValue: SortOption = `${sortField}-${sortDir}`;
 
   // Collect all unique labels across all persons for the label filter bar
   const allLabels = Array.from(new Map(persons.flatMap((p) => p.labels).map((l) => [l.id, l])).values());
@@ -203,7 +220,29 @@ export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListPro
     setUrlState({ pageSize: newSize, page: 0 });
   };
 
-  const pageItems = filteredPersons.slice(page * pageSize, (page + 1) * pageSize);
+  const handleSortChange = (value: SortOption) => {
+    const opt = SORT_OPTIONS.find((o) => o.value === value);
+    if (opt) {
+      setUrlState({ sortField: opt.field, sortDir: opt.dir, page: 0 });
+    }
+  };
+
+  const sortedPersons = [...filteredPersons].sort((a, b) => {
+    if (sortField === 'name') {
+      const lastCmp = a.lastName.localeCompare(b.lastName);
+      const cmp = lastCmp !== 0 ? lastCmp : a.firstName.localeCompare(b.firstName);
+      return sortDir === 'asc' ? cmp : -cmp;
+    }
+    // lastContacted: null goes last regardless of direction
+    const aTime = a.lastContactedAt ? a.lastContactedAt.getTime() : null;
+    const bTime = b.lastContactedAt ? b.lastContactedAt.getTime() : null;
+    if (aTime === null && bTime === null) return 0;
+    if (aTime === null) return 1;
+    if (bTime === null) return -1;
+    return sortDir === 'asc' ? aTime - bTime : bTime - aTime;
+  });
+
+  const pageItems = sortedPersons.slice(page * pageSize, (page + 1) * pageSize);
   const isFirstPage = page === 0;
   const isLastPage = pageItems.length < pageSize;
 
@@ -218,15 +257,29 @@ export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListPro
               Add Person
             </Button>
           </div>
-          <div className="relative">
-            <Search className="absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground pointer-events-none" />
-            <input
-              type="search"
-              placeholder="Search by name or email…"
-              value={query}
-              onChange={(e) => handleQueryChange(e.target.value)}
-              className="w-full rounded-md border border-border bg-background py-2 pl-9 pr-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
-            />
+          <div className="flex items-center gap-2">
+            <div className="relative flex-1">
+              <Search className="absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground pointer-events-none" />
+              <input
+                type="search"
+                placeholder="Search by name or email…"
+                value={query}
+                onChange={(e) => handleQueryChange(e.target.value)}
+                className="w-full rounded-md border border-border bg-background py-2 pl-9 pr-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+              />
+            </div>
+            <select
+              value={sortValue}
+              onChange={(e) => handleSortChange(e.target.value as SortOption)}
+              className="h-9 rounded-md border border-input bg-background px-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring shrink-0"
+              aria-label="Sort persons"
+            >
+              {SORT_OPTIONS.map((opt) => (
+                <option key={opt.value} value={opt.value}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
           </div>
           {allLabels.length > 0 && (
             <div className="flex flex-wrap items-center gap-1.5">

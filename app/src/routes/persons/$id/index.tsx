@@ -6,6 +6,7 @@ import {
   BookUser,
   CalendarPlus,
   Camera,
+  Clock,
   MessageSquare,
   NotebookPen,
   Pencil,
@@ -606,14 +607,22 @@ function PersonDetailPage() {
   return (
     <TooltipProvider>
       <div className="space-y-6">
-        {/* Back link */}
-        <div>
+        {/* Back link + sub-nav */}
+        <div className="flex items-center justify-between gap-4">
           <Link
             to="/persons"
             className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
             All Persons
+          </Link>
+          <Link
+            to="/persons/$id/timeline"
+            params={{ id }}
+            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Clock className="h-4 w-4" />
+            Timeline
           </Link>
         </div>
 

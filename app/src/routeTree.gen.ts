@@ -15,6 +15,7 @@ import { Route as TagsIndexRouteImport } from './routes/tags/index'
 import { Route as PersonsIndexRouteImport } from './routes/persons/index'
 import { Route as PersonsIdRouteImport } from './routes/persons/$id'
 import { Route as PersonsIdIndexRouteImport } from './routes/persons/$id/index'
+import { Route as PersonsIdTimelineRouteImport } from './routes/persons/$id/timeline'
 import { Route as PersonsIdDatesDateIdRouteImport } from './routes/persons/$id/dates/$dateId'
 
 const NetworkRoute = NetworkRouteImport.update({
@@ -47,6 +48,11 @@ const PersonsIdIndexRoute = PersonsIdIndexRouteImport.update({
   path: '/',
   getParentRoute: () => PersonsIdRoute,
 } as any)
+const PersonsIdTimelineRoute = PersonsIdTimelineRouteImport.update({
+  id: '/timeline',
+  path: '/timeline',
+  getParentRoute: () => PersonsIdRoute,
+} as any)
 const PersonsIdDatesDateIdRoute = PersonsIdDatesDateIdRouteImport.update({
   id: '/dates/$dateId',
   path: '/dates/$dateId',
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/persons/$id': typeof PersonsIdRouteWithChildren
   '/persons/': typeof PersonsIndexRoute
   '/tags/': typeof TagsIndexRoute
+  '/persons/$id/timeline': typeof PersonsIdTimelineRoute
   '/persons/$id/': typeof PersonsIdIndexRoute
   '/persons/$id/dates/$dateId': typeof PersonsIdDatesDateIdRoute
 }
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/network': typeof NetworkRoute
   '/persons': typeof PersonsIndexRoute
   '/tags': typeof TagsIndexRoute
+  '/persons/$id/timeline': typeof PersonsIdTimelineRoute
   '/persons/$id': typeof PersonsIdIndexRoute
   '/persons/$id/dates/$dateId': typeof PersonsIdDatesDateIdRoute
 }
@@ -77,6 +85,7 @@ export interface FileRoutesById {
   '/persons/$id': typeof PersonsIdRouteWithChildren
   '/persons/': typeof PersonsIndexRoute
   '/tags/': typeof TagsIndexRoute
+  '/persons/$id/timeline': typeof PersonsIdTimelineRoute
   '/persons/$id/': typeof PersonsIdIndexRoute
   '/persons/$id/dates/$dateId': typeof PersonsIdDatesDateIdRoute
 }
@@ -88,6 +97,7 @@ export interface FileRouteTypes {
     | '/persons/$id'
     | '/persons/'
     | '/tags/'
+    | '/persons/$id/timeline'
     | '/persons/$id/'
     | '/persons/$id/dates/$dateId'
   fileRoutesByTo: FileRoutesByTo
@@ -96,6 +106,7 @@ export interface FileRouteTypes {
     | '/network'
     | '/persons'
     | '/tags'
+    | '/persons/$id/timeline'
     | '/persons/$id'
     | '/persons/$id/dates/$dateId'
   id:
@@ -105,6 +116,7 @@ export interface FileRouteTypes {
     | '/persons/$id'
     | '/persons/'
     | '/tags/'
+    | '/persons/$id/timeline'
     | '/persons/$id/'
     | '/persons/$id/dates/$dateId'
   fileRoutesById: FileRoutesById
@@ -161,6 +173,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PersonsIdIndexRouteImport
       parentRoute: typeof PersonsIdRoute
     }
+    '/persons/$id/timeline': {
+      id: '/persons/$id/timeline'
+      path: '/timeline'
+      fullPath: '/persons/$id/timeline'
+      preLoaderRoute: typeof PersonsIdTimelineRouteImport
+      parentRoute: typeof PersonsIdRoute
+    }
     '/persons/$id/dates/$dateId': {
       id: '/persons/$id/dates/$dateId'
       path: '/dates/$dateId'
@@ -172,11 +191,13 @@ declare module '@tanstack/react-router' {
 }
 
 interface PersonsIdRouteChildren {
+  PersonsIdTimelineRoute: typeof PersonsIdTimelineRoute
   PersonsIdIndexRoute: typeof PersonsIdIndexRoute
   PersonsIdDatesDateIdRoute: typeof PersonsIdDatesDateIdRoute
 }
 
 const PersonsIdRouteChildren: PersonsIdRouteChildren = {
+  PersonsIdTimelineRoute: PersonsIdTimelineRoute,
   PersonsIdIndexRoute: PersonsIdIndexRoute,
   PersonsIdDatesDateIdRoute: PersonsIdDatesDateIdRoute,
 }
