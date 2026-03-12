@@ -11,7 +11,7 @@
     "../drizzle-graphql"
   ],
   "scripts": {
-    "clean": "npm run clean -w db && npm run clean -w server && npm run clean -w app",
+    "clean": "rm -rf node_modules && rm -rf package-lock.json && npm run clean -w db && npm run clean -w server && npm run clean -w app",
     "dev": "npm run build -w db && concurrently \"npm run dev:server\" \"npm run dev:app\"",
     "dev:app": "npm run dev -w app",
     "dev:server": "npm run dev -w server",
@@ -38,7 +38,7 @@
     "check:types": "tsc --noEmit -p app/tsconfig.json && tsc --noEmit -p server/tsconfig.json && tsc --noEmit -p db/tsconfig.json",
     "codegen": "npm run codegen:server && npm run codegen:app",
     "codegen:app": "npm run codegen -w app",
-    "codegen:server": "graphql-codegen-esm --config codegen.server.ts"
+    "codegen:server": "npm run codegen -w server"
   },
   "devDependencies": {
     "@0no-co/graphqlsp": "^1.15.2",
@@ -55,9 +55,5 @@
     "typescript": "^5.7.3",
     "vite-plugin-graphql-codegen": "^3.8.0",
     "vitest": "^3.0.5"
-  },
-  "dependencies": {
-    "drizzle-orm": "^1.0.0-beta.15-859cf75",
-    "pluralize": "^8.0.0"
   }
 }

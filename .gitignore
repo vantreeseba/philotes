@@ -6,3 +6,4 @@ pgdata/
 .env
 .env.local
 **/tsconfig.tsbuildinfo
+__generated__

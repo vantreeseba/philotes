@@ -1,7 +1,7 @@
 import { createFormHook } from '@tanstack/react-form';
 import { useState } from 'react';
 import { z } from 'zod';
-import type { CreateLabelInput as NewTag } from '@/__generated__/graphql.js';
+import type { LabelInsertInput as NewTag } from '@/__generated__/graphql.js';
 import { Button } from '@/components/ui/button.js';
 import { FieldGroup } from '@/components/ui/field.js';
 import { FormError, fieldContext, formContext, TextField } from '@/components/ui/form-field.tsx';

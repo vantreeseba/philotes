@@ -6,6 +6,7 @@ import { applyScalarResolvers } from './resolvers/scalars.ts';
 import { applyUpcomingDatesExtension } from './resolvers/upcoming-dates.ts';
 
 const { schema: drizzleSchema, entities } = buildSchema(dbInstance, {
+  singularTypes: true,
   prefixes: {
     insert: 'create',
     update: 'update',
@@ -17,8 +18,10 @@ const { schema: drizzleSchema, entities } = buildSchema(dbInstance, {
   },
 });
 
-const schema = applyNullListCoercion(
-  applyScalarResolvers(applyUpcomingDatesExtension(applyRelationshipsExtension(drizzleSchema))),
-);
+// let schema = drizzleSchema;
+let schema = applyRelationshipsExtension(drizzleSchema);
+schema = applyUpcomingDatesExtension(schema);
+schema = applyScalarResolvers(schema);
+schema = applyNullListCoercion(schema);
 
 export { schema, entities };

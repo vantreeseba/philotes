@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "clean": "rm -rf src/__generated__",
+    "clean": "rm -rf src/__generated__ && rm -rf node_modules",
     "codegen": "graphql-codegen-esm"
   },
   "dependencies": {

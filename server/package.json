@@ -8,14 +8,15 @@
     "dev": "node --experimental-strip-types --env-file=../.env --watch src/index.ts",
     "build": "echo 'no server build needed'",
     "start": "node --experimental-strip-types src/index.ts",
-    "clean": "rm -rf src/__generated__"
+    "clean": "rm -rf src/__generated__",
+    "codegen": "node --experimental-strip-types --env-file=../.env src/write_schema.ts && graphql-codegen-esm"
   },
   "dependencies": {
     "@apollo/server": "^5.x.x",
     "@as-integrations/express5": "^1.1.2",
     "@philotes/db": "*",
     "cors": "^2.8.6",
-    "drizzle-graphql": "file:../../drizzle-graphql",
+    "drizzle-graphql": "github:vantreeseba/drizzle-graphql#build_in_repo",
     "express": "^5.2.1",
     "graphql": "^16.10.0",
     "graphql-parse-resolve-info": "^4.14.1",

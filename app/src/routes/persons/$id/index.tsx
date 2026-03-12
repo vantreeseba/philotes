@@ -196,7 +196,7 @@ const DELETE_IMPORTANT_DATE = graphql(`
 const CREATE_IMPORTANT_DATE = graphql(`
   mutation CreateImportantDate(
     $name: String!
-    $date: Date!
+    $date: String!
     $personId: String!
     $description: String
     $recurrence: String
@@ -227,7 +227,7 @@ const UPDATE_IMPORTANT_DATE = graphql(`
   mutation UpdateImportantDate(
     $id: String!
     $name: String!
-    $date: Date!
+    $date: String!
     $description: String
     $recurrence: String
     $milestoneType: ImportantDatesMilestoneTypeEnum
@@ -260,7 +260,7 @@ const UPDATE_PERSON = graphql(`
     $email: String!
     $contactFrequency: String
     $howWeMet: String
-    $firstMetDate: Date
+    $firstMetDate: String
   ) {
     updatePersons(
       set: {
@@ -320,7 +320,7 @@ interface ImportantDateRowProps {
   id: string;
   personId: string;
   name: string;
-  date: Date;
+  date: string;
   description: string | null | undefined;
   recurrence: string | null | undefined;
   milestoneType: string | null | undefined;
@@ -382,7 +382,7 @@ function ImportantDateRow({
             </Link>
             {description && <span className="ml-2 text-muted-foreground text-xs">{description}</span>}
             <div className="text-muted-foreground text-xs mt-0.5 flex items-center gap-1.5">
-              <span>{date.toLocaleDateString()}</span>
+              <span>{new Date(date).toLocaleDateString()}</span>
               {recurrenceLabel && (
                 <span className="rounded-full bg-muted px-1.5 py-0.5 text-xs">{recurrenceLabel}</span>
               )}
@@ -430,7 +430,7 @@ function ImportantDateRow({
           <ImportantDateForm
             initialValues={{
               name,
-              date: date.toISOString().slice(0, 10),
+              date: date,
               description: description ?? undefined,
               recurrence: recurrence ?? undefined,
               milestoneType: milestoneType ?? undefined,
@@ -675,7 +675,7 @@ function PersonDetailPage() {
                   {person.firstMetDate && (
                     <p className="text-xs text-muted-foreground mt-1">
                       First met:{' '}
-                      {person.firstMetDate.toLocaleDateString('en-US', {
+                      {new Date(person.firstMetDate).toLocaleDateString('en-US', {
                         year: 'numeric',
                         month: 'long',
                         day: 'numeric',
@@ -900,7 +900,7 @@ function PersonDetailPage() {
                         id={d.id}
                         personId={person.id}
                         name={d.name}
-                        date={d.date}
+                        date={d.date instanceof Date ? d.date.toISOString().slice(0, 10) : d.date}
                         description={d.description}
                         recurrence={d.recurrence}
                         milestoneType={d.milestoneType}
@@ -1040,7 +1040,11 @@ function PersonDetailPage() {
                 labelIds: person.labels.map((l) => l.id),
                 contactFrequency: person.contactFrequency,
                 howWeMet: person.howWeMet,
-                firstMetDate: person.firstMetDate ? person.firstMetDate.toISOString().slice(0, 10) : null,
+                firstMetDate: person.firstMetDate
+                  ? person.firstMetDate instanceof Date
+                    ? person.firstMetDate.toISOString().slice(0, 10)
+                    : person.firstMetDate
+                  : null,
               }}
               submitLabel="Save Changes"
               onSubmit={handleEditPerson}
