@@ -16,7 +16,6 @@ import {
   PaginationPrevious,
 } from '@/components/ui/pagination.js';
 import { Spinner } from '@/components/ui/spinner.tsx';
-import { useQueryStringState } from '@/hooks/use-query-string-state.js';
 
 const PERSON_LIST = graphql(`
   fragment Person_List on Person {
@@ -43,6 +42,38 @@ const PERSON_LIST = graphql(`
 `);
 
 export { PERSON_LIST, PERSON_RELATIONSHIPS };
+
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+export interface FilterablePersonRow {
+  ref: Person_ListFragment;
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  avatarPath?: string | null;
+  labels: Array<{ id: string; label: string; color: string }>;
+  lastContactedAt?: Date | null;
+}
+
+type SortField = 'name' | 'lastContacted';
+type SortDir = 'asc' | 'desc';
+type SortOption = `${SortField}-${SortDir}`;
+
+const SORT_OPTIONS: Array<{ value: SortOption; label: string }> = [
+  { value: 'name-asc', label: 'Name (A–Z)' },
+  { value: 'name-desc', label: 'Name (Z–A)' },
+  { value: 'lastContacted-asc', label: 'Last Contacted (oldest first)' },
+  { value: 'lastContacted-desc', label: 'Last Contacted (recent first)' },
+];
+
+const PAGE_SIZE_OPTIONS = [10, 25, 50];
+
+// ---------------------------------------------------------------------------
+// PersonRow
+// ---------------------------------------------------------------------------
 
 interface PersonRowProps {
   person: Person_ListFragment;
@@ -120,131 +151,63 @@ function PersonRow({ person: from, onClickDelete, activeLabelIds, lastContactedA
 }
 
 // ---------------------------------------------------------------------------
-// Filtering logic (operates on fragment refs by reading fragment data)
+// PersonList — pure display component
+// All filtering, sorting, pagination logic lives in the parent route.
 // ---------------------------------------------------------------------------
 
-interface FilterablePersonRow {
-  ref: Person_ListFragment;
-  // Denormalised fields for filtering — read directly from the query result
-  // via inline fields (not masked by the fragment).
-  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  avatarPath?: string | null;
-  labels: Array<{ id: string; label: string; color: string }>;
-  lastContactedAt?: Date | null;
-}
-
-interface PersonListProps {
-  persons: Array<FilterablePersonRow>;
-  onClickAdd: () => void;
-  onClickDelete: (id: string) => void;
-}
-
-const PAGE_SIZE_OPTIONS = [10, 25, 50];
-
-type SortField = 'name' | 'lastContacted';
-type SortDir = 'asc' | 'desc';
-
-type SortOption = `${SortField}-${SortDir}`;
-
-const SORT_OPTIONS: Array<{ value: SortOption; label: string; field: SortField; dir: SortDir }> = [
-  { value: 'name-asc', label: 'Name (A–Z)', field: 'name', dir: 'asc' },
-  { value: 'name-desc', label: 'Name (Z–A)', field: 'name', dir: 'desc' },
-  { value: 'lastContacted-asc', label: 'Last Contacted (oldest first)', field: 'lastContacted', dir: 'asc' },
-  { value: 'lastContacted-desc', label: 'Last Contacted (recent first)', field: 'lastContacted', dir: 'desc' },
-];
-
-interface PersonListUrlState {
+export interface PersonListProps {
+  persons: FilterablePersonRow[];
+  // Label filter UI
+  allLabels: Array<{ id: string; label: string; color: string }>;
+  activeLabelIds: string[];
+  onToggleLabel: (id: string) => void;
+  // Search UI
   q: string;
-  labels: string[];
+  onSearchChange: (q: string) => void;
+  // Sort UI
+  sortValue: string; // e.g. "name-asc"
+  onSortChange: (value: string) => void;
+  // Pagination UI
   page: number;
   pageSize: number;
-  sortField: SortField;
-  sortDir: SortDir;
+  hasNextPage: boolean;
+  onNextPage: () => void;
+  onPrevPage: () => void;
+  onPageSizeChange: (size: number) => void;
+  // Actions
+  onClickAdd?: () => void;
+  onClickDelete?: (id: string) => void;
 }
 
-export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListProps) {
-  const [urlState, setUrlState] = useQueryStringState<PersonListUrlState>(
-    { q: '', labels: [], page: 0, pageSize: 10, sortField: 'name', sortDir: 'asc' },
-    { typeMap: { page: 'number', pageSize: 'number', labels: 'stringArray' } },
-  );
-  const query = urlState.q ?? '';
-  const activeLabelIds = new Set(urlState.labels ?? []);
-  const page = urlState.page ?? 0;
-  const pageSize = urlState.pageSize ?? 10;
-  const sortField: SortField = urlState.sortField ?? 'name';
-  const sortDir: SortDir = urlState.sortDir ?? 'asc';
-  const sortValue: SortOption = `${sortField}-${sortDir}`;
-
-  // Collect all unique labels across all persons for the label filter bar
-  const allLabels = Array.from(new Map(persons.flatMap((p) => p.labels).map((l) => [l.id, l])).values());
-
-  const toggleLabelFilter = (id: string) => {
-    const next = new Set(activeLabelIds);
-    if (next.has(id)) {
-      next.delete(id);
-    } else {
-      next.add(id);
-    }
-    setUrlState({ labels: [...next], page: 0 });
-  };
-
-  const clearFilters = () => {
-    setUrlState({ q: '', labels: [], page: 0 });
-  };
-
-  const handleQueryChange = (value: string) => {
-    setUrlState({ q: value, page: 0 });
-  };
-
-  const q = query.trim().toLowerCase();
-  const hasFilters = q.length > 0 || activeLabelIds.size > 0;
-
-  const filteredPersons = persons.filter((p) => {
-    if (q) {
-      const fullName = `${p.firstName} ${p.lastName}`.toLowerCase();
-      const matchesText = fullName.includes(q) || p.email.toLowerCase().includes(q);
-      if (!matchesText) return false;
-    }
-    if (activeLabelIds.size > 0) {
-      const personLabelIds = new Set(p.labels.map((l) => l.id));
-      const matchesLabel = [...activeLabelIds].every((id) => personLabelIds.has(id));
-      if (!matchesLabel) return false;
-    }
-    return true;
-  });
-
-  const handlePageSizeChange = (newSize: number) => {
-    setUrlState({ pageSize: newSize, page: 0 });
-  };
-
-  const handleSortChange = (value: SortOption) => {
-    const opt = SORT_OPTIONS.find((o) => o.value === value);
-    if (opt) {
-      setUrlState({ sortField: opt.field, sortDir: opt.dir, page: 0 });
-    }
-  };
-
-  const sortedPersons = [...filteredPersons].sort((a, b) => {
-    if (sortField === 'name') {
-      const lastCmp = a.lastName.localeCompare(b.lastName);
-      const cmp = lastCmp !== 0 ? lastCmp : a.firstName.localeCompare(b.firstName);
-      return sortDir === 'asc' ? cmp : -cmp;
-    }
-    // lastContacted: null goes last regardless of direction
-    const aTime = a.lastContactedAt ? a.lastContactedAt.getTime() : null;
-    const bTime = b.lastContactedAt ? b.lastContactedAt.getTime() : null;
-    if (aTime === null && bTime === null) return 0;
-    if (aTime === null) return 1;
-    if (bTime === null) return -1;
-    return sortDir === 'asc' ? aTime - bTime : bTime - aTime;
-  });
-
-  const pageItems = sortedPersons.slice(page * pageSize, (page + 1) * pageSize);
+export function PersonList({
+  persons,
+  allLabels,
+  activeLabelIds,
+  onToggleLabel,
+  q,
+  onSearchChange,
+  sortValue,
+  onSortChange,
+  page,
+  pageSize: _pageSize,
+  hasNextPage,
+  onNextPage,
+  onPrevPage,
+  onPageSizeChange,
+  onClickAdd,
+  onClickDelete,
+}: PersonListProps) {
+  const activeLabelSet = new Set(activeLabelIds);
   const isFirstPage = page === 0;
-  const isLastPage = pageItems.length < pageSize;
+  const hasFilters = q.trim().length > 0 || activeLabelIds.length > 0;
+
+  const handleClearFilters = () => {
+    onSearchChange('');
+    // Clear labels by toggling each active one off — simpler than a dedicated prop
+    for (const id of activeLabelIds) {
+      onToggleLabel(id);
+    }
+  };
 
   return (
     <ListLayout
@@ -252,10 +215,12 @@ export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListPro
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <h1 className="font-bold text-3xl">Persons</h1>
-            <Button onClick={onClickAdd}>
-              <UserPlus className="mr-2 h-4 w-4" />
-              Add Person
-            </Button>
+            {onClickAdd && (
+              <Button onClick={onClickAdd}>
+                <UserPlus className="mr-2 h-4 w-4" />
+                Add Person
+              </Button>
+            )}
           </div>
           <div className="flex items-center gap-2">
             <div className="relative flex-1">
@@ -263,14 +228,14 @@ export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListPro
               <input
                 type="search"
                 placeholder="Search by name or email…"
-                value={query}
-                onChange={(e) => handleQueryChange(e.target.value)}
+                value={q}
+                onChange={(e) => onSearchChange(e.target.value)}
                 className="w-full rounded-md border border-border bg-background py-2 pl-9 pr-3 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
               />
             </div>
             <select
               value={sortValue}
-              onChange={(e) => handleSortChange(e.target.value as SortOption)}
+              onChange={(e) => onSortChange(e.target.value)}
               className="h-9 rounded-md border border-input bg-background px-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring shrink-0"
               aria-label="Sort persons"
             >
@@ -288,9 +253,9 @@ export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListPro
                 <button
                   key={l.id}
                   type="button"
-                  onClick={() => toggleLabelFilter(l.id)}
+                  onClick={() => onToggleLabel(l.id)}
                   className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs transition-colors ${
-                    activeLabelIds.has(l.id) ? 'border-foreground bg-foreground text-background' : 'hover:bg-muted'
+                    activeLabelSet.has(l.id) ? 'border-foreground bg-foreground text-background' : 'hover:bg-muted'
                   }`}
                 >
                   <span
@@ -299,13 +264,13 @@ export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListPro
                     aria-hidden="true"
                   />
                   {l.label}
-                  {activeLabelIds.has(l.id) && <X className="h-2.5 w-2.5 ml-0.5" />}
+                  {activeLabelSet.has(l.id) && <X className="h-2.5 w-2.5 ml-0.5" />}
                 </button>
               ))}
               {hasFilters && (
                 <button
                   type="button"
-                  onClick={clearFilters}
+                  onClick={handleClearFilters}
                   className="text-xs text-muted-foreground hover:text-foreground transition-colors ml-1"
                 >
                   Clear
@@ -318,23 +283,21 @@ export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListPro
       body={
         <div className="space-y-3">
           <p className="text-xs text-muted-foreground">
-            {filteredPersons.length} person
-            {filteredPersons.length !== 1 ? 's' : ''}
+            {persons.length} person{persons.length !== 1 ? 's' : ''}
           </p>
 
-          {/* Results */}
-          {pageItems.length === 0 ? (
+          {persons.length === 0 ? (
             <p className="text-muted-foreground text-sm">
               {hasFilters ? 'No persons match the current filters.' : 'No persons yet.'}
             </p>
           ) : (
             <div className="grid gap-4">
-              {pageItems.map((p) => (
+              {persons.map((p) => (
                 <PersonRow
                   key={p.id}
                   person={p.ref}
-                  onClickDelete={onClickDelete}
-                  activeLabelIds={activeLabelIds}
+                  onClickDelete={onClickDelete ?? (() => undefined)}
+                  activeLabelIds={activeLabelSet}
                   lastContactedAt={p.lastContactedAt}
                 />
               ))}
@@ -350,8 +313,8 @@ export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListPro
             </label>
             <select
               id="persons-page-size"
-              value={pageSize}
-              onChange={(e) => handlePageSizeChange(Number(e.target.value))}
+              value={_pageSize}
+              onChange={(e) => onPageSizeChange(Number(e.target.value))}
               className="h-8 rounded-md border border-input bg-background px-2 text-xs focus:outline-none focus:ring-2 focus:ring-ring"
             >
               {PAGE_SIZE_OPTIONS.map((n) => (
@@ -365,16 +328,16 @@ export function PersonList({ persons, onClickAdd, onClickDelete }: PersonListPro
             <PaginationContent>
               <PaginationItem>
                 <PaginationPrevious
-                  onClick={() => setUrlState({ page: page - 1 })}
+                  onClick={onPrevPage}
                   className={isFirstPage ? 'pointer-events-none opacity-50' : ''}
                   aria-disabled={isFirstPage}
                 />
               </PaginationItem>
               <PaginationItem>
                 <PaginationNext
-                  onClick={() => setUrlState({ page: page + 1 })}
-                  className={isLastPage ? 'pointer-events-none opacity-50' : ''}
-                  aria-disabled={isLastPage}
+                  onClick={onNextPage}
+                  className={!hasNextPage ? 'pointer-events-none opacity-50' : ''}
+                  aria-disabled={!hasNextPage}
                 />
               </PaginationItem>
             </PaginationContent>
