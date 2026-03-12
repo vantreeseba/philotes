@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/vantreeseba/philotes/compare/v1.2.1...v1.2.2) (2026-03-12)
+
+
+### Bug Fixes
+
+* **docker:** Make docker node version 24 for ts stuff. ([7f38c16](https://github.com/vantreeseba/philotes/commit/7f38c1609522bef59f46f0121552678da700eea5))
+
 ## [1.2.1](https://github.com/vantreeseba/philotes/compare/v1.2.0...v1.2.1) (2026-03-12)
 
 
