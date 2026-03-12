@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/vantreeseba/philotes/compare/v1.2.0...v1.2.1) (2026-03-12)
+
+
+### Bug Fixes
+
+* resolve pgdata path using import.meta.url to prevent CWD-relative DB splits ([41106d0](https://github.com/vantreeseba/philotes/commit/41106d0937f138d02f7f89567cd9801b1bf5ac44))
+
 # [1.2.0](https://github.com/vantreeseba/philotes/compare/v1.1.9...v1.2.0) (2026-03-09)
 
 
