@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/vantreeseba/philotes/compare/v1.4.0...v1.4.1) (2026-03-12)
+
+
+### Performance Improvements
+
+* add 16 db indexes across all FK and sort columns ([e213644](https://github.com/vantreeseba/philotes/commit/e2136445654f041e0f493d8675d0fdf275ea9fa4))
+
 # [1.4.0](https://github.com/vantreeseba/philotes/compare/v1.3.0...v1.4.0) (2026-03-12)
 
 
