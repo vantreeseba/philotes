@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/vantreeseba/philotes/compare/v1.2.3...v1.3.0) (2026-03-12)
+
+
+### Features
+
+* add person list sort controls (task 17) and per-person timeline view (task 18) ([a4c374c](https://github.com/vantreeseba/philotes/commit/a4c374c618924129070cc75685945499254560fc))
+
 ## [1.2.3](https://github.com/vantreeseba/philotes/compare/v1.2.2...v1.2.3) (2026-03-12)
 
 
