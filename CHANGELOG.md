@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/vantreeseba/philotes/compare/v1.3.0...v1.4.0) (2026-03-12)
+
+
+### Features
+
+* move persons list search, sort, and pagination server-side ([b5bd1b7](https://github.com/vantreeseba/philotes/commit/b5bd1b7c3b60ac88bf0f04af5d0849f5262cfd97))
+
 # [1.3.0](https://github.com/vantreeseba/philotes/compare/v1.2.3...v1.3.0) (2026-03-12)
 
 
