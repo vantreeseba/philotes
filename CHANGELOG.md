@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/vantreeseba/philotes/compare/v1.2.2...v1.2.3) (2026-03-12)
+
+
+### Bug Fixes
+
+* load .env via preload module instead of --env-file flag for Docker compatibility ([e74d854](https://github.com/vantreeseba/philotes/commit/e74d854631b74d310a4655a14cb8e850b402fff6))
+
 ## [1.2.2](https://github.com/vantreeseba/philotes/compare/v1.2.1...v1.2.2) (2026-03-12)
 
 
