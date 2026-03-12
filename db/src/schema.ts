@@ -1,4 +1,4 @@
-import { boolean, date, pgEnum, pgTable, primaryKey, text, timestamp, uuid } from 'drizzle-orm/pg-core';
+import { boolean, date, index, pgEnum, pgTable, primaryKey, text, timestamp, uuid } from 'drizzle-orm/pg-core';
 
 export const INTERACTION_CHANNELS = ['call', 'text', 'email', 'in-person', 'other'] as const;
 export type InteractionChannel = (typeof INTERACTION_CHANNELS)[number];
@@ -6,24 +6,32 @@ export type InteractionChannel = (typeof INTERACTION_CHANNELS)[number];
 export const INTERACTION_SENTIMENTS = ['great', 'good', 'neutral', 'difficult'] as const;
 export type InteractionSentiment = (typeof INTERACTION_SENTIMENTS)[number];
 
-export const persons = pgTable('persons', {
-  id: uuid('id').primaryKey().defaultRandom(),
-  firstName: text('first_name').notNull(),
-  lastName: text('last_name').notNull(),
-  email: text('email').notNull().unique(),
-  avatarPath: text('avatar_path'),
-  contactFrequency: text('contact_frequency').$type<ContactFrequency>(),
-  howWeMet: text('how_we_met'),
-  firstMetDate: date('first_met_date'),
-  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
-  updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
-});
+export const persons = pgTable(
+  'persons',
+  {
+    id: uuid('id').primaryKey().defaultRandom(),
+    firstName: text('first_name').notNull(),
+    lastName: text('last_name').notNull(),
+    email: text('email').notNull().unique(),
+    avatarPath: text('avatar_path'),
+    contactFrequency: text('contact_frequency').$type<ContactFrequency>(),
+    howWeMet: text('how_we_met'),
+    firstMetDate: date('first_met_date'),
+    createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+    updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [index('idx_persons_last_name_first_name').on(t.lastName, t.firstName)],
+);
 
-export const notes = pgTable('notes', {
-  id: uuid('id').primaryKey().defaultRandom(),
-  body: text('body').notNull(),
-  personId: uuid('person_id').references(() => persons.id),
-});
+export const notes = pgTable(
+  'notes',
+  {
+    id: uuid('id').primaryKey().defaultRandom(),
+    body: text('body').notNull(),
+    personId: uuid('person_id').references(() => persons.id),
+  },
+  (t) => [index('idx_notes_person_id').on(t.personId)],
+);
 
 export const labels = pgTable('labels', {
   id: uuid('id').primaryKey().defaultRandom(),
@@ -41,7 +49,7 @@ export const personLabels = pgTable(
       .notNull()
       .references(() => labels.id, { onDelete: 'cascade' }),
   },
-  (t) => [primaryKey({ columns: [t.personId, t.labelId] })],
+  (t) => [primaryKey({ columns: [t.personId, t.labelId] }), index('idx_person_labels_label_id').on(t.labelId)],
 );
 
 // Recurrence values mirror Google Calendar's model.
@@ -70,31 +78,35 @@ export const MILESTONE_TYPES = [
 ] as const;
 export type MilestoneType = (typeof MILESTONE_TYPES)[number];
 
-export const importantDates = pgTable('important_dates', {
-  id: uuid('id').primaryKey().defaultRandom(),
-  personId: uuid('person_id')
-    .notNull()
-    .references(() => persons.id, { onDelete: 'cascade' }),
-  name: text('name').notNull(),
-  description: text('description'),
-  date: date('date').notNull(),
-  recurrence: text('recurrence').$type<Recurrence>(),
-  milestoneType: text('milestone_type', {
-    enum: [
-      'new_job',
-      'promotion',
-      'moved',
-      'new_baby',
-      'married',
-      'divorced',
-      'retired',
-      'health_event',
-      'graduation',
-      'loss',
-      'other',
-    ],
-  }).$type<MilestoneType>(),
-});
+export const importantDates = pgTable(
+  'important_dates',
+  {
+    id: uuid('id').primaryKey().defaultRandom(),
+    personId: uuid('person_id')
+      .notNull()
+      .references(() => persons.id, { onDelete: 'cascade' }),
+    name: text('name').notNull(),
+    description: text('description'),
+    date: date('date').notNull(),
+    recurrence: text('recurrence').$type<Recurrence>(),
+    milestoneType: text('milestone_type', {
+      enum: [
+        'new_job',
+        'promotion',
+        'moved',
+        'new_baby',
+        'married',
+        'divorced',
+        'retired',
+        'health_event',
+        'graduation',
+        'loss',
+        'other',
+      ],
+    }).$type<MilestoneType>(),
+  },
+  (t) => [index('idx_important_dates_person_id').on(t.personId), index('idx_important_dates_date').on(t.date)],
+);
 
 export const noteTags = pgTable(
   'note_tags',
@@ -132,30 +144,47 @@ export const noteMentions = pgTable(
       .notNull()
       .references(() => persons.id, { onDelete: 'cascade' }),
   },
-  (t) => [primaryKey({ columns: [t.noteId, t.mentionedPersonId] })],
+  (t) => [
+    primaryKey({ columns: [t.noteId, t.mentionedPersonId] }),
+    index('idx_note_mentions_mentioned_person_id').on(t.mentionedPersonId),
+  ],
 );
 
-export const personRelationships = pgTable('person_relationships', {
-  id: uuid('id').primaryKey().defaultRandom(),
-  fromPersonId: uuid('from_person_id')
-    .notNull()
-    .references(() => persons.id, { onDelete: 'cascade' }),
-  toPersonId: uuid('to_person_id')
-    .notNull()
-    .references(() => persons.id, { onDelete: 'cascade' }),
-  type: text('type').notNull(),
-});
+export const personRelationships = pgTable(
+  'person_relationships',
+  {
+    id: uuid('id').primaryKey().defaultRandom(),
+    fromPersonId: uuid('from_person_id')
+      .notNull()
+      .references(() => persons.id, { onDelete: 'cascade' }),
+    toPersonId: uuid('to_person_id')
+      .notNull()
+      .references(() => persons.id, { onDelete: 'cascade' }),
+    type: text('type').notNull(),
+  },
+  (t) => [
+    index('idx_person_relationships_from_person_id').on(t.fromPersonId),
+    index('idx_person_relationships_to_person_id').on(t.toPersonId),
+  ],
+);
 
-export const interactions = pgTable('interactions', {
-  id: uuid('id').primaryKey().defaultRandom(),
-  personId: uuid('person_id')
-    .notNull()
-    .references(() => persons.id, { onDelete: 'cascade' }),
-  occurredAt: timestamp('occurred_at', { withTimezone: true }).notNull().defaultNow(),
-  channel: text('channel').$type<InteractionChannel>().notNull(),
-  sentiment: text('sentiment').$type<InteractionSentiment>(),
-  note: text('note'),
-});
+export const interactions = pgTable(
+  'interactions',
+  {
+    id: uuid('id').primaryKey().defaultRandom(),
+    personId: uuid('person_id')
+      .notNull()
+      .references(() => persons.id, { onDelete: 'cascade' }),
+    occurredAt: timestamp('occurred_at', { withTimezone: true }).notNull().defaultNow(),
+    channel: text('channel').$type<InteractionChannel>().notNull(),
+    sentiment: text('sentiment').$type<InteractionSentiment>(),
+    note: text('note'),
+  },
+  (t) => [
+    index('idx_interactions_person_id').on(t.personId),
+    index('idx_interactions_person_id_occurred_at').on(t.personId, t.occurredAt),
+  ],
+);
 
 export const interactionTags = pgTable(
   'interaction_tags',
@@ -170,17 +199,21 @@ export const interactionTags = pgTable(
   (t) => [primaryKey({ columns: [t.interactionId, t.labelId] })],
 );
 
-export const tasks = pgTable('tasks', {
-  id: uuid('id').primaryKey().defaultRandom(),
-  personId: uuid('person_id')
-    .notNull()
-    .references(() => persons.id, { onDelete: 'cascade' }),
-  title: text('title').notNull(),
-  notes: text('notes'),
-  dueAt: timestamp('due_at'),
-  completedAt: timestamp('completed_at'),
-  createdAt: timestamp('created_at').notNull().defaultNow(),
-});
+export const tasks = pgTable(
+  'tasks',
+  {
+    id: uuid('id').primaryKey().defaultRandom(),
+    personId: uuid('person_id')
+      .notNull()
+      .references(() => persons.id, { onDelete: 'cascade' }),
+    title: text('title').notNull(),
+    notes: text('notes'),
+    dueAt: timestamp('due_at'),
+    completedAt: timestamp('completed_at'),
+    createdAt: timestamp('created_at').notNull().defaultNow(),
+  },
+  (t) => [index('idx_tasks_person_id').on(t.personId), index('idx_tasks_due_at').on(t.dueAt)],
+);
 
 export type Task = typeof tasks.$inferSelect;
 export type NewTask = typeof tasks.$inferInsert;
@@ -198,17 +231,21 @@ export const CONTACT_TYPE_VALUES = [
 
 export const contactTypeEnum = pgEnum('contact_type', CONTACT_TYPE_VALUES);
 
-export const contactInfos = pgTable('contact_infos', {
-  id: uuid('id').primaryKey().defaultRandom(),
-  personId: uuid('person_id')
-    .notNull()
-    .references(() => persons.id, { onDelete: 'cascade' }),
-  type: contactTypeEnum('type').notNull(),
-  value: text('value').notNull(),
-  label: text('label'),
-  isPrimary: boolean('is_primary').notNull().default(false),
-  createdAt: timestamp('created_at').notNull().defaultNow(),
-});
+export const contactInfos = pgTable(
+  'contact_infos',
+  {
+    id: uuid('id').primaryKey().defaultRandom(),
+    personId: uuid('person_id')
+      .notNull()
+      .references(() => persons.id, { onDelete: 'cascade' }),
+    type: contactTypeEnum('type').notNull(),
+    value: text('value').notNull(),
+    label: text('label'),
+    isPrimary: boolean('is_primary').notNull().default(false),
+    createdAt: timestamp('created_at').notNull().defaultNow(),
+  },
+  (t) => [index('idx_contact_infos_person_id').on(t.personId)],
+);
 
 export type ContactInfo = typeof contactInfos.$inferSelect;
 export type NewContactInfo = typeof contactInfos.$inferInsert;
@@ -217,22 +254,26 @@ export const ADDRESS_TYPE_VALUES = ['home', 'work', 'other'] as const;
 
 export const addressTypeEnum = pgEnum('address_type', ADDRESS_TYPE_VALUES);
 
-export const addresses = pgTable('addresses', {
-  id: uuid('id').primaryKey().defaultRandom(),
-  personId: uuid('person_id')
-    .notNull()
-    .references(() => persons.id, { onDelete: 'cascade' }),
-  type: addressTypeEnum('type').notNull(),
-  label: text('label'),
-  line1: text('line1').notNull(),
-  line2: text('line2'),
-  city: text('city'),
-  state: text('state'),
-  postalCode: text('postal_code'),
-  country: text('country').default('US'),
-  isPrimary: boolean('is_primary').notNull().default(false),
-  createdAt: timestamp('created_at').notNull().defaultNow(),
-});
+export const addresses = pgTable(
+  'addresses',
+  {
+    id: uuid('id').primaryKey().defaultRandom(),
+    personId: uuid('person_id')
+      .notNull()
+      .references(() => persons.id, { onDelete: 'cascade' }),
+    type: addressTypeEnum('type').notNull(),
+    label: text('label'),
+    line1: text('line1').notNull(),
+    line2: text('line2'),
+    city: text('city'),
+    state: text('state'),
+    postalCode: text('postal_code'),
+    country: text('country').default('US'),
+    isPrimary: boolean('is_primary').notNull().default(false),
+    createdAt: timestamp('created_at').notNull().defaultNow(),
+  },
+  (t) => [index('idx_addresses_person_id').on(t.personId)],
+);
 
 export type Address = typeof addresses.$inferSelect;
 export type NewAddress = typeof addresses.$inferInsert;
@@ -260,17 +301,21 @@ export type NewInteractionTag = typeof interactionTags.$inferInsert;
 export type NoteMention = typeof noteMentions.$inferSelect;
 export type NewNoteMention = typeof noteMentions.$inferInsert;
 
-export const activities = pgTable('activities', {
-  id: uuid('id').primaryKey().defaultRandom(),
-  personId: uuid('person_id')
-    .notNull()
-    .references(() => persons.id, { onDelete: 'cascade' }),
-  title: text('title').notNull(),
-  description: text('description'),
-  location: text('location'),
-  occurredAt: timestamp('occurred_at').notNull(),
-  createdAt: timestamp('created_at').notNull().defaultNow(),
-});
+export const activities = pgTable(
+  'activities',
+  {
+    id: uuid('id').primaryKey().defaultRandom(),
+    personId: uuid('person_id')
+      .notNull()
+      .references(() => persons.id, { onDelete: 'cascade' }),
+    title: text('title').notNull(),
+    description: text('description'),
+    location: text('location'),
+    occurredAt: timestamp('occurred_at').notNull(),
+    createdAt: timestamp('created_at').notNull().defaultNow(),
+  },
+  (t) => [index('idx_activities_person_id').on(t.personId), index('idx_activities_occurred_at').on(t.occurredAt)],
+);
 
 export const activityTags = pgTable(
   'activity_tags',
