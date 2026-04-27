@@ -2,7 +2,63 @@ import { defineRelations } from 'drizzle-orm';
 import * as schema from './schema.ts';
 
 export const relations = defineRelations(schema, (r) => ({
+  users: {
+    userPersons: r.many.userPersons({
+      from: r.users.id,
+      to: r.userPersons.userId,
+    }),
+    notes: r.many.notes({
+      from: r.users.id,
+      to: r.notes.userId,
+    }),
+    activities: r.many.activities({
+      from: r.users.id,
+      to: r.activities.userId,
+    }),
+    interactions: r.many.interactions({
+      from: r.users.id,
+      to: r.interactions.userId,
+    }),
+    tasks: r.many.tasks({
+      from: r.users.id,
+      to: r.tasks.userId,
+    }),
+    labels: r.many.labels({
+      from: r.users.id,
+      to: r.labels.userId,
+    }),
+    importantDates: r.many.importantDates({
+      from: r.users.id,
+      to: r.importantDates.userId,
+    }),
+    personRelationships: r.many.personRelationships({
+      from: r.users.id,
+      to: r.personRelationships.userId,
+    }),
+    addresses: r.many.addresses({
+      from: r.users.id,
+      to: r.addresses.userId,
+    }),
+    contactInfos: r.many.contactInfos({
+      from: r.users.id,
+      to: r.contactInfos.userId,
+    }),
+  },
+  userPersons: {
+    user: r.one.users({
+      from: r.userPersons.userId,
+      to: r.users.id,
+    }),
+    person: r.one.persons({
+      from: r.userPersons.personId,
+      to: r.persons.id,
+    }),
+  },
   persons: {
+    userPersons: r.many.userPersons({
+      from: r.persons.id,
+      to: r.userPersons.personId,
+    }),
     notes: r.many.notes({
       from: r.persons.id,
       to: r.notes.personId,
@@ -56,6 +112,10 @@ export const relations = defineRelations(schema, (r) => ({
       to: r.persons.id,
       alias: 'personNotes',
     }),
+    user: r.one.users({
+      from: r.notes.userId,
+      to: r.users.id,
+    }),
     labels: r.many.labels({
       from: r.notes.id.through(r.noteTags.noteId),
       to: r.labels.id.through(r.noteTags.labelId),
@@ -71,6 +131,10 @@ export const relations = defineRelations(schema, (r) => ({
       from: r.importantDates.personId,
       to: r.persons.id,
     }),
+    user: r.one.users({
+      from: r.importantDates.userId,
+      to: r.users.id,
+    }),
     labels: r.many.labels({
       from: r.importantDates.id.through(r.importantDateTags.importantDateId),
       to: r.labels.id.through(r.importantDateTags.labelId),
@@ -85,11 +149,19 @@ export const relations = defineRelations(schema, (r) => ({
       from: r.personRelationships.toPersonId,
       to: r.persons.id,
     }),
+    user: r.one.users({
+      from: r.personRelationships.userId,
+      to: r.users.id,
+    }),
   },
   interactions: {
     person: r.one.persons({
       from: r.interactions.personId,
       to: r.persons.id,
+    }),
+    user: r.one.users({
+      from: r.interactions.userId,
+      to: r.users.id,
     }),
     labels: r.many.labels({
       from: r.interactions.id.through(r.interactionTags.interactionId),
@@ -101,12 +173,20 @@ export const relations = defineRelations(schema, (r) => ({
       from: r.activities.personId,
       to: r.persons.id,
     }),
+    user: r.one.users({
+      from: r.activities.userId,
+      to: r.users.id,
+    }),
     labels: r.many.labels({
       from: r.activities.id.through(r.activityTags.activityId),
       to: r.labels.id.through(r.activityTags.labelId),
     }),
   },
   labels: {
+    user: r.one.users({
+      from: r.labels.userId,
+      to: r.users.id,
+    }),
     activities: r.many.activities({
       from: r.labels.id.through(r.activityTags.labelId),
       to: r.activities.id.through(r.activityTags.activityId),
@@ -117,17 +197,29 @@ export const relations = defineRelations(schema, (r) => ({
       from: r.tasks.personId,
       to: r.persons.id,
     }),
+    user: r.one.users({
+      from: r.tasks.userId,
+      to: r.users.id,
+    }),
   },
   contactInfos: {
     person: r.one.persons({
       from: r.contactInfos.personId,
       to: r.persons.id,
     }),
+    user: r.one.users({
+      from: r.contactInfos.userId,
+      to: r.users.id,
+    }),
   },
   addresses: {
     person: r.one.persons({
       from: r.addresses.personId,
       to: r.persons.id,
+    }),
+    user: r.one.users({
+      from: r.addresses.userId,
+      to: r.users.id,
     }),
   },
 }));

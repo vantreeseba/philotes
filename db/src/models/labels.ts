@@ -1,10 +1,19 @@
-import { pgTable, text, uuid } from 'drizzle-orm/pg-core';
+import { index, pgTable, text, uuid } from 'drizzle-orm/pg-core';
 
-export const labels = pgTable('labels', {
-  id: uuid('id').primaryKey().defaultRandom(),
-  color: text('color').notNull(),
-  label: text('label').notNull(),
-});
+import { users } from './users.js';
+
+export const labels = pgTable(
+  'labels',
+  {
+    id: uuid('id').primaryKey().defaultRandom(),
+    userId: uuid('user_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
+    color: text('color').notNull(),
+    label: text('label').notNull(),
+  },
+  (t) => [index('idx_labels_user_id').on(t.userId)],
+);
 
 export type Label = typeof labels.$inferSelect;
 export type NewLabel = typeof labels.$inferInsert;

@@ -2,6 +2,7 @@ import { index, pgTable, primaryKey, uuid } from 'drizzle-orm/pg-core';
 
 import { labels } from './labels.js';
 import { persons } from './persons.js';
+import { users } from './users.js';
 
 export const personLabels = pgTable(
   'person_labels',
@@ -12,8 +13,15 @@ export const personLabels = pgTable(
     labelId: uuid('label_id')
       .notNull()
       .references(() => labels.id, { onDelete: 'cascade' }),
+    userId: uuid('user_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
   },
-  (t) => [primaryKey({ columns: [t.personId, t.labelId] }), index('idx_person_labels_label_id').on(t.labelId)],
+  (t) => [
+    primaryKey({ columns: [t.personId, t.labelId, t.userId] }),
+    index('idx_person_labels_label_id').on(t.labelId),
+    index('idx_person_labels_user_id').on(t.userId),
+  ],
 );
 
 export type PersonLabel = typeof personLabels.$inferSelect;

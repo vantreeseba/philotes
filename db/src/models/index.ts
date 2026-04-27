@@ -9,3 +9,5 @@ export * from './person-labels.js';
 export * from './person-relationships.js';
 export * from './persons.js';
 export * from './tasks.js';
+export * from './user-persons.js';
+export * from './users.js';

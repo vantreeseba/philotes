@@ -1,6 +1,7 @@
 import { boolean, index, pgEnum, pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
 
 import { persons } from './persons.js';
+import { users } from './users.js';
 
 export const ADDRESS_TYPE_VALUES = ['home', 'work', 'other'] as const;
 export type AddressTypeValue = (typeof ADDRESS_TYPE_VALUES)[number];
@@ -14,6 +15,9 @@ export const addresses = pgTable(
     personId: uuid('person_id')
       .notNull()
       .references(() => persons.id, { onDelete: 'cascade' }),
+    userId: uuid('user_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
     type: addressTypeEnum('type').notNull(),
     label: text('label'),
     line1: text('line1').notNull(),
@@ -25,7 +29,7 @@ export const addresses = pgTable(
     isPrimary: boolean('is_primary').notNull().default(false),
     createdAt: timestamp('created_at').notNull().defaultNow(),
   },
-  (t) => [index('idx_addresses_person_id').on(t.personId)],
+  (t) => [index('idx_addresses_person_id').on(t.personId), index('idx_addresses_user_id').on(t.userId)],
 );
 
 export type Address = typeof addresses.$inferSelect;

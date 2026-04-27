@@ -2,6 +2,7 @@ import { index, pgTable, primaryKey, text, timestamp, uuid } from 'drizzle-orm/p
 
 import { labels } from './labels.js';
 import { persons } from './persons.js';
+import { users } from './users.js';
 
 export const activities = pgTable(
   'activities',
@@ -10,13 +11,20 @@ export const activities = pgTable(
     personId: uuid('person_id')
       .notNull()
       .references(() => persons.id, { onDelete: 'cascade' }),
+    userId: uuid('user_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
     title: text('title').notNull(),
     description: text('description'),
     location: text('location'),
     occurredAt: timestamp('occurred_at').notNull(),
     createdAt: timestamp('created_at').notNull().defaultNow(),
   },
-  (t) => [index('idx_activities_person_id').on(t.personId), index('idx_activities_occurred_at').on(t.occurredAt)],
+  (t) => [
+    index('idx_activities_person_id').on(t.personId),
+    index('idx_activities_user_id').on(t.userId),
+    index('idx_activities_occurred_at').on(t.occurredAt),
+  ],
 );
 
 export const activityTags = pgTable(
