@@ -133,38 +133,17 @@ function overridePersonsResolvers(schema: GraphQLSchema): void {
     const userId = requireAuth(ctx);
     const db = ctx.db as AnyDB;
 
-    let personId: string;
+    const [person] = await db
+      .insert(dbSchema.persons)
+      .values({ ...args.values })
+      .returning();
+    if (!person) throw new GraphQLError('Failed to create person');
 
-    // Attempt insert; on unique-email conflict, reuse existing person
-    try {
-      const [inserted] = await db
-        .insert(dbSchema.persons)
-        .values({ ...args.values })
-        .returning({ id: dbSchema.persons.id });
-      if (!inserted) throw new GraphQLError('Failed to create person');
-      personId = inserted.id;
-    } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : String(err);
-      if (!msg.includes('unique') && !msg.includes('duplicate')) throw err;
-      // Email collision — find the existing person
-      const [existing] = await db
-        .select({ id: dbSchema.persons.id })
-        .from(dbSchema.persons)
-        .where(eq(dbSchema.persons.email, args.values.email as string));
-      if (!existing) throw err;
-      personId = existing.id;
-    }
-
-    // Ensure user_persons link exists (idempotent)
     await db
       .insert(dbSchema.userPersons)
-      .values({ userId, personId })
+      .values({ userId, personId: person.id })
       .onConflictDoNothing();
 
-    const [person] = await db
-      .select()
-      .from(dbSchema.persons)
-      .where(eq(dbSchema.persons.id, personId));
     return person;
   };
 

@@ -1,6 +1,6 @@
 import type { DB } from '@philotes/db';
 import { schema as dbSchema } from '@philotes/db';
-import { and, eq } from 'drizzle-orm';
+import { and } from 'drizzle-orm';
 import { extendSchema, type GraphQLObjectType, type GraphQLSchema, parse } from 'graphql';
 import type { Context } from '../routes/graphql.ts';
 import { requireAuth } from './auth.ts';
@@ -302,14 +302,6 @@ function errorMessage(err: unknown): string {
   return err instanceof Error ? err.message : String(err);
 }
 
-function isUniqueViolation(err: unknown): boolean {
-  const msg = err instanceof Error ? err.message : String(err);
-  const causeMsg = err instanceof Error && err.cause instanceof Error ? err.cause.message : '';
-  return (
-    msg.includes('unique') || msg.includes('duplicate') || causeMsg.includes('unique') || causeMsg.includes('duplicate')
-  );
-}
-
 // ── GraphQL extension ────────────────────────────────────────────────────────
 
 const IMPORT_CONTACTS_SDL = parse(`
@@ -390,7 +382,6 @@ export function applyImportContactsExtension(schema: GraphQLSchema): GraphQLSche
 
     // ── Step 3 & 4: Insert persons and related data ───────────────────────
     let importedCount = 0;
-    let mergedCount = 0;
     const errors: string[] = [];
 
     for (const contact of contacts) {
@@ -414,24 +405,8 @@ export function applyImportContactsExtension(schema: GraphQLSchema): GraphQLSche
         personId = inserted.id;
         importedCount++;
       } catch (err: unknown) {
-        if (!isUniqueViolation(err)) {
-          errors.push(`Failed to import ${contact.firstName} ${contact.lastName}: ${errorMessage(err)}`);
-          continue;
-        }
-
-        // Duplicate email — fetch the existing person's ID and merge their data
-        const [existing] = await db
-          .select({ id: dbSchema.persons.id })
-          .from(dbSchema.persons)
-          .where(eq(dbSchema.persons.email, contact.email));
-
-        if (!existing) {
-          errors.push(`Could not find existing person for email ${contact.email}`);
-          continue;
-        }
-
-        personId = existing.id;
-        mergedCount++;
+        errors.push(`Failed to import ${contact.firstName} ${contact.lastName}: ${errorMessage(err)}`);
+        continue;
       }
 
       // Ensure user_persons link exists (idempotent)
@@ -461,7 +436,7 @@ export function applyImportContactsExtension(schema: GraphQLSchema): GraphQLSche
 
     return {
       imported: importedCount,
-      merged: mergedCount,
+      merged: 0,
       skipped: skippedCount,
       errors,
     };
