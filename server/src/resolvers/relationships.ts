@@ -1,6 +1,6 @@
 import type { DB } from '@philotes/db';
 import { schema as dbSchema } from '@philotes/db';
-import { eq, or } from 'drizzle-orm';
+import { and, eq, or } from 'drizzle-orm';
 import { extendSchema, type GraphQLObjectType, type GraphQLSchema, parse } from 'graphql';
 
 const { persons, personRelationships } = dbSchema;
@@ -25,7 +25,12 @@ export function applyRelationshipsExtension(schema: GraphQLSchema): GraphQLSchem
   const personType = extendedSchema.getType('Person') as GraphQLObjectType;
   const personFields = personType.getFields();
 
-  personFields.relationships.resolve = async (parent: { id: string }, _args: unknown, context: { db: DB }) => {
+  personFields.relationships.resolve = async (
+    parent: { id: string },
+    _args: unknown,
+    context: { db: DB; userId: string | null },
+  ) => {
+    if (!context.userId) return [];
     // biome-ignore lint/suspicious/noExplicitAny: drizzle-orm 1.0 column type compat
     const dbCtx = context.db as any;
 
@@ -37,7 +42,12 @@ export function applyRelationshipsExtension(schema: GraphQLSchema): GraphQLSchem
     }> = await dbCtx
       .select()
       .from(personRelationships)
-      .where(or(eq(personRelationships.fromPersonId, parent.id), eq(personRelationships.toPersonId, parent.id)));
+      .where(
+        and(
+          eq(personRelationships.userId, context.userId),
+          or(eq(personRelationships.fromPersonId, parent.id), eq(personRelationships.toPersonId, parent.id)),
+        ),
+      );
 
     if (rows.length === 0) return [];
 

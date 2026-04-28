@@ -1,6 +1,6 @@
 import type { DB } from '@philotes/db';
 import { schema as dbSchema } from '@philotes/db';
-import { eq } from 'drizzle-orm';
+import { and, eq } from 'drizzle-orm';
 import { extendSchema, type GraphQLObjectType, type GraphQLSchema, parse } from 'graphql';
 
 const { persons, importantDates } = dbSchema;
@@ -134,8 +134,9 @@ export function applyUpcomingDatesExtension(schema: GraphQLSchema): GraphQLSchem
   queryType.getFields().upcomingDates.resolve = async (
     _parent: unknown,
     args: UpcomingDatesArgs,
-    context: { db: DB },
+    context: { db: DB; userId: string | null },
   ) => {
+    if (!context.userId) return [];
     const lookaheadDays = args.lookaheadDays ?? 30;
     const offset = args.offset ?? 0;
 
@@ -154,7 +155,8 @@ export function applyUpcomingDatesExtension(schema: GraphQLSchema): GraphQLSchem
         personLastName: persons.lastName,
       })
       .from(importantDates)
-      .innerJoin(persons, eq(importantDates.personId, persons.id));
+      .innerJoin(persons, eq(importantDates.personId, persons.id))
+      .where(eq(importantDates.userId, context.userId));
 
     const entries: UpcomingDateEntry[] = rows.flatMap((row) => {
       const occurrence = computeNextOccurrence(row.date, row.recurrence);
