@@ -615,7 +615,7 @@ function PersonDetailPage() {
         id,
         firstName: fields.firstName,
         lastName: fields.lastName,
-        email: fields.email,
+        email: fields.email ?? '',
       },
     });
 
@@ -1131,7 +1131,7 @@ function PersonDetailPage() {
               initialValues={{
                 firstName: person.firstName,
                 lastName: person.lastName,
-                email: person.email,
+                email: person.email ?? '',
                 labelIds: person.labels.map((l) => l.id),
                 contactFrequency: person.contactFrequency,
                 howWeMet: person.howWeMet,
