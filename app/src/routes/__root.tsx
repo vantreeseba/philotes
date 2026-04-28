@@ -1,29 +1,28 @@
-import { createRootRoute, Link, Outlet } from '@tanstack/react-router';
+import { createRootRoute, Outlet, redirect } from '@tanstack/react-router';
+import { Header } from '@/components/layouts/header';
+import { isAuthenticated } from '@/lib/auth';
+
+const PUBLIC_PATHS = ['/login', '/register'];
 
 export const Route = createRootRoute({
-  component: () => (
-    <div className="min-h-screen bg-background">
-      <header className="border-b">
-        <div className="container mx-auto flex h-14 items-center px-4">
-          <Link to="/" className="font-semibold text-lg text-primary hover:opacity-75 transition-opacity">
-            Philotes
-          </Link>
-          <nav className="ml-6 flex gap-4">
-            <Link to="/persons" className="text-muted-foreground text-sm hover:text-foreground">
-              Persons
-            </Link>
-            <Link to="/tags" className="text-muted-foreground text-sm hover:text-foreground">
-              Tags
-            </Link>
-            <Link to="/network" className="text-muted-foreground text-sm hover:text-foreground">
-              Network
-            </Link>
-          </nav>
-        </div>
-      </header>
-      <main className="container mx-auto px-4 py-6">
-        <Outlet />
-      </main>
-    </div>
-  ),
+  beforeLoad: ({ location }) => {
+    const isPublic = PUBLIC_PATHS.some((p) => location.pathname.startsWith(p));
+    if (!isPublic && !isAuthenticated()) {
+      throw redirect({ to: '/login' });
+    }
+  },
+  component: () => {
+    const isPublic = PUBLIC_PATHS.some((p) => window.location.pathname.startsWith(p));
+    if (isPublic) {
+      return <Outlet />;
+    }
+    return (
+      <div className="h-screen flex flex-col bg-background">
+        <Header />
+        <main className="container mx-auto px-4 flex-1 overflow-hidden">
+          <Outlet />
+        </main>
+      </div>
+    );
+  },
 });

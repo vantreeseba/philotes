@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@apollo/client';
-import { createFileRoute, Link } from '@tanstack/react-router';
+import { createFileRoute, Link, useNavigate } from '@tanstack/react-router';
 import {
   Activity,
   ArrowLeft,
@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { useRef, useState } from 'react';
 import { graphql } from '@/__generated__/gql.js';
+import { getToken } from '@/lib/auth.js';
 import type { ImportantDatesMilestoneTypeEnum } from '@/__generated__/graphql.js';
 import { ActivityList } from '@/components/domain/activity/list.js';
 import { AddressList } from '@/components/domain/address/list.js';
@@ -35,6 +36,17 @@ import { PersonNotes } from '@/components/domain/person/notes.js';
 import { PersonRelationships } from '@/components/domain/person/relationships.js';
 import { TaskList } from '@/components/domain/task/list.js';
 import { ListLayout } from '@/components/layouts/list.js';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/components/ui/alert-dialog.js';
 import { Avatar } from '@/components/ui/avatar.js';
 import { Button } from '@/components/ui/button.js';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.js';
@@ -259,18 +271,12 @@ const UPDATE_PERSON = graphql(`
     $firstName: String!
     $lastName: String!
     $email: String!
-    $contactFrequency: String
-    $howWeMet: String
-    $firstMetDate: String
   ) {
     updatePersons(
       set: {
         firstName: $firstName
         lastName: $lastName
         email: $email
-        contactFrequency: $contactFrequency
-        howWeMet: $howWeMet
-        firstMetDate: $firstMetDate
       }
       where: { id: { eq: $id } }
     ) {
@@ -278,9 +284,28 @@ const UPDATE_PERSON = graphql(`
       firstName
       lastName
       email
+    }
+  }
+`);
+
+const UPDATE_MY_PERSON_CONTEXT = graphql(`
+  mutation UpdateMyPersonContext(
+    $personId: String!
+    $contactFrequency: String
+    $howWeMet: String
+    $firstMetDate: String
+  ) {
+    updateMyPersonContext(
+      personId: $personId
+      contactFrequency: $contactFrequency
+      howWeMet: $howWeMet
+      firstMetDate: $firstMetDate
+    ) {
+      personId
       contactFrequency
       howWeMet
       firstMetDate
+      avatarPath
     }
   }
 `);
@@ -301,6 +326,14 @@ const DETACH_LABEL_FROM_PERSON = graphql(`
     ) {
       personId
       labelId
+    }
+  }
+`);
+
+const DELETE_PERSON = graphql(`
+  mutation DeletePerson($id: String!) {
+    deletePersons(where: { id: { eq: $id } }) {
+      id
     }
   }
 `);
@@ -451,6 +484,7 @@ function ImportantDateRow({
 
 function PersonDetailPage() {
   const { id } = Route.useParams();
+  const navigate = useNavigate();
 
   const { data, loading, error, refetch } = useQuery(GET_PERSON_DETAIL, {
     variables: { id },
@@ -468,8 +502,10 @@ function PersonDetailPage() {
   });
 
   const [updatePerson] = useMutation(UPDATE_PERSON);
+  const [updateMyPersonContext] = useMutation(UPDATE_MY_PERSON_CONTEXT);
   const [attachLabel] = useMutation(ATTACH_LABEL_TO_PERSON);
   const [detachLabel] = useMutation(DETACH_LABEL_FROM_PERSON);
+  const [deletePerson, { loading: deleting }] = useMutation(DELETE_PERSON);
 
   const [dateDialogOpen, setDateDialogOpen] = useState(false);
   const [noteDialogOpen, setNoteDialogOpen] = useState(false);
@@ -484,8 +520,13 @@ function PersonDetailPage() {
     const file = e.target.files?.[0];
     if (!file) return;
     const formData = new FormData();
-    formData.append('avatar', file);
-    await fetch(`/avatars/${id}`, { method: 'POST', body: formData });
+    formData.append('file', file);
+    const token = getToken();
+    await fetch(`/avatars/${id}`, {
+      method: 'POST',
+      body: formData,
+      headers: token ? { authorization: `Bearer ${token}` } : {},
+    });
     // Reset input so the same file can be re-selected
     if (avatarInputRef.current) avatarInputRef.current.value = '';
     refetch();
@@ -575,6 +616,12 @@ function PersonDetailPage() {
         firstName: fields.firstName,
         lastName: fields.lastName,
         email: fields.email,
+      },
+    });
+
+    await updateMyPersonContext({
+      variables: {
+        personId: id,
         contactFrequency: fields.contactFrequency || null,
         howWeMet: fields.howWeMet || null,
         firstMetDate: fields.firstMetDate || null,
@@ -597,6 +644,11 @@ function PersonDetailPage() {
 
     setEditPersonOpen(false);
     refetch();
+  };
+
+  const handleDeletePerson = async (): Promise<void> => {
+    await deletePerson({ variables: { id } });
+    void navigate({ to: '/persons' });
   };
 
   const allLabelsAttached = allLabels.length > 0 && allLabels.length === person.labels.length;
@@ -663,10 +715,44 @@ function PersonDetailPage() {
               )}
             </div>
           </div>
-          <Button variant="outline" size="sm" onClick={() => setEditPersonOpen(true)}>
-            <Pencil className="mr-1.5 h-4 w-4" />
-            Edit
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button variant="outline" size="sm" onClick={() => setEditPersonOpen(true)}>
+              <Pencil className="mr-1.5 h-4 w-4" />
+              Edit
+            </Button>
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-destructive hover:text-destructive"
+                  disabled={deleting}
+                >
+                  <Trash2 className="h-4 w-4" />
+                </Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>
+                    Delete {person.firstName} {person.lastName}?
+                  </AlertDialogTitle>
+                  <AlertDialogDescription>
+                    This will permanently delete {person.firstName} and all their associated data including
+                    interactions, notes, tasks, and contact information. This cannot be undone.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogAction
+                    onClick={handleDeletePerson}
+                    className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                  >
+                    Delete
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+          </div>
         </div>
 
         {/* 2-column grid */}

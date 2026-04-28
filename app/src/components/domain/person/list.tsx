@@ -5,6 +5,17 @@ import { graphql } from '@/__generated__/gql.js';
 import type { Person_ListFragment } from '@/__generated__/graphql.ts';
 import { PERSON_RELATIONSHIPS } from '@/components/domain/person/relationships.js';
 import { ListLayout } from '@/components/layouts/list.js';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/components/ui/alert-dialog.js';
 import { Avatar } from '@/components/ui/avatar.js';
 import { Button } from '@/components/ui/button.js';
 import { Card, CardContent } from '@/components/ui/card.js';
@@ -142,9 +153,32 @@ function PersonRow({ person: from, onClickDelete, activeLabelIds, lastContactedA
             </div>
           )}
         </div>
-        <Button variant="ghost" size="icon" onClick={() => onClickDelete(person.id)} className="ml-2 shrink-0">
-          <Trash2 className="h-4 w-4" />
-        </Button>
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <Button variant="ghost" size="icon" className="ml-2 shrink-0 text-destructive hover:text-destructive">
+              <Trash2 className="h-4 w-4" />
+            </Button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>
+                Delete {person.firstName} {person.lastName}?
+              </AlertDialogTitle>
+              <AlertDialogDescription>
+                This will permanently delete {person.firstName} and all their associated data. This cannot be undone.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction
+                onClick={() => onClickDelete(person.id)}
+                className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+              >
+                Delete
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </CardContent>
     </Card>
   );
@@ -164,6 +198,8 @@ export interface PersonListProps {
   // Search UI
   q: string;
   onSearchChange: (q: string) => void;
+  /** Whether a new query is in-flight; adds a subtle fade instead of unmounting. */
+  loading?: boolean;
   // Sort UI
   sortValue: string; // e.g. "name-asc"
   onSortChange: (value: string) => void;
@@ -186,6 +222,7 @@ export function PersonList({
   onToggleLabel,
   q,
   onSearchChange,
+  loading = false,
   sortValue,
   onSortChange,
   page,
@@ -281,7 +318,7 @@ export function PersonList({
         </div>
       }
       body={
-        <div className="space-y-3">
+        <div className={`space-y-3 transition-opacity${loading ? ' opacity-60' : ''}`}>
           <p className="text-xs text-muted-foreground">
             {persons.length} person{persons.length !== 1 ? 's' : ''}
           </p>

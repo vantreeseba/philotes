@@ -1,9 +1,16 @@
 import { unlink } from 'node:fs/promises';
 import { extname, join } from 'node:path';
 import { db, schema as dbSchema } from '@philotes/db';
-import { eq } from 'drizzle-orm';
+import { and, eq } from 'drizzle-orm';
 import { Router } from 'express';
 import multer from 'multer';
+import { verifyToken } from '../resolvers/auth.ts';
+
+function extractUserId(req: import('express').Request): string | null {
+  const auth = req.headers.authorization;
+  if (!auth?.startsWith('Bearer ')) return null;
+  return verifyToken(auth.slice(7))?.userId ?? null;
+}
 
 export function createAvatarRouter(avatarDir: string) {
   const storage = multer.diskStorage({
@@ -26,6 +33,12 @@ export function createAvatarRouter(avatarDir: string) {
   const router = Router();
 
   router.post('/:personId', upload.single('file'), async (req, res) => {
+    const userId = extractUserId(req);
+    if (!userId) {
+      res.status(401).json({ error: 'Unauthenticated' });
+      return;
+    }
+
     if (!req.file) {
       res.status(400).json({ error: 'No file uploaded' });
       return;
@@ -34,24 +47,39 @@ export function createAvatarRouter(avatarDir: string) {
     const personId = String(req.params.personId);
     const avatarUrl = `/avatars/${req.file.filename}`;
 
-    await db.update(dbSchema.persons).set({ avatarPath: avatarUrl }).where(eq(dbSchema.persons.id, personId));
+    // biome-ignore lint/suspicious/noExplicitAny: drizzle-orm 1.0 column type compat
+    await (db as any)
+      .update(dbSchema.userPersons)
+      .set({ avatarPath: avatarUrl })
+      .where(and(eq(dbSchema.userPersons.personId, personId), eq(dbSchema.userPersons.userId, userId)));
 
     res.json({ url: avatarUrl });
   });
 
   router.delete('/:personId', async (req, res) => {
+    const userId = extractUserId(req);
+    if (!userId) {
+      res.status(401).json({ error: 'Unauthenticated' });
+      return;
+    }
+
     const personId = String(req.params.personId);
 
-    const rows = await db
-      .select({ avatarPath: dbSchema.persons.avatarPath })
-      .from(dbSchema.persons)
-      .where(eq(dbSchema.persons.id, personId));
+    // biome-ignore lint/suspicious/noExplicitAny: drizzle-orm 1.0 column type compat
+    const rows: Array<{ avatarPath: string | null }> = await (db as any)
+      .select({ avatarPath: dbSchema.userPersons.avatarPath })
+      .from(dbSchema.userPersons)
+      .where(and(eq(dbSchema.userPersons.personId, personId), eq(dbSchema.userPersons.userId, userId)));
 
     const avatarPath = rows[0]?.avatarPath;
 
     if (avatarPath) {
       await unlink(join(avatarDir, avatarPath.replace('/avatars/', ''))).catch(() => {});
-      await db.update(dbSchema.persons).set({ avatarPath: null }).where(eq(dbSchema.persons.id, personId));
+      // biome-ignore lint/suspicious/noExplicitAny: drizzle-orm 1.0 column type compat
+      await (db as any)
+        .update(dbSchema.userPersons)
+        .set({ avatarPath: null })
+        .where(and(eq(dbSchema.userPersons.personId, personId), eq(dbSchema.userPersons.userId, userId)));
     }
 
     res.json({ success: true });

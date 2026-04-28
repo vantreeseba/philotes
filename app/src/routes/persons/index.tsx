@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from '@apollo/client';
 import { createFileRoute } from '@tanstack/react-router';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { graphql } from '@/__generated__/gql.js';
 import { OrderDirection, type PersonFilters, type PersonOrderBy } from '@/__generated__/graphql.js';
 import { PersonForm, type PersonFormValue } from '@/components/domain/person/form.js';
@@ -8,6 +8,18 @@ import { PersonList } from '@/components/domain/person/list.js';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog.js';
 import { Spinner } from '@/components/ui/spinner.tsx';
 import { useQueryStringState } from '@/hooks/use-query-string-state.js';
+
+// ---------------------------------------------------------------------------
+// Utilities
+// ---------------------------------------------------------------------------
+
+function debounce<T extends (...args: Parameters<T>) => void>(fn: T, delay: number): (...args: Parameters<T>) => void {
+  let timer: ReturnType<typeof setTimeout>;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
+}
 
 // ---------------------------------------------------------------------------
 // GraphQL documents
@@ -43,7 +55,8 @@ const GET_LABELS = graphql(`
   query GetLabelsForPersonForm {
     labels {
       id
-      ...Label_List
+      color
+      label
     }
   }
 `);
@@ -102,12 +115,33 @@ function PersonsPage() {
     { typeMap: { page: 'number', pageSize: 'number', labels: 'stringArray' } },
   );
 
-  const q = urlState.q ?? '';
+  const urlQ = urlState.q ?? '';
   const activeLabelIds = urlState.labels ?? [];
   const page = urlState.page ?? 0;
   const pageSize = urlState.pageSize ?? 10;
   const sortField: SortField = urlState.sortField ?? 'name';
   const sortDir: SortDir = urlState.sortDir ?? 'asc';
+
+  // ── Local search state — prevents input re-mount on every keystroke ────────
+  // The input reads from local state for instant feedback. URL state is updated
+  // via a debounced callback so bookmarking and sharing still work.
+  const [searchValue, setSearchValue] = useState(urlQ);
+
+  const debouncedSetUrlQ = useCallback(
+    debounce((q: string) => setUrlState({ q, page: 0 }), 300),
+    // debounce returns a new function only once; setUrlState is stable
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
+  );
+
+  const handleSearchChange = (value: string): void => {
+    setSearchValue(value);
+    debouncedSetUrlQ(value);
+  };
+
+  // The GraphQL query uses the URL value (debounced) so server requests are
+  // not sent on every keystroke, only after the user pauses typing.
+  const q = urlQ;
 
   // ── Build GraphQL query variables ─────────────────────────────────────────
   //
@@ -145,9 +179,12 @@ function PersonsPage() {
   const offset = isNameSort ? page * pageSize : undefined;
 
   // ── Data fetching ──────────────────────────────────────────────────────────
-  const { data, loading, error } = useQuery(GET_PERSONS, {
+  const { data, previousData, loading, error } = useQuery(GET_PERSONS, {
     variables: { limit, offset, where, orderBy },
   });
+
+  // Keep showing stale results while the new query loads to prevent flash.
+  const displayData = data ?? previousData;
   const { data: labelsData } = useQuery(GET_LABELS);
 
   // Use refetch by operation name to avoid type issues with dynamic variables
@@ -162,7 +199,7 @@ function PersonsPage() {
 
   // ── Post-fetch: shape raw data ─────────────────────────────────────────────
 
-  const rawPersons = (data?.persons ?? []).map((p) => ({
+  const rawPersons = (displayData?.persons ?? []).map((p) => ({
     ref: p,
     id: p.id,
     firstName: p.firstName,
@@ -235,7 +272,8 @@ function PersonsPage() {
     setUrlState({ sortField: field, sortDir: dir, page: 0 });
   };
 
-  if (loading) return <Spinner />;
+  // Show full spinner only on the very first load (no stale data yet).
+  if (!displayData && loading) return <Spinner />;
   if (error) return <p>Error loading persons: {error.message}</p>;
 
   return (
@@ -259,8 +297,9 @@ function PersonsPage() {
         allLabels={allLabels}
         activeLabelIds={activeLabelIds}
         onToggleLabel={handleToggleLabel}
-        q={q}
-        onSearchChange={(value) => setUrlState({ q: value, page: 0 })}
+        q={searchValue}
+        onSearchChange={handleSearchChange}
+        loading={loading}
         sortValue={`${sortField}-${sortDir}`}
         onSortChange={handleSortChange}
         page={page}

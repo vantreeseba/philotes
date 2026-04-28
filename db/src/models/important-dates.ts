@@ -2,6 +2,7 @@ import { date, index, pgTable, primaryKey, text, uuid } from 'drizzle-orm/pg-cor
 
 import { labels } from './labels.js';
 import { persons } from './persons.js';
+import { users } from './users.js';
 
 // Recurrence values mirror Google Calendar's model.
 // null = one-time event (only appears if the original date is upcoming).
@@ -33,6 +34,9 @@ export const importantDates = pgTable(
     personId: uuid('person_id')
       .notNull()
       .references(() => persons.id, { onDelete: 'cascade' }),
+    userId: uuid('user_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
     name: text('name').notNull(),
     description: text('description'),
     date: date('date').notNull(),
@@ -53,7 +57,11 @@ export const importantDates = pgTable(
       ],
     }).$type<MilestoneType>(),
   },
-  (t) => [index('idx_important_dates_person_id').on(t.personId), index('idx_important_dates_date').on(t.date)],
+  (t) => [
+    index('idx_important_dates_person_id').on(t.personId),
+    index('idx_important_dates_user_id').on(t.userId),
+    index('idx_important_dates_date').on(t.date),
+  ],
 );
 
 export const importantDateTags = pgTable(

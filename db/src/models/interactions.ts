@@ -2,6 +2,7 @@ import { index, pgTable, primaryKey, text, timestamp, uuid } from 'drizzle-orm/p
 
 import { labels } from './labels.js';
 import { persons } from './persons.js';
+import { users } from './users.js';
 
 export const INTERACTION_CHANNELS = ['call', 'text', 'email', 'in-person', 'other'] as const;
 export type InteractionChannel = (typeof INTERACTION_CHANNELS)[number];
@@ -16,6 +17,9 @@ export const interactions = pgTable(
     personId: uuid('person_id')
       .notNull()
       .references(() => persons.id, { onDelete: 'cascade' }),
+    userId: uuid('user_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
     occurredAt: timestamp('occurred_at', { withTimezone: true }).notNull().defaultNow(),
     channel: text('channel').$type<InteractionChannel>().notNull(),
     sentiment: text('sentiment').$type<InteractionSentiment>(),
@@ -23,6 +27,7 @@ export const interactions = pgTable(
   },
   (t) => [
     index('idx_interactions_person_id').on(t.personId),
+    index('idx_interactions_user_id').on(t.userId),
     index('idx_interactions_person_id_occurred_at').on(t.personId, t.occurredAt),
   ],
 );

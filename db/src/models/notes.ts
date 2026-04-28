@@ -2,6 +2,7 @@ import { index, pgTable, primaryKey, text, uuid } from 'drizzle-orm/pg-core';
 
 import { labels } from './labels.js';
 import { persons } from './persons.js';
+import { users } from './users.js';
 
 export const notes = pgTable(
   'notes',
@@ -9,8 +10,11 @@ export const notes = pgTable(
     id: uuid('id').primaryKey().defaultRandom(),
     body: text('body').notNull(),
     personId: uuid('person_id').references(() => persons.id),
+    userId: uuid('user_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade' }),
   },
-  (t) => [index('idx_notes_person_id').on(t.personId)],
+  (t) => [index('idx_notes_person_id').on(t.personId), index('idx_notes_user_id').on(t.userId)],
 );
 
 export const noteTags = pgTable(

@@ -5,10 +5,21 @@ import { expressMiddleware } from '@as-integrations/express5';
 import type { DB } from '@philotes/db';
 import { db } from '@philotes/db';
 import express, { Router } from 'express';
+import type { Request } from 'express';
+import { verifyToken } from '../resolvers/auth.ts';
 import { schema } from '../schema.ts';
 
 export interface Context {
   db: DB;
+  userId: string | null;
+}
+
+function extractUserId(req: Request): string | null {
+  const auth = req.headers.authorization;
+  if (!auth?.startsWith('Bearer ')) return null;
+  const token = auth.slice(7);
+  const payload = verifyToken(token);
+  return payload?.userId ?? null;
 }
 
 export async function createGraphQLRouter(httpServer: Server) {
@@ -24,7 +35,7 @@ export async function createGraphQLRouter(httpServer: Server) {
   router.use(
     express.json(),
     expressMiddleware(apolloServer, {
-      context: async () => ({ db }),
+      context: async ({ req }) => ({ db, userId: extractUserId(req) }),
     }),
   );
 
