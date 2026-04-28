@@ -1,8 +1,32 @@
 import { schema as dbSchema } from '@philotes/db';
 import { and, eq } from 'drizzle-orm';
-import { GraphQLError, extendSchema, type GraphQLObjectType, type GraphQLSchema, parse } from 'graphql';
+import {
+  GraphQLError,
+  GraphQLInputObjectType,
+  GraphQLNonNull,
+  GraphQLString,
+  extendSchema,
+  type GraphQLObjectType,
+  type GraphQLSchema,
+  parse,
+} from 'graphql';
 import type { Context } from '../routes/graphql.ts';
 import { requireAuth } from './auth.ts';
+
+// Make userId optional on all auto-generated insert input types so the client
+// never has to supply it (the resolver always injects it from context).
+function makeUserIdOptionalOnInputs(schema: GraphQLSchema): GraphQLSchema {
+  const typeMap = schema.getTypeMap();
+  for (const type of Object.values(typeMap)) {
+    if (!(type instanceof GraphQLInputObjectType)) continue;
+    const fields = type.getFields();
+    if (!fields.userId) continue;
+    if (fields.userId.type instanceof GraphQLNonNull) {
+      fields.userId.type = GraphQLString;
+    }
+  }
+  return schema;
+}
 
 // ── SDL extensions ───────────────────────────────────────────────────────────
 // Adds user_persons operations and a me query to the existing schema.
@@ -435,6 +459,9 @@ function addUserPersonsResolvers(schema: GraphQLSchema): void {
 // ── Main export ──────────────────────────────────────────────────────────────
 
 export function applyUserScopeExtensions(schema: GraphQLSchema): GraphQLSchema {
+  // Must run before extendSchema so the input type map is already mutable.
+  makeUserIdOptionalOnInputs(schema);
+
   const extendedSchema = extendSchema(schema, USER_SCOPE_SDL);
 
   // persons — special: scoped via user_persons join
