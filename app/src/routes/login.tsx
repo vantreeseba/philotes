@@ -11,7 +11,10 @@ import { setToken } from '@/lib/auth.js';
 
 const REQUEST_MAGIC_LINK = graphql(`
   mutation RequestMagicLink($email: String!) {
-    requestMagicLink(email: $email)
+    requestMagicLink(email: $email) {
+      sent
+      devLink
+    }
   }
 `);
 
@@ -41,6 +44,7 @@ function LoginPage() {
 
   const [email, setEmail] = useState('');
   const [sent, setSent] = useState(false);
+  const [devLink, setDevLink] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const [requestLink, { loading: requesting }] = useMutation(REQUEST_MAGIC_LINK);
@@ -65,7 +69,8 @@ function LoginPage() {
     e.preventDefault();
     setError(null);
     try {
-      await requestLink({ variables: { email } });
+      const { data } = await requestLink({ variables: { email } });
+      setDevLink(data?.requestMagicLink.devLink ?? null);
       setSent(true);
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Something went wrong.');
@@ -92,10 +97,25 @@ function LoginPage() {
           <p className="text-sm text-muted-foreground">
             We sent a sign-in link to <strong>{email}</strong>. It expires in 15 minutes.
           </p>
+
+          {devLink && (
+            <div className="rounded-md border border-dashed border-amber-400 bg-amber-50 dark:bg-amber-950/20 p-3 text-left space-y-1.5">
+              <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-wide">
+                Dev mode — no email sent
+              </p>
+              <a
+                href={devLink}
+                className="block text-xs break-all text-amber-800 dark:text-amber-300 underline underline-offset-2"
+              >
+                {devLink}
+              </a>
+            </div>
+          )}
+
           <button
             type="button"
             className="text-sm underline underline-offset-4 text-muted-foreground hover:text-foreground"
-            onClick={() => setSent(false)}
+            onClick={() => { setSent(false); setDevLink(null); }}
           >
             Use a different email
           </button>

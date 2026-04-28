@@ -88,8 +88,13 @@ const AUTH_SDL = parse(`
     userId: ID!
   }
 
+  type RequestMagicLinkResult {
+    sent: Boolean!
+    devLink: String
+  }
+
   extend type Mutation {
-    requestMagicLink(email: String!): Boolean!
+    requestMagicLink(email: String!): RequestMagicLinkResult!
     verifyMagicLink(token: String!): AuthPayload!
   }
 `);
@@ -105,7 +110,7 @@ export function applyAuthExtension(schema: GraphQLSchema): GraphQLSchema {
     _parent: unknown,
     args: { email: string },
     context: Context,
-  ): Promise<boolean> => {
+  ): Promise<{ sent: boolean; devLink: string | null }> => {
     // biome-ignore lint/suspicious/noExplicitAny: drizzle-orm 1.0 column type compat
     const db = context.db as any;
 
@@ -120,10 +125,11 @@ export function applyAuthExtension(schema: GraphQLSchema): GraphQLSchema {
 
     const appUrl = process.env.APP_URL ?? 'http://localhost:3001';
     const magicLink = `${appUrl}/login?token=${plaintext}`;
+    const isDev = !process.env.SMTP_HOST;
 
     await sendMagicLinkEmail(args.email.toLowerCase(), magicLink);
 
-    return true;
+    return { sent: true, devLink: isDev ? magicLink : null };
   };
 
   fields.verifyMagicLink.resolve = async (
