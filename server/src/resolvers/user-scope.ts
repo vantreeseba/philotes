@@ -1,5 +1,5 @@
 import { schema as dbSchema } from '@philotes/db';
-import { type SQL, and, eq } from 'drizzle-orm';
+import { type SQL, and, desc, eq } from 'drizzle-orm';
 import { extractFilters, extractOrderBy } from 'drizzle-graphql';
 import {
   GraphQLError,
@@ -33,6 +33,16 @@ function makeUserIdOptionalOnInputs(schema: GraphQLSchema): GraphQLSchema {
 // Adds user_persons operations and a me query to the existing schema.
 
 const USER_SCOPE_SDL = parse(`
+  type RecentNote {
+    id: String!
+    body: String!
+    createdAt: String!
+    personId: String
+    personFirstName: String
+    personLastName: String
+  }
+
+
 
   # Expose user-specific context fields directly on Person so existing frontend
   # queries work without changes. Resolved via the user_persons join.
@@ -46,6 +56,7 @@ const USER_SCOPE_SDL = parse(`
   extend type Query {
     me: User
     myPersonContext(personId: String!): UserPerson
+    recentNotes(limit: Int): [RecentNote!]!
   }
 
   extend type Mutation {
@@ -358,6 +369,39 @@ function addUserPersonsResolvers(schema: GraphQLSchema): void {
   const mutationType = schema.getType('Mutation') as GraphQLObjectType;
   const qf = queryType.getFields();
   const mf = mutationType.getFields();
+
+  qf.recentNotes.resolve = async (_parent: unknown, args: { limit?: number | null }, ctx: Context) => {
+    if (!ctx.userId) return [];
+    const db = ctx.db as AnyDB;
+    const limit = args.limit ?? 10;
+
+    const rows: Array<{
+      id: string;
+      body: string;
+      createdAt: Date;
+      personId: string | null;
+      personFirstName: string | null;
+      personLastName: string | null;
+    }> = await db
+      .select({
+        id: dbSchema.notes.id,
+        body: dbSchema.notes.body,
+        createdAt: dbSchema.notes.createdAt,
+        personId: dbSchema.persons.id,
+        personFirstName: dbSchema.persons.firstName,
+        personLastName: dbSchema.persons.lastName,
+      })
+      .from(dbSchema.notes)
+      .leftJoin(dbSchema.persons, eq(dbSchema.notes.personId, dbSchema.persons.id))
+      .where(eq(dbSchema.notes.userId, ctx.userId))
+      .orderBy(desc(dbSchema.notes.createdAt))
+      .limit(limit);
+
+    return rows.map((r) => ({
+      ...r,
+      createdAt: r.createdAt.toISOString(),
+    }));
+  };
 
   qf.me.resolve = async (_parent: unknown, _args: unknown, ctx: Context) => {
     if (!ctx.userId) return null;

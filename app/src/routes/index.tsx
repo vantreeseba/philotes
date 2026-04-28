@@ -5,7 +5,9 @@ import { DontLoseTouch } from '@/components/domain/dashboard/dont-lose-touch.js'
 import { DormantTies } from '@/components/domain/dashboard/dormant-ties.js';
 import type { OpenTask } from '@/components/domain/dashboard/open-tasks.js';
 import { OpenTasks } from '@/components/domain/dashboard/open-tasks.js';
+import { RecentNotes } from '@/components/domain/dashboard/recent-notes.js';
 import { RecentPersons } from '@/components/domain/dashboard/recent-persons.js';
+import { RelationshipHealth } from '@/components/domain/dashboard/relationship-health.js';
 import { UpcomingDates } from '@/components/domain/dashboard/upcoming-dates.js';
 import { ListLayout } from '@/components/layouts/list.js';
 import { Spinner } from '@/components/ui/spinner.tsx';
@@ -117,11 +119,13 @@ function DashboardPage() {
   const openTasks = computeOpenTasks(data?.persons ?? []);
 
   const MODULES: DashboardModule[] = [
+    { id: 'relationship-health', span: 'full', component: <RelationshipHealth /> },
     { id: 'upcoming-dates', span: 'half', component: <UpcomingDates /> },
     { id: 'dont-lose-touch', span: 'half', component: <DontLoseTouch /> },
     { id: 'open-tasks', span: 'half', component: <OpenTasks tasks={openTasks} /> },
     { id: 'dormant-ties', span: 'half', component: <DormantTies /> },
-    { id: 'recent-persons', span: 'full', component: <RecentPersons /> },
+    { id: 'recent-notes', span: 'half', component: <RecentNotes /> },
+    { id: 'recent-persons', span: 'half', component: <RecentPersons /> },
   ];
 
   return (
