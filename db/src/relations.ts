@@ -123,6 +123,10 @@ export const relations = defineRelations(schema, (r) => ({
       from: r.persons.id,
       to: r.addresses.personId,
     }),
+    gratitudes: r.many.gratitudes({
+      from: r.persons.id,
+      to: r.gratitudes.personId,
+    }),
   },
   notes: {
     person: r.one.persons({
