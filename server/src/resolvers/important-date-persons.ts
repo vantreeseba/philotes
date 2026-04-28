@@ -5,10 +5,6 @@ import type { Context } from '../routes/graphql.ts';
 import { requireAuth } from './auth.ts';
 
 const SDL = parse(`
-  extend type ImportantDate {
-    taggedPersons: [Person!]!
-  }
-
   extend type Mutation {
     tagPersonOnImportantDate(importantDateId: String!, personId: String!): Boolean!
     untagPersonOnImportantDate(importantDateId: String!, personId: String!): Boolean!
@@ -16,35 +12,34 @@ const SDL = parse(`
 `);
 
 export function applyImportantDatePersonsExtension(schema: GraphQLSchema): GraphQLSchema {
+  // drizzle-graphql auto-generates ImportantDate.taggedPersons from the relation.
+  // Override its resolver to query via the join table directly.
+  const importantDateType = schema.getType('ImportantDate') as GraphQLObjectType;
+  const taggedPersonsField = importantDateType?.getFields().taggedPersons;
+  if (taggedPersonsField) {
+    taggedPersonsField.resolve = async (parent: { id: string }, _args: unknown, ctx: Context) => {
+      if (!ctx.userId) return [];
+      // biome-ignore lint/suspicious/noExplicitAny: drizzle-orm 1.0 column type compat
+      const db = ctx.db as any;
+      return db
+        .select({
+          id: dbSchema.persons.id,
+          firstName: dbSchema.persons.firstName,
+          lastName: dbSchema.persons.lastName,
+          email: dbSchema.persons.email,
+          createdAt: dbSchema.persons.createdAt,
+          updatedAt: dbSchema.persons.updatedAt,
+        })
+        .from(dbSchema.persons)
+        .innerJoin(
+          dbSchema.importantDatePersons,
+          eq(dbSchema.importantDatePersons.personId, dbSchema.persons.id),
+        )
+        .where(eq(dbSchema.importantDatePersons.importantDateId, parent.id));
+    };
+  }
+
   const extendedSchema = extendSchema(schema, SDL);
-
-  // Field resolver — load tagged persons for an important date
-  const importantDateType = extendedSchema.getType('ImportantDate') as GraphQLObjectType;
-  importantDateType.getFields().taggedPersons.resolve = async (
-    parent: { id: string },
-    _args: unknown,
-    ctx: Context,
-  ) => {
-    if (!ctx.userId) return [];
-    // biome-ignore lint/suspicious/noExplicitAny: drizzle-orm 1.0 column type compat
-    const db = ctx.db as any;
-    return db
-      .select({
-        id: dbSchema.persons.id,
-        firstName: dbSchema.persons.firstName,
-        lastName: dbSchema.persons.lastName,
-        email: dbSchema.persons.email,
-        createdAt: dbSchema.persons.createdAt,
-        updatedAt: dbSchema.persons.updatedAt,
-      })
-      .from(dbSchema.persons)
-      .innerJoin(
-        dbSchema.importantDatePersons,
-        eq(dbSchema.importantDatePersons.personId, dbSchema.persons.id),
-      )
-      .where(eq(dbSchema.importantDatePersons.importantDateId, parent.id));
-  };
-
   const mutationType = extendedSchema.getType('Mutation') as GraphQLObjectType;
   const mf = mutationType.getFields();
 
@@ -57,7 +52,6 @@ export function applyImportantDatePersonsExtension(schema: GraphQLSchema): Graph
     // biome-ignore lint/suspicious/noExplicitAny: drizzle-orm 1.0 column type compat
     const db = ctx.db as any;
 
-    // Verify the important date belongs to this user
     const [date] = await db
       .select({ id: dbSchema.importantDates.id })
       .from(dbSchema.importantDates)
