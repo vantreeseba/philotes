@@ -1,5 +1,5 @@
 import { useMutation } from '@apollo/client';
-import { createFileRoute, useNavigate, useSearch } from '@tanstack/react-router';
+import { createFileRoute, useSearch } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
 import { graphql } from '@/__generated__/gql.js';
 import { Button } from '@/components/ui/button.js';
@@ -39,7 +39,6 @@ export const Route = createFileRoute('/login')({
 // ── Component ─────────────────────────────────────────────────────────────────
 
 function LoginPage() {
-  const navigate = useNavigate();
   const { token } = useSearch({ from: '/login' });
 
   const [email, setEmail] = useState('');
@@ -57,13 +56,18 @@ function LoginPage() {
       .then(({ data }) => {
         if (data?.verifyMagicLink.token) {
           setToken(data.verifyMagicLink.token);
-          navigate({ to: '/' });
+          // Hard navigation so the router boots fresh with the token in place.
+          window.location.href = '/';
+        } else {
+          setError('Sign-in failed. Please request a new link.');
         }
       })
       .catch((err: unknown) => {
         setError(err instanceof Error ? err.message : 'Invalid or expired link.');
       });
-  }, [token, verifyLink, navigate]);
+  // navigate is intentionally omitted — we use window.location.href instead.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token, verifyLink]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

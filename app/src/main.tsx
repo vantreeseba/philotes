@@ -23,8 +23,12 @@ const authLink = setContext((_, { headers }) => {
 
 const errorLink = onError(({ graphQLErrors }) => {
   if (graphQLErrors?.some((e) => e.extensions?.code === 'UNAUTHENTICATED')) {
-    clearToken();
-    window.location.href = '/login';
+    // Don't redirect when already on the login page — the UNAUTHENTICATED
+    // error may be from a failed verifyMagicLink, which is handled locally.
+    if (!window.location.pathname.startsWith('/login')) {
+      clearToken();
+      window.location.href = '/login';
+    }
   }
 });
 
