@@ -10,7 +10,7 @@ import { requireAuth } from './auth.ts';
 interface ParsedContact {
   firstName: string;
   lastName: string;
-  email: string;
+  email: string | null;
   emails: Array<{ label: string; value: string }>;
   phones: Array<{ label: string; value: string }>;
   websites: Array<{ label: string; value: string }>;
@@ -202,12 +202,6 @@ function parseGoogleContactsCsv(csvText: string): {
       return true;
     });
 
-    // Skip contacts with no email — persons.email is required and unique
-    if (emails.length === 0) {
-      skippedCount++;
-      continue;
-    }
-
     // Collect phones
     const phones: Array<{ label: string; value: string }> = [];
     for (let n = 1; ; n++) {
@@ -283,7 +277,7 @@ function parseGoogleContactsCsv(csvText: string): {
     contacts.push({
       firstName: resolvedFirstName,
       lastName: resolvedLastName,
-      email: emails[0].value,
+      email: emails[0]?.value ?? null,
       emails,
       phones,
       websites,
