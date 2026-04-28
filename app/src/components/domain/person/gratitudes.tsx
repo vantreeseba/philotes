@@ -122,7 +122,7 @@ export interface PersonGratitudesProps {
   personId: string;
   entries: GratitudeEntry[];
   onAdd: () => void;
-  onDelete: (id: string) => void;
+  onDelete: () => void;
 }
 
 export function PersonGratitudes({ personId, entries, onAdd, onDelete }: PersonGratitudesProps) {
@@ -164,7 +164,7 @@ export function PersonGratitudes({ personId, entries, onAdd, onDelete }: PersonG
       ) : (
         <div className="space-y-2">
           {entries.map((e) => (
-            <EntryRow key={e.id} entry={e} onDeleted={onDelete} />
+            <EntryRow key={e.id} entry={e} onDeleted={() => onDelete()} />
           ))}
         </div>
       )}
