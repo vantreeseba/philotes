@@ -28,6 +28,7 @@ import {
   MILESTONE_TYPE_OPTIONS,
   RECURRENCE_OPTIONS,
 } from '@/components/domain/person/important-date-form.js';
+import { ImportantDatePersons } from '@/components/domain/person/important-date-persons.js';
 import { ImportantDateTags } from '@/components/domain/person/important-date-tags.js';
 import { PersonInteractions } from '@/components/domain/person/interactions.js';
 import { PersonIntroductions } from '@/components/domain/person/introductions.js';
@@ -87,6 +88,11 @@ const GET_PERSON_DETAIL = graphql(`
           id
           label
           color
+        }
+        taggedPersons {
+          id
+          firstName
+          lastName
         }
       }
       notes {
@@ -360,6 +366,8 @@ interface ImportantDateRowProps {
   milestoneType: string | null | undefined;
   tags: Array<{ id: string; label: string; color: string }>;
   allTags: Array<{ id: string; label: string; color: string }>;
+  taggedPersons: Array<{ id: string; firstName: string; lastName: string }>;
+  allPersons: Array<{ id: string; firstName: string; lastName: string }>;
   onDelete: (id: string) => void;
   onEdit: () => void;
   onTagChanged: () => void;
@@ -375,6 +383,8 @@ function ImportantDateRow({
   milestoneType,
   tags,
   allTags,
+  taggedPersons,
+  allPersons,
   onDelete,
   onEdit,
   onTagChanged,
@@ -383,6 +393,7 @@ function ImportantDateRow({
   const milestoneLabel = MILESTONE_TYPE_OPTIONS.find((o) => o.value === milestoneType)?.label;
   const [editOpen, setEditOpen] = useState(false);
   const [showAddTag, setShowAddTag] = useState(false);
+  const [showAddPerson, setShowAddPerson] = useState(false);
   const [updateImportantDate] = useMutation(UPDATE_IMPORTANT_DATE, {
     refetchQueries: [],
   });
@@ -452,6 +463,15 @@ function ImportantDateRow({
           allTags={allTags}
           showAdd={showAddTag}
           onShowAdd={setShowAddTag}
+          onChanged={onTagChanged}
+        />
+        <ImportantDatePersons
+          importantDateId={id}
+          primaryPersonId={personId}
+          taggedPersons={taggedPersons}
+          allPersons={allPersons}
+          showAdd={showAddPerson}
+          onShowAdd={setShowAddPerson}
           onChanged={onTagChanged}
         />
       </div>
@@ -1001,6 +1021,8 @@ function PersonDetailPage() {
                         milestoneType={d.milestoneType}
                         tags={d.labels ?? []}
                         allTags={allLabels}
+                        taggedPersons={d.taggedPersons ?? []}
+                        allPersons={allPersonStubs}
                         onDelete={handleDeleteDate}
                         onEdit={handleEditDate}
                         onTagChanged={handleTagChanged}
