@@ -581,6 +581,15 @@ export function applyUserScopeExtensions(schema: GraphQLSchema): GraphQLSchema {
     'updateContactInfos',
     'deleteContactInfos',
   );
+  overrideUserOwnedTable(
+    extendedSchema,
+    dbSchema.gratitudes,
+    'gratitude',
+    'gratitudes',
+    'createGratitude',
+    'updateGratitudes',
+    'deleteGratitudes',
+  );
 
   // Field resolvers for the Person type.
   // - Extended fields (avatarPath etc.) come from the user_persons join already
@@ -635,6 +644,9 @@ export function applyUserScopeExtensions(schema: GraphQLSchema): GraphQLSchema {
   }
   if (personFields.addresses) {
     personFields.addresses.resolve = userScopedPersonRelation(dbSchema.addresses, dbSchema.addresses.personId);
+  }
+  if (personFields.gratitudes) {
+    personFields.gratitudes.resolve = userScopedPersonRelation(dbSchema.gratitudes, dbSchema.gratitudes.personId);
   }
 
   // labels on a person — user_persons + person_labels, filtered by userId

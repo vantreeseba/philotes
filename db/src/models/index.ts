@@ -1,4 +1,5 @@
 export * from './activities.js';
+export * from './gratitudes.js';
 export * from './addresses.js';
 export * from './contact-infos.js';
 export * from './important-dates.js';

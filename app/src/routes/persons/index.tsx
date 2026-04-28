@@ -340,6 +340,7 @@ function PersonsPage() {
         onPageSizeChange={(size) => setUrlState({ pageSize: size, page: 0 })}
         onClickAdd={() => setDialogOpen(true)}
         onClickDelete={handleDelete}
+        onQuickLog={() => { /* refetch to update lastContactedAt */ }}
       />
     </>
   );

@@ -28,6 +28,7 @@ import {
   MILESTONE_TYPE_OPTIONS,
   RECURRENCE_OPTIONS,
 } from '@/components/domain/person/important-date-form.js';
+import { PersonGratitudes } from '@/components/domain/person/gratitudes.js';
 import { ImportantDatePersons } from '@/components/domain/person/important-date-persons.js';
 import { ImportantDateTags } from '@/components/domain/person/important-date-tags.js';
 import { PersonInteractions } from '@/components/domain/person/interactions.js';
@@ -172,6 +173,11 @@ const GET_PERSON_DETAIL = graphql(`
         postalCode
         country
         isPrimary
+      }
+      gratitudes {
+        id
+        body
+        createdAt
       }
     }
   }
@@ -915,6 +921,18 @@ function PersonDetailPage() {
                     linkedPersonIds={new Set(person.relationships.map((r) => r.relatedPersonId))}
                   />
                 </div>
+              </CardContent>
+            </Card>
+
+            {/* Gratitude */}
+            <Card>
+              <CardContent className="p-4">
+                <PersonGratitudes
+                  personId={person.id}
+                  entries={person.gratitudes ?? []}
+                  onAdd={refetch}
+                  onDelete={refetch}
+                />
               </CardContent>
             </Card>
           </div>

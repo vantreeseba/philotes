@@ -1,6 +1,8 @@
 import { useFragment } from '@apollo/client';
 import { Link } from '@tanstack/react-router';
-import { GitMerge, Search, Trash2, UserPlus, X } from 'lucide-react';
+import { GitMerge, MessageSquarePlus, Search, Trash2, UserPlus, X } from 'lucide-react';
+import { useState } from 'react';
+import { QuickLogModal } from '@/components/domain/person/quick-log.js';
 import { graphql } from '@/__generated__/gql.js';
 import type { Person_ListFragment } from '@/__generated__/graphql.ts';
 import { PERSON_RELATIONSHIPS } from '@/components/domain/person/relationships.js';
@@ -89,6 +91,7 @@ const PAGE_SIZE_OPTIONS = [10, 25, 50];
 interface PersonRowProps {
   person: Person_ListFragment;
   onClickDelete: (id: string) => void;
+  onQuickLog: () => void;
   /** Label IDs currently active as filters — highlighted when matched. */
   activeLabelIds: Set<string>;
   lastContactedAt?: Date | null;
@@ -106,7 +109,8 @@ function relativeTime(date: Date): string {
   return `${Math.floor(diffDays / 365)}y ago`;
 }
 
-function PersonRow({ person: from, onClickDelete, activeLabelIds, lastContactedAt }: PersonRowProps) {
+function PersonRow({ person: from, onClickDelete, onQuickLog, activeLabelIds, lastContactedAt }: PersonRowProps) {
+  const [logOpen, setLogOpen] = useState(false);
   const { data: person, complete } = useFragment({
     fragment: PERSON_LIST,
     fragmentName: 'Person_List',
@@ -153,32 +157,49 @@ function PersonRow({ person: from, onClickDelete, activeLabelIds, lastContactedA
             </div>
           )}
         </div>
-        <AlertDialog>
-          <AlertDialogTrigger asChild>
-            <Button variant="ghost" size="icon" className="ml-2 shrink-0 text-destructive hover:text-destructive">
-              <Trash2 className="h-4 w-4" />
-            </Button>
-          </AlertDialogTrigger>
-          <AlertDialogContent>
-            <AlertDialogHeader>
-              <AlertDialogTitle>
-                Delete {person.firstName} {person.lastName}?
-              </AlertDialogTitle>
-              <AlertDialogDescription>
-                This will permanently delete {person.firstName} and all their associated data. This cannot be undone.
-              </AlertDialogDescription>
-            </AlertDialogHeader>
-            <AlertDialogFooter>
-              <AlertDialogCancel>Cancel</AlertDialogCancel>
-              <AlertDialogAction
-                onClick={() => onClickDelete(person.id)}
-                className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-              >
-                Delete
-              </AlertDialogAction>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialog>
+        <div className="ml-2 flex shrink-0 items-center gap-1">
+          <Button
+            variant="ghost"
+            size="icon"
+            title="Log interaction"
+            onClick={() => setLogOpen(true)}
+          >
+            <MessageSquarePlus className="h-4 w-4" />
+          </Button>
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button variant="ghost" size="icon" className="text-destructive hover:text-destructive">
+                <Trash2 className="h-4 w-4" />
+              </Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>
+                  Delete {person.firstName} {person.lastName}?
+                </AlertDialogTitle>
+                <AlertDialogDescription>
+                  This will permanently delete {person.firstName} and all their associated data. This cannot be undone.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogAction
+                  onClick={() => onClickDelete(person.id)}
+                  className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                >
+                  Delete
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
+        </div>
+        <QuickLogModal
+          personId={person.id}
+          personName={`${person.firstName} ${person.lastName}`}
+          open={logOpen}
+          onClose={() => setLogOpen(false)}
+          onLogged={onQuickLog}
+        />
       </CardContent>
     </Card>
   );
@@ -213,6 +234,7 @@ export interface PersonListProps {
   // Actions
   onClickAdd?: () => void;
   onClickDelete?: (id: string) => void;
+  onQuickLog?: () => void;
 }
 
 export function PersonList({
@@ -233,6 +255,7 @@ export function PersonList({
   onPageSizeChange,
   onClickAdd,
   onClickDelete,
+  onQuickLog,
 }: PersonListProps) {
   const activeLabelSet = new Set(activeLabelIds);
   const isFirstPage = page === 0;
@@ -342,6 +365,7 @@ export function PersonList({
                   key={p.id}
                   person={p.ref}
                   onClickDelete={onClickDelete ?? (() => undefined)}
+                  onQuickLog={onQuickLog ?? (() => undefined)}
                   activeLabelIds={activeLabelSet}
                   lastContactedAt={p.lastContactedAt}
                 />
