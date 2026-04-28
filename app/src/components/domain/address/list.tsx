@@ -34,7 +34,7 @@ export const ADDRESS_LIST_FRAGMENT = graphql(`
 // ---------------------------------------------------------------------------
 
 const CREATE_ADDRESSES = graphql(`
-  mutation CreateAddresses($values: [AddressInsertInput!]!) {
+  mutation CreateAddresses($values: [CreateAddressInput!]!) {
     createAddresses(values: $values) {
       id
       type

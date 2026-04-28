@@ -2,7 +2,7 @@ import { createFormHook } from '@tanstack/react-form';
 import { X } from 'lucide-react';
 import { useState } from 'react';
 import { z } from 'zod';
-import type { Label_ListFragment, PersonInsertInput as NewPerson } from '@/__generated__/graphql.js';
+import type { Label_ListFragment, CreatePersonInput as NewPerson } from '@/__generated__/graphql.js';
 import { Button } from '@/components/ui/button.js';
 import { FieldGroup } from '@/components/ui/field.js';
 import { FormError, fieldContext, formContext, TextField } from '@/components/ui/form-field.tsx';
