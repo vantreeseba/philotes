@@ -1,0 +1,23 @@
+services:
+  philotes:
+    build:
+      context: ..
+      dockerfile: philotes/Dockerfile
+    image: philotes:latest
+    container_name: philotes
+    ports:
+      - "3001:3001"
+    volumes:
+      - philotes-data:/data
+      - philotes-avatars:/avatars
+    environment:
+      NODE_ENV: production
+      PORT: "3001"
+      DATABASE_URL: /data/pgdata
+    restart: unless-stopped
+
+volumes:
+  philotes-data:
+    driver: local
+  philotes-avatars:
+    driver: local

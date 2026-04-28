@@ -34,7 +34,8 @@ function makeUserIdOptionalOnInputs(schema: GraphQLSchema): GraphQLSchema {
 
 const USER_SCOPE_SDL = parse(`
 
-  # Re-expose user-specific fields on Person so frontend queries stay unchanged.
+  # Expose user-specific context fields directly on Person so existing frontend
+  # queries work without changes. Resolved via the user_persons join.
   extend type Person {
     avatarPath: String
     contactFrequency: String
