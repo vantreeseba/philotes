@@ -1,6 +1,6 @@
 import { useFragment } from '@apollo/client';
 import { Link } from '@tanstack/react-router';
-import { Search, Trash2, UserPlus, X } from 'lucide-react';
+import { GitMerge, Search, Trash2, UserPlus, X } from 'lucide-react';
 import { graphql } from '@/__generated__/gql.js';
 import type { Person_ListFragment } from '@/__generated__/graphql.ts';
 import { PERSON_RELATIONSHIPS } from '@/components/domain/person/relationships.js';
@@ -252,12 +252,20 @@ export function PersonList({
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <h1 className="font-bold text-3xl">Persons</h1>
-            {onClickAdd && (
-              <Button onClick={onClickAdd}>
-                <UserPlus className="mr-2 h-4 w-4" />
-                Add Person
+            <div className="flex items-center gap-2">
+              <Button variant="outline" size="sm" asChild>
+                <Link to="/persons/dedupe">
+                  <GitMerge className="mr-1.5 h-4 w-4" />
+                  Dedupe
+                </Link>
               </Button>
-            )}
+              {onClickAdd && (
+                <Button onClick={onClickAdd}>
+                  <UserPlus className="mr-2 h-4 w-4" />
+                  Add Person
+                </Button>
+              )}
+            </div>
           </div>
           <div className="flex items-center gap-2">
             <div className="relative flex-1">

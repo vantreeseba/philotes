@@ -1,6 +1,6 @@
 import type { DB } from '@philotes/db';
 import { schema as dbSchema } from '@philotes/db';
-import { and, eq } from 'drizzle-orm';
+import { and, eq, inArray } from 'drizzle-orm';
 import { extendSchema, type GraphQLObjectType, type GraphQLSchema, parse } from 'graphql';
 import type { Context } from '../routes/graphql.ts';
 import { requireAuth } from './auth.ts';
@@ -376,31 +376,63 @@ export function applyImportContactsExtension(schema: GraphQLSchema): GraphQLSche
 
     // ── Step 3 & 4: Insert persons and related data ───────────────────────
     let importedCount = 0;
+    let mergedCount = 0;
     const errors: string[] = [];
 
     for (const contact of contacts) {
       let personId: string;
 
-      try {
-        const [inserted] = await db
-          .insert(dbSchema.persons)
-          .values({
-            firstName: contact.firstName,
-            lastName: contact.lastName || contact.firstName,
-            email: contact.email,
-          })
-          .returning({ id: dbSchema.persons.id });
+      // ── Dedup: find existing person by matching contact info values ────
+      // Collect all contact values from this CSV row (emails + phones + websites)
+      const candidateValues = [
+        ...contact.emails.map((e) => e.value.toLowerCase().trim()),
+        ...contact.phones.map((p) => p.value.toLowerCase().trim()),
+        ...contact.websites.map((w) => w.value.toLowerCase().trim()),
+      ].filter(Boolean);
 
-        if (!inserted) {
-          errors.push(`Failed to insert ${contact.firstName} ${contact.lastName}: no row returned`);
+      let existingPersonId: string | null = null;
+
+      if (candidateValues.length > 0) {
+        // Look for a contact info row the user already owns with any of these values
+        const matches: Array<{ personId: string }> = await db
+          .select({ personId: dbSchema.contactInfos.personId })
+          .from(dbSchema.contactInfos)
+          .where(
+            and(
+              eq(dbSchema.contactInfos.userId, userId),
+              inArray(dbSchema.contactInfos.value, candidateValues),
+            ),
+          )
+          .limit(1);
+        existingPersonId = matches[0]?.personId ?? null;
+      }
+
+      if (existingPersonId) {
+        // Merge into existing person — don't create a duplicate
+        personId = existingPersonId;
+        mergedCount++;
+      } else {
+        try {
+          const [inserted] = await db
+            .insert(dbSchema.persons)
+            .values({
+              firstName: contact.firstName,
+              lastName: contact.lastName || contact.firstName,
+              email: contact.email,
+            })
+            .returning({ id: dbSchema.persons.id });
+
+          if (!inserted) {
+            errors.push(`Failed to insert ${contact.firstName} ${contact.lastName}: no row returned`);
+            continue;
+          }
+
+          personId = inserted.id;
+          importedCount++;
+        } catch (err: unknown) {
+          errors.push(`Failed to import ${contact.firstName} ${contact.lastName}: ${errorMessage(err)}`);
           continue;
         }
-
-        personId = inserted.id;
-        importedCount++;
-      } catch (err: unknown) {
-        errors.push(`Failed to import ${contact.firstName} ${contact.lastName}: ${errorMessage(err)}`);
-        continue;
       }
 
       // Ensure user_persons link exists (idempotent)
@@ -430,7 +462,7 @@ export function applyImportContactsExtension(schema: GraphQLSchema): GraphQLSche
 
     return {
       imported: importedCount,
-      merged: 0,
+      merged: mergedCount,
       skipped: skippedCount,
       errors,
     };
