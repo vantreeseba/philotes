@@ -1,5 +1,5 @@
 import { schema as dbSchema } from '@philotes/db';
-import { and, eq } from 'drizzle-orm';
+import { type SQL, and, asc, desc, eq, ilike, or } from 'drizzle-orm';
 import {
   GraphQLError,
   GraphQLInputObjectType,
@@ -70,6 +70,64 @@ function notFound(entity: string): never {
   });
 }
 
+// ── Person filter / orderBy translators ─────────────────────────────────────
+//
+// Translate the drizzle-graphql generated filter/orderBy args into Drizzle SQL
+// for the fields we expose on persons (firstName, lastName, email, id).
+
+const PERSON_FILTER_COLS = {
+  firstName: dbSchema.persons.firstName,
+  lastName: dbSchema.persons.lastName,
+  email: dbSchema.persons.email,
+  id: dbSchema.persons.id,
+} as const;
+
+type PersonFilterCols = typeof PERSON_FILTER_COLS;
+
+function buildPersonFieldConditions(clause: Record<string, unknown>): SQL[] {
+  const conditions: SQL[] = [];
+  for (const [field, filter] of Object.entries(clause)) {
+    if (field === 'OR' || field === 'AND') continue;
+    const col = PERSON_FILTER_COLS[field as keyof PersonFilterCols];
+    if (!col || typeof filter !== 'object' || !filter) continue;
+    const f = filter as Record<string, unknown>;
+    if (typeof f.ilike === 'string') conditions.push(ilike(col, f.ilike));
+    if (typeof f.eq === 'string') conditions.push(eq(col, f.eq));
+  }
+  return conditions;
+}
+
+function buildPersonWhere(where: unknown): SQL | undefined {
+  if (!where || typeof where !== 'object') return undefined;
+  const w = where as Record<string, unknown>;
+  const conditions: SQL[] = [];
+
+  if (Array.isArray(w.OR)) {
+    const orConditions = (w.OR as Record<string, unknown>[]).flatMap(buildPersonFieldConditions);
+    if (orConditions.length > 0) conditions.push(or(...orConditions) as SQL);
+  }
+  if (Array.isArray(w.AND)) {
+    const andConditions = (w.AND as Record<string, unknown>[]).flatMap(buildPersonFieldConditions);
+    if (andConditions.length > 0) conditions.push(and(...andConditions) as SQL);
+  }
+  conditions.push(...buildPersonFieldConditions(w));
+
+  return conditions.length > 0 ? (and(...conditions) as SQL) : undefined;
+}
+
+function buildPersonOrderBy(orderBy: unknown): SQL[] {
+  if (!orderBy || typeof orderBy !== 'object') return [];
+  const entries = Object.entries(orderBy as Record<string, unknown>)
+    .filter(([field]) => field in PERSON_FILTER_COLS)
+    .map(([field, cfg]) => ({
+      col: PERSON_FILTER_COLS[field as keyof PersonFilterCols],
+      direction: (cfg as Record<string, string>)?.direction ?? 'asc',
+      priority: ((cfg as Record<string, number>)?.priority as number) ?? 999,
+    }))
+    .sort((a, b) => a.priority - b.priority);
+  return entries.map(({ col, direction }) => (direction === 'desc' ? desc(col) : asc(col)));
+}
+
 // ── Override auto-generated resolvers to add userId scoping ─────────────────
 //
 // For each user-owned table the auto-generated list/single queries and all
@@ -97,19 +155,23 @@ function overridePersonsResolvers(schema: GraphQLSchema): void {
     firstMetDate: dbSchema.userPersons.firstMetDate,
   };
 
-  // persons() — scoped to persons the user has added to their contacts
+  // persons() — scoped to persons the user has added to their contacts,
+  // with full support for where / orderBy / limit / offset from the client.
   qf.persons.resolve = async (_parent: unknown, args: Record<string, unknown>, ctx: Context) => {
     const userId = requireAuth(ctx);
     const db = ctx.db as AnyDB;
-    return db
-      .select(personSelect)
-      .from(dbSchema.persons)
-      .innerJoin(
-        dbSchema.userPersons,
-        and(eq(dbSchema.userPersons.personId, dbSchema.persons.id), eq(dbSchema.userPersons.userId, userId)),
-      )
-      .limit(args.limit as number | undefined ?? 1000)
-      .offset(args.offset as number | undefined ?? 0);
+
+    const joinCondition = and(
+      eq(dbSchema.userPersons.personId, dbSchema.persons.id),
+      eq(dbSchema.userPersons.userId, userId),
+    );
+    const searchWhere = buildPersonWhere(args.where);
+    const orderByClauses = buildPersonOrderBy(args.orderBy);
+
+    let query = db.select(personSelect).from(dbSchema.persons).innerJoin(dbSchema.userPersons, joinCondition);
+    if (searchWhere) query = query.where(searchWhere);
+    if (orderByClauses.length > 0) query = query.orderBy(...orderByClauses);
+    return query.limit((args.limit as number | undefined) ?? 1000).offset((args.offset as number | undefined) ?? 0);
   };
 
   // person(id) — single, must be in user's contacts
