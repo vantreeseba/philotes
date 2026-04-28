@@ -18,6 +18,14 @@ const USER_SCOPE_SDL = parse(`
     createdAt: String!
   }
 
+  # Re-expose user-specific fields on Person so frontend queries stay unchanged.
+  extend type Person {
+    avatarPath: String
+    contactFrequency: String
+    howWeMet: String
+    firstMetDate: String
+  }
+
   extend type Query {
     me: User
     myPersonContext(personId: String!): UserPerson
@@ -60,19 +68,26 @@ function overridePersonsResolvers(schema: GraphQLSchema): void {
   const qf = queryType.getFields();
   const mf = mutationType.getFields();
 
+  const personSelect = {
+    id: dbSchema.persons.id,
+    firstName: dbSchema.persons.firstName,
+    lastName: dbSchema.persons.lastName,
+    email: dbSchema.persons.email,
+    createdAt: dbSchema.persons.createdAt,
+    updatedAt: dbSchema.persons.updatedAt,
+    // user-specific context fields surfaced via the user_persons join
+    avatarPath: dbSchema.userPersons.avatarPath,
+    contactFrequency: dbSchema.userPersons.contactFrequency,
+    howWeMet: dbSchema.userPersons.howWeMet,
+    firstMetDate: dbSchema.userPersons.firstMetDate,
+  };
+
   // persons() — scoped to persons the user has added to their contacts
   qf.persons.resolve = async (_parent: unknown, args: Record<string, unknown>, ctx: Context) => {
     const userId = requireAuth(ctx);
     const db = ctx.db as AnyDB;
     return db
-      .select({
-        id: dbSchema.persons.id,
-        firstName: dbSchema.persons.firstName,
-        lastName: dbSchema.persons.lastName,
-        email: dbSchema.persons.email,
-        createdAt: dbSchema.persons.createdAt,
-        updatedAt: dbSchema.persons.updatedAt,
-      })
+      .select(personSelect)
       .from(dbSchema.persons)
       .innerJoin(
         dbSchema.userPersons,
@@ -87,14 +102,7 @@ function overridePersonsResolvers(schema: GraphQLSchema): void {
     const userId = requireAuth(ctx);
     const db = ctx.db as AnyDB;
     const rows = await db
-      .select({
-        id: dbSchema.persons.id,
-        firstName: dbSchema.persons.firstName,
-        lastName: dbSchema.persons.lastName,
-        email: dbSchema.persons.email,
-        createdAt: dbSchema.persons.createdAt,
-        updatedAt: dbSchema.persons.updatedAt,
-      })
+      .select(personSelect)
       .from(dbSchema.persons)
       .innerJoin(
         dbSchema.userPersons,
@@ -523,6 +531,109 @@ export function applyUserScopeExtensions(schema: GraphQLSchema): GraphQLSchema {
     'updateContactInfos',
     'deleteContactInfos',
   );
+
+  // Field resolvers for the Person type.
+  // - Extended fields (avatarPath etc.) come from the user_persons join already
+  //   embedded in the parent object by overridePersonsResolvers.
+  // - Nested user-owned relations must filter by userId so users cannot see
+  //   each other's data when two users track the same person.
+  const personType = extendedSchema.getType('Person') as GraphQLObjectType;
+  const personFields = personType.getFields();
+
+  for (const field of ['avatarPath', 'contactFrequency', 'howWeMet', 'firstMetDate'] as const) {
+    personFields[field].resolve = (parent: Record<string, unknown>) => parent[field] ?? null;
+  }
+
+  const userScopedPersonRelation = (
+    table: { userId: unknown; personId: unknown },
+    personIdCol: unknown,
+  ) => async (parent: { id: string }, _args: unknown, ctx: Context) => {
+    if (!ctx.userId) return [];
+    const db = ctx.db as AnyDB;
+    return db
+      .select()
+      .from(table)
+      .where(and(eq(personIdCol, parent.id), eq(table.userId, ctx.userId)));
+  };
+
+  if (personFields.notes) {
+    personFields.notes.resolve = userScopedPersonRelation(dbSchema.notes, dbSchema.notes.personId);
+  }
+  if (personFields.interactions) {
+    personFields.interactions.resolve = userScopedPersonRelation(
+      dbSchema.interactions,
+      dbSchema.interactions.personId,
+    );
+  }
+  if (personFields.activities) {
+    personFields.activities.resolve = userScopedPersonRelation(dbSchema.activities, dbSchema.activities.personId);
+  }
+  if (personFields.tasks) {
+    personFields.tasks.resolve = userScopedPersonRelation(dbSchema.tasks, dbSchema.tasks.personId);
+  }
+  if (personFields.importantDates) {
+    personFields.importantDates.resolve = userScopedPersonRelation(
+      dbSchema.importantDates,
+      dbSchema.importantDates.personId,
+    );
+  }
+  if (personFields.contactInfos) {
+    personFields.contactInfos.resolve = userScopedPersonRelation(
+      dbSchema.contactInfos,
+      dbSchema.contactInfos.personId,
+    );
+  }
+  if (personFields.addresses) {
+    personFields.addresses.resolve = userScopedPersonRelation(dbSchema.addresses, dbSchema.addresses.personId);
+  }
+
+  // labels on a person — user_persons + person_labels, filtered by userId
+  if (personFields.labels) {
+    personFields.labels.resolve = async (parent: { id: string }, _args: unknown, ctx: Context) => {
+      if (!ctx.userId) return [];
+      const db = ctx.db as AnyDB;
+      return db
+        .select({
+          id: dbSchema.labels.id,
+          label: dbSchema.labels.label,
+          color: dbSchema.labels.color,
+          userId: dbSchema.labels.userId,
+        })
+        .from(dbSchema.labels)
+        .innerJoin(
+          dbSchema.personLabels,
+          and(
+            eq(dbSchema.personLabels.labelId, dbSchema.labels.id),
+            eq(dbSchema.personLabels.personId, parent.id),
+            eq(dbSchema.personLabels.userId, ctx.userId),
+          ),
+        );
+    };
+  }
+
+  // mentionedInNotes — only notes owned by the current user that mention this person
+  if (personFields.mentionedInNotes) {
+    personFields.mentionedInNotes.resolve = async (parent: { id: string }, _args: unknown, ctx: Context) => {
+      if (!ctx.userId) return [];
+      const db = ctx.db as AnyDB;
+      return db
+        .select({
+          id: dbSchema.notes.id,
+          body: dbSchema.notes.body,
+          personId: dbSchema.notes.personId,
+          userId: dbSchema.notes.userId,
+        })
+        .from(dbSchema.notes)
+        .innerJoin(
+          dbSchema.noteMentions,
+          and(
+            eq(dbSchema.noteMentions.noteId, dbSchema.notes.id),
+            eq(dbSchema.noteMentions.mentionedPersonId, parent.id),
+          ),
+        )
+        .where(eq(dbSchema.notes.userId, ctx.userId));
+    };
+  }
 
   // user_persons + me queries/mutations
   addUserPersonsResolvers(extendedSchema);
