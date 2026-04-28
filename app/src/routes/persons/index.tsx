@@ -69,6 +69,24 @@ const CREATE_PERSON = graphql(`
   }
 `);
 
+const UPDATE_MY_PERSON_CONTEXT = graphql(`
+  mutation UpdateMyPersonContextFromList(
+    $personId: String!
+    $contactFrequency: String
+    $howWeMet: String
+    $firstMetDate: String
+  ) {
+    updateMyPersonContext(
+      personId: $personId
+      contactFrequency: $contactFrequency
+      howWeMet: $howWeMet
+      firstMetDate: $firstMetDate
+    ) {
+      personId
+    }
+  }
+`);
+
 const DELETE_PERSON = graphql(`
   mutation DeletePerson($id: String!) {
     deletePersons(where: { id: { eq: $id } }) {
@@ -191,6 +209,7 @@ function PersonsPage() {
   const [createPerson] = useMutation(CREATE_PERSON, {
     refetchQueries: ['GetPersons'],
   });
+  const [updateMyPersonContext] = useMutation(UPDATE_MY_PERSON_CONTEXT);
   const [deletePerson] = useMutation(DELETE_PERSON, {
     refetchQueries: ['GetPersons'],
   });
@@ -250,8 +269,19 @@ function PersonsPage() {
     await deletePerson({ variables: { id } });
   };
 
-  const handleSubmit = async ({ person }: PersonFormValue): Promise<void> => {
-    await createPerson({ variables: { values: person } });
+  const handleSubmit = async ({ person, userContext }: PersonFormValue): Promise<void> => {
+    const result = await createPerson({ variables: { values: person } });
+    const personId = result.data?.createPerson?.id;
+    if (personId && (userContext.contactFrequency || userContext.howWeMet || userContext.firstMetDate)) {
+      await updateMyPersonContext({
+        variables: {
+          personId,
+          contactFrequency: userContext.contactFrequency ?? null,
+          howWeMet: userContext.howWeMet ?? null,
+          firstMetDate: userContext.firstMetDate ?? null,
+        },
+      });
+    }
     setDialogOpen(false);
   };
 

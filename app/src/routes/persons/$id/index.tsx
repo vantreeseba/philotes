@@ -609,7 +609,7 @@ function PersonDetailPage() {
     setDateDialogOpen(false);
   };
 
-  const handleEditPerson = async ({ person: fields, labelIds }: PersonFormValue): Promise<void> => {
+  const handleEditPerson = async ({ person: fields, userContext, labelIds }: PersonFormValue): Promise<void> => {
     await updatePerson({
       variables: {
         id,
@@ -622,9 +622,9 @@ function PersonDetailPage() {
     await updateMyPersonContext({
       variables: {
         personId: id,
-        contactFrequency: fields.contactFrequency || null,
-        howWeMet: fields.howWeMet || null,
-        firstMetDate: fields.firstMetDate || null,
+        contactFrequency: userContext.contactFrequency ?? null,
+        howWeMet: userContext.howWeMet ?? null,
+        firstMetDate: userContext.firstMetDate ?? null,
       },
     });
 
@@ -1135,11 +1135,7 @@ function PersonDetailPage() {
                 labelIds: person.labels.map((l) => l.id),
                 contactFrequency: person.contactFrequency,
                 howWeMet: person.howWeMet,
-                firstMetDate: person.firstMetDate
-                  ? person.firstMetDate instanceof Date
-                    ? person.firstMetDate.toISOString().slice(0, 10)
-                    : person.firstMetDate
-                  : null,
+                firstMetDate: person.firstMetDate ?? null,
               }}
               submitLabel="Save Changes"
               onSubmit={handleEditPerson}

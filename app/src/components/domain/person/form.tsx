@@ -26,8 +26,15 @@ const personSchema = z.object({
   firstMetDate: z.string(),
 });
 
+export interface PersonUserContext {
+  contactFrequency?: string | null;
+  howWeMet?: string | null;
+  firstMetDate?: string | null;
+}
+
 export interface PersonFormValue {
-  person: NewPerson;
+  person: Pick<NewPerson, 'firstName' | 'lastName' | 'email'>;
+  userContext: PersonUserContext;
   labelIds: string[];
 }
 
@@ -89,7 +96,11 @@ export function PersonForm({ availableLabels, initialValues, submitLabel, onSubm
       try {
         await onSubmit({
           person: {
-            ...value,
+            firstName: value.firstName,
+            lastName: value.lastName,
+            email: value.email,
+          },
+          userContext: {
             contactFrequency: value.contactFrequency || null,
             howWeMet: value.howWeMet || null,
             firstMetDate: value.firstMetDate || null,
