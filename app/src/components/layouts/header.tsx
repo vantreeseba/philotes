@@ -18,6 +18,14 @@ export function Header() {
       </Link>
       <nav className="flex gap-4 text-sm text-muted-foreground">
         <Link
+          to="/"
+          className="hover:text-foreground transition-colors"
+          activeProps={{ className: 'text-foreground font-medium' }}
+          activeOptions={{ exact: true }}
+        >
+          Dashboard
+        </Link>
+        <Link
           to="/persons"
           className="hover:text-foreground transition-colors"
           activeProps={{ className: 'text-foreground font-medium' }}
