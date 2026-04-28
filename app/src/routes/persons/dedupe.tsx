@@ -4,7 +4,6 @@ import { ArrowLeft, GitMerge } from 'lucide-react';
 import { useState } from 'react';
 import { graphql } from '@/__generated__/gql.js';
 import { Avatar } from '@/components/ui/avatar.js';
-import { Badge } from '@/components/ui/badge.js';
 import { Button } from '@/components/ui/button.js';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.js';
 import { Spinner } from '@/components/ui/spinner.js';
@@ -114,9 +113,13 @@ function PersonCard({
       {person.labels.length > 0 && (
         <div className="flex flex-wrap gap-1 mb-2">
           {person.labels.map((l) => (
-            <Badge key={l.id} style={{ backgroundColor: l.color }} className="text-white text-xs">
+            <span
+              key={l.id}
+              className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs text-white"
+              style={{ backgroundColor: l.color }}
+            >
               {l.label}
-            </Badge>
+            </span>
           ))}
         </div>
       )}
