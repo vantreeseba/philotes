@@ -1,52 +1,32 @@
 import { useQuery } from '@apollo/client';
 import { createFileRoute } from '@tanstack/react-router';
 import { graphql } from '@/__generated__/gql.js';
-import type { UpcomingDate } from '@/components/domain/dashboard/coming-up.js';
-import { ComingUp } from '@/components/domain/dashboard/coming-up.js';
 import { DontLoseTouch } from '@/components/domain/dashboard/dont-lose-touch.js';
-import type { ReviewPerson } from '@/components/domain/dashboard/dormant-tie.js';
-import { DormantTie } from '@/components/domain/dashboard/dormant-tie.js';
 import { DormantTies } from '@/components/domain/dashboard/dormant-ties.js';
 import type { OpenTask } from '@/components/domain/dashboard/open-tasks.js';
 import { OpenTasks } from '@/components/domain/dashboard/open-tasks.js';
-import type { OverduePerson } from '@/components/domain/dashboard/reach-out.js';
-import { ReachOut } from '@/components/domain/dashboard/reach-out.js';
 import { RecentPersons } from '@/components/domain/dashboard/recent-persons.js';
 import { UpcomingDates } from '@/components/domain/dashboard/upcoming-dates.js';
 import { ListLayout } from '@/components/layouts/list.js';
 import { Spinner } from '@/components/ui/spinner.tsx';
 
 // ---------------------------------------------------------------------------
-// GraphQL
+// GraphQL — only tasks remain in the main dashboard query; all other modules
+// fetch their own data independently.
 // ---------------------------------------------------------------------------
 
-const GET_WEEKLY_REVIEW = graphql(`
-  query WeeklyReview {
+const GET_OPEN_TASKS = graphql(`
+  query DashboardOpenTasks {
     persons {
       id
       firstName
       lastName
-      avatarPath
-      contactFrequency
-      createdAt
-      importantDates {
-        id
-        name
-        date
-        recurrence
-      }
       tasks {
         id
         title
         dueAt
         completedAt
         personId
-      }
-      interactions(
-        orderBy: { occurredAt: { direction: desc, priority: 1 } }
-        limit: 1
-      ) {
-        occurredAt
       }
     }
   }
@@ -61,141 +41,17 @@ export const Route = createFileRoute('/')({
 });
 
 // ---------------------------------------------------------------------------
-// Types
+// Open-tasks computation
 // ---------------------------------------------------------------------------
 
-type FullReviewPerson = ReviewPerson & {
-  contactFrequency?: string | null;
-  createdAt: Date;
-  importantDates: Array<{
+function computeOpenTasks(
+  persons: Array<{
     id: string;
-    name: string;
-    date: Date;
-    recurrence?: string | null;
-  }>;
-  tasks: Array<{
-    id: string;
-    title: string;
-    dueAt?: Date | null;
-    completedAt?: Date | null;
-    personId: string;
-  }>;
-  interactions: Array<{
-    occurredAt: Date;
-  }>;
-};
-
-// ---------------------------------------------------------------------------
-// Constants
-// ---------------------------------------------------------------------------
-
-const FREQUENCY_DAYS: Record<string, number> = {
-  weekly: 7,
-  monthly: 30,
-  quarterly: 90,
-  yearly: 365,
-};
-
-const MAX_OVERDUE_SHOWN = 5;
-const UPCOMING_WINDOW_DAYS = 14;
-const DORMANT_THRESHOLD_DAYS = 365;
-
-// ---------------------------------------------------------------------------
-// Date utilities
-// ---------------------------------------------------------------------------
-
-function todayMidnight(): Date {
-  const d = new Date();
-  d.setHours(0, 0, 0, 0);
-  return d;
-}
-
-function daysBetween(a: Date, b: Date): number {
-  return Math.round((b.getTime() - a.getTime()) / (1000 * 60 * 60 * 24));
-}
-
-function computeOverdueByDays(contactFrequency: string, lastContactedAt: Date | null): number {
-  const periodDays = FREQUENCY_DAYS[contactFrequency] ?? 30;
-  if (!lastContactedAt) {
-    return periodDays;
-  }
-  const daysSince = Math.floor((Date.now() - lastContactedAt.getTime()) / (1000 * 60 * 60 * 24));
-  return daysSince - periodDays;
-}
-
-function daysUntilNextOccurrence(storedDate: Date, recurrence: string | null | undefined): number | null {
-  const t = todayMidnight();
-  const month = storedDate.getMonth();
-  const day = storedDate.getDate();
-
-  if (!recurrence) {
-    const stored = new Date(storedDate.getFullYear(), month, day);
-    const diff = daysBetween(t, stored);
-    return diff >= 0 ? diff : null;
-  }
-
-  if (recurrence === 'yearly') {
-    const thisYear = new Date(t.getFullYear(), month, day);
-    const diff = daysBetween(t, thisYear);
-    if (diff >= 0) return diff;
-    return daysBetween(t, new Date(t.getFullYear() + 1, month, day));
-  }
-
-  if (recurrence === 'monthly') {
-    const thisMonth = new Date(t.getFullYear(), t.getMonth(), day);
-    const diff = daysBetween(t, thisMonth);
-    if (diff >= 0) return diff;
-    return daysBetween(t, new Date(t.getFullYear(), t.getMonth() + 1, day));
-  }
-
-  if (recurrence === 'weekly') {
-    const targetDow = storedDate.getDay();
-    const todayDow = t.getDay();
-    return (targetDow - todayDow + 7) % 7;
-  }
-
-  return null;
-}
-
-// ---------------------------------------------------------------------------
-// Derived data computations
-// ---------------------------------------------------------------------------
-
-function computeOverdueContacts(persons: FullReviewPerson[]): OverduePerson[] {
-  return persons
-    .filter((p) => Boolean(p.contactFrequency))
-    .map((p) => ({
-      ...p,
-      lastContactedAt: p.interactions[0]?.occurredAt ?? null,
-      overdueByDays: computeOverdueByDays(p.contactFrequency ?? '', p.interactions[0]?.occurredAt ?? null),
-    }))
-    .filter((p) => p.overdueByDays >= 0)
-    .sort((a, b) => b.overdueByDays - a.overdueByDays)
-    .slice(0, MAX_OVERDUE_SHOWN);
-}
-
-function computeUpcomingDates(persons: FullReviewPerson[]): UpcomingDate[] {
-  const results: UpcomingDate[] = [];
-
-  for (const person of persons) {
-    for (const importantDate of person.importantDates) {
-      const daysUntil = daysUntilNextOccurrence(importantDate.date, importantDate.recurrence);
-      if (daysUntil === null || daysUntil > UPCOMING_WINDOW_DAYS) continue;
-      results.push({
-        id: importantDate.id,
-        name: importantDate.name,
-        daysUntil,
-        personId: person.id,
-        personFirstName: person.firstName,
-        personLastName: person.lastName,
-      });
-    }
-  }
-
-  return results.sort((a, b) => a.daysUntil - b.daysUntil);
-}
-
-function computeOpenTasks(persons: FullReviewPerson[]): OpenTask[] {
+    firstName: string;
+    lastName: string;
+    tasks: Array<{ id: string; title: string; dueAt?: Date | null; completedAt?: Date | null; personId: string }>;
+  }>,
+): OpenTask[] {
   const now = Date.now();
   const sevenDaysFromNow = now + 7 * 24 * 60 * 60 * 1000;
   const results: OpenTask[] = [];
@@ -203,13 +59,10 @@ function computeOpenTasks(persons: FullReviewPerson[]): OpenTask[] {
   for (const person of persons) {
     for (const task of person.tasks) {
       if (task.completedAt) continue;
-
       const dueAt = task.dueAt ? task.dueAt.getTime() : null;
       const isOverdue = dueAt !== null && dueAt < now;
       const isDueThisWeek = dueAt !== null && dueAt <= sevenDaysFromNow;
-
       if (!isOverdue && !isDueThisWeek) continue;
-
       results.push({
         id: task.id,
         title: task.title,
@@ -231,42 +84,23 @@ function computeOpenTasks(persons: FullReviewPerson[]): OpenTask[] {
   });
 }
 
-function computeMostDormantPerson(persons: FullReviewPerson[]): (ReviewPerson & { daysSinceContact: number }) | null {
-  const candidates = persons
-    .map((p) => ({
-      ...p,
-      daysSinceContact: p.interactions[0]?.occurredAt
-        ? Math.floor((Date.now() - p.interactions[0].occurredAt.getTime()) / (1000 * 60 * 60 * 24))
-        : Number.POSITIVE_INFINITY,
-    }))
-    .filter((p) => p.daysSinceContact >= DORMANT_THRESHOLD_DAYS);
-
-  if (candidates.length === 0) return null;
-
-  return candidates.reduce((most, current) => (current.daysSinceContact > most.daysSinceContact ? current : most));
-}
-
 // ---------------------------------------------------------------------------
 // Dashboard modules
 //
-// To add a new module:
+// To add a module:
 //   1. Create a self-contained component in app/src/components/domain/dashboard/
-//   2. Import it here and add it to the MODULES array below.
-//   3. Choose a span: "half" fills one column, "full" spans both columns.
+//   2. Import it here and add it to the MODULES array.
+//   3. span: 'half' fills one column, 'full' spans both columns.
 // ---------------------------------------------------------------------------
 
-type DashboardModule = {
-  id: string;
-  span: 'half' | 'full';
-  component: React.ReactNode;
-};
+type DashboardModule = { id: string; span: 'half' | 'full'; component: React.ReactNode };
 
 // ---------------------------------------------------------------------------
 // Page
 // ---------------------------------------------------------------------------
 
 function DashboardPage() {
-  const { data, loading, error } = useQuery(GET_WEEKLY_REVIEW);
+  const { data, loading, error } = useQuery(GET_OPEN_TASKS);
 
   if (loading) {
     return (
@@ -277,25 +111,17 @@ function DashboardPage() {
   }
 
   if (error) {
-    return <p className="text-destructive text-sm">Error loading dashboard data: {error.message}</p>;
+    return <p className="text-destructive text-sm">Error loading dashboard: {error.message}</p>;
   }
 
-  const persons = (data?.persons ?? []) as FullReviewPerson[];
-
-  const overdueContacts = computeOverdueContacts(persons);
-  const upcomingDates = computeUpcomingDates(persons);
-  const openTasks = computeOpenTasks(persons);
-  const dormantPerson = computeMostDormantPerson(persons);
+  const openTasks = computeOpenTasks(data?.persons ?? []);
 
   const MODULES: DashboardModule[] = [
-    { id: 'recent-persons', span: 'half', component: <RecentPersons /> },
-    { id: 'dont-lose-touch', span: 'half', component: <DontLoseTouch /> },
-    { id: 'dormant-ties', span: 'half', component: <DormantTies /> },
     { id: 'upcoming-dates', span: 'half', component: <UpcomingDates /> },
-    { id: 'reach-out', span: 'half', component: <ReachOut persons={overdueContacts} /> },
-    { id: 'coming-up', span: 'half', component: <ComingUp dates={upcomingDates} /> },
+    { id: 'dont-lose-touch', span: 'half', component: <DontLoseTouch /> },
     { id: 'open-tasks', span: 'half', component: <OpenTasks tasks={openTasks} /> },
-    { id: 'dormant-tie', span: 'half', component: <DormantTie person={dormantPerson} /> },
+    { id: 'dormant-ties', span: 'half', component: <DormantTies /> },
+    { id: 'recent-persons', span: 'full', component: <RecentPersons /> },
   ];
 
   return (
