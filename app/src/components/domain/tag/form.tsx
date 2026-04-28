@@ -15,8 +15,10 @@ const tagSchema = z.object({
 });
 
 interface TagFormProps {
+  initialValues?: { label: string; color: string };
   onSubmit: (value: NewTag) => Promise<void>;
   onCancel: () => void;
+  submitLabel?: string;
 }
 
 export const { useAppForm, withForm, withFieldGroup } = createFormHook({
@@ -26,12 +28,12 @@ export const { useAppForm, withForm, withFieldGroup } = createFormHook({
   formContext,
 });
 
-export function TagForm({ onSubmit, onCancel }: TagFormProps) {
+export function TagForm({ initialValues, onSubmit, onCancel, submitLabel }: TagFormProps) {
   const [formError, setFormError] = useState<string | null>(null);
   const form = useAppForm({
     defaultValues: {
-      label: '',
-      color: '#000000',
+      label: initialValues?.label ?? '',
+      color: initialValues?.color ?? '#000000',
     },
     validators: {
       onSubmit: tagSchema,
@@ -51,6 +53,8 @@ export function TagForm({ onSubmit, onCancel }: TagFormProps) {
     },
   });
 
+  const defaultSubmitLabel = initialValues ? 'Save' : 'Create';
+
   return (
     <form
       onSubmit={(e) => {
@@ -66,7 +70,7 @@ export function TagForm({ onSubmit, onCancel }: TagFormProps) {
           <form.Subscribe selector={(state) => [state.canSubmit, state.isSubmitting]}>
             {([canSubmit, isSubmitting]) => (
               <Button type="submit" disabled={!canSubmit || isSubmitting}>
-                {isSubmitting ? 'Creating...' : 'Create'}
+                {isSubmitting ? 'Saving...' : (submitLabel ?? defaultSubmitLabel)}
               </Button>
             )}
           </form.Subscribe>

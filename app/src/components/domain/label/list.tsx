@@ -1,5 +1,5 @@
 import { useFragment } from '@apollo/client';
-import { Tag, Trash2 } from 'lucide-react';
+import { GitMerge, Pencil, Tag, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 import { graphql } from '@/__generated__/gql.js';
 import type { Label_ListFragment } from '@/__generated__/graphql.ts';
@@ -26,9 +26,11 @@ const LABEL_LIST = graphql(`
 interface LabelRowProps {
   label: Label_ListFragment;
   onClickDelete: (id: string) => void;
+  onClickEdit?: (label: Label_ListFragment) => void;
+  onClickMerge?: (label: Label_ListFragment) => void;
 }
 
-function LabelRow({ label: from, onClickDelete }: LabelRowProps) {
+function LabelRow({ label: from, onClickDelete, onClickEdit, onClickMerge }: LabelRowProps) {
   const { data: label, complete } = useFragment({
     fragment: LABEL_LIST,
     from,
@@ -50,9 +52,26 @@ function LabelRow({ label: from, onClickDelete }: LabelRowProps) {
           <p className="font-medium">{label.label}</p>
           <p className="text-muted-foreground text-sm">{label.color}</p>
         </div>
-        <Button variant="ghost" size="icon" onClick={() => onClickDelete(label.id)}>
-          <Trash2 className="h-4 w-4" />
-        </Button>
+        <div className="flex items-center gap-1">
+          {onClickEdit && (
+            <Button variant="ghost" size="icon" onClick={() => onClickEdit(label)} aria-label={`Edit ${label.label}`}>
+              <Pencil className="h-4 w-4" />
+            </Button>
+          )}
+          {onClickMerge && (
+            <Button variant="ghost" size="icon" onClick={() => onClickMerge(label)} aria-label={`Merge ${label.label}`}>
+              <GitMerge className="h-4 w-4" />
+            </Button>
+          )}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => onClickDelete(label.id)}
+            aria-label={`Delete ${label.label}`}
+          >
+            <Trash2 className="h-4 w-4" />
+          </Button>
+        </div>
       </CardContent>
     </Card>
   );
@@ -62,11 +81,13 @@ interface LabelListProps {
   labels: Array<Label_ListFragment>;
   onClickAdd: () => void;
   onClickDelete: (id: string) => void;
+  onClickEdit?: (label: Label_ListFragment) => void;
+  onClickMerge?: (label: Label_ListFragment) => void;
 }
 
 const PAGE_SIZE_OPTIONS = [10, 25, 50];
 
-export function LabelList({ labels, onClickAdd, onClickDelete }: LabelListProps) {
+export function LabelList({ labels, onClickAdd, onClickDelete, onClickEdit, onClickMerge }: LabelListProps) {
   const [page, setPage] = useState(0);
   const [pageSize, setPageSize] = useState(10);
 
@@ -93,7 +114,13 @@ export function LabelList({ labels, onClickAdd, onClickDelete }: LabelListProps)
       body={
         <div className="grid gap-4">
           {pageItems.map((label) => (
-            <LabelRow key={label.id} label={label} onClickDelete={onClickDelete} />
+            <LabelRow
+              key={label.id}
+              label={label}
+              onClickDelete={onClickDelete}
+              onClickEdit={onClickEdit}
+              onClickMerge={onClickMerge}
+            />
           ))}
         </div>
       }

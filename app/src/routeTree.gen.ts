@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as NetworkRouteImport } from './routes/network'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TagsIndexRouteImport } from './routes/tags/index'
+import { Route as SettingsIndexRouteImport } from './routes/settings/index'
 import { Route as PersonsIndexRouteImport } from './routes/persons/index'
 import { Route as PersonsIdRouteImport } from './routes/persons/$id'
 import { Route as PersonsIdIndexRouteImport } from './routes/persons/$id/index'
@@ -31,6 +32,11 @@ const IndexRoute = IndexRouteImport.update({
 const TagsIndexRoute = TagsIndexRouteImport.update({
   id: '/tags/',
   path: '/tags/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsIndexRoute = SettingsIndexRouteImport.update({
+  id: '/settings/',
+  path: '/settings/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PersonsIndexRoute = PersonsIndexRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/network': typeof NetworkRoute
   '/persons/$id': typeof PersonsIdRouteWithChildren
   '/persons/': typeof PersonsIndexRoute
+  '/settings/': typeof SettingsIndexRoute
   '/tags/': typeof TagsIndexRoute
   '/persons/$id/timeline': typeof PersonsIdTimelineRoute
   '/persons/$id/': typeof PersonsIdIndexRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/network': typeof NetworkRoute
   '/persons': typeof PersonsIndexRoute
+  '/settings': typeof SettingsIndexRoute
   '/tags': typeof TagsIndexRoute
   '/persons/$id/timeline': typeof PersonsIdTimelineRoute
   '/persons/$id': typeof PersonsIdIndexRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/network': typeof NetworkRoute
   '/persons/$id': typeof PersonsIdRouteWithChildren
   '/persons/': typeof PersonsIndexRoute
+  '/settings/': typeof SettingsIndexRoute
   '/tags/': typeof TagsIndexRoute
   '/persons/$id/timeline': typeof PersonsIdTimelineRoute
   '/persons/$id/': typeof PersonsIdIndexRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
     | '/network'
     | '/persons/$id'
     | '/persons/'
+    | '/settings/'
     | '/tags/'
     | '/persons/$id/timeline'
     | '/persons/$id/'
@@ -105,6 +115,7 @@ export interface FileRouteTypes {
     | '/'
     | '/network'
     | '/persons'
+    | '/settings'
     | '/tags'
     | '/persons/$id/timeline'
     | '/persons/$id'
@@ -115,6 +126,7 @@ export interface FileRouteTypes {
     | '/network'
     | '/persons/$id'
     | '/persons/'
+    | '/settings/'
     | '/tags/'
     | '/persons/$id/timeline'
     | '/persons/$id/'
@@ -126,6 +138,7 @@ export interface RootRouteChildren {
   NetworkRoute: typeof NetworkRoute
   PersonsIdRoute: typeof PersonsIdRouteWithChildren
   PersonsIndexRoute: typeof PersonsIndexRoute
+  SettingsIndexRoute: typeof SettingsIndexRoute
   TagsIndexRoute: typeof TagsIndexRoute
 }
 
@@ -150,6 +163,13 @@ declare module '@tanstack/react-router' {
       path: '/tags'
       fullPath: '/tags/'
       preLoaderRoute: typeof TagsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings/': {
+      id: '/settings/'
+      path: '/settings'
+      fullPath: '/settings/'
+      preLoaderRoute: typeof SettingsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/persons/': {
@@ -211,6 +231,7 @@ const rootRouteChildren: RootRouteChildren = {
   NetworkRoute: NetworkRoute,
   PersonsIdRoute: PersonsIdRouteWithChildren,
   PersonsIndexRoute: PersonsIndexRoute,
+  SettingsIndexRoute: SettingsIndexRoute,
   TagsIndexRoute: TagsIndexRoute,
 }
 export const routeTree = rootRouteImport
