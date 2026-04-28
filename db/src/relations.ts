@@ -3,6 +3,10 @@ import * as schema from './schema.ts';
 
 export const relations = defineRelations(schema, (r) => ({
   users: {
+    magicLinkTokens: r.many.magicLinkTokens({
+      from: r.users.id,
+      to: r.magicLinkTokens.userId,
+    }),
     userPersons: r.many.userPersons({
       from: r.users.id,
       to: r.userPersons.userId,

@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as NetworkRouteImport } from './routes/network'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LoginRouteImport } from './routes/login'
-import { Route as RegisterRouteImport } from './routes/register'
 import { Route as TagsIndexRouteImport } from './routes/tags/index'
 import { Route as SettingsIndexRouteImport } from './routes/settings/index'
 import { Route as PersonsIndexRouteImport } from './routes/persons/index'
@@ -34,11 +33,6 @@ const IndexRoute = IndexRouteImport.update({
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RegisterRoute = RegisterRouteImport.update({
-  id: '/register',
-  path: '/register',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TagsIndexRoute = TagsIndexRouteImport.update({
@@ -80,7 +74,6 @@ const PersonsIdDatesDateIdRoute = PersonsIdDatesDateIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
-  '/register': typeof RegisterRoute
   '/network': typeof NetworkRoute
   '/persons/$id': typeof PersonsIdRouteWithChildren
   '/persons/': typeof PersonsIndexRoute
@@ -93,7 +86,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
-  '/register': typeof RegisterRoute
   '/network': typeof NetworkRoute
   '/persons': typeof PersonsIndexRoute
   '/settings': typeof SettingsIndexRoute
@@ -106,7 +98,6 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
-  '/register': typeof RegisterRoute
   '/network': typeof NetworkRoute
   '/persons/$id': typeof PersonsIdRouteWithChildren
   '/persons/': typeof PersonsIndexRoute
@@ -121,7 +112,6 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/login'
-    | '/register'
     | '/network'
     | '/persons/$id'
     | '/persons/'
@@ -134,7 +124,6 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/login'
-    | '/register'
     | '/network'
     | '/persons'
     | '/settings'
@@ -146,7 +135,6 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/login'
-    | '/register'
     | '/network'
     | '/persons/$id'
     | '/persons/'
@@ -160,7 +148,6 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LoginRoute: typeof LoginRoute
-  RegisterRoute: typeof RegisterRoute
   NetworkRoute: typeof NetworkRoute
   PersonsIdRoute: typeof PersonsIdRouteWithChildren
   PersonsIndexRoute: typeof PersonsIndexRoute
@@ -189,13 +176,6 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/register': {
-      id: '/register'
-      path: '/register'
-      fullPath: '/register'
-      preLoaderRoute: typeof RegisterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tags/': {
@@ -269,13 +249,15 @@ const PersonsIdRouteWithChildren = PersonsIdRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LoginRoute: LoginRoute,
-  RegisterRoute: RegisterRoute,
   NetworkRoute: NetworkRoute,
   PersonsIdRoute: PersonsIdRouteWithChildren,
   PersonsIndexRoute: PersonsIndexRoute,
   SettingsIndexRoute: SettingsIndexRoute,
   TagsIndexRoute: TagsIndexRoute,
 }
-export const routeTree = rootRouteImport
-  ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>()
+
+export const routeTree = rootRouteImport._addFileChildren(rootRouteChildren)._addRouteTypes({
+  fileRoutesByFullPath: {} as FileRoutesByFullPath,
+  fileRoutesByTo: {} as FileRoutesByTo,
+  fileRoutesById: {} as FileRoutesById,
+})

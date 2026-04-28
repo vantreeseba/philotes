@@ -1,5 +1,4 @@
 import { faker } from '@faker-js/faker';
-import bcrypt from 'bcryptjs';
 import { db } from './index.ts';
 import {
   activities,
@@ -82,12 +81,10 @@ const IMPORTANT_DATE_NAMES = [
 // ── seed functions ─────────────────────────────────────────────────────────
 
 async function seedUser() {
-  const passwordHash = await bcrypt.hash('password', 10);
   const userData = {
     id: randomId(),
     email: 'demo@philotes.app',
     name: 'Demo User',
-    passwordHash,
   };
   await db.insert(users).values(userData);
   console.log(`Inserted seed user: ${userData.email}`);
@@ -563,4 +560,4 @@ await seedAddresses(userId, personData);
 await seedActivities(userId, personData, labelData);
 
 console.log('Seed complete.');
-console.log(`\nDemo login: ${userData.email} / password`);
+console.log(`\nDemo user created: ${userData.email}`);
