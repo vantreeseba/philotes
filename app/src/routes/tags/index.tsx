@@ -2,7 +2,7 @@ import { useMutation, useQuery } from '@apollo/client';
 import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
 import { graphql } from '@/__generated__/gql.js';
-import type { Label_ListFragment, CreateLabelInput } from '@/__generated__/graphql.js';
+import type { Label_ListFragment, LabelInsertInput } from '@/__generated__/graphql.js';
 import { LabelList } from '@/components/domain/label/list.js';
 import { TagForm } from '@/components/domain/tag/form.js';
 import { Button } from '@/components/ui/button.js';
@@ -20,7 +20,7 @@ const GET_TAGS = graphql(`
 `);
 
 const CREATE_TAG = graphql(`
-  mutation CreateTag($values: CreateLabelInput!) {
+  mutation CreateTag($values: LabelInsertInput!) {
     createLabel(values: $values) {
       __typename
       id
@@ -89,12 +89,12 @@ function TagsPage() {
     await deleteTag({ variables: { id } });
   };
 
-  const handleCreate = async (values: CreateLabelInput): Promise<void> => {
+  const handleCreate = async (values: LabelInsertInput): Promise<void> => {
     await createTag({ variables: { values } });
     setCreateDialogOpen(false);
   };
 
-  const handleEdit = async (values: CreateLabelInput): Promise<void> => {
+  const handleEdit = async (values: LabelInsertInput): Promise<void> => {
     if (!editingLabel) return;
     await updateTag({
       variables: { id: editingLabel.id, label: values.label, color: values.color },

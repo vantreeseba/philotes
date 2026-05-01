@@ -62,7 +62,7 @@ const GET_LABELS = graphql(`
 `);
 
 const CREATE_PERSON = graphql(`
-  mutation CreatePerson($values: CreatePersonInput!) {
+  mutation CreatePerson($values: PersonInsertInput!) {
     createPerson(values: $values) {
       id
     }
