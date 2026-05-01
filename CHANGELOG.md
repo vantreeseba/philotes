@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/vantreeseba/philotes/compare/v1.4.1...v1.4.2) (2026-05-01)
+
+
+### Bug Fixes
+
+* force release ([82c095d](https://github.com/vantreeseba/philotes/commit/82c095d6351d28ada2bef1f530230c0b9d2463f7))
+
 ## [1.4.1](https://github.com/vantreeseba/philotes/compare/v1.4.0...v1.4.1) (2026-03-12)
 
 
