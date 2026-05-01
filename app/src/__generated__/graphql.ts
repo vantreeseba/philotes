@@ -33,6 +33,8 @@ export type Activity = {
   person: Maybe<Person>;
   personId: Scalars['String']['output'];
   title: Scalars['String']['output'];
+  user: Maybe<User>;
+  userId: Scalars['String']['output'];
 };
 
 
@@ -48,6 +50,11 @@ export type ActivityPersonArgs = {
   where?: InputMaybe<PersonFilters>;
 };
 
+
+export type ActivityUserArgs = {
+  where?: InputMaybe<UserFilters>;
+};
+
 export type ActivityFilters = {
   OR?: InputMaybe<Array<ActivityFiltersOr>>;
   createdAt?: InputMaybe<DateTimeFilter>;
@@ -57,6 +64,7 @@ export type ActivityFilters = {
   occurredAt?: InputMaybe<DateTimeFilter>;
   personId?: InputMaybe<IdFilter>;
   title?: InputMaybe<StringFilter>;
+  userId?: InputMaybe<IdFilter>;
 };
 
 export type ActivityFiltersOr = {
@@ -67,18 +75,7 @@ export type ActivityFiltersOr = {
   occurredAt?: InputMaybe<DateTimeFilter>;
   personId?: InputMaybe<IdFilter>;
   title?: InputMaybe<StringFilter>;
-};
-
-export type ActivityInsertInput = {
-  /** DateTime */
-  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  location?: InputMaybe<Scalars['String']['input']>;
-  /** DateTime */
-  occurredAt: Scalars['DateTime']['input'];
-  personId: Scalars['String']['input'];
-  title: Scalars['String']['input'];
+  userId?: InputMaybe<IdFilter>;
 };
 
 export type ActivityOrderBy = {
@@ -89,6 +86,7 @@ export type ActivityOrderBy = {
   occurredAt?: InputMaybe<InnerOrder>;
   personId?: InputMaybe<InnerOrder>;
   title?: InputMaybe<InnerOrder>;
+  userId?: InputMaybe<InnerOrder>;
 };
 
 export type ActivityTag = {
@@ -108,31 +106,9 @@ export type ActivityTagFiltersOr = {
   labelId?: InputMaybe<IdFilter>;
 };
 
-export type ActivityTagInsertInput = {
-  activityId: Scalars['String']['input'];
-  labelId: Scalars['String']['input'];
-};
-
 export type ActivityTagOrderBy = {
   activityId?: InputMaybe<InnerOrder>;
   labelId?: InputMaybe<InnerOrder>;
-};
-
-export type ActivityTagUpdateInput = {
-  activityId?: InputMaybe<Scalars['String']['input']>;
-  labelId?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ActivityUpdateInput = {
-  /** DateTime */
-  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  location?: InputMaybe<Scalars['String']['input']>;
-  /** DateTime */
-  occurredAt?: InputMaybe<Scalars['DateTime']['input']>;
-  personId?: InputMaybe<Scalars['String']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Address = {
@@ -151,11 +127,18 @@ export type Address = {
   postalCode: Maybe<Scalars['String']['output']>;
   state: Maybe<Scalars['String']['output']>;
   type: AddressesTypeEnum;
+  user: Maybe<User>;
+  userId: Scalars['String']['output'];
 };
 
 
 export type AddressPersonArgs = {
   where?: InputMaybe<PersonFilters>;
+};
+
+
+export type AddressUserArgs = {
+  where?: InputMaybe<UserFilters>;
 };
 
 export type AddressFilters = {
@@ -172,6 +155,7 @@ export type AddressFilters = {
   postalCode?: InputMaybe<StringFilter>;
   state?: InputMaybe<StringFilter>;
   type?: InputMaybe<AddressesTypeEnumFilter>;
+  userId?: InputMaybe<IdFilter>;
 };
 
 export type AddressFiltersOr = {
@@ -187,22 +171,7 @@ export type AddressFiltersOr = {
   postalCode?: InputMaybe<StringFilter>;
   state?: InputMaybe<StringFilter>;
   type?: InputMaybe<AddressesTypeEnumFilter>;
-};
-
-export type AddressInsertInput = {
-  city?: InputMaybe<Scalars['String']['input']>;
-  country?: InputMaybe<Scalars['String']['input']>;
-  /** DateTime */
-  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  isPrimary?: InputMaybe<Scalars['Boolean']['input']>;
-  label?: InputMaybe<Scalars['String']['input']>;
-  line1: Scalars['String']['input'];
-  line2?: InputMaybe<Scalars['String']['input']>;
-  personId: Scalars['String']['input'];
-  postalCode?: InputMaybe<Scalars['String']['input']>;
-  state?: InputMaybe<Scalars['String']['input']>;
-  type: AddressesTypeEnum;
+  userId?: InputMaybe<IdFilter>;
 };
 
 export type AddressOrderBy = {
@@ -218,22 +187,7 @@ export type AddressOrderBy = {
   postalCode?: InputMaybe<InnerOrder>;
   state?: InputMaybe<InnerOrder>;
   type?: InputMaybe<InnerOrder>;
-};
-
-export type AddressUpdateInput = {
-  city?: InputMaybe<Scalars['String']['input']>;
-  country?: InputMaybe<Scalars['String']['input']>;
-  /** DateTime */
-  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  isPrimary?: InputMaybe<Scalars['Boolean']['input']>;
-  label?: InputMaybe<Scalars['String']['input']>;
-  line1?: InputMaybe<Scalars['String']['input']>;
-  line2?: InputMaybe<Scalars['String']['input']>;
-  personId?: InputMaybe<Scalars['String']['input']>;
-  postalCode?: InputMaybe<Scalars['String']['input']>;
-  state?: InputMaybe<Scalars['String']['input']>;
-  type?: InputMaybe<AddressesTypeEnum>;
+  userId?: InputMaybe<InnerOrder>;
 };
 
 export enum AddressesTypeEnum {
@@ -282,6 +236,12 @@ export type AddressesTypeEnumFilterOr = {
   /** Array<undefined> */
   notInArray?: InputMaybe<Array<AddressesTypeEnum>>;
   notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type AuthPayload = {
+  __typename: 'AuthPayload';
+  token: Scalars['String']['output'];
+  userId: Scalars['ID']['output'];
 };
 
 export type BooleanFilter = {
@@ -333,12 +293,19 @@ export type ContactInfo = {
   person: Maybe<Person>;
   personId: Scalars['String']['output'];
   type: ContactInfosTypeEnum;
+  user: Maybe<User>;
+  userId: Scalars['String']['output'];
   value: Scalars['String']['output'];
 };
 
 
 export type ContactInfoPersonArgs = {
   where?: InputMaybe<PersonFilters>;
+};
+
+
+export type ContactInfoUserArgs = {
+  where?: InputMaybe<UserFilters>;
 };
 
 export type ContactInfoFilters = {
@@ -349,6 +316,7 @@ export type ContactInfoFilters = {
   label?: InputMaybe<StringFilter>;
   personId?: InputMaybe<IdFilter>;
   type?: InputMaybe<ContactInfosTypeEnumFilter>;
+  userId?: InputMaybe<IdFilter>;
   value?: InputMaybe<StringFilter>;
 };
 
@@ -359,18 +327,8 @@ export type ContactInfoFiltersOr = {
   label?: InputMaybe<StringFilter>;
   personId?: InputMaybe<IdFilter>;
   type?: InputMaybe<ContactInfosTypeEnumFilter>;
+  userId?: InputMaybe<IdFilter>;
   value?: InputMaybe<StringFilter>;
-};
-
-export type ContactInfoInsertInput = {
-  /** DateTime */
-  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  isPrimary?: InputMaybe<Scalars['Boolean']['input']>;
-  label?: InputMaybe<Scalars['String']['input']>;
-  personId: Scalars['String']['input'];
-  type: ContactInfosTypeEnum;
-  value: Scalars['String']['input'];
 };
 
 export type ContactInfoOrderBy = {
@@ -380,18 +338,8 @@ export type ContactInfoOrderBy = {
   label?: InputMaybe<InnerOrder>;
   personId?: InputMaybe<InnerOrder>;
   type?: InputMaybe<InnerOrder>;
+  userId?: InputMaybe<InnerOrder>;
   value?: InputMaybe<InnerOrder>;
-};
-
-export type ContactInfoUpdateInput = {
-  /** DateTime */
-  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  isPrimary?: InputMaybe<Scalars['Boolean']['input']>;
-  label?: InputMaybe<Scalars['String']['input']>;
-  personId?: InputMaybe<Scalars['String']['input']>;
-  type?: InputMaybe<ContactInfosTypeEnum>;
-  value?: InputMaybe<Scalars['String']['input']>;
 };
 
 export enum ContactInfosTypeEnum {
@@ -450,6 +398,170 @@ export type ContactInfosTypeEnumFilterOr = {
   /** Array<undefined> */
   notInArray?: InputMaybe<Array<ContactInfosTypeEnum>>;
   notLike?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateActivityInput = {
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  location?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  occurredAt: Scalars['DateTime']['input'];
+  personId: Scalars['String']['input'];
+  title: Scalars['String']['input'];
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateActivityTagInput = {
+  activityId: Scalars['String']['input'];
+  labelId: Scalars['String']['input'];
+};
+
+export type CreateAddressInput = {
+  city?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  isPrimary?: InputMaybe<Scalars['Boolean']['input']>;
+  label?: InputMaybe<Scalars['String']['input']>;
+  line1: Scalars['String']['input'];
+  line2?: InputMaybe<Scalars['String']['input']>;
+  personId: Scalars['String']['input'];
+  postalCode?: InputMaybe<Scalars['String']['input']>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  type: AddressesTypeEnum;
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateContactInfoInput = {
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  isPrimary?: InputMaybe<Scalars['Boolean']['input']>;
+  label?: InputMaybe<Scalars['String']['input']>;
+  personId: Scalars['String']['input'];
+  type: ContactInfosTypeEnum;
+  userId?: InputMaybe<Scalars['String']['input']>;
+  value: Scalars['String']['input'];
+};
+
+export type CreateImportantDateInput = {
+  date: Scalars['String']['input'];
+  description?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  milestoneType?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  name: Scalars['String']['input'];
+  personId: Scalars['String']['input'];
+  recurrence?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateImportantDateTagInput = {
+  importantDateId: Scalars['String']['input'];
+  labelId: Scalars['String']['input'];
+};
+
+export type CreateInteractionInput = {
+  channel: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['String']['input']>;
+  note?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  occurredAt?: InputMaybe<Scalars['DateTime']['input']>;
+  personId: Scalars['String']['input'];
+  sentiment?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateInteractionTagInput = {
+  interactionId: Scalars['String']['input'];
+  labelId: Scalars['String']['input'];
+};
+
+export type CreateLabelInput = {
+  color: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['String']['input']>;
+  label: Scalars['String']['input'];
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateNoteInput = {
+  body: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['String']['input']>;
+  personId?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateNoteMentionInput = {
+  mentionedPersonId: Scalars['String']['input'];
+  noteId: Scalars['String']['input'];
+};
+
+export type CreateNoteTagInput = {
+  labelId: Scalars['String']['input'];
+  noteId: Scalars['String']['input'];
+};
+
+export type CreatePersonInput = {
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  email: Scalars['String']['input'];
+  firstName: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['String']['input']>;
+  lastName: Scalars['String']['input'];
+  /** DateTime */
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type CreatePersonLabelInput = {
+  labelId: Scalars['String']['input'];
+  personId: Scalars['String']['input'];
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreatePersonRelationshipInput = {
+  fromPersonId: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['String']['input']>;
+  toPersonId: Scalars['String']['input'];
+  type: Scalars['String']['input'];
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateTaskInput = {
+  /** DateTime */
+  completedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** DateTime */
+  dueAt?: InputMaybe<Scalars['DateTime']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  notes?: InputMaybe<Scalars['String']['input']>;
+  personId: Scalars['String']['input'];
+  title: Scalars['String']['input'];
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateUserInput = {
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  email: Scalars['String']['input'];
+  id?: InputMaybe<Scalars['String']['input']>;
+  name: Scalars['String']['input'];
+  passwordHash: Scalars['String']['input'];
+  /** DateTime */
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type CreateUserPersonInput = {
+  avatarPath?: InputMaybe<Scalars['String']['input']>;
+  contactFrequency?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  firstMetDate?: InputMaybe<Scalars['String']['input']>;
+  howWeMet?: InputMaybe<Scalars['String']['input']>;
+  personId: Scalars['String']['input'];
+  userId?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type DateTimeFilter = {
@@ -553,6 +665,8 @@ export type ImportantDate = {
   person: Maybe<Person>;
   personId: Scalars['String']['output'];
   recurrence: Maybe<Scalars['String']['output']>;
+  user: Maybe<User>;
+  userId: Scalars['String']['output'];
 };
 
 
@@ -568,6 +682,11 @@ export type ImportantDatePersonArgs = {
   where?: InputMaybe<PersonFilters>;
 };
 
+
+export type ImportantDateUserArgs = {
+  where?: InputMaybe<UserFilters>;
+};
+
 export type ImportantDateFilters = {
   OR?: InputMaybe<Array<ImportantDateFiltersOr>>;
   date?: InputMaybe<StringFilter>;
@@ -577,6 +696,7 @@ export type ImportantDateFilters = {
   name?: InputMaybe<StringFilter>;
   personId?: InputMaybe<IdFilter>;
   recurrence?: InputMaybe<StringFilter>;
+  userId?: InputMaybe<IdFilter>;
 };
 
 export type ImportantDateFiltersOr = {
@@ -587,16 +707,7 @@ export type ImportantDateFiltersOr = {
   name?: InputMaybe<StringFilter>;
   personId?: InputMaybe<IdFilter>;
   recurrence?: InputMaybe<StringFilter>;
-};
-
-export type ImportantDateInsertInput = {
-  date: Scalars['String']['input'];
-  description?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  milestoneType?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
-  name: Scalars['String']['input'];
-  personId: Scalars['String']['input'];
-  recurrence?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<IdFilter>;
 };
 
 export type ImportantDateOrderBy = {
@@ -607,6 +718,7 @@ export type ImportantDateOrderBy = {
   name?: InputMaybe<InnerOrder>;
   personId?: InputMaybe<InnerOrder>;
   recurrence?: InputMaybe<InnerOrder>;
+  userId?: InputMaybe<InnerOrder>;
 };
 
 export type ImportantDateTag = {
@@ -626,29 +738,9 @@ export type ImportantDateTagFiltersOr = {
   labelId?: InputMaybe<IdFilter>;
 };
 
-export type ImportantDateTagInsertInput = {
-  importantDateId: Scalars['String']['input'];
-  labelId: Scalars['String']['input'];
-};
-
 export type ImportantDateTagOrderBy = {
   importantDateId?: InputMaybe<InnerOrder>;
   labelId?: InputMaybe<InnerOrder>;
-};
-
-export type ImportantDateTagUpdateInput = {
-  importantDateId?: InputMaybe<Scalars['String']['input']>;
-  labelId?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type ImportantDateUpdateInput = {
-  date?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  milestoneType?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
-  name?: InputMaybe<Scalars['String']['input']>;
-  personId?: InputMaybe<Scalars['String']['input']>;
-  recurrence?: InputMaybe<Scalars['String']['input']>;
 };
 
 export enum ImportantDatesMilestoneTypeEnum {
@@ -732,6 +824,8 @@ export type Interaction = {
   person: Maybe<Person>;
   personId: Scalars['String']['output'];
   sentiment: Maybe<Scalars['String']['output']>;
+  user: Maybe<User>;
+  userId: Scalars['String']['output'];
 };
 
 
@@ -747,6 +841,11 @@ export type InteractionPersonArgs = {
   where?: InputMaybe<PersonFilters>;
 };
 
+
+export type InteractionUserArgs = {
+  where?: InputMaybe<UserFilters>;
+};
+
 export type InteractionFilters = {
   OR?: InputMaybe<Array<InteractionFiltersOr>>;
   channel?: InputMaybe<StringFilter>;
@@ -755,6 +854,7 @@ export type InteractionFilters = {
   occurredAt?: InputMaybe<DateTimeFilter>;
   personId?: InputMaybe<IdFilter>;
   sentiment?: InputMaybe<StringFilter>;
+  userId?: InputMaybe<IdFilter>;
 };
 
 export type InteractionFiltersOr = {
@@ -764,16 +864,7 @@ export type InteractionFiltersOr = {
   occurredAt?: InputMaybe<DateTimeFilter>;
   personId?: InputMaybe<IdFilter>;
   sentiment?: InputMaybe<StringFilter>;
-};
-
-export type InteractionInsertInput = {
-  channel: Scalars['String']['input'];
-  id?: InputMaybe<Scalars['String']['input']>;
-  note?: InputMaybe<Scalars['String']['input']>;
-  /** DateTime */
-  occurredAt?: InputMaybe<Scalars['DateTime']['input']>;
-  personId: Scalars['String']['input'];
-  sentiment?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<IdFilter>;
 };
 
 export type InteractionOrderBy = {
@@ -783,6 +874,7 @@ export type InteractionOrderBy = {
   occurredAt?: InputMaybe<InnerOrder>;
   personId?: InputMaybe<InnerOrder>;
   sentiment?: InputMaybe<InnerOrder>;
+  userId?: InputMaybe<InnerOrder>;
 };
 
 export type InteractionTag = {
@@ -802,29 +894,9 @@ export type InteractionTagFiltersOr = {
   labelId?: InputMaybe<IdFilter>;
 };
 
-export type InteractionTagInsertInput = {
-  interactionId: Scalars['String']['input'];
-  labelId: Scalars['String']['input'];
-};
-
 export type InteractionTagOrderBy = {
   interactionId?: InputMaybe<InnerOrder>;
   labelId?: InputMaybe<InnerOrder>;
-};
-
-export type InteractionTagUpdateInput = {
-  interactionId?: InputMaybe<Scalars['String']['input']>;
-  labelId?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type InteractionUpdateInput = {
-  channel?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  note?: InputMaybe<Scalars['String']['input']>;
-  /** DateTime */
-  occurredAt?: InputMaybe<Scalars['DateTime']['input']>;
-  personId?: InputMaybe<Scalars['String']['input']>;
-  sentiment?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Label = {
@@ -833,6 +905,8 @@ export type Label = {
   color: Scalars['String']['output'];
   id: Scalars['String']['output'];
   label: Scalars['String']['output'];
+  user: Maybe<User>;
+  userId: Scalars['String']['output'];
 };
 
 
@@ -843,39 +917,36 @@ export type LabelActivitiesArgs = {
   where?: InputMaybe<ActivityFilters>;
 };
 
+
+export type LabelUserArgs = {
+  where?: InputMaybe<UserFilters>;
+};
+
 export type LabelFilters = {
   OR?: InputMaybe<Array<LabelFiltersOr>>;
   color?: InputMaybe<StringFilter>;
   id?: InputMaybe<IdFilter>;
   label?: InputMaybe<StringFilter>;
+  userId?: InputMaybe<IdFilter>;
 };
 
 export type LabelFiltersOr = {
   color?: InputMaybe<StringFilter>;
   id?: InputMaybe<IdFilter>;
   label?: InputMaybe<StringFilter>;
-};
-
-export type LabelInsertInput = {
-  color: Scalars['String']['input'];
-  id?: InputMaybe<Scalars['String']['input']>;
-  label: Scalars['String']['input'];
+  userId?: InputMaybe<IdFilter>;
 };
 
 export type LabelOrderBy = {
   color?: InputMaybe<InnerOrder>;
   id?: InputMaybe<InnerOrder>;
   label?: InputMaybe<InnerOrder>;
-};
-
-export type LabelUpdateInput = {
-  color?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  label?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<InnerOrder>;
 };
 
 export type Mutation = {
   __typename: 'Mutation';
+  addPersonToMyContacts: UserPerson;
   createActivities: Array<Activity>;
   createActivity: Maybe<Activity>;
   createActivityTag: Maybe<ActivityTag>;
@@ -908,6 +979,10 @@ export type Mutation = {
   createPersons: Array<Person>;
   createTask: Maybe<Task>;
   createTasks: Array<Task>;
+  createUser: Maybe<User>;
+  createUserPerson: Maybe<UserPerson>;
+  createUserPersons: Array<UserPerson>;
+  createUsers: Array<User>;
   deleteActivities: Array<Activity>;
   deleteActivityTags: Array<ActivityTag>;
   deleteAddresses: Array<Address>;
@@ -924,8 +999,13 @@ export type Mutation = {
   deletePersonRelationships: Array<PersonRelationship>;
   deletePersons: Array<Person>;
   deleteTasks: Array<Task>;
+  deleteUserPersons: Array<UserPerson>;
+  deleteUsers: Array<User>;
   importGoogleContacts: ImportContactsResult;
+  login: AuthPayload;
   mergeLabelInto: Maybe<Label>;
+  register: AuthPayload;
+  removePersonFromMyContacts: Scalars['Boolean']['output'];
   updateActivities: Array<Activity>;
   updateActivityTags: Array<ActivityTag>;
   updateAddresses: Array<Address>;
@@ -935,6 +1015,7 @@ export type Mutation = {
   updateInteractionTags: Array<InteractionTag>;
   updateInteractions: Array<Interaction>;
   updateLabels: Array<Label>;
+  updateMyPersonContext: UserPerson;
   updateNoteMentions: Array<NoteMention>;
   updateNoteTags: Array<NoteTag>;
   updateNotes: Array<Note>;
@@ -942,166 +1023,193 @@ export type Mutation = {
   updatePersonRelationships: Array<PersonRelationship>;
   updatePersons: Array<Person>;
   updateTasks: Array<Task>;
+  updateUserPersons: Array<UserPerson>;
+  updateUsers: Array<User>;
+};
+
+
+export type MutationAddPersonToMyContactsArgs = {
+  personId: Scalars['String']['input'];
 };
 
 
 export type MutationCreateActivitiesArgs = {
-  values: Array<ActivityInsertInput>;
+  values: Array<CreateActivityInput>;
 };
 
 
 export type MutationCreateActivityArgs = {
-  values: ActivityInsertInput;
+  values: CreateActivityInput;
 };
 
 
 export type MutationCreateActivityTagArgs = {
-  values: ActivityTagInsertInput;
+  values: CreateActivityTagInput;
 };
 
 
 export type MutationCreateActivityTagsArgs = {
-  values: Array<ActivityTagInsertInput>;
+  values: Array<CreateActivityTagInput>;
 };
 
 
 export type MutationCreateAddressArgs = {
-  values: AddressInsertInput;
+  values: CreateAddressInput;
 };
 
 
 export type MutationCreateAddressesArgs = {
-  values: Array<AddressInsertInput>;
+  values: Array<CreateAddressInput>;
 };
 
 
 export type MutationCreateContactInfoArgs = {
-  values: ContactInfoInsertInput;
+  values: CreateContactInfoInput;
 };
 
 
 export type MutationCreateContactInfosArgs = {
-  values: Array<ContactInfoInsertInput>;
+  values: Array<CreateContactInfoInput>;
 };
 
 
 export type MutationCreateImportantDateArgs = {
-  values: ImportantDateInsertInput;
+  values: CreateImportantDateInput;
 };
 
 
 export type MutationCreateImportantDateTagArgs = {
-  values: ImportantDateTagInsertInput;
+  values: CreateImportantDateTagInput;
 };
 
 
 export type MutationCreateImportantDateTagsArgs = {
-  values: Array<ImportantDateTagInsertInput>;
+  values: Array<CreateImportantDateTagInput>;
 };
 
 
 export type MutationCreateImportantDatesArgs = {
-  values: Array<ImportantDateInsertInput>;
+  values: Array<CreateImportantDateInput>;
 };
 
 
 export type MutationCreateInteractionArgs = {
-  values: InteractionInsertInput;
+  values: CreateInteractionInput;
 };
 
 
 export type MutationCreateInteractionTagArgs = {
-  values: InteractionTagInsertInput;
+  values: CreateInteractionTagInput;
 };
 
 
 export type MutationCreateInteractionTagsArgs = {
-  values: Array<InteractionTagInsertInput>;
+  values: Array<CreateInteractionTagInput>;
 };
 
 
 export type MutationCreateInteractionsArgs = {
-  values: Array<InteractionInsertInput>;
+  values: Array<CreateInteractionInput>;
 };
 
 
 export type MutationCreateLabelArgs = {
-  values: LabelInsertInput;
+  values: CreateLabelInput;
 };
 
 
 export type MutationCreateLabelsArgs = {
-  values: Array<LabelInsertInput>;
+  values: Array<CreateLabelInput>;
 };
 
 
 export type MutationCreateNoteArgs = {
-  values: NoteInsertInput;
+  values: CreateNoteInput;
 };
 
 
 export type MutationCreateNoteMentionArgs = {
-  values: NoteMentionInsertInput;
+  values: CreateNoteMentionInput;
 };
 
 
 export type MutationCreateNoteMentionsArgs = {
-  values: Array<NoteMentionInsertInput>;
+  values: Array<CreateNoteMentionInput>;
 };
 
 
 export type MutationCreateNoteTagArgs = {
-  values: NoteTagInsertInput;
+  values: CreateNoteTagInput;
 };
 
 
 export type MutationCreateNoteTagsArgs = {
-  values: Array<NoteTagInsertInput>;
+  values: Array<CreateNoteTagInput>;
 };
 
 
 export type MutationCreateNotesArgs = {
-  values: Array<NoteInsertInput>;
+  values: Array<CreateNoteInput>;
 };
 
 
 export type MutationCreatePersonArgs = {
-  values: PersonInsertInput;
+  values: CreatePersonInput;
 };
 
 
 export type MutationCreatePersonLabelArgs = {
-  values: PersonLabelInsertInput;
+  values: CreatePersonLabelInput;
 };
 
 
 export type MutationCreatePersonLabelsArgs = {
-  values: Array<PersonLabelInsertInput>;
+  values: Array<CreatePersonLabelInput>;
 };
 
 
 export type MutationCreatePersonRelationshipArgs = {
-  values: PersonRelationshipInsertInput;
+  values: CreatePersonRelationshipInput;
 };
 
 
 export type MutationCreatePersonRelationshipsArgs = {
-  values: Array<PersonRelationshipInsertInput>;
+  values: Array<CreatePersonRelationshipInput>;
 };
 
 
 export type MutationCreatePersonsArgs = {
-  values: Array<PersonInsertInput>;
+  values: Array<CreatePersonInput>;
 };
 
 
 export type MutationCreateTaskArgs = {
-  values: TaskInsertInput;
+  values: CreateTaskInput;
 };
 
 
 export type MutationCreateTasksArgs = {
-  values: Array<TaskInsertInput>;
+  values: Array<CreateTaskInput>;
+};
+
+
+export type MutationCreateUserArgs = {
+  values: CreateUserInput;
+};
+
+
+export type MutationCreateUserPersonArgs = {
+  values: CreateUserPersonInput;
+};
+
+
+export type MutationCreateUserPersonsArgs = {
+  values: Array<CreateUserPersonInput>;
+};
+
+
+export type MutationCreateUsersArgs = {
+  values: Array<CreateUserInput>;
 };
 
 
@@ -1185,8 +1293,24 @@ export type MutationDeleteTasksArgs = {
 };
 
 
+export type MutationDeleteUserPersonsArgs = {
+  where?: InputMaybe<UserPersonFilters>;
+};
+
+
+export type MutationDeleteUsersArgs = {
+  where?: InputMaybe<UserFilters>;
+};
+
+
 export type MutationImportGoogleContactsArgs = {
   csv: Scalars['String']['input'];
+};
+
+
+export type MutationLoginArgs = {
+  email: Scalars['String']['input'];
+  password: Scalars['String']['input'];
 };
 
 
@@ -1196,99 +1320,132 @@ export type MutationMergeLabelIntoArgs = {
 };
 
 
+export type MutationRegisterArgs = {
+  email: Scalars['String']['input'];
+  name: Scalars['String']['input'];
+  password: Scalars['String']['input'];
+};
+
+
+export type MutationRemovePersonFromMyContactsArgs = {
+  personId: Scalars['String']['input'];
+};
+
+
 export type MutationUpdateActivitiesArgs = {
-  set: ActivityUpdateInput;
+  set: UpdateActivityInput;
   where?: InputMaybe<ActivityFilters>;
 };
 
 
 export type MutationUpdateActivityTagsArgs = {
-  set: ActivityTagUpdateInput;
+  set: UpdateActivityTagInput;
   where?: InputMaybe<ActivityTagFilters>;
 };
 
 
 export type MutationUpdateAddressesArgs = {
-  set: AddressUpdateInput;
+  set: UpdateAddressInput;
   where?: InputMaybe<AddressFilters>;
 };
 
 
 export type MutationUpdateContactInfosArgs = {
-  set: ContactInfoUpdateInput;
+  set: UpdateContactInfoInput;
   where?: InputMaybe<ContactInfoFilters>;
 };
 
 
 export type MutationUpdateImportantDateTagsArgs = {
-  set: ImportantDateTagUpdateInput;
+  set: UpdateImportantDateTagInput;
   where?: InputMaybe<ImportantDateTagFilters>;
 };
 
 
 export type MutationUpdateImportantDatesArgs = {
-  set: ImportantDateUpdateInput;
+  set: UpdateImportantDateInput;
   where?: InputMaybe<ImportantDateFilters>;
 };
 
 
 export type MutationUpdateInteractionTagsArgs = {
-  set: InteractionTagUpdateInput;
+  set: UpdateInteractionTagInput;
   where?: InputMaybe<InteractionTagFilters>;
 };
 
 
 export type MutationUpdateInteractionsArgs = {
-  set: InteractionUpdateInput;
+  set: UpdateInteractionInput;
   where?: InputMaybe<InteractionFilters>;
 };
 
 
 export type MutationUpdateLabelsArgs = {
-  set: LabelUpdateInput;
+  set: UpdateLabelInput;
   where?: InputMaybe<LabelFilters>;
 };
 
 
+export type MutationUpdateMyPersonContextArgs = {
+  avatarPath?: InputMaybe<Scalars['String']['input']>;
+  contactFrequency?: InputMaybe<Scalars['String']['input']>;
+  firstMetDate?: InputMaybe<Scalars['String']['input']>;
+  howWeMet?: InputMaybe<Scalars['String']['input']>;
+  personId: Scalars['String']['input'];
+};
+
+
 export type MutationUpdateNoteMentionsArgs = {
-  set: NoteMentionUpdateInput;
+  set: UpdateNoteMentionInput;
   where?: InputMaybe<NoteMentionFilters>;
 };
 
 
 export type MutationUpdateNoteTagsArgs = {
-  set: NoteTagUpdateInput;
+  set: UpdateNoteTagInput;
   where?: InputMaybe<NoteTagFilters>;
 };
 
 
 export type MutationUpdateNotesArgs = {
-  set: NoteUpdateInput;
+  set: UpdateNoteInput;
   where?: InputMaybe<NoteFilters>;
 };
 
 
 export type MutationUpdatePersonLabelsArgs = {
-  set: PersonLabelUpdateInput;
+  set: UpdatePersonLabelInput;
   where?: InputMaybe<PersonLabelFilters>;
 };
 
 
 export type MutationUpdatePersonRelationshipsArgs = {
-  set: PersonRelationshipUpdateInput;
+  set: UpdatePersonRelationshipInput;
   where?: InputMaybe<PersonRelationshipFilters>;
 };
 
 
 export type MutationUpdatePersonsArgs = {
-  set: PersonUpdateInput;
+  set: UpdatePersonInput;
   where?: InputMaybe<PersonFilters>;
 };
 
 
 export type MutationUpdateTasksArgs = {
-  set: TaskUpdateInput;
+  set: UpdateTaskInput;
   where?: InputMaybe<TaskFilters>;
+};
+
+
+export type MutationUpdateUserPersonsArgs = {
+  set: UpdateUserPersonInput;
+  where?: InputMaybe<UserPersonFilters>;
+};
+
+
+export type MutationUpdateUsersArgs = {
+  set: UpdateUserInput;
+  where?: InputMaybe<UserFilters>;
 };
 
 export type Note = {
@@ -1299,6 +1456,8 @@ export type Note = {
   mentions: Array<Person>;
   person: Maybe<Person>;
   personId: Maybe<Scalars['String']['output']>;
+  user: Maybe<User>;
+  userId: Scalars['String']['output'];
 };
 
 
@@ -1322,23 +1481,24 @@ export type NotePersonArgs = {
   where?: InputMaybe<PersonFilters>;
 };
 
+
+export type NoteUserArgs = {
+  where?: InputMaybe<UserFilters>;
+};
+
 export type NoteFilters = {
   OR?: InputMaybe<Array<NoteFiltersOr>>;
   body?: InputMaybe<StringFilter>;
   id?: InputMaybe<IdFilter>;
   personId?: InputMaybe<IdFilter>;
+  userId?: InputMaybe<IdFilter>;
 };
 
 export type NoteFiltersOr = {
   body?: InputMaybe<StringFilter>;
   id?: InputMaybe<IdFilter>;
   personId?: InputMaybe<IdFilter>;
-};
-
-export type NoteInsertInput = {
-  body: Scalars['String']['input'];
-  id?: InputMaybe<Scalars['String']['input']>;
-  personId?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<IdFilter>;
 };
 
 export type NoteMention = {
@@ -1358,25 +1518,16 @@ export type NoteMentionFiltersOr = {
   noteId?: InputMaybe<IdFilter>;
 };
 
-export type NoteMentionInsertInput = {
-  mentionedPersonId: Scalars['String']['input'];
-  noteId: Scalars['String']['input'];
-};
-
 export type NoteMentionOrderBy = {
   mentionedPersonId?: InputMaybe<InnerOrder>;
   noteId?: InputMaybe<InnerOrder>;
-};
-
-export type NoteMentionUpdateInput = {
-  mentionedPersonId?: InputMaybe<Scalars['String']['input']>;
-  noteId?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type NoteOrderBy = {
   body?: InputMaybe<InnerOrder>;
   id?: InputMaybe<InnerOrder>;
   personId?: InputMaybe<InnerOrder>;
+  userId?: InputMaybe<InnerOrder>;
 };
 
 export type NoteTag = {
@@ -1396,25 +1547,9 @@ export type NoteTagFiltersOr = {
   noteId?: InputMaybe<IdFilter>;
 };
 
-export type NoteTagInsertInput = {
-  labelId: Scalars['String']['input'];
-  noteId: Scalars['String']['input'];
-};
-
 export type NoteTagOrderBy = {
   labelId?: InputMaybe<InnerOrder>;
   noteId?: InputMaybe<InnerOrder>;
-};
-
-export type NoteTagUpdateInput = {
-  labelId?: InputMaybe<Scalars['String']['input']>;
-  noteId?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type NoteUpdateInput = {
-  body?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  personId?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Order by direction */
@@ -1435,7 +1570,7 @@ export type Person = {
   /** DateTime */
   createdAt: Scalars['DateTime']['output'];
   email: Scalars['String']['output'];
-  firstMetDate: Maybe<Scalars['Date']['output']>;
+  firstMetDate: Maybe<Scalars['String']['output']>;
   firstName: Scalars['String']['output'];
   howWeMet: Maybe<Scalars['String']['output']>;
   id: Scalars['String']['output'];
@@ -1451,6 +1586,7 @@ export type Person = {
   tasks: Array<Task>;
   /** DateTime */
   updatedAt: Scalars['DateTime']['output'];
+  userPersons: Array<UserPerson>;
 };
 
 
@@ -1541,88 +1677,63 @@ export type PersonTasksArgs = {
   where?: InputMaybe<TaskFilters>;
 };
 
+
+export type PersonUserPersonsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<UserPersonOrderBy>;
+  where?: InputMaybe<UserPersonFilters>;
+};
+
 export type PersonFilters = {
   OR?: InputMaybe<Array<PersonFiltersOr>>;
-  avatarPath?: InputMaybe<StringFilter>;
-  contactFrequency?: InputMaybe<StringFilter>;
   createdAt?: InputMaybe<DateTimeFilter>;
   email?: InputMaybe<StringFilter>;
-  firstMetDate?: InputMaybe<StringFilter>;
   firstName?: InputMaybe<StringFilter>;
-  howWeMet?: InputMaybe<StringFilter>;
   id?: InputMaybe<IdFilter>;
   lastName?: InputMaybe<StringFilter>;
   updatedAt?: InputMaybe<DateTimeFilter>;
 };
 
 export type PersonFiltersOr = {
-  avatarPath?: InputMaybe<StringFilter>;
-  contactFrequency?: InputMaybe<StringFilter>;
   createdAt?: InputMaybe<DateTimeFilter>;
   email?: InputMaybe<StringFilter>;
-  firstMetDate?: InputMaybe<StringFilter>;
   firstName?: InputMaybe<StringFilter>;
-  howWeMet?: InputMaybe<StringFilter>;
   id?: InputMaybe<IdFilter>;
   lastName?: InputMaybe<StringFilter>;
   updatedAt?: InputMaybe<DateTimeFilter>;
-};
-
-export type PersonInsertInput = {
-  avatarPath?: InputMaybe<Scalars['String']['input']>;
-  contactFrequency?: InputMaybe<Scalars['String']['input']>;
-  /** DateTime */
-  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
-  email: Scalars['String']['input'];
-  firstMetDate?: InputMaybe<Scalars['String']['input']>;
-  firstName: Scalars['String']['input'];
-  howWeMet?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  lastName: Scalars['String']['input'];
-  /** DateTime */
-  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
 export type PersonLabel = {
   __typename: 'PersonLabel';
   labelId: Scalars['String']['output'];
   personId: Scalars['String']['output'];
+  userId: Scalars['String']['output'];
 };
 
 export type PersonLabelFilters = {
   OR?: InputMaybe<Array<PersonLabelFiltersOr>>;
   labelId?: InputMaybe<IdFilter>;
   personId?: InputMaybe<IdFilter>;
+  userId?: InputMaybe<IdFilter>;
 };
 
 export type PersonLabelFiltersOr = {
   labelId?: InputMaybe<IdFilter>;
   personId?: InputMaybe<IdFilter>;
-};
-
-export type PersonLabelInsertInput = {
-  labelId: Scalars['String']['input'];
-  personId: Scalars['String']['input'];
+  userId?: InputMaybe<IdFilter>;
 };
 
 export type PersonLabelOrderBy = {
   labelId?: InputMaybe<InnerOrder>;
   personId?: InputMaybe<InnerOrder>;
-};
-
-export type PersonLabelUpdateInput = {
-  labelId?: InputMaybe<Scalars['String']['input']>;
-  personId?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<InnerOrder>;
 };
 
 export type PersonOrderBy = {
-  avatarPath?: InputMaybe<InnerOrder>;
-  contactFrequency?: InputMaybe<InnerOrder>;
   createdAt?: InputMaybe<InnerOrder>;
   email?: InputMaybe<InnerOrder>;
-  firstMetDate?: InputMaybe<InnerOrder>;
   firstName?: InputMaybe<InnerOrder>;
-  howWeMet?: InputMaybe<InnerOrder>;
   id?: InputMaybe<InnerOrder>;
   lastName?: InputMaybe<InnerOrder>;
   updatedAt?: InputMaybe<InnerOrder>;
@@ -1636,6 +1747,8 @@ export type PersonRelationship = {
   toPerson: Maybe<Person>;
   toPersonId: Scalars['String']['output'];
   type: Scalars['String']['output'];
+  user: Maybe<User>;
+  userId: Scalars['String']['output'];
 };
 
 
@@ -1646,6 +1759,11 @@ export type PersonRelationshipFromPersonArgs = {
 
 export type PersonRelationshipToPersonArgs = {
   where?: InputMaybe<PersonFilters>;
+};
+
+
+export type PersonRelationshipUserArgs = {
+  where?: InputMaybe<UserFilters>;
 };
 
 export type PersonRelationshipEntry = {
@@ -1663,6 +1781,7 @@ export type PersonRelationshipFilters = {
   id?: InputMaybe<IdFilter>;
   toPersonId?: InputMaybe<IdFilter>;
   type?: InputMaybe<StringFilter>;
+  userId?: InputMaybe<IdFilter>;
 };
 
 export type PersonRelationshipFiltersOr = {
@@ -1670,13 +1789,7 @@ export type PersonRelationshipFiltersOr = {
   id?: InputMaybe<IdFilter>;
   toPersonId?: InputMaybe<IdFilter>;
   type?: InputMaybe<StringFilter>;
-};
-
-export type PersonRelationshipInsertInput = {
-  fromPersonId: Scalars['String']['input'];
-  id?: InputMaybe<Scalars['String']['input']>;
-  toPersonId: Scalars['String']['input'];
-  type: Scalars['String']['input'];
+  userId?: InputMaybe<IdFilter>;
 };
 
 export type PersonRelationshipOrderBy = {
@@ -1684,28 +1797,7 @@ export type PersonRelationshipOrderBy = {
   id?: InputMaybe<InnerOrder>;
   toPersonId?: InputMaybe<InnerOrder>;
   type?: InputMaybe<InnerOrder>;
-};
-
-export type PersonRelationshipUpdateInput = {
-  fromPersonId?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  toPersonId?: InputMaybe<Scalars['String']['input']>;
-  type?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type PersonUpdateInput = {
-  avatarPath?: InputMaybe<Scalars['String']['input']>;
-  contactFrequency?: InputMaybe<Scalars['String']['input']>;
-  /** DateTime */
-  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
-  email?: InputMaybe<Scalars['String']['input']>;
-  firstMetDate?: InputMaybe<Scalars['String']['input']>;
-  firstName?: InputMaybe<Scalars['String']['input']>;
-  howWeMet?: InputMaybe<Scalars['String']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  lastName?: InputMaybe<Scalars['String']['input']>;
-  /** DateTime */
-  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  userId?: InputMaybe<InnerOrder>;
 };
 
 export type Query = {
@@ -1728,6 +1820,8 @@ export type Query = {
   interactions: Array<Interaction>;
   label: Maybe<Label>;
   labels: Array<Label>;
+  me: Maybe<User>;
+  myPersonContext: Maybe<UserPerson>;
   note: Maybe<Note>;
   noteMention: Maybe<NoteMention>;
   noteMentions: Array<NoteMention>;
@@ -1743,6 +1837,10 @@ export type Query = {
   task: Maybe<Task>;
   tasks: Array<Task>;
   upcomingDates: Array<UpcomingDateEntry>;
+  user: Maybe<User>;
+  userPerson: Maybe<UserPerson>;
+  userPersons: Array<UserPerson>;
+  users: Array<User>;
 };
 
 
@@ -1881,6 +1979,11 @@ export type QueryLabelsArgs = {
 };
 
 
+export type QueryMyPersonContextArgs = {
+  personId: Scalars['String']['input'];
+};
+
+
 export type QueryNoteArgs = {
   offset?: InputMaybe<Scalars['Int']['input']>;
   orderBy?: InputMaybe<NoteOrderBy>;
@@ -1992,6 +2095,36 @@ export type QueryUpcomingDatesArgs = {
   offset?: InputMaybe<Scalars['Int']['input']>;
 };
 
+
+export type QueryUserArgs = {
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<UserOrderBy>;
+  where?: InputMaybe<UserFilters>;
+};
+
+
+export type QueryUserPersonArgs = {
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<UserPersonOrderBy>;
+  where?: InputMaybe<UserPersonFilters>;
+};
+
+
+export type QueryUserPersonsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<UserPersonOrderBy>;
+  where?: InputMaybe<UserPersonFilters>;
+};
+
+
+export type QueryUsersArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<UserOrderBy>;
+  where?: InputMaybe<UserFilters>;
+};
+
 export type StringFilter = {
   OR?: InputMaybe<Array<StringFilterOr>>;
   eq?: InputMaybe<Scalars['String']['input']>;
@@ -2044,11 +2177,18 @@ export type Task = {
   person: Maybe<Person>;
   personId: Scalars['String']['output'];
   title: Scalars['String']['output'];
+  user: Maybe<User>;
+  userId: Scalars['String']['output'];
 };
 
 
 export type TaskPersonArgs = {
   where?: InputMaybe<PersonFilters>;
+};
+
+
+export type TaskUserArgs = {
+  where?: InputMaybe<UserFilters>;
 };
 
 export type TaskFilters = {
@@ -2060,6 +2200,7 @@ export type TaskFilters = {
   notes?: InputMaybe<StringFilter>;
   personId?: InputMaybe<IdFilter>;
   title?: InputMaybe<StringFilter>;
+  userId?: InputMaybe<IdFilter>;
 };
 
 export type TaskFiltersOr = {
@@ -2070,19 +2211,7 @@ export type TaskFiltersOr = {
   notes?: InputMaybe<StringFilter>;
   personId?: InputMaybe<IdFilter>;
   title?: InputMaybe<StringFilter>;
-};
-
-export type TaskInsertInput = {
-  /** DateTime */
-  completedAt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** DateTime */
-  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** DateTime */
-  dueAt?: InputMaybe<Scalars['DateTime']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  notes?: InputMaybe<Scalars['String']['input']>;
-  personId: Scalars['String']['input'];
-  title: Scalars['String']['input'];
+  userId?: InputMaybe<IdFilter>;
 };
 
 export type TaskOrderBy = {
@@ -2093,19 +2222,7 @@ export type TaskOrderBy = {
   notes?: InputMaybe<InnerOrder>;
   personId?: InputMaybe<InnerOrder>;
   title?: InputMaybe<InnerOrder>;
-};
-
-export type TaskUpdateInput = {
-  /** DateTime */
-  completedAt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** DateTime */
-  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
-  /** DateTime */
-  dueAt?: InputMaybe<Scalars['DateTime']['input']>;
-  id?: InputMaybe<Scalars['String']['input']>;
-  notes?: InputMaybe<Scalars['String']['input']>;
-  personId?: InputMaybe<Scalars['String']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<InnerOrder>;
 };
 
 export type UpcomingDateEntry = {
@@ -2120,6 +2237,355 @@ export type UpcomingDateEntry = {
   personId: Scalars['String']['output'];
   personLastName: Scalars['String']['output'];
   recurrence: Maybe<Scalars['String']['output']>;
+};
+
+export type UpdateActivityInput = {
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  location?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  occurredAt?: InputMaybe<Scalars['DateTime']['input']>;
+  personId?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateActivityTagInput = {
+  activityId?: InputMaybe<Scalars['String']['input']>;
+  labelId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateAddressInput = {
+  city?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  isPrimary?: InputMaybe<Scalars['Boolean']['input']>;
+  label?: InputMaybe<Scalars['String']['input']>;
+  line1?: InputMaybe<Scalars['String']['input']>;
+  line2?: InputMaybe<Scalars['String']['input']>;
+  personId?: InputMaybe<Scalars['String']['input']>;
+  postalCode?: InputMaybe<Scalars['String']['input']>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<AddressesTypeEnum>;
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateContactInfoInput = {
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  isPrimary?: InputMaybe<Scalars['Boolean']['input']>;
+  label?: InputMaybe<Scalars['String']['input']>;
+  personId?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<ContactInfosTypeEnum>;
+  userId?: InputMaybe<Scalars['String']['input']>;
+  value?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateImportantDateInput = {
+  date?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  milestoneType?: InputMaybe<ImportantDatesMilestoneTypeEnum>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  personId?: InputMaybe<Scalars['String']['input']>;
+  recurrence?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateImportantDateTagInput = {
+  importantDateId?: InputMaybe<Scalars['String']['input']>;
+  labelId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateInteractionInput = {
+  channel?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  note?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  occurredAt?: InputMaybe<Scalars['DateTime']['input']>;
+  personId?: InputMaybe<Scalars['String']['input']>;
+  sentiment?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateInteractionTagInput = {
+  interactionId?: InputMaybe<Scalars['String']['input']>;
+  labelId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateLabelInput = {
+  color?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  label?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateNoteInput = {
+  body?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  personId?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateNoteMentionInput = {
+  mentionedPersonId?: InputMaybe<Scalars['String']['input']>;
+  noteId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateNoteTagInput = {
+  labelId?: InputMaybe<Scalars['String']['input']>;
+  noteId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdatePersonInput = {
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  firstName?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  lastName?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type UpdatePersonLabelInput = {
+  labelId?: InputMaybe<Scalars['String']['input']>;
+  personId?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdatePersonRelationshipInput = {
+  fromPersonId?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  toPersonId?: InputMaybe<Scalars['String']['input']>;
+  type?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateTaskInput = {
+  /** DateTime */
+  completedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  /** DateTime */
+  dueAt?: InputMaybe<Scalars['DateTime']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  notes?: InputMaybe<Scalars['String']['input']>;
+  personId?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type UpdateUserInput = {
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  passwordHash?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  updatedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type UpdateUserPersonInput = {
+  avatarPath?: InputMaybe<Scalars['String']['input']>;
+  contactFrequency?: InputMaybe<Scalars['String']['input']>;
+  /** DateTime */
+  createdAt?: InputMaybe<Scalars['DateTime']['input']>;
+  firstMetDate?: InputMaybe<Scalars['String']['input']>;
+  howWeMet?: InputMaybe<Scalars['String']['input']>;
+  personId?: InputMaybe<Scalars['String']['input']>;
+  userId?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type User = {
+  __typename: 'User';
+  activities: Array<Activity>;
+  addresses: Array<Address>;
+  contactInfos: Array<ContactInfo>;
+  /** DateTime */
+  createdAt: Scalars['DateTime']['output'];
+  email: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  importantDates: Array<ImportantDate>;
+  interactions: Array<Interaction>;
+  labels: Array<Label>;
+  name: Scalars['String']['output'];
+  notes: Array<Note>;
+  passwordHash: Scalars['String']['output'];
+  personRelationships: Array<PersonRelationship>;
+  tasks: Array<Task>;
+  /** DateTime */
+  updatedAt: Scalars['DateTime']['output'];
+  userPersons: Array<UserPerson>;
+};
+
+
+export type UserActivitiesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ActivityOrderBy>;
+  where?: InputMaybe<ActivityFilters>;
+};
+
+
+export type UserAddressesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<AddressOrderBy>;
+  where?: InputMaybe<AddressFilters>;
+};
+
+
+export type UserContactInfosArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ContactInfoOrderBy>;
+  where?: InputMaybe<ContactInfoFilters>;
+};
+
+
+export type UserImportantDatesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<ImportantDateOrderBy>;
+  where?: InputMaybe<ImportantDateFilters>;
+};
+
+
+export type UserInteractionsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<InteractionOrderBy>;
+  where?: InputMaybe<InteractionFilters>;
+};
+
+
+export type UserLabelsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<LabelOrderBy>;
+  where?: InputMaybe<LabelFilters>;
+};
+
+
+export type UserNotesArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<NoteOrderBy>;
+  where?: InputMaybe<NoteFilters>;
+};
+
+
+export type UserPersonRelationshipsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<PersonRelationshipOrderBy>;
+  where?: InputMaybe<PersonRelationshipFilters>;
+};
+
+
+export type UserTasksArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<TaskOrderBy>;
+  where?: InputMaybe<TaskFilters>;
+};
+
+
+export type UserUserPersonsArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+  orderBy?: InputMaybe<UserPersonOrderBy>;
+  where?: InputMaybe<UserPersonFilters>;
+};
+
+export type UserFilters = {
+  OR?: InputMaybe<Array<UserFiltersOr>>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  email?: InputMaybe<StringFilter>;
+  id?: InputMaybe<IdFilter>;
+  name?: InputMaybe<StringFilter>;
+  passwordHash?: InputMaybe<StringFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+};
+
+export type UserFiltersOr = {
+  createdAt?: InputMaybe<DateTimeFilter>;
+  email?: InputMaybe<StringFilter>;
+  id?: InputMaybe<IdFilter>;
+  name?: InputMaybe<StringFilter>;
+  passwordHash?: InputMaybe<StringFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+};
+
+export type UserOrderBy = {
+  createdAt?: InputMaybe<InnerOrder>;
+  email?: InputMaybe<InnerOrder>;
+  id?: InputMaybe<InnerOrder>;
+  name?: InputMaybe<InnerOrder>;
+  passwordHash?: InputMaybe<InnerOrder>;
+  updatedAt?: InputMaybe<InnerOrder>;
+};
+
+export type UserPerson = {
+  __typename: 'UserPerson';
+  avatarPath: Maybe<Scalars['String']['output']>;
+  contactFrequency: Maybe<Scalars['String']['output']>;
+  /** DateTime */
+  createdAt: Scalars['DateTime']['output'];
+  firstMetDate: Maybe<Scalars['Date']['output']>;
+  howWeMet: Maybe<Scalars['String']['output']>;
+  person: Maybe<Person>;
+  personId: Scalars['String']['output'];
+  user: Maybe<User>;
+  userId: Scalars['String']['output'];
+};
+
+
+export type UserPersonPersonArgs = {
+  where?: InputMaybe<PersonFilters>;
+};
+
+
+export type UserPersonUserArgs = {
+  where?: InputMaybe<UserFilters>;
+};
+
+export type UserPersonFilters = {
+  OR?: InputMaybe<Array<UserPersonFiltersOr>>;
+  avatarPath?: InputMaybe<StringFilter>;
+  contactFrequency?: InputMaybe<StringFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  firstMetDate?: InputMaybe<StringFilter>;
+  howWeMet?: InputMaybe<StringFilter>;
+  personId?: InputMaybe<IdFilter>;
+  userId?: InputMaybe<IdFilter>;
+};
+
+export type UserPersonFiltersOr = {
+  avatarPath?: InputMaybe<StringFilter>;
+  contactFrequency?: InputMaybe<StringFilter>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  firstMetDate?: InputMaybe<StringFilter>;
+  howWeMet?: InputMaybe<StringFilter>;
+  personId?: InputMaybe<IdFilter>;
+  userId?: InputMaybe<IdFilter>;
+};
+
+export type UserPersonOrderBy = {
+  avatarPath?: InputMaybe<InnerOrder>;
+  contactFrequency?: InputMaybe<InnerOrder>;
+  createdAt?: InputMaybe<InnerOrder>;
+  firstMetDate?: InputMaybe<InnerOrder>;
+  howWeMet?: InputMaybe<InnerOrder>;
+  personId?: InputMaybe<InnerOrder>;
+  userId?: InputMaybe<InnerOrder>;
 };
 
 export type Person_ActivityListFragment = { __typename: 'Person', id: string, activities: Array<{ __typename: 'Activity', id: string, title: string, description: string | null, location: string | null, occurredAt: Date }> };
@@ -2145,7 +2611,7 @@ export type DeleteActivityMutation = { deleteActivities: Array<{ __typename: 'Ac
 export type AddressListFragment = { __typename: 'Person', id: string, addresses: Array<{ __typename: 'Address', id: string, type: AddressesTypeEnum, label: string | null, line1: string, line2: string | null, city: string | null, state: string | null, postalCode: string | null, country: string | null, isPrimary: boolean }> };
 
 export type CreateAddressesMutationVariables = Exact<{
-  values: Array<AddressInsertInput> | AddressInsertInput;
+  values: Array<CreateAddressInput> | CreateAddressInput;
 }>;
 
 
@@ -2410,6 +2876,14 @@ export type WeeklyReviewQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type WeeklyReviewQuery = { persons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, avatarPath: string | null, contactFrequency: string | null, createdAt: Date, importantDates: Array<{ __typename: 'ImportantDate', id: string, name: string, date: Date, recurrence: string | null }>, tasks: Array<{ __typename: 'Task', id: string, title: string, dueAt: Date | null, completedAt: Date | null, personId: string }>, interactions: Array<{ __typename: 'Interaction', occurredAt: Date }> }> };
 
+export type LoginMutationVariables = Exact<{
+  email: Scalars['String']['input'];
+  password: Scalars['String']['input'];
+}>;
+
+
+export type LoginMutation = { login: { __typename: 'AuthPayload', token: string, userId: string } };
+
 export type GetNetworkDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -2428,7 +2902,7 @@ export type GetPersonDetailQueryVariables = Exact<{
 }>;
 
 
-export type GetPersonDetailQuery = { persons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string, avatarPath: string | null, contactFrequency: string | null, howWeMet: string | null, firstMetDate: Date | null, createdAt: Date, updatedAt: Date, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }>, importantDates: Array<{ __typename: 'ImportantDate', id: string, name: string, description: string | null, date: Date, recurrence: string | null, milestoneType: ImportantDatesMilestoneTypeEnum | null, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }> }>, notes: Array<{ __typename: 'Note', id: string, body: string, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }>, mentions: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string }> }>, mentionedInNotes: Array<{ __typename: 'Note', id: string, body: string, person: { __typename: 'Person', id: string, firstName: string, lastName: string } | null }>, interactions: Array<{ __typename: 'Interaction', id: string, personId: string, channel: string, occurredAt: Date, sentiment: string | null, note: string | null, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }> }>, relationships: Array<{ __typename: 'PersonRelationshipEntry', id: string, type: string, relatedPersonId: string, relatedPersonFirstName: string, relatedPersonLastName: string }>, activities: Array<{ __typename: 'Activity', id: string, title: string, description: string | null, location: string | null, occurredAt: Date }>, tasks: Array<{ __typename: 'Task', id: string, title: string, notes: string | null, dueAt: Date | null, completedAt: Date | null, createdAt: Date }>, contactInfos: Array<{ __typename: 'ContactInfo', id: string, type: ContactInfosTypeEnum, value: string, label: string | null, isPrimary: boolean }>, addresses: Array<{ __typename: 'Address', id: string, type: AddressesTypeEnum, label: string | null, line1: string, line2: string | null, city: string | null, state: string | null, postalCode: string | null, country: string | null, isPrimary: boolean }> }> };
+export type GetPersonDetailQuery = { persons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string, avatarPath: string | null, contactFrequency: string | null, howWeMet: string | null, firstMetDate: string | null, createdAt: Date, updatedAt: Date, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }>, importantDates: Array<{ __typename: 'ImportantDate', id: string, name: string, description: string | null, date: Date, recurrence: string | null, milestoneType: ImportantDatesMilestoneTypeEnum | null, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }> }>, notes: Array<{ __typename: 'Note', id: string, body: string, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }>, mentions: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string }> }>, mentionedInNotes: Array<{ __typename: 'Note', id: string, body: string, person: { __typename: 'Person', id: string, firstName: string, lastName: string } | null }>, interactions: Array<{ __typename: 'Interaction', id: string, personId: string, channel: string, occurredAt: Date, sentiment: string | null, note: string | null, labels: Array<{ __typename: 'Label', id: string, label: string, color: string }> }>, relationships: Array<{ __typename: 'PersonRelationshipEntry', id: string, type: string, relatedPersonId: string, relatedPersonFirstName: string, relatedPersonLastName: string }>, activities: Array<{ __typename: 'Activity', id: string, title: string, description: string | null, location: string | null, occurredAt: Date }>, tasks: Array<{ __typename: 'Task', id: string, title: string, notes: string | null, dueAt: Date | null, completedAt: Date | null, createdAt: Date }>, contactInfos: Array<{ __typename: 'ContactInfo', id: string, type: ContactInfosTypeEnum, value: string, label: string | null, isPrimary: boolean }>, addresses: Array<{ __typename: 'Address', id: string, type: AddressesTypeEnum, label: string | null, line1: string, line2: string | null, city: string | null, state: string | null, postalCode: string | null, country: string | null, isPrimary: boolean }> }> };
 
 export type GetAllPersonsForDetailQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -2476,13 +2950,20 @@ export type UpdatePersonMutationVariables = Exact<{
   firstName: Scalars['String']['input'];
   lastName: Scalars['String']['input'];
   email: Scalars['String']['input'];
+}>;
+
+
+export type UpdatePersonMutation = { updatePersons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string }> };
+
+export type UpdateMyPersonContextMutationVariables = Exact<{
+  personId: Scalars['String']['input'];
   contactFrequency?: InputMaybe<Scalars['String']['input']>;
   howWeMet?: InputMaybe<Scalars['String']['input']>;
   firstMetDate?: InputMaybe<Scalars['String']['input']>;
 }>;
 
 
-export type UpdatePersonMutation = { updatePersons: Array<{ __typename: 'Person', id: string, firstName: string, lastName: string, email: string, contactFrequency: string | null, howWeMet: string | null, firstMetDate: Date | null }> };
+export type UpdateMyPersonContextMutation = { updateMyPersonContext: { __typename: 'UserPerson', personId: string, contactFrequency: string | null, howWeMet: string | null, firstMetDate: Date | null, avatarPath: string | null } };
 
 export type AttachLabelToPersonEditMutationVariables = Exact<{
   personId: Scalars['String']['input'];
@@ -2530,11 +3011,20 @@ export type GetLabelsForPersonFormQueryVariables = Exact<{ [key: string]: never;
 export type GetLabelsForPersonFormQuery = { labels: Array<{ __typename: 'Label', id: string, color: string, label: string }> };
 
 export type CreatePersonMutationVariables = Exact<{
-  values: PersonInsertInput;
+  values: CreatePersonInput;
 }>;
 
 
 export type CreatePersonMutation = { createPerson: { __typename: 'Person', id: string } | null };
+
+export type RegisterMutationVariables = Exact<{
+  email: Scalars['String']['input'];
+  name: Scalars['String']['input'];
+  password: Scalars['String']['input'];
+}>;
+
+
+export type RegisterMutation = { register: { __typename: 'AuthPayload', token: string, userId: string } };
 
 export type ExportPersonsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -2559,7 +3049,7 @@ export type GetTagsQueryVariables = Exact<{ [key: string]: never; }>;
 export type GetTagsQuery = { labels: Array<{ __typename: 'Label', id: string, color: string, label: string }> };
 
 export type CreateTagMutationVariables = Exact<{
-  values: LabelInsertInput;
+  values: CreateLabelInput;
 }>;
 
 
@@ -2600,7 +3090,7 @@ export const Tag_ListFragmentDoc = {"kind":"Document","definitions":[{"kind":"Fr
 export const Person_TasksFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Person_Tasks"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Person"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"tasks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"notes"}},{"kind":"Field","name":{"kind":"Name","value":"dueAt"}},{"kind":"Field","name":{"kind":"Name","value":"completedAt"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}}]}}]}}]} as unknown as DocumentNode<Person_TasksFragment, unknown>;
 export const CreateActivityDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateActivity"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"personId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"title"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"occurredAt"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"DateTime"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"location"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"description"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createActivity"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"values"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"personId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"personId"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"title"},"value":{"kind":"Variable","name":{"kind":"Name","value":"title"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"occurredAt"},"value":{"kind":"Variable","name":{"kind":"Name","value":"occurredAt"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"location"},"value":{"kind":"Variable","name":{"kind":"Name","value":"location"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"description"},"value":{"kind":"Variable","name":{"kind":"Name","value":"description"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"personId"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}},{"kind":"Field","name":{"kind":"Name","value":"location"}},{"kind":"Field","name":{"kind":"Name","value":"description"}}]}}]}}]} as unknown as DocumentNode<CreateActivityMutation, CreateActivityMutationVariables>;
 export const DeleteActivityDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"DeleteActivity"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"deleteActivities"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<DeleteActivityMutation, DeleteActivityMutationVariables>;
-export const CreateAddressesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateAddresses"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"values"}},"type":{"kind":"NonNullType","type":{"kind":"ListType","type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"AddressInsertInput"}}}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createAddresses"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"values"},"value":{"kind":"Variable","name":{"kind":"Name","value":"values"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"line1"}},{"kind":"Field","name":{"kind":"Name","value":"line2"}},{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"state"}},{"kind":"Field","name":{"kind":"Name","value":"postalCode"}},{"kind":"Field","name":{"kind":"Name","value":"country"}},{"kind":"Field","name":{"kind":"Name","value":"isPrimary"}}]}}]}}]} as unknown as DocumentNode<CreateAddressesMutation, CreateAddressesMutationVariables>;
+export const CreateAddressesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateAddresses"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"values"}},"type":{"kind":"NonNullType","type":{"kind":"ListType","type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"CreateAddressInput"}}}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createAddresses"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"values"},"value":{"kind":"Variable","name":{"kind":"Name","value":"values"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"line1"}},{"kind":"Field","name":{"kind":"Name","value":"line2"}},{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"state"}},{"kind":"Field","name":{"kind":"Name","value":"postalCode"}},{"kind":"Field","name":{"kind":"Name","value":"country"}},{"kind":"Field","name":{"kind":"Name","value":"isPrimary"}}]}}]}}]} as unknown as DocumentNode<CreateAddressesMutation, CreateAddressesMutationVariables>;
 export const DeleteAddressesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"DeleteAddresses"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"deleteAddresses"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<DeleteAddressesMutation, DeleteAddressesMutationVariables>;
 export const CreateContactInfoDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateContactInfo"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"personId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"type"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ContactInfosTypeEnum"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"value"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"label"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"isPrimary"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Boolean"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createContactInfo"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"values"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"personId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"personId"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"type"},"value":{"kind":"Variable","name":{"kind":"Name","value":"type"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"value"},"value":{"kind":"Variable","name":{"kind":"Name","value":"value"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"label"},"value":{"kind":"Variable","name":{"kind":"Name","value":"label"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"isPrimary"},"value":{"kind":"Variable","name":{"kind":"Name","value":"isPrimary"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"personId"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"value"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"isPrimary"}}]}}]}}]} as unknown as DocumentNode<CreateContactInfoMutation, CreateContactInfoMutationVariables>;
 export const DeleteContactInfoDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"DeleteContactInfo"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"deleteContactInfos"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<DeleteContactInfoMutation, DeleteContactInfoMutationVariables>;
@@ -2633,6 +3123,7 @@ export const CreateTaskDocument = {"kind":"Document","definitions":[{"kind":"Ope
 export const UpdateTaskDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"UpdateTask"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"completedAt"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"DateTime"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateTasks"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"set"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"completedAt"},"value":{"kind":"Variable","name":{"kind":"Name","value":"completedAt"}}}]}},{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"completedAt"}}]}}]}}]} as unknown as DocumentNode<UpdateTaskMutation, UpdateTaskMutationVariables>;
 export const DeleteTaskDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"DeleteTask"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"deleteTasks"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<DeleteTaskMutation, DeleteTaskMutationVariables>;
 export const WeeklyReviewDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"WeeklyReview"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"persons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"contactFrequency"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"importantDates"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"recurrence"}}]}},{"kind":"Field","name":{"kind":"Name","value":"tasks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"dueAt"}},{"kind":"Field","name":{"kind":"Name","value":"completedAt"}},{"kind":"Field","name":{"kind":"Name","value":"personId"}}]}},{"kind":"Field","name":{"kind":"Name","value":"interactions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"occurredAt"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"direction"},"value":{"kind":"EnumValue","value":"desc"}},{"kind":"ObjectField","name":{"kind":"Name","value":"priority"},"value":{"kind":"IntValue","value":"1"}}]}}]}},{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"1"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}}]}}]}}]}}]} as unknown as DocumentNode<WeeklyReviewQuery, WeeklyReviewQueryVariables>;
+export const LoginDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"Login"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"email"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"password"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"login"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"email"},"value":{"kind":"Variable","name":{"kind":"Name","value":"email"}}},{"kind":"Argument","name":{"kind":"Name","value":"password"},"value":{"kind":"Variable","name":{"kind":"Name","value":"password"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"token"}},{"kind":"Field","name":{"kind":"Name","value":"userId"}}]}}]}}]} as unknown as DocumentNode<LoginMutation, LoginMutationVariables>;
 export const GetNetworkDataDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetNetworkData"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"persons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"relationshipsFrom"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"toPersonId"}},{"kind":"Field","name":{"kind":"Name","value":"type"}}]}}]}}]}}]} as unknown as DocumentNode<GetNetworkDataQuery, GetNetworkDataQueryVariables>;
 export const GetImportantDateDetailDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetImportantDateDetail"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"dateId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"personId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"importantDates"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"dateId"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"recurrence"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"notes"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"personId"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"personId"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}}]}}]} as unknown as DocumentNode<GetImportantDateDetailQuery, GetImportantDateDetailQueryVariables>;
 export const GetPersonDetailDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetPersonDetail"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"persons"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"contactFrequency"}},{"kind":"Field","name":{"kind":"Name","value":"howWeMet"}},{"kind":"Field","name":{"kind":"Name","value":"firstMetDate"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"importantDates"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"recurrence"}},{"kind":"Field","name":{"kind":"Name","value":"milestoneType"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"notes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"mentions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"mentionedInNotes"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"body"}},{"kind":"Field","name":{"kind":"Name","value":"person"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"interactions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"occurredAt"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"direction"},"value":{"kind":"EnumValue","value":"desc"}},{"kind":"ObjectField","name":{"kind":"Name","value":"priority"},"value":{"kind":"IntValue","value":"1"}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"personId"}},{"kind":"Field","name":{"kind":"Name","value":"channel"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}},{"kind":"Field","name":{"kind":"Name","value":"sentiment"}},{"kind":"Field","name":{"kind":"Name","value":"note"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"relationships"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonId"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonFirstName"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonLastName"}}]}},{"kind":"Field","name":{"kind":"Name","value":"activities"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"location"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}}]}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"Person_ActivityList"}},{"kind":"Field","name":{"kind":"Name","value":"tasks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"notes"}},{"kind":"Field","name":{"kind":"Name","value":"dueAt"}},{"kind":"Field","name":{"kind":"Name","value":"completedAt"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}}]}},{"kind":"Field","name":{"kind":"Name","value":"contactInfos"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"value"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"isPrimary"}}]}},{"kind":"Field","name":{"kind":"Name","value":"addresses"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"line1"}},{"kind":"Field","name":{"kind":"Name","value":"line2"}},{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"state"}},{"kind":"Field","name":{"kind":"Name","value":"postalCode"}},{"kind":"Field","name":{"kind":"Name","value":"country"}},{"kind":"Field","name":{"kind":"Name","value":"isPrimary"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Person_ActivityList"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Person"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"activities"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"location"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}}]}}]}}]} as unknown as DocumentNode<GetPersonDetailQuery, GetPersonDetailQueryVariables>;
@@ -2641,19 +3132,21 @@ export const GetAllLabelsForDetailDocument = {"kind":"Document","definitions":[{
 export const DeleteImportantDateDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"DeleteImportantDate"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"deleteImportantDates"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<DeleteImportantDateMutation, DeleteImportantDateMutationVariables>;
 export const CreateImportantDateDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateImportantDate"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"name"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"date"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"personId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"description"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"recurrence"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"milestoneType"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ImportantDatesMilestoneTypeEnum"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createImportantDate"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"values"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"name"},"value":{"kind":"Variable","name":{"kind":"Name","value":"name"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"date"},"value":{"kind":"Variable","name":{"kind":"Name","value":"date"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"personId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"personId"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"description"},"value":{"kind":"Variable","name":{"kind":"Name","value":"description"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"recurrence"},"value":{"kind":"Variable","name":{"kind":"Name","value":"recurrence"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"milestoneType"},"value":{"kind":"Variable","name":{"kind":"Name","value":"milestoneType"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"recurrence"}},{"kind":"Field","name":{"kind":"Name","value":"milestoneType"}},{"kind":"Field","name":{"kind":"Name","value":"personId"}}]}}]}}]} as unknown as DocumentNode<CreateImportantDateMutation, CreateImportantDateMutationVariables>;
 export const UpdateImportantDateDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"UpdateImportantDate"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"name"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"date"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"description"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"recurrence"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"milestoneType"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ImportantDatesMilestoneTypeEnum"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateImportantDates"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"set"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"name"},"value":{"kind":"Variable","name":{"kind":"Name","value":"name"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"date"},"value":{"kind":"Variable","name":{"kind":"Name","value":"date"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"description"},"value":{"kind":"Variable","name":{"kind":"Name","value":"description"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"recurrence"},"value":{"kind":"Variable","name":{"kind":"Name","value":"recurrence"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"milestoneType"},"value":{"kind":"Variable","name":{"kind":"Name","value":"milestoneType"}}}]}},{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"recurrence"}},{"kind":"Field","name":{"kind":"Name","value":"milestoneType"}}]}}]}}]} as unknown as DocumentNode<UpdateImportantDateMutation, UpdateImportantDateMutationVariables>;
-export const UpdatePersonDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"UpdatePerson"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"firstName"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"lastName"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"email"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"contactFrequency"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"howWeMet"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"firstMetDate"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updatePersons"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"set"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"firstName"},"value":{"kind":"Variable","name":{"kind":"Name","value":"firstName"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"lastName"},"value":{"kind":"Variable","name":{"kind":"Name","value":"lastName"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"email"},"value":{"kind":"Variable","name":{"kind":"Name","value":"email"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"contactFrequency"},"value":{"kind":"Variable","name":{"kind":"Name","value":"contactFrequency"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"howWeMet"},"value":{"kind":"Variable","name":{"kind":"Name","value":"howWeMet"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"firstMetDate"},"value":{"kind":"Variable","name":{"kind":"Name","value":"firstMetDate"}}}]}},{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"contactFrequency"}},{"kind":"Field","name":{"kind":"Name","value":"howWeMet"}},{"kind":"Field","name":{"kind":"Name","value":"firstMetDate"}}]}}]}}]} as unknown as DocumentNode<UpdatePersonMutation, UpdatePersonMutationVariables>;
+export const UpdatePersonDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"UpdatePerson"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"firstName"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"lastName"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"email"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updatePersons"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"set"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"firstName"},"value":{"kind":"Variable","name":{"kind":"Name","value":"firstName"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"lastName"},"value":{"kind":"Variable","name":{"kind":"Name","value":"lastName"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"email"},"value":{"kind":"Variable","name":{"kind":"Name","value":"email"}}}]}},{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}}]}}]}}]} as unknown as DocumentNode<UpdatePersonMutation, UpdatePersonMutationVariables>;
+export const UpdateMyPersonContextDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"UpdateMyPersonContext"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"personId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"contactFrequency"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"howWeMet"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"firstMetDate"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateMyPersonContext"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"personId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"personId"}}},{"kind":"Argument","name":{"kind":"Name","value":"contactFrequency"},"value":{"kind":"Variable","name":{"kind":"Name","value":"contactFrequency"}}},{"kind":"Argument","name":{"kind":"Name","value":"howWeMet"},"value":{"kind":"Variable","name":{"kind":"Name","value":"howWeMet"}}},{"kind":"Argument","name":{"kind":"Name","value":"firstMetDate"},"value":{"kind":"Variable","name":{"kind":"Name","value":"firstMetDate"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"personId"}},{"kind":"Field","name":{"kind":"Name","value":"contactFrequency"}},{"kind":"Field","name":{"kind":"Name","value":"howWeMet"}},{"kind":"Field","name":{"kind":"Name","value":"firstMetDate"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}}]}}]}}]} as unknown as DocumentNode<UpdateMyPersonContextMutation, UpdateMyPersonContextMutationVariables>;
 export const AttachLabelToPersonEditDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"AttachLabelToPersonEdit"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"personId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"labelId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createPersonLabel"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"values"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"personId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"personId"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"labelId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"labelId"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"personId"}},{"kind":"Field","name":{"kind":"Name","value":"labelId"}}]}}]}}]} as unknown as DocumentNode<AttachLabelToPersonEditMutation, AttachLabelToPersonEditMutationVariables>;
 export const DetachLabelFromPersonEditDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"DetachLabelFromPersonEdit"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"personId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"labelId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"deletePersonLabels"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"personId"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"personId"}}}]}},{"kind":"ObjectField","name":{"kind":"Name","value":"labelId"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"labelId"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"personId"}},{"kind":"Field","name":{"kind":"Name","value":"labelId"}}]}}]}}]} as unknown as DocumentNode<DetachLabelFromPersonEditMutation, DetachLabelFromPersonEditMutationVariables>;
 export const DeletePersonDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"DeletePerson"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"deletePersons"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<DeletePersonMutation, DeletePersonMutationVariables>;
 export const GetPersonTimelineDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetPersonTimeline"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"persons"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"interactions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"occurredAt"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"direction"},"value":{"kind":"EnumValue","value":"desc"}},{"kind":"ObjectField","name":{"kind":"Name","value":"priority"},"value":{"kind":"IntValue","value":"1"}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"channel"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}},{"kind":"Field","name":{"kind":"Name","value":"sentiment"}},{"kind":"Field","name":{"kind":"Name","value":"note"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"importantDates"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"milestoneType"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"activities"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}}]}}]}}]}}]} as unknown as DocumentNode<GetPersonTimelineQuery, GetPersonTimelineQueryVariables>;
 export const GetPersonsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetPersons"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"offset"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"where"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"PersonFilters"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"orderBy"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"PersonOrderBy"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"persons"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}},{"kind":"Argument","name":{"kind":"Name","value":"offset"},"value":{"kind":"Variable","name":{"kind":"Name","value":"offset"}}},{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"Variable","name":{"kind":"Name","value":"where"}}},{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"Variable","name":{"kind":"Name","value":"orderBy"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"interactions"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"IntValue","value":"1"}},{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"occurredAt"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"direction"},"value":{"kind":"EnumValue","value":"desc"}},{"kind":"ObjectField","name":{"kind":"Name","value":"priority"},"value":{"kind":"IntValue","value":"1"}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}}]}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"Person_List"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Person_Relationships"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Person"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"relationships"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonId"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonFirstName"}},{"kind":"Field","name":{"kind":"Name","value":"relatedPersonLastName"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Person_List"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Person"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarPath"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"updatedAt"}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}},{"kind":"Field","name":{"kind":"Name","value":"importantDates"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"date"}}]}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"Person_Relationships"}}]}}]} as unknown as DocumentNode<GetPersonsQuery, GetPersonsQueryVariables>;
 export const GetLabelsForPersonFormDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetLabelsForPersonForm"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]}}]} as unknown as DocumentNode<GetLabelsForPersonFormQuery, GetLabelsForPersonFormQueryVariables>;
-export const CreatePersonDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreatePerson"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"values"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"PersonInsertInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createPerson"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"values"},"value":{"kind":"Variable","name":{"kind":"Name","value":"values"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<CreatePersonMutation, CreatePersonMutationVariables>;
+export const CreatePersonDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreatePerson"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"values"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"CreatePersonInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createPerson"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"values"},"value":{"kind":"Variable","name":{"kind":"Name","value":"values"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<CreatePersonMutation, CreatePersonMutationVariables>;
+export const RegisterDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"Register"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"email"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"name"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"password"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"register"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"email"},"value":{"kind":"Variable","name":{"kind":"Name","value":"email"}}},{"kind":"Argument","name":{"kind":"Name","value":"name"},"value":{"kind":"Variable","name":{"kind":"Name","value":"name"}}},{"kind":"Argument","name":{"kind":"Name","value":"password"},"value":{"kind":"Variable","name":{"kind":"Name","value":"password"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"token"}},{"kind":"Field","name":{"kind":"Name","value":"userId"}}]}}]}}]} as unknown as DocumentNode<RegisterMutation, RegisterMutationVariables>;
 export const ExportPersonsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ExportPersons"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"persons"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"lastName"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"direction"},"value":{"kind":"EnumValue","value":"asc"}},{"kind":"ObjectField","name":{"kind":"Name","value":"priority"},"value":{"kind":"IntValue","value":"1"}}]}},{"kind":"ObjectField","name":{"kind":"Name","value":"firstName"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"direction"},"value":{"kind":"EnumValue","value":"asc"}},{"kind":"ObjectField","name":{"kind":"Name","value":"priority"},"value":{"kind":"IntValue","value":"2"}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"contactInfos"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"value"}},{"kind":"Field","name":{"kind":"Name","value":"isPrimary"}}]}},{"kind":"Field","name":{"kind":"Name","value":"addresses"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"line1"}},{"kind":"Field","name":{"kind":"Name","value":"line2"}},{"kind":"Field","name":{"kind":"Name","value":"city"}},{"kind":"Field","name":{"kind":"Name","value":"state"}},{"kind":"Field","name":{"kind":"Name","value":"postalCode"}},{"kind":"Field","name":{"kind":"Name","value":"country"}}]}},{"kind":"Field","name":{"kind":"Name","value":"importantDates"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"name"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"StringValue","value":"Birthday","block":false}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"recurrence"}}]}},{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}}]}}]} as unknown as DocumentNode<ExportPersonsQuery, ExportPersonsQueryVariables>;
 export const GetAllEventsForExportDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetAllEventsForExport"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"interactions"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"channel"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}},{"kind":"Field","name":{"kind":"Name","value":"note"}},{"kind":"Field","name":{"kind":"Name","value":"person"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"importantDates"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"recurrence"}},{"kind":"Field","name":{"kind":"Name","value":"milestoneType"}},{"kind":"Field","name":{"kind":"Name","value":"person"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"activities"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"location"}},{"kind":"Field","name":{"kind":"Name","value":"occurredAt"}},{"kind":"Field","name":{"kind":"Name","value":"person"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}}]}}]}}]}}]} as unknown as DocumentNode<GetAllEventsForExportQuery, GetAllEventsForExportQueryVariables>;
 export const ImportGoogleContactsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"ImportGoogleContacts"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"csv"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"importGoogleContacts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"csv"},"value":{"kind":"Variable","name":{"kind":"Name","value":"csv"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"imported"}},{"kind":"Field","name":{"kind":"Name","value":"merged"}},{"kind":"Field","name":{"kind":"Name","value":"skipped"}},{"kind":"Field","name":{"kind":"Name","value":"errors"}}]}}]}}]} as unknown as DocumentNode<ImportGoogleContactsMutation, ImportGoogleContactsMutationVariables>;
 export const GetTagsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetTags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"labels"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"Label_List"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Label_List"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Label"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]} as unknown as DocumentNode<GetTagsQuery, GetTagsQueryVariables>;
-export const CreateTagDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateTag"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"values"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"LabelInsertInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createLabel"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"values"},"value":{"kind":"Variable","name":{"kind":"Name","value":"values"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"Label_List"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Label_List"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Label"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]} as unknown as DocumentNode<CreateTagMutation, CreateTagMutationVariables>;
+export const CreateTagDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"CreateTag"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"values"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"CreateLabelInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createLabel"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"values"},"value":{"kind":"Variable","name":{"kind":"Name","value":"values"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"FragmentSpread","name":{"kind":"Name","value":"Label_List"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"Label_List"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Label"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"color"}},{"kind":"Field","name":{"kind":"Name","value":"label"}}]}}]} as unknown as DocumentNode<CreateTagMutation, CreateTagMutationVariables>;
 export const DeleteTagDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"DeleteTag"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"deleteLabels"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]} as unknown as DocumentNode<DeleteTagMutation, DeleteTagMutationVariables>;
 export const UpdateTagDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"UpdateTag"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"label"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"color"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateLabels"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"set"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"label"},"value":{"kind":"Variable","name":{"kind":"Name","value":"label"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"color"},"value":{"kind":"Variable","name":{"kind":"Name","value":"color"}}}]}},{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}}]} as unknown as DocumentNode<UpdateTagMutation, UpdateTagMutationVariables>;
 export const MergeLabelIntoDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"MergeLabelInto"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"keepId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"deleteId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"mergeLabelInto"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"keepId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"keepId"}}},{"kind":"Argument","name":{"kind":"Name","value":"deleteId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"deleteId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"label"}},{"kind":"Field","name":{"kind":"Name","value":"color"}}]}}]}}]} as unknown as DocumentNode<MergeLabelIntoMutation, MergeLabelIntoMutationVariables>;

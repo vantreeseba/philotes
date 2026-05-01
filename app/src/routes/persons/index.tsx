@@ -62,7 +62,7 @@ const GET_LABELS = graphql(`
 `);
 
 const CREATE_PERSON = graphql(`
-  mutation CreatePerson($values: PersonInsertInput!) {
+  mutation CreatePerson($values: CreatePersonInput!) {
     createPerson(values: $values) {
       id
     }
@@ -251,7 +251,8 @@ function PersonsPage() {
   };
 
   const handleSubmit = async ({ person }: PersonFormValue): Promise<void> => {
-    await createPerson({ variables: { values: person } });
+    const { firstName, lastName, email } = person;
+    await createPerson({ variables: { values: { firstName, lastName, email } } });
     setDialogOpen(false);
   };
 

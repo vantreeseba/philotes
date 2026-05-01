@@ -9,7 +9,9 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as RegisterRouteImport } from './routes/register'
 import { Route as NetworkRouteImport } from './routes/network'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TagsIndexRouteImport } from './routes/tags/index'
 import { Route as SettingsIndexRouteImport } from './routes/settings/index'
@@ -19,9 +21,19 @@ import { Route as PersonsIdIndexRouteImport } from './routes/persons/$id/index'
 import { Route as PersonsIdTimelineRouteImport } from './routes/persons/$id/timeline'
 import { Route as PersonsIdDatesDateIdRouteImport } from './routes/persons/$id/dates/$dateId'
 
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NetworkRoute = NetworkRouteImport.update({
   id: '/network',
   path: '/network',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -67,7 +79,9 @@ const PersonsIdDatesDateIdRoute = PersonsIdDatesDateIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
   '/network': typeof NetworkRoute
+  '/register': typeof RegisterRoute
   '/persons/$id': typeof PersonsIdRouteWithChildren
   '/persons/': typeof PersonsIndexRoute
   '/settings/': typeof SettingsIndexRoute
@@ -78,7 +92,9 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
   '/network': typeof NetworkRoute
+  '/register': typeof RegisterRoute
   '/persons': typeof PersonsIndexRoute
   '/settings': typeof SettingsIndexRoute
   '/tags': typeof TagsIndexRoute
@@ -89,7 +105,9 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
   '/network': typeof NetworkRoute
+  '/register': typeof RegisterRoute
   '/persons/$id': typeof PersonsIdRouteWithChildren
   '/persons/': typeof PersonsIndexRoute
   '/settings/': typeof SettingsIndexRoute
@@ -102,7 +120,9 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/login'
     | '/network'
+    | '/register'
     | '/persons/$id'
     | '/persons/'
     | '/settings/'
@@ -113,7 +133,9 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/login'
     | '/network'
+    | '/register'
     | '/persons'
     | '/settings'
     | '/tags'
@@ -123,7 +145,9 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/login'
     | '/network'
+    | '/register'
     | '/persons/$id'
     | '/persons/'
     | '/settings/'
@@ -135,7 +159,9 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LoginRoute: typeof LoginRoute
   NetworkRoute: typeof NetworkRoute
+  RegisterRoute: typeof RegisterRoute
   PersonsIdRoute: typeof PersonsIdRouteWithChildren
   PersonsIndexRoute: typeof PersonsIndexRoute
   SettingsIndexRoute: typeof SettingsIndexRoute
@@ -144,11 +170,25 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/network': {
       id: '/network'
       path: '/network'
       fullPath: '/network'
       preLoaderRoute: typeof NetworkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -228,7 +268,9 @@ const PersonsIdRouteWithChildren = PersonsIdRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LoginRoute: LoginRoute,
   NetworkRoute: NetworkRoute,
+  RegisterRoute: RegisterRoute,
   PersonsIdRoute: PersonsIdRouteWithChildren,
   PersonsIndexRoute: PersonsIndexRoute,
   SettingsIndexRoute: SettingsIndexRoute,

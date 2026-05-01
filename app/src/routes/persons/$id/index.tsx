@@ -1135,11 +1135,7 @@ function PersonDetailPage() {
                 labelIds: person.labels.map((l) => l.id),
                 contactFrequency: person.contactFrequency,
                 howWeMet: person.howWeMet,
-                firstMetDate: person.firstMetDate
-                  ? person.firstMetDate instanceof Date
-                    ? person.firstMetDate.toISOString().slice(0, 10)
-                    : person.firstMetDate
-                  : null,
+                firstMetDate: person.firstMetDate ?? null,
               }}
               submitLabel="Save Changes"
               onSubmit={handleEditPerson}

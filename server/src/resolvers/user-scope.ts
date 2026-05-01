@@ -8,16 +8,6 @@ import { requireAuth } from './auth.ts';
 // Adds user_persons operations and a me query to the existing schema.
 
 const USER_SCOPE_SDL = parse(`
-  type UserPerson {
-    userId: String!
-    personId: String!
-    contactFrequency: String
-    howWeMet: String
-    firstMetDate: String
-    avatarPath: String
-    createdAt: String!
-  }
-
   # Re-expose user-specific fields on Person so frontend queries stay unchanged.
   extend type Person {
     avatarPath: String

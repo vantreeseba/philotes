@@ -6,6 +6,8 @@ export const scalarTypePolicies = {
   ContactInfo: { fields: { createdAt: dateTimeTypePolicy } },
   ImportantDate: { fields: { date: dateTypePolicy } },
   Interaction: { fields: { occurredAt: dateTimeTypePolicy } },
-  Person: { fields: { createdAt: dateTimeTypePolicy, firstMetDate: dateTypePolicy, updatedAt: dateTimeTypePolicy } },
+  Person: { fields: { createdAt: dateTimeTypePolicy, updatedAt: dateTimeTypePolicy } },
   Task: { fields: { completedAt: dateTimeTypePolicy, createdAt: dateTimeTypePolicy, dueAt: dateTimeTypePolicy } },
+  User: { fields: { createdAt: dateTimeTypePolicy, updatedAt: dateTimeTypePolicy } },
+  UserPerson: { fields: { createdAt: dateTimeTypePolicy, firstMetDate: dateTypePolicy } },
 };
