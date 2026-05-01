@@ -1,3 +1,10 @@
+## [1.4.4](https://github.com/vantreeseba/philotes/compare/v1.4.3...v1.4.4) (2026-05-01)
+
+
+### Bug Fixes
+
+* revert wrong GraphQL input type renames, add missing radix dep, untrack tsbuildinfo ([e54fa91](https://github.com/vantreeseba/philotes/commit/e54fa91317ccf5936ded72628ed331f4cc3d1362))
+
 ## [1.4.3](https://github.com/vantreeseba/philotes/compare/v1.4.2...v1.4.3) (2026-05-01)
 
 
