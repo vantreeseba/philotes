@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/vantreeseba/philotes/compare/v1.4.2...v1.4.3) (2026-05-01)
+
+
+### Bug Fixes
+
+* repair build after multi-tenant schema migration ([a291416](https://github.com/vantreeseba/philotes/commit/a29141656adad6810d145f9b1fb2951fec737c40))
+
 ## [1.4.2](https://github.com/vantreeseba/philotes/compare/v1.4.1...v1.4.2) (2026-05-01)
 
 
