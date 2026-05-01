@@ -1,5 +1,8 @@
 import { faker } from '@faker-js/faker';
-import { db } from './index.ts';
+import { db as _db } from './index.ts';
+
+// biome-ignore lint/suspicious/noExplicitAny: seed script — union db type is runtime-safe
+const db = _db as any;
 import {
   activities,
   activityTags,
