@@ -133,6 +133,14 @@ npm run db:push          # Push schema directly to DB (dev only)
 npm run db:studio        # Open Drizzle Studio
 ```
 
+### Git
+
+Use merge instead of rebase when integrating remote changes:
+
+```bash
+git pull --no-rebase
+```
+
 ### Worktrees
 
 When working in a git worktree, run the following command to install dependencies
