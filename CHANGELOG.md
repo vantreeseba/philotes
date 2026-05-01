@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/vantreeseba/philotes/compare/v1.5.0...v1.5.1) (2026-05-01)
+
+
+### Bug Fixes
+
+* SSL in production for Postgres, fix drizzle-orm 1.0 beta compat, restore correct input type names ([13decb2](https://github.com/vantreeseba/philotes/commit/13decb25867ec66cf494e728093d12e0123f1a4f))
+
 # [1.5.0](https://github.com/vantreeseba/philotes/compare/v1.4.4...v1.5.0) (2026-05-01)
 
 
