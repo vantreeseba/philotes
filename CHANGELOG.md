@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/vantreeseba/philotes/compare/v1.4.4...v1.5.0) (2026-05-01)
+
+
+### Features
+
+* support full PostgreSQL alongside PGlite via DATABASE_URL ([b985d98](https://github.com/vantreeseba/philotes/commit/b985d981104e56d58058c71f9e6d8479a73a60f9))
+
 ## [1.4.4](https://github.com/vantreeseba/philotes/compare/v1.4.3...v1.4.4) (2026-05-01)
 
 
