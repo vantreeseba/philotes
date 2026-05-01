@@ -141,6 +141,8 @@ Use merge instead of rebase when integrating remote changes:
 git pull --no-rebase
 ```
 
+Do not add `Co-Authored-By` trailers to commit messages.
+
 ### Worktrees
 
 When working in a git worktree, run the following command to install dependencies
