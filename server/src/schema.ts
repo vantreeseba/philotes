@@ -1,5 +1,12 @@
-import { db as dbInstance } from '@philotes/db';
+import { db as dbInstance, schema as dbSchema } from '@philotes/db';
 import { buildSchema } from 'drizzle-graphql';
+
+// drizzle-orm 1.0 beta no longer stores fullSchema on the instance; inject it
+// so the drizzle-graphql fork (which reads db._.fullSchema) still works.
+if (!dbInstance._.fullSchema) {
+  // biome-ignore lint/suspicious/noExplicitAny: compatibility shim for drizzle-orm 1.0 beta
+  (dbInstance._ as any).fullSchema = dbSchema;
+}
 import { GraphQLInputObjectType, GraphQLNonNull, type GraphQLSchema } from 'graphql';
 import { applyAuthExtension } from './resolvers/auth.ts';
 import { applyImportContactsExtension } from './resolvers/import-contacts.ts';
