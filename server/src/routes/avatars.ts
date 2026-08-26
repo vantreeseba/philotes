@@ -4,13 +4,7 @@ import { db, schema as dbSchema } from '@philotes/db';
 import { and, eq } from 'drizzle-orm';
 import { Router } from 'express';
 import multer from 'multer';
-import { verifyToken } from '../resolvers/auth.ts';
-
-function extractUserId(req: import('express').Request): string | null {
-  const auth = req.headers.authorization;
-  if (!auth?.startsWith('Bearer ')) return null;
-  return verifyToken(auth.slice(7))?.userId ?? null;
-}
+import { extractUserId } from '../resolvers/auth.ts';
 
 export function createAvatarRouter(avatarDir: string) {
   const storage = multer.diskStorage({

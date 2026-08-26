@@ -1,6 +1,8 @@
-import { type DB, schema as dbSchema } from '@philotes/db';
-import { and, eq } from 'drizzle-orm';
-import { extendSchema, type GraphQLSchema, parse } from 'graphql';
+import { schema as dbSchema } from '@philotes/db';
+import { and, eq, inArray } from 'drizzle-orm';
+import { extendSchema, GraphQLError, type GraphQLSchema, parse } from 'graphql';
+import type { Context } from '../routes/graphql.ts';
+import { requireAuth } from './auth.ts';
 
 const MERGE_LABELS_SDL = `
   extend type Mutation {
@@ -38,8 +40,7 @@ async function reassignJunctionRows(
     await db
       .insert(table)
       .values({ [fkColName]: fk, labelId: keepId })
-      .onConflictDoNothing()
-      .catch(() => {});
+      .onConflictDoNothing();
 
     await db.delete(table).where(and(eq(fkCol, fk), eq(labelCol, deleteId)));
   }
@@ -54,9 +55,26 @@ export function applyMergeLabelsExtension(schema: GraphQLSchema): GraphQLSchema 
   mutationType.getFields().mergeLabelInto.resolve = async (
     _parent: unknown,
     { keepId, deleteId }: { keepId: string; deleteId: string },
-    context: { db: DB },
+    context: Context,
   ) => {
-    const { db } = context;
+    const userId = requireAuth(context);
+    // biome-ignore lint/suspicious/noExplicitAny: drizzle-orm 1.0 column type compat
+    const db = context.db as any;
+
+    const owned: Array<{ id: string }> = await db
+      .select({ id: dbSchema.labels.id })
+      .from(dbSchema.labels)
+      .where(and(inArray(dbSchema.labels.id, [keepId, deleteId]), eq(dbSchema.labels.userId, userId)));
+    const ownedIds = new Set(owned.map((l) => l.id));
+    if (!ownedIds.has(keepId) || !ownedIds.has(deleteId)) {
+      throw new GraphQLError('Label not found');
+    }
+
+    const returnKept = async () => {
+      const [kept] = await db.select().from(dbSchema.labels).where(eq(dbSchema.labels.id, keepId));
+      return kept ?? null;
+    };
+    if (keepId === deleteId) return returnKept();
 
     const junctions: JunctionDescriptor[] = [
       {
@@ -97,17 +115,17 @@ export function applyMergeLabelsExtension(schema: GraphQLSchema): GraphQLSchema 
       },
     ];
 
-    for (const junction of junctions) {
-      await reassignJunctionRows(db, junction, deleteId, keepId);
-    }
+    // biome-ignore lint/suspicious/noExplicitAny: drizzle-orm 1.0 column type compat
+    await db.transaction(async (tx: any) => {
+      for (const junction of junctions) {
+        await reassignJunctionRows(tx, junction, deleteId, keepId);
+      }
 
-    // Delete the source label — CASCADE removes any remaining junction rows
-    await db.delete(dbSchema.labels).where(eq(dbSchema.labels.id, deleteId));
+      // Delete the source label — CASCADE removes any remaining junction rows
+      await tx.delete(dbSchema.labels).where(eq(dbSchema.labels.id, deleteId));
+    });
 
-    // Return the kept label
-    const [kept] = await db.select().from(dbSchema.labels).where(eq(dbSchema.labels.id, keepId));
-
-    return kept ?? null;
+    return returnKept();
   };
 
   return extended;

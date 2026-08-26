@@ -6,9 +6,7 @@ import { applyApiKeysExtension } from './resolvers/api-keys.ts';
 import { applyAuthExtension } from './resolvers/auth.ts';
 import { applyImportContactsExtension } from './resolvers/import-contacts.ts';
 import { applyMergeLabelsExtension } from './resolvers/merge-labels.ts';
-import { applyNullListCoercion } from './resolvers/null-lists.ts';
 import { applyRelationshipsExtension } from './resolvers/relationships.ts';
-import { applyScalarResolvers } from './resolvers/scalars.ts';
 import { applyUpcomingDatesExtension } from './resolvers/upcoming-dates.ts';
 import { applyUserScopeExtensions } from './resolvers/user-scope.ts';
 
@@ -43,8 +41,6 @@ schema = makeUserIdOptionalInInputs(schema);
 schema = applyUserScopeExtensions(schema);
 schema = applyRelationshipsExtension(schema);
 schema = applyUpcomingDatesExtension(schema);
-schema = applyScalarResolvers(schema);
-schema = applyNullListCoercion(schema);
 schema = applyImportContactsExtension(schema);
 schema = applyMergeLabelsExtension(schema);
 schema = applyApiKeysExtension(schema);

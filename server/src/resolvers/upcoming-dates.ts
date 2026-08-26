@@ -1,6 +1,6 @@
 import type { DB } from '@philotes/db';
 import { schema as dbSchema } from '@philotes/db';
-import { and, eq } from 'drizzle-orm';
+import { eq } from 'drizzle-orm';
 import { extendSchema, type GraphQLObjectType, type GraphQLSchema, parse } from 'graphql';
 
 const { persons, importantDates } = dbSchema;
