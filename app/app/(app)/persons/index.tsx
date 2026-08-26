@@ -70,8 +70,8 @@ const CREATE_PERSON = graphql(`
 `);
 
 const DELETE_PERSON = graphql(`
-  mutation DeletePerson($id: String!) {
-    deletePersons(where: { id: { eq: $id } }) {
+  mutation DeletePerson($id: UUID!) {
+    deletePerson(where: { id: { eq: $id } }) {
       id
     }
   }

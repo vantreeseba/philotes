@@ -12,7 +12,7 @@ import { TagMultiSelect } from '@/components/ui/tag-multi-select';
 // ---------------------------------------------------------------------------
 
 const CREATE_NOTE = graphql(`
-  mutation CreateNote($body: String!, $personId: String!) {
+  mutation CreateNote($body: String!, $personId: UUID!) {
     createNote(values: { body: $body, personId: $personId }) {
       id
       body
@@ -22,8 +22,8 @@ const CREATE_NOTE = graphql(`
 `);
 
 const UPDATE_NOTE = graphql(`
-  mutation UpdateNote($id: String!, $body: String!) {
-    updateNotes(set: { body: $body }, where: { id: { eq: $id } }) {
+  mutation UpdateNote($id: UUID!, $body: String!) {
+    updateNote(set: { body: $body }, where: { id: { eq: $id } }) {
       id
       body
     }
@@ -31,15 +31,15 @@ const UPDATE_NOTE = graphql(`
 `);
 
 const DELETE_NOTE = graphql(`
-  mutation DeleteNote($id: String!) {
-    deleteNotes(where: { id: { eq: $id } }) {
+  mutation DeleteNote($id: UUID!) {
+    deleteNote(where: { id: { eq: $id } }) {
       id
     }
   }
 `);
 
 const ATTACH_NOTE_TAG = graphql(`
-  mutation AttachTagToNote($noteId: String!, $labelId: String!) {
+  mutation AttachTagToNote($noteId: UUID!, $labelId: UUID!) {
     createNoteTag(values: { noteId: $noteId, labelId: $labelId }) {
       noteId
       labelId
@@ -48,8 +48,8 @@ const ATTACH_NOTE_TAG = graphql(`
 `);
 
 const DETACH_NOTE_TAG = graphql(`
-  mutation DetachTagFromNote($noteId: String!, $labelId: String!) {
-    deleteNoteTags(
+  mutation DetachTagFromNote($noteId: UUID!, $labelId: UUID!) {
+    deleteNoteTag(
       where: { noteId: { eq: $noteId }, labelId: { eq: $labelId } }
     ) {
       noteId
@@ -60,8 +60,8 @@ const DETACH_NOTE_TAG = graphql(`
 
 const CREATE_NOTE_MENTION = graphql(`
   mutation CreateNoteMention(
-    $noteId: String!
-    $mentionedPersonId: String!
+    $noteId: UUID!
+    $mentionedPersonId: UUID!
   ) {
     createNoteMention(
       values: { noteId: $noteId, mentionedPersonId: $mentionedPersonId }
@@ -73,8 +73,8 @@ const CREATE_NOTE_MENTION = graphql(`
 `);
 
 const DELETE_NOTE_MENTIONS = graphql(`
-  mutation DeleteNoteMentions($noteId: String!) {
-    deleteNoteMentions(where: { noteId: { eq: $noteId } }) {
+  mutation DeleteNoteMentions($noteId: UUID!) {
+    deleteNoteMention(where: { noteId: { eq: $noteId } }) {
       noteId
       mentionedPersonId
     }
@@ -531,12 +531,12 @@ function NoteRow({ note, allTags, allPersons, onChanged }: NoteRowProps) {
   const [updateNote] = useMutation(UPDATE_NOTE);
   const [deleteNote] = useMutation(DELETE_NOTE);
   const [createNoteMention] = useMutation(CREATE_NOTE_MENTION);
-  const [deleteNoteMentions] = useMutation(DELETE_NOTE_MENTIONS);
+  const [deleteNoteMention] = useMutation(DELETE_NOTE_MENTIONS);
 
   const handleEdit = async (body: string, mentionedPersonIds: string[]) => {
     await updateNote({ variables: { id: note.id, body } });
     // Re-sync mentions: delete all then re-add
-    await deleteNoteMentions({ variables: { noteId: note.id } });
+    await deleteNoteMention({ variables: { noteId: note.id } });
     for (const mentionedPersonId of mentionedPersonIds) {
       await createNoteMention({
         variables: { noteId: note.id, mentionedPersonId },

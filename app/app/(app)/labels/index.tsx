@@ -29,8 +29,8 @@ const CREATE_TAG = graphql(`
 `);
 
 const DELETE_TAG = graphql(`
-  mutation DeleteTag($id: String!) {
-    deleteLabels(where: { id: { eq: $id } }) {
+  mutation DeleteTag($id: UUID!) {
+    deleteLabel(where: { id: { eq: $id } }) {
       __typename
       id
     }
@@ -38,8 +38,8 @@ const DELETE_TAG = graphql(`
 `);
 
 const UPDATE_TAG = graphql(`
-  mutation UpdateTag($id: String!, $label: String!, $color: String!) {
-    updateLabels(
+  mutation UpdateTag($id: UUID!, $label: String!, $color: String!) {
+    updateLabel(
       set: { label: $label, color: $color }
       where: { id: { eq: $id } }
     ) {
@@ -52,7 +52,7 @@ const UPDATE_TAG = graphql(`
 `);
 
 const MERGE_LABEL_INTO = graphql(`
-  mutation MergeLabelInto($keepId: String!, $deleteId: String!) {
+  mutation MergeLabelInto($keepId: UUID!, $deleteId: UUID!) {
     mergeLabelInto(keepId: $keepId, deleteId: $deleteId) {
       __typename
       id

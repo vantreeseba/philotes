@@ -4,7 +4,7 @@ import { extendSchema, type GraphQLSchema, parse } from 'graphql';
 
 const MERGE_LABELS_SDL = `
   extend type Mutation {
-    mergeLabelInto(keepId: String!, deleteId: String!): Label
+    mergeLabelInto(keepId: UUID!, deleteId: UUID!): Label
   }
 `;
 

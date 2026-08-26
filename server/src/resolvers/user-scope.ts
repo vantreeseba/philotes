@@ -37,19 +37,19 @@ const USER_SCOPE_SDL = parse(`
 
   extend type Query {
     me: User
-    myPersonContext(personId: String!): UserPerson
+    myPersonContext(personId: UUID!): UserPerson
   }
 
   extend type Mutation {
-    addPersonToMyContacts(personId: String!): UserPerson!
+    addPersonToMyContacts(personId: UUID!): UserPerson!
     updateMyPersonContext(
-      personId: String!
+      personId: UUID!
       contactFrequency: String
       howWeMet: String
       firstMetDate: String
       avatarPath: String
     ): UserPerson!
-    removePersonFromMyContacts(personId: String!): Boolean!
+    removePersonFromMyContacts(personId: UUID!): Boolean!
   }
 `);
 
@@ -239,10 +239,10 @@ function overridePersonsResolvers(schema: GraphQLSchema): void {
     return person;
   };
 
-  // updatePersons — only rows the user has in their contacts
-  mf.updatePersons.resolve = async (
+  // updatePerson — only rows the user has in their contacts
+  mf.updatePerson.resolve = async (
     _parent: unknown,
-    args: { values: Record<string, unknown>; where?: Record<string, unknown> },
+    args: { set: Record<string, unknown>; where?: Record<string, unknown> },
     ctx: Context,
   ) => {
     const userId = requireAuth(ctx);
@@ -267,7 +267,7 @@ function overridePersonsResolvers(schema: GraphQLSchema): void {
     for (const id of ids) {
       const [updated] = await db
         .update(dbSchema.persons)
-        .set(args.values)
+        .set(args.set)
         .where(eq(dbSchema.persons.id, id))
         .returning();
       if (updated) results.push(updated);
@@ -275,8 +275,8 @@ function overridePersonsResolvers(schema: GraphQLSchema): void {
     return results;
   };
 
-  // deletePersons — removes from user's contacts (not global registry)
-  mf.deletePersons.resolve = async (_parent: unknown, args: { where?: Record<string, unknown> }, ctx: Context) => {
+  // deletePerson — removes from user's contacts (not global registry)
+  mf.deletePerson.resolve = async (_parent: unknown, args: { where?: Record<string, unknown> }, ctx: Context) => {
     const userId = requireAuth(ctx);
     const db = ctx.db as AnyDB;
     const targetId = (args.where as { id?: { eq?: string } } | undefined)?.id?.eq;
@@ -359,8 +359,9 @@ function overrideUserOwnedTable<TTable extends { userId: unknown; id: unknown }>
     };
   }
 
-  // Bulk create — inject userId on each row
-  const bulkCreateName = `${createMutationName}s`;
+  // Bulk create — inject userId on each row. Derived from the list name so
+  // irregular plurals (addresses) resolve to the actual generated field.
+  const bulkCreateName = `create${queryListName.charAt(0).toUpperCase()}${queryListName.slice(1)}`;
   if (mf[bulkCreateName]) {
     mf[bulkCreateName].resolve = async (
       _parent: unknown,
@@ -381,7 +382,7 @@ function overrideUserOwnedTable<TTable extends { userId: unknown; id: unknown }>
   if (mf[updateMutationName]) {
     mf[updateMutationName].resolve = async (
       _parent: unknown,
-      args: { values: Record<string, unknown>; where?: Record<string, unknown> },
+      args: { set: Record<string, unknown>; where?: Record<string, unknown> },
       ctx: Context,
     ) => {
       const userId = requireAuth(ctx);
@@ -392,7 +393,7 @@ function overrideUserOwnedTable<TTable extends { userId: unknown; id: unknown }>
         : eq((table as any).userId, userId);
 
       // Strip userId from update values — callers cannot change ownership
-      const { userId: _uid, ...safeValues } = { ...args.values, userId: undefined };
+      const { userId: _uid, ...safeValues } = { ...args.set, userId: undefined };
       return db.update(table).set(safeValues).where(condition).returning();
     };
   }
@@ -515,25 +516,25 @@ export function applyUserScopeExtensions(schema: GraphQLSchema): GraphQLSchema {
   overridePersonsResolvers(extendedSchema);
 
   // User-owned tables — simple userId column scoping
-  overrideUserOwnedTable(extendedSchema, dbSchema.notes, 'note', 'notes', 'createNote', 'updateNotes', 'deleteNotes');
+  overrideUserOwnedTable(extendedSchema, dbSchema.notes, 'note', 'notes', 'createNote', 'updateNote', 'deleteNote');
   overrideUserOwnedTable(
     extendedSchema,
     dbSchema.interactions,
     'interaction',
     'interactions',
     'createInteraction',
-    'updateInteractions',
-    'deleteInteractions',
+    'updateInteraction',
+    'deleteInteraction',
   );
-  overrideUserOwnedTable(extendedSchema, dbSchema.tasks, 'task', 'tasks', 'createTask', 'updateTasks', 'deleteTasks');
+  overrideUserOwnedTable(extendedSchema, dbSchema.tasks, 'task', 'tasks', 'createTask', 'updateTask', 'deleteTask');
   overrideUserOwnedTable(
     extendedSchema,
     dbSchema.labels,
     'label',
     'labels',
     'createLabel',
-    'updateLabels',
-    'deleteLabels',
+    'updateLabel',
+    'deleteLabel',
   );
   overrideUserOwnedTable(
     extendedSchema,
@@ -541,8 +542,8 @@ export function applyUserScopeExtensions(schema: GraphQLSchema): GraphQLSchema {
     'importantDate',
     'importantDates',
     'createImportantDate',
-    'updateImportantDates',
-    'deleteImportantDates',
+    'updateImportantDate',
+    'deleteImportantDate',
   );
   overrideUserOwnedTable(
     extendedSchema,
@@ -550,8 +551,8 @@ export function applyUserScopeExtensions(schema: GraphQLSchema): GraphQLSchema {
     'personRelationship',
     'personRelationships',
     'createPersonRelationship',
-    'updatePersonRelationships',
-    'deletePersonRelationships',
+    'updatePersonRelationship',
+    'deletePersonRelationship',
   );
   overrideUserOwnedTable(
     extendedSchema,
@@ -559,8 +560,8 @@ export function applyUserScopeExtensions(schema: GraphQLSchema): GraphQLSchema {
     'address',
     'addresses',
     'createAddress',
-    'updateAddresses',
-    'deleteAddresses',
+    'updateAddress',
+    'deleteAddress',
   );
   overrideUserOwnedTable(
     extendedSchema,
@@ -568,8 +569,8 @@ export function applyUserScopeExtensions(schema: GraphQLSchema): GraphQLSchema {
     'contactInfo',
     'contactInfos',
     'createContactInfo',
-    'updateContactInfos',
-    'deleteContactInfos',
+    'updateContactInfo',
+    'deleteContactInfo',
   );
   overrideUserOwnedTable(
     extendedSchema,
@@ -577,8 +578,8 @@ export function applyUserScopeExtensions(schema: GraphQLSchema): GraphQLSchema {
     'relationshipType',
     'relationshipTypes',
     'createRelationshipType',
-    'updateRelationshipTypes',
-    'deleteRelationshipTypes',
+    'updateRelationshipType',
+    'deleteRelationshipType',
   );
 
   // Field resolvers for the Person type.

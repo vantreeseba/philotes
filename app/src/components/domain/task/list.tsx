@@ -32,7 +32,7 @@ export const TASK_LIST = graphql(`
 
 const CREATE_TASK = graphql(`
   mutation CreateTask(
-    $personId: String!
+    $personId: UUID!
     $title: String!
     $notes: String
     $dueAt: DateTime
@@ -57,8 +57,8 @@ const CREATE_TASK = graphql(`
 `);
 
 const UPDATE_TASK = graphql(`
-  mutation UpdateTask($id: String!, $completedAt: DateTime) {
-    updateTasks(
+  mutation UpdateTask($id: UUID!, $completedAt: DateTime) {
+    updateTask(
       set: { completedAt: $completedAt }
       where: { id: { eq: $id } }
     ) {
@@ -69,8 +69,8 @@ const UPDATE_TASK = graphql(`
 `);
 
 const DELETE_TASK = graphql(`
-  mutation DeleteTask($id: String!) {
-    deleteTasks(where: { id: { eq: $id } }) {
+  mutation DeleteTask($id: UUID!) {
+    deleteTask(where: { id: { eq: $id } }) {
       id
     }
   }

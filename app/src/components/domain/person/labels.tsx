@@ -26,7 +26,7 @@ export const PERSON_LABELS = graphql(`
 // ---------------------------------------------------------------------------
 
 const ATTACH_LABEL = graphql(`
-  mutation AttachLabelToPerson($personId: String!, $labelId: String!) {
+  mutation AttachLabelToPerson($personId: UUID!, $labelId: UUID!) {
     createPersonLabel(values: { personId: $personId, labelId: $labelId }) {
       personId
       labelId
@@ -35,8 +35,8 @@ const ATTACH_LABEL = graphql(`
 `);
 
 const DETACH_LABEL = graphql(`
-  mutation DetachLabelFromPerson($personId: String!, $labelId: String!) {
-    deletePersonLabels(
+  mutation DetachLabelFromPerson($personId: UUID!, $labelId: UUID!) {
+    deletePersonLabel(
       where: { personId: { eq: $personId }, labelId: { eq: $labelId } }
     ) {
       personId

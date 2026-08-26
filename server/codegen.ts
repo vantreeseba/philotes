@@ -10,6 +10,9 @@ const config: CodegenConfig = {
         inputMaybeValue: 'T | undefined',
         //         useIndexSignature: true,
         contextType: '../index.ts#Context',
+        scalars: {
+          UUID: 'string',
+        },
         avoidOptionals: {
           // Use `null` for nullable fields instead of optionals
           field: true,

@@ -41,7 +41,7 @@ export const CONTACT_INFO_LIST_FRAGMENT = graphql(`
 
 const CREATE_CONTACT_INFO = graphql(`
   mutation CreateContactInfo(
-    $personId: String!
+    $personId: UUID!
     $type: ContactInfosTypeEnum!
     $value: String!
     $label: String
@@ -67,8 +67,8 @@ const CREATE_CONTACT_INFO = graphql(`
 `);
 
 const DELETE_CONTACT_INFO = graphql(`
-  mutation DeleteContactInfo($id: String!) {
-    deleteContactInfos(where: { id: { eq: $id } }) {
+  mutation DeleteContactInfo($id: UUID!) {
+    deleteContactInfo(where: { id: { eq: $id } }) {
       id
     }
   }

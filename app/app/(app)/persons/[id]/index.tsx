@@ -59,7 +59,7 @@ import { getToken } from '@/lib/auth';
 // ---------------------------------------------------------------------------
 
 const GET_PERSON_DETAIL = graphql(`
-  query GetPersonDetail($id: String!) {
+  query GetPersonDetail($id: UUID!) {
     person(where: { id: { eq: $id } }) {
       id
       firstName
@@ -191,8 +191,8 @@ const GET_ALL_LABELS = graphql(`
 `);
 
 const DELETE_IMPORTANT_DATE = graphql(`
-  mutation DeleteImportantDate($id: String!) {
-    deleteImportantDates(where: { id: { eq: $id } }) {
+  mutation DeleteImportantDate($id: UUID!) {
+    deleteImportantDate(where: { id: { eq: $id } }) {
       id
     }
   }
@@ -202,7 +202,7 @@ const CREATE_IMPORTANT_DATE = graphql(`
   mutation CreateImportantDate(
     $name: String!
     $date: String!
-    $personId: String!
+    $personId: UUID!
     $description: String
     $recurrence: String
     $milestoneType: ImportantDatesMilestoneTypeEnum
@@ -230,14 +230,14 @@ const CREATE_IMPORTANT_DATE = graphql(`
 
 const UPDATE_IMPORTANT_DATE = graphql(`
   mutation UpdateImportantDate(
-    $id: String!
+    $id: UUID!
     $name: String!
     $date: String!
     $description: String
     $recurrence: String
     $milestoneType: ImportantDatesMilestoneTypeEnum
   ) {
-    updateImportantDates(
+    updateImportantDate(
       set: {
         name: $name
         date: $date
@@ -259,12 +259,12 @@ const UPDATE_IMPORTANT_DATE = graphql(`
 
 const UPDATE_PERSON = graphql(`
   mutation UpdatePerson(
-    $id: String!
+    $id: UUID!
     $firstName: String!
     $lastName: String!
     $email: String!
   ) {
-    updatePersons(
+    updatePerson(
       set: {
         firstName: $firstName
         lastName: $lastName
@@ -282,7 +282,7 @@ const UPDATE_PERSON = graphql(`
 
 const UPDATE_MY_PERSON_CONTEXT = graphql(`
   mutation UpdateMyPersonContext(
-    $personId: String!
+    $personId: UUID!
     $contactFrequency: String
     $howWeMet: String
     $firstMetDate: String
@@ -303,7 +303,7 @@ const UPDATE_MY_PERSON_CONTEXT = graphql(`
 `);
 
 const ATTACH_LABEL_TO_PERSON = graphql(`
-  mutation AttachLabelToPersonEdit($personId: String!, $labelId: String!) {
+  mutation AttachLabelToPersonEdit($personId: UUID!, $labelId: UUID!) {
     createPersonLabel(values: { personId: $personId, labelId: $labelId }) {
       personId
       labelId
@@ -312,8 +312,8 @@ const ATTACH_LABEL_TO_PERSON = graphql(`
 `);
 
 const DETACH_LABEL_FROM_PERSON = graphql(`
-  mutation DetachLabelFromPersonEdit($personId: String!, $labelId: String!) {
-    deletePersonLabels(
+  mutation DetachLabelFromPersonEdit($personId: UUID!, $labelId: UUID!) {
+    deletePersonLabel(
       where: { personId: { eq: $personId }, labelId: { eq: $labelId } }
     ) {
       personId
@@ -323,8 +323,8 @@ const DETACH_LABEL_FROM_PERSON = graphql(`
 `);
 
 const DELETE_PERSON = graphql(`
-  mutation DeletePerson($id: String!) {
-    deletePersons(where: { id: { eq: $id } }) {
+  mutation DeletePerson($id: UUID!) {
+    deletePerson(where: { id: { eq: $id } }) {
       id
     }
   }

@@ -7,7 +7,7 @@ import { graphql } from '@/__generated__/gql';
 // ---------------------------------------------------------------------------
 
 const ATTACH_TAG = graphql(`
-  mutation AttachTagToImportantDate($importantDateId: String!, $labelId: String!) {
+  mutation AttachTagToImportantDate($importantDateId: UUID!, $labelId: UUID!) {
     createImportantDateTag(
       values: { importantDateId: $importantDateId, labelId: $labelId }
     ) {
@@ -18,8 +18,8 @@ const ATTACH_TAG = graphql(`
 `);
 
 const DETACH_TAG = graphql(`
-  mutation DetachTagFromImportantDate($importantDateId: String!, $labelId: String!) {
-    deleteImportantDateTags(
+  mutation DetachTagFromImportantDate($importantDateId: UUID!, $labelId: UUID!) {
+    deleteImportantDateTag(
       where: {
         importantDateId: { eq: $importantDateId }
         labelId: { eq: $labelId }

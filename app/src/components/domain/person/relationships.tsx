@@ -39,8 +39,8 @@ const GET_RELATIONSHIP_TYPES = graphql(`
 
 const CREATE_RELATIONSHIP = graphql(`
   mutation CreatePersonRelationship(
-    $fromPersonId: String!
-    $toPersonId: String!
+    $fromPersonId: UUID!
+    $toPersonId: UUID!
     $type: String!
   ) {
     createPersonRelationship(
@@ -59,8 +59,8 @@ const CREATE_RELATIONSHIP = graphql(`
 `);
 
 const UPDATE_RELATIONSHIP = graphql(`
-  mutation UpdatePersonRelationship($id: String!, $type: String!) {
-    updatePersonRelationships(
+  mutation UpdatePersonRelationship($id: UUID!, $type: String!) {
+    updatePersonRelationship(
       set: { type: $type }
       where: { id: { eq: $id } }
     ) {
@@ -73,8 +73,8 @@ const UPDATE_RELATIONSHIP = graphql(`
 `);
 
 const DELETE_RELATIONSHIP = graphql(`
-  mutation DeletePersonRelationship($id: String!) {
-    deletePersonRelationships(where: { id: { eq: $id } }) {
+  mutation DeletePersonRelationship($id: UUID!) {
+    deletePersonRelationship(where: { id: { eq: $id } }) {
       id
     }
   }
@@ -90,8 +90,8 @@ const CREATE_RELATIONSHIP_TYPE = graphql(`
 `);
 
 const DELETE_RELATIONSHIP_TYPE = graphql(`
-  mutation DeleteRelationshipType($id: String!) {
-    deleteRelationshipTypes(where: { id: { eq: $id } }) {
+  mutation DeleteRelationshipType($id: UUID!) {
+    deleteRelationshipType(where: { id: { eq: $id } }) {
       id
     }
   }

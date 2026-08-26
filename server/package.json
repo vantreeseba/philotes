@@ -15,7 +15,7 @@
     "@apollo/server": "^5.x.x",
     "@as-integrations/express5": "^1.1.2",
     "@philotes/db": "*",
-    "@vantreeseba/drizzle-graphql": "^1.0.1",
+    "@vantreeseba/drizzle-graphql": "^4.1.0",
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.6",
     "express": "^5.2.1",
@@ -25,7 +25,8 @@
     "graphql-tag": "^2.12.6",
     "ical-generator": "^10.2.0",
     "jsonwebtoken": "^9.0.3",
-    "multer": "^2.1.1"
+    "multer": "^2.1.1",
+    "pluralize": "^8.0.0"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",

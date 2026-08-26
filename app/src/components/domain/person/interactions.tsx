@@ -13,7 +13,7 @@ import { relativeTime } from '@/lib/relative-time';
 
 const CREATE_INTERACTION = graphql(`
   mutation CreateInteraction(
-    $personId: String!
+    $personId: UUID!
     $channel: String!
     $occurredAt: DateTime!
     $sentiment: String
@@ -40,13 +40,13 @@ const CREATE_INTERACTION = graphql(`
 
 const UPDATE_INTERACTION = graphql(`
   mutation UpdateInteraction(
-    $id: String!
+    $id: UUID!
     $channel: String!
     $occurredAt: DateTime!
     $sentiment: String
     $note: String
   ) {
-    updateInteractions(
+    updateInteraction(
       set: {
         channel: $channel
         occurredAt: $occurredAt
@@ -65,15 +65,15 @@ const UPDATE_INTERACTION = graphql(`
 `);
 
 const DELETE_INTERACTION = graphql(`
-  mutation DeleteInteraction($id: String!) {
-    deleteInteractions(where: { id: { eq: $id } }) {
+  mutation DeleteInteraction($id: UUID!) {
+    deleteInteraction(where: { id: { eq: $id } }) {
       id
     }
   }
 `);
 
 const ATTACH_INTERACTION_TAG = graphql(`
-  mutation AttachInteractionTag($interactionId: String!, $labelId: String!) {
+  mutation AttachInteractionTag($interactionId: UUID!, $labelId: UUID!) {
     createInteractionTag(
       values: { interactionId: $interactionId, labelId: $labelId }
     ) {
@@ -84,8 +84,8 @@ const ATTACH_INTERACTION_TAG = graphql(`
 `);
 
 const DETACH_INTERACTION_TAG = graphql(`
-  mutation DetachInteractionTag($interactionId: String!, $labelId: String!) {
-    deleteInteractionTags(
+  mutation DetachInteractionTag($interactionId: UUID!, $labelId: UUID!) {
+    deleteInteractionTag(
       where: {
         interactionId: { eq: $interactionId }
         labelId: { eq: $labelId }

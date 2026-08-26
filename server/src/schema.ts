@@ -1,14 +1,7 @@
-import { db as dbInstance, schema as dbSchema } from '@philotes/db';
+import { db as dbInstance } from '@philotes/db';
 import { buildSchema } from '@vantreeseba/drizzle-graphql';
-
-// drizzle-orm 1.0 beta no longer stores fullSchema on the instance; inject it
-// so the drizzle-graphql fork (which reads db._.fullSchema) still works.
-if (!dbInstance._.fullSchema) {
-  // biome-ignore lint/suspicious/noExplicitAny: compatibility shim for drizzle-orm 1.0 beta
-  (dbInstance._ as any).fullSchema = dbSchema;
-}
-
 import { GraphQLInputObjectType, GraphQLNonNull, type GraphQLNullableType, type GraphQLSchema } from 'graphql';
+import pluralize from 'pluralize';
 import { applyApiKeysExtension } from './resolvers/api-keys.ts';
 import { applyAuthExtension } from './resolvers/auth.ts';
 import { applyImportContactsExtension } from './resolvers/import-contacts.ts';
@@ -20,16 +13,17 @@ import { applyUpcomingDatesExtension } from './resolvers/upcoming-dates.ts';
 import { applyUserScopeExtensions } from './resolvers/user-scope.ts';
 
 const { schema: drizzleSchema, entities } = buildSchema(dbInstance, {
-  singularTypes: true,
   prefixes: {
     insert: 'create',
     update: 'update',
     delete: 'delete',
   },
-  suffixes: {
-    list: 's',
-    single: '',
-  },
+  // Table keys are plural (e.g. `tasks`); derive singular names for type and
+  // single-row field naming (Task, task, createTask).
+  typeNameMapper: (tableName) => ({
+    singular: pluralize.singular(tableName),
+    plural: tableName,
+  }),
 });
 
 function makeUserIdOptionalInInputs(s: GraphQLSchema): GraphQLSchema {

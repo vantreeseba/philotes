@@ -14,7 +14,7 @@ import { Spinner } from '@/components/ui/spinner.tsx';
 // ---------------------------------------------------------------------------
 
 const GET_PERSON_TIMELINE = graphql(`
-  query GetPersonTimeline($id: String!) {
+  query GetPersonTimeline($id: UUID!) {
     persons(where: { id: { eq: $id } }) {
       id
       firstName

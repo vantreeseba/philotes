@@ -51,8 +51,8 @@ const CREATE_ADDRESSES = graphql(`
 `);
 
 const DELETE_ADDRESSES = graphql(`
-  mutation DeleteAddresses($id: String!) {
-    deleteAddresses(where: { id: { eq: $id } }) {
+  mutation DeleteAddresses($id: UUID!) {
+    deleteAddress(where: { id: { eq: $id } }) {
       id
     }
   }
@@ -112,10 +112,10 @@ interface AddressRowProps {
 }
 
 function AddressRow({ address, onDelete }: AddressRowProps) {
-  const [deleteAddresses] = useMutation(DELETE_ADDRESSES);
+  const [deleteAddress] = useMutation(DELETE_ADDRESSES);
 
   const handleDelete = async () => {
-    await deleteAddresses({ variables: { id: address.id } });
+    await deleteAddress({ variables: { id: address.id } });
     onDelete();
   };
 

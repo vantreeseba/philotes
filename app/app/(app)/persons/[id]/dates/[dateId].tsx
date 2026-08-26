@@ -11,7 +11,7 @@ import { Spinner } from '@/components/ui/spinner.tsx';
 // ---------------------------------------------------------------------------
 
 const GET_DATE_DETAIL = graphql(`
-  query GetImportantDateDetail($dateId: String!, $personId: String!) {
+  query GetImportantDateDetail($dateId: UUID!, $personId: UUID!) {
     importantDates(where: { id: { eq: $dateId } }) {
       id
       name

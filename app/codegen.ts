@@ -25,6 +25,7 @@ const config: CodegenConfig = {
         scalars: {
           DateTime: 'Date',
           Date: { input: 'string', output: 'Date' },
+          UUID: 'string',
         },
       },
     },
