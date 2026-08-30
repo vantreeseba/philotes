@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from '@apollo/client';
 import { Link } from 'expo-router';
 import { Pencil, Trash2 } from 'lucide-react';
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { graphql } from '@/__generated__/gql';
 import type { Person_RelationshipsFragment, PersonRelationshipEntry } from '@/__generated__/graphql';
 import { Button } from '@/components/ui/button';
@@ -116,13 +116,15 @@ export interface RelationshipsProps {
 // ---------------------------------------------------------------------------
 
 interface TypePickerProps {
+  /** Id of the <select>, so a caller's <label> can point at it. */
+  id?: string;
   value: string;
   onChange: (v: string) => void;
   types: Array<{ id: string; name: string }>;
   onTypeCreated: () => void;
 }
 
-function RelationshipTypePicker({ value, onChange, types, onTypeCreated }: TypePickerProps) {
+function RelationshipTypePicker({ id, value, onChange, types, onTypeCreated }: TypePickerProps) {
   const [newTypeName, setNewTypeName] = useState('');
   const [createType, { loading }] = useMutation(CREATE_RELATIONSHIP_TYPE, {
     refetchQueries: ['GetRelationshipTypes'],
@@ -145,6 +147,7 @@ function RelationshipTypePicker({ value, onChange, types, onTypeCreated }: TypeP
   return (
     <div className="space-y-2">
       <select
+        id={id}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="w-full rounded-md border border-border bg-background px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
@@ -160,6 +163,7 @@ function RelationshipTypePicker({ value, onChange, types, onTypeCreated }: TypeP
       <div className="flex gap-1.5">
         <input
           type="text"
+          aria-label="New relationship type"
           placeholder="New type…"
           value={newTypeName}
           onChange={(e) => setNewTypeName(e.target.value)}
@@ -227,6 +231,8 @@ function RelationshipForm({
   onEdit,
 }: RelationshipFormProps) {
   const isEditing = editing !== undefined;
+  const personFieldId = useId();
+  const typeFieldId = useId();
   const { data: typesData } = useQuery(GET_RELATIONSHIP_TYPES);
   const types = typesData?.relationshipTypes ?? [];
 
@@ -271,8 +277,11 @@ function RelationshipForm({
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label className="text-sm font-medium mb-1.5 block">Person</label>
+        <label htmlFor={personFieldId} className="text-sm font-medium mb-1.5 block">
+          Person
+        </label>
         <select
+          id={personFieldId}
           value={toPersonId}
           onChange={(e) => setToPersonId(e.target.value)}
           disabled={isEditing}
@@ -293,8 +302,16 @@ function RelationshipForm({
       </div>
 
       <div>
-        <label className="text-sm font-medium mb-1.5 block">Relationship type</label>
-        <RelationshipTypePicker value={type} onChange={setType} types={types} onTypeCreated={() => {}} />
+        <label htmlFor={typeFieldId} className="text-sm font-medium mb-1.5 block">
+          Relationship type
+        </label>
+        <RelationshipTypePicker
+          id={typeFieldId}
+          value={type}
+          onChange={setType}
+          types={types}
+          onTypeCreated={() => {}}
+        />
       </div>
 
       {error && <p className="text-destructive text-xs">{error}</p>}

@@ -52,7 +52,7 @@ export function useQueryStringState<T extends object>(
   const rawParams = useLocalSearchParams<Record<string, string>>();
 
   const searchStr = Object.keys(rawParams).length
-    ? '?' + new URLSearchParams(rawParams as Record<string, string>).toString()
+    ? `?${new URLSearchParams(rawParams as Record<string, string>).toString()}`
     : '';
 
   const parsed = parseSearch<T>(searchStr, options?.typeMap);
