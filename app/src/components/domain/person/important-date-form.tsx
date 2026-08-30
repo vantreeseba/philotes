@@ -1,9 +1,8 @@
-import { createFormHook } from '@tanstack/react-form';
 import { useState } from 'react';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { FieldGroup } from '@/components/ui/field';
-import { FormError, fieldContext, formContext, TextField } from '@/components/ui/form-field.tsx';
+import { FormError, TextField, useAppForm } from '@/components/ui/form-field.tsx';
 
 // ---------------------------------------------------------------------------
 // Recurrence
@@ -89,13 +88,6 @@ interface ImportantDateFormProps {
   onCancel: () => void;
   initialValues?: ImportantDateFormValue;
 }
-
-const { useAppForm } = createFormHook({
-  fieldComponents: { TextField },
-  formComponents: {},
-  fieldContext,
-  formContext,
-});
 
 // ---------------------------------------------------------------------------
 // Form

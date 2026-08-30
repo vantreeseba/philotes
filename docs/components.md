@@ -29,7 +29,7 @@ logic here. Extend or compose them in `components/domain/` instead.
 | `Card`, `CardHeader`, `CardContent`, … | `card.tsx` | Composable card container |
 | `Dialog` + parts | `dialog.tsx` | Modal — every form goes in one |
 | `FieldGroup` | `field.tsx` | Wraps a group of form fields |
-| `TextField`, `FormError`, `fieldContext`, `formContext` | `form-field.tsx` | TanStack Form integration |
+| `TextField`, `FormError`, `useAppForm` | `form-field.tsx` | TanStack Form integration — the app's only `createFormHook` |
 | `Input` | `input.tsx` | Base text input |
 | `Label` | `label.tsx` | Form label (wraps `<label>`) |
 | `LabelChip` | `label-chip.tsx` | Colored pill for a label/tag |
@@ -200,7 +200,8 @@ relative to the section title across all list sections.
 
 1. Create a directory under `app/src/components/domain/<entity>/`, named in
    kebab-case, as is every file in it.
-2. Add `form.tsx` — `createFormHook`, a Zod schema, `useAppForm`. Render it
+2. Add `form.tsx` — a Zod schema and `useAppForm` from
+   `@/components/ui/form-field`. Render it
    inside a `Dialog`; see [`frontend.md`](./frontend.md#form-presentation-rule).
 3. Add `list.tsx` — a `ListLayout` and a row component taking typed props.
 4. Define the GraphQL operations in the route that uses it, under

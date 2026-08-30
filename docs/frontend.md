@@ -161,6 +161,8 @@ a cancel button. This keeps the UI consistent and avoids layout shift.
 Forms use TanStack Form with Zod validation:
 
 ```ts
+import { FormError, TextField, useAppForm } from '@/components/ui/form-field';
+
 const schema = z.object({ name: z.string().min(1, 'Required') });
 
 const form = useAppForm({
@@ -170,8 +172,9 @@ const form = useAppForm({
 });
 ```
 
-`useAppForm` is created per feature file via `createFormHook`, wiring in the
-field components from `@/components/ui/form-field`.
+`useAppForm` is created once, in `@/components/ui/form-field`, already wired to
+the field components there. Import it — do not call `createFormHook` again in a
+feature file; a second call mints its own contexts.
 
 ## Styling
 

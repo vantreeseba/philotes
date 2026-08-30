@@ -1,10 +1,9 @@
-import { createFormHook } from '@tanstack/react-form';
 import { useState } from 'react';
 import { z } from 'zod';
 import type { CreateLabelInput as NewLabel } from '@/__generated__/graphql';
 import { Button } from '@/components/ui/button';
 import { FieldGroup } from '@/components/ui/field';
-import { FormError, fieldContext, formContext, TextField } from '@/components/ui/form-field.tsx';
+import { FormError, TextField, useAppForm } from '@/components/ui/form-field.tsx';
 
 const labelSchema = z.object({
   label: z.string().min(1, 'Name is required.'),
@@ -20,13 +19,6 @@ interface LabelFormProps {
   onCancel: () => void;
   submitLabel?: string;
 }
-
-export const { useAppForm, withForm, withFieldGroup } = createFormHook({
-  fieldComponents: { TextField },
-  formComponents: {},
-  fieldContext,
-  formContext,
-});
 
 export function LabelForm({ initialValues, onSubmit, onCancel, submitLabel }: LabelFormProps) {
   const [formError, setFormError] = useState<string | null>(null);
