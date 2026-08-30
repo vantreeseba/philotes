@@ -1,7 +1,7 @@
 import { gql, useMutation, useQuery } from '@apollo/client';
 import { Download, Moon, Sun, Upload } from 'lucide-react';
 import { useRef, useState } from 'react';
-import { ApiKeyManager } from '@/components/settings/ApiKeyManager';
+import { ApiKeyManager } from '@/components/settings/api-key-manager';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useDarkMode } from '@/hooks/use-dark-mode';

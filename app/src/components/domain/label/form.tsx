@@ -1,22 +1,24 @@
 import { createFormHook } from '@tanstack/react-form';
 import { useState } from 'react';
 import { z } from 'zod';
-import type { CreateLabelInput as NewLabel } from '@/__generated__/graphql';
+import type { CreateLabelInput as NewTag } from '@/__generated__/graphql';
 import { Button } from '@/components/ui/button';
 import { FieldGroup } from '@/components/ui/field';
 import { FormError, fieldContext, formContext, TextField } from '@/components/ui/form-field.tsx';
 
-const labelSchema = z.object({
-  label: z.string().min(1, 'Label is required.'),
+const tagSchema = z.object({
+  label: z.string().min(1, 'Name is required.'),
   color: z
     .string()
     .min(1, 'Color is required.')
     .regex(/^#[0-9a-fA-F]{6}$/, 'Must be a valid hex color (e.g. #ff0000).'),
 });
 
-interface LabelFormProps {
-  onSubmit: (value: NewLabel) => Promise<void>;
+interface TagFormProps {
+  initialValues?: { label: string; color: string };
+  onSubmit: (value: NewTag) => Promise<void>;
   onCancel: () => void;
+  submitLabel?: string;
 }
 
 export const { useAppForm, withForm, withFieldGroup } = createFormHook({
@@ -26,15 +28,15 @@ export const { useAppForm, withForm, withFieldGroup } = createFormHook({
   formContext,
 });
 
-export function LabelForm({ onSubmit, onCancel }: LabelFormProps) {
+export function TagForm({ initialValues, onSubmit, onCancel, submitLabel }: TagFormProps) {
   const [formError, setFormError] = useState<string | null>(null);
   const form = useAppForm({
     defaultValues: {
-      label: '',
-      color: '#000000',
+      label: initialValues?.label ?? '',
+      color: initialValues?.color ?? '#000000',
     },
     validators: {
-      onSubmit: labelSchema,
+      onSubmit: tagSchema,
     },
     onSubmit: async ({ value }) => {
       setFormError(null);
@@ -51,6 +53,8 @@ export function LabelForm({ onSubmit, onCancel }: LabelFormProps) {
     },
   });
 
+  const defaultSubmitLabel = initialValues ? 'Save' : 'Create';
+
   return (
     <form
       onSubmit={(e) => {
@@ -59,14 +63,14 @@ export function LabelForm({ onSubmit, onCancel }: LabelFormProps) {
       }}
     >
       <FieldGroup className="gap-4">
-        <form.AppField name="label">{() => <TextField label="Label" />}</form.AppField>
+        <form.AppField name="label">{() => <TextField label="Name" />}</form.AppField>
         <form.AppField name="color">{() => <TextField label="Color" type="color" />}</form.AppField>
         <FormError formError={formError} />
         <div className="flex gap-2">
           <form.Subscribe selector={(state) => [state.canSubmit, state.isSubmitting]}>
             {([canSubmit, isSubmitting]) => (
               <Button type="submit" disabled={!canSubmit || isSubmitting}>
-                {isSubmitting ? 'Creating...' : 'Create'}
+                {isSubmitting ? 'Saving...' : (submitLabel ?? defaultSubmitLabel)}
               </Button>
             )}
           </form.Subscribe>
