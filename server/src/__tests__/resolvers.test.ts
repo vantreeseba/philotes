@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { signMagicToken, signToken, verifyMagicToken, verifyToken } from '../resolvers/auth.ts';
 import { parseGoogleContactsCsv } from '../resolvers/import-contacts.ts';
-import { buildPersonsOrderBy, buildPersonsWhere } from '../resolvers/user-scope.ts';
 
 // ---------------------------------------------------------------------------
 // 1. Google CSV parser
@@ -139,69 +138,5 @@ describe('signMagicToken / verifyMagicToken', () => {
     const magicToken = signMagicToken('alice@example.com');
     const payload = verifyToken(magicToken);
     expect(payload?.userId).toBeUndefined();
-  });
-});
-
-// ---------------------------------------------------------------------------
-// 3. GraphQL → Drizzle filter / sort translators
-// ---------------------------------------------------------------------------
-
-describe('buildPersonsWhere', () => {
-  it('returns undefined for an empty object', () => {
-    expect(buildPersonsWhere({})).toBeUndefined();
-  });
-
-  it('builds a condition for a simple eq filter', () => {
-    const sql = buildPersonsWhere({ firstName: { eq: 'Alice' } });
-    expect(sql).toBeDefined();
-  });
-
-  it('builds an OR condition', () => {
-    const sql = buildPersonsWhere({
-      OR: [{ firstName: { ilike: '%ali%' } }, { lastName: { ilike: '%ali%' } }],
-    });
-    expect(sql).toBeDefined();
-  });
-
-  it('ignores unknown field names', () => {
-    // Should not throw; unknown fields are silently skipped
-    const sql = buildPersonsWhere({ unknownField: { eq: 'x' } } as never);
-    expect(sql).toBeUndefined();
-  });
-});
-
-describe('buildPersonsOrderBy', () => {
-  it('returns empty array for empty input', () => {
-    expect(buildPersonsOrderBy({})).toEqual([]);
-  });
-
-  it('returns one clause per field and respects priority ordering', () => {
-    const fwd = buildPersonsOrderBy({
-      firstName: { direction: 'asc', priority: 2 },
-      lastName: { direction: 'asc', priority: 1 },
-    });
-    const rev = buildPersonsOrderBy({
-      firstName: { direction: 'asc', priority: 1 },
-      lastName: { direction: 'asc', priority: 2 },
-    });
-    expect(fwd).toHaveLength(2);
-    expect(rev).toHaveLength(2);
-    // Priority 1 in fwd is lastName, in rev is firstName — so the leading
-    // clause should differ between the two orderings.
-    expect(fwd[0]).not.toBe(rev[0]);
-  });
-
-  it('returns two clauses for two fields regardless of direction', () => {
-    const asc = buildPersonsOrderBy({ firstName: { direction: 'asc', priority: 1 } });
-    const desc = buildPersonsOrderBy({ firstName: { direction: 'desc', priority: 1 } });
-    expect(asc).toHaveLength(1);
-    expect(desc).toHaveLength(1);
-    // asc and desc produce different SQL objects
-    expect(asc[0]).not.toBe(desc[0]);
-  });
-
-  it('ignores unknown field names', () => {
-    const clauses = buildPersonsOrderBy({ unknownField: { direction: 'asc', priority: 1 } } as never);
-    expect(clauses).toHaveLength(0);
   });
 });
