@@ -37,8 +37,9 @@ philotes/
 ├── server/                  # GraphQL API (Apollo Server)
 │   └── src/
 │       ├── index.ts         # Server entry point (port 3001)
-│       ├── schema.ts        # Calls buildSchema(db) — no hand-written resolvers
-│       ├── vendor/          # Vendored drizzle-graphql library
+│       ├── schema.ts        # Calls buildSchema(db), then applies each extension
+│       ├── tenancy.ts       # Row scope + server-owned columns, as buildSchema config
+│       ├── resolvers/       # SDL extensions for what CRUD cannot express
 │       └── __tests__/       # Server tests
 ├── db/                      # Database layer (Drizzle ORM + PGlite)
 │   └── src/
@@ -91,13 +92,13 @@ npm run build:server     # Build only the server
 ```bash
 npm run codegen          # Generate types for both app and server
 npm run codegen:app      # Generate client-side types (app/src/__generated__/)
-npm run codegen:server   # Generate server resolver types (server/src/__generated__/)
+npm run codegen:server   # Generate server resolver types (server/__generated__/)
 ```
 
 > **Important:** Run `npm run codegen` after any change to the Drizzle schema
 > (which rebuilds the GraphQL schema) or to GraphQL documents in `app/src/`
 > (queries, mutations, fragments). The generated files in
-> `app/src/__generated__/` and `server/src/__generated__/` must be up to date
+> `app/src/__generated__/` and `server/__generated__/` must be up to date
 > before running type checks, tests, or builds.
 
 ### Testing
@@ -215,9 +216,15 @@ npm ci --prefer-offline --no-audit
 - See [`docs/frontend.md`](docs/frontend.md) and [`docs/components.md`](docs/components.md)
 
 ### GraphQL / Server
-- The GraphQL schema is **auto-generated** from the Drizzle schema via the
-  vendored `@vantreeseba/drizzle-graphql` library — there are no hand-written resolvers
-- `server/src/schema.ts` calls `buildSchema(db)` and exports the result
+- The GraphQL schema is **generated** from the Drizzle schema by
+  `@vantreeseba/drizzle-graphql` — there are no hand-written CRUD resolvers
+- `server/src/schema.ts` calls `buildSchema(db, ...)` and applies the extensions
+- Multi-tenancy is **configuration, not resolver code**: `server/src/tenancy.ts`
+  declares the row scope and the server-owned `userId`. Prefer adding to that
+  config over overriding a generated resolver, which loses the scope, filter
+  compilation and batching that come with it
+- A new table needs a `scope` entry or it is visible across tenants —
+  `server/src/__tests__/tenancy.test.ts` fails until it has one
 - To add custom mutations/queries, extend the generated schema (see
   [`docs/server.md`](docs/server.md) for the extension pattern)
 - Server runs on port **3001**; Vite proxies `/graphql` to it in development

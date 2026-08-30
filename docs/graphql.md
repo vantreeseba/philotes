@@ -2,190 +2,103 @@
 
 ## Overview
 
-The API is a GraphQL schema auto-generated from the Drizzle ORM schema by the
-vendored `@vantreeseba/drizzle-graphql` library. The full SDL is snapshotted at
-`server/src/__generated__/schema.graphql` after each codegen run.
+The API is a GraphQL schema generated from the Drizzle ORM schema by
+`@vantreeseba/drizzle-graphql`, plus a handful of hand-written extensions for
+the things CRUD cannot express (auth, imports, relationship views). The full
+SDL is written to `server/__generated__/schema.graphql` on every codegen run —
+**that file, not this page, is the reference for exact names and arguments.**
+What follows is the shape of it.
 
-Endpoint: `POST /graphql` (served on port 3001; Vite proxies from port 3000).
+Endpoint: `POST /graphql` (port 3001).
 
-## Query Root
+## Naming
 
-Every Drizzle table gets a single-record query and a list query:
+Table keys in the Drizzle schema are plural; `typeNameMapper: 'singularize'`
+derives the singular used in type and single-row names. For a `notes` table:
 
-```graphql
-type Query {
-  person(offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): Person
-  persons(limit: Int, offset: Int, orderBy: PersonsOrderBy, where: PersonsFilters): [Person!]!
+| | Name |
+| --- | --- |
+| Type | `Note` |
+| Single query | `note(where:, orderBy:, offset:)` |
+| List query | `notes(where:, orderBy:, limit:, offset:, after:, distinct:)` |
+| Aggregate | `notesAggregate(where:)` |
+| Group by | `notesGroupBy(groupBy:, where:, having:)` |
+| Insert one / many | `createNote(values:)` / `createNotes(values:)` |
+| Update | `updateNote(set:, where:)` / `updateNoteSingle(set:, where:)` |
+| Batch update | `updateNotesMany(updates:)` — one `set` and `where` per entry, in one transaction |
+| Delete | `deleteNote(where:)` / `deleteNoteSingle(where:)` |
+| Inputs | `CreateNoteInput`, `UpdateNoteInput`, `NoteFilters`, `NoteOrderBy` |
 
-  importantDate(offset: Int, orderBy: ..., where: ...): ImportantDate
-  importantDates(limit: Int, ...): [ImportantDate!]!
+## Tenancy
 
-  label(offset: Int, ...): Label
-  labels(limit: Int, ...): [Label!]!
+Every query and mutation is scoped to the authenticated user by the server,
+not by the client. See [server.md](./server.md#tenancy) for how; what it means
+for a caller:
 
-  note(offset: Int, ...): Note
-  notes(limit: Int, ...): [Note!]!
-
-  personLabel(offset: Int, ...): PersonLabel
-  personLabels(limit: Int, ...): [PersonLabel!]!
-}
-```
-
-## Mutation Root
-
-```graphql
-type Mutation {
-  # Persons
-  createPerson(values: CreatePersonInput!): Person
-  createPersons(values: [CreatePersonInput!]!): [Person!]!
-  updatePersons(set: UpdatePersonInput!, where: PersonsFilters): [Person!]!
-  deletePersons(where: PersonsFilters): [Person!]!
-
-  # Important Dates
-  createImportantDate(values: CreateImportantDateInput!): ImportantDate
-  createImportantDates(values: [CreateImportantDateInput!]!): [ImportantDate!]!
-  updateImportantDates(set: UpdateImportantDateInput!, where: ImportantDatesFilters): [ImportantDate!]!
-  deleteImportantDates(where: ImportantDatesFilters): [ImportantDate!]!
-
-  # Labels
-  createLabel(values: CreateLabelInput!): Label
-  createLabels(values: [CreateLabelInput!]!): [Label!]!
-  updateLabels(set: UpdateLabelInput!, where: LabelsFilters): [Label!]!
-  deleteLabels(where: LabelsFilters): [Label!]!
-
-  # Notes
-  createNote(values: CreateNoteInput!): Note
-  createNotes(values: [CreateNoteInput!]!): [Note!]!
-  updateNotes(set: UpdateNoteInput!, where: NotesFilters): [Note!]!
-  deleteNotes(where: NotesFilters): [Note!]!
-
-  # Person–Label join
-  createPersonLabel(values: CreatePersonLabelInput!): PersonLabel
-  createPersonLabels(values: [CreatePersonLabelInput!]!): [PersonLabel!]!
-  updatePersonLabels(set: UpdatePersonLabelInput!, where: PersonLabelsFilters): [PersonLabel!]!
-  deletePersonLabels(where: PersonLabelsFilters): [PersonLabel!]!
-}
-```
-
-## Core Types
-
-### Person
-
-```graphql
-type Person {
-  id: String!
-  firstName: String!
-  lastName: String!
-  email: String!
-  createdAt: String!         # JSON timestamp
-  updatedAt: String!         # JSON timestamp
-  labels(limit: Int, offset: Int, orderBy: LabelsOrderBy, where: LabelsFilters): [PersonLabelsRelation!]!
-  notes(limit: Int, ...): [PersonNotesRelation!]!
-  importantDates(limit: Int, ...): [PersonImportantDatesRelation!]!
-}
-```
-
-### ImportantDate
-
-```graphql
-type ImportantDate {
-  id: String!
-  personId: String!
-  name: String!
-  description: String        # nullable
-  date: String!              # date string
-}
-```
-
-### Label
-
-```graphql
-type Label {
-  id: String!
-  color: String!
-  label: String!
-}
-```
-
-### Note
-
-```graphql
-type Note {
-  id: String!
-  body: String!
-  personId: String           # nullable
-  person: [NotePersonRelation!]!
-}
-```
-
-## Input Types
-
-### CreatePersonInput
-
-```graphql
-input CreatePersonInput {
-  id: String             # optional — defaults to random UUID
-  firstName: String!
-  lastName: String!
-  email: String!
-  createdAt: String      # optional — defaults to now
-  updatedAt: String      # optional — defaults to now
-}
-```
-
-### CreateImportantDateInput
-
-```graphql
-input CreateImportantDateInput {
-  id: String             # optional
-  personId: String!
-  name: String!
-  description: String    # optional
-  date: String!          # YYYY-MM-DD
-}
-```
+- A `where` can only narrow what the caller may already see, never widen it.
+  A query for another user's row returns nothing rather than an error.
+- `userId` does not appear in any create or update input. It is stamped from
+  the request, so it cannot be set, and a create cannot be attributed to
+  someone else.
+- `persons` rows are shared between users; a caller sees the ones in their own
+  contacts. `createPerson` links an existing person on an email collision
+  rather than duplicating them, and `deletePerson` unlinks rather than deleting
+  a row other users still have.
+- Referencing another user's row by id — tagging your note with their label —
+  fails with `<Entity> not found`, never a leak of whether it exists.
+- `users` has no generated mutations; accounts come from the magic-link flow.
+  `passwordHash` is not in the schema at all.
 
 ## Filtering
 
-Every list query accepts a `where` argument with per-column filter objects:
+Every list, aggregate, update and delete takes a `where` of per-column filter
+objects:
 
 ```graphql
 persons(where: { email: { eq: "alice@example.com" } }) { id firstName }
 ```
 
-Available filter operators on string/text fields: `eq`, `ne`, `gt`, `gte`,
-`lt`, `lte`, `like`, `ilike`, `notLike`, `notIlike`, `inArray`, `notInArray`,
-`isNull`, `isNotNull`.
+Operators depend on the column type: `eq`, `ne`, `gt`, `gte`, `lt`, `lte`,
+`like`, `ilike`, `notLike`, `notIlike`, `inArray`, `notInArray`, `isNull`,
+`isNotNull`.
 
-Filters can be composed with `OR`:
+Filters compose with `AND`, `OR` and `NOT`, and can reach through relations —
+a to-one relation takes that table's filters, a to-many takes `some` / `every`
+/ `none`:
 
 ```graphql
-persons(where: { OR: [{ firstName: { eq: "Alice" } }, { firstName: { eq: "Bob" } }] }) { id }
+notes(where: {
+  OR: [{ body: { ilike: "%birthday%" } }, { labels: { some: { label: { eq: "Family" } } } }]
+}) { id body }
 ```
 
-## Ordering
+## Ordering and pagination
 
 ```graphql
-persons(orderBy: { lastName: { direction: asc, priority: 1 } }) { id }
+persons(orderBy: { lastName: { direction: asc, priority: 1 } }, limit: 20, offset: 40) { id }
 ```
 
-## Pagination
+For stable paging over a large list, prefer the keyset cursor: select `cursor`
+on a row and pass it back as `after` under the same `orderBy`.
+
+## Aggregates
 
 ```graphql
-persons(limit: 20, offset: 40) { id firstName }
+{
+  notesAggregate { count max { createdAt } }
+  notesGroupBy(groupBy: [personId]) { count }
+}
 ```
 
 ## Codegen
 
-The client-side TypeScript types for all queries, mutations, and fragments are
-generated by GraphQL Code Generator and live in `app/src/__generated__/`.
-
-Run after any schema or document change:
+Client types are generated by GraphQL Code Generator into
+`app/src/__generated__/`. Run after any schema or document change:
 
 ```bash
 npm run codegen          # both app + server
 npm run codegen:app      # client types only
-npm run codegen:server   # server resolver types only
+npm run codegen:server   # rewrites the SDL snapshot, then server resolver types
 ```
 
 Use the `graphql()` tagged template from `@/__generated__/gql.js` for
