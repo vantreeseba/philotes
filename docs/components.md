@@ -2,13 +2,17 @@
 
 ## Overview
 
-The component tree is split into three layers:
+The component tree is split into four layers:
 
 | Layer | Location | Purpose |
 | --- | --- | --- |
 | **UI primitives** | `app/src/components/ui/` | shadcn/ui components — no app logic |
 | **Domain components** | `app/src/components/domain/` | Feature-specific forms and lists |
 | **Layouts** | `app/src/components/layouts/` | Structural page wrappers |
+| **Settings** | `app/src/components/settings/` | Account settings panels |
+
+Routes live in `app/app/` and are **not** components in this sense — a file
+placed there becomes a URL. See [`frontend.md`](./frontend.md#routing).
 
 ---
 
@@ -19,14 +23,21 @@ logic here. Extend or compose them in `components/domain/` instead.
 
 | Component | File | Notes |
 | --- | --- | --- |
+| `AlertDialog` + parts | `alert-dialog.tsx` | Destructive-action confirmation |
+| `Avatar` | `avatar.tsx` | Person avatar with initials fallback |
 | `Button` | `button.tsx` | Variants: `default`, `outline`, `ghost`, `icon` |
-| `Card`, `CardHeader`, `CardContent`, etc. | `card.tsx` | Composable card container |
-| `Input` | `input.tsx` | Base text input |
-| `Label` | `label.tsx` | Form label (wraps `<label>`) |
+| `Card`, `CardHeader`, `CardContent`, … | `card.tsx` | Composable card container |
+| `Dialog` + parts | `dialog.tsx` | Modal — every form goes in one |
 | `FieldGroup` | `field.tsx` | Wraps a group of form fields |
 | `TextField`, `FormError`, `fieldContext`, `formContext` | `form-field.tsx` | TanStack Form integration |
+| `Input` | `input.tsx` | Base text input |
+| `Label` | `label.tsx` | Form label (wraps `<label>`) |
+| `LabelChip` | `label-chip.tsx` | Colored pill for a label/tag |
+| `Pagination` | `pagination.tsx` | Page controls for offset-paged lists |
 | `Skeleton` | `skeleton.tsx` | Loading placeholder |
 | `Spinner` | `spinner.tsx` | Inline loading indicator |
+| `TagMultiSelect` | `tag-multi-select.tsx` | Multi-select over the caller's labels |
+| `Tooltip` + parts | `tooltip.tsx` | Hover explanation, incl. for disabled buttons |
 
 All primitives use `cn()` from `@/lib/utils` for conditional class merging and
 follow the shadcn `forwardRef` pattern.
@@ -35,94 +46,64 @@ follow the shadcn `forwardRef` pattern.
 
 ## Domain Components (`components/domain/`)
 
-### Person
+One directory per entity — currently `address/`, `contact-info/`, `dashboard/`,
+`label/`, `person/`, `tag/`, `task/`. The directory listing is the inventory;
+what follows documents the conventions, using two representative components.
 
-Located at `app/src/components/domain/person/`.
+Note that `label/` and `tag/` both render `Label` rows: `label/` is the labels
+management page, `tag/` is the tag picker/list used on a person. They are two
+views of the same table, not two entities.
 
-#### `PersonForm` (`form.tsx`)
+### `PersonForm` (`domain/person/form.tsx`)
 
-Creates a new person. Uses TanStack Form + Zod validation.
-
-**Props:**
+Creates and edits a person. TanStack Form + Zod.
 
 ```ts
 interface PersonFormProps {
   availableLabels: Label_ListFragment[];
-  onSubmit: (value: PersonFormValue) => void;
+  initialValues?: PersonFormInitialValues;
+  submitLabel?: string;
+  onSubmit: (value: PersonFormValue) => Promise<void>;
   onCancel: () => void;
 }
 
 interface PersonFormValue {
-  person: CreatePersonInput;
+  person: PersonFormPerson;   // firstName, lastName, email, contactFrequency, howWeMet, firstMetDate
   labelIds: string[];
 }
 ```
 
-**Fields:** First Name, Last Name, Email, Birthdate (optional), Labels
-(multi-select pill buttons).
+Passing `initialValues` turns it into an edit form; the same component serves
+both. The last three person fields are per-user context stored on
+`user_persons`, not columns of the shared `persons` row — see
+[`graphql.md`](./graphql.md).
 
-**Validation schema:**
+### `PersonList` + `PersonRow` (`domain/person/list.tsx`)
+
+`PersonList` renders search, sort, an "Add Person" button and a list of
+`PersonRow` cards inside a `ListLayout`.
+
+It takes **plain typed props** — `PersonRowData`, `PersonContactInfo` — rather
+than a fragment. This is the default for new components: the route owns the
+query, the component states the shape it needs.
+
+The alternative is a cache fragment, used by `domain/label/list.tsx` and
+`domain/tag/list.tsx`:
 
 ```ts
-z.object({
-  firstName: z.string().min(1),
-  lastName: z.string().min(1),
-  email: z.string().email(),
-  birthdate: z.string(),
-})
+export const TAG_LIST = graphql(`
+  fragment Tag_List on Label {
+    id
+    color
+    label
+  }
+`);
+
+const { data: tag, complete } = useFragment({ fragment: TAG_LIST, from });
 ```
 
-#### `PersonList` + `PersonRow` (`list.tsx`)
-
-`PersonList` renders the page heading, an "Add Person" button, and a grid of
-`PersonRow` cards.
-
-`PersonRow` uses `useFragment` with the `Person_List` fragment to read from
-the Apollo cache. Displays name, email, birthdate, label badges, and a delete
-button.
-
-**Fragment (`Person_List`):**
-
-```graphql
-fragment Person_List on Person {
-  id
-  firstName
-  lastName
-  email
-  birthdate
-  createdAt
-  updatedAt
-  labels { id label color }
-  importantDates { id name description date }
-}
-```
-
----
-
-### Label
-
-Located at `app/src/components/domain/label/`.
-
-#### `LabelForm` (`form.tsx`)
-
-Creates a new label. Fields: Label (text), Color (color picker).
-
-**Validation:** label required; color must match `/^#[0-9a-fA-F]{6}$/`.
-
-#### `LabelList` + `LabelRow` (`list.tsx`)
-
-Renders a colored swatch, label name, hex value, and delete button per row.
-Uses the `Label_List` fragment via `useFragment`.
-
-**Fragment (`Label_List`):**
-
-```graphql
-fragment Label_List on Label {
-  id
-  color
-  label
-}
-```
+Both are valid. Reach for `useFragment` only when a row genuinely needs to
+re-render from cache writes it did not trigger.
 
 ---
 
@@ -140,7 +121,22 @@ makes future changes (spacing, alignment) a single-point edit.
 
 ## Layouts (`components/layouts/`)
 
-### `FormListLayout`
+### `ListLayout` (`list.tsx`)
+
+```ts
+interface ListLayoutProps {
+  header?: ReactNode;
+  body: ReactNode;
+  footer?: ReactNode;
+  className?: string;
+  spacing?: boolean;   // default true
+}
+```
+
+The standard header/body/footer stack for every list page and every list
+section on a detail page.
+
+### `FormListLayout` (`form-list-layout.tsx`)
 
 ```ts
 interface FormListLayoutProps {
@@ -150,9 +146,20 @@ interface FormListLayoutProps {
 }
 ```
 
-Renders `form` above `list` when `showForm` is `true`. All CRUD pages use
-this pattern: clicking "Add" sets `showForm = true`; submitting or cancelling
-sets it back to `false`.
+Renders `form` above `list` when `showForm` is `true`.
+
+### `Header` and `BottomNav` (`header.tsx`)
+
+The app chrome, rendered once by `app/app/(app)/_layout.tsx` — not by
+individual routes.
+
+---
+
+## Settings (`components/settings/`)
+
+`ApiKeyManager` lists the caller's API keys and revokes them;
+`CreateApiKeyDialog` mints one and shows the plaintext key exactly once. See
+[`server.md`](./server.md) for the API-key model.
 
 ---
 
@@ -196,8 +203,11 @@ relative to the section title across all list sections.
 
 ## Adding a New Domain Component
 
-1. Create a directory under `app/src/components/domain/<entity>/`.
-2. Add `form.tsx` (uses `createFormHook`, Zod schema, `useAppForm`).
-3. Add `list.tsx` (defines a fragment, uses `useFragment` in a row component).
-4. Define GraphQL operations co-located in the route file (`routes/<entity>/index.tsx`).
+1. Create a directory under `app/src/components/domain/<entity>/`, named in
+   kebab-case, as is every file in it.
+2. Add `form.tsx` — `createFormHook`, a Zod schema, `useAppForm`. Render it
+   inside a `Dialog`; see [`frontend.md`](./frontend.md#form-presentation-rule).
+3. Add `list.tsx` — a `ListLayout` and a row component taking typed props.
+4. Define the GraphQL operations in the route that uses it, under
+   `app/app/(app)/<entity>/index.tsx`.
 5. Run `npm run codegen:app` to generate types.

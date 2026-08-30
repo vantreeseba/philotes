@@ -13,9 +13,10 @@ different variables (e.g. `GetPersonDetail` keyed by `$id`), passing the bare
 document without variables causes the refetch to run without the correct
 variables, returning wrong or empty data.
 
-Additionally, `dataMasking: true` in Apollo Client means fragment fields are
-only accessible to the component that owns the fragment — parent components
-cannot read fragment-masked fields from a child's fragment spread.
+A second, smaller pull in the same direction: the detail route already holds
+one query whose result every section on the page reads. Letting each section
+refetch for itself would mean several round trips for one user action, and
+sections disagreeing about what the current data is.
 
 ### Solution
 
@@ -41,7 +42,7 @@ Each sub-component follows this layout:
 component/
   fragment   — GraphQL fragment on the parent type (e.g. Person)
   mutations  — CREATE / DELETE mutations (no refetchQueries)
-  props type — { entity, allOptions, onDelete, onAdd, showAddButton? }
+  props type — { parent entity, available options, onDelete, onAdd, showAdd? }
   ItemRow    — renders one item + calls mutation then onDelete(id)
   AddForm/Picker — calls mutation then onAdd(...args) + onClose()
   MainExport — composes rows and add-form, threads callbacks down
@@ -49,18 +50,22 @@ component/
 
 ### Props Contract
 
+Names vary with the entity; the shape does not. `PersonRelationships` is
+representative:
+
 ```ts
-interface SubComponentProps {
-  // The parent entity (typed from the GraphQL fragment)
-  entity: Entity_SubFragment;
+export interface RelationshipsProps {
+  // The parent entity, typed from the GraphQL fragment
+  person: Person_RelationshipsFragment;
   // Available options for the add form/picker
-  allOptions: Array<Option>;
-  // Called by the component after a delete mutation succeeds
+  allPersons: Array<{ id: string; firstName: string; lastName: string }>;
+  // Called by the component after a mutation succeeds
   onDelete: (id: string) => void;
-  // Called by the component after a create/attach mutation succeeds
-  onAdd: (...args) => void;
+  onAdd: (fromPersonId: string, toPersonId: string, type: string) => void;
+  onEdit: (id: string, type: string) => void;
   // Whether to render the inline add trigger
-  showAddButton?: boolean;
+  showAdd?: boolean;
+  onShowAdd?: (show: boolean) => void;
 }
 ```
 
@@ -88,9 +93,10 @@ const handleAddFoo    = () => refetch();
 - Sub-components **never** call `refetchQueries` on their mutations.
 - Sub-components **never** receive a `DocumentNode` or query variables.
 - The route is the single source of truth for when data is re-fetched.
-- Fragment fields used by sub-components must be **inlined** in the route's
-  query (not only in a fragment spread) when `dataMasking: true` is active,
-  because masked fields are not accessible via the raw query result.
+- The route's query must select every field its sub-components read. Fragment
+  masking is off (see [`frontend.md`](./frontend.md#fragments)), so a spread is
+  enough — the parent can read through it — but a field nobody selected is
+  still absent.
 
 ### Examples
 
@@ -98,4 +104,4 @@ const handleAddFoo    = () => refetch();
 | --- | --- |
 | Relationships | `app/src/components/domain/person/relationships.tsx` |
 | Labels | `app/src/components/domain/person/labels.tsx` |
-| Call site | `app/src/routes/persons/$id.tsx` |
+| Call site | `app/app/(app)/persons/[id]/index.tsx` |
