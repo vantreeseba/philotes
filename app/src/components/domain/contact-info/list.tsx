@@ -14,7 +14,7 @@ import {
 import { useState } from 'react';
 import { graphql } from '@/__generated__/gql';
 import type { ContactInfo_ListFragment } from '@/__generated__/graphql';
-import { ContactInfosTypeEnum } from '@/__generated__/graphql';
+import { ContactTypeEnum } from '@/__generated__/graphql';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
@@ -42,7 +42,7 @@ export const CONTACT_INFO_LIST_FRAGMENT = graphql(`
 const CREATE_CONTACT_INFO = graphql(`
   mutation CreateContactInfo(
     $personId: UUID!
-    $type: ContactInfosTypeEnum!
+    $type: ContactTypeEnum!
     $value: String!
     $label: String
     $isPrimary: Boolean
@@ -78,44 +78,44 @@ const DELETE_CONTACT_INFO = graphql(`
 // Contact type helpers
 // ---------------------------------------------------------------------------
 
-const CONTACT_TYPE_OPTIONS: Array<{ value: ContactInfosTypeEnum; label: string }> = [
-  { value: ContactInfosTypeEnum.Email, label: 'Email' },
-  { value: ContactInfosTypeEnum.Phone, label: 'Phone' },
-  { value: ContactInfosTypeEnum.Mobile, label: 'Mobile' },
-  { value: ContactInfosTypeEnum.Linkedin, label: 'LinkedIn' },
-  { value: ContactInfosTypeEnum.Twitter, label: 'Twitter' },
-  { value: ContactInfosTypeEnum.Instagram, label: 'Instagram' },
-  { value: ContactInfosTypeEnum.Website, label: 'Website' },
-  { value: ContactInfosTypeEnum.Other, label: 'Other' },
+const CONTACT_TYPE_OPTIONS: Array<{ value: ContactTypeEnum; label: string }> = [
+  { value: ContactTypeEnum.Email, label: 'Email' },
+  { value: ContactTypeEnum.Phone, label: 'Phone' },
+  { value: ContactTypeEnum.Mobile, label: 'Mobile' },
+  { value: ContactTypeEnum.Linkedin, label: 'LinkedIn' },
+  { value: ContactTypeEnum.Twitter, label: 'Twitter' },
+  { value: ContactTypeEnum.Instagram, label: 'Instagram' },
+  { value: ContactTypeEnum.Website, label: 'Website' },
+  { value: ContactTypeEnum.Other, label: 'Other' },
 ];
 
-const CONTACT_TYPE_PLACEHOLDERS: Record<ContactInfosTypeEnum, string> = {
-  [ContactInfosTypeEnum.Email]: 'name@example.com',
-  [ContactInfosTypeEnum.Phone]: '+1 (555) 000-0000',
-  [ContactInfosTypeEnum.Mobile]: '+1 (555) 000-0000',
-  [ContactInfosTypeEnum.Linkedin]: 'https://linkedin.com/in/username',
-  [ContactInfosTypeEnum.Twitter]: '@username',
-  [ContactInfosTypeEnum.Instagram]: '@username',
-  [ContactInfosTypeEnum.Website]: 'https://example.com',
-  [ContactInfosTypeEnum.Other]: 'Contact value',
+const CONTACT_TYPE_PLACEHOLDERS: Record<ContactTypeEnum, string> = {
+  [ContactTypeEnum.Email]: 'name@example.com',
+  [ContactTypeEnum.Phone]: '+1 (555) 000-0000',
+  [ContactTypeEnum.Mobile]: '+1 (555) 000-0000',
+  [ContactTypeEnum.Linkedin]: 'https://linkedin.com/in/username',
+  [ContactTypeEnum.Twitter]: '@username',
+  [ContactTypeEnum.Instagram]: '@username',
+  [ContactTypeEnum.Website]: 'https://example.com',
+  [ContactTypeEnum.Other]: 'Contact value',
 };
 
 /** Actionable href for a contact value — tap to call/text/email/open. */
 export function contactHref(type: string, value: string): string | null {
   const v = value.trim();
-  switch (type as ContactInfosTypeEnum) {
-    case ContactInfosTypeEnum.Email:
+  switch (type as ContactTypeEnum) {
+    case ContactTypeEnum.Email:
       return `mailto:${v}`;
-    case ContactInfosTypeEnum.Phone:
-    case ContactInfosTypeEnum.Mobile:
+    case ContactTypeEnum.Phone:
+    case ContactTypeEnum.Mobile:
       return `tel:${v.replace(/[^\d+]/g, '')}`;
-    case ContactInfosTypeEnum.Linkedin:
+    case ContactTypeEnum.Linkedin:
       return v.startsWith('http') ? v : `https://linkedin.com/in/${v.replace(/^@/, '')}`;
-    case ContactInfosTypeEnum.Twitter:
+    case ContactTypeEnum.Twitter:
       return v.startsWith('http') ? v : `https://x.com/${v.replace(/^@/, '')}`;
-    case ContactInfosTypeEnum.Instagram:
+    case ContactTypeEnum.Instagram:
       return v.startsWith('http') ? v : `https://instagram.com/${v.replace(/^@/, '')}`;
-    case ContactInfosTypeEnum.Website:
+    case ContactTypeEnum.Website:
       return v.startsWith('http') ? v : `https://${v}`;
     default:
       return null;
@@ -123,20 +123,20 @@ export function contactHref(type: string, value: string): string | null {
 }
 
 function ContactTypeIcon({ type, className }: { type: string; className?: string }) {
-  switch (type as ContactInfosTypeEnum) {
-    case ContactInfosTypeEnum.Email:
+  switch (type as ContactTypeEnum) {
+    case ContactTypeEnum.Email:
       return <Mail className={className} />;
-    case ContactInfosTypeEnum.Phone:
+    case ContactTypeEnum.Phone:
       return <Phone className={className} />;
-    case ContactInfosTypeEnum.Mobile:
+    case ContactTypeEnum.Mobile:
       return <Smartphone className={className} />;
-    case ContactInfosTypeEnum.Linkedin:
+    case ContactTypeEnum.Linkedin:
       return <Linkedin className={className} />;
-    case ContactInfosTypeEnum.Twitter:
+    case ContactTypeEnum.Twitter:
       return <Twitter className={className} />;
-    case ContactInfosTypeEnum.Instagram:
+    case ContactTypeEnum.Instagram:
       return <Instagram className={className} />;
-    case ContactInfosTypeEnum.Website:
+    case ContactTypeEnum.Website:
       return <Globe className={className} />;
     default:
       return <MoreHorizontal className={className} />;
@@ -233,7 +233,7 @@ interface AddContactInfoFormProps {
 }
 
 function AddContactInfoForm({ personId, onAdded, onCancel }: AddContactInfoFormProps) {
-  const [type, setType] = useState<ContactInfosTypeEnum>(ContactInfosTypeEnum.Email);
+  const [type, setType] = useState<ContactTypeEnum>(ContactTypeEnum.Email);
   const [value, setValue] = useState('');
   const [label, setLabel] = useState('');
   const [isPrimary, setIsPrimary] = useState(false);
@@ -272,7 +272,7 @@ function AddContactInfoForm({ personId, onAdded, onCancel }: AddContactInfoFormP
           id="contact-type"
           value={type}
           onChange={(e) => {
-            setType(e.target.value as ContactInfosTypeEnum);
+            setType(e.target.value as ContactTypeEnum);
             setValue('');
           }}
           className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring"

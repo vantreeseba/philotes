@@ -3,7 +3,7 @@ import { Clipboard, MapPin, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 import { graphql } from '@/__generated__/gql';
 import type { AddressListFragment } from '@/__generated__/graphql';
-import { AddressesTypeEnum } from '@/__generated__/graphql';
+import { AddressTypeEnum } from '@/__generated__/graphql';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
@@ -72,7 +72,7 @@ export interface AddressListProps {
 
 interface AddressData {
   id: string;
-  type: AddressesTypeEnum;
+  type: AddressTypeEnum;
   label: string | null;
   line1: string;
   line2: string | null;
@@ -87,10 +87,10 @@ interface AddressData {
 // Helpers
 // ---------------------------------------------------------------------------
 
-const TYPE_LABELS: Record<AddressesTypeEnum, string> = {
-  [AddressesTypeEnum.Home]: 'Home',
-  [AddressesTypeEnum.Work]: 'Work',
-  [AddressesTypeEnum.Other]: 'Other',
+const TYPE_LABELS: Record<AddressTypeEnum, string> = {
+  [AddressTypeEnum.Home]: 'Home',
+  [AddressTypeEnum.Work]: 'Work',
+  [AddressTypeEnum.Other]: 'Other',
 };
 
 function formatAddress(address: AddressData): string {
@@ -176,7 +176,7 @@ function AddressRow({ address, onDelete }: AddressRowProps) {
 // ---------------------------------------------------------------------------
 
 interface AddressFormValues {
-  type: AddressesTypeEnum;
+  type: AddressTypeEnum;
   label: string;
   line1: string;
   line2: string;
@@ -196,7 +196,7 @@ interface AddAddressFormProps {
 function AddAddressForm({ personId, onAdded, onCancel }: AddAddressFormProps) {
   const [createAddresses, { loading }] = useMutation(CREATE_ADDRESSES);
   const [values, setValues] = useState<AddressFormValues>({
-    type: AddressesTypeEnum.Home,
+    type: AddressTypeEnum.Home,
     label: '',
     line1: '',
     line2: '',
@@ -249,14 +249,14 @@ function AddAddressForm({ personId, onAdded, onCancel }: AddAddressFormProps) {
           onChange={(e) =>
             setValues((v) => ({
               ...v,
-              type: e.target.value as AddressesTypeEnum,
+              type: e.target.value as AddressTypeEnum,
             }))
           }
           className={fieldClass}
         >
-          <option value={AddressesTypeEnum.Home}>Home</option>
-          <option value={AddressesTypeEnum.Work}>Work</option>
-          <option value={AddressesTypeEnum.Other}>Other</option>
+          <option value={AddressTypeEnum.Home}>Home</option>
+          <option value={AddressTypeEnum.Work}>Work</option>
+          <option value={AddressTypeEnum.Other}>Other</option>
         </select>
       </div>
 
