@@ -1,3 +1,30 @@
+# [2.0.0](https://github.com/cubicecho/philotes/compare/v1.9.0...v2.0.0) (2026-08-30)
+
+
+* chore(deps)!: drizzle-orm 1.0.0-rc.4 and @vantreeseba/drizzle-graphql 9 ([f6eab5f](https://github.com/cubicecho/philotes/commit/f6eab5fcd29b6da0c081a6edafb97b08df80d81b))
+
+
+### Bug Fixes
+
+* **server:** close tenant-isolation holes by delegating to generated resolvers ([aef35de](https://github.com/cubicecho/philotes/commit/aef35de7dd55c130a644ef2755767fe008e0a6cc))
+
+
+### Features
+
+* upgrade @vantreeseba/drizzle-graphql from 1.0.1 to 4.1.0 ([da86356](https://github.com/cubicecho/philotes/commit/da863565442bc7ee6072d6de4c4332dcad8178d3))
+
+
+### BREAKING CHANGES
+
+* AddressesTypeEnum is now AddressTypeEnum and
+ContactInfosTypeEnum is now ContactTypeEnum. The `${Type}FilterOr` /
+`${Table}FiltersOr` input types are gone — an OR branch takes the filter type
+itself, and now composes with sibling fields by an implicit AND rather than
+being rejected.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01VozQrDNF9PgwGkAk3VArab
+
 # [1.9.0](https://github.com/cubicecho/philotes/compare/v1.8.0...v1.9.0) (2026-07-05)
 
 
