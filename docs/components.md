@@ -33,8 +33,6 @@ logic here. Extend or compose them in `components/domain/` instead.
 | `Input` | `input.tsx` | Base text input |
 | `Label` | `label.tsx` | Form label (wraps `<label>`) |
 | `LabelChip` | `label-chip.tsx` | Colored pill for a label/tag |
-| `Pagination` | `pagination.tsx` | Page controls for offset-paged lists |
-| `Skeleton` | `skeleton.tsx` | Loading placeholder |
 | `Spinner` | `spinner.tsx` | Inline loading indicator |
 | `TagMultiSelect` | `tag-multi-select.tsx` | Multi-select over the caller's labels |
 | `Tooltip` + parts | `tooltip.tsx` | Hover explanation, incl. for disabled buttons |
@@ -134,18 +132,6 @@ interface ListLayoutProps {
 
 The standard header/body/footer stack for every list page and every list
 section on a detail page.
-
-### `FormListLayout` (`form-list-layout.tsx`)
-
-```ts
-interface FormListLayoutProps {
-  form: ReactNode;
-  list: ReactNode;
-  showForm: boolean;
-}
-```
-
-Renders `form` above `list` when `showForm` is `true`.
 
 ### `Header` and `BottomNav` (`header.tsx`)
 

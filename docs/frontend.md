@@ -48,7 +48,7 @@ app/
     │   └── type-policies.ts    # Scalar type policies for the Apollo cache
     ├── components/
     │   ├── domain/             # Feature components, one directory per entity
-    │   ├── layouts/            # header.tsx, list.tsx, form-list-layout.tsx
+    │   ├── layouts/            # header.tsx (Header, BottomNav), list.tsx
     │   ├── settings/           # API key management
     │   └── ui/                 # shadcn/ui primitives (no app logic here)
     ├── hooks/                  # use-dark-mode, use-query-string-state
