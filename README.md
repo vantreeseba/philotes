@@ -23,9 +23,9 @@ up, you lose track of how you met someone, you can't remember if it was their
 birthday or their kid's birthday. Philotes gives you a quiet place to keep that
 context — so you can show up for the people in your life.
 
-It runs 100% locally. No account to create, no cloud to trust, no vendor to
-worry about. Your data lives on your machine, in an embedded Postgres database,
-and nowhere else.
+It runs 100% locally. No cloud to trust, no vendor to worry about. Sign-in is
+a magic link handled by your own instance, and your data lives on your machine,
+in an embedded Postgres database, and nowhere else.
 
 ---
 
@@ -132,7 +132,9 @@ npm run dev
 ```
 
 The app opens at [http://localhost:3000](http://localhost:3000). That's it — no
-database to set up, no environment variables required.
+database to set up, no environment variables required. Enter an email on the
+login page; in development the magic link is shown to you directly rather than
+mailed.
 
 ---
 
@@ -140,9 +142,9 @@ database to set up, no environment variables required.
 
 | Layer    | Technology                                                  |
 | -------- | ----------------------------------------------------------- |
-| Frontend | React 19, Vite, TanStack Router, Apollo Client              |
-| UI       | Tailwind CSS, shadcn/ui, Radix UI                           |
-| API      | Apollo Server, GraphQL                                      |
+| Frontend | React 19, Expo Router (web target), Apollo Client            |
+| UI       | Tailwind CSS via NativeWind, shadcn/ui, Radix UI            |
+| API      | Apollo Server 5 on Express, GraphQL                         |
 | Database | Drizzle ORM, PGlite (embedded Postgres — no server needed)  |
 | Testing  | Vitest                                                      |
 | Linting  | Biome                                                       |

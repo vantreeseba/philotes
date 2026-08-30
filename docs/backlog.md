@@ -17,7 +17,7 @@ Add a `tier` column to the `persons` table (`intimate | close | active | acquain
 - `acquaintance` → yearly
 
 **Implementation notes:**
-- DB: add `tier` to `db/src/schema.ts`, export `TIER_VALUES` constant
+- DB: add `tier` to `db/src/models/persons.ts`, export `TIER_VALUES` constant
 - Run `npm run db:generate && npm run db:push && npm run codegen`
 - `PersonForm`: add tier select field
 - `PersonList`: show tier badge on each row, add tier filter to existing filter bar
