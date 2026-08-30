@@ -1,11 +1,14 @@
 import { useMutation } from '@apollo/client';
 import { Link } from 'expo-router';
-import { Pencil, Tag, Trash2, X } from 'lucide-react';
-import { useRef, useState } from 'react';
+import { Pencil, Tag, Trash2 } from 'lucide-react';
+import { useState } from 'react';
 import { graphql } from '@/__generated__/gql';
+import { MentionDropdown, useMentionTextarea } from '@/components/domain/person/note-mentions';
+import { ATTACH_NOTE_TAG, NoteTagChip, NoteTagPicker } from '@/components/domain/person/note-tags';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { TagMultiSelect } from '@/components/ui/tag-multi-select';
+import type { MentionablePerson } from '@/lib/mentions';
 
 // ---------------------------------------------------------------------------
 // Mutations
@@ -34,26 +37,6 @@ const DELETE_NOTE = graphql(`
   mutation DeleteNote($id: UUID!) {
     deleteNote(where: { id: { eq: $id } }) {
       id
-    }
-  }
-`);
-
-const ATTACH_NOTE_TAG = graphql(`
-  mutation AttachTagToNote($noteId: UUID!, $labelId: UUID!) {
-    createNoteTag(values: { noteId: $noteId, labelId: $labelId }) {
-      noteId
-      labelId
-    }
-  }
-`);
-
-const DETACH_NOTE_TAG = graphql(`
-  mutation DetachTagFromNote($noteId: UUID!, $labelId: UUID!) {
-    deleteNoteTag(
-      where: { noteId: { eq: $noteId }, labelId: { eq: $labelId } }
-    ) {
-      noteId
-      labelId
     }
   }
 `);
@@ -103,267 +86,12 @@ export interface PersonNotesProps {
 }
 
 // ---------------------------------------------------------------------------
-// Mention helpers
-// ---------------------------------------------------------------------------
-
-interface PersonStub {
-  id: string;
-  firstName: string;
-  lastName: string;
-}
-
-/** Parse all @FirstName LastName mentions in a body string and return the
- *  matching person IDs from allPersons. */
-function parseMentionedPersonIds(body: string, allPersons: PersonStub[]): string[] {
-  const ids = new Set<string>();
-  const pattern = /@([\w'-]+)\s+([\w'-]+)/g;
-  let match: RegExpExecArray | null;
-  // biome-ignore lint/suspicious/noAssignInExpressions: standard regex loop
-  while ((match = pattern.exec(body)) !== null) {
-    const first = match[1].toLowerCase();
-    const last = match[2].toLowerCase();
-    for (const p of allPersons) {
-      if (p.firstName.toLowerCase() === first && p.lastName.toLowerCase() === last) {
-        ids.add(p.id);
-      }
-    }
-  }
-  return Array.from(ids);
-}
-
-// ---------------------------------------------------------------------------
-// @-Mention dropdown
-// ---------------------------------------------------------------------------
-
-interface MentionDropdownProps {
-  query: string;
-  allPersons: PersonStub[];
-  onSelect: (person: PersonStub) => void;
-  anchorRef: React.RefObject<HTMLTextAreaElement | null>;
-}
-
-function MentionDropdown({ query, allPersons, onSelect, anchorRef }: MentionDropdownProps) {
-  const lower = query.toLowerCase();
-  const filtered = allPersons.filter((p) => {
-    const full = `${p.firstName} ${p.lastName}`.toLowerCase();
-    return full.startsWith(lower) || p.firstName.toLowerCase().startsWith(lower);
-  });
-
-  if (filtered.length === 0) return null;
-
-  // Position beneath the textarea
-  const rect = anchorRef.current?.getBoundingClientRect();
-  const style: React.CSSProperties = rect
-    ? {
-        position: 'fixed',
-        top: rect.bottom + 4,
-        left: rect.left,
-        zIndex: 50,
-        minWidth: 180,
-      }
-    : { position: 'absolute', zIndex: 50, minWidth: 180 };
-
-  return (
-    <div style={style} className="rounded-md border border-border bg-popover shadow-md py-1 max-h-48 overflow-y-auto">
-      {filtered.map((p) => (
-        <button
-          key={p.id}
-          type="button"
-          onMouseDown={(e) => {
-            // Prevent textarea blur before click registers
-            e.preventDefault();
-            onSelect(p);
-          }}
-          className="w-full px-3 py-1.5 text-left text-sm hover:bg-muted transition-colors"
-        >
-          {p.firstName} {p.lastName}
-        </button>
-      ))}
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Mention-aware textarea hook
-// ---------------------------------------------------------------------------
-
-interface UseMentionTextareaOptions {
-  allPersons: PersonStub[];
-}
-
-function useMentionTextarea({ allPersons }: UseMentionTextareaOptions, initialBody = '') {
-  const [body, setBody] = useState(initialBody);
-  const [mentionQuery, setMentionQuery] = useState<string | null>(null);
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
-
-  const detectMention = (value: string, cursorPos: number) => {
-    const textUpToCursor = value.slice(0, cursorPos);
-    // Match an @ followed by non-whitespace chars at the end of text
-    const match = /@([\w']*)$/.exec(textUpToCursor);
-    if (match) {
-      setMentionQuery(match[1]);
-    } else {
-      setMentionQuery(null);
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const val = e.target.value;
-    setBody(val);
-    detectMention(val, e.target.selectionStart ?? val.length);
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === 'Escape' && mentionQuery !== null) {
-      setMentionQuery(null);
-    }
-  };
-
-  const handleSelect = (person: PersonStub) => {
-    if (!textareaRef.current) return;
-    const cursorPos = textareaRef.current.selectionStart ?? body.length;
-    const textUpToCursor = body.slice(0, cursorPos);
-    // Replace the partial @query with @FirstName LastName
-    const replaced = textUpToCursor.replace(/@[\w']*$/, `@${person.firstName} ${person.lastName}`);
-    const newBody = replaced + body.slice(cursorPos);
-    setBody(newBody);
-    setMentionQuery(null);
-    // Restore focus + move cursor to end of inserted mention
-    setTimeout(() => {
-      textareaRef.current?.focus();
-      const newPos = replaced.length;
-      textareaRef.current?.setSelectionRange(newPos, newPos);
-    }, 0);
-  };
-
-  const reset = () => {
-    setBody('');
-    setMentionQuery(null);
-  };
-
-  const mentionedPersonIds = parseMentionedPersonIds(body, allPersons);
-
-  return {
-    body,
-    setBody,
-    mentionQuery,
-    mentionedPersonIds,
-    textareaRef,
-    handleChange,
-    handleKeyDown,
-    handleSelect,
-    reset,
-  };
-}
-
-// ---------------------------------------------------------------------------
-// Tag chip on a note (for existing notes)
-// ---------------------------------------------------------------------------
-
-interface NoteTagChipProps {
-  noteId: string;
-  labelId: string;
-  label: string;
-  color: string;
-  onDetach: () => void;
-}
-
-function NoteTagChip({ noteId, labelId, label, color, onDetach }: NoteTagChipProps) {
-  const [detachTag] = useMutation(DETACH_NOTE_TAG);
-
-  const handleDetach = async () => {
-    await detachTag({ variables: { noteId, labelId } });
-    onDetach();
-  };
-
-  return (
-    <span className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs">
-      <span
-        className="inline-block h-2 w-2 rounded-full shrink-0"
-        style={{ backgroundColor: color }}
-        aria-hidden="true"
-      />
-      {label}
-      <button
-        type="button"
-        onClick={handleDetach}
-        className="ml-0.5 text-muted-foreground hover:text-destructive transition-colors"
-        aria-label={`Remove tag ${label}`}
-      >
-        <X className="h-3 w-3" />
-      </button>
-    </span>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Add-tag picker on a note (for existing notes)
-// ---------------------------------------------------------------------------
-
-interface NoteTagPickerProps {
-  noteId: string;
-  allTags: Array<{ id: string; label: string; color: string }>;
-  attachedTagIds: Set<string>;
-  onClose: () => void;
-  onAdd: () => void;
-}
-
-function NoteTagPicker({ noteId, allTags, attachedTagIds, onClose, onAdd }: NoteTagPickerProps) {
-  const [attachTag] = useMutation(ATTACH_NOTE_TAG);
-  const available = allTags.filter((t) => !attachedTagIds.has(t.id));
-
-  const handleSelect = async (labelId: string) => {
-    await attachTag({ variables: { noteId, labelId } });
-    onAdd();
-    onClose();
-  };
-
-  if (available.length === 0) {
-    return (
-      <div className="flex gap-1.5 rounded-md border border-border p-2 text-xs text-muted-foreground">
-        All tags attached.
-        <button type="button" onClick={onClose} className="ml-auto hover:text-foreground transition-colors">
-          Cancel
-        </button>
-      </div>
-    );
-  }
-
-  return (
-    <div className="flex flex-wrap gap-1.5 rounded-md border border-border p-2">
-      {available.map((t) => (
-        <button
-          key={t.id}
-          type="button"
-          onClick={() => handleSelect(t.id)}
-          className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs hover:bg-muted transition-colors cursor-pointer"
-        >
-          <span
-            className="inline-block h-2 w-2 rounded-full shrink-0"
-            style={{ backgroundColor: t.color }}
-            aria-hidden="true"
-          />
-          {t.label}
-        </button>
-      ))}
-      <button
-        type="button"
-        onClick={onClose}
-        className="ml-auto text-xs text-muted-foreground hover:text-foreground transition-colors"
-      >
-        Cancel
-      </button>
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
 // Edit note form (body only — tags managed inline on the row)
 // ---------------------------------------------------------------------------
 
 interface EditNoteFormProps {
   initialBody: string;
-  allPersons: PersonStub[];
+  allPersons: MentionablePerson[];
   onSubmit: (body: string, mentionedPersonIds: string[]) => Promise<void>;
   onCancel: () => void;
 }
@@ -425,7 +153,7 @@ function EditNoteForm({ initialBody, allPersons, onSubmit, onCancel }: EditNoteF
 interface CreateNoteFormProps {
   personId: string;
   allTags: Array<{ id: string; label: string; color: string }>;
-  allPersons: PersonStub[];
+  allPersons: MentionablePerson[];
   onAdded: () => void;
   onCancel: () => void;
 }
@@ -521,7 +249,7 @@ function CreateNoteForm({ personId, allTags, allPersons, onAdded, onCancel }: Cr
 interface NoteRowProps {
   note: NoteData;
   allTags: Array<{ id: string; label: string; color: string }>;
-  allPersons: PersonStub[];
+  allPersons: MentionablePerson[];
   onChanged: () => void;
 }
 
