@@ -116,7 +116,6 @@ npm run codegen:server   # Generate server resolver types (server/__generated__/
 ```bash
 npm test                 # Run all tests once
 npm run test:watch       # Run tests in watch mode
-npm run test:ui          # Vitest UI (prompts to install @vitest/ui — not a dependency)
 
 # Run a single test file:
 npx vitest run server/src/__tests__/tenancy.test.ts
