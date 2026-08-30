@@ -47,12 +47,12 @@ follow the shadcn `forwardRef` pattern.
 ## Domain Components (`components/domain/`)
 
 One directory per entity — currently `address/`, `contact-info/`, `dashboard/`,
-`label/`, `person/`, `tag/`, `task/`. The directory listing is the inventory;
-what follows documents the conventions, using two representative components.
+`label/`, `person/`, `task/`. The directory listing is the inventory; what
+follows documents the conventions, using two representative components.
 
-Note that `label/` and `tag/` both render `Label` rows: `label/` is the labels
-management page, `tag/` is the tag picker/list used on a person. They are two
-views of the same table, not two entities.
+"Label" and "tag" are the same thing in this app. `labels` is the table, and
+`label/` is the only place its components live — do not reintroduce a parallel
+`tag/` directory.
 
 ### `PersonForm` (`domain/person/form.tsx`)
 
@@ -87,19 +87,18 @@ It takes **plain typed props** — `PersonRowData`, `PersonContactInfo` — rath
 than a fragment. This is the default for new components: the route owns the
 query, the component states the shape it needs.
 
-The alternative is a cache fragment, used by `domain/label/list.tsx` and
-`domain/tag/list.tsx`:
+The alternative is a cache fragment, used by `domain/label/list.tsx`:
 
 ```ts
-export const TAG_LIST = graphql(`
-  fragment Tag_List on Label {
+const LABEL_LIST = graphql(`
+  fragment Label_List on Label {
     id
     color
     label
   }
 `);
 
-const { data: tag, complete } = useFragment({ fragment: TAG_LIST, from });
+const { data: label, complete } = useFragment({ fragment: LABEL_LIST, from });
 ```
 
 Both are valid. Reach for `useFragment` only when a row genuinely needs to

@@ -1,12 +1,12 @@
 import { createFormHook } from '@tanstack/react-form';
 import { useState } from 'react';
 import { z } from 'zod';
-import type { CreateLabelInput as NewTag } from '@/__generated__/graphql';
+import type { CreateLabelInput as NewLabel } from '@/__generated__/graphql';
 import { Button } from '@/components/ui/button';
 import { FieldGroup } from '@/components/ui/field';
 import { FormError, fieldContext, formContext, TextField } from '@/components/ui/form-field.tsx';
 
-const tagSchema = z.object({
+const labelSchema = z.object({
   label: z.string().min(1, 'Name is required.'),
   color: z
     .string()
@@ -14,9 +14,9 @@ const tagSchema = z.object({
     .regex(/^#[0-9a-fA-F]{6}$/, 'Must be a valid hex color (e.g. #ff0000).'),
 });
 
-interface TagFormProps {
+interface LabelFormProps {
   initialValues?: { label: string; color: string };
-  onSubmit: (value: NewTag) => Promise<void>;
+  onSubmit: (value: NewLabel) => Promise<void>;
   onCancel: () => void;
   submitLabel?: string;
 }
@@ -28,7 +28,7 @@ export const { useAppForm, withForm, withFieldGroup } = createFormHook({
   formContext,
 });
 
-export function TagForm({ initialValues, onSubmit, onCancel, submitLabel }: TagFormProps) {
+export function LabelForm({ initialValues, onSubmit, onCancel, submitLabel }: LabelFormProps) {
   const [formError, setFormError] = useState<string | null>(null);
   const form = useAppForm({
     defaultValues: {
@@ -36,7 +36,7 @@ export function TagForm({ initialValues, onSubmit, onCancel, submitLabel }: TagF
       color: initialValues?.color ?? '#000000',
     },
     validators: {
-      onSubmit: tagSchema,
+      onSubmit: labelSchema,
     },
     onSubmit: async ({ value }) => {
       setFormError(null);

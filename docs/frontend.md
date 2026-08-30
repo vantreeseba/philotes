@@ -123,10 +123,9 @@ Fragment masking is **off** (`fragmentMasking: false` in `app/codegen.ts`, and
 the client sets no `dataMasking`), so a parent can read every field its query
 selected, including through a fragment spread.
 
-Two list components (`domain/label/list.tsx`, `domain/tag/list.tsx`) use
-`useFragment` to read a row from the cache. It is a valid pattern, not a
-required one — most components take plain typed props from the route instead,
-which is the simpler default for new work:
+`domain/label/list.tsx` uses `useFragment` to read a row from the cache. It is
+a valid pattern, not a required one — most components take plain typed props
+from the route instead, which is the simpler default for new work:
 
 ```ts
 export interface PersonRowData {

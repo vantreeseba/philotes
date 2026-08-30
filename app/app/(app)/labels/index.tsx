@@ -2,14 +2,14 @@ import { useMutation, useQuery } from '@apollo/client';
 import { useState } from 'react';
 import { graphql } from '@/__generated__/gql';
 import type { CreateLabelInput, Label_ListFragment } from '@/__generated__/graphql';
+import { LabelForm } from '@/components/domain/label/form';
 import { LabelList } from '@/components/domain/label/list';
-import { TagForm } from '@/components/domain/tag/form';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Spinner } from '@/components/ui/spinner.tsx';
 
-const GET_TAGS = graphql(`
-  query GetTags {
+const GET_LABELS = graphql(`
+  query GetLabels {
     labels {
       __typename
       id
@@ -18,8 +18,8 @@ const GET_TAGS = graphql(`
   }
 `);
 
-const CREATE_TAG = graphql(`
-  mutation CreateTag($values: CreateLabelInput!) {
+const CREATE_LABEL = graphql(`
+  mutation CreateLabel($values: CreateLabelInput!) {
     createLabel(values: $values) {
       __typename
       id
@@ -28,8 +28,8 @@ const CREATE_TAG = graphql(`
   }
 `);
 
-const DELETE_TAG = graphql(`
-  mutation DeleteTag($id: UUID!) {
+const DELETE_LABEL = graphql(`
+  mutation DeleteLabel($id: UUID!) {
     deleteLabel(where: { id: { eq: $id } }) {
       __typename
       id
@@ -37,8 +37,8 @@ const DELETE_TAG = graphql(`
   }
 `);
 
-const UPDATE_TAG = graphql(`
-  mutation UpdateTag($id: UUID!, $label: String!, $color: String!) {
+const UPDATE_LABEL = graphql(`
+  mutation UpdateLabel($id: UUID!, $label: String!, $color: String!) {
     updateLabel(
       set: { label: $label, color: $color }
       where: { id: { eq: $id } }
@@ -62,16 +62,16 @@ const MERGE_LABEL_INTO = graphql(`
   }
 `);
 
-export default function TagsPage() {
-  const { data, loading, error, refetch } = useQuery(GET_TAGS);
-  const [createTag] = useMutation(CREATE_TAG, {
-    refetchQueries: [{ query: GET_TAGS }],
+export default function LabelsPage() {
+  const { data, loading, error, refetch } = useQuery(GET_LABELS);
+  const [createLabel] = useMutation(CREATE_LABEL, {
+    refetchQueries: [{ query: GET_LABELS }],
   });
-  const [deleteTag] = useMutation(DELETE_TAG, {
-    refetchQueries: [{ query: GET_TAGS }],
+  const [deleteLabel] = useMutation(DELETE_LABEL, {
+    refetchQueries: [{ query: GET_LABELS }],
   });
-  const [updateTag] = useMutation(UPDATE_TAG, {
-    refetchQueries: [{ query: GET_TAGS }],
+  const [updateLabel] = useMutation(UPDATE_LABEL, {
+    refetchQueries: [{ query: GET_LABELS }],
   });
   const [mergeLabelInto] = useMutation(MERGE_LABEL_INTO);
 
@@ -81,17 +81,17 @@ export default function TagsPage() {
   const [mergeTargetId, setMergeTargetId] = useState<string>('');
 
   const handleDelete = async (id: string) => {
-    await deleteTag({ variables: { id } });
+    await deleteLabel({ variables: { id } });
   };
 
   const handleCreate = async (values: CreateLabelInput): Promise<void> => {
-    await createTag({ variables: { values } });
+    await createLabel({ variables: { values } });
     setCreateDialogOpen(false);
   };
 
   const handleEdit = async (values: CreateLabelInput): Promise<void> => {
     if (!editingLabel) return;
-    await updateTag({
+    await updateLabel({
       variables: { id: editingLabel.id, label: values.label, color: values.color },
     });
     setEditingLabel(null);
@@ -121,7 +121,7 @@ export default function TagsPage() {
             <DialogTitle>New Label</DialogTitle>
             <DialogDescription>Add a new label to your CRM.</DialogDescription>
           </DialogHeader>
-          <TagForm onSubmit={handleCreate} onCancel={() => setCreateDialogOpen(false)} />
+          <LabelForm onSubmit={handleCreate} onCancel={() => setCreateDialogOpen(false)} />
         </DialogContent>
       </Dialog>
 
@@ -138,7 +138,7 @@ export default function TagsPage() {
             <DialogDescription>Rename or recolor this label.</DialogDescription>
           </DialogHeader>
           {editingLabel && (
-            <TagForm
+            <LabelForm
               key={editingLabel.id}
               initialValues={{ label: editingLabel.label, color: editingLabel.color }}
               onSubmit={handleEdit}
