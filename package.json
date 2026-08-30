@@ -27,7 +27,6 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
-    "test:single": "vitest run",
     "db:generate": "npm run generate -w db",
     "db:migrate": "npm run migrate -w db",
     "db:seed": "npm run seed -w db",
