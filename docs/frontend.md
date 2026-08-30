@@ -48,10 +48,10 @@ app/
     │   └── type-policies.ts    # Scalar type policies for the Apollo cache
     ├── components/
     │   ├── domain/             # Feature components, one directory per entity
-    │   ├── layouts/            # header.tsx (Header, BottomNav), list.tsx
+    │   ├── layouts/            # header.tsx, list.tsx, section.tsx
     │   ├── settings/           # API key management
     │   └── ui/                 # shadcn/ui primitives (no app logic here)
-    ├── hooks/                  # use-dark-mode, use-query-string-state
+    ├── hooks/                  # use-dark-mode, use-query-string-state, use-avatar-upload
     ├── lib/                    # auth, utils (cn), date-type-policy, …
     └── index.css               # Tailwind base styles
 ```
