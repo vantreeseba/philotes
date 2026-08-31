@@ -29,12 +29,10 @@ logic here. Extend or compose them in `components/domain/` instead.
 | `Card`, `CardHeader`, `CardContent`, … | `card.tsx` | Composable card container |
 | `Dialog` + parts | `dialog.tsx` | Modal — every form goes in one |
 | `FieldGroup` | `field.tsx` | Wraps a group of form fields |
-| `TextField`, `FormError`, `fieldContext`, `formContext` | `form-field.tsx` | TanStack Form integration |
+| `TextField`, `FormError`, `useAppForm` | `form-field.tsx` | TanStack Form integration — the app's only `createFormHook` |
 | `Input` | `input.tsx` | Base text input |
 | `Label` | `label.tsx` | Form label (wraps `<label>`) |
 | `LabelChip` | `label-chip.tsx` | Colored pill for a label/tag |
-| `Pagination` | `pagination.tsx` | Page controls for offset-paged lists |
-| `Skeleton` | `skeleton.tsx` | Loading placeholder |
 | `Spinner` | `spinner.tsx` | Inline loading indicator |
 | `TagMultiSelect` | `tag-multi-select.tsx` | Multi-select over the caller's labels |
 | `Tooltip` + parts | `tooltip.tsx` | Hover explanation, incl. for disabled buttons |
@@ -135,17 +133,20 @@ interface ListLayoutProps {
 The standard header/body/footer stack for every list page and every list
 section on a detail page.
 
-### `FormListLayout` (`form-list-layout.tsx`)
+### `Section` and `SectionAction` (`section.tsx`)
 
 ```ts
-interface FormListLayoutProps {
-  form: ReactNode;
-  list: ReactNode;
-  showForm: boolean;
+interface SectionProps {
+  title: string;
+  action?: ReactNode;   // usually a <SectionAction>
+  children: ReactNode;
 }
 ```
 
-Renders `form` above `list` when `showForm` is `true`.
+One content card with a quiet uppercase heading and an optional right-aligned
+action — the shape every section on the person detail page uses. `SectionAction`
+is the small ghost icon+text button that goes in the `action` slot; see
+[Add Button Placement](#add-button-placement-in-list-sections).
 
 ### `Header` and `BottomNav` (`header.tsx`)
 
@@ -164,27 +165,22 @@ individual routes.
 
 ## Add Button Placement in List Sections
 
-Every list section on a detail page (Tags, Important Dates, Notes, Relationships,
-etc.) must follow this layout pattern:
+Every list section on a detail page (Labels, Important Dates, Notes,
+Relationships, etc.) is a `Section` with its add trigger in the `action` slot:
 
 ```tsx
-<Card>
-  <CardContent className="p-4 space-y-3">
-    <div className="flex items-center justify-between">
-      <h2 className="font-semibold text-base">Section Title</h2>
-      <Button size="sm" variant="outline" onClick={() => setDialogOpen(true)}>
-        <SomeIcon className="mr-1.5 h-4 w-4" />
-        Add Item
-      </Button>
-    </div>
-    <SectionList ... createOpen={dialogOpen} onCreateOpenChange={setDialogOpen} />
-  </CardContent>
-</Card>
+<Section
+  title="Important Dates"
+  action={<SectionAction icon={<Plus className="h-3.5 w-3.5" />} label="Add" onClick={() => setDialogOpen(true)} />}
+>
+  <SectionList ... createOpen={dialogOpen} onCreateOpenChange={setDialogOpen} />
+</Section>
 ```
 
 **Rules:**
 
-- The "Add" button lives in the **card header row**, right-aligned, never
+- Use `Section`; do not hand-roll the `<Card><CardContent>` header row.
+- The "Add" button lives in the **section header row**, right-aligned, never
   inside the list component itself.
 - Dialog open state (`dialogOpen`, `setDialogOpen`) is owned by the **page**
   (route component), not the list component.
@@ -192,7 +188,7 @@ etc.) must follow this layout pattern:
   `onCreateOpenChange: (open: boolean) => void` as props and renders the
   `<Dialog>` internally — keeping the Dialog markup co-located with the form
   it opens.
-- If all items are already added (e.g. all tags attached), wrap the `Button`
+- If all items are already added (e.g. all labels attached), wrap the trigger
   in a `<Tooltip>` and disable it, explaining why.
 
 This ensures consistent UX: the add button is always in the same position
@@ -204,7 +200,8 @@ relative to the section title across all list sections.
 
 1. Create a directory under `app/src/components/domain/<entity>/`, named in
    kebab-case, as is every file in it.
-2. Add `form.tsx` — `createFormHook`, a Zod schema, `useAppForm`. Render it
+2. Add `form.tsx` — a Zod schema and `useAppForm` from
+   `@/components/ui/form-field`. Render it
    inside a `Dialog`; see [`frontend.md`](./frontend.md#form-presentation-rule).
 3. Add `list.tsx` — a `ListLayout` and a row component taking typed props.
 4. Define the GraphQL operations in the route that uses it, under

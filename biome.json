@@ -61,7 +61,8 @@
       "!**/dist",
       "!**/__generated__",
       "!**/drizzle",
-      "!**/*.gen.ts"
+      "!**/*.gen.ts",
+      "!.opencode"
     ]
   },
   "overrides": [

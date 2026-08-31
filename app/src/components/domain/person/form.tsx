@@ -1,11 +1,10 @@
-import { createFormHook } from '@tanstack/react-form';
 import { X } from 'lucide-react';
 import { useState } from 'react';
 import { z } from 'zod';
 import type { Label_ListFragment } from '@/__generated__/graphql';
 import { Button } from '@/components/ui/button';
 import { FieldGroup } from '@/components/ui/field';
-import { FormError, fieldContext, formContext, TextField } from '@/components/ui/form-field.tsx';
+import { FormError, TextField, useAppForm } from '@/components/ui/form-field.tsx';
 
 const CONTACT_FREQUENCY_OPTIONS = [
   { value: '', label: 'None' },
@@ -57,13 +56,6 @@ interface PersonFormProps {
   onSubmit: (value: PersonFormValue) => Promise<void>;
   onCancel: () => void;
 }
-
-export const { useAppForm, withForm, withFieldGroup } = createFormHook({
-  fieldComponents: { TextField },
-  formComponents: {},
-  fieldContext,
-  formContext,
-});
 
 export function PersonForm({ availableLabels, initialValues, submitLabel, onSubmit, onCancel }: PersonFormProps) {
   const [formError, setFormError] = useState<string | null>(null);

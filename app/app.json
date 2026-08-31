@@ -11,14 +11,7 @@
       "output": "single",
       "favicon": "./assets/favicon.png"
     },
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
-    "plugins": [
-      "expo-router",
-      "expo-status-bar"
-    ]
+    "platforms": ["ios", "android", "web"],
+    "plugins": ["expo-router", "expo-status-bar"]
   }
 }

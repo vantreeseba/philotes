@@ -1,8 +1,20 @@
-import { createFormHookContexts } from '@tanstack/react-form';
+import { createFormHook, createFormHookContexts } from '@tanstack/react-form';
 import { Field, FieldError, FieldLabel } from '@/components/ui/field.tsx';
 import { Input } from '@/components/ui/input.tsx';
 
 export const { fieldContext, useFieldContext, formContext, useFormContext } = createFormHookContexts();
+
+/**
+ * The app's single TanStack Form hook. Every form uses this one — calling
+ * `createFormHook` per feature file would mint a separate set of contexts for
+ * no gain.
+ */
+export const { useAppForm, withForm, withFieldGroup } = createFormHook({
+  fieldComponents: { TextField },
+  formComponents: {},
+  fieldContext,
+  formContext,
+});
 
 export function TextField({ label, type = 'text' }: { label: string; type?: string }) {
   const field = useFieldContext<string>();

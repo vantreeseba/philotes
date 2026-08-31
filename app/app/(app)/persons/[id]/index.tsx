@@ -16,25 +16,21 @@ import {
   Trash2,
   UserRoundPlus,
 } from 'lucide-react';
-import { type ReactNode, useRef, useState } from 'react';
+import { useState } from 'react';
 import { graphql } from '@/__generated__/gql';
 import type { ImportantDatesMilestoneTypeEnum } from '@/__generated__/graphql';
 import { AddressList } from '@/components/domain/address/list';
 import { ContactInfoList, contactHref } from '@/components/domain/contact-info/list';
 import { PersonForm, type PersonFormValue } from '@/components/domain/person/form';
-import {
-  ImportantDateForm,
-  type ImportantDateFormValue,
-  MILESTONE_TYPE_OPTIONS,
-  RECURRENCE_OPTIONS,
-} from '@/components/domain/person/important-date-form';
-import { ImportantDateTags } from '@/components/domain/person/important-date-tags';
+import { ImportantDateForm, type ImportantDateFormValue } from '@/components/domain/person/important-date-form';
+import { ImportantDateRow } from '@/components/domain/person/important-date-row';
 import { PersonInteractions } from '@/components/domain/person/interactions';
 import { PersonIntroductions } from '@/components/domain/person/introductions';
 import { PersonLabels } from '@/components/domain/person/labels';
 import { PersonNotes } from '@/components/domain/person/notes';
 import { PersonRelationships } from '@/components/domain/person/relationships';
 import { TaskList } from '@/components/domain/task/list';
+import { Section, SectionAction } from '@/components/layouts/section';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -48,11 +44,10 @@ import {
 } from '@/components/ui/alert-dialog';
 import { Avatar } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Spinner } from '@/components/ui/spinner.tsx';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { getToken } from '@/lib/auth';
+import { useAvatarUpload } from '@/hooks/use-avatar-upload';
 
 // ---------------------------------------------------------------------------
 // GraphQL
@@ -228,35 +223,6 @@ const CREATE_IMPORTANT_DATE = graphql(`
   }
 `);
 
-const UPDATE_IMPORTANT_DATE = graphql(`
-  mutation UpdateImportantDate(
-    $id: UUID!
-    $name: String!
-    $date: String!
-    $description: String
-    $recurrence: String
-    $milestoneType: ImportantDatesMilestoneTypeEnum
-  ) {
-    updateImportantDate(
-      set: {
-        name: $name
-        date: $date
-        description: $description
-        recurrence: $recurrence
-        milestoneType: $milestoneType
-      }
-      where: { id: { eq: $id } }
-    ) {
-      id
-      name
-      date
-      description
-      recurrence
-      milestoneType
-    }
-  }
-`);
-
 const UPDATE_PERSON = graphql(`
   mutation UpdatePerson(
     $id: UUID!
@@ -331,168 +297,6 @@ const DELETE_PERSON = graphql(`
 `);
 
 // ---------------------------------------------------------------------------
-// Important date row
-// ---------------------------------------------------------------------------
-
-interface ImportantDateRowProps {
-  id: string;
-  personId: string;
-  name: string;
-  date: string;
-  description: string | null | undefined;
-  recurrence: string | null | undefined;
-  milestoneType: string | null | undefined;
-  tags: Array<{ id: string; label: string; color: string }>;
-  allTags: Array<{ id: string; label: string; color: string }>;
-  onDelete: (id: string) => void;
-  onEdit: () => void;
-  onTagChanged: () => void;
-}
-
-function ImportantDateRow({
-  id,
-  personId,
-  name,
-  date,
-  description,
-  recurrence,
-  milestoneType,
-  tags,
-  allTags,
-  onDelete,
-  onEdit,
-  onTagChanged,
-}: ImportantDateRowProps) {
-  const recurrenceLabel = RECURRENCE_OPTIONS.find((o) => o.value === recurrence)?.label;
-  const milestoneLabel = MILESTONE_TYPE_OPTIONS.find((o) => o.value === milestoneType)?.label;
-  const [editOpen, setEditOpen] = useState(false);
-  const [showAddTag, setShowAddTag] = useState(false);
-  const [updateImportantDate] = useMutation(UPDATE_IMPORTANT_DATE, {
-    refetchQueries: [],
-  });
-
-  const handleEdit = async (values: ImportantDateFormValue) => {
-    await updateImportantDate({
-      variables: {
-        id,
-        name: values.name,
-        date: values.date,
-        description: values.description ?? null,
-        recurrence: values.recurrence ?? null,
-        milestoneType: (values.milestoneType as ImportantDatesMilestoneTypeEnum | null) ?? null,
-      },
-    });
-    setEditOpen(false);
-    onEdit();
-  };
-
-  return (
-    <>
-      <div className="rounded-md border border-border px-3 py-2 text-sm">
-        <div className="flex items-center justify-between gap-3">
-          <div className="min-w-0 flex-1">
-            <Link href={`/persons/${personId}/dates/${id}`} className="font-medium text-foreground hover:underline">
-              {name}
-            </Link>
-            {description && <span className="ml-2 text-muted-foreground text-xs">{description}</span>}
-            <div className="text-muted-foreground text-xs mt-0.5 flex items-center gap-1.5">
-              <span>{new Date(date).toLocaleDateString()}</span>
-              {recurrenceLabel && (
-                <span className="rounded-full bg-muted px-1.5 py-0.5 text-xs">{recurrenceLabel}</span>
-              )}
-              {milestoneLabel && (
-                <span className="rounded-full bg-primary/10 text-primary px-1.5 py-0.5 text-xs font-medium">
-                  {milestoneLabel}
-                </span>
-              )}
-            </div>
-          </div>
-          <div className="flex shrink-0 text-muted-foreground/60">
-            <button
-              type="button"
-              onClick={() => setEditOpen(true)}
-              className="flex h-8 w-8 items-center justify-center rounded-md hover:text-foreground transition-colors"
-              aria-label="Edit important date"
-            >
-              <Pencil className="h-4 w-4" />
-            </button>
-            <button
-              type="button"
-              onClick={() => onDelete(id)}
-              className="flex h-8 w-8 items-center justify-center rounded-md hover:text-destructive transition-colors"
-              aria-label="Remove important date"
-            >
-              <Trash2 className="h-4 w-4" />
-            </button>
-          </div>
-        </div>
-        <ImportantDateTags
-          importantDateId={id}
-          tags={tags}
-          allTags={allTags}
-          showAdd={showAddTag}
-          onShowAdd={setShowAddTag}
-          onChanged={onTagChanged}
-        />
-      </div>
-
-      <Dialog open={editOpen} onOpenChange={setEditOpen}>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <DialogTitle>Edit Important Date</DialogTitle>
-          </DialogHeader>
-          <ImportantDateForm
-            initialValues={{
-              name,
-              date: date,
-              description: description ?? undefined,
-              recurrence: recurrence ?? undefined,
-              milestoneType: milestoneType ?? undefined,
-            }}
-            onSubmit={handleEdit}
-            onCancel={() => setEditOpen(false)}
-          />
-        </DialogContent>
-      </Dialog>
-    </>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Section — one auto-height content card with a quiet heading
-// ---------------------------------------------------------------------------
-
-interface SectionProps {
-  title: string;
-  action?: ReactNode;
-  children: ReactNode;
-}
-
-function Section({ title, action, children }: SectionProps) {
-  return (
-    <Card>
-      <CardContent className="p-4 space-y-3">
-        <div className="flex items-center justify-between gap-2">
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{title}</h2>
-          {action}
-        </div>
-        {children}
-      </CardContent>
-    </Card>
-  );
-}
-
-/** Small ghost icon+text button used as a section's add action. */
-function SectionAction({ icon, label, onClick }: { icon: ReactNode; label: string; onClick: () => void }) {
-  return (
-    <Button size="sm" variant="ghost" onClick={onClick} className="h-7 px-2 text-xs text-muted-foreground">
-      {icon}
-      {label}
-    </Button>
-  );
-}
-
-// ---------------------------------------------------------------------------
 // Page
 // ---------------------------------------------------------------------------
 
@@ -530,23 +334,7 @@ export default function PersonDetailPage() {
   const [showAddLabel, setShowAddLabel] = useState(false);
   const [showAddRelationship, setShowAddRelationship] = useState(false);
   const [editPersonOpen, setEditPersonOpen] = useState(false);
-  const avatarInputRef = useRef<HTMLInputElement>(null);
-
-  const handleAvatarUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const formData = new FormData();
-    formData.append('file', file);
-    const token = getToken();
-    await fetch(`/avatars/${id}`, {
-      method: 'POST',
-      body: formData,
-      headers: token ? { authorization: `Bearer ${token}` } : {},
-    });
-    // Reset input so the same file can be re-selected
-    if (avatarInputRef.current) avatarInputRef.current.value = '';
-    refetch();
-  };
+  const avatarUpload = useAvatarUpload(id, refetch);
 
   if (loading) return <Spinner />;
   if (error) return <p>Error loading person: {error.message}</p>;
@@ -721,8 +509,8 @@ export default function PersonDetailPage() {
                   type="file"
                   accept="image/jpeg,image/png,image/gif,image/webp"
                   className="sr-only"
-                  ref={avatarInputRef}
-                  onChange={handleAvatarUpload}
+                  ref={avatarUpload.inputRef}
+                  onChange={avatarUpload.onChange}
                 />
               </div>
               <div className="min-w-0 space-y-1.5">

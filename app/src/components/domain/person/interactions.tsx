@@ -1,10 +1,22 @@
 import { useMutation } from '@apollo/client';
-import { Mail, MessageSquare, MoreHorizontal, Pencil, Phone, Tag, Trash2, Users, X } from 'lucide-react';
+import { Pencil, Tag, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 import { graphql } from '@/__generated__/gql';
-import { Button } from '@/components/ui/button';
+import {
+  CHANNEL_OPTIONS,
+  type Channel,
+  ChannelIcon,
+  InteractionForm,
+  type InteractionFormValues,
+  type Sentiment,
+  sentimentEmoji,
+} from '@/components/domain/person/interaction-form';
+import {
+  ATTACH_INTERACTION_TAG,
+  InteractionTagChip,
+  InteractionTagPicker,
+} from '@/components/domain/person/interaction-tags';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { TagMultiSelect } from '@/components/ui/tag-multi-select';
 import { relativeTime } from '@/lib/relative-time';
 
 // ---------------------------------------------------------------------------
@@ -72,76 +84,6 @@ const DELETE_INTERACTION = graphql(`
   }
 `);
 
-const ATTACH_INTERACTION_TAG = graphql(`
-  mutation AttachInteractionTag($interactionId: UUID!, $labelId: UUID!) {
-    createInteractionTag(
-      values: { interactionId: $interactionId, labelId: $labelId }
-    ) {
-      interactionId
-      labelId
-    }
-  }
-`);
-
-const DETACH_INTERACTION_TAG = graphql(`
-  mutation DetachInteractionTag($interactionId: UUID!, $labelId: UUID!) {
-    deleteInteractionTag(
-      where: {
-        interactionId: { eq: $interactionId }
-        labelId: { eq: $labelId }
-      }
-    ) {
-      interactionId
-      labelId
-    }
-  }
-`);
-
-// ---------------------------------------------------------------------------
-// Channel / Sentiment helpers
-// ---------------------------------------------------------------------------
-
-type Channel = 'call' | 'text' | 'email' | 'in-person' | 'other';
-type Sentiment = 'great' | 'good' | 'neutral' | 'difficult';
-
-const CHANNEL_OPTIONS: Array<{ value: Channel; label: string }> = [
-  { value: 'call', label: 'Call' },
-  { value: 'text', label: 'Text' },
-  { value: 'email', label: 'Email' },
-  { value: 'in-person', label: 'In Person' },
-  { value: 'other', label: 'Other' },
-];
-
-const SENTIMENT_OPTIONS: Array<{
-  value: Sentiment;
-  label: string;
-  emoji: string;
-}> = [
-  { value: 'great', label: 'Great', emoji: '😄' },
-  { value: 'good', label: 'Good', emoji: '🙂' },
-  { value: 'neutral', label: 'Neutral', emoji: '😐' },
-  { value: 'difficult', label: 'Difficult', emoji: '😟' },
-];
-
-function ChannelIcon({ channel, className }: { channel: string; className?: string }) {
-  switch (channel as Channel) {
-    case 'call':
-      return <Phone className={className} />;
-    case 'text':
-      return <MessageSquare className={className} />;
-    case 'email':
-      return <Mail className={className} />;
-    case 'in-person':
-      return <Users className={className} />;
-    default:
-      return <MoreHorizontal className={className} />;
-  }
-}
-
-function sentimentEmoji(sentiment: string | null | undefined): string {
-  return SENTIMENT_OPTIONS.find((s) => s.value === sentiment)?.emoji ?? '';
-}
-
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
@@ -163,263 +105,6 @@ export interface PersonInteractionsProps {
   onChanged: () => void;
   createOpen: boolean;
   onCreateOpenChange: (open: boolean) => void;
-}
-
-// ---------------------------------------------------------------------------
-// Tag chip (detachable)
-// ---------------------------------------------------------------------------
-
-interface InteractionTagChipProps {
-  interactionId: string;
-  labelId: string;
-  label: string;
-  color: string;
-  onDetach: () => void;
-}
-
-function InteractionTagChip({ interactionId, labelId, label, color, onDetach }: InteractionTagChipProps) {
-  const [detachTag] = useMutation(DETACH_INTERACTION_TAG);
-
-  const handleDetach = async () => {
-    await detachTag({ variables: { interactionId, labelId } });
-    onDetach();
-  };
-
-  return (
-    <span className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs">
-      <span
-        className="inline-block h-2 w-2 rounded-full shrink-0"
-        style={{ backgroundColor: color }}
-        aria-hidden="true"
-      />
-      {label}
-      <button
-        type="button"
-        onClick={handleDetach}
-        className="ml-0.5 text-muted-foreground hover:text-destructive transition-colors"
-        aria-label={`Remove tag ${label}`}
-      >
-        <X className="h-3 w-3" />
-      </button>
-    </span>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Tag picker
-// ---------------------------------------------------------------------------
-
-interface InteractionTagPickerProps {
-  interactionId: string;
-  allTags: Array<{ id: string; label: string; color: string }>;
-  attachedTagIds: Set<string>;
-  onClose: () => void;
-  onAdd: () => void;
-}
-
-function InteractionTagPicker({ interactionId, allTags, attachedTagIds, onClose, onAdd }: InteractionTagPickerProps) {
-  const [attachTag] = useMutation(ATTACH_INTERACTION_TAG);
-  const available = allTags.filter((t) => !attachedTagIds.has(t.id));
-
-  const handleSelect = async (labelId: string) => {
-    await attachTag({ variables: { interactionId, labelId } });
-    onAdd();
-    onClose();
-  };
-
-  if (available.length === 0) {
-    return (
-      <div className="flex gap-1.5 rounded-md border border-border p-2 text-xs text-muted-foreground">
-        All tags attached.
-        <button type="button" onClick={onClose} className="ml-auto hover:text-foreground transition-colors">
-          Cancel
-        </button>
-      </div>
-    );
-  }
-
-  return (
-    <div className="flex flex-wrap gap-1.5 rounded-md border border-border p-2">
-      {available.map((t) => (
-        <button
-          key={t.id}
-          type="button"
-          onClick={() => handleSelect(t.id)}
-          className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs hover:bg-muted transition-colors cursor-pointer"
-        >
-          <span
-            className="inline-block h-2 w-2 rounded-full shrink-0"
-            style={{ backgroundColor: t.color }}
-            aria-hidden="true"
-          />
-          {t.label}
-        </button>
-      ))}
-      <button
-        type="button"
-        onClick={onClose}
-        className="ml-auto text-xs text-muted-foreground hover:text-foreground transition-colors"
-      >
-        Cancel
-      </button>
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Interaction form (create + edit)
-// ---------------------------------------------------------------------------
-
-interface InteractionFormValues {
-  channel: Channel;
-  occurredAt: string;
-  sentiment: Sentiment | '';
-  note: string;
-  labelIds: string[];
-}
-
-interface InteractionFormProps {
-  personId: string;
-  allTags: Array<{ id: string; label: string; color: string }>;
-  initialValues?: Partial<InteractionFormValues>;
-  submitLabel?: string;
-  onSubmit: (values: InteractionFormValues) => Promise<void>;
-  onCancel: () => void;
-}
-
-function todayIso(): string {
-  return new Date().toISOString().slice(0, 16);
-}
-
-function InteractionForm({
-  personId: _personId,
-  allTags,
-  initialValues,
-  submitLabel = 'Add Interaction',
-  onSubmit,
-  onCancel,
-}: InteractionFormProps) {
-  const [channel, setChannel] = useState<Channel>(initialValues?.channel ?? 'call');
-  const [occurredAt, setOccurredAt] = useState(
-    initialValues?.occurredAt ? new Date(initialValues.occurredAt).toISOString().slice(0, 16) : todayIso(),
-  );
-  const [sentiment, setSentiment] = useState<Sentiment | ''>(initialValues?.sentiment ?? '');
-  const [note, setNote] = useState(initialValues?.note ?? '');
-  const [labelIds, setLabelIds] = useState<string[]>(initialValues?.labelIds ?? []);
-  const [submitting, setSubmitting] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitting(true);
-    try {
-      await onSubmit({ channel, occurredAt, sentiment, note, labelIds });
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
-  return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      {/* Date/time */}
-      <div className="space-y-1.5">
-        <label htmlFor="interaction-date" className="text-sm font-medium">
-          Date &amp; Time
-        </label>
-        <input
-          id="interaction-date"
-          type="datetime-local"
-          value={occurredAt}
-          onChange={(e) => setOccurredAt(e.target.value)}
-          className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
-          required
-        />
-      </div>
-
-      {/* Channel */}
-      <div className="space-y-1.5">
-        <span className="text-sm font-medium">Channel</span>
-        <div className="flex flex-wrap gap-2">
-          {CHANNEL_OPTIONS.map((opt) => (
-            <button
-              key={opt.value}
-              type="button"
-              onClick={() => setChannel(opt.value)}
-              className={`inline-flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-sm transition-colors ${
-                channel === opt.value
-                  ? 'border-primary bg-primary text-primary-foreground'
-                  : 'border-border hover:bg-muted'
-              }`}
-            >
-              <ChannelIcon channel={opt.value} className="h-3.5 w-3.5" />
-              {opt.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Sentiment */}
-      <div className="space-y-1.5">
-        <span className="text-sm font-medium">Sentiment</span>
-        <div className="flex flex-wrap gap-2">
-          {SENTIMENT_OPTIONS.map((opt) => (
-            <button
-              key={opt.value}
-              type="button"
-              onClick={() => setSentiment(sentiment === opt.value ? '' : opt.value)}
-              className={`inline-flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-sm transition-colors ${
-                sentiment === opt.value
-                  ? 'border-primary bg-primary text-primary-foreground'
-                  : 'border-border hover:bg-muted'
-              }`}
-            >
-              <span>{opt.emoji}</span>
-              {opt.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Note */}
-      <div className="space-y-1.5">
-        <label htmlFor="interaction-note" className="text-sm font-medium">
-          Note
-        </label>
-        <textarea
-          id="interaction-note"
-          value={note}
-          onChange={(e) => setNote(e.target.value)}
-          rows={3}
-          placeholder="What happened?"
-          className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring resize-none"
-        />
-      </div>
-
-      {/* Tags */}
-      {allTags.length > 0 && (
-        <div className="space-y-1.5">
-          <label htmlFor="interaction-tags" className="text-sm font-medium">
-            Tags
-          </label>
-          <TagMultiSelect
-            id="interaction-tags"
-            options={allTags}
-            selected={labelIds}
-            onChange={setLabelIds}
-            placeholder="Add tags..."
-          />
-        </div>
-      )}
-
-      <div className="flex gap-2">
-        <Button type="submit" disabled={submitting}>
-          {submitting ? 'Saving...' : submitLabel}
-        </Button>
-        <Button type="button" variant="outline" onClick={onCancel}>
-          Cancel
-        </Button>
-      </div>
-    </form>
-  );
 }
 
 // ---------------------------------------------------------------------------
